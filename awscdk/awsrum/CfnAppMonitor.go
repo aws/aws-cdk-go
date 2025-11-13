@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrum/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrum"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -100,14 +102,14 @@ import (
 //
 type CfnAppMonitor interface {
 	awscdk.CfnResource
-	IAppMonitorRef
 	awscdk.IInspectable
+	interfacesawsrum.IAppMonitorRef
 	awscdk.ITaggable
 	// A structure that contains much of the configuration data for the app monitor.
 	AppMonitorConfiguration() interface{}
 	SetAppMonitorConfiguration(val interface{})
 	// A reference to a AppMonitor resource.
-	AppMonitorRef() *AppMonitorReference
+	AppMonitorRef() *interfacesawsrum.AppMonitorReference
 	// The ID of the app monitor, such as `123456ab-1234-4ca9-9d2f-a1b2c3456789` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -136,7 +138,7 @@ type CfnAppMonitor interface {
 	// This parameter or the `Domain` parameter is required.
 	DomainList() *[]*string
 	SetDomainList(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -312,8 +314,8 @@ type CfnAppMonitor interface {
 // The jsii proxy struct for CfnAppMonitor
 type jsiiProxy_CfnAppMonitor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAppMonitorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrumIAppMonitorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnAppMonitor) AppMonitorConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppMonitor) AppMonitorRef() *AppMonitorReference {
-	var returns *AppMonitorReference
+func (j *jsiiProxy_CfnAppMonitor) AppMonitorRef() *interfacesawsrum.AppMonitorReference {
+	var returns *interfacesawsrum.AppMonitorReference
 	_jsii_.Get(
 		j,
 		"appMonitorRef",
@@ -437,8 +439,8 @@ func (j *jsiiProxy_CfnAppMonitor) DomainList() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppMonitor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAppMonitor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -548,6 +550,7 @@ func (j *jsiiProxy_CfnAppMonitor) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RUM::AppMonitor`.
 func NewCfnAppMonitor(scope constructs.Construct, id *string, props *CfnAppMonitorProps) CfnAppMonitor {
 	_init_.Initialize()
 
@@ -565,6 +568,7 @@ func NewCfnAppMonitor(scope constructs.Construct, id *string, props *CfnAppMonit
 	return &j
 }
 
+// Create a new `AWS::RUM::AppMonitor`.
 func NewCfnAppMonitor_Override(c CfnAppMonitor, scope constructs.Construct, id *string, props *CfnAppMonitorProps) {
 	_init_.Initialize()
 

@@ -50,8 +50,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDRTAccess{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDRTAccessRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsshieldIDRTAccessRef)
 			return &j
 		},
 	)
@@ -102,8 +102,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnProactiveEngagement{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IProactiveEngagementRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsshieldIProactiveEngagementRef)
 			return &j
 		},
 	)
@@ -163,8 +163,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnProtection{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IProtectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsshieldIProtectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -225,8 +225,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnProtectionGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IProtectionGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsshieldIProtectionGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -238,81 +238,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_shield.CfnProtectionProps",
 		reflect.TypeOf((*CfnProtectionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_shield.DRTAccessReference",
-		reflect.TypeOf((*DRTAccessReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_shield.IDRTAccessRef",
-		reflect.TypeOf((*IDRTAccessRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "drtAccessRef", GoGetter: "DrtAccessRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDRTAccessRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_shield.IProactiveEngagementRef",
-		reflect.TypeOf((*IProactiveEngagementRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "proactiveEngagementRef", GoGetter: "ProactiveEngagementRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IProactiveEngagementRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_shield.IProtectionGroupRef",
-		reflect.TypeOf((*IProtectionGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "protectionGroupRef", GoGetter: "ProtectionGroupRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IProtectionGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_shield.IProtectionRef",
-		reflect.TypeOf((*IProtectionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "protectionRef", GoGetter: "ProtectionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IProtectionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_shield.ProactiveEngagementReference",
-		reflect.TypeOf((*ProactiveEngagementReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_shield.ProtectionGroupReference",
-		reflect.TypeOf((*ProtectionGroupReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_shield.ProtectionReference",
-		reflect.TypeOf((*ProtectionReference)(nil)).Elem(),
 	)
 }

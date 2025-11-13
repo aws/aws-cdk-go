@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnUserHierarchyStructure interface {
 	awscdk.CfnResource
-	IUserHierarchyStructureRef
 	awscdk.IInspectable
+	interfacesawsconnect.IUserHierarchyStructureRef
 	// The identifier for the user hierarchy structure.
 	AttrUserHierarchyStructureArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -76,7 +78,7 @@ type CfnUserHierarchyStructure interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -118,7 +120,7 @@ type CfnUserHierarchyStructure interface {
 	UserHierarchyStructure() interface{}
 	SetUserHierarchyStructure(val interface{})
 	// A reference to a UserHierarchyStructure resource.
-	UserHierarchyStructureRef() *UserHierarchyStructureReference
+	UserHierarchyStructureRef() *interfacesawsconnect.UserHierarchyStructureReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -249,8 +251,8 @@ type CfnUserHierarchyStructure interface {
 // The jsii proxy struct for CfnUserHierarchyStructure
 type jsiiProxy_CfnUserHierarchyStructure struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserHierarchyStructureRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIUserHierarchyStructureRef
 }
 
 func (j *jsiiProxy_CfnUserHierarchyStructure) AttrUserHierarchyStructureArn() *string {
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnUserHierarchyStructure) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserHierarchyStructure) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserHierarchyStructure) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnUserHierarchyStructure) UserHierarchyStructure() interface
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserHierarchyStructure) UserHierarchyStructureRef() *UserHierarchyStructureReference {
-	var returns *UserHierarchyStructureReference
+func (j *jsiiProxy_CfnUserHierarchyStructure) UserHierarchyStructureRef() *interfacesawsconnect.UserHierarchyStructureReference {
+	var returns *interfacesawsconnect.UserHierarchyStructureReference
 	_jsii_.Get(
 		j,
 		"userHierarchyStructureRef",
@@ -404,6 +406,7 @@ func (j *jsiiProxy_CfnUserHierarchyStructure) UserHierarchyStructureRef() *UserH
 }
 
 
+// Create a new `AWS::Connect::UserHierarchyStructure`.
 func NewCfnUserHierarchyStructure(scope constructs.Construct, id *string, props *CfnUserHierarchyStructureProps) CfnUserHierarchyStructure {
 	_init_.Initialize()
 
@@ -421,6 +424,7 @@ func NewCfnUserHierarchyStructure(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::Connect::UserHierarchyStructure`.
 func NewCfnUserHierarchyStructure_Override(c CfnUserHierarchyStructure, scope constructs.Construct, id *string, props *CfnUserHierarchyStructureProps) {
 	_init_.Initialize()
 

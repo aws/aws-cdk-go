@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnPolicyPrincipalAttachment interface {
 	awscdk.CfnResource
-	IPolicyPrincipalAttachmentRef
 	awscdk.IInspectable
+	interfacesawsiot.IPolicyPrincipalAttachmentRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -39,7 +41,7 @@ type CfnPolicyPrincipalAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -56,7 +58,7 @@ type CfnPolicyPrincipalAttachment interface {
 	PolicyName() *string
 	SetPolicyName(val *string)
 	// A reference to a PolicyPrincipalAttachment resource.
-	PolicyPrincipalAttachmentRef() *PolicyPrincipalAttachmentReference
+	PolicyPrincipalAttachmentRef() *interfacesawsiot.PolicyPrincipalAttachmentReference
 	// The principal, which can be a certificate ARN (as returned from the `CreateCertificate` operation) or an Amazon Cognito ID.
 	Principal() *string
 	SetPrincipal(val *string)
@@ -212,8 +214,8 @@ type CfnPolicyPrincipalAttachment interface {
 // The jsii proxy struct for CfnPolicyPrincipalAttachment
 type jsiiProxy_CfnPolicyPrincipalAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPolicyPrincipalAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIPolicyPrincipalAttachmentRef
 }
 
 func (j *jsiiProxy_CfnPolicyPrincipalAttachment) AttrId() *string {
@@ -266,8 +268,8 @@ func (j *jsiiProxy_CfnPolicyPrincipalAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyPrincipalAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPolicyPrincipalAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnPolicyPrincipalAttachment) PolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyPrincipalAttachment) PolicyPrincipalAttachmentRef() *PolicyPrincipalAttachmentReference {
-	var returns *PolicyPrincipalAttachmentReference
+func (j *jsiiProxy_CfnPolicyPrincipalAttachment) PolicyPrincipalAttachmentRef() *interfacesawsiot.PolicyPrincipalAttachmentReference {
+	var returns *interfacesawsiot.PolicyPrincipalAttachmentReference
 	_jsii_.Get(
 		j,
 		"policyPrincipalAttachmentRef",
@@ -367,6 +369,7 @@ func (j *jsiiProxy_CfnPolicyPrincipalAttachment) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::IoT::PolicyPrincipalAttachment`.
 func NewCfnPolicyPrincipalAttachment(scope constructs.Construct, id *string, props *CfnPolicyPrincipalAttachmentProps) CfnPolicyPrincipalAttachment {
 	_init_.Initialize()
 
@@ -384,6 +387,7 @@ func NewCfnPolicyPrincipalAttachment(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::IoT::PolicyPrincipalAttachment`.
 func NewCfnPolicyPrincipalAttachment_Override(c CfnPolicyPrincipalAttachment, scope constructs.Construct, id *string, props *CfnPolicyPrincipalAttachmentProps) {
 	_init_.Initialize()
 

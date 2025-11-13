@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// A question automation answer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +15,7 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionautomationanswersource.html
 //
 type CfnEvaluationForm_EvaluationFormQuestionAutomationAnswerSourceProperty struct {
-	// The type of the answer sourcr.
+	// The automation answer source type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionautomationanswersource.html#cfn-connect-evaluationform-evaluationformquestionautomationanswersource-sourcetype
 	//
 	SourceType *string `field:"required" json:"sourceType" yaml:"sourceType"`

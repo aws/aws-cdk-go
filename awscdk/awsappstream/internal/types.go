@@ -1,11 +1,22 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsappstreamIAppBlockRef = interfacesawsappstream.IAppBlockRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsappstreamIAppBlockBuilderRef = interfacesawsappstream.IAppBlockBuilderRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsappstreamIApplicationRef = interfacesawsappstream.IApplicationRef
+type Type__interfacesawsappstreamIApplicationEntitlementAssociationRef = interfacesawsappstream.IApplicationEntitlementAssociationRef
+type Type__interfacesawsappstreamIApplicationFleetAssociationRef = interfacesawsappstream.IApplicationFleetAssociationRef
+type Type__interfacesawsappstreamIDirectoryConfigRef = interfacesawsappstream.IDirectoryConfigRef
+type Type__interfacesawsappstreamIEntitlementRef = interfacesawsappstream.IEntitlementRef
+type Type__interfacesawsappstreamIFleetRef = interfacesawsappstream.IFleetRef
+type Type__interfacesawsappstreamIImageBuilderRef = interfacesawsappstream.IImageBuilderRef
+type Type__interfacesawsappstreamIStackRef = interfacesawsappstream.IStackRef
+type Type__interfacesawsappstreamIStackFleetAssociationRef = interfacesawsappstream.IStackFleetAssociationRef
+type Type__interfacesawsappstreamIStackUserAssociationRef = interfacesawsappstream.IStackUserAssociationRef
+type Type__interfacesawsappstreamIUserRef = interfacesawsappstream.IUserRef

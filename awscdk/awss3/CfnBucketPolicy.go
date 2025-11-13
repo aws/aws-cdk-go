@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -69,13 +71,13 @@ import (
 //
 type CfnBucketPolicy interface {
 	awscdk.CfnResource
-	IBucketPolicyRef
 	awscdk.IInspectable
+	interfacesawss3.IBucketPolicyRef
 	// The name of the Amazon S3 bucket to which the policy applies.
 	Bucket() *string
 	SetBucket(val *string)
 	// A reference to a BucketPolicy resource.
-	BucketPolicyRef() *BucketPolicyReference
+	BucketPolicyRef() *interfacesawss3.BucketPolicyReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -85,7 +87,7 @@ type CfnBucketPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnBucketPolicy interface {
 // The jsii proxy struct for CfnBucketPolicy
 type jsiiProxy_CfnBucketPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBucketPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IBucketPolicyRef
 }
 
 func (j *jsiiProxy_CfnBucketPolicy) Bucket() *string {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnBucketPolicy) Bucket() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucketPolicy) BucketPolicyRef() *BucketPolicyReference {
-	var returns *BucketPolicyReference
+func (j *jsiiProxy_CfnBucketPolicy) BucketPolicyRef() *interfacesawss3.BucketPolicyReference {
+	var returns *interfacesawss3.BucketPolicyReference
 	_jsii_.Get(
 		j,
 		"bucketPolicyRef",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnBucketPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucketPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBucketPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnBucketPolicy) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::S3::BucketPolicy`.
 func NewCfnBucketPolicy(scope constructs.Construct, id *string, props *CfnBucketPolicyProps) CfnBucketPolicy {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnBucketPolicy(scope constructs.Construct, id *string, props *CfnBucket
 	return &j
 }
 
+// Create a new `AWS::S3::BucketPolicy`.
 func NewCfnBucketPolicy_Override(c CfnBucketPolicy, scope constructs.Construct, id *string, props *CfnBucketPolicyProps) {
 	_init_.Initialize()
 

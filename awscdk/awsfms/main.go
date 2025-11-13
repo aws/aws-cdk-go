@@ -49,8 +49,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnNotificationChannel{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_INotificationChannelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfmsINotificationChannelRef)
 			return &j
 		},
 	)
@@ -116,8 +116,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfmsIPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -221,8 +221,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourceSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfmsIResourceSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -230,62 +230,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnResourceSetProps",
 		reflect.TypeOf((*CfnResourceSetProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fms.INotificationChannelRef",
-		reflect.TypeOf((*INotificationChannelRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "notificationChannelRef", GoGetter: "NotificationChannelRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_INotificationChannelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fms.IPolicyRef",
-		reflect.TypeOf((*IPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fms.IResourceSetRef",
-		reflect.TypeOf((*IResourceSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceSetRef", GoGetter: "ResourceSetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourceSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fms.NotificationChannelReference",
-		reflect.TypeOf((*NotificationChannelReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fms.PolicyReference",
-		reflect.TypeOf((*PolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fms.ResourceSetReference",
-		reflect.TypeOf((*ResourceSetReference)(nil)).Elem(),
 	)
 }

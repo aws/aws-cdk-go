@@ -1,11 +1,18 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsimagebuilderIComponentRef = interfacesawsimagebuilder.IComponentRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsimagebuilderIContainerRecipeRef = interfacesawsimagebuilder.IContainerRecipeRef
+type Type__interfacesawsimagebuilderIDistributionConfigurationRef = interfacesawsimagebuilder.IDistributionConfigurationRef
+type Type__interfacesawsimagebuilderIImageRef = interfacesawsimagebuilder.IImageRef
+type Type__interfacesawsimagebuilderIImagePipelineRef = interfacesawsimagebuilder.IImagePipelineRef
+type Type__interfacesawsimagebuilderIImageRecipeRef = interfacesawsimagebuilder.IImageRecipeRef
+type Type__interfacesawsimagebuilderIInfrastructureConfigurationRef = interfacesawsimagebuilder.IInfrastructureConfigurationRef
+type Type__interfacesawsimagebuilderILifecyclePolicyRef = interfacesawsimagebuilder.ILifecyclePolicyRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsimagebuilderIWorkflowRef = interfacesawsimagebuilder.IWorkflowRef

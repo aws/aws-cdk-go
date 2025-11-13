@@ -4,7 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for a new database cluster.
@@ -95,7 +95,7 @@ type ClusterProps struct {
 	// Default: - AWS-managed key, if encryption at rest is enabled.
 	//
 	// Experimental.
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// If this flag is set, Amazon Redshift forces all COPY and UNLOAD traffic between your cluster and your data repositories through your virtual private cloud (VPC).
 	// See: https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html
 	//

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsathena/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsathena"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnPreparedStatement interface {
 	awscdk.CfnResource
-	IPreparedStatementRef
 	awscdk.IInspectable
+	interfacesawsathena.IPreparedStatementRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -43,7 +45,7 @@ type CfnPreparedStatement interface {
 	// The description of the prepared statement.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -57,7 +59,7 @@ type CfnPreparedStatement interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PreparedStatement resource.
-	PreparedStatementRef() *PreparedStatementReference
+	PreparedStatementRef() *interfacesawsathena.PreparedStatementReference
 	// The query string for the prepared statement.
 	QueryStatement() *string
 	SetQueryStatement(val *string)
@@ -219,8 +221,8 @@ type CfnPreparedStatement interface {
 // The jsii proxy struct for CfnPreparedStatement
 type jsiiProxy_CfnPreparedStatement struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPreparedStatementRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsathenaIPreparedStatementRef
 }
 
 func (j *jsiiProxy_CfnPreparedStatement) CfnOptions() awscdk.ICfnResourceOptions {
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnPreparedStatement) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPreparedStatement) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPreparedStatement) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnPreparedStatement) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPreparedStatement) PreparedStatementRef() *PreparedStatementReference {
-	var returns *PreparedStatementReference
+func (j *jsiiProxy_CfnPreparedStatement) PreparedStatementRef() *interfacesawsathena.PreparedStatementReference {
+	var returns *interfacesawsathena.PreparedStatementReference
 	_jsii_.Get(
 		j,
 		"preparedStatementRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnPreparedStatement) WorkGroup() *string {
 }
 
 
+// Create a new `AWS::Athena::PreparedStatement`.
 func NewCfnPreparedStatement(scope constructs.Construct, id *string, props *CfnPreparedStatementProps) CfnPreparedStatement {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnPreparedStatement(scope constructs.Construct, id *string, props *CfnP
 	return &j
 }
 
+// Create a new `AWS::Athena::PreparedStatement`.
 func NewCfnPreparedStatement_Override(c CfnPreparedStatement, scope constructs.Construct, id *string, props *CfnPreparedStatementProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnSmsTemplate interface {
 	awscdk.CfnResource
-	ISmsTemplateRef
 	awscdk.IInspectable
+	interfacesawspinpoint.ISmsTemplateRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the message template.
 	AttrArn() *string
@@ -55,7 +57,7 @@ type CfnSmsTemplate interface {
 	// A JSON object that specifies the default values to use for message variables in the message template.
 	DefaultSubstitutions() *string
 	SetDefaultSubstitutions(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnSmsTemplate interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SmsTemplate resource.
-	SmsTemplateRef() *SmsTemplateReference
+	SmsTemplateRef() *interfacesawspinpoint.SmsTemplateReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -233,8 +235,8 @@ type CfnSmsTemplate interface {
 // The jsii proxy struct for CfnSmsTemplate
 type jsiiProxy_CfnSmsTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISmsTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointISmsTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnSmsTemplate) DefaultSubstitutions() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSmsTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSmsTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnSmsTemplate) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSmsTemplate) SmsTemplateRef() *SmsTemplateReference {
-	var returns *SmsTemplateReference
+func (j *jsiiProxy_CfnSmsTemplate) SmsTemplateRef() *interfacesawspinpoint.SmsTemplateReference {
+	var returns *interfacesawspinpoint.SmsTemplateReference
 	_jsii_.Get(
 		j,
 		"smsTemplateRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnSmsTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::SmsTemplate`.
 func NewCfnSmsTemplate(scope constructs.Construct, id *string, props *CfnSmsTemplateProps) CfnSmsTemplate {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnSmsTemplate(scope constructs.Construct, id *string, props *CfnSmsTemp
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::SmsTemplate`.
 func NewCfnSmsTemplate_Override(c CfnSmsTemplate, scope constructs.Construct, id *string, props *CfnSmsTemplateProps) {
 	_init_.Initialize()
 

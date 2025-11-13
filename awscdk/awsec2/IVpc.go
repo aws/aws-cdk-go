@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IVpc interface {
 	awscdk.IResource
-	IVPCRef
+	interfacesawsec2.IVPCRef
 	// Adds a new client VPN endpoint to this VPC.
 	AddClientVpnEndpoint(id *string, options *ClientVpnEndpointOptions) ClientVpnEndpoint
 	// Adds a new Flow Log to this VPC.
@@ -51,7 +53,7 @@ type IVpc interface {
 // The jsii proxy for IVpc
 type jsiiProxy_IVpc struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IVPCRef
+	internal.Type__interfacesawsec2IVPCRef
 }
 
 func (i *jsiiProxy_IVpc) AddClientVpnEndpoint(id *string, options *ClientVpnEndpointOptions) ClientVpnEndpoint {
@@ -262,8 +264,8 @@ func (j *jsiiProxy_IVpc) VpnGatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVpc) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IVpc) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -292,8 +294,8 @@ func (j *jsiiProxy_IVpc) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVpc) VpcRef() *VPCReference {
-	var returns *VPCReference
+func (j *jsiiProxy_IVpc) VpcRef() *interfacesawsec2.VPCReference {
+	var returns *interfacesawsec2.VPCReference
 	_jsii_.Get(
 		j,
 		"vpcRef",

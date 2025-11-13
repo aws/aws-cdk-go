@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsinvoicing/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinvoicing"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnInvoiceUnit interface {
 	awscdk.CfnResource
-	IInvoiceUnitRef
 	awscdk.IInspectable
+	interfacesawsinvoicing.IInvoiceUnitRef
 	awscdk.ITaggableV2
 	// The ARN to identify an invoice unit.
 	//
@@ -67,12 +69,12 @@ type CfnInvoiceUnit interface {
 	// The assigned description for an invoice unit.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The account that receives invoices related to the invoice unit.
 	InvoiceReceiver() *string
 	SetInvoiceReceiver(val *string)
 	// A reference to a InvoiceUnit resource.
-	InvoiceUnitRef() *InvoiceUnitReference
+	InvoiceUnitRef() *interfacesawsinvoicing.InvoiceUnitReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -249,8 +251,8 @@ type CfnInvoiceUnit interface {
 // The jsii proxy struct for CfnInvoiceUnit
 type jsiiProxy_CfnInvoiceUnit struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInvoiceUnitRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsinvoicingIInvoiceUnitRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnInvoiceUnit) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInvoiceUnit) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInvoiceUnit) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnInvoiceUnit) InvoiceReceiver() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInvoiceUnit) InvoiceUnitRef() *InvoiceUnitReference {
-	var returns *InvoiceUnitReference
+func (j *jsiiProxy_CfnInvoiceUnit) InvoiceUnitRef() *interfacesawsinvoicing.InvoiceUnitReference {
+	var returns *interfacesawsinvoicing.InvoiceUnitReference
 	_jsii_.Get(
 		j,
 		"invoiceUnitRef",
@@ -465,6 +467,7 @@ func (j *jsiiProxy_CfnInvoiceUnit) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Invoicing::InvoiceUnit`.
 func NewCfnInvoiceUnit(scope constructs.Construct, id *string, props *CfnInvoiceUnitProps) CfnInvoiceUnit {
 	_init_.Initialize()
 
@@ -482,6 +485,7 @@ func NewCfnInvoiceUnit(scope constructs.Construct, id *string, props *CfnInvoice
 	return &j
 }
 
+// Create a new `AWS::Invoicing::InvoiceUnit`.
 func NewCfnInvoiceUnit_Override(c CfnInvoiceUnit, scope constructs.Construct, id *string, props *CfnInvoiceUnitProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoverycontrol/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoverycontrol"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnRoutingControl interface {
 	awscdk.CfnResource
-	IRoutingControlRef
 	awscdk.IInspectable
+	interfacesawsroute53recoverycontrol.IRoutingControlRef
 	// The Amazon Resource Name (ARN) of the routing control.
 	AttrRoutingControlArn() *string
 	// The deployment status of the routing control.
@@ -55,7 +57,7 @@ type CfnRoutingControl interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnRoutingControl interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RoutingControl resource.
-	RoutingControlRef() *RoutingControlReference
+	RoutingControlRef() *interfacesawsroute53recoverycontrol.RoutingControlReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -225,8 +227,8 @@ type CfnRoutingControl interface {
 // The jsii proxy struct for CfnRoutingControl
 type jsiiProxy_CfnRoutingControl struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRoutingControlRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53recoverycontrolIRoutingControlRef
 }
 
 func (j *jsiiProxy_CfnRoutingControl) AttrRoutingControlArn() *string {
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnRoutingControl) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoutingControl) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRoutingControl) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnRoutingControl) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoutingControl) RoutingControlRef() *RoutingControlReference {
-	var returns *RoutingControlReference
+func (j *jsiiProxy_CfnRoutingControl) RoutingControlRef() *interfacesawsroute53recoverycontrol.RoutingControlReference {
+	var returns *interfacesawsroute53recoverycontrol.RoutingControlReference
 	_jsii_.Get(
 		j,
 		"routingControlRef",
@@ -400,6 +402,7 @@ func (j *jsiiProxy_CfnRoutingControl) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Route53RecoveryControl::RoutingControl`.
 func NewCfnRoutingControl(scope constructs.Construct, id *string, props *CfnRoutingControlProps) CfnRoutingControl {
 	_init_.Initialize()
 
@@ -417,6 +420,7 @@ func NewCfnRoutingControl(scope constructs.Construct, id *string, props *CfnRout
 	return &j
 }
 
+// Create a new `AWS::Route53RecoveryControl::RoutingControl`.
 func NewCfnRoutingControl_Override(c CfnRoutingControl, scope constructs.Construct, id *string, props *CfnRoutingControlProps) {
 	_init_.Initialize()
 

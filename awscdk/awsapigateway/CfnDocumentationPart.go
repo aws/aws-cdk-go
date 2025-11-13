@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnDocumentationPart interface {
 	awscdk.CfnResource
-	IDocumentationPartRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IDocumentationPartRef
 	// The ID for the documentation part.
 	AttrDocumentationPartId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -48,8 +50,8 @@ type CfnDocumentationPart interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DocumentationPart resource.
-	DocumentationPartRef() *DocumentationPartReference
-	Env() *awscdk.ResourceEnvironment
+	DocumentationPartRef() *interfacesawsapigateway.DocumentationPartReference
+	Env() *interfaces.ResourceEnvironment
 	// The location of the targeted API entity of the to-be-created documentation part.
 	Location() interface{}
 	SetLocation(val interface{})
@@ -223,8 +225,8 @@ type CfnDocumentationPart interface {
 // The jsii proxy struct for CfnDocumentationPart
 type jsiiProxy_CfnDocumentationPart struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDocumentationPartRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIDocumentationPartRef
 }
 
 func (j *jsiiProxy_CfnDocumentationPart) AttrDocumentationPartId() *string {
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnDocumentationPart) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocumentationPart) DocumentationPartRef() *DocumentationPartReference {
-	var returns *DocumentationPartReference
+func (j *jsiiProxy_CfnDocumentationPart) DocumentationPartRef() *interfacesawsapigateway.DocumentationPartReference {
+	var returns *interfacesawsapigateway.DocumentationPartReference
 	_jsii_.Get(
 		j,
 		"documentationPartRef",
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnDocumentationPart) DocumentationPartRef() *DocumentationPa
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocumentationPart) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDocumentationPart) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnDocumentationPart) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::ApiGateway::DocumentationPart`.
 func NewCfnDocumentationPart(scope constructs.Construct, id *string, props *CfnDocumentationPartProps) CfnDocumentationPart {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnDocumentationPart(scope constructs.Construct, id *string, props *CfnD
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::DocumentationPart`.
 func NewCfnDocumentationPart_Override(c CfnDocumentationPart, scope constructs.Construct, id *string, props *CfnDocumentationPartProps) {
 	_init_.Initialize()
 

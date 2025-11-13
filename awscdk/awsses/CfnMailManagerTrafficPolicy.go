@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -96,8 +98,8 @@ import (
 //
 type CfnMailManagerTrafficPolicy interface {
 	awscdk.CfnResource
-	IMailManagerTrafficPolicyRef
 	awscdk.IInspectable
+	interfacesawsses.IMailManagerTrafficPolicyRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the traffic policy resource.
 	AttrTrafficPolicyArn() *string
@@ -117,7 +119,7 @@ type CfnMailManagerTrafficPolicy interface {
 	// Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements.
 	DefaultAction() *string
 	SetDefaultAction(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -129,7 +131,7 @@ type CfnMailManagerTrafficPolicy interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MailManagerTrafficPolicy resource.
-	MailManagerTrafficPolicyRef() *MailManagerTrafficPolicyReference
+	MailManagerTrafficPolicyRef() *interfacesawsses.MailManagerTrafficPolicyReference
 	// The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.
 	MaxMessageSizeBytes() *float64
 	SetMaxMessageSizeBytes(val *float64)
@@ -296,8 +298,8 @@ type CfnMailManagerTrafficPolicy interface {
 // The jsii proxy struct for CfnMailManagerTrafficPolicy
 type jsiiProxy_CfnMailManagerTrafficPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMailManagerTrafficPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIMailManagerTrafficPolicyRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnMailManagerTrafficPolicy) DefaultAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerTrafficPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMailManagerTrafficPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnMailManagerTrafficPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerTrafficPolicy) MailManagerTrafficPolicyRef() *MailManagerTrafficPolicyReference {
-	var returns *MailManagerTrafficPolicyReference
+func (j *jsiiProxy_CfnMailManagerTrafficPolicy) MailManagerTrafficPolicyRef() *interfacesawsses.MailManagerTrafficPolicyReference {
+	var returns *interfacesawsses.MailManagerTrafficPolicyReference
 	_jsii_.Get(
 		j,
 		"mailManagerTrafficPolicyRef",
@@ -502,6 +504,7 @@ func (j *jsiiProxy_CfnMailManagerTrafficPolicy) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::SES::MailManagerTrafficPolicy`.
 func NewCfnMailManagerTrafficPolicy(scope constructs.Construct, id *string, props *CfnMailManagerTrafficPolicyProps) CfnMailManagerTrafficPolicy {
 	_init_.Initialize()
 
@@ -519,6 +522,7 @@ func NewCfnMailManagerTrafficPolicy(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::SES::MailManagerTrafficPolicy`.
 func NewCfnMailManagerTrafficPolicy_Override(c CfnMailManagerTrafficPolicy, scope constructs.Construct, id *string, props *CfnMailManagerTrafficPolicyProps) {
 	_init_.Initialize()
 
@@ -579,13 +583,13 @@ func (j *jsiiProxy_CfnMailManagerTrafficPolicy)SetTrafficPolicyName(val *string)
 }
 
 // Creates a new IMailManagerTrafficPolicyRef from a trafficPolicyId.
-func CfnMailManagerTrafficPolicy_FromTrafficPolicyId(scope constructs.Construct, id *string, trafficPolicyId *string) IMailManagerTrafficPolicyRef {
+func CfnMailManagerTrafficPolicy_FromTrafficPolicyId(scope constructs.Construct, id *string, trafficPolicyId *string) interfacesawsses.IMailManagerTrafficPolicyRef {
 	_init_.Initialize()
 
 	if err := validateCfnMailManagerTrafficPolicy_FromTrafficPolicyIdParameters(scope, id, trafficPolicyId); err != nil {
 		panic(err)
 	}
-	var returns IMailManagerTrafficPolicyRef
+	var returns interfacesawsses.IMailManagerTrafficPolicyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy",

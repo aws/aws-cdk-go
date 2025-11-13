@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -98,8 +100,8 @@ import (
 //
 type CfnResourceDefinition interface {
 	awscdk.CfnResource
-	IResourceDefinitionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IResourceDefinitionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `ResourceDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/resources/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
@@ -118,7 +120,7 @@ type CfnResourceDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The resource definition version to include when the resource definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -143,7 +145,7 @@ type CfnResourceDefinition interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourceDefinition resource.
-	ResourceDefinitionRef() *ResourceDefinitionReference
+	ResourceDefinitionRef() *interfacesawsgreengrass.ResourceDefinitionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -296,8 +298,8 @@ type CfnResourceDefinition interface {
 // The jsii proxy struct for CfnResourceDefinition
 type jsiiProxy_CfnResourceDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIResourceDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnResourceDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -441,8 +443,8 @@ func (j *jsiiProxy_CfnResourceDefinition) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceDefinition) ResourceDefinitionRef() *ResourceDefinitionReference {
-	var returns *ResourceDefinitionReference
+func (j *jsiiProxy_CfnResourceDefinition) ResourceDefinitionRef() *interfacesawsgreengrass.ResourceDefinitionReference {
+	var returns *interfacesawsgreengrass.ResourceDefinitionReference
 	_jsii_.Get(
 		j,
 		"resourceDefinitionRef",
@@ -502,6 +504,7 @@ func (j *jsiiProxy_CfnResourceDefinition) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Greengrass::ResourceDefinition`.
 func NewCfnResourceDefinition(scope constructs.Construct, id *string, props *CfnResourceDefinitionProps) CfnResourceDefinition {
 	_init_.Initialize()
 
@@ -519,6 +522,7 @@ func NewCfnResourceDefinition(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Greengrass::ResourceDefinition`.
 func NewCfnResourceDefinition_Override(c CfnResourceDefinition, scope constructs.Construct, id *string, props *CfnResourceDefinitionProps) {
 	_init_.Initialize()
 
@@ -560,13 +564,13 @@ func (j *jsiiProxy_CfnResourceDefinition)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new IResourceDefinitionRef from an ARN.
-func CfnResourceDefinition_FromResourceDefinitionArn(scope constructs.Construct, id *string, arn *string) IResourceDefinitionRef {
+func CfnResourceDefinition_FromResourceDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.IResourceDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnResourceDefinition_FromResourceDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IResourceDefinitionRef
+	var returns interfacesawsgreengrass.IResourceDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
@@ -579,13 +583,13 @@ func CfnResourceDefinition_FromResourceDefinitionArn(scope constructs.Construct,
 }
 
 // Creates a new IResourceDefinitionRef from a resourceDefinitionId.
-func CfnResourceDefinition_FromResourceDefinitionId(scope constructs.Construct, id *string, resourceDefinitionId *string) IResourceDefinitionRef {
+func CfnResourceDefinition_FromResourceDefinitionId(scope constructs.Construct, id *string, resourceDefinitionId *string) interfacesawsgreengrass.IResourceDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnResourceDefinition_FromResourceDefinitionIdParameters(scope, id, resourceDefinitionId); err != nil {
 		panic(err)
 	}
-	var returns IResourceDefinitionRef
+	var returns interfacesawsgreengrass.IResourceDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",

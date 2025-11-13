@@ -15,6 +15,7 @@ import (
 //   	DesiredShardLevelMetrics: []*string{
 //   		jsii.String("desiredShardLevelMetrics"),
 //   	},
+//   	MaxRecordSizeInKiB: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	RetentionPeriodHours: jsii.Number(123),
 //   	ShardCount: jsii.Number(123),
@@ -40,6 +41,10 @@ type CfnStreamProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-desiredshardlevelmetrics
 	//
 	DesiredShardLevelMetrics *[]*string `field:"optional" json:"desiredShardLevelMetrics" yaml:"desiredShardLevelMetrics"`
+	// The maximum record size of a single record in kibibyte (KiB) that you can write to, and read from a stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-maxrecordsizeinkib
+	//
+	MaxRecordSizeInKiB *float64 `field:"optional" json:"maxRecordSizeInKiB" yaml:"maxRecordSizeInKiB"`
 	// The name of the Kinesis stream.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the stream name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .

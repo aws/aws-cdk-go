@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrekognition/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrekognition"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -87,8 +89,8 @@ import (
 //
 type CfnStreamProcessor interface {
 	awscdk.CfnResource
-	IStreamProcessorRef
 	awscdk.IInspectable
+	interfacesawsrekognition.IStreamProcessorRef
 	awscdk.ITaggable
 	// Amazon Resource Name for the newly created stream processor.
 	AttrArn() *string
@@ -114,7 +116,7 @@ type CfnStreamProcessor interface {
 	// Allows you to opt in or opt out to share data with Rekognition to improve model performance.
 	DataSharingPreference() interface{}
 	SetDataSharingPreference(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The input parameters used to recognize faces in a streaming video analyzed by an Amazon Rekognition stream processor.
 	FaceSearchSettings() interface{}
 	SetFaceSearchSettings(val interface{})
@@ -164,7 +166,7 @@ type CfnStreamProcessor interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StreamProcessor resource.
-	StreamProcessorRef() *StreamProcessorReference
+	StreamProcessorRef() *interfacesawsrekognition.StreamProcessorReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// A set of tags (key-value pairs) that you want to attach to the stream processor.
@@ -313,8 +315,8 @@ type CfnStreamProcessor interface {
 // The jsii proxy struct for CfnStreamProcessor
 type jsiiProxy_CfnStreamProcessor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamProcessorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrekognitionIStreamProcessorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnStreamProcessor) DataSharingPreference() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamProcessor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStreamProcessor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -558,8 +560,8 @@ func (j *jsiiProxy_CfnStreamProcessor) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamProcessor) StreamProcessorRef() *StreamProcessorReference {
-	var returns *StreamProcessorReference
+func (j *jsiiProxy_CfnStreamProcessor) StreamProcessorRef() *interfacesawsrekognition.StreamProcessorReference {
+	var returns *interfacesawsrekognition.StreamProcessorReference
 	_jsii_.Get(
 		j,
 		"streamProcessorRef",
@@ -609,6 +611,7 @@ func (j *jsiiProxy_CfnStreamProcessor) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Rekognition::StreamProcessor`.
 func NewCfnStreamProcessor(scope constructs.Construct, id *string, props *CfnStreamProcessorProps) CfnStreamProcessor {
 	_init_.Initialize()
 
@@ -626,6 +629,7 @@ func NewCfnStreamProcessor(scope constructs.Construct, id *string, props *CfnStr
 	return &j
 }
 
+// Create a new `AWS::Rekognition::StreamProcessor`.
 func NewCfnStreamProcessor_Override(c CfnStreamProcessor, scope constructs.Construct, id *string, props *CfnStreamProcessorProps) {
 	_init_.Initialize()
 

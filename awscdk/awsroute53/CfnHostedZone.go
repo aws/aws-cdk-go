@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnHostedZone interface {
 	awscdk.CfnResource
-	IHostedZoneRef
 	awscdk.IInspectable
+	interfacesawsroute53.IHostedZoneRef
 	awscdk.ITaggable
 	// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 	AttrId() *string
@@ -85,12 +87,12 @@ type CfnHostedZone interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A complex type that contains an optional comment.
 	HostedZoneConfig() interface{}
 	SetHostedZoneConfig(val interface{})
 	// A reference to a HostedZone resource.
-	HostedZoneRef() *HostedZoneReference
+	HostedZoneRef() *interfacesawsroute53.HostedZoneReference
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	HostedZoneTagsRaw() *[]*CfnHostedZone_HostedZoneTagProperty
 	SetHostedZoneTagsRaw(val *[]*CfnHostedZone_HostedZoneTagProperty)
@@ -269,8 +271,8 @@ type CfnHostedZone interface {
 // The jsii proxy struct for CfnHostedZone
 type jsiiProxy_CfnHostedZone struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHostedZoneRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53IHostedZoneRef
 	internal.Type__awscdkITaggable
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnHostedZone) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHostedZone) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHostedZone) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnHostedZone) HostedZoneConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHostedZone) HostedZoneRef() *HostedZoneReference {
-	var returns *HostedZoneReference
+func (j *jsiiProxy_CfnHostedZone) HostedZoneRef() *interfacesawsroute53.HostedZoneReference {
+	var returns *interfacesawsroute53.HostedZoneReference
 	_jsii_.Get(
 		j,
 		"hostedZoneRef",
@@ -475,6 +477,7 @@ func (j *jsiiProxy_CfnHostedZone) Vpcs() interface{} {
 }
 
 
+// Create a new `AWS::Route53::HostedZone`.
 func NewCfnHostedZone(scope constructs.Construct, id *string, props *CfnHostedZoneProps) CfnHostedZone {
 	_init_.Initialize()
 
@@ -492,6 +495,7 @@ func NewCfnHostedZone(scope constructs.Construct, id *string, props *CfnHostedZo
 	return &j
 }
 
+// Create a new `AWS::Route53::HostedZone`.
 func NewCfnHostedZone_Override(c CfnHostedZone, scope constructs.Construct, id *string, props *CfnHostedZoneProps) {
 	_init_.Initialize()
 

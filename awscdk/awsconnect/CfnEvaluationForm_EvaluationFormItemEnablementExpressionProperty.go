@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// An expression that defines a basic building block of conditional enablement.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,14 +27,15 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementexpression.html
 //
 type CfnEvaluationForm_EvaluationFormItemEnablementExpressionProperty struct {
-	// Specifies the comparison method to determine if the source value matches any of the specified values.
+	// A comparator to be used against list of values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementexpression.html#cfn-connect-evaluationform-evaluationformitemenablementexpression-comparator
 	//
 	Comparator *string `field:"required" json:"comparator" yaml:"comparator"`
+	// A source item of enablement expression.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementexpression.html#cfn-connect-evaluationform-evaluationformitemenablementexpression-source
 	//
 	Source interface{} `field:"required" json:"source" yaml:"source"`
-	// The list of possible values to compare against the source form item's value.
+	// A list of values from source item.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementexpression.html#cfn-connect-evaluationform-evaluationformitemenablementexpression-values
 	//
 	Values interface{} `field:"required" json:"values" yaml:"values"`

@@ -88,8 +88,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDeliveryStream{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeliveryStreamRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisfirehoseIDeliveryStreamRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -486,10 +486,6 @@ func init() {
 		reflect.TypeOf((*DeliveryStreamProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStreamReference",
-		reflect.TypeOf((*DeliveryStreamReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.DestinationBindOptions",
 		reflect.TypeOf((*DestinationBindOptions)(nil)).Elem(),
 	)
@@ -580,21 +576,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisfirehose.IDeliveryStreamRef",
-		reflect.TypeOf((*IDeliveryStreamRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamRef", GoGetter: "DeliveryStreamRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeliveryStreamRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

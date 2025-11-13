@@ -1,0 +1,67 @@
+package interfacesawsobservabilityadmin
+
+import (
+	"reflect"
+
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+)
+
+func init() {
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.IOrganizationCentralizationRuleRef",
+		reflect.TypeOf((*IOrganizationCentralizationRuleRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "organizationCentralizationRuleRef", GoGetter: "OrganizationCentralizationRuleRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IOrganizationCentralizationRuleRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.IOrganizationTelemetryRuleRef",
+		reflect.TypeOf((*IOrganizationTelemetryRuleRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "organizationTelemetryRuleRef", GoGetter: "OrganizationTelemetryRuleRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IOrganizationTelemetryRuleRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.ITelemetryRuleRef",
+		reflect.TypeOf((*ITelemetryRuleRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "telemetryRuleRef", GoGetter: "TelemetryRuleRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITelemetryRuleRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.OrganizationCentralizationRuleReference",
+		reflect.TypeOf((*OrganizationCentralizationRuleReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.OrganizationTelemetryRuleReference",
+		reflect.TypeOf((*OrganizationTelemetryRuleReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.TelemetryRuleReference",
+		reflect.TypeOf((*TelemetryRuleReference)(nil)).Elem(),
+	)
+}

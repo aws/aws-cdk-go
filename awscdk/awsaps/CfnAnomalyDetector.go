@@ -6,10 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsaps/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsaps"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// AnomalyDetector schema for cloudformation.
+// Anomaly detection uses the Random Cut Forest algorithm for time-series analysis.
+//
+// The anomaly detector analyzes Amazon Managed Service for Prometheus metrics to identify unusual patterns and behaviors.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -61,15 +65,15 @@ import (
 //
 type CfnAnomalyDetector interface {
 	awscdk.CfnResource
-	IAnomalyDetectorRef
 	awscdk.IInspectable
+	interfacesawsaps.IAnomalyDetectorRef
 	awscdk.ITaggableV2
-	// The AnomalyDetector alias.
+	// The user-friendly name of the anomaly detector.
 	Alias() *string
 	SetAlias(val *string)
 	// A reference to a AnomalyDetector resource.
-	AnomalyDetectorRef() *AnomalyDetectorReference
-	// The AnomalyDetector ARN.
+	AnomalyDetectorRef() *interfacesawsaps.AnomalyDetectorReference
+	// The Amazon Resource Name (ARN) of the anomaly detector.
 	AttrArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -78,17 +82,18 @@ type CfnAnomalyDetector interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The algorithm configuration of the anomaly detector.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
-	// The AnomalyDetector period of detection and metric generation.
+	Env() *interfaces.ResourceEnvironment
+	// The frequency, in seconds, at which the anomaly detector evaluates metrics.
 	EvaluationIntervalInSeconds() *float64
 	SetEvaluationIntervalInSeconds(val *float64)
-	// An array of key-value pairs to provide meta-data.
+	// The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
 	Labels() interface{}
 	SetLabels(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -101,6 +106,7 @@ type CfnAnomalyDetector interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The action taken when data is missing during evaluation.
 	MissingDataAction() interface{}
 	SetMissingDataAction(val interface{})
 	// The tree node.
@@ -114,7 +120,7 @@ type CfnAnomalyDetector interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// The tags applied to the anomaly detector.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -263,8 +269,8 @@ type CfnAnomalyDetector interface {
 // The jsii proxy struct for CfnAnomalyDetector
 type jsiiProxy_CfnAnomalyDetector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnomalyDetectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapsIAnomalyDetectorRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -278,8 +284,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) Alias() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorRef() *AnomalyDetectorReference {
-	var returns *AnomalyDetectorReference
+func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorRef() *interfacesawsaps.AnomalyDetectorReference {
+	var returns *interfacesawsaps.AnomalyDetectorReference
 	_jsii_.Get(
 		j,
 		"anomalyDetectorRef",
@@ -358,8 +364,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyDetector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnomalyDetector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -479,6 +485,7 @@ func (j *jsiiProxy_CfnAnomalyDetector) Workspace() *string {
 }
 
 
+// Create a new `AWS::APS::AnomalyDetector`.
 func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) CfnAnomalyDetector {
 	_init_.Initialize()
 
@@ -496,6 +503,7 @@ func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAno
 	return &j
 }
 
+// Create a new `AWS::APS::AnomalyDetector`.
 func NewCfnAnomalyDetector_Override(c CfnAnomalyDetector, scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) {
 	_init_.Initialize()
 

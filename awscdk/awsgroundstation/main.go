@@ -54,8 +54,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConfig{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsgroundstationIConfigRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -171,8 +171,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDataflowEndpointGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataflowEndpointGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsgroundstationIDataflowEndpointGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -270,8 +270,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMissionProfile{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMissionProfileRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsgroundstationIMissionProfileRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -287,62 +287,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_groundstation.CfnMissionProfileProps",
 		reflect.TypeOf((*CfnMissionProfileProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_groundstation.ConfigReference",
-		reflect.TypeOf((*ConfigReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_groundstation.DataflowEndpointGroupReference",
-		reflect.TypeOf((*DataflowEndpointGroupReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_groundstation.IConfigRef",
-		reflect.TypeOf((*IConfigRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configRef", GoGetter: "ConfigRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConfigRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_groundstation.IDataflowEndpointGroupRef",
-		reflect.TypeOf((*IDataflowEndpointGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataflowEndpointGroupRef", GoGetter: "DataflowEndpointGroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataflowEndpointGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_groundstation.IMissionProfileRef",
-		reflect.TypeOf((*IMissionProfileRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "missionProfileRef", GoGetter: "MissionProfileRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMissionProfileRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_groundstation.MissionProfileReference",
-		reflect.TypeOf((*MissionProfileReference)(nil)).Elem(),
 	)
 }

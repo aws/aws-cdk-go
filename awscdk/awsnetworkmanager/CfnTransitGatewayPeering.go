@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnTransitGatewayPeering interface {
 	awscdk.CfnResource
-	ITransitGatewayPeeringRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.ITransitGatewayPeeringRef
 	awscdk.ITaggable
 	// The ARN of the core network.
 	AttrCoreNetworkArn() *string
@@ -72,7 +74,7 @@ type CfnTransitGatewayPeering interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -103,7 +105,7 @@ type CfnTransitGatewayPeering interface {
 	TransitGatewayArn() *string
 	SetTransitGatewayArn(val *string)
 	// A reference to a TransitGatewayPeering resource.
-	TransitGatewayPeeringRef() *TransitGatewayPeeringReference
+	TransitGatewayPeeringRef() *interfacesawsnetworkmanager.TransitGatewayPeeringReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -247,8 +249,8 @@ type CfnTransitGatewayPeering interface {
 // The jsii proxy struct for CfnTransitGatewayPeering
 type jsiiProxy_CfnTransitGatewayPeering struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayPeeringRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerITransitGatewayPeeringRef
 	internal.Type__awscdkITaggable
 }
 
@@ -402,8 +404,8 @@ func (j *jsiiProxy_CfnTransitGatewayPeering) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeering) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayPeering) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -482,8 +484,8 @@ func (j *jsiiProxy_CfnTransitGatewayPeering) TransitGatewayArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeering) TransitGatewayPeeringRef() *TransitGatewayPeeringReference {
-	var returns *TransitGatewayPeeringReference
+func (j *jsiiProxy_CfnTransitGatewayPeering) TransitGatewayPeeringRef() *interfacesawsnetworkmanager.TransitGatewayPeeringReference {
+	var returns *interfacesawsnetworkmanager.TransitGatewayPeeringReference
 	_jsii_.Get(
 		j,
 		"transitGatewayPeeringRef",
@@ -513,6 +515,7 @@ func (j *jsiiProxy_CfnTransitGatewayPeering) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::NetworkManager::TransitGatewayPeering`.
 func NewCfnTransitGatewayPeering(scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringProps) CfnTransitGatewayPeering {
 	_init_.Initialize()
 
@@ -530,6 +533,7 @@ func NewCfnTransitGatewayPeering(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::TransitGatewayPeering`.
 func NewCfnTransitGatewayPeering_Override(c CfnTransitGatewayPeering, scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringProps) {
 	_init_.Initialize()
 

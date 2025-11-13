@@ -54,8 +54,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEnabledBaseline{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEnabledBaselineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscontroltowerIEnabledBaselineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -113,8 +113,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEnabledControl{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEnabledControlRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscontroltowerIEnabledControlRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -176,8 +176,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLandingZone{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILandingZoneRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscontroltowerILandingZoneRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -185,62 +185,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_controltower.CfnLandingZoneProps",
 		reflect.TypeOf((*CfnLandingZoneProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_controltower.EnabledBaselineReference",
-		reflect.TypeOf((*EnabledBaselineReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_controltower.EnabledControlReference",
-		reflect.TypeOf((*EnabledControlReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_controltower.IEnabledBaselineRef",
-		reflect.TypeOf((*IEnabledBaselineRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "enabledBaselineRef", GoGetter: "EnabledBaselineRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEnabledBaselineRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_controltower.IEnabledControlRef",
-		reflect.TypeOf((*IEnabledControlRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "enabledControlRef", GoGetter: "EnabledControlRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEnabledControlRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_controltower.ILandingZoneRef",
-		reflect.TypeOf((*ILandingZoneRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "landingZoneRef", GoGetter: "LandingZoneRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILandingZoneRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_controltower.LandingZoneReference",
-		reflect.TypeOf((*LandingZoneReference)(nil)).Elem(),
 	)
 }

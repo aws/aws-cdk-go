@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -73,8 +75,8 @@ import (
 //
 type CfnConfigurationSet interface {
 	awscdk.CfnResource
-	IConfigurationSetRef
 	awscdk.IInspectable
+	interfacesawsses.IConfigurationSetRef
 	awscdk.ITaggableV2
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -84,7 +86,7 @@ type CfnConfigurationSet interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConfigurationSet resource.
-	ConfigurationSetRef() *ConfigurationSetReference
+	ConfigurationSetRef() *interfacesawsses.ConfigurationSetReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -92,7 +94,7 @@ type CfnConfigurationSet interface {
 	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions() interface{}
 	SetDeliveryOptions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -280,8 +282,8 @@ type CfnConfigurationSet interface {
 // The jsii proxy struct for CfnConfigurationSet
 type jsiiProxy_CfnConfigurationSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIConfigurationSetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnConfigurationSet) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) ConfigurationSetRef() *ConfigurationSetReference {
-	var returns *ConfigurationSetReference
+func (j *jsiiProxy_CfnConfigurationSet) ConfigurationSetRef() *interfacesawsses.ConfigurationSetReference {
+	var returns *interfacesawsses.ConfigurationSetReference
 	_jsii_.Get(
 		j,
 		"configurationSetRef",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnConfigurationSet) DeliveryOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -496,6 +498,7 @@ func (j *jsiiProxy_CfnConfigurationSet) VdmOptions() interface{} {
 }
 
 
+// Create a new `AWS::SES::ConfigurationSet`.
 func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnConfigurationSetProps) CfnConfigurationSet {
 	_init_.Initialize()
 
@@ -513,6 +516,7 @@ func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
+// Create a new `AWS::SES::ConfigurationSet`.
 func NewCfnConfigurationSet_Override(c CfnConfigurationSet, scope constructs.Construct, id *string, props *CfnConfigurationSetProps) {
 	_init_.Initialize()
 
@@ -609,13 +613,13 @@ func (j *jsiiProxy_CfnConfigurationSet)SetVdmOptions(val interface{}) {
 }
 
 // Creates a new IConfigurationSetRef from a configurationSetName.
-func CfnConfigurationSet_FromConfigurationSetName(scope constructs.Construct, id *string, configurationSetName *string) IConfigurationSetRef {
+func CfnConfigurationSet_FromConfigurationSetName(scope constructs.Construct, id *string, configurationSetName *string) interfacesawsses.IConfigurationSetRef {
 	_init_.Initialize()
 
 	if err := validateCfnConfigurationSet_FromConfigurationSetNameParameters(scope, id, configurationSetName); err != nil {
 		panic(err)
 	}
-	var returns IConfigurationSetRef
+	var returns interfacesawsses.IConfigurationSetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnConfigurationSet",

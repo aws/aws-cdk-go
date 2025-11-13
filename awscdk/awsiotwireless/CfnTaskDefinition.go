@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,8 +66,8 @@ import (
 //
 type CfnTaskDefinition interface {
 	awscdk.CfnResource
-	ITaskDefinitionRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.ITaskDefinitionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name of the resource.
 	AttrArn() *string
@@ -83,7 +85,7 @@ type CfnTaskDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -117,7 +119,7 @@ type CfnTaskDefinition interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TaskDefinition resource.
-	TaskDefinitionRef() *TaskDefinitionReference
+	TaskDefinitionRef() *interfacesawsiotwireless.TaskDefinitionReference
 	// A filter to list only the wireless gateway task definitions that use this task definition type.
 	TaskDefinitionType() *string
 	SetTaskDefinitionType(val *string)
@@ -267,8 +269,8 @@ type CfnTaskDefinition interface {
 // The jsii proxy struct for CfnTaskDefinition
 type jsiiProxy_CfnTaskDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITaskDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessITaskDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnTaskDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTaskDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -432,8 +434,8 @@ func (j *jsiiProxy_CfnTaskDefinition) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskDefinition) TaskDefinitionRef() *TaskDefinitionReference {
-	var returns *TaskDefinitionReference
+func (j *jsiiProxy_CfnTaskDefinition) TaskDefinitionRef() *interfacesawsiotwireless.TaskDefinitionReference {
+	var returns *interfacesawsiotwireless.TaskDefinitionReference
 	_jsii_.Get(
 		j,
 		"taskDefinitionRef",
@@ -483,6 +485,7 @@ func (j *jsiiProxy_CfnTaskDefinition) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::IoTWireless::TaskDefinition`.
 func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) CfnTaskDefinition {
 	_init_.Initialize()
 
@@ -500,6 +503,7 @@ func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTask
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::TaskDefinition`.
 func NewCfnTaskDefinition_Override(c CfnTaskDefinition, scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) {
 	_init_.Initialize()
 

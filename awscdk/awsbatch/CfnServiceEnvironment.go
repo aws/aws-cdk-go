@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnServiceEnvironment interface {
 	awscdk.CfnResource
-	IServiceEnvironmentRef
 	awscdk.IInspectable
+	interfacesawsbatch.IServiceEnvironmentRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the service environment.
 	AttrServiceEnvironmentArn() *string
@@ -58,7 +60,7 @@ type CfnServiceEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,7 +82,7 @@ type CfnServiceEnvironment interface {
 	ServiceEnvironmentName() *string
 	SetServiceEnvironmentName(val *string)
 	// A reference to a ServiceEnvironment resource.
-	ServiceEnvironmentRef() *ServiceEnvironmentReference
+	ServiceEnvironmentRef() *interfacesawsbatch.ServiceEnvironmentReference
 	// The type of service environment.
 	ServiceEnvironmentType() *string
 	SetServiceEnvironmentType(val *string)
@@ -237,8 +239,8 @@ type CfnServiceEnvironment interface {
 // The jsii proxy struct for CfnServiceEnvironment
 type jsiiProxy_CfnServiceEnvironment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceEnvironmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbatchIServiceEnvironmentRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnServiceEnvironment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnServiceEnvironment) ServiceEnvironmentName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceEnvironment) ServiceEnvironmentRef() *ServiceEnvironmentReference {
-	var returns *ServiceEnvironmentReference
+func (j *jsiiProxy_CfnServiceEnvironment) ServiceEnvironmentRef() *interfacesawsbatch.ServiceEnvironmentReference {
+	var returns *interfacesawsbatch.ServiceEnvironmentReference
 	_jsii_.Get(
 		j,
 		"serviceEnvironmentRef",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnServiceEnvironment) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Batch::ServiceEnvironment`.
 func NewCfnServiceEnvironment(scope constructs.Construct, id *string, props *CfnServiceEnvironmentProps) CfnServiceEnvironment {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnServiceEnvironment(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Batch::ServiceEnvironment`.
 func NewCfnServiceEnvironment_Override(c CfnServiceEnvironment, scope constructs.Construct, id *string, props *CfnServiceEnvironmentProps) {
 	_init_.Initialize()
 

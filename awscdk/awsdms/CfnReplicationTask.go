@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnReplicationTask interface {
 	awscdk.CfnResource
-	IReplicationTaskRef
 	awscdk.IInspectable
+	interfacesawsdms.IReplicationTaskRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Indicates when you want a change data capture (CDC) operation to start.
@@ -65,7 +67,7 @@ type CfnReplicationTask interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -93,7 +95,7 @@ type CfnReplicationTask interface {
 	ReplicationTaskIdentifier() *string
 	SetReplicationTaskIdentifier(val *string)
 	// A reference to a ReplicationTask resource.
-	ReplicationTaskRef() *ReplicationTaskReference
+	ReplicationTaskRef() *interfacesawsdms.ReplicationTaskReference
 	// Overall settings for the task, in JSON format.
 	ReplicationTaskSettings() *string
 	SetReplicationTaskSettings(val *string)
@@ -264,8 +266,8 @@ type CfnReplicationTask interface {
 // The jsii proxy struct for CfnReplicationTask
 type jsiiProxy_CfnReplicationTask struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicationTaskRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIReplicationTaskRef
 	internal.Type__awscdkITaggable
 }
 
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnReplicationTask) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationTask) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicationTask) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -419,8 +421,8 @@ func (j *jsiiProxy_CfnReplicationTask) ReplicationTaskIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationTask) ReplicationTaskRef() *ReplicationTaskReference {
-	var returns *ReplicationTaskReference
+func (j *jsiiProxy_CfnReplicationTask) ReplicationTaskRef() *interfacesawsdms.ReplicationTaskReference {
+	var returns *interfacesawsdms.ReplicationTaskReference
 	_jsii_.Get(
 		j,
 		"replicationTaskRef",
@@ -540,6 +542,7 @@ func (j *jsiiProxy_CfnReplicationTask) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::DMS::ReplicationTask`.
 func NewCfnReplicationTask(scope constructs.Construct, id *string, props *CfnReplicationTaskProps) CfnReplicationTask {
 	_init_.Initialize()
 
@@ -557,6 +560,7 @@ func NewCfnReplicationTask(scope constructs.Construct, id *string, props *CfnRep
 	return &j
 }
 
+// Create a new `AWS::DMS::ReplicationTask`.
 func NewCfnReplicationTask_Override(c CfnReplicationTask, scope constructs.Construct, id *string, props *CfnReplicationTaskProps) {
 	_init_.Initialize()
 

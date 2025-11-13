@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsguardduty/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnFilter interface {
 	awscdk.CfnResource
-	IFilterRef
 	awscdk.IInspectable
+	interfacesawsguardduty.IFilterRef
 	awscdk.ITaggable
 	// Specifies the action that is to be applied to the findings that match the filter.
 	Action() *string
@@ -84,9 +86,9 @@ type CfnFilter interface {
 	// The detector ID associated with the GuardDuty account for which you want to create a filter.
 	DetectorId() *string
 	SetDetectorId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Filter resource.
-	FilterRef() *FilterReference
+	FilterRef() *interfacesawsguardduty.FilterReference
 	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria() interface{}
 	SetFindingCriteria(val interface{})
@@ -265,8 +267,8 @@ type CfnFilter interface {
 // The jsii proxy struct for CfnFilter
 type jsiiProxy_CfnFilter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFilterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsguarddutyIFilterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnFilter) DetectorId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFilter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFilter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnFilter) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFilter) FilterRef() *FilterReference {
-	var returns *FilterReference
+func (j *jsiiProxy_CfnFilter) FilterRef() *interfacesawsguardduty.FilterReference {
+	var returns *interfacesawsguardduty.FilterReference
 	_jsii_.Get(
 		j,
 		"filterRef",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnFilter) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GuardDuty::Filter`.
 func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps) CfnFilter {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps)
 	return &j
 }
 
+// Create a new `AWS::GuardDuty::Filter`.
 func NewCfnFilter_Override(c CfnFilter, scope constructs.Construct, id *string, props *CfnFilterProps) {
 	_init_.Initialize()
 

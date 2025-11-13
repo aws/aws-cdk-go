@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A VPC endpoint.
 type IVpcEndpoint interface {
 	awscdk.IResource
-	IVPCEndpointRef
+	interfacesawsec2.IVPCEndpointRef
 	// The VPC endpoint identifier.
 	VpcEndpointId() *string
 }
@@ -19,7 +21,7 @@ type IVpcEndpoint interface {
 // The jsii proxy for IVpcEndpoint
 type jsiiProxy_IVpcEndpoint struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IVPCEndpointRef
+	internal.Type__interfacesawsec2IVPCEndpointRef
 }
 
 func (i *jsiiProxy_IVpcEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -43,8 +45,8 @@ func (j *jsiiProxy_IVpcEndpoint) VpcEndpointId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IVpcEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -73,8 +75,8 @@ func (j *jsiiProxy_IVpcEndpoint) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcEndpoint) VpcEndpointRef() *VPCEndpointReference {
-	var returns *VPCEndpointReference
+func (j *jsiiProxy_IVpcEndpoint) VpcEndpointRef() *interfacesawsec2.VPCEndpointReference {
+	var returns *interfacesawsec2.VPCEndpointReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointRef",

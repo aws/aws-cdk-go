@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -97,8 +99,8 @@ import (
 //
 type CfnOrganizationConfigRule interface {
 	awscdk.CfnResource
-	IOrganizationConfigRuleRef
 	awscdk.IInspectable
+	interfacesawsconfig.IOrganizationConfigRuleRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -109,7 +111,7 @@ type CfnOrganizationConfigRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A comma-separated list of accounts excluded from organization AWS Config rule.
 	ExcludedAccounts() *[]*string
 	SetExcludedAccounts(val *[]*string)
@@ -129,7 +131,7 @@ type CfnOrganizationConfigRule interface {
 	OrganizationConfigRuleName() *string
 	SetOrganizationConfigRuleName(val *string)
 	// A reference to a OrganizationConfigRule resource.
-	OrganizationConfigRuleRef() *OrganizationConfigRuleReference
+	OrganizationConfigRuleRef() *interfacesawsconfig.OrganizationConfigRuleReference
 	// An object that specifies metadata for your organization's AWS Config Custom Policy rule.
 	OrganizationCustomPolicyRuleMetadata() interface{}
 	SetOrganizationCustomPolicyRuleMetadata(val interface{})
@@ -291,8 +293,8 @@ type CfnOrganizationConfigRule interface {
 // The jsii proxy struct for CfnOrganizationConfigRule
 type jsiiProxy_CfnOrganizationConfigRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOrganizationConfigRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIOrganizationConfigRuleRef
 }
 
 func (j *jsiiProxy_CfnOrganizationConfigRule) AttrId() *string {
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationConfigRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOrganizationConfigRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -395,8 +397,8 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) OrganizationConfigRuleName() *stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationConfigRule) OrganizationConfigRuleRef() *OrganizationConfigRuleReference {
-	var returns *OrganizationConfigRuleReference
+func (j *jsiiProxy_CfnOrganizationConfigRule) OrganizationConfigRuleRef() *interfacesawsconfig.OrganizationConfigRuleReference {
+	var returns *interfacesawsconfig.OrganizationConfigRuleReference
 	_jsii_.Get(
 		j,
 		"organizationConfigRuleRef",
@@ -476,6 +478,7 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::Config::OrganizationConfigRule`.
 func NewCfnOrganizationConfigRule(scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) CfnOrganizationConfigRule {
 	_init_.Initialize()
 
@@ -493,6 +496,7 @@ func NewCfnOrganizationConfigRule(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::Config::OrganizationConfigRule`.
 func NewCfnOrganizationConfigRule_Override(c CfnOrganizationConfigRule, scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) {
 	_init_.Initialize()
 
@@ -556,13 +560,13 @@ func (j *jsiiProxy_CfnOrganizationConfigRule)SetOrganizationManagedRuleMetadata(
 }
 
 // Creates a new IOrganizationConfigRuleRef from a organizationConfigRuleId.
-func CfnOrganizationConfigRule_FromOrganizationConfigRuleId(scope constructs.Construct, id *string, organizationConfigRuleId *string) IOrganizationConfigRuleRef {
+func CfnOrganizationConfigRule_FromOrganizationConfigRuleId(scope constructs.Construct, id *string, organizationConfigRuleId *string) interfacesawsconfig.IOrganizationConfigRuleRef {
 	_init_.Initialize()
 
 	if err := validateCfnOrganizationConfigRule_FromOrganizationConfigRuleIdParameters(scope, id, organizationConfigRuleId); err != nil {
 		panic(err)
 	}
-	var returns IOrganizationConfigRuleRef
+	var returns interfacesawsconfig.IOrganizationConfigRuleRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",

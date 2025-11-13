@@ -59,7 +59,7 @@ type CfnPermissionProps struct {
 	FunctionUrlAuthType *string `field:"optional" json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
 	// Restricts the `lambda:InvokeFunction` action to function URL calls.
 	//
-	// When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	// When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-invokedviafunctionurl
 	//
 	InvokedViaFunctionUrl interface{} `field:"optional" json:"invokedViaFunctionUrl" yaml:"invokedViaFunctionUrl"`

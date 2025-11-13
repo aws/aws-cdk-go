@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -144,8 +146,8 @@ import (
 //
 type CfnCluster interface {
 	awscdk.CfnResource
-	IClusterRef
 	awscdk.IInspectable
+	interfacesawseks.IClusterRef
 	awscdk.ITaggable
 	// The access configuration for the cluster.
 	AccessConfig() interface{}
@@ -183,7 +185,7 @@ type CfnCluster interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Cluster resource.
-	ClusterRef() *ClusterReference
+	ClusterRef() *interfacesawseks.ClusterReference
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster.
 	ComputeConfig() interface{}
 	SetComputeConfig(val interface{})
@@ -197,7 +199,7 @@ type CfnCluster interface {
 	// The encryption configuration for the cluster.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Set this value to `true` to override upgrade-blocking readiness checks when updating a cluster.
 	Force() interface{}
 	SetForce(val interface{})
@@ -403,8 +405,8 @@ type CfnCluster interface {
 // The jsii proxy struct for CfnCluster
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseksIClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -538,8 +540,8 @@ func (j *jsiiProxy_CfnCluster) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) ClusterRef() *ClusterReference {
-	var returns *ClusterReference
+func (j *jsiiProxy_CfnCluster) ClusterRef() *interfacesawseks.ClusterReference {
+	var returns *interfacesawseks.ClusterReference
 	_jsii_.Get(
 		j,
 		"clusterRef",
@@ -588,8 +590,8 @@ func (j *jsiiProxy_CfnCluster) EncryptionConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -799,6 +801,7 @@ func (j *jsiiProxy_CfnCluster) ZonalShiftConfig() interface{} {
 }
 
 
+// Create a new `AWS::EKS::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -816,6 +819,7 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
+// Create a new `AWS::EKS::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -1019,13 +1023,13 @@ func (j *jsiiProxy_CfnCluster)SetZonalShiftConfig(val interface{}) {
 }
 
 // Creates a new IClusterRef from an ARN.
-func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) IClusterRef {
+func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) interfacesawseks.IClusterRef {
 	_init_.Initialize()
 
 	if err := validateCfnCluster_FromClusterArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IClusterRef
+	var returns interfacesawseks.IClusterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_eks.CfnCluster",
@@ -1038,13 +1042,13 @@ func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IClusterRef from a clusterName.
-func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterName *string) IClusterRef {
+func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterName *string) interfacesawseks.IClusterRef {
 	_init_.Initialize()
 
 	if err := validateCfnCluster_FromClusterNameParameters(scope, id, clusterName); err != nil {
 		panic(err)
 	}
-	var returns IClusterRef
+	var returns interfacesawseks.IClusterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_eks.CfnCluster",

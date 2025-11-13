@@ -59,8 +59,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIdMappingWorkflow{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIdMappingWorkflowRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsentityresolutionIIdMappingWorkflowRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -152,8 +152,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIdNamespace{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIdNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsentityresolutionIIdNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -234,8 +234,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMatchingWorkflow{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMatchingWorkflowRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsentityresolutionIMatchingWorkflowRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -334,8 +334,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPolicyStatement{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPolicyStatementRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsentityresolutionIPolicyStatementRef)
 			return &j
 		},
 	)
@@ -392,8 +392,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSchemaMapping{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISchemaMappingRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsentityresolutionISchemaMappingRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -405,100 +405,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnSchemaMappingProps",
 		reflect.TypeOf((*CfnSchemaMappingProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_entityresolution.IIdMappingWorkflowRef",
-		reflect.TypeOf((*IIdMappingWorkflowRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "idMappingWorkflowRef", GoGetter: "IdMappingWorkflowRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIdMappingWorkflowRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_entityresolution.IIdNamespaceRef",
-		reflect.TypeOf((*IIdNamespaceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "idNamespaceRef", GoGetter: "IdNamespaceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIdNamespaceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_entityresolution.IMatchingWorkflowRef",
-		reflect.TypeOf((*IMatchingWorkflowRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "matchingWorkflowRef", GoGetter: "MatchingWorkflowRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMatchingWorkflowRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_entityresolution.IPolicyStatementRef",
-		reflect.TypeOf((*IPolicyStatementRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyStatementRef", GoGetter: "PolicyStatementRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPolicyStatementRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_entityresolution.ISchemaMappingRef",
-		reflect.TypeOf((*ISchemaMappingRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "schemaMappingRef", GoGetter: "SchemaMappingRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISchemaMappingRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_entityresolution.IdMappingWorkflowReference",
-		reflect.TypeOf((*IdMappingWorkflowReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_entityresolution.IdNamespaceReference",
-		reflect.TypeOf((*IdNamespaceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_entityresolution.MatchingWorkflowReference",
-		reflect.TypeOf((*MatchingWorkflowReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_entityresolution.PolicyStatementReference",
-		reflect.TypeOf((*PolicyStatementReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_entityresolution.SchemaMappingReference",
-		reflect.TypeOf((*SchemaMappingReference)(nil)).Elem(),
 	)
 }

@@ -1,5 +1,8 @@
 package awsiam
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
+)
 
 // Properties for defining an IAM managed policy.
 //
@@ -80,7 +83,7 @@ type ManagedPolicyProps struct {
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
 	// Default: - No groups.
 	//
-	Groups *[]IGroupRef `field:"optional" json:"groups" yaml:"groups"`
+	Groups *[]interfacesawsiam.IGroupRef `field:"optional" json:"groups" yaml:"groups"`
 	// The name of the managed policy.
 	//
 	// If you specify multiple policies for an entity,

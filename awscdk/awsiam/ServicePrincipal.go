@@ -8,21 +8,21 @@ import (
 // An IAM principal that represents an AWS service (i.e. `sqs.amazonaws.com`).
 //
 // Example:
-//   lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
-//   	Description: jsii.String("Example role..."),
+//   // Create a custom execution role
+//   executionRole := iam.NewRole(this, jsii.String("BrowserExecutionRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+//   	ManagedPolicies: []IManagedPolicy{
+//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreBrowserExecutionRolePolicy")),
+//   	},
 //   })
 //
-//   stream := kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &StreamProps{
-//   	Encryption: kinesis.StreamEncryption_KMS,
+//   // Create browser with custom execution role
+//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+//   	BrowserCustomName: jsii.String("my_browser"),
+//   	Description: jsii.String("Browser with custom execution role"),
+//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+//   	ExecutionRole: executionRole,
 //   })
-//   streamConsumer := kinesis.NewStreamConsumer(this, jsii.String("MyStreamConsumer"), &StreamConsumerProps{
-//   	StreamConsumerName: jsii.String("MyStreamConsumer"),
-//   	Stream: Stream,
-//   })
-//
-//   // give lambda permissions to read stream via the stream consumer
-//   streamConsumer.grantRead(lambdaRole)
 //
 type ServicePrincipal interface {
 	PrincipalBase

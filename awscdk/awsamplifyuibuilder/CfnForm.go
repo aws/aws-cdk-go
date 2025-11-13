@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplifyuibuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamplifyuibuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -195,8 +197,8 @@ import (
 //
 type CfnForm interface {
 	awscdk.CfnResource
-	IFormRef
 	awscdk.IInspectable
+	interfacesawsamplifyuibuilder.IFormRef
 	awscdk.ITaggable
 	// The unique ID of the Amplify app associated with the form.
 	AppId() *string
@@ -218,7 +220,7 @@ type CfnForm interface {
 	// The type of data source to use to create the form.
 	DataType() interface{}
 	SetDataType(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
@@ -229,7 +231,7 @@ type CfnForm interface {
 	FormActionType() *string
 	SetFormActionType(val *string)
 	// A reference to a Form resource.
-	FormRef() *FormReference
+	FormRef() *interfacesawsamplifyuibuilder.FormReference
 	// Specifies an icon or decoration to display on the form.
 	LabelDecorator() *string
 	SetLabelDecorator(val *string)
@@ -414,8 +416,8 @@ type CfnForm interface {
 // The jsii proxy struct for CfnForm
 type jsiiProxy_CfnForm struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFormRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamplifyuibuilderIFormRef
 	internal.Type__awscdkITaggable
 }
 
@@ -499,8 +501,8 @@ func (j *jsiiProxy_CfnForm) DataType() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnForm) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnForm) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -539,8 +541,8 @@ func (j *jsiiProxy_CfnForm) FormActionType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnForm) FormRef() *FormReference {
-	var returns *FormReference
+func (j *jsiiProxy_CfnForm) FormRef() *interfacesawsamplifyuibuilder.FormReference {
+	var returns *interfacesawsamplifyuibuilder.FormReference
 	_jsii_.Get(
 		j,
 		"formRef",
@@ -680,6 +682,7 @@ func (j *jsiiProxy_CfnForm) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AmplifyUIBuilder::Form`.
 func NewCfnForm(scope constructs.Construct, id *string, props *CfnFormProps) CfnForm {
 	_init_.Initialize()
 
@@ -697,6 +700,7 @@ func NewCfnForm(scope constructs.Construct, id *string, props *CfnFormProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::AmplifyUIBuilder::Form`.
 func NewCfnForm_Override(c CfnForm, scope constructs.Construct, id *string, props *CfnFormProps) {
 	_init_.Initialize()
 

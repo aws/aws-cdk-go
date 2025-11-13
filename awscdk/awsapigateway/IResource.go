@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IResource interface {
 	awscdk.IResource
-	IResourceRef
+	interfacesawsapigateway.IResourceRef
 	// Adds an OPTIONS method to this resource which responds to Cross-Origin Resource Sharing (CORS) preflight requests.
 	//
 	// Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional
@@ -69,7 +71,7 @@ type IResource interface {
 // The jsii proxy for IResource
 type jsiiProxy_IResource struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IResourceRef
+	internal.Type__interfacesawsapigatewayIResourceRef
 }
 
 func (i *jsiiProxy_IResource) AddCorsPreflight(options *CorsOptions) Method {
@@ -249,8 +251,8 @@ func (j *jsiiProxy_IResource) ResourceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IResource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IResource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -269,8 +271,8 @@ func (j *jsiiProxy_IResource) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IResource) ResourceRef() *ResourceReference {
-	var returns *ResourceReference
+func (j *jsiiProxy_IResource) ResourceRef() *interfacesawsapigateway.ResourceReference {
+	var returns *interfacesawsapigateway.ResourceReference
 	_jsii_.Get(
 		j,
 		"resourceRef",

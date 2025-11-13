@@ -1,0 +1,56 @@
+package interfacesawsdatazone
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a SubscriptionTarget.
+// Experimental.
+type ISubscriptionTargetRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a SubscriptionTarget resource.
+	// Experimental.
+	SubscriptionTargetRef() *SubscriptionTargetReference
+}
+
+// The jsii proxy for ISubscriptionTargetRef
+type jsiiProxy_ISubscriptionTargetRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_ISubscriptionTargetRef) SubscriptionTargetRef() *SubscriptionTargetReference {
+	var returns *SubscriptionTargetReference
+	_jsii_.Get(
+		j,
+		"subscriptionTargetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISubscriptionTargetRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISubscriptionTargetRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

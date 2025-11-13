@@ -1,11 +1,20 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsgameliftIAliasRef = interfacesawsgamelift.IAliasRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsgameliftIBuildRef = interfacesawsgamelift.IBuildRef
+type Type__interfacesawsgameliftIContainerFleetRef = interfacesawsgamelift.IContainerFleetRef
+type Type__interfacesawsgameliftIContainerGroupDefinitionRef = interfacesawsgamelift.IContainerGroupDefinitionRef
+type Type__interfacesawsgameliftIFleetRef = interfacesawsgamelift.IFleetRef
+type Type__interfacesawsgameliftIGameServerGroupRef = interfacesawsgamelift.IGameServerGroupRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsgameliftIGameSessionQueueRef = interfacesawsgamelift.IGameSessionQueueRef
+type Type__interfacesawsgameliftILocationRef = interfacesawsgamelift.ILocationRef
+type Type__interfacesawsgameliftIMatchmakingConfigurationRef = interfacesawsgamelift.IMatchmakingConfigurationRef
+type Type__interfacesawsgameliftIMatchmakingRuleSetRef = interfacesawsgamelift.IMatchmakingRuleSetRef
+type Type__interfacesawsgameliftIScriptRef = interfacesawsgamelift.IScriptRef

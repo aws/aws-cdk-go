@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -201,8 +203,8 @@ import (
 //
 type CfnScalingPolicy interface {
 	awscdk.CfnResource
-	IScalingPolicyRef
 	awscdk.IInspectable
+	interfacesawsapplicationautoscaling.IScalingPolicyRef
 	// Returns the ARN of a scaling policy.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -214,7 +216,7 @@ type CfnScalingPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -250,7 +252,7 @@ type CfnScalingPolicy interface {
 	ScalableDimension() *string
 	SetScalableDimension(val *string)
 	// A reference to a ScalingPolicy resource.
-	ScalingPolicyRef() *ScalingPolicyReference
+	ScalingPolicyRef() *interfacesawsapplicationautoscaling.ScalingPolicyReference
 	// The CloudFormation-generated ID of an Application Auto Scaling scalable target.
 	ScalingTargetId() *string
 	SetScalingTargetId(val *string)
@@ -410,8 +412,8 @@ type CfnScalingPolicy interface {
 // The jsii proxy struct for CfnScalingPolicy
 type jsiiProxy_CfnScalingPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScalingPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapplicationautoscalingIScalingPolicyRef
 }
 
 func (j *jsiiProxy_CfnScalingPolicy) AttrArn() *string {
@@ -464,8 +466,8 @@ func (j *jsiiProxy_CfnScalingPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalingPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScalingPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -554,8 +556,8 @@ func (j *jsiiProxy_CfnScalingPolicy) ScalableDimension() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalingPolicy) ScalingPolicyRef() *ScalingPolicyReference {
-	var returns *ScalingPolicyReference
+func (j *jsiiProxy_CfnScalingPolicy) ScalingPolicyRef() *interfacesawsapplicationautoscaling.ScalingPolicyReference {
+	var returns *interfacesawsapplicationautoscaling.ScalingPolicyReference
 	_jsii_.Get(
 		j,
 		"scalingPolicyRef",
@@ -635,6 +637,7 @@ func (j *jsiiProxy_CfnScalingPolicy) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::ApplicationAutoScaling::ScalingPolicy`.
 func NewCfnScalingPolicy(scope constructs.Construct, id *string, props *CfnScalingPolicyProps) CfnScalingPolicy {
 	_init_.Initialize()
 
@@ -652,6 +655,7 @@ func NewCfnScalingPolicy(scope constructs.Construct, id *string, props *CfnScali
 	return &j
 }
 
+// Create a new `AWS::ApplicationAutoScaling::ScalingPolicy`.
 func NewCfnScalingPolicy_Override(c CfnScalingPolicy, scope constructs.Construct, id *string, props *CfnScalingPolicyProps) {
 	_init_.Initialize()
 

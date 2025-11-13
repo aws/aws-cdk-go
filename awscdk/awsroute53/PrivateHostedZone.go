@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,7 +37,7 @@ type PrivateHostedZone interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// ARN of this hosted zone, such as arn:${Partition}:route53:::hostedzone/${Id}.
 	HostedZoneArn() *string
 	// ID of this hosted zone, such as "Z23ABC4XYZL05B".
@@ -104,8 +105,8 @@ type jsiiProxy_PrivateHostedZone struct {
 	jsiiProxy_IPrivateHostedZone
 }
 
-func (j *jsiiProxy_PrivateHostedZone) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_PrivateHostedZone) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

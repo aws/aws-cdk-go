@@ -1,10 +1,15 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnotifications"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsnotificationsIChannelAssociationRef = interfacesawsnotifications.IChannelAssociationRef
+type Type__interfacesawsnotificationsIEventRuleRef = interfacesawsnotifications.IEventRuleRef
+type Type__interfacesawsnotificationsIManagedNotificationAccountContactAssociationRef = interfacesawsnotifications.IManagedNotificationAccountContactAssociationRef
+type Type__interfacesawsnotificationsIManagedNotificationAdditionalChannelAssociationRef = interfacesawsnotifications.IManagedNotificationAdditionalChannelAssociationRef
+type Type__interfacesawsnotificationsINotificationConfigurationRef = interfacesawsnotifications.INotificationConfigurationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsnotificationsINotificationHubRef = interfacesawsnotifications.INotificationHubRef
+type Type__interfacesawsnotificationsIOrganizationalUnitAssociationRef = interfacesawsnotifications.IOrganizationalUnitAssociationRef

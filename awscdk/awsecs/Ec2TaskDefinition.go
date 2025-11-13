@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,7 +48,7 @@ type Ec2TaskDefinition interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The amount (in GiB) of ephemeral storage to be allocated to the task.
 	//
 	// Only supported in Fargate platform version 1.4.0 or later.
@@ -197,8 +198,8 @@ func (j *jsiiProxy_Ec2TaskDefinition) DefaultContainer() ContainerDefinition {
 	return returns
 }
 
-func (j *jsiiProxy_Ec2TaskDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Ec2TaskDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

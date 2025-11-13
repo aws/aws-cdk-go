@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmcontacts/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmcontacts"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnPlan interface {
 	awscdk.CfnResource
-	IPlanRef
 	awscdk.IInspectable
+	interfacesawsssmcontacts.IPlanRef
 	// The Amazon Resource Name (ARN) of the `Plan` resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -66,7 +68,7 @@ type CfnPlan interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,7 +82,7 @@ type CfnPlan interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Plan resource.
-	PlanRef() *PlanReference
+	PlanRef() *interfacesawsssmcontacts.PlanReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -239,8 +241,8 @@ type CfnPlan interface {
 // The jsii proxy struct for CfnPlan
 type jsiiProxy_CfnPlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmcontactsIPlanRef
 }
 
 func (j *jsiiProxy_CfnPlan) AttrArn() *string {
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnPlan) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnPlan) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlan) PlanRef() *PlanReference {
-	var returns *PlanReference
+func (j *jsiiProxy_CfnPlan) PlanRef() *interfacesawsssmcontacts.PlanReference {
+	var returns *interfacesawsssmcontacts.PlanReference
 	_jsii_.Get(
 		j,
 		"planRef",
@@ -404,6 +406,7 @@ func (j *jsiiProxy_CfnPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SSMContacts::Plan`.
 func NewCfnPlan(scope constructs.Construct, id *string, props *CfnPlanProps) CfnPlan {
 	_init_.Initialize()
 
@@ -421,6 +424,7 @@ func NewCfnPlan(scope constructs.Construct, id *string, props *CfnPlanProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::SSMContacts::Plan`.
 func NewCfnPlan_Override(c CfnPlan, scope constructs.Construct, id *string, props *CfnPlanProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnManagedLoginBranding interface {
 	awscdk.CfnResource
-	IManagedLoginBrandingRef
 	awscdk.IInspectable
+	interfacesawscognito.IManagedLoginBrandingRef
 	// An array of image files that you want to apply to roles like backgrounds, logos, and icons.
 	Assets() interface{}
 	SetAssets(val interface{})
@@ -70,7 +72,7 @@ type CfnManagedLoginBranding interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnManagedLoginBranding interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a ManagedLoginBranding resource.
-	ManagedLoginBrandingRef() *ManagedLoginBrandingReference
+	ManagedLoginBrandingRef() *interfacesawscognito.ManagedLoginBrandingReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -249,8 +251,8 @@ type CfnManagedLoginBranding interface {
 // The jsii proxy struct for CfnManagedLoginBranding
 type jsiiProxy_CfnManagedLoginBranding struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IManagedLoginBrandingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIManagedLoginBrandingRef
 }
 
 func (j *jsiiProxy_CfnManagedLoginBranding) Assets() interface{} {
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnManagedLoginBranding) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedLoginBranding) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnManagedLoginBranding) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnManagedLoginBranding) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedLoginBranding) ManagedLoginBrandingRef() *ManagedLoginBrandingReference {
-	var returns *ManagedLoginBrandingReference
+func (j *jsiiProxy_CfnManagedLoginBranding) ManagedLoginBrandingRef() *interfacesawscognito.ManagedLoginBrandingReference {
+	var returns *interfacesawscognito.ManagedLoginBrandingReference
 	_jsii_.Get(
 		j,
 		"managedLoginBrandingRef",
@@ -444,6 +446,7 @@ func (j *jsiiProxy_CfnManagedLoginBranding) UserPoolId() *string {
 }
 
 
+// Create a new `AWS::Cognito::ManagedLoginBranding`.
 func NewCfnManagedLoginBranding(scope constructs.Construct, id *string, props *CfnManagedLoginBrandingProps) CfnManagedLoginBranding {
 	_init_.Initialize()
 
@@ -461,6 +464,7 @@ func NewCfnManagedLoginBranding(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::Cognito::ManagedLoginBranding`.
 func NewCfnManagedLoginBranding_Override(c CfnManagedLoginBranding, scope constructs.Construct, id *string, props *CfnManagedLoginBrandingProps) {
 	_init_.Initialize()
 

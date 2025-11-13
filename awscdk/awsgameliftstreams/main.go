@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_gameliftstreams.ApplicationReference",
-		reflect.TypeOf((*ApplicationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_gameliftstreams.CfnApplication",
 		reflect.TypeOf((*CfnApplication)(nil)).Elem(),
@@ -61,8 +57,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplication{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsgameliftstreamsIApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -123,8 +119,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStreamGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStreamGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsgameliftstreamsIStreamGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -140,39 +136,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gameliftstreams.CfnStreamGroupProps",
 		reflect.TypeOf((*CfnStreamGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_gameliftstreams.IApplicationRef",
-		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_gameliftstreams.IStreamGroupRef",
-		reflect.TypeOf((*IStreamGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamGroupRef", GoGetter: "StreamGroupRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStreamGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_gameliftstreams.StreamGroupReference",
-		reflect.TypeOf((*StreamGroupReference)(nil)).Elem(),
 	)
 }

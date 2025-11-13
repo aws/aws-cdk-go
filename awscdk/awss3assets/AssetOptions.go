@@ -3,7 +3,7 @@ package awss3assets
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Example:
@@ -113,6 +113,6 @@ type AssetOptions struct {
 	// The ARN of the KMS key used to encrypt the handler code.
 	// Default: - the default server-side encryption with Amazon S3 managed keys(SSE-S3) key will be used.
 	//
-	SourceKMSKey awskms.IKeyRef `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
+	SourceKMSKey interfacesawskms.IKeyRef `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
 }
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnServiceNetworkResourceAssociation interface {
 	awscdk.CfnResource
-	IServiceNetworkResourceAssociationRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.IServiceNetworkResourceAssociationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the association.
 	AttrArn() *string
@@ -51,7 +53,7 @@ type CfnServiceNetworkResourceAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -76,7 +78,7 @@ type CfnServiceNetworkResourceAssociation interface {
 	ServiceNetworkId() *string
 	SetServiceNetworkId(val *string)
 	// A reference to a ServiceNetworkResourceAssociation resource.
-	ServiceNetworkResourceAssociationRef() *ServiceNetworkResourceAssociationReference
+	ServiceNetworkResourceAssociationRef() *interfacesawsvpclattice.ServiceNetworkResourceAssociationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -227,8 +229,8 @@ type CfnServiceNetworkResourceAssociation interface {
 // The jsii proxy struct for CfnServiceNetworkResourceAssociation
 type jsiiProxy_CfnServiceNetworkResourceAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceNetworkResourceAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeIServiceNetworkResourceAssociationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) CreationStack() *[]*str
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) ServiceNetworkId() *str
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) ServiceNetworkResourceAssociationRef() *ServiceNetworkResourceAssociationReference {
-	var returns *ServiceNetworkResourceAssociationReference
+func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) ServiceNetworkResourceAssociationRef() *interfacesawsvpclattice.ServiceNetworkResourceAssociationReference {
+	var returns *interfacesawsvpclattice.ServiceNetworkResourceAssociationReference
 	_jsii_.Get(
 		j,
 		"serviceNetworkResourceAssociationRef",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) UpdatedProperties() *ma
 }
 
 
+// Create a new `AWS::VpcLattice::ServiceNetworkResourceAssociation`.
 func NewCfnServiceNetworkResourceAssociation(scope constructs.Construct, id *string, props *CfnServiceNetworkResourceAssociationProps) CfnServiceNetworkResourceAssociation {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnServiceNetworkResourceAssociation(scope constructs.Construct, id *str
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::ServiceNetworkResourceAssociation`.
 func NewCfnServiceNetworkResourceAssociation_Override(c CfnServiceNetworkResourceAssociation, scope constructs.Construct, id *string, props *CfnServiceNetworkResourceAssociationProps) {
 	_init_.Initialize()
 

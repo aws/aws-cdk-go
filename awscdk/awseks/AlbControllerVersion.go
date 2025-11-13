@@ -10,15 +10,15 @@ import (
 // Corresponds to the image tag of 'amazon/aws-load-balancer-controller' image.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //
 //
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   	AlbController: &AlbControllerOptions{
 //   		Version: eks.AlbControllerVersion_V2_8_2(),
 //   	},
-//   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 //   })
 //
 type AlbControllerVersion interface {

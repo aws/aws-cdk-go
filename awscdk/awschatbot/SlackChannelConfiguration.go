@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,7 +42,7 @@ type SlackChannelConfiguration interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal
 	// The tree node.
@@ -104,8 +105,8 @@ type jsiiProxy_SlackChannelConfiguration struct {
 	jsiiProxy_ISlackChannelConfiguration
 }
 
-func (j *jsiiProxy_SlackChannelConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SlackChannelConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

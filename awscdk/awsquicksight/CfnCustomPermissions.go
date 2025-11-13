@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnCustomPermissions interface {
 	awscdk.CfnResource
-	ICustomPermissionsRef
 	awscdk.IInspectable
+	interfacesawsquicksight.ICustomPermissionsRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the custom permissions profile.
 	AttrArn() *string
@@ -86,8 +88,8 @@ type CfnCustomPermissions interface {
 	CustomPermissionsName() *string
 	SetCustomPermissionsName(val *string)
 	// A reference to a CustomPermissions resource.
-	CustomPermissionsRef() *CustomPermissionsReference
-	Env() *awscdk.ResourceEnvironment
+	CustomPermissionsRef() *interfacesawsquicksight.CustomPermissionsReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -255,8 +257,8 @@ type CfnCustomPermissions interface {
 // The jsii proxy struct for CfnCustomPermissions
 type jsiiProxy_CfnCustomPermissions struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomPermissionsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightICustomPermissionsRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnCustomPermissions) CustomPermissionsName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomPermissions) CustomPermissionsRef() *CustomPermissionsReference {
-	var returns *CustomPermissionsReference
+func (j *jsiiProxy_CfnCustomPermissions) CustomPermissionsRef() *interfacesawsquicksight.CustomPermissionsReference {
+	var returns *interfacesawsquicksight.CustomPermissionsReference
 	_jsii_.Get(
 		j,
 		"customPermissionsRef",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnCustomPermissions) CustomPermissionsRef() *CustomPermissio
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomPermissions) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomPermissions) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnCustomPermissions) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::QuickSight::CustomPermissions`.
 func NewCfnCustomPermissions(scope constructs.Construct, id *string, props *CfnCustomPermissionsProps) CfnCustomPermissions {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnCustomPermissions(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
+// Create a new `AWS::QuickSight::CustomPermissions`.
 func NewCfnCustomPermissions_Override(c CfnCustomPermissions, scope constructs.Construct, id *string, props *CfnCustomPermissionsProps) {
 	_init_.Initialize()
 

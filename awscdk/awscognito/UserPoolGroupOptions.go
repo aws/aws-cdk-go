@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Options to create a UserPoolGroup.
@@ -52,6 +52,6 @@ type UserPoolGroupOptions struct {
 	// The role for the group.
 	// Default: - no description.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role interfacesawsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 }
 

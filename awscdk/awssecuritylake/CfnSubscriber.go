@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecuritylake/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecuritylake"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnSubscriber interface {
 	awscdk.CfnResource
-	ISubscriberRef
 	awscdk.IInspectable
+	interfacesawssecuritylake.ISubscriberRef
 	awscdk.ITaggableV2
 	// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
 	AccessTypes() *[]*string
@@ -85,7 +87,7 @@ type CfnSubscriber interface {
 	// The Amazon Resource Name (ARN) used to create the data lake.
 	DataLakeArn() *string
 	SetDataLakeArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -120,7 +122,7 @@ type CfnSubscriber interface {
 	SubscriberName() *string
 	SetSubscriberName(val *string)
 	// A reference to a Subscriber resource.
-	SubscriberRef() *SubscriberReference
+	SubscriberRef() *interfacesawssecuritylake.SubscriberReference
 	// An array of objects, one for each tag to associate with the subscriber.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -267,8 +269,8 @@ type CfnSubscriber interface {
 // The jsii proxy struct for CfnSubscriber
 type jsiiProxy_CfnSubscriber struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubscriberRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecuritylakeISubscriberRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnSubscriber) DataLakeArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriber) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubscriber) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -482,8 +484,8 @@ func (j *jsiiProxy_CfnSubscriber) SubscriberName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriber) SubscriberRef() *SubscriberReference {
-	var returns *SubscriberReference
+func (j *jsiiProxy_CfnSubscriber) SubscriberRef() *interfacesawssecuritylake.SubscriberReference {
+	var returns *interfacesawssecuritylake.SubscriberReference
 	_jsii_.Get(
 		j,
 		"subscriberRef",
@@ -523,6 +525,7 @@ func (j *jsiiProxy_CfnSubscriber) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SecurityLake::Subscriber`.
 func NewCfnSubscriber(scope constructs.Construct, id *string, props *CfnSubscriberProps) CfnSubscriber {
 	_init_.Initialize()
 
@@ -540,6 +543,7 @@ func NewCfnSubscriber(scope constructs.Construct, id *string, props *CfnSubscrib
 	return &j
 }
 
+// Create a new `AWS::SecurityLake::Subscriber`.
 func NewCfnSubscriber_Override(c CfnSubscriber, scope constructs.Construct, id *string, props *CfnSubscriberProps) {
 	_init_.Initialize()
 

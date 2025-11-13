@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnChannel interface {
 	awscdk.CfnResource
-	IChannelRef
 	awscdk.IInspectable
+	interfacesawsivs.IChannelRef
 	awscdk.ITaggable
 	// Channel ARN is automatically generated on creation and assigned as the unique identifier.
 	AttrArn() *string
@@ -64,7 +66,7 @@ type CfnChannel interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Channel resource.
-	ChannelRef() *ChannelReference
+	ChannelRef() *interfacesawsivs.ChannelReference
 	// Indicates which content-packaging format is used (MPEG-TS or fMP4).
 	ContainerFormat() *string
 	SetContainerFormat(val *string)
@@ -72,7 +74,7 @@ type CfnChannel interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Whether the channel allows insecure ingest.
 	InsecureIngest() interface{}
 	SetInsecureIngest(val interface{})
@@ -263,8 +265,8 @@ type CfnChannel interface {
 // The jsii proxy struct for CfnChannel
 type jsiiProxy_CfnChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivsIChannelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnChannel) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) ChannelRef() *ChannelReference {
-	var returns *ChannelReference
+func (j *jsiiProxy_CfnChannel) ChannelRef() *interfacesawsivs.ChannelReference {
+	var returns *interfacesawsivs.ChannelReference
 	_jsii_.Get(
 		j,
 		"channelRef",
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnChannel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -529,6 +531,7 @@ func (j *jsiiProxy_CfnChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IVS::Channel`.
 func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
@@ -546,6 +549,7 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 	return &j
 }
 
+// Create a new `AWS::IVS::Channel`.
 func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 

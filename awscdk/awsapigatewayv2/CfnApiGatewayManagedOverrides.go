@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,10 +65,10 @@ import (
 //
 type CfnApiGatewayManagedOverrides interface {
 	awscdk.CfnResource
-	IApiGatewayManagedOverridesRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IApiGatewayManagedOverridesRef
 	// A reference to a ApiGatewayManagedOverrides resource.
-	ApiGatewayManagedOverridesRef() *ApiGatewayManagedOverridesReference
+	ApiGatewayManagedOverridesRef() *interfacesawsapigatewayv2.ApiGatewayManagedOverridesReference
 	// The ID of the API for which to override the configuration of API Gateway-managed resources.
 	ApiId() *string
 	SetApiId(val *string)
@@ -81,7 +83,7 @@ type CfnApiGatewayManagedOverrides interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Overrides the integration configuration for an API Gateway-managed integration.
 	Integration() interface{}
 	SetIntegration(val interface{})
@@ -255,12 +257,12 @@ type CfnApiGatewayManagedOverrides interface {
 // The jsii proxy struct for CfnApiGatewayManagedOverrides
 type jsiiProxy_CfnApiGatewayManagedOverrides struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApiGatewayManagedOverridesRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IApiGatewayManagedOverridesRef
 }
 
-func (j *jsiiProxy_CfnApiGatewayManagedOverrides) ApiGatewayManagedOverridesRef() *ApiGatewayManagedOverridesReference {
-	var returns *ApiGatewayManagedOverridesReference
+func (j *jsiiProxy_CfnApiGatewayManagedOverrides) ApiGatewayManagedOverridesRef() *interfacesawsapigatewayv2.ApiGatewayManagedOverridesReference {
+	var returns *interfacesawsapigatewayv2.ApiGatewayManagedOverridesReference
 	_jsii_.Get(
 		j,
 		"apiGatewayManagedOverridesRef",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiGatewayManagedOverrides) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApiGatewayManagedOverrides) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -430,6 +432,7 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
 func NewCfnApiGatewayManagedOverrides(scope constructs.Construct, id *string, props *CfnApiGatewayManagedOverridesProps) CfnApiGatewayManagedOverrides {
 	_init_.Initialize()
 
@@ -447,6 +450,7 @@ func NewCfnApiGatewayManagedOverrides(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
 func NewCfnApiGatewayManagedOverrides_Override(c CfnApiGatewayManagedOverrides, scope constructs.Construct, id *string, props *CfnApiGatewayManagedOverridesProps) {
 	_init_.Initialize()
 

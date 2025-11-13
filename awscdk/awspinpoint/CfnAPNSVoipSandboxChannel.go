@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,10 +40,10 @@ import (
 //
 type CfnAPNSVoipSandboxChannel interface {
 	awscdk.CfnResource
-	IAPNSVoipSandboxChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IAPNSVoipSandboxChannelRef
 	// A reference to a APNSVoipSandboxChannel resource.
-	ApnsVoipSandboxChannelRef() *APNSVoipSandboxChannelReference
+	ApnsVoipSandboxChannelRef() *interfacesawspinpoint.APNSVoipSandboxChannelReference
 	// The unique identifier for the application that the APNs VoIP sandbox channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -70,7 +72,7 @@ type CfnAPNSVoipSandboxChannel interface {
 	// Specifies whether the APNs VoIP sandbox channel is enabled for the application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,12 +249,12 @@ type CfnAPNSVoipSandboxChannel interface {
 // The jsii proxy struct for CfnAPNSVoipSandboxChannel
 type jsiiProxy_CfnAPNSVoipSandboxChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAPNSVoipSandboxChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIAPNSVoipSandboxChannelRef
 }
 
-func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) ApnsVoipSandboxChannelRef() *APNSVoipSandboxChannelReference {
-	var returns *APNSVoipSandboxChannelReference
+func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) ApnsVoipSandboxChannelRef() *interfacesawspinpoint.APNSVoipSandboxChannelReference {
+	var returns *interfacesawspinpoint.APNSVoipSandboxChannelReference
 	_jsii_.Get(
 		j,
 		"apnsVoipSandboxChannelRef",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -472,6 +474,7 @@ func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::Pinpoint::APNSVoipSandboxChannel`.
 func NewCfnAPNSVoipSandboxChannel(scope constructs.Construct, id *string, props *CfnAPNSVoipSandboxChannelProps) CfnAPNSVoipSandboxChannel {
 	_init_.Initialize()
 
@@ -489,6 +492,7 @@ func NewCfnAPNSVoipSandboxChannel(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::APNSVoipSandboxChannel`.
 func NewCfnAPNSVoipSandboxChannel_Override(c CfnAPNSVoipSandboxChannel, scope constructs.Construct, id *string, props *CfnAPNSVoipSandboxChannelProps) {
 	_init_.Initialize()
 

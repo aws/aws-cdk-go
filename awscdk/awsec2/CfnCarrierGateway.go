@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnCarrierGateway interface {
 	awscdk.CfnResource
-	ICarrierGatewayRef
 	awscdk.IInspectable
+	interfacesawsec2.ICarrierGatewayRef
 	awscdk.ITaggable
 	// The ID of the carrier gateway.
 	AttrCarrierGatewayId() *string
@@ -44,7 +46,7 @@ type CfnCarrierGateway interface {
 	// The state of the carrier gateway.
 	AttrState() *string
 	// A reference to a CarrierGateway resource.
-	CarrierGatewayRef() *CarrierGatewayReference
+	CarrierGatewayRef() *interfacesawsec2.CarrierGatewayReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -54,7 +56,7 @@ type CfnCarrierGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,8 +229,8 @@ type CfnCarrierGateway interface {
 // The jsii proxy struct for CfnCarrierGateway
 type jsiiProxy_CfnCarrierGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICarrierGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ICarrierGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -262,8 +264,8 @@ func (j *jsiiProxy_CfnCarrierGateway) AttrState() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCarrierGateway) CarrierGatewayRef() *CarrierGatewayReference {
-	var returns *CarrierGatewayReference
+func (j *jsiiProxy_CfnCarrierGateway) CarrierGatewayRef() *interfacesawsec2.CarrierGatewayReference {
+	var returns *interfacesawsec2.CarrierGatewayReference
 	_jsii_.Get(
 		j,
 		"carrierGatewayRef",
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnCarrierGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCarrierGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCarrierGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnCarrierGateway) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::CarrierGateway`.
 func NewCfnCarrierGateway(scope constructs.Construct, id *string, props *CfnCarrierGatewayProps) CfnCarrierGateway {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnCarrierGateway(scope constructs.Construct, id *string, props *CfnCarr
 	return &j
 }
 
+// Create a new `AWS::EC2::CarrierGateway`.
 func NewCfnCarrierGateway_Override(c CfnCarrierGateway, scope constructs.Construct, id *string, props *CfnCarrierGatewayProps) {
 	_init_.Initialize()
 
@@ -463,13 +467,13 @@ func (j *jsiiProxy_CfnCarrierGateway)SetVpcId(val *string) {
 }
 
 // Creates a new ICarrierGatewayRef from a carrierGatewayId.
-func CfnCarrierGateway_FromCarrierGatewayId(scope constructs.Construct, id *string, carrierGatewayId *string) ICarrierGatewayRef {
+func CfnCarrierGateway_FromCarrierGatewayId(scope constructs.Construct, id *string, carrierGatewayId *string) interfacesawsec2.ICarrierGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnCarrierGateway_FromCarrierGatewayIdParameters(scope, id, carrierGatewayId); err != nil {
 		panic(err)
 	}
-	var returns ICarrierGatewayRef
+	var returns interfacesawsec2.ICarrierGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnCarrierGateway",

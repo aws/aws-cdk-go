@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Defines monitors that will be associated with an AWS AppConfig environment.
@@ -114,7 +114,7 @@ func Monitor_FromCfnMonitorsProperty(monitorsProperty *CfnEnvironment_MonitorsPr
 //
 // If the alarm role is not specified, a role will
 // be generated.
-func Monitor_FromCloudWatchAlarm(alarm awscloudwatch.IAlarm, alarmRole awsiam.IRoleRef) Monitor {
+func Monitor_FromCloudWatchAlarm(alarm awscloudwatch.IAlarm, alarmRole interfacesawsiam.IRoleRef) Monitor {
 	_init_.Initialize()
 
 	if err := validateMonitor_FromCloudWatchAlarmParameters(alarm); err != nil {

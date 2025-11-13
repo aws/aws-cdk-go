@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsauditmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsauditmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -79,11 +81,11 @@ import (
 //
 type CfnAssessment interface {
 	awscdk.CfnResource
-	IAssessmentRef
 	awscdk.IInspectable
+	interfacesawsauditmanager.IAssessmentRef
 	awscdk.ITaggable
 	// A reference to a Assessment resource.
-	AssessmentRef() *AssessmentReference
+	AssessmentRef() *interfacesawsauditmanager.AssessmentReference
 	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination() interface{}
 	SetAssessmentReportsDestination(val interface{})
@@ -111,7 +113,7 @@ type CfnAssessment interface {
 	// The description of the assessment.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier for the framework.
 	FrameworkId() *string
 	SetFrameworkId(val *string)
@@ -296,13 +298,13 @@ type CfnAssessment interface {
 // The jsii proxy struct for CfnAssessment
 type jsiiProxy_CfnAssessment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssessmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsauditmanagerIAssessmentRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAssessment) AssessmentRef() *AssessmentReference {
-	var returns *AssessmentReference
+func (j *jsiiProxy_CfnAssessment) AssessmentRef() *interfacesawsauditmanager.AssessmentReference {
+	var returns *interfacesawsauditmanager.AssessmentReference
 	_jsii_.Get(
 		j,
 		"assessmentRef",
@@ -421,8 +423,8 @@ func (j *jsiiProxy_CfnAssessment) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssessment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAssessment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -562,6 +564,7 @@ func (j *jsiiProxy_CfnAssessment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AuditManager::Assessment`.
 func NewCfnAssessment(scope constructs.Construct, id *string, props *CfnAssessmentProps) CfnAssessment {
 	_init_.Initialize()
 
@@ -579,6 +582,7 @@ func NewCfnAssessment(scope constructs.Construct, id *string, props *CfnAssessme
 	return &j
 }
 
+// Create a new `AWS::AuditManager::Assessment`.
 func NewCfnAssessment_Override(c CfnAssessment, scope constructs.Construct, id *string, props *CfnAssessmentProps) {
 	_init_.Initialize()
 
@@ -688,13 +692,13 @@ func (j *jsiiProxy_CfnAssessment)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IAssessmentRef from an ARN.
-func CfnAssessment_FromAssessmentArn(scope constructs.Construct, id *string, arn *string) IAssessmentRef {
+func CfnAssessment_FromAssessmentArn(scope constructs.Construct, id *string, arn *string) interfacesawsauditmanager.IAssessmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnAssessment_FromAssessmentArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAssessmentRef
+	var returns interfacesawsauditmanager.IAssessmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
@@ -707,13 +711,13 @@ func CfnAssessment_FromAssessmentArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IAssessmentRef from a assessmentId.
-func CfnAssessment_FromAssessmentId(scope constructs.Construct, id *string, assessmentId *string) IAssessmentRef {
+func CfnAssessment_FromAssessmentId(scope constructs.Construct, id *string, assessmentId *string) interfacesawsauditmanager.IAssessmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnAssessment_FromAssessmentIdParameters(scope, id, assessmentId); err != nil {
 		panic(err)
 	}
-	var returns IAssessmentRef
+	var returns interfacesawsauditmanager.IAssessmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_auditmanager.CfnAssessment",

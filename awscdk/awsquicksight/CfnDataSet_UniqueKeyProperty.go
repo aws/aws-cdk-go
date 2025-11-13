@@ -17,6 +17,6 @@ package awsquicksight
 type CfnDataSet_UniqueKeyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uniquekey.html#cfn-quicksight-dataset-uniquekey-columnnames
 	//
-	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
+	ColumnNames *[]*string `field:"required" json:"columnNames" yaml:"columnNames"`
 }
 

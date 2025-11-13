@@ -1,12 +1,24 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 )
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsapigatewayv2IApiRef = interfacesawsapigatewayv2.IApiRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsapigatewayv2IApiGatewayManagedOverridesRef = interfacesawsapigatewayv2.IApiGatewayManagedOverridesRef
+type Type__interfacesawsapigatewayv2IApiMappingRef = interfacesawsapigatewayv2.IApiMappingRef
+type Type__interfacesawsapigatewayv2IAuthorizerRef = interfacesawsapigatewayv2.IAuthorizerRef
+type Type__interfacesawsapigatewayv2IDeploymentRef = interfacesawsapigatewayv2.IDeploymentRef
+type Type__interfacesawsapigatewayv2IDomainNameRef = interfacesawsapigatewayv2.IDomainNameRef
+type Type__interfacesawsapigatewayv2IIntegrationRef = interfacesawsapigatewayv2.IIntegrationRef
+type Type__interfacesawsapigatewayv2IIntegrationResponseRef = interfacesawsapigatewayv2.IIntegrationResponseRef
+type Type__interfacesawsapigatewayv2IModelRef = interfacesawsapigatewayv2.IModelRef
+type Type__interfacesawsapigatewayv2IRouteRef = interfacesawsapigatewayv2.IRouteRef
+type Type__interfacesawsapigatewayv2IRouteResponseRef = interfacesawsapigatewayv2.IRouteResponseRef
+type Type__interfacesawsapigatewayv2IRoutingRuleRef = interfacesawsapigatewayv2.IRoutingRuleRef
+type Type__interfacesawsapigatewayv2IStageRef = interfacesawsapigatewayv2.IStageRef
+type Type__interfacesawsapigatewayv2IVpcLinkRef = interfacesawsapigatewayv2.IVpcLinkRef
 type Type__awscdkIResource = awscdk.IResource
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

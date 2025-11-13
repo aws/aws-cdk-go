@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsqbusiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsqbusiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnRetriever interface {
 	awscdk.CfnResource
-	IRetrieverRef
 	awscdk.IInspectable
+	interfacesawsqbusiness.IRetrieverRef
 	awscdk.ITaggableV2
 	// The identifier of the Amazon Q Business application using the retriever.
 	ApplicationId() *string
@@ -76,7 +78,7 @@ type CfnRetriever interface {
 	// The name of your retriever.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -95,7 +97,7 @@ type CfnRetriever interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Retriever resource.
-	RetrieverRef() *RetrieverReference
+	RetrieverRef() *interfacesawsqbusiness.RetrieverReference
 	// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -252,8 +254,8 @@ type CfnRetriever interface {
 // The jsii proxy struct for CfnRetriever
 type jsiiProxy_CfnRetriever struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRetrieverRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsqbusinessIRetrieverRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnRetriever) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRetriever) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRetriever) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnRetriever) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRetriever) RetrieverRef() *RetrieverReference {
-	var returns *RetrieverReference
+func (j *jsiiProxy_CfnRetriever) RetrieverRef() *interfacesawsqbusiness.RetrieverReference {
+	var returns *interfacesawsqbusiness.RetrieverReference
 	_jsii_.Get(
 		j,
 		"retrieverRef",
@@ -498,6 +500,7 @@ func (j *jsiiProxy_CfnRetriever) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::QBusiness::Retriever`.
 func NewCfnRetriever(scope constructs.Construct, id *string, props *CfnRetrieverProps) CfnRetriever {
 	_init_.Initialize()
 
@@ -515,6 +518,7 @@ func NewCfnRetriever(scope constructs.Construct, id *string, props *CfnRetriever
 	return &j
 }
 
+// Create a new `AWS::QBusiness::Retriever`.
 func NewCfnRetriever_Override(c CfnRetriever, scope constructs.Construct, id *string, props *CfnRetrieverProps) {
 	_init_.Initialize()
 

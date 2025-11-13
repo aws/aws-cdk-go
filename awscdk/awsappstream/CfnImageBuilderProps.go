@@ -77,16 +77,12 @@ type CfnImageBuilderProps struct {
 	// - stream.graphics-design.xlarge
 	// - stream.graphics-design.2xlarge
 	// - stream.graphics-design.4xlarge
-	// - stream.graphics-desktop.2xlarge
 	// - stream.graphics.g4dn.xlarge
 	// - stream.graphics.g4dn.2xlarge
 	// - stream.graphics.g4dn.4xlarge
 	// - stream.graphics.g4dn.8xlarge
 	// - stream.graphics.g4dn.12xlarge
 	// - stream.graphics.g4dn.16xlarge
-	// - stream.graphics-pro.4xlarge
-	// - stream.graphics-pro.8xlarge
-	// - stream.graphics-pro.16xlarge
 	// - stream.graphics.g5.xlarge
 	// - stream.graphics.g5.2xlarge
 	// - stream.graphics.g5.4xlarge
@@ -121,7 +117,9 @@ type CfnImageBuilderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-accessendpoints
 	//
 	AccessEndpoints interface{} `field:"optional" json:"accessEndpoints" yaml:"accessEndpoints"`
-	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	// The version of the WorkSpaces Applications agent to use for this image builder.
+	//
+	// To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-appstreamagentversion
 	//
 	AppstreamAgentVersion *string `field:"optional" json:"appstreamAgentVersion" yaml:"appstreamAgentVersion"`

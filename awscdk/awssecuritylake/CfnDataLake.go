@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecuritylake/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecuritylake"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnDataLake interface {
 	awscdk.CfnResource
-	IDataLakeRef
 	awscdk.IInspectable
+	interfacesawssecuritylake.IDataLakeRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the data lake.
 	AttrArn() *string
@@ -75,11 +77,11 @@ type CfnDataLake interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataLake resource.
-	DataLakeRef() *DataLakeReference
+	DataLakeRef() *interfacesawssecuritylake.DataLakeReference
 	// Provides encryption details of the Amazon Security Lake object.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time.
 	LifecycleConfiguration() interface{}
 	SetLifecycleConfiguration(val interface{})
@@ -256,8 +258,8 @@ type CfnDataLake interface {
 // The jsii proxy struct for CfnDataLake
 type jsiiProxy_CfnDataLake struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataLakeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecuritylakeIDataLakeRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnDataLake) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataLake) DataLakeRef() *DataLakeReference {
-	var returns *DataLakeReference
+func (j *jsiiProxy_CfnDataLake) DataLakeRef() *interfacesawssecuritylake.DataLakeReference {
+	var returns *interfacesawssecuritylake.DataLakeReference
 	_jsii_.Get(
 		j,
 		"dataLakeRef",
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnDataLake) EncryptionConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataLake) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataLake) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -462,6 +464,7 @@ func (j *jsiiProxy_CfnDataLake) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SecurityLake::DataLake`.
 func NewCfnDataLake(scope constructs.Construct, id *string, props *CfnDataLakeProps) CfnDataLake {
 	_init_.Initialize()
 
@@ -479,6 +482,7 @@ func NewCfnDataLake(scope constructs.Construct, id *string, props *CfnDataLakePr
 	return &j
 }
 
+// Create a new `AWS::SecurityLake::DataLake`.
 func NewCfnDataLake_Override(c CfnDataLake, scope constructs.Construct, id *string, props *CfnDataLakeProps) {
 	_init_.Initialize()
 

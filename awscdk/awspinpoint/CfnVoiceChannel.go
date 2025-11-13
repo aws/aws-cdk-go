@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnVoiceChannel interface {
 	awscdk.CfnResource
-	IVoiceChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IVoiceChannelRef
 	// The unique identifier for the Amazon Pinpoint application that the voice channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -52,7 +54,7 @@ type CfnVoiceChannel interface {
 	// Specifies whether to enable the voice channel for the application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -88,7 +90,7 @@ type CfnVoiceChannel interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VoiceChannel resource.
-	VoiceChannelRef() *VoiceChannelReference
+	VoiceChannelRef() *interfacesawspinpoint.VoiceChannelReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -219,8 +221,8 @@ type CfnVoiceChannel interface {
 // The jsii proxy struct for CfnVoiceChannel
 type jsiiProxy_CfnVoiceChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVoiceChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIVoiceChannelRef
 }
 
 func (j *jsiiProxy_CfnVoiceChannel) ApplicationId() *string {
@@ -293,8 +295,8 @@ func (j *jsiiProxy_CfnVoiceChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVoiceChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVoiceChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnVoiceChannel) UpdatedProperties() *map[string]interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnVoiceChannel) VoiceChannelRef() *VoiceChannelReference {
-	var returns *VoiceChannelReference
+func (j *jsiiProxy_CfnVoiceChannel) VoiceChannelRef() *interfacesawspinpoint.VoiceChannelReference {
+	var returns *interfacesawspinpoint.VoiceChannelReference
 	_jsii_.Get(
 		j,
 		"voiceChannelRef",
@@ -374,6 +376,7 @@ func (j *jsiiProxy_CfnVoiceChannel) VoiceChannelRef() *VoiceChannelReference {
 }
 
 
+// Create a new `AWS::Pinpoint::VoiceChannel`.
 func NewCfnVoiceChannel(scope constructs.Construct, id *string, props *CfnVoiceChannelProps) CfnVoiceChannel {
 	_init_.Initialize()
 
@@ -391,6 +394,7 @@ func NewCfnVoiceChannel(scope constructs.Construct, id *string, props *CfnVoiceC
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::VoiceChannel`.
 func NewCfnVoiceChannel_Override(c CfnVoiceChannel, scope constructs.Construct, id *string, props *CfnVoiceChannelProps) {
 	_init_.Initialize()
 

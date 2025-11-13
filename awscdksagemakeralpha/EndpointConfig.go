@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdksagemakeralpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -53,7 +54,7 @@ type EndpointConfig interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -72,6 +73,9 @@ type EndpointConfig interface {
 	// Add production variant to the endpoint configuration.
 	// Experimental.
 	AddInstanceProductionVariant(props *InstanceProductionVariantProps)
+	// Add serverless production variant to the endpoint configuration.
+	// Experimental.
+	AddServerlessProductionVariant(props *ServerlessProductionVariantProps)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -131,8 +135,8 @@ func (j *jsiiProxy_EndpointConfig) EndpointConfigName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_EndpointConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_EndpointConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -335,6 +339,17 @@ func (e *jsiiProxy_EndpointConfig) AddInstanceProductionVariant(props *InstanceP
 	_jsii_.InvokeVoid(
 		e,
 		"addInstanceProductionVariant",
+		[]interface{}{props},
+	)
+}
+
+func (e *jsiiProxy_EndpointConfig) AddServerlessProductionVariant(props *ServerlessProductionVariantProps) {
+	if err := e.validateAddServerlessProductionVariantParameters(props); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"addServerlessProductionVariant",
 		[]interface{}{props},
 	)
 }

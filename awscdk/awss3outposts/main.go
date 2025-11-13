@@ -7,18 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3outposts.AccessPointReference",
-		reflect.TypeOf((*AccessPointReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3outposts.BucketPolicyReference",
-		reflect.TypeOf((*BucketPolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3outposts.BucketReference",
-		reflect.TypeOf((*BucketReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_s3outposts.CfnAccessPoint",
 		reflect.TypeOf((*CfnAccessPoint)(nil)).Elem(),
@@ -64,8 +52,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccessPoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessPointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3outpostsIAccessPointRef)
 			return &j
 		},
 	)
@@ -123,8 +111,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnBucket{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBucketRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3outpostsIBucketRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -195,8 +183,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnBucketPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBucketPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3outpostsIBucketPolicyRef)
 			return &j
 		},
 	)
@@ -260,8 +248,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEndpoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEndpointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3outpostsIEndpointRef)
 			return &j
 		},
 	)
@@ -276,69 +264,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3outposts.CfnEndpointProps",
 		reflect.TypeOf((*CfnEndpointProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3outposts.EndpointReference",
-		reflect.TypeOf((*EndpointReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3outposts.IAccessPointRef",
-		reflect.TypeOf((*IAccessPointRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessPointRef", GoGetter: "AccessPointRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccessPointRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3outposts.IBucketPolicyRef",
-		reflect.TypeOf((*IBucketPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "bucketPolicyRef", GoGetter: "BucketPolicyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IBucketPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3outposts.IBucketRef",
-		reflect.TypeOf((*IBucketRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "bucketRef", GoGetter: "BucketRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IBucketRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3outposts.IEndpointRef",
-		reflect.TypeOf((*IEndpointRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "endpointRef", GoGetter: "EndpointRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEndpointRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

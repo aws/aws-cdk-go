@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnRealtimeLogConfig interface {
 	awscdk.CfnResource
-	IRealtimeLogConfigRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IRealtimeLogConfigRef
 	// The Amazon Resource Name (ARN) of the real-time log configuration.
 	//
 	// For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
@@ -55,7 +57,7 @@ type CfnRealtimeLogConfig interface {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints() interface{}
 	SetEndPoints(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of fields that are included in each real-time log record.
 	Fields() *[]*string
 	SetFields(val *[]*string)
@@ -75,7 +77,7 @@ type CfnRealtimeLogConfig interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a RealtimeLogConfig resource.
-	RealtimeLogConfigRef() *RealtimeLogConfigReference
+	RealtimeLogConfigRef() *interfacesawscloudfront.RealtimeLogConfigReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -231,8 +233,8 @@ type CfnRealtimeLogConfig interface {
 // The jsii proxy struct for CfnRealtimeLogConfig
 type jsiiProxy_CfnRealtimeLogConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRealtimeLogConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIRealtimeLogConfigRef
 }
 
 func (j *jsiiProxy_CfnRealtimeLogConfig) AttrArn() *string {
@@ -295,8 +297,8 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) EndPoints() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRealtimeLogConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRealtimeLogConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRealtimeLogConfig) RealtimeLogConfigRef() *RealtimeLogConfigReference {
-	var returns *RealtimeLogConfigReference
+func (j *jsiiProxy_CfnRealtimeLogConfig) RealtimeLogConfigRef() *interfacesawscloudfront.RealtimeLogConfigReference {
+	var returns *interfacesawscloudfront.RealtimeLogConfigReference
 	_jsii_.Get(
 		j,
 		"realtimeLogConfigRef",
@@ -406,6 +408,7 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::CloudFront::RealtimeLogConfig`.
 func NewCfnRealtimeLogConfig(scope constructs.Construct, id *string, props *CfnRealtimeLogConfigProps) CfnRealtimeLogConfig {
 	_init_.Initialize()
 
@@ -423,6 +426,7 @@ func NewCfnRealtimeLogConfig(scope constructs.Construct, id *string, props *CfnR
 	return &j
 }
 
+// Create a new `AWS::CloudFront::RealtimeLogConfig`.
 func NewCfnRealtimeLogConfig_Override(c CfnRealtimeLogConfig, scope constructs.Construct, id *string, props *CfnRealtimeLogConfigProps) {
 	_init_.Initialize()
 

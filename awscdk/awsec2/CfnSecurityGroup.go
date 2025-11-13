@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -74,8 +76,8 @@ import (
 //
 type CfnSecurityGroup interface {
 	awscdk.CfnResource
-	ISecurityGroupRef
 	awscdk.IInspectable
+	interfacesawsec2.ISecurityGroupRef
 	awscdk.ITaggable
 	// The ID of the security group, such as `sg-94b3a1f6` .
 	AttrGroupId() *string
@@ -92,7 +94,7 @@ type CfnSecurityGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A description for the security group.
 	GroupDescription() *string
 	SetGroupDescription(val *string)
@@ -125,7 +127,7 @@ type CfnSecurityGroup interface {
 	SecurityGroupIngress() interface{}
 	SetSecurityGroupIngress(val interface{})
 	// A reference to a SecurityGroup resource.
-	SecurityGroupRef() *SecurityGroupReference
+	SecurityGroupRef() *interfacesawsec2.SecurityGroupReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -281,8 +283,8 @@ type CfnSecurityGroup interface {
 // The jsii proxy struct for CfnSecurityGroup
 type jsiiProxy_CfnSecurityGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISecurityGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnSecurityGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -436,8 +438,8 @@ func (j *jsiiProxy_CfnSecurityGroup) SecurityGroupIngress() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroup) SecurityGroupRef() *SecurityGroupReference {
-	var returns *SecurityGroupReference
+func (j *jsiiProxy_CfnSecurityGroup) SecurityGroupRef() *interfacesawsec2.SecurityGroupReference {
+	var returns *interfacesawsec2.SecurityGroupReference
 	_jsii_.Get(
 		j,
 		"securityGroupRef",
@@ -507,6 +509,7 @@ func (j *jsiiProxy_CfnSecurityGroup) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::SecurityGroup`.
 func NewCfnSecurityGroup(scope constructs.Construct, id *string, props *CfnSecurityGroupProps) CfnSecurityGroup {
 	_init_.Initialize()
 
@@ -524,6 +527,7 @@ func NewCfnSecurityGroup(scope constructs.Construct, id *string, props *CfnSecur
 	return &j
 }
 
+// Create a new `AWS::EC2::SecurityGroup`.
 func NewCfnSecurityGroup_Override(c CfnSecurityGroup, scope constructs.Construct, id *string, props *CfnSecurityGroupProps) {
 	_init_.Initialize()
 
@@ -595,13 +599,13 @@ func (j *jsiiProxy_CfnSecurityGroup)SetVpcId(val *string) {
 }
 
 // Creates a new ISecurityGroupRef from a securityGroupId.
-func CfnSecurityGroup_FromSecurityGroupId(scope constructs.Construct, id *string, securityGroupId *string) ISecurityGroupRef {
+func CfnSecurityGroup_FromSecurityGroupId(scope constructs.Construct, id *string, securityGroupId *string) interfacesawsec2.ISecurityGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnSecurityGroup_FromSecurityGroupIdParameters(scope, id, securityGroupId); err != nil {
 		panic(err)
 	}
-	var returns ISecurityGroupRef
+	var returns interfacesawsec2.ISecurityGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnSecurityGroup",

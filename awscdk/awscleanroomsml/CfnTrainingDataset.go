@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanroomsml/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanroomsml"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnTrainingDataset interface {
 	awscdk.CfnResource
-	ITrainingDatasetRef
 	awscdk.IInspectable
+	interfacesawscleanroomsml.ITrainingDatasetRef
 	awscdk.ITaggableV2
 	// The status of the training dataset.
 	AttrStatus() *string
@@ -81,7 +83,7 @@ type CfnTrainingDataset interface {
 	// The description of the training dataset.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -116,7 +118,7 @@ type CfnTrainingDataset interface {
 	TrainingData() interface{}
 	SetTrainingData(val interface{})
 	// A reference to a TrainingDataset resource.
-	TrainingDatasetRef() *TrainingDatasetReference
+	TrainingDatasetRef() *interfacesawscleanroomsml.TrainingDatasetReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,8 +262,8 @@ type CfnTrainingDataset interface {
 // The jsii proxy struct for CfnTrainingDataset
 type jsiiProxy_CfnTrainingDataset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrainingDatasetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsmlITrainingDatasetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnTrainingDataset) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrainingDataset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrainingDataset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -435,8 +437,8 @@ func (j *jsiiProxy_CfnTrainingDataset) TrainingData() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrainingDataset) TrainingDatasetRef() *TrainingDatasetReference {
-	var returns *TrainingDatasetReference
+func (j *jsiiProxy_CfnTrainingDataset) TrainingDatasetRef() *interfacesawscleanroomsml.TrainingDatasetReference {
+	var returns *interfacesawscleanroomsml.TrainingDatasetReference
 	_jsii_.Get(
 		j,
 		"trainingDatasetRef",
@@ -466,6 +468,7 @@ func (j *jsiiProxy_CfnTrainingDataset) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::CleanRoomsML::TrainingDataset`.
 func NewCfnTrainingDataset(scope constructs.Construct, id *string, props *CfnTrainingDatasetProps) CfnTrainingDataset {
 	_init_.Initialize()
 
@@ -483,6 +486,7 @@ func NewCfnTrainingDataset(scope constructs.Construct, id *string, props *CfnTra
 	return &j
 }
 
+// Create a new `AWS::CleanRoomsML::TrainingDataset`.
 func NewCfnTrainingDataset_Override(c CfnTrainingDataset, scope constructs.Construct, id *string, props *CfnTrainingDatasetProps) {
 	_init_.Initialize()
 

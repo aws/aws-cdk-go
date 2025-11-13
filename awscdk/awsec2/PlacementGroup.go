@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,7 +43,7 @@ type PlacementGroup interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// The number of partitions.
@@ -59,7 +61,7 @@ type PlacementGroup interface {
 	// The name of this placement group.
 	PlacementGroupName() *string
 	// A reference to a PlacementGroup resource.
-	PlacementGroupRef() *PlacementGroupReference
+	PlacementGroupRef() *interfacesawsec2.PlacementGroupReference
 	// Places instances on distinct hardware.
 	//
 	// Spread placement groups are recommended for applications
@@ -112,8 +114,8 @@ type jsiiProxy_PlacementGroup struct {
 	jsiiProxy_IPlacementGroup
 }
 
-func (j *jsiiProxy_PlacementGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_PlacementGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -162,8 +164,8 @@ func (j *jsiiProxy_PlacementGroup) PlacementGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_PlacementGroup) PlacementGroupRef() *PlacementGroupReference {
-	var returns *PlacementGroupReference
+func (j *jsiiProxy_PlacementGroup) PlacementGroupRef() *interfacesawsec2.PlacementGroupReference {
+	var returns *interfacesawsec2.PlacementGroupReference
 	_jsii_.Get(
 		j,
 		"placementGroupRef",

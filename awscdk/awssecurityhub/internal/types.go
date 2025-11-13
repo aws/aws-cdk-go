@@ -1,11 +1,23 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawssecurityhubIAggregatorV2Ref = interfacesawssecurityhub.IAggregatorV2Ref
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawssecurityhubIAutomationRuleRef = interfacesawssecurityhub.IAutomationRuleRef
+type Type__interfacesawssecurityhubIAutomationRuleV2Ref = interfacesawssecurityhub.IAutomationRuleV2Ref
+type Type__interfacesawssecurityhubIConfigurationPolicyRef = interfacesawssecurityhub.IConfigurationPolicyRef
+type Type__interfacesawssecurityhubIDelegatedAdminRef = interfacesawssecurityhub.IDelegatedAdminRef
+type Type__interfacesawssecurityhubIFindingAggregatorRef = interfacesawssecurityhub.IFindingAggregatorRef
+type Type__interfacesawssecurityhubIHubRef = interfacesawssecurityhub.IHubRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawssecurityhubIHubV2Ref = interfacesawssecurityhub.IHubV2Ref
+type Type__interfacesawssecurityhubIInsightRef = interfacesawssecurityhub.IInsightRef
+type Type__interfacesawssecurityhubIOrganizationConfigurationRef = interfacesawssecurityhub.IOrganizationConfigurationRef
+type Type__interfacesawssecurityhubIPolicyAssociationRef = interfacesawssecurityhub.IPolicyAssociationRef
+type Type__interfacesawssecurityhubIProductSubscriptionRef = interfacesawssecurityhub.IProductSubscriptionRef
+type Type__interfacesawssecurityhubISecurityControlRef = interfacesawssecurityhub.ISecurityControlRef
+type Type__interfacesawssecurityhubIStandardRef = interfacesawssecurityhub.IStandardRef

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnSchemaVersion interface {
 	awscdk.CfnResource
-	ISchemaVersionRef
 	awscdk.IInspectable
+	interfacesawsglue.ISchemaVersionRef
 	// Represents the version ID associated with the schema version.
 	AttrVersionId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -42,7 +44,7 @@ type CfnSchemaVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnSchemaVersion interface {
 	SchemaDefinition() *string
 	SetSchemaDefinition(val *string)
 	// A reference to a SchemaVersion resource.
-	SchemaVersionRef() *SchemaVersionReference
+	SchemaVersionRef() *interfacesawsglue.SchemaVersionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -215,8 +217,8 @@ type CfnSchemaVersion interface {
 // The jsii proxy struct for CfnSchemaVersion
 type jsiiProxy_CfnSchemaVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISchemaVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueISchemaVersionRef
 }
 
 func (j *jsiiProxy_CfnSchemaVersion) AttrVersionId() *string {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnSchemaVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchemaVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSchemaVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnSchemaVersion) SchemaDefinition() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchemaVersion) SchemaVersionRef() *SchemaVersionReference {
-	var returns *SchemaVersionReference
+func (j *jsiiProxy_CfnSchemaVersion) SchemaVersionRef() *interfacesawsglue.SchemaVersionReference {
+	var returns *interfacesawsglue.SchemaVersionReference
 	_jsii_.Get(
 		j,
 		"schemaVersionRef",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnSchemaVersion) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Glue::SchemaVersion`.
 func NewCfnSchemaVersion(scope constructs.Construct, id *string, props *CfnSchemaVersionProps) CfnSchemaVersion {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnSchemaVersion(scope constructs.Construct, id *string, props *CfnSchem
 	return &j
 }
 
+// Create a new `AWS::Glue::SchemaVersion`.
 func NewCfnSchemaVersion_Override(c CfnSchemaVersion, scope constructs.Construct, id *string, props *CfnSchemaVersionProps) {
 	_init_.Initialize()
 

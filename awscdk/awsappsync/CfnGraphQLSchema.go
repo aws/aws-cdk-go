@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnGraphQLSchema interface {
 	awscdk.CfnResource
-	IGraphQLSchemaRef
 	awscdk.IInspectable
+	interfacesawsappsync.IGraphQLSchemaRef
 	// The AWS AppSync GraphQL API identifier to which you want to apply this schema.
 	ApiId() *string
 	SetApiId(val *string)
@@ -56,9 +58,9 @@ type CfnGraphQLSchema interface {
 	// The location of a GraphQL schema file in an Amazon S3 bucket.
 	DefinitionS3Location() *string
 	SetDefinitionS3Location(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a GraphQLSchema resource.
-	GraphQlSchemaRef() *GraphQLSchemaReference
+	GraphQlSchemaRef() *interfacesawsappsync.GraphQLSchemaReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnGraphQLSchema interface {
 // The jsii proxy struct for CfnGraphQLSchema
 type jsiiProxy_CfnGraphQLSchema struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGraphQLSchemaRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIGraphQLSchemaRef
 }
 
 func (j *jsiiProxy_CfnGraphQLSchema) ApiId() *string {
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnGraphQLSchema) DefinitionS3Location() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGraphQLSchema) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGraphQLSchema) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnGraphQLSchema) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGraphQLSchema) GraphQlSchemaRef() *GraphQLSchemaReference {
-	var returns *GraphQLSchemaReference
+func (j *jsiiProxy_CfnGraphQLSchema) GraphQlSchemaRef() *interfacesawsappsync.GraphQLSchemaReference {
+	var returns *interfacesawsappsync.GraphQLSchemaReference
 	_jsii_.Get(
 		j,
 		"graphQlSchemaRef",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnGraphQLSchema) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::AppSync::GraphQLSchema`.
 func NewCfnGraphQLSchema(scope constructs.Construct, id *string, props *CfnGraphQLSchemaProps) CfnGraphQLSchema {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnGraphQLSchema(scope constructs.Construct, id *string, props *CfnGraph
 	return &j
 }
 
+// Create a new `AWS::AppSync::GraphQLSchema`.
 func NewCfnGraphQLSchema_Override(c CfnGraphQLSchema, scope constructs.Construct, id *string, props *CfnGraphQLSchemaProps) {
 	_init_.Initialize()
 

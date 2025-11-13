@@ -4,6 +4,9 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
+	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +33,8 @@ import (
 //
 type CfnHookDefaultVersion interface {
 	CfnResource
-	IHookDefaultVersionRef
 	IInspectable
+	interfacesawscloudformation.IHookDefaultVersionRef
 	// The Amazon Resource Number (ARN) of the activated Hook in this account and Region.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -43,9 +46,9 @@ type CfnHookDefaultVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a HookDefaultVersion resource.
-	HookDefaultVersionRef() *HookDefaultVersionReference
+	HookDefaultVersionRef() *interfacesawscloudformation.HookDefaultVersionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -219,8 +222,8 @@ type CfnHookDefaultVersion interface {
 // The jsii proxy struct for CfnHookDefaultVersion
 type jsiiProxy_CfnHookDefaultVersion struct {
 	jsiiProxy_CfnResource
-	jsiiProxy_IHookDefaultVersionRef
 	jsiiProxy_IInspectable
+	internal.Type__interfacesawscloudformationIHookDefaultVersionRef
 }
 
 func (j *jsiiProxy_CfnHookDefaultVersion) AttrArn() *string {
@@ -273,8 +276,8 @@ func (j *jsiiProxy_CfnHookDefaultVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHookDefaultVersion) Env() *ResourceEnvironment {
-	var returns *ResourceEnvironment
+func (j *jsiiProxy_CfnHookDefaultVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -283,8 +286,8 @@ func (j *jsiiProxy_CfnHookDefaultVersion) Env() *ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHookDefaultVersion) HookDefaultVersionRef() *HookDefaultVersionReference {
-	var returns *HookDefaultVersionReference
+func (j *jsiiProxy_CfnHookDefaultVersion) HookDefaultVersionRef() *interfacesawscloudformation.HookDefaultVersionReference {
+	var returns *interfacesawscloudformation.HookDefaultVersionReference
 	_jsii_.Get(
 		j,
 		"hookDefaultVersionRef",
@@ -384,6 +387,7 @@ func (j *jsiiProxy_CfnHookDefaultVersion) VersionId() *string {
 }
 
 
+// Create a new `AWS::CloudFormation::HookDefaultVersion`.
 func NewCfnHookDefaultVersion(scope constructs.Construct, id *string, props *CfnHookDefaultVersionProps) CfnHookDefaultVersion {
 	_init_.Initialize()
 
@@ -401,6 +405,7 @@ func NewCfnHookDefaultVersion(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::HookDefaultVersion`.
 func NewCfnHookDefaultVersion_Override(c CfnHookDefaultVersion, scope constructs.Construct, id *string, props *CfnHookDefaultVersionProps) {
 	_init_.Initialize()
 

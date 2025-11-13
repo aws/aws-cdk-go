@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfrauddetector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfrauddetector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnOutcome interface {
 	awscdk.CfnResource
-	IOutcomeRef
 	awscdk.IInspectable
+	interfacesawsfrauddetector.IOutcomeRef
 	awscdk.ITaggable
 	// The ARN of the outcome.
 	AttrArn() *string
@@ -54,7 +56,7 @@ type CfnOutcome interface {
 	// The outcome description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,7 +73,7 @@ type CfnOutcome interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Outcome resource.
-	OutcomeRef() *OutcomeReference
+	OutcomeRef() *interfacesawsfrauddetector.OutcomeReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -229,8 +231,8 @@ type CfnOutcome interface {
 // The jsii proxy struct for CfnOutcome
 type jsiiProxy_CfnOutcome struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOutcomeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfrauddetectorIOutcomeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnOutcome) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOutcome) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOutcome) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnOutcome) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOutcome) OutcomeRef() *OutcomeReference {
-	var returns *OutcomeReference
+func (j *jsiiProxy_CfnOutcome) OutcomeRef() *interfacesawsfrauddetector.OutcomeReference {
+	var returns *interfacesawsfrauddetector.OutcomeReference
 	_jsii_.Get(
 		j,
 		"outcomeRef",
@@ -425,6 +427,7 @@ func (j *jsiiProxy_CfnOutcome) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::FraudDetector::Outcome`.
 func NewCfnOutcome(scope constructs.Construct, id *string, props *CfnOutcomeProps) CfnOutcome {
 	_init_.Initialize()
 
@@ -442,6 +445,7 @@ func NewCfnOutcome(scope constructs.Construct, id *string, props *CfnOutcomeProp
 	return &j
 }
 
+// Create a new `AWS::FraudDetector::Outcome`.
 func NewCfnOutcome_Override(c CfnOutcome, scope constructs.Construct, id *string, props *CfnOutcomeProps) {
 	_init_.Initialize()
 

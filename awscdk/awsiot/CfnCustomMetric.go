@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnCustomMetric interface {
 	awscdk.CfnResource
-	ICustomMetricRef
 	awscdk.IInspectable
+	interfacesawsiot.ICustomMetricRef
 	awscdk.ITaggable
 	// The Amazon Resource Number (ARN) of the custom metric;
 	//
@@ -53,11 +55,11 @@ type CfnCustomMetric interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomMetric resource.
-	CustomMetricRef() *CustomMetricReference
+	CustomMetricRef() *interfacesawsiot.CustomMetricReference
 	// The friendly name in the console for the custom metric.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnCustomMetric interface {
 // The jsii proxy struct for CfnCustomMetric
 type jsiiProxy_CfnCustomMetric struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomMetricRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotICustomMetricRef
 	internal.Type__awscdkITaggable
 }
 
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnCustomMetric) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomMetric) CustomMetricRef() *CustomMetricReference {
-	var returns *CustomMetricReference
+func (j *jsiiProxy_CfnCustomMetric) CustomMetricRef() *interfacesawsiot.CustomMetricReference {
+	var returns *interfacesawsiot.CustomMetricReference
 	_jsii_.Get(
 		j,
 		"customMetricRef",
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnCustomMetric) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomMetric) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomMetric) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,6 +423,7 @@ func (j *jsiiProxy_CfnCustomMetric) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::IoT::CustomMetric`.
 func NewCfnCustomMetric(scope constructs.Construct, id *string, props *CfnCustomMetricProps) CfnCustomMetric {
 	_init_.Initialize()
 
@@ -438,6 +441,7 @@ func NewCfnCustomMetric(scope constructs.Construct, id *string, props *CfnCustom
 	return &j
 }
 
+// Create a new `AWS::IoT::CustomMetric`.
 func NewCfnCustomMetric_Override(c CfnCustomMetric, scope constructs.Construct, id *string, props *CfnCustomMetricProps) {
 	_init_.Initialize()
 
@@ -487,13 +491,13 @@ func (j *jsiiProxy_CfnCustomMetric)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ICustomMetricRef from a metricName.
-func CfnCustomMetric_FromMetricName(scope constructs.Construct, id *string, metricName *string) ICustomMetricRef {
+func CfnCustomMetric_FromMetricName(scope constructs.Construct, id *string, metricName *string) interfacesawsiot.ICustomMetricRef {
 	_init_.Initialize()
 
 	if err := validateCfnCustomMetric_FromMetricNameParameters(scope, id, metricName); err != nil {
 		panic(err)
 	}
-	var returns ICustomMetricRef
+	var returns interfacesawsiot.ICustomMetricRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnCustomMetric",

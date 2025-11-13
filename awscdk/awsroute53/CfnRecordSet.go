@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -69,8 +71,8 @@ import (
 //
 type CfnRecordSet interface {
 	awscdk.CfnResource
-	IRecordSetRef
 	awscdk.IInspectable
+	interfacesawsroute53.IRecordSetRef
 	// *Alias resource record sets only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	AliasTarget() interface{}
 	SetAliasTarget(val interface{})
@@ -91,7 +93,7 @@ type CfnRecordSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// *Failover resource record sets only:* To configure failover, you add the `Failover` element to two resource record sets.
 	Failover() *string
 	SetFailover(val *string)
@@ -129,7 +131,7 @@ type CfnRecordSet interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a RecordSet resource.
-	RecordSetRef() *RecordSetReference
+	RecordSetRef() *interfacesawsroute53.RecordSetReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -302,8 +304,8 @@ type CfnRecordSet interface {
 // The jsii proxy struct for CfnRecordSet
 type jsiiProxy_CfnRecordSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRecordSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53IRecordSetRef
 }
 
 func (j *jsiiProxy_CfnRecordSet) AliasTarget() interface{} {
@@ -386,8 +388,8 @@ func (j *jsiiProxy_CfnRecordSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRecordSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -496,8 +498,8 @@ func (j *jsiiProxy_CfnRecordSet) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordSet) RecordSetRef() *RecordSetReference {
-	var returns *RecordSetReference
+func (j *jsiiProxy_CfnRecordSet) RecordSetRef() *interfacesawsroute53.RecordSetReference {
+	var returns *interfacesawsroute53.RecordSetReference
 	_jsii_.Get(
 		j,
 		"recordSetRef",
@@ -607,6 +609,7 @@ func (j *jsiiProxy_CfnRecordSet) Weight() *float64 {
 }
 
 
+// Create a new `AWS::Route53::RecordSet`.
 func NewCfnRecordSet(scope constructs.Construct, id *string, props *CfnRecordSetProps) CfnRecordSet {
 	_init_.Initialize()
 
@@ -624,6 +627,7 @@ func NewCfnRecordSet(scope constructs.Construct, id *string, props *CfnRecordSet
 	return &j
 }
 
+// Create a new `AWS::Route53::RecordSet`.
 func NewCfnRecordSet_Override(c CfnRecordSet, scope constructs.Construct, id *string, props *CfnRecordSetProps) {
 	_init_.Initialize()
 

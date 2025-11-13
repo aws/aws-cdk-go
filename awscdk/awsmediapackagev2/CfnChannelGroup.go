@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediapackagev2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackagev2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnChannelGroup interface {
 	awscdk.CfnResource
-	IChannelGroupRef
 	awscdk.IInspectable
+	interfacesawsmediapackagev2.IChannelGroupRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the channel group.
 	AttrArn() *string
@@ -55,7 +57,7 @@ type CfnChannelGroup interface {
 	ChannelGroupName() *string
 	SetChannelGroupName(val *string)
 	// A reference to a ChannelGroup resource.
-	ChannelGroupRef() *ChannelGroupReference
+	ChannelGroupRef() *interfacesawsmediapackagev2.ChannelGroupReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -63,7 +65,7 @@ type CfnChannelGroup interface {
 	// The configuration for a MediaPackage V2 channel group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnChannelGroup interface {
 // The jsii proxy struct for CfnChannelGroup
 type jsiiProxy_CfnChannelGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChannelGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediapackagev2IChannelGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnChannelGroup) ChannelGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelGroup) ChannelGroupRef() *ChannelGroupReference {
-	var returns *ChannelGroupReference
+func (j *jsiiProxy_CfnChannelGroup) ChannelGroupRef() *interfacesawsmediapackagev2.ChannelGroupReference {
+	var returns *interfacesawsmediapackagev2.ChannelGroupReference
 	_jsii_.Get(
 		j,
 		"channelGroupRef",
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnChannelGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChannelGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -437,6 +439,7 @@ func (j *jsiiProxy_CfnChannelGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::MediaPackageV2::ChannelGroup`.
 func NewCfnChannelGroup(scope constructs.Construct, id *string, props *CfnChannelGroupProps) CfnChannelGroup {
 	_init_.Initialize()
 
@@ -454,6 +457,7 @@ func NewCfnChannelGroup(scope constructs.Construct, id *string, props *CfnChanne
 	return &j
 }
 
+// Create a new `AWS::MediaPackageV2::ChannelGroup`.
 func NewCfnChannelGroup_Override(c CfnChannelGroup, scope constructs.Construct, id *string, props *CfnChannelGroupProps) {
 	_init_.Initialize()
 

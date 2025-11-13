@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalyticsv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisanalyticsv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,13 +65,13 @@ import (
 //
 type CfnApplicationReferenceDataSource interface {
 	awscdk.CfnResource
-	IApplicationReferenceDataSourceRef
 	awscdk.IInspectable
+	interfacesawskinesisanalyticsv2.IApplicationReferenceDataSourceRef
 	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// A reference to a ApplicationReferenceDataSource resource.
-	ApplicationReferenceDataSourceRef() *ApplicationReferenceDataSourceReference
+	ApplicationReferenceDataSourceRef() *interfacesawskinesisanalyticsv2.ApplicationReferenceDataSourceReference
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -80,7 +82,7 @@ type CfnApplicationReferenceDataSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -248,8 +250,8 @@ type CfnApplicationReferenceDataSource interface {
 // The jsii proxy struct for CfnApplicationReferenceDataSource
 type jsiiProxy_CfnApplicationReferenceDataSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationReferenceDataSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisanalyticsv2IApplicationReferenceDataSourceRef
 }
 
 func (j *jsiiProxy_CfnApplicationReferenceDataSource) ApplicationName() *string {
@@ -262,8 +264,8 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSource) ApplicationName() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationReferenceDataSource) ApplicationReferenceDataSourceRef() *ApplicationReferenceDataSourceReference {
-	var returns *ApplicationReferenceDataSourceReference
+func (j *jsiiProxy_CfnApplicationReferenceDataSource) ApplicationReferenceDataSourceRef() *interfacesawskinesisanalyticsv2.ApplicationReferenceDataSourceReference {
+	var returns *interfacesawskinesisanalyticsv2.ApplicationReferenceDataSourceReference
 	_jsii_.Get(
 		j,
 		"applicationReferenceDataSourceRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSource) CreationStack() *[]*string
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationReferenceDataSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationReferenceDataSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -403,6 +405,7 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSource) UpdatedProperties() *map[s
 }
 
 
+// Create a new `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
 func NewCfnApplicationReferenceDataSource(scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceProps) CfnApplicationReferenceDataSource {
 	_init_.Initialize()
 
@@ -420,6 +423,7 @@ func NewCfnApplicationReferenceDataSource(scope constructs.Construct, id *string
 	return &j
 }
 
+// Create a new `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
 func NewCfnApplicationReferenceDataSource_Override(c CfnApplicationReferenceDataSource, scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceProps) {
 	_init_.Initialize()
 

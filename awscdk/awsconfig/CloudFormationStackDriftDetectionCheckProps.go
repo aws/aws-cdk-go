@@ -1,7 +1,7 @@
 package awsconfig
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Construction properties for a CloudFormationStackDriftDetectionCheck.
@@ -54,6 +54,6 @@ type CloudFormationStackDriftDetectionCheckProps struct {
 	// refer to https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html.
 	// Default: - A role will be created.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role interfacesawsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 }
 

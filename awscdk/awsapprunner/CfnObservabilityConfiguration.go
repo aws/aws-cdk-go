@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapprunner/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapprunner"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnObservabilityConfiguration interface {
 	awscdk.CfnResource
-	IObservabilityConfigurationRef
 	awscdk.IInspectable
+	interfacesawsapprunner.IObservabilityConfigurationRef
 	awscdk.ITaggable
 	// It's set to `true` for the configuration with the highest `Revision` among all configurations that share the same `ObservabilityConfigurationName` .
 	//
@@ -63,7 +65,7 @@ type CfnObservabilityConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,7 +82,7 @@ type CfnObservabilityConfiguration interface {
 	ObservabilityConfigurationName() *string
 	SetObservabilityConfigurationName(val *string)
 	// A reference to a ObservabilityConfiguration resource.
-	ObservabilityConfigurationRef() *ObservabilityConfigurationReference
+	ObservabilityConfigurationRef() *interfacesawsapprunner.ObservabilityConfigurationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -241,8 +243,8 @@ type CfnObservabilityConfiguration interface {
 // The jsii proxy struct for CfnObservabilityConfiguration
 type jsiiProxy_CfnObservabilityConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IObservabilityConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapprunnerIObservabilityConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnObservabilityConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnObservabilityConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnObservabilityConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnObservabilityConfiguration) ObservabilityConfigurationName
 	return returns
 }
 
-func (j *jsiiProxy_CfnObservabilityConfiguration) ObservabilityConfigurationRef() *ObservabilityConfigurationReference {
-	var returns *ObservabilityConfigurationReference
+func (j *jsiiProxy_CfnObservabilityConfiguration) ObservabilityConfigurationRef() *interfacesawsapprunner.ObservabilityConfigurationReference {
+	var returns *interfacesawsapprunner.ObservabilityConfigurationReference
 	_jsii_.Get(
 		j,
 		"observabilityConfigurationRef",
@@ -437,6 +439,7 @@ func (j *jsiiProxy_CfnObservabilityConfiguration) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::AppRunner::ObservabilityConfiguration`.
 func NewCfnObservabilityConfiguration(scope constructs.Construct, id *string, props *CfnObservabilityConfigurationProps) CfnObservabilityConfiguration {
 	_init_.Initialize()
 
@@ -454,6 +457,7 @@ func NewCfnObservabilityConfiguration(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::AppRunner::ObservabilityConfiguration`.
 func NewCfnObservabilityConfiguration_Override(c CfnObservabilityConfiguration, scope constructs.Construct, id *string, props *CfnObservabilityConfigurationProps) {
 	_init_.Initialize()
 

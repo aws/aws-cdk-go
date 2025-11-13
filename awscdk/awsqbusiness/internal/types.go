@@ -1,10 +1,16 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsqbusiness"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsqbusinessIApplicationRef = interfacesawsqbusiness.IApplicationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsqbusinessIDataAccessorRef = interfacesawsqbusiness.IDataAccessorRef
+type Type__interfacesawsqbusinessIDataSourceRef = interfacesawsqbusiness.IDataSourceRef
+type Type__interfacesawsqbusinessIIndexRef = interfacesawsqbusiness.IIndexRef
+type Type__interfacesawsqbusinessIPermissionRef = interfacesawsqbusiness.IPermissionRef
+type Type__interfacesawsqbusinessIPluginRef = interfacesawsqbusiness.IPluginRef
+type Type__interfacesawsqbusinessIRetrieverRef = interfacesawsqbusiness.IRetrieverRef
+type Type__interfacesawsqbusinessIWebExperienceRef = interfacesawsqbusiness.IWebExperienceRef

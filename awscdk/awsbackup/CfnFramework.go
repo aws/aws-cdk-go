@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,8 +55,8 @@ import (
 //
 type CfnFramework interface {
 	awscdk.CfnResource
-	IFrameworkRef
 	awscdk.IInspectable
+	interfacesawsbackup.IFrameworkRef
 	awscdk.ITaggableV2
 	// The UTC time when you created your framework.
 	AttrCreationTime() *string
@@ -79,7 +81,7 @@ type CfnFramework interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Contains detailed information about all of the controls of a framework.
 	FrameworkControls() interface{}
 	SetFrameworkControls(val interface{})
@@ -90,7 +92,7 @@ type CfnFramework interface {
 	FrameworkName() *string
 	SetFrameworkName(val *string)
 	// A reference to a Framework resource.
-	FrameworkRef() *FrameworkReference
+	FrameworkRef() *interfacesawsbackup.FrameworkReference
 	// The tags to assign to your framework.
 	FrameworkTags() *[]*awscdk.CfnTag
 	SetFrameworkTags(val *[]*awscdk.CfnTag)
@@ -258,8 +260,8 @@ type CfnFramework interface {
 // The jsii proxy struct for CfnFramework
 type jsiiProxy_CfnFramework struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFrameworkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupIFrameworkRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnFramework) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFramework) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFramework) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnFramework) FrameworkName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFramework) FrameworkRef() *FrameworkReference {
-	var returns *FrameworkReference
+func (j *jsiiProxy_CfnFramework) FrameworkRef() *interfacesawsbackup.FrameworkReference {
+	var returns *interfacesawsbackup.FrameworkReference
 	_jsii_.Get(
 		j,
 		"frameworkRef",
@@ -474,6 +476,7 @@ func (j *jsiiProxy_CfnFramework) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Backup::Framework`.
 func NewCfnFramework(scope constructs.Construct, id *string, props *CfnFrameworkProps) CfnFramework {
 	_init_.Initialize()
 
@@ -491,6 +494,7 @@ func NewCfnFramework(scope constructs.Construct, id *string, props *CfnFramework
 	return &j
 }
 
+// Create a new `AWS::Backup::Framework`.
 func NewCfnFramework_Override(c CfnFramework, scope constructs.Construct, id *string, props *CfnFrameworkProps) {
 	_init_.Initialize()
 

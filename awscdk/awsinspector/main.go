@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_inspector.AssessmentTargetReference",
-		reflect.TypeOf((*AssessmentTargetReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_inspector.AssessmentTemplate",
 		reflect.TypeOf((*AssessmentTemplate)(nil)).Elem(),
@@ -34,10 +30,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_inspector.AssessmentTemplateProps",
 		reflect.TypeOf((*AssessmentTemplateProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_inspector.AssessmentTemplateReference",
-		reflect.TypeOf((*AssessmentTemplateReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_inspector.CfnAssessmentTarget",
@@ -82,8 +74,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAssessmentTarget{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAssessmentTargetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsinspectorIAssessmentTargetRef)
 			return &j
 		},
 	)
@@ -137,8 +129,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAssessmentTemplate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAssessmentTemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsinspectorIAssessmentTemplateRef)
 			return &j
 		},
 	)
@@ -188,29 +180,14 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourceGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsinspectorIResourceGroupRef)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_inspector.CfnResourceGroupProps",
 		reflect.TypeOf((*CfnResourceGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_inspector.IAssessmentTargetRef",
-		reflect.TypeOf((*IAssessmentTargetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assessmentTargetRef", GoGetter: "AssessmentTargetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAssessmentTargetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_inspector.IAssessmentTemplate",
@@ -227,39 +204,5 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_inspector.IAssessmentTemplateRef",
-		reflect.TypeOf((*IAssessmentTemplateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assessmentTemplateRef", GoGetter: "AssessmentTemplateRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAssessmentTemplateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_inspector.IResourceGroupRef",
-		reflect.TypeOf((*IResourceGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceGroupRef", GoGetter: "ResourceGroupRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourceGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_inspector.ResourceGroupReference",
-		reflect.TypeOf((*ResourceGroupReference)(nil)).Elem(),
 	)
 }

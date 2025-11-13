@@ -2,13 +2,31 @@ package internal
 import (
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 type Type__constructsConstruct = constructs.Construct
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawssesIConfigurationSetRef = interfacesawsses.IConfigurationSetRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawssesIConfigurationSetEventDestinationRef = interfacesawsses.IConfigurationSetEventDestinationRef
+type Type__interfacesawssesIContactListRef = interfacesawsses.IContactListRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawssesIDedicatedIpPoolRef = interfacesawsses.IDedicatedIpPoolRef
+type Type__interfacesawssesIEmailIdentityRef = interfacesawsses.IEmailIdentityRef
+type Type__interfacesawssesIMailManagerAddonInstanceRef = interfacesawsses.IMailManagerAddonInstanceRef
+type Type__interfacesawssesIMailManagerAddonSubscriptionRef = interfacesawsses.IMailManagerAddonSubscriptionRef
+type Type__interfacesawssesIMailManagerAddressListRef = interfacesawsses.IMailManagerAddressListRef
+type Type__interfacesawssesIMailManagerArchiveRef = interfacesawsses.IMailManagerArchiveRef
+type Type__interfacesawssesIMailManagerIngressPointRef = interfacesawsses.IMailManagerIngressPointRef
+type Type__interfacesawssesIMailManagerRelayRef = interfacesawsses.IMailManagerRelayRef
+type Type__interfacesawssesIMailManagerRuleSetRef = interfacesawsses.IMailManagerRuleSetRef
+type Type__interfacesawssesIMailManagerTrafficPolicyRef = interfacesawsses.IMailManagerTrafficPolicyRef
+type Type__interfacesawssesIMultiRegionEndpointRef = interfacesawsses.IMultiRegionEndpointRef
+type Type__interfacesawssesIReceiptFilterRef = interfacesawsses.IReceiptFilterRef
+type Type__interfacesawssesIReceiptRuleRef = interfacesawsses.IReceiptRuleRef
+type Type__interfacesawssesIReceiptRuleSetRef = interfacesawsses.IReceiptRuleSetRef
+type Type__interfacesawssesITemplateRef = interfacesawsses.ITemplateRef
+type Type__interfacesawssesIVdmAttributesRef = interfacesawsses.IVdmAttributesRef
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkIResource = awscdk.IResource
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

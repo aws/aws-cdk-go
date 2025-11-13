@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,7 +66,7 @@ type DatabaseInstanceReadReplica interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The instance arn.
 	InstanceArn() *string
 	// The instance endpoint.
@@ -227,8 +228,8 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) Engine() IInstanceEngine {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstanceReadReplica) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_DatabaseInstanceReadReplica) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnStaticIp interface {
 	awscdk.CfnResource
-	IStaticIpRef
 	awscdk.IInspectable
+	interfacesawslightsail.IStaticIpRef
 	// The instance that the static IP is attached to.
 	AttachedTo() *string
 	SetAttachedTo(val *string)
@@ -47,7 +49,7 @@ type CfnStaticIp interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,7 +75,7 @@ type CfnStaticIp interface {
 	StaticIpName() *string
 	SetStaticIpName(val *string)
 	// A reference to a StaticIp resource.
-	StaticIpRef() *StaticIpReference
+	StaticIpRef() *interfacesawslightsail.StaticIpReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -217,8 +219,8 @@ type CfnStaticIp interface {
 // The jsii proxy struct for CfnStaticIp
 type jsiiProxy_CfnStaticIp struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStaticIpRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIStaticIpRef
 }
 
 func (j *jsiiProxy_CfnStaticIp) AttachedTo() *string {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnStaticIp) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStaticIp) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStaticIp) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnStaticIp) StaticIpName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStaticIp) StaticIpRef() *StaticIpReference {
-	var returns *StaticIpReference
+func (j *jsiiProxy_CfnStaticIp) StaticIpRef() *interfacesawslightsail.StaticIpReference {
+	var returns *interfacesawslightsail.StaticIpReference
 	_jsii_.Get(
 		j,
 		"staticIpRef",
@@ -392,6 +394,7 @@ func (j *jsiiProxy_CfnStaticIp) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lightsail::StaticIp`.
 func NewCfnStaticIp(scope constructs.Construct, id *string, props *CfnStaticIpProps) CfnStaticIp {
 	_init_.Initialize()
 
@@ -409,6 +412,7 @@ func NewCfnStaticIp(scope constructs.Construct, id *string, props *CfnStaticIpPr
 	return &j
 }
 
+// Create a new `AWS::Lightsail::StaticIp`.
 func NewCfnStaticIp_Override(c CfnStaticIp, scope constructs.Construct, id *string, props *CfnStaticIpProps) {
 	_init_.Initialize()
 

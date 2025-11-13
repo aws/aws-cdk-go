@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnUser interface {
 	awscdk.CfnResource
-	IUserRef
 	awscdk.IInspectable
+	interfacesawselasticache.IUserRef
 	awscdk.ITaggable
 	// Access permissions string used for this user.
 	AccessString() *string
@@ -71,7 +73,7 @@ type CfnUser interface {
 	// The current supported values are valkey and redis.
 	Engine() *string
 	SetEngine(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -124,7 +126,7 @@ type CfnUser interface {
 	UserName() *string
 	SetUserName(val *string)
 	// A reference to a User resource.
-	UserRef() *UserReference
+	UserRef() *interfacesawselasticache.UserReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -255,8 +257,8 @@ type CfnUser interface {
 // The jsii proxy struct for CfnUser
 type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheIUserRef
 	internal.Type__awscdkITaggable
 }
 
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnUser) Engine() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUser) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUser) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -480,8 +482,8 @@ func (j *jsiiProxy_CfnUser) UserName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUser) UserRef() *UserReference {
-	var returns *UserReference
+func (j *jsiiProxy_CfnUser) UserRef() *interfacesawselasticache.UserReference {
+	var returns *interfacesawselasticache.UserReference
 	_jsii_.Get(
 		j,
 		"userRef",
@@ -491,6 +493,7 @@ func (j *jsiiProxy_CfnUser) UserRef() *UserReference {
 }
 
 
+// Create a new `AWS::ElastiCache::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
@@ -508,6 +511,7 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::User`.
 func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 
@@ -598,13 +602,13 @@ func (j *jsiiProxy_CfnUser)SetUserName(val *string) {
 }
 
 // Creates a new IUserRef from an ARN.
-func CfnUser_FromUserArn(scope constructs.Construct, id *string, arn *string) IUserRef {
+func CfnUser_FromUserArn(scope constructs.Construct, id *string, arn *string) interfacesawselasticache.IUserRef {
 	_init_.Initialize()
 
 	if err := validateCfnUser_FromUserArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IUserRef
+	var returns interfacesawselasticache.IUserRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnUser",
@@ -617,13 +621,13 @@ func CfnUser_FromUserArn(scope constructs.Construct, id *string, arn *string) IU
 }
 
 // Creates a new IUserRef from a userId.
-func CfnUser_FromUserId(scope constructs.Construct, id *string, userId *string) IUserRef {
+func CfnUser_FromUserId(scope constructs.Construct, id *string, userId *string) interfacesawselasticache.IUserRef {
 	_init_.Initialize()
 
 	if err := validateCfnUser_FromUserIdParameters(scope, id, userId); err != nil {
 		panic(err)
 	}
-	var returns IUserRef
+	var returns interfacesawselasticache.IUserRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnUser",

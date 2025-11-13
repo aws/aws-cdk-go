@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,15 +42,15 @@ import (
 //
 type CfnAlias interface {
 	awscdk.CfnResource
-	IAliasRef
 	awscdk.IInspectable
+	interfacesawskms.IAliasRef
 	// Specifies the alias name.
 	//
 	// This value must begin with `alias/` followed by a name, such as `alias/ExampleAlias` .
 	AliasName() *string
 	SetAliasName(val *string)
 	// A reference to a Alias resource.
-	AliasRef() *AliasReference
+	AliasRef() *interfacesawskms.AliasReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -58,7 +60,7 @@ type CfnAlias interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -226,8 +228,8 @@ type CfnAlias interface {
 // The jsii proxy struct for CfnAlias
 type jsiiProxy_CfnAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskmsIAliasRef
 }
 
 func (j *jsiiProxy_CfnAlias) AliasName() *string {
@@ -240,8 +242,8 @@ func (j *jsiiProxy_CfnAlias) AliasName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlias) AliasRef() *AliasReference {
-	var returns *AliasReference
+func (j *jsiiProxy_CfnAlias) AliasRef() *interfacesawskms.AliasReference {
+	var returns *interfacesawskms.AliasReference
 	_jsii_.Get(
 		j,
 		"aliasRef",
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnAlias) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -371,6 +373,7 @@ func (j *jsiiProxy_CfnAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::KMS::Alias`.
 func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) CfnAlias {
 	_init_.Initialize()
 
@@ -388,6 +391,7 @@ func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) C
 	return &j
 }
 
+// Create a new `AWS::KMS::Alias`.
 func NewCfnAlias_Override(c CfnAlias, scope constructs.Construct, id *string, props *CfnAliasProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnLifecyclePolicy interface {
 	awscdk.CfnResource
-	ILifecyclePolicyRef
 	awscdk.IInspectable
+	interfacesawsopensearchserverless.ILifecyclePolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -45,9 +47,9 @@ type CfnLifecyclePolicy interface {
 	// The description of the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LifecyclePolicy resource.
-	LifecyclePolicyRef() *LifecyclePolicyReference
+	LifecyclePolicyRef() *interfacesawsopensearchserverless.LifecyclePolicyReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +223,8 @@ type CfnLifecyclePolicy interface {
 // The jsii proxy struct for CfnLifecyclePolicy
 type jsiiProxy_CfnLifecyclePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILifecyclePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopensearchserverlessILifecyclePolicyRef
 }
 
 func (j *jsiiProxy_CfnLifecyclePolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnLifecyclePolicy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecyclePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLifecyclePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnLifecyclePolicy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecyclePolicy) LifecyclePolicyRef() *LifecyclePolicyReference {
-	var returns *LifecyclePolicyReference
+func (j *jsiiProxy_CfnLifecyclePolicy) LifecyclePolicyRef() *interfacesawsopensearchserverless.LifecyclePolicyReference {
+	var returns *interfacesawsopensearchserverless.LifecyclePolicyReference
 	_jsii_.Get(
 		j,
 		"lifecyclePolicyRef",
@@ -386,6 +388,7 @@ func (j *jsiiProxy_CfnLifecyclePolicy) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::OpenSearchServerless::LifecyclePolicy`.
 func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) CfnLifecyclePolicy {
 	_init_.Initialize()
 
@@ -403,6 +406,7 @@ func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLif
 	return &j
 }
 
+// Create a new `AWS::OpenSearchServerless::LifecyclePolicy`.
 func NewCfnLifecyclePolicy_Override(c CfnLifecyclePolicy, scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) {
 	_init_.Initialize()
 

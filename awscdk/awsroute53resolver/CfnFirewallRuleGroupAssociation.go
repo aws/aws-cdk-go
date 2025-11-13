@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnFirewallRuleGroupAssociation interface {
 	awscdk.CfnResource
-	IFirewallRuleGroupAssociationRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IFirewallRuleGroupAssociationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the firewall rule group association.
 	AttrArn() *string
@@ -68,9 +70,9 @@ type CfnFirewallRuleGroupAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FirewallRuleGroupAssociation resource.
-	FirewallRuleGroupAssociationRef() *FirewallRuleGroupAssociationReference
+	FirewallRuleGroupAssociationRef() *interfacesawsroute53resolver.FirewallRuleGroupAssociationReference
 	// The unique identifier of the firewall rule group.
 	FirewallRuleGroupId() *string
 	SetFirewallRuleGroupId(val *string)
@@ -255,8 +257,8 @@ type CfnFirewallRuleGroupAssociation interface {
 // The jsii proxy struct for CfnFirewallRuleGroupAssociation
 type jsiiProxy_CfnFirewallRuleGroupAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFirewallRuleGroupAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIFirewallRuleGroupAssociationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -390,8 +392,8 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) Env() *awscdk.ResourceEnviro
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) FirewallRuleGroupAssociationRef() *FirewallRuleGroupAssociationReference {
-	var returns *FirewallRuleGroupAssociationReference
+func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) FirewallRuleGroupAssociationRef() *interfacesawsroute53resolver.FirewallRuleGroupAssociationReference {
+	var returns *interfacesawsroute53resolver.FirewallRuleGroupAssociationReference
 	_jsii_.Get(
 		j,
 		"firewallRuleGroupAssociationRef",
@@ -531,6 +533,7 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) VpcId() *string {
 }
 
 
+// Create a new `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
 func NewCfnFirewallRuleGroupAssociation(scope constructs.Construct, id *string, props *CfnFirewallRuleGroupAssociationProps) CfnFirewallRuleGroupAssociation {
 	_init_.Initialize()
 
@@ -548,6 +551,7 @@ func NewCfnFirewallRuleGroupAssociation(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
 func NewCfnFirewallRuleGroupAssociation_Override(c CfnFirewallRuleGroupAssociation, scope constructs.Construct, id *string, props *CfnFirewallRuleGroupAssociationProps) {
 	_init_.Initialize()
 

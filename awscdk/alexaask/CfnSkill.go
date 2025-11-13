@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/alexaask/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesalexaask"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnSkill interface {
 	awscdk.CfnResource
-	ISkillRef
 	awscdk.IInspectable
+	interfacesalexaask.ISkillRef
 	AttrId() *string
 	// Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
 	AuthenticationConfiguration() interface{}
@@ -59,7 +61,7 @@ type CfnSkill interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,7 +83,7 @@ type CfnSkill interface {
 	SkillPackage() interface{}
 	SetSkillPackage(val interface{})
 	// A reference to a Skill resource.
-	SkillRef() *SkillReference
+	SkillRef() *interfacesalexaask.SkillReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -232,8 +234,8 @@ type CfnSkill interface {
 // The jsii proxy struct for CfnSkill
 type jsiiProxy_CfnSkill struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISkillRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesalexaaskISkillRef
 }
 
 func (j *jsiiProxy_CfnSkill) AttrId() *string {
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnSkill) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSkill) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSkill) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnSkill) SkillPackage() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSkill) SkillRef() *SkillReference {
-	var returns *SkillReference
+func (j *jsiiProxy_CfnSkill) SkillRef() *interfacesalexaask.SkillReference {
+	var returns *interfacesalexaask.SkillReference
 	_jsii_.Get(
 		j,
 		"skillRef",
@@ -397,6 +399,7 @@ func (j *jsiiProxy_CfnSkill) VendorId() *string {
 }
 
 
+// Create a new `Alexa::ASK::Skill`.
 func NewCfnSkill(scope constructs.Construct, id *string, props *CfnSkillProps) CfnSkill {
 	_init_.Initialize()
 
@@ -414,6 +417,7 @@ func NewCfnSkill(scope constructs.Construct, id *string, props *CfnSkillProps) C
 	return &j
 }
 
+// Create a new `Alexa::ASK::Skill`.
 func NewCfnSkill_Override(c CfnSkill, scope constructs.Construct, id *string, props *CfnSkillProps) {
 	_init_.Initialize()
 

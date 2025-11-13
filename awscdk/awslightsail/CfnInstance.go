@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -100,8 +102,8 @@ import (
 //
 type CfnInstance interface {
 	awscdk.CfnResource
-	IInstanceRef
 	awscdk.IInspectable
+	interfacesawslightsail.IInstanceRef
 	awscdk.ITaggable
 	// An array of add-ons for the instance.
 	AddOns() interface{}
@@ -158,7 +160,7 @@ type CfnInstance interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
 	Hardware() interface{}
 	SetHardware(val interface{})
@@ -166,7 +168,7 @@ type CfnInstance interface {
 	InstanceName() *string
 	SetInstanceName(val *string)
 	// A reference to a Instance resource.
-	InstanceRef() *InstanceReference
+	InstanceRef() *interfacesawslightsail.InstanceReference
 	// The name of the key pair to use for the instance.
 	KeyPairName() *string
 	SetKeyPairName(val *string)
@@ -351,8 +353,8 @@ type CfnInstance interface {
 // The jsii proxy struct for CfnInstance
 type jsiiProxy_CfnInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIInstanceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -596,8 +598,8 @@ func (j *jsiiProxy_CfnInstance) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -626,8 +628,8 @@ func (j *jsiiProxy_CfnInstance) InstanceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) InstanceRef() *InstanceReference {
-	var returns *InstanceReference
+func (j *jsiiProxy_CfnInstance) InstanceRef() *interfacesawslightsail.InstanceReference {
+	var returns *interfacesawslightsail.InstanceReference
 	_jsii_.Get(
 		j,
 		"instanceRef",
@@ -767,6 +769,7 @@ func (j *jsiiProxy_CfnInstance) UserData() *string {
 }
 
 
+// Create a new `AWS::Lightsail::Instance`.
 func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
@@ -784,6 +787,7 @@ func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstancePr
 	return &j
 }
 
+// Create a new `AWS::Lightsail::Instance`.
 func NewCfnInstance_Override(c CfnInstance, scope constructs.Construct, id *string, props *CfnInstanceProps) {
 	_init_.Initialize()
 

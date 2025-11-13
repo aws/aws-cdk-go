@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -302,8 +304,8 @@ import (
 //
 type CfnTopic interface {
 	awscdk.CfnResource
-	ITopicRef
 	awscdk.IInspectable
+	interfacesawsquicksight.ITopicRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the topic.
 	AttrArn() *string
@@ -332,7 +334,7 @@ type CfnTopic interface {
 	// The description of the topic.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	FolderArns() *[]*string
 	SetFolderArns(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -365,7 +367,7 @@ type CfnTopic interface {
 	TopicId() *string
 	SetTopicId(val *string)
 	// A reference to a Topic resource.
-	TopicRef() *TopicReference
+	TopicRef() *interfacesawsquicksight.TopicReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -512,8 +514,8 @@ type CfnTopic interface {
 // The jsii proxy struct for CfnTopic
 type jsiiProxy_CfnTopic struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITopicRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightITopicRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -627,8 +629,8 @@ func (j *jsiiProxy_CfnTopic) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopic) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTopic) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -717,8 +719,8 @@ func (j *jsiiProxy_CfnTopic) TopicId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopic) TopicRef() *TopicReference {
-	var returns *TopicReference
+func (j *jsiiProxy_CfnTopic) TopicRef() *interfacesawsquicksight.TopicReference {
+	var returns *interfacesawsquicksight.TopicReference
 	_jsii_.Get(
 		j,
 		"topicRef",
@@ -758,6 +760,7 @@ func (j *jsiiProxy_CfnTopic) UserExperienceVersion() *string {
 }
 
 
+// Create a new `AWS::QuickSight::Topic`.
 func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) CfnTopic {
 	_init_.Initialize()
 
@@ -775,6 +778,7 @@ func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) C
 	return &j
 }
 
+// Create a new `AWS::QuickSight::Topic`.
 func NewCfnTopic_Override(c CfnTopic, scope constructs.Construct, id *string, props *CfnTopicProps) {
 	_init_.Initialize()
 

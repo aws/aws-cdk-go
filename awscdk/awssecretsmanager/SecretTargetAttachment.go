@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,7 +52,7 @@ type SecretTargetAttachment interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -104,6 +105,10 @@ type SecretTargetAttachment interface {
 	//
 	// Returns: An attached secret.
 	Attach(target ISecretAttachmentTarget) ISecret
+	// Returns a key which can be used within an AWS CloudFormation dynamic reference to dynamically load this secret from AWS Secrets Manager.
+	// See: https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html
+	//
+	CfnDynamicReferenceKey(options *awscdk.SecretsManagerSecretOptions) *string
 	// Denies the `DeleteSecret` action to all principals within the current account.
 	DenyAccountRootDelete()
 	GeneratePhysicalName() *string
@@ -167,8 +172,8 @@ func (j *jsiiProxy_SecretTargetAttachment) EncryptionKey() awskms.IKey {
 	return returns
 }
 
-func (j *jsiiProxy_SecretTargetAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SecretTargetAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -440,6 +445,22 @@ func (s *jsiiProxy_SecretTargetAttachment) Attach(target ISecretAttachmentTarget
 		s,
 		"attach",
 		[]interface{}{target},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SecretTargetAttachment) CfnDynamicReferenceKey(options *awscdk.SecretsManagerSecretOptions) *string {
+	if err := s.validateCfnDynamicReferenceKeyParameters(options); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"cfnDynamicReferenceKey",
+		[]interface{}{options},
 		&returns,
 	)
 

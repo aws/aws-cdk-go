@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,8 +59,8 @@ import (
 //
 type CfnLocationSMB interface {
 	awscdk.CfnResource
-	ILocationSMBRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationSMBRef
 	awscdk.ITaggable
 	// Specifies the DataSync agent (or agents) that can connect to your SMB file server.
 	AgentArns() *[]*string
@@ -99,7 +101,7 @@ type CfnLocationSMB interface {
 	// Specifies the Windows domain name that your SMB file server belongs to.
 	Domain() *string
 	SetDomain(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Base64 string representation of the Keytab file.
 	KerberosKeytab() *string
 	SetKerberosKeytab(val *string)
@@ -110,7 +112,7 @@ type CfnLocationSMB interface {
 	KerberosPrincipal() *string
 	SetKerberosPrincipal(val *string)
 	// A reference to a LocationSMB resource.
-	LocationSmbRef() *LocationSMBReference
+	LocationSmbRef() *interfacesawsdatasync.LocationSMBReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -295,8 +297,8 @@ type CfnLocationSMB interface {
 // The jsii proxy struct for CfnLocationSMB
 type jsiiProxy_CfnLocationSMB struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationSMBRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationSMBRef
 	internal.Type__awscdkITaggable
 }
 
@@ -440,8 +442,8 @@ func (j *jsiiProxy_CfnLocationSMB) Domain() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationSMB) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationSMB) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -480,8 +482,8 @@ func (j *jsiiProxy_CfnLocationSMB) KerberosPrincipal() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationSMB) LocationSmbRef() *LocationSMBReference {
-	var returns *LocationSMBReference
+func (j *jsiiProxy_CfnLocationSMB) LocationSmbRef() *interfacesawsdatasync.LocationSMBReference {
+	var returns *interfacesawsdatasync.LocationSMBReference
 	_jsii_.Get(
 		j,
 		"locationSmbRef",
@@ -621,6 +623,7 @@ func (j *jsiiProxy_CfnLocationSMB) User() *string {
 }
 
 
+// Create a new `AWS::DataSync::LocationSMB`.
 func NewCfnLocationSMB(scope constructs.Construct, id *string, props *CfnLocationSMBProps) CfnLocationSMB {
 	_init_.Initialize()
 
@@ -638,6 +641,7 @@ func NewCfnLocationSMB(scope constructs.Construct, id *string, props *CfnLocatio
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationSMB`.
 func NewCfnLocationSMB_Override(c CfnLocationSMB, scope constructs.Construct, id *string, props *CfnLocationSMBProps) {
 	_init_.Initialize()
 

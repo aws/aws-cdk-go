@@ -1,0 +1,56 @@
+package interfacesawsinspector
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspector/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a ResourceGroup.
+// Experimental.
+type IResourceGroupRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a ResourceGroup resource.
+	// Experimental.
+	ResourceGroupRef() *ResourceGroupReference
+}
+
+// The jsii proxy for IResourceGroupRef
+type jsiiProxy_IResourceGroupRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IResourceGroupRef) ResourceGroupRef() *ResourceGroupReference {
+	var returns *ResourceGroupReference
+	_jsii_.Get(
+		j,
+		"resourceGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IResourceGroupRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IResourceGroupRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

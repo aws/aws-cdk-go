@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnConnectPeer interface {
 	awscdk.CfnResource
-	IConnectPeerRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.IConnectPeerRef
 	awscdk.ITaggable
 	AttrConfiguration() awscdk.IResolvable
 	AttrConfigurationBgpConfigurations() awscdk.IResolvable
@@ -78,7 +80,7 @@ type CfnConnectPeer interface {
 	ConnectAttachmentId() *string
 	SetConnectAttachmentId(val *string)
 	// A reference to a ConnectPeer resource.
-	ConnectPeerRef() *ConnectPeerReference
+	ConnectPeerRef() *interfacesawsnetworkmanager.ConnectPeerReference
 	// The IP address of a core network.
 	CoreNetworkAddress() *string
 	SetCoreNetworkAddress(val *string)
@@ -86,7 +88,7 @@ type CfnConnectPeer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The inside IP addresses used for a Connect peer configuration.
 	InsideCidrBlocks() *[]*string
 	SetInsideCidrBlocks(val *[]*string)
@@ -265,8 +267,8 @@ type CfnConnectPeer interface {
 // The jsii proxy struct for CfnConnectPeer
 type jsiiProxy_CfnConnectPeer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectPeerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerIConnectPeerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -440,8 +442,8 @@ func (j *jsiiProxy_CfnConnectPeer) ConnectAttachmentId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectPeer) ConnectPeerRef() *ConnectPeerReference {
-	var returns *ConnectPeerReference
+func (j *jsiiProxy_CfnConnectPeer) ConnectPeerRef() *interfacesawsnetworkmanager.ConnectPeerReference {
+	var returns *interfacesawsnetworkmanager.ConnectPeerReference
 	_jsii_.Get(
 		j,
 		"connectPeerRef",
@@ -470,8 +472,8 @@ func (j *jsiiProxy_CfnConnectPeer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectPeer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnectPeer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -591,6 +593,7 @@ func (j *jsiiProxy_CfnConnectPeer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::NetworkManager::ConnectPeer`.
 func NewCfnConnectPeer(scope constructs.Construct, id *string, props *CfnConnectPeerProps) CfnConnectPeer {
 	_init_.Initialize()
 
@@ -608,6 +611,7 @@ func NewCfnConnectPeer(scope constructs.Construct, id *string, props *CfnConnect
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::ConnectPeer`.
 func NewCfnConnectPeer_Override(c CfnConnectPeer, scope constructs.Construct, id *string, props *CfnConnectPeerProps) {
 	_init_.Initialize()
 

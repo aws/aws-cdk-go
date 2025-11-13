@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A client VPN endpoint.
 type IClientVpnEndpoint interface {
-	IClientVpnEndpointRef
+	interfacesawsec2.IClientVpnEndpointRef
 	IConnectable
 	awscdk.IResource
 	// The endpoint ID.
@@ -21,7 +23,7 @@ type IClientVpnEndpoint interface {
 
 // The jsii proxy for IClientVpnEndpoint
 type jsiiProxy_IClientVpnEndpoint struct {
-	jsiiProxy_IClientVpnEndpointRef
+	internal.Type__interfacesawsec2IClientVpnEndpointRef
 	jsiiProxy_IConnectable
 	internal.Type__awscdkIResource
 }
@@ -57,8 +59,8 @@ func (j *jsiiProxy_IClientVpnEndpoint) TargetNetworksAssociated() constructs.IDe
 	return returns
 }
 
-func (j *jsiiProxy_IClientVpnEndpoint) ClientVpnEndpointRef() *ClientVpnEndpointReference {
-	var returns *ClientVpnEndpointReference
+func (j *jsiiProxy_IClientVpnEndpoint) ClientVpnEndpointRef() *interfacesawsec2.ClientVpnEndpointReference {
+	var returns *interfacesawsec2.ClientVpnEndpointReference
 	_jsii_.Get(
 		j,
 		"clientVpnEndpointRef",
@@ -77,8 +79,8 @@ func (j *jsiiProxy_IClientVpnEndpoint) Connections() Connections {
 	return returns
 }
 
-func (j *jsiiProxy_IClientVpnEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IClientVpnEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

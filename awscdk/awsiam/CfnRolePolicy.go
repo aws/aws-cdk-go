@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnRolePolicy interface {
 	awscdk.CfnResource
-	IRolePolicyRef
 	awscdk.IInspectable
+	interfacesawsiam.IRolePolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -47,7 +49,7 @@ type CfnRolePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -75,7 +77,7 @@ type CfnRolePolicy interface {
 	RoleName() *string
 	SetRoleName(val *string)
 	// A reference to a RolePolicy resource.
-	RolePolicyRef() *RolePolicyReference
+	RolePolicyRef() *interfacesawsiam.RolePolicyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -223,8 +225,8 @@ type CfnRolePolicy interface {
 // The jsii proxy struct for CfnRolePolicy
 type jsiiProxy_CfnRolePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRolePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIRolePolicyRef
 }
 
 func (j *jsiiProxy_CfnRolePolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnRolePolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRolePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRolePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnRolePolicy) RoleName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRolePolicy) RolePolicyRef() *RolePolicyReference {
-	var returns *RolePolicyReference
+func (j *jsiiProxy_CfnRolePolicy) RolePolicyRef() *interfacesawsiam.RolePolicyReference {
+	var returns *interfacesawsiam.RolePolicyReference
 	_jsii_.Get(
 		j,
 		"rolePolicyRef",
@@ -378,6 +380,7 @@ func (j *jsiiProxy_CfnRolePolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IAM::RolePolicy`.
 func NewCfnRolePolicy(scope constructs.Construct, id *string, props *CfnRolePolicyProps) CfnRolePolicy {
 	_init_.Initialize()
 
@@ -395,6 +398,7 @@ func NewCfnRolePolicy(scope constructs.Construct, id *string, props *CfnRolePoli
 	return &j
 }
 
+// Create a new `AWS::IAM::RolePolicy`.
 func NewCfnRolePolicy_Override(c CfnRolePolicy, scope constructs.Construct, id *string, props *CfnRolePolicyProps) {
 	_init_.Initialize()
 

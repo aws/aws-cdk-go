@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
-	IDBClusterParameterGroupRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBClusterParameterGroupRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -59,11 +61,11 @@ type CfnDBClusterParameterGroup interface {
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
 	// A reference to a DBClusterParameterGroup resource.
-	DbClusterParameterGroupRef() *DBClusterParameterGroupReference
+	DbClusterParameterGroupRef() *interfacesawsrds.DBClusterParameterGroupReference
 	// The description for the DB cluster parameter group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The DB cluster parameter group family name.
 	Family() *string
 	SetFamily(val *string)
@@ -239,8 +241,8 @@ type CfnDBClusterParameterGroup interface {
 // The jsii proxy struct for CfnDBClusterParameterGroup
 type jsiiProxy_CfnDBClusterParameterGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBClusterParameterGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBClusterParameterGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) DbClusterParameterGroupName() *st
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBClusterParameterGroup) DbClusterParameterGroupRef() *DBClusterParameterGroupReference {
-	var returns *DBClusterParameterGroupReference
+func (j *jsiiProxy_CfnDBClusterParameterGroup) DbClusterParameterGroupRef() *interfacesawsrds.DBClusterParameterGroupReference {
+	var returns *interfacesawsrds.DBClusterParameterGroupReference
 	_jsii_.Get(
 		j,
 		"dbClusterParameterGroupRef",
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBClusterParameterGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBClusterParameterGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -425,6 +427,7 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::RDS::DBClusterParameterGroup`.
 func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) CfnDBClusterParameterGroup {
 	_init_.Initialize()
 
@@ -442,6 +445,7 @@ func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::RDS::DBClusterParameterGroup`.
 func NewCfnDBClusterParameterGroup_Override(c CfnDBClusterParameterGroup, scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) {
 	_init_.Initialize()
 

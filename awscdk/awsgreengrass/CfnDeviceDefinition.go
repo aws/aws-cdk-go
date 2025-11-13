@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnDeviceDefinition interface {
 	awscdk.CfnResource
-	IDeviceDefinitionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IDeviceDefinitionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `DeviceDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/devices/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
@@ -70,8 +72,8 @@ type CfnDeviceDefinition interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DeviceDefinition resource.
-	DeviceDefinitionRef() *DeviceDefinitionReference
-	Env() *awscdk.ResourceEnvironment
+	DeviceDefinitionRef() *interfacesawsgreengrass.DeviceDefinitionReference
+	Env() *interfaces.ResourceEnvironment
 	// The device definition version to include when the device definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -247,8 +249,8 @@ type CfnDeviceDefinition interface {
 // The jsii proxy struct for CfnDeviceDefinition
 type jsiiProxy_CfnDeviceDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeviceDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIDeviceDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnDeviceDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceDefinition) DeviceDefinitionRef() *DeviceDefinitionReference {
-	var returns *DeviceDefinitionReference
+func (j *jsiiProxy_CfnDeviceDefinition) DeviceDefinitionRef() *interfacesawsgreengrass.DeviceDefinitionReference {
+	var returns *interfacesawsgreengrass.DeviceDefinitionReference
 	_jsii_.Get(
 		j,
 		"deviceDefinitionRef",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnDeviceDefinition) DeviceDefinitionRef() *DeviceDefinitionR
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeviceDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnDeviceDefinition) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Greengrass::DeviceDefinition`.
 func NewCfnDeviceDefinition(scope constructs.Construct, id *string, props *CfnDeviceDefinitionProps) CfnDeviceDefinition {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnDeviceDefinition(scope constructs.Construct, id *string, props *CfnDe
 	return &j
 }
 
+// Create a new `AWS::Greengrass::DeviceDefinition`.
 func NewCfnDeviceDefinition_Override(c CfnDeviceDefinition, scope constructs.Construct, id *string, props *CfnDeviceDefinitionProps) {
 	_init_.Initialize()
 
@@ -511,13 +515,13 @@ func (j *jsiiProxy_CfnDeviceDefinition)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new IDeviceDefinitionRef from an ARN.
-func CfnDeviceDefinition_FromDeviceDefinitionArn(scope constructs.Construct, id *string, arn *string) IDeviceDefinitionRef {
+func CfnDeviceDefinition_FromDeviceDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.IDeviceDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeviceDefinition_FromDeviceDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDeviceDefinitionRef
+	var returns interfacesawsgreengrass.IDeviceDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
@@ -530,13 +534,13 @@ func CfnDeviceDefinition_FromDeviceDefinitionArn(scope constructs.Construct, id 
 }
 
 // Creates a new IDeviceDefinitionRef from a deviceDefinitionId.
-func CfnDeviceDefinition_FromDeviceDefinitionId(scope constructs.Construct, id *string, deviceDefinitionId *string) IDeviceDefinitionRef {
+func CfnDeviceDefinition_FromDeviceDefinitionId(scope constructs.Construct, id *string, deviceDefinitionId *string) interfacesawsgreengrass.IDeviceDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeviceDefinition_FromDeviceDefinitionIdParameters(scope, id, deviceDefinitionId); err != nil {
 		panic(err)
 	}
-	var returns IDeviceDefinitionRef
+	var returns interfacesawsgreengrass.IDeviceDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",

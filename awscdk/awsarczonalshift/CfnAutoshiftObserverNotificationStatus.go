@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsarczonalshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsarczonalshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,14 +26,14 @@ import (
 //
 type CfnAutoshiftObserverNotificationStatus interface {
 	awscdk.CfnResource
-	IAutoshiftObserverNotificationStatusRef
 	awscdk.IInspectable
+	interfacesawsarczonalshift.IAutoshiftObserverNotificationStatusRef
 	// User account id, used as part of the primary identifier for the resource.
 	AttrAccountId() *string
 	// Region, used as part of the primary identifier for the resource.
 	AttrRegion() *string
 	// A reference to a AutoshiftObserverNotificationStatus resource.
-	AutoshiftObserverNotificationStatusRef() *AutoshiftObserverNotificationStatusReference
+	AutoshiftObserverNotificationStatusRef() *interfacesawsarczonalshift.AutoshiftObserverNotificationStatusReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -41,7 +43,7 @@ type CfnAutoshiftObserverNotificationStatus interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -208,8 +210,8 @@ type CfnAutoshiftObserverNotificationStatus interface {
 // The jsii proxy struct for CfnAutoshiftObserverNotificationStatus
 type jsiiProxy_CfnAutoshiftObserverNotificationStatus struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAutoshiftObserverNotificationStatusRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsarczonalshiftIAutoshiftObserverNotificationStatusRef
 }
 
 func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatus) AttrAccountId() *string {
@@ -232,8 +234,8 @@ func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatus) AttrRegion() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatus) AutoshiftObserverNotificationStatusRef() *AutoshiftObserverNotificationStatusReference {
-	var returns *AutoshiftObserverNotificationStatusReference
+func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatus) AutoshiftObserverNotificationStatusRef() *interfacesawsarczonalshift.AutoshiftObserverNotificationStatusReference {
+	var returns *interfacesawsarczonalshift.AutoshiftObserverNotificationStatusReference
 	_jsii_.Get(
 		j,
 		"autoshiftObserverNotificationStatusRef",
@@ -282,8 +284,8 @@ func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatus) CreationStack() *[]*s
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatus) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatus) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -363,6 +365,7 @@ func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatus) UpdatedProperties() *
 }
 
 
+// Create a new `AWS::ARCZonalShift::AutoshiftObserverNotificationStatus`.
 func NewCfnAutoshiftObserverNotificationStatus(scope constructs.Construct, id *string, props *CfnAutoshiftObserverNotificationStatusProps) CfnAutoshiftObserverNotificationStatus {
 	_init_.Initialize()
 
@@ -380,6 +383,7 @@ func NewCfnAutoshiftObserverNotificationStatus(scope constructs.Construct, id *s
 	return &j
 }
 
+// Create a new `AWS::ARCZonalShift::AutoshiftObserverNotificationStatus`.
 func NewCfnAutoshiftObserverNotificationStatus_Override(c CfnAutoshiftObserverNotificationStatus, scope constructs.Construct, id *string, props *CfnAutoshiftObserverNotificationStatusProps) {
 	_init_.Initialize()
 

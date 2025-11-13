@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // S3 location where you want Amazon SageMaker to save the results from the transform job.
@@ -46,6 +46,6 @@ type TransformOutput struct {
 	// AWS KMS key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	// Default: - default KMS key for Amazon S3 for your role's account.
 	//
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

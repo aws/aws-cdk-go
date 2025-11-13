@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfsx/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfsx"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnS3AccessPointAttachment interface {
 	awscdk.CfnResource
-	IS3AccessPointAttachmentRef
 	awscdk.IInspectable
+	interfacesawsfsx.IS3AccessPointAttachmentRef
 	// The S3 access point's alias.
 	AttrS3AccessPointAlias() *string
 	// The S3 access point's ARN.
@@ -69,7 +71,7 @@ type CfnS3AccessPointAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -97,7 +99,7 @@ type CfnS3AccessPointAttachment interface {
 	S3AccessPoint() interface{}
 	SetS3AccessPoint(val interface{})
 	// A reference to a S3AccessPointAttachment resource.
-	S3AccessPointAttachmentRef() *S3AccessPointAttachmentReference
+	S3AccessPointAttachmentRef() *interfacesawsfsx.S3AccessPointAttachmentReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -248,8 +250,8 @@ type CfnS3AccessPointAttachment interface {
 // The jsii proxy struct for CfnS3AccessPointAttachment
 type jsiiProxy_CfnS3AccessPointAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IS3AccessPointAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfsxIS3AccessPointAttachmentRef
 }
 
 func (j *jsiiProxy_CfnS3AccessPointAttachment) AttrS3AccessPointAlias() *string {
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnS3AccessPointAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnS3AccessPointAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnS3AccessPointAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnS3AccessPointAttachment) S3AccessPoint() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnS3AccessPointAttachment) S3AccessPointAttachmentRef() *S3AccessPointAttachmentReference {
-	var returns *S3AccessPointAttachmentReference
+func (j *jsiiProxy_CfnS3AccessPointAttachment) S3AccessPointAttachmentRef() *interfacesawsfsx.S3AccessPointAttachmentReference {
+	var returns *interfacesawsfsx.S3AccessPointAttachmentReference
 	_jsii_.Get(
 		j,
 		"s3AccessPointAttachmentRef",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnS3AccessPointAttachment) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::FSx::S3AccessPointAttachment`.
 func NewCfnS3AccessPointAttachment(scope constructs.Construct, id *string, props *CfnS3AccessPointAttachmentProps) CfnS3AccessPointAttachment {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnS3AccessPointAttachment(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::FSx::S3AccessPointAttachment`.
 func NewCfnS3AccessPointAttachment_Override(c CfnS3AccessPointAttachment, scope constructs.Construct, id *string, props *CfnS3AccessPointAttachmentProps) {
 	_init_.Initialize()
 

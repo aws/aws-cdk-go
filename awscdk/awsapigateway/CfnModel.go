@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnModel interface {
 	awscdk.CfnResource
-	IModelRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IModelRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -49,7 +51,7 @@ type CfnModel interface {
 	// The description of the model.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -61,7 +63,7 @@ type CfnModel interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a Model resource.
-	ModelRef() *ModelReference
+	ModelRef() *interfacesawsapigateway.ModelReference
 	// A name for the model.
 	Name() *string
 	SetName(val *string)
@@ -225,8 +227,8 @@ type CfnModel interface {
 // The jsii proxy struct for CfnModel
 type jsiiProxy_CfnModel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIModelRef
 }
 
 func (j *jsiiProxy_CfnModel) CfnOptions() awscdk.ICfnResourceOptions {
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnModel) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnModel) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModel) ModelRef() *ModelReference {
-	var returns *ModelReference
+func (j *jsiiProxy_CfnModel) ModelRef() *interfacesawsapigateway.ModelReference {
+	var returns *interfacesawsapigateway.ModelReference
 	_jsii_.Get(
 		j,
 		"modelRef",
@@ -400,6 +402,7 @@ func (j *jsiiProxy_CfnModel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGateway::Model`.
 func NewCfnModel(scope constructs.Construct, id *string, props *CfnModelProps) CfnModel {
 	_init_.Initialize()
 
@@ -417,6 +420,7 @@ func NewCfnModel(scope constructs.Construct, id *string, props *CfnModelProps) C
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::Model`.
 func NewCfnModel_Override(c CfnModel, scope constructs.Construct, id *string, props *CfnModelProps) {
 	_init_.Initialize()
 

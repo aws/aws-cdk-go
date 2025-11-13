@@ -8,6 +8,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,7 +44,7 @@ type Bucket interface {
 	// The name of the bucket.
 	BucketName() *string
 	// A reference to a Bucket resource.
-	BucketRef() *BucketReference
+	BucketRef() *interfacesawss3.BucketReference
 	// The regional domain name of the specified bucket.
 	BucketRegionalDomainName() *string
 	// The Domain name of the static website.
@@ -63,7 +65,7 @@ type Bucket interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// If this bucket has been configured for static website hosting.
 	IsWebsite() *bool
 	// The tree node.
@@ -375,8 +377,8 @@ func (j *jsiiProxy_Bucket) BucketName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Bucket) BucketRef() *BucketReference {
-	var returns *BucketReference
+func (j *jsiiProxy_Bucket) BucketRef() *interfacesawss3.BucketReference {
+	var returns *interfacesawss3.BucketReference
 	_jsii_.Get(
 		j,
 		"bucketRef",
@@ -435,8 +437,8 @@ func (j *jsiiProxy_Bucket) EncryptionKey() awskms.IKey {
 	return returns
 }
 
-func (j *jsiiProxy_Bucket) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Bucket) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

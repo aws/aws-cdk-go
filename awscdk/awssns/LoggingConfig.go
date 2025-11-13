@@ -1,7 +1,7 @@
 package awssns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // A logging configuration for delivery status of messages sent from SNS topic to subscribed endpoints.
@@ -26,11 +26,11 @@ type LoggingConfig struct {
 	// The IAM role to be used when logging failed message deliveries in Amazon CloudWatch.
 	// Default: None.
 	//
-	FailureFeedbackRole awsiam.IRoleRef `field:"optional" json:"failureFeedbackRole" yaml:"failureFeedbackRole"`
+	FailureFeedbackRole interfacesawsiam.IRoleRef `field:"optional" json:"failureFeedbackRole" yaml:"failureFeedbackRole"`
 	// The IAM role to be used when logging successful message deliveries in Amazon CloudWatch.
 	// Default: None.
 	//
-	SuccessFeedbackRole awsiam.IRoleRef `field:"optional" json:"successFeedbackRole" yaml:"successFeedbackRole"`
+	SuccessFeedbackRole interfacesawsiam.IRoleRef `field:"optional" json:"successFeedbackRole" yaml:"successFeedbackRole"`
 	// The percentage of successful message deliveries to be logged in Amazon CloudWatch.
 	//
 	// Valid values are integer between 0-100.

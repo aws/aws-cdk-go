@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesis"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnStreamConsumer interface {
 	awscdk.CfnResource
-	IStreamConsumerRef
 	awscdk.IInspectable
+	interfacesawskinesis.IStreamConsumerRef
 	awscdk.ITaggableV2
 	// When you register a consumer, Kinesis Data Streams generates an ARN for it.
 	//
@@ -70,7 +72,7 @@ type CfnStreamConsumer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -96,7 +98,7 @@ type CfnStreamConsumer interface {
 	StreamArn() *string
 	SetStreamArn(val *string)
 	// A reference to a StreamConsumer resource.
-	StreamConsumerRef() *StreamConsumerReference
+	StreamConsumerRef() *interfacesawskinesis.StreamConsumerReference
 	// An array of tags to be added to a specified Kinesis resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -243,8 +245,8 @@ type CfnStreamConsumer interface {
 // The jsii proxy struct for CfnStreamConsumer
 type jsiiProxy_CfnStreamConsumer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamConsumerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisIStreamConsumerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnStreamConsumer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamConsumer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStreamConsumer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnStreamConsumer) StreamArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamConsumer) StreamConsumerRef() *StreamConsumerReference {
-	var returns *StreamConsumerReference
+func (j *jsiiProxy_CfnStreamConsumer) StreamConsumerRef() *interfacesawskinesis.StreamConsumerReference {
+	var returns *interfacesawskinesis.StreamConsumerReference
 	_jsii_.Get(
 		j,
 		"streamConsumerRef",
@@ -459,6 +461,7 @@ func (j *jsiiProxy_CfnStreamConsumer) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Kinesis::StreamConsumer`.
 func NewCfnStreamConsumer(scope constructs.Construct, id *string, props *CfnStreamConsumerProps) CfnStreamConsumer {
 	_init_.Initialize()
 
@@ -476,6 +479,7 @@ func NewCfnStreamConsumer(scope constructs.Construct, id *string, props *CfnStre
 	return &j
 }
 
+// Create a new `AWS::Kinesis::StreamConsumer`.
 func NewCfnStreamConsumer_Override(c CfnStreamConsumer, scope constructs.Construct, id *string, props *CfnStreamConsumerProps) {
 	_init_.Initialize()
 

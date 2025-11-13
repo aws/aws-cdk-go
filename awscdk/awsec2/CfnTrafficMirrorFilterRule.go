@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnTrafficMirrorFilterRule interface {
 	awscdk.CfnResource
-	ITrafficMirrorFilterRuleRef
 	awscdk.IInspectable
+	interfacesawsec2.ITrafficMirrorFilterRuleRef
 	awscdk.ITaggableV2
 	// The ID of the Traffic Mirror rule.
 	AttrTrafficMirrorFilterRuleId() *string
@@ -76,7 +78,7 @@ type CfnTrafficMirrorFilterRule interface {
 	// The destination port range.
 	DestinationPortRange() interface{}
 	SetDestinationPortRange(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -123,7 +125,7 @@ type CfnTrafficMirrorFilterRule interface {
 	TrafficMirrorFilterId() *string
 	SetTrafficMirrorFilterId(val *string)
 	// A reference to a TrafficMirrorFilterRule resource.
-	TrafficMirrorFilterRuleRef() *TrafficMirrorFilterRuleReference
+	TrafficMirrorFilterRuleRef() *interfacesawsec2.TrafficMirrorFilterRuleReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -267,8 +269,8 @@ type CfnTrafficMirrorFilterRule interface {
 // The jsii proxy struct for CfnTrafficMirrorFilterRule
 type jsiiProxy_CfnTrafficMirrorFilterRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrafficMirrorFilterRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITrafficMirrorFilterRuleRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) DestinationPortRange() interface{
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -492,8 +494,8 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) TrafficMirrorFilterId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) TrafficMirrorFilterRuleRef() *TrafficMirrorFilterRuleReference {
-	var returns *TrafficMirrorFilterRuleReference
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule) TrafficMirrorFilterRuleRef() *interfacesawsec2.TrafficMirrorFilterRuleReference {
+	var returns *interfacesawsec2.TrafficMirrorFilterRuleReference
 	_jsii_.Get(
 		j,
 		"trafficMirrorFilterRuleRef",
@@ -523,6 +525,7 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::EC2::TrafficMirrorFilterRule`.
 func NewCfnTrafficMirrorFilterRule(scope constructs.Construct, id *string, props *CfnTrafficMirrorFilterRuleProps) CfnTrafficMirrorFilterRule {
 	_init_.Initialize()
 
@@ -540,6 +543,7 @@ func NewCfnTrafficMirrorFilterRule(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::EC2::TrafficMirrorFilterRule`.
 func NewCfnTrafficMirrorFilterRule_Override(c CfnTrafficMirrorFilterRule, scope constructs.Construct, id *string, props *CfnTrafficMirrorFilterRuleProps) {
 	_init_.Initialize()
 
@@ -666,13 +670,13 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetTrafficMirrorFilterId(val *stri
 }
 
 // Creates a new ITrafficMirrorFilterRuleRef from a trafficMirrorFilterRuleId.
-func CfnTrafficMirrorFilterRule_FromTrafficMirrorFilterRuleId(scope constructs.Construct, id *string, trafficMirrorFilterRuleId *string) ITrafficMirrorFilterRuleRef {
+func CfnTrafficMirrorFilterRule_FromTrafficMirrorFilterRuleId(scope constructs.Construct, id *string, trafficMirrorFilterRuleId *string) interfacesawsec2.ITrafficMirrorFilterRuleRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrafficMirrorFilterRule_FromTrafficMirrorFilterRuleIdParameters(scope, id, trafficMirrorFilterRuleId); err != nil {
 		panic(err)
 	}
-	var returns ITrafficMirrorFilterRuleRef
+	var returns interfacesawsec2.ITrafficMirrorFilterRuleRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilterRule",

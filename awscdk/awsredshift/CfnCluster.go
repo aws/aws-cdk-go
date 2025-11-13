@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -102,8 +104,8 @@ import (
 //
 type CfnCluster interface {
 	awscdk.CfnResource
-	IClusterRef
 	awscdk.IInspectable
+	interfacesawsredshift.IClusterRef
 	awscdk.ITaggable
 	// If `true` , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
 	AllowVersionUpgrade() interface{}
@@ -153,7 +155,7 @@ type CfnCluster interface {
 	ClusterParameterGroupName() *string
 	SetClusterParameterGroupName(val *string)
 	// A reference to a Cluster resource.
-	ClusterRef() *ClusterReference
+	ClusterRef() *interfacesawsredshift.ClusterReference
 	// A list of security groups to be associated with this cluster.
 	ClusterSecurityGroups() *[]*string
 	SetClusterSecurityGroups(val *[]*string)
@@ -202,7 +204,7 @@ type CfnCluster interface {
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled.
 	EnhancedVpcRouting() interface{}
 	SetEnhancedVpcRouting(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 	HsmClientCertificateIdentifier() *string
 	SetHsmClientCertificateIdentifier(val *string)
@@ -456,8 +458,8 @@ type CfnCluster interface {
 // The jsii proxy struct for CfnCluster
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -641,8 +643,8 @@ func (j *jsiiProxy_CfnCluster) ClusterParameterGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) ClusterRef() *ClusterReference {
-	var returns *ClusterReference
+func (j *jsiiProxy_CfnCluster) ClusterRef() *interfacesawsredshift.ClusterReference {
+	var returns *interfacesawsredshift.ClusterReference
 	_jsii_.Get(
 		j,
 		"clusterRef",
@@ -801,8 +803,8 @@ func (j *jsiiProxy_CfnCluster) EnhancedVpcRouting() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -1172,6 +1174,7 @@ func (j *jsiiProxy_CfnCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
+// Create a new `AWS::Redshift::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -1189,6 +1192,7 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
+// Create a new `AWS::Redshift::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 

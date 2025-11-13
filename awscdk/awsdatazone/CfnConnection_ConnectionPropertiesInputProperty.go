@@ -9,6 +9,11 @@ package awsdatazone
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   connectionPropertiesInputProperty := &ConnectionPropertiesInputProperty{
+//   	AmazonQProperties: &AmazonQPropertiesInputProperty{
+//   		AuthMode: jsii.String("authMode"),
+//   		IsEnabled: jsii.Boolean(false),
+//   		ProfileArn: jsii.String("profileArn"),
+//   	},
 //   	AthenaProperties: &AthenaPropertiesInputProperty{
 //   		WorkgroupName: jsii.String("workgroupName"),
 //   	},
@@ -139,6 +144,10 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html
 //
 type CfnConnection_ConnectionPropertiesInputProperty struct {
+	// Amazon Q properties of the connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-amazonqproperties
+	//
+	AmazonQProperties interface{} `field:"optional" json:"amazonQProperties" yaml:"amazonQProperties"`
 	// The Amazon Athena properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-athenaproperties
 	//

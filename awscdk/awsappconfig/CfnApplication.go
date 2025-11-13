@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,11 +47,11 @@ import (
 //
 type CfnApplication interface {
 	awscdk.CfnResource
-	IApplicationRef
 	awscdk.IInspectable
+	interfacesawsappconfig.IApplicationRef
 	awscdk.ITaggableV2
 	// A reference to a Application resource.
-	ApplicationRef() *ApplicationReference
+	ApplicationRef() *interfacesawsappconfig.ApplicationReference
 	// The application ID.
 	AttrApplicationId() *string
 	// Tag Manager which manages the tags for this resource.
@@ -66,7 +68,7 @@ type CfnApplication interface {
 	// A description of the application.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,13 +239,13 @@ type CfnApplication interface {
 // The jsii proxy struct for CfnApplication
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappconfigIApplicationRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnApplication) ApplicationRef() *ApplicationReference {
-	var returns *ApplicationReference
+func (j *jsiiProxy_CfnApplication) ApplicationRef() *interfacesawsappconfig.ApplicationReference {
+	var returns *interfacesawsappconfig.ApplicationReference
 	_jsii_.Get(
 		j,
 		"applicationRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnApplication) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppConfig::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
+// Create a new `AWS::AppConfig::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
@@ -471,13 +475,13 @@ func (j *jsiiProxy_CfnApplication)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IApplicationRef from a applicationId.
-func CfnApplication_FromApplicationId(scope constructs.Construct, id *string, applicationId *string) IApplicationRef {
+func CfnApplication_FromApplicationId(scope constructs.Construct, id *string, applicationId *string) interfacesawsappconfig.IApplicationRef {
 	_init_.Initialize()
 
 	if err := validateCfnApplication_FromApplicationIdParameters(scope, id, applicationId); err != nil {
 		panic(err)
 	}
-	var returns IApplicationRef
+	var returns interfacesawsappconfig.IApplicationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appconfig.CfnApplication",

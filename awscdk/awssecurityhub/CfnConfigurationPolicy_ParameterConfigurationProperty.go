@@ -33,7 +33,7 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-parameterconfiguration.html
 //
 type CfnConfigurationPolicy_ParameterConfigurationProperty struct {
-	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
 	//
 	// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
 	//

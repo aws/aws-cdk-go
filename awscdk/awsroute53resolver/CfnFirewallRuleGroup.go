@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnFirewallRuleGroup interface {
 	awscdk.CfnResource
-	IFirewallRuleGroupRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IFirewallRuleGroupRef
 	awscdk.ITaggable
 	// The ARN (Amazon Resource Name) of the rule group.
 	AttrArn() *string
@@ -88,9 +90,9 @@ type CfnFirewallRuleGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FirewallRuleGroup resource.
-	FirewallRuleGroupRef() *FirewallRuleGroupReference
+	FirewallRuleGroupRef() *interfacesawsroute53resolver.FirewallRuleGroupReference
 	// A list of the rules that you have defined.
 	FirewallRules() interface{}
 	SetFirewallRules(val interface{})
@@ -266,8 +268,8 @@ type CfnFirewallRuleGroup interface {
 // The jsii proxy struct for CfnFirewallRuleGroup
 type jsiiProxy_CfnFirewallRuleGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFirewallRuleGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIFirewallRuleGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -411,8 +413,8 @@ func (j *jsiiProxy_CfnFirewallRuleGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallRuleGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFirewallRuleGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,8 +423,8 @@ func (j *jsiiProxy_CfnFirewallRuleGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallRuleGroup) FirewallRuleGroupRef() *FirewallRuleGroupReference {
-	var returns *FirewallRuleGroupReference
+func (j *jsiiProxy_CfnFirewallRuleGroup) FirewallRuleGroupRef() *interfacesawsroute53resolver.FirewallRuleGroupReference {
+	var returns *interfacesawsroute53resolver.FirewallRuleGroupReference
 	_jsii_.Get(
 		j,
 		"firewallRuleGroupRef",
@@ -532,6 +534,7 @@ func (j *jsiiProxy_CfnFirewallRuleGroup) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::Route53Resolver::FirewallRuleGroup`.
 func NewCfnFirewallRuleGroup(scope constructs.Construct, id *string, props *CfnFirewallRuleGroupProps) CfnFirewallRuleGroup {
 	_init_.Initialize()
 
@@ -549,6 +552,7 @@ func NewCfnFirewallRuleGroup(scope constructs.Construct, id *string, props *CfnF
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::FirewallRuleGroup`.
 func NewCfnFirewallRuleGroup_Override(c CfnFirewallRuleGroup, scope constructs.Construct, id *string, props *CfnFirewallRuleGroupProps) {
 	_init_.Initialize()
 

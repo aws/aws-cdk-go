@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventschemas/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseventschemas"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnDiscoverer interface {
 	awscdk.CfnResource
-	IDiscovererRef
 	awscdk.IInspectable
+	interfacesawseventschemas.IDiscovererRef
 	awscdk.ITaggable
 	AttrCrossAccount() awscdk.IResolvable
 	// The ARN of the discoverer.
@@ -62,8 +64,8 @@ type CfnDiscoverer interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a Discoverer resource.
-	DiscovererRef() *DiscovererReference
-	Env() *awscdk.ResourceEnvironment
+	DiscovererRef() *interfacesawseventschemas.DiscovererReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -236,8 +238,8 @@ type CfnDiscoverer interface {
 // The jsii proxy struct for CfnDiscoverer
 type jsiiProxy_CfnDiscoverer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDiscovererRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventschemasIDiscovererRef
 	internal.Type__awscdkITaggable
 }
 
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnDiscoverer) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDiscoverer) DiscovererRef() *DiscovererReference {
-	var returns *DiscovererReference
+func (j *jsiiProxy_CfnDiscoverer) DiscovererRef() *interfacesawseventschemas.DiscovererReference {
+	var returns *interfacesawseventschemas.DiscovererReference
 	_jsii_.Get(
 		j,
 		"discovererRef",
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnDiscoverer) DiscovererRef() *DiscovererReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDiscoverer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDiscoverer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -452,6 +454,7 @@ func (j *jsiiProxy_CfnDiscoverer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EventSchemas::Discoverer`.
 func NewCfnDiscoverer(scope constructs.Construct, id *string, props *CfnDiscovererProps) CfnDiscoverer {
 	_init_.Initialize()
 
@@ -469,6 +472,7 @@ func NewCfnDiscoverer(scope constructs.Construct, id *string, props *CfnDiscover
 	return &j
 }
 
+// Create a new `AWS::EventSchemas::Discoverer`.
 func NewCfnDiscoverer_Override(c CfnDiscoverer, scope constructs.Construct, id *string, props *CfnDiscovererProps) {
 	_init_.Initialize()
 

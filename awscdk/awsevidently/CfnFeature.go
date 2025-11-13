@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevidently/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevidently"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnFeature interface {
 	awscdk.CfnResource
-	IFeatureRef
 	awscdk.IInspectable
+	interfacesawsevidently.IFeatureRef
 	awscdk.ITaggable
 	// The ARN of the feature.
 	//
@@ -80,12 +82,12 @@ type CfnFeature interface {
 	// Specify users that should always be served a specific variation of a feature.
 	EntityOverrides() interface{}
 	SetEntityOverrides(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments.
 	EvaluationStrategy() *string
 	SetEvaluationStrategy(val *string)
 	// A reference to a Feature resource.
-	FeatureRef() *FeatureReference
+	FeatureRef() *interfacesawsevidently.FeatureReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -264,8 +266,8 @@ type CfnFeature interface {
 // The jsii proxy struct for CfnFeature
 type jsiiProxy_CfnFeature struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFeatureRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsevidentlyIFeatureRef
 	internal.Type__awscdkITaggable
 }
 
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnFeature) EntityOverrides() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFeature) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFeature) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnFeature) EvaluationStrategy() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFeature) FeatureRef() *FeatureReference {
-	var returns *FeatureReference
+func (j *jsiiProxy_CfnFeature) FeatureRef() *interfacesawsevidently.FeatureReference {
+	var returns *interfacesawsevidently.FeatureReference
 	_jsii_.Get(
 		j,
 		"featureRef",
@@ -490,6 +492,7 @@ func (j *jsiiProxy_CfnFeature) Variations() interface{} {
 }
 
 
+// Create a new `AWS::Evidently::Feature`.
 func NewCfnFeature(scope constructs.Construct, id *string, props *CfnFeatureProps) CfnFeature {
 	_init_.Initialize()
 
@@ -507,6 +510,7 @@ func NewCfnFeature(scope constructs.Construct, id *string, props *CfnFeatureProp
 	return &j
 }
 
+// Create a new `AWS::Evidently::Feature`.
 func NewCfnFeature_Override(c CfnFeature, scope constructs.Construct, id *string, props *CfnFeatureProps) {
 	_init_.Initialize()
 

@@ -39,6 +39,7 @@ type CfnEvaluationForm_EvaluationFormSingleSelectQuestionAutomationProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-options
 	//
 	Options interface{} `field:"required" json:"options" yaml:"options"`
+	// Automation answer source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-answersource
 	//
 	AnswerSource interface{} `field:"optional" json:"answerSource" yaml:"answerSource"`

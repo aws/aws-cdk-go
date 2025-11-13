@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssns"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnTopicPolicy interface {
 	awscdk.CfnResource
-	ITopicPolicyRef
 	awscdk.IInspectable
+	interfacesawssns.ITopicPolicyRef
 	// The provider-assigned unique ID for this managed resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -44,7 +46,7 @@ type CfnTopicPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -70,7 +72,7 @@ type CfnTopicPolicy interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a TopicPolicy resource.
-	TopicPolicyRef() *TopicPolicyReference
+	TopicPolicyRef() *interfacesawssns.TopicPolicyReference
 	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy.
 	Topics() *[]*string
 	SetTopics(val *[]*string)
@@ -217,8 +219,8 @@ type CfnTopicPolicy interface {
 // The jsii proxy struct for CfnTopicPolicy
 type jsiiProxy_CfnTopicPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITopicPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssnsITopicPolicyRef
 }
 
 func (j *jsiiProxy_CfnTopicPolicy) AttrId() *string {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnTopicPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTopicPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnTopicPolicy) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicPolicy) TopicPolicyRef() *TopicPolicyReference {
-	var returns *TopicPolicyReference
+func (j *jsiiProxy_CfnTopicPolicy) TopicPolicyRef() *interfacesawssns.TopicPolicyReference {
+	var returns *interfacesawssns.TopicPolicyReference
 	_jsii_.Get(
 		j,
 		"topicPolicyRef",
@@ -372,6 +374,7 @@ func (j *jsiiProxy_CfnTopicPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SNS::TopicPolicy`.
 func NewCfnTopicPolicy(scope constructs.Construct, id *string, props *CfnTopicPolicyProps) CfnTopicPolicy {
 	_init_.Initialize()
 
@@ -389,6 +392,7 @@ func NewCfnTopicPolicy(scope constructs.Construct, id *string, props *CfnTopicPo
 	return &j
 }
 
+// Create a new `AWS::SNS::TopicPolicy`.
 func NewCfnTopicPolicy_Override(c CfnTopicPolicy, scope constructs.Construct, id *string, props *CfnTopicPolicyProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -89,8 +91,8 @@ import (
 //
 type CfnReceiptRule interface {
 	awscdk.CfnResource
-	IReceiptRuleRef
 	awscdk.IInspectable
+	interfacesawsses.IReceiptRuleRef
 	// The name of an existing rule after which the new rule is placed.
 	After() *string
 	SetAfter(val *string)
@@ -104,7 +106,7 @@ type CfnReceiptRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -118,7 +120,7 @@ type CfnReceiptRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a ReceiptRule resource.
-	ReceiptRuleRef() *ReceiptRuleReference
+	ReceiptRuleRef() *interfacesawsses.ReceiptRuleReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -277,8 +279,8 @@ type CfnReceiptRule interface {
 // The jsii proxy struct for CfnReceiptRule
 type jsiiProxy_CfnReceiptRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReceiptRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIReceiptRuleRef
 }
 
 func (j *jsiiProxy_CfnReceiptRule) After() *string {
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnReceiptRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReceiptRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReceiptRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnReceiptRule) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReceiptRule) ReceiptRuleRef() *ReceiptRuleReference {
-	var returns *ReceiptRuleReference
+func (j *jsiiProxy_CfnReceiptRule) ReceiptRuleRef() *interfacesawsses.ReceiptRuleReference {
+	var returns *interfacesawsses.ReceiptRuleReference
 	_jsii_.Get(
 		j,
 		"receiptRuleRef",
@@ -442,6 +444,7 @@ func (j *jsiiProxy_CfnReceiptRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SES::ReceiptRule`.
 func NewCfnReceiptRule(scope constructs.Construct, id *string, props *CfnReceiptRuleProps) CfnReceiptRule {
 	_init_.Initialize()
 
@@ -459,6 +462,7 @@ func NewCfnReceiptRule(scope constructs.Construct, id *string, props *CfnReceipt
 	return &j
 }
 
+// Create a new `AWS::SES::ReceiptRule`.
 func NewCfnReceiptRule_Override(c CfnReceiptRule, scope constructs.Construct, id *string, props *CfnReceiptRuleProps) {
 	_init_.Initialize()
 

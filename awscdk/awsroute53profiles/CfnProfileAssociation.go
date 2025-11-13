@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53profiles/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53profiles"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnProfileAssociation interface {
 	awscdk.CfnResource
-	IProfileAssociationRef
 	awscdk.IInspectable
+	interfacesawsroute53profiles.IProfileAssociationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the profile association to a VPC.
 	Arn() *string
@@ -54,7 +56,7 @@ type CfnProfileAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,7 +73,7 @@ type CfnProfileAssociation interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a ProfileAssociation resource.
-	ProfileAssociationRef() *ProfileAssociationReference
+	ProfileAssociationRef() *interfacesawsroute53profiles.ProfileAssociationReference
 	// ID of the Profile.
 	ProfileId() *string
 	SetProfileId(val *string)
@@ -233,8 +235,8 @@ type CfnProfileAssociation interface {
 // The jsii proxy struct for CfnProfileAssociation
 type jsiiProxy_CfnProfileAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProfileAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53profilesIProfileAssociationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnProfileAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfileAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProfileAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnProfileAssociation) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfileAssociation) ProfileAssociationRef() *ProfileAssociationReference {
-	var returns *ProfileAssociationReference
+func (j *jsiiProxy_CfnProfileAssociation) ProfileAssociationRef() *interfacesawsroute53profiles.ProfileAssociationReference {
+	var returns *interfacesawsroute53profiles.ProfileAssociationReference
 	_jsii_.Get(
 		j,
 		"profileAssociationRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnProfileAssociation) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Route53Profiles::ProfileAssociation`.
 func NewCfnProfileAssociation(scope constructs.Construct, id *string, props *CfnProfileAssociationProps) CfnProfileAssociation {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnProfileAssociation(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Route53Profiles::ProfileAssociation`.
 func NewCfnProfileAssociation_Override(c CfnProfileAssociation, scope constructs.Construct, id *string, props *CfnProfileAssociationProps) {
 	_init_.Initialize()
 

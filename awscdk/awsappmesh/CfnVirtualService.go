@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnVirtualService interface {
 	awscdk.CfnResource
-	IVirtualServiceRef
 	awscdk.IInspectable
+	interfacesawsappmesh.IVirtualServiceRef
 	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the virtual service.
 	AttrArn() *string
@@ -77,7 +79,7 @@ type CfnVirtualService interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -130,7 +132,7 @@ type CfnVirtualService interface {
 	VirtualServiceName() *string
 	SetVirtualServiceName(val *string)
 	// A reference to a VirtualService resource.
-	VirtualServiceRef() *VirtualServiceReference
+	VirtualServiceRef() *interfacesawsappmesh.VirtualServiceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -261,8 +263,8 @@ type CfnVirtualService interface {
 // The jsii proxy struct for CfnVirtualService
 type jsiiProxy_CfnVirtualService struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVirtualServiceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappmeshIVirtualServiceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnVirtualService) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualService) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVirtualService) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -506,8 +508,8 @@ func (j *jsiiProxy_CfnVirtualService) VirtualServiceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualService) VirtualServiceRef() *VirtualServiceReference {
-	var returns *VirtualServiceReference
+func (j *jsiiProxy_CfnVirtualService) VirtualServiceRef() *interfacesawsappmesh.VirtualServiceReference {
+	var returns *interfacesawsappmesh.VirtualServiceReference
 	_jsii_.Get(
 		j,
 		"virtualServiceRef",
@@ -517,6 +519,7 @@ func (j *jsiiProxy_CfnVirtualService) VirtualServiceRef() *VirtualServiceReferen
 }
 
 
+// Create a new `AWS::AppMesh::VirtualService`.
 func NewCfnVirtualService(scope constructs.Construct, id *string, props *CfnVirtualServiceProps) CfnVirtualService {
 	_init_.Initialize()
 
@@ -534,6 +537,7 @@ func NewCfnVirtualService(scope constructs.Construct, id *string, props *CfnVirt
 	return &j
 }
 
+// Create a new `AWS::AppMesh::VirtualService`.
 func NewCfnVirtualService_Override(c CfnVirtualService, scope constructs.Construct, id *string, props *CfnVirtualServiceProps) {
 	_init_.Initialize()
 

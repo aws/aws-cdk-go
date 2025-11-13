@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,7 +45,7 @@ type OidcProviderNative interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// The Amazon Resource Name (ARN) of the Native IAM OpenID Connect provider.
@@ -51,7 +53,7 @@ type OidcProviderNative interface {
 	// The issuer for the Native OIDC Provider.
 	OidcProviderIssuer() *string
 	// A reference to a OIDCProvider resource.
-	OidcProviderRef() *OIDCProviderReference
+	OidcProviderRef() *interfacesawsiam.OIDCProviderReference
 	// The thumbprints configured for this provider.
 	OidcProviderThumbprints() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -98,8 +100,8 @@ type jsiiProxy_OidcProviderNative struct {
 	jsiiProxy_IOidcProvider
 }
 
-func (j *jsiiProxy_OidcProviderNative) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_OidcProviderNative) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -138,8 +140,8 @@ func (j *jsiiProxy_OidcProviderNative) OidcProviderIssuer() *string {
 	return returns
 }
 
-func (j *jsiiProxy_OidcProviderNative) OidcProviderRef() *OIDCProviderReference {
-	var returns *OIDCProviderReference
+func (j *jsiiProxy_OidcProviderNative) OidcProviderRef() *interfacesawsiam.OIDCProviderReference {
+	var returns *interfacesawsiam.OIDCProviderReference
 	_jsii_.Get(
 		j,
 		"oidcProviderRef",

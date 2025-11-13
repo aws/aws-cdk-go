@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -130,8 +132,8 @@ import (
 //
 type CfnDataProvider interface {
 	awscdk.CfnResource
-	IDataProviderRef
 	awscdk.IInspectable
+	interfacesawsdms.IDataProviderRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) string that uniquely identifies the data provider.
 	AttrDataProviderArn() *string
@@ -155,14 +157,14 @@ type CfnDataProvider interface {
 	DataProviderName() *string
 	SetDataProviderName(val *string)
 	// A reference to a DataProvider resource.
-	DataProviderRef() *DataProviderReference
+	DataProviderRef() *interfacesawsdms.DataProviderReference
 	// A description of the data provider.
 	Description() *string
 	SetDescription(val *string)
 	// The type of database engine for the data provider.
 	Engine() *string
 	SetEngine(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The property describes the exact settings which can be modified.
 	ExactSettings() interface{}
 	SetExactSettings(val interface{})
@@ -336,8 +338,8 @@ type CfnDataProvider interface {
 // The jsii proxy struct for CfnDataProvider
 type jsiiProxy_CfnDataProvider struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataProviderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIDataProviderRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -431,8 +433,8 @@ func (j *jsiiProxy_CfnDataProvider) DataProviderName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataProvider) DataProviderRef() *DataProviderReference {
-	var returns *DataProviderReference
+func (j *jsiiProxy_CfnDataProvider) DataProviderRef() *interfacesawsdms.DataProviderReference {
+	var returns *interfacesawsdms.DataProviderReference
 	_jsii_.Get(
 		j,
 		"dataProviderRef",
@@ -461,8 +463,8 @@ func (j *jsiiProxy_CfnDataProvider) Engine() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -562,6 +564,7 @@ func (j *jsiiProxy_CfnDataProvider) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::DMS::DataProvider`.
 func NewCfnDataProvider(scope constructs.Construct, id *string, props *CfnDataProviderProps) CfnDataProvider {
 	_init_.Initialize()
 
@@ -579,6 +582,7 @@ func NewCfnDataProvider(scope constructs.Construct, id *string, props *CfnDataPr
 	return &j
 }
 
+// Create a new `AWS::DMS::DataProvider`.
 func NewCfnDataProvider_Override(c CfnDataProvider, scope constructs.Construct, id *string, props *CfnDataProviderProps) {
 	_init_.Initialize()
 

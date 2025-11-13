@@ -1,7 +1,7 @@
 package awsevents
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -66,7 +66,7 @@ type RuleProps struct {
 	// Must be assumable by principal `events.amazonaws.com`.
 	// Default: - No role associated.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role interfacesawsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 	// The schedule or rate (frequency) that determines when EventBridge runs the rule.
 	//
 	// You must specify this property, the `eventPattern` property, or both.

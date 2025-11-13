@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnBaiduChannel interface {
 	awscdk.CfnResource
-	IBaiduChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IBaiduChannelRef
 	// The API key that you received from the Baidu Cloud Push service to communicate with the service.
 	ApiKey() *string
 	SetApiKey(val *string)
@@ -46,7 +48,7 @@ type CfnBaiduChannel interface {
 	// This property is retained only for backward compatibility.
 	AttrId() *string
 	// A reference to a BaiduChannel resource.
-	BaiduChannelRef() *BaiduChannelReference
+	BaiduChannelRef() *interfacesawspinpoint.BaiduChannelReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -59,7 +61,7 @@ type CfnBaiduChannel interface {
 	// Specifies whether to enable the Baidu channel for the application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,8 +229,8 @@ type CfnBaiduChannel interface {
 // The jsii proxy struct for CfnBaiduChannel
 type jsiiProxy_CfnBaiduChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBaiduChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIBaiduChannelRef
 }
 
 func (j *jsiiProxy_CfnBaiduChannel) ApiKey() *string {
@@ -261,8 +263,8 @@ func (j *jsiiProxy_CfnBaiduChannel) AttrId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBaiduChannel) BaiduChannelRef() *BaiduChannelReference {
-	var returns *BaiduChannelReference
+func (j *jsiiProxy_CfnBaiduChannel) BaiduChannelRef() *interfacesawspinpoint.BaiduChannelReference {
+	var returns *interfacesawspinpoint.BaiduChannelReference
 	_jsii_.Get(
 		j,
 		"baiduChannelRef",
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnBaiduChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBaiduChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBaiduChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnBaiduChannel) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Pinpoint::BaiduChannel`.
 func NewCfnBaiduChannel(scope constructs.Construct, id *string, props *CfnBaiduChannelProps) CfnBaiduChannel {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnBaiduChannel(scope constructs.Construct, id *string, props *CfnBaiduC
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::BaiduChannel`.
 func NewCfnBaiduChannel_Override(c CfnBaiduChannel, scope constructs.Construct, id *string, props *CfnBaiduChannelProps) {
 	_init_.Initialize()
 

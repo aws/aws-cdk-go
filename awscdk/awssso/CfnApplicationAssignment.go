@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssso/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssso"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,13 +28,13 @@ import (
 //
 type CfnApplicationAssignment interface {
 	awscdk.CfnResource
-	IApplicationAssignmentRef
 	awscdk.IInspectable
+	interfacesawssso.IApplicationAssignmentRef
 	// The ARN of the application that has principals assigned.
 	ApplicationArn() *string
 	SetApplicationArn(val *string)
 	// A reference to a ApplicationAssignment resource.
-	ApplicationAssignmentRef() *ApplicationAssignmentReference
+	ApplicationAssignmentRef() *interfacesawssso.ApplicationAssignmentReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -42,7 +44,7 @@ type CfnApplicationAssignment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,8 +215,8 @@ type CfnApplicationAssignment interface {
 // The jsii proxy struct for CfnApplicationAssignment
 type jsiiProxy_CfnApplicationAssignment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationAssignmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssoIApplicationAssignmentRef
 }
 
 func (j *jsiiProxy_CfnApplicationAssignment) ApplicationArn() *string {
@@ -227,8 +229,8 @@ func (j *jsiiProxy_CfnApplicationAssignment) ApplicationArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationAssignment) ApplicationAssignmentRef() *ApplicationAssignmentReference {
-	var returns *ApplicationAssignmentReference
+func (j *jsiiProxy_CfnApplicationAssignment) ApplicationAssignmentRef() *interfacesawssso.ApplicationAssignmentReference {
+	var returns *interfacesawssso.ApplicationAssignmentReference
 	_jsii_.Get(
 		j,
 		"applicationAssignmentRef",
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnApplicationAssignment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationAssignment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationAssignment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnApplicationAssignment) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::SSO::ApplicationAssignment`.
 func NewCfnApplicationAssignment(scope constructs.Construct, id *string, props *CfnApplicationAssignmentProps) CfnApplicationAssignment {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnApplicationAssignment(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::SSO::ApplicationAssignment`.
 func NewCfnApplicationAssignment_Override(c CfnApplicationAssignment, scope constructs.Construct, id *string, props *CfnApplicationAssignmentProps) {
 	_init_.Initialize()
 

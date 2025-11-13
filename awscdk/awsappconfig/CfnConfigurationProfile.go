@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnConfigurationProfile interface {
 	awscdk.CfnResource
-	IConfigurationProfileRef
 	awscdk.IInspectable
+	interfacesawsappconfig.IConfigurationProfileRef
 	awscdk.ITaggableV2
 	// The application ID.
 	ApplicationId() *string
@@ -81,7 +83,7 @@ type CfnConfigurationProfile interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConfigurationProfile resource.
-	ConfigurationProfileRef() *ConfigurationProfileReference
+	ConfigurationProfileRef() *interfacesawsappconfig.ConfigurationProfileReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -92,7 +94,7 @@ type CfnConfigurationProfile interface {
 	// A description of the configuration profile.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
@@ -280,8 +282,8 @@ type CfnConfigurationProfile interface {
 // The jsii proxy struct for CfnConfigurationProfile
 type jsiiProxy_CfnConfigurationProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappconfigIConfigurationProfileRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnConfigurationProfile) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationProfile) ConfigurationProfileRef() *ConfigurationProfileReference {
-	var returns *ConfigurationProfileReference
+func (j *jsiiProxy_CfnConfigurationProfile) ConfigurationProfileRef() *interfacesawsappconfig.ConfigurationProfileReference {
+	var returns *interfacesawsappconfig.ConfigurationProfileReference
 	_jsii_.Get(
 		j,
 		"configurationProfileRef",
@@ -395,8 +397,8 @@ func (j *jsiiProxy_CfnConfigurationProfile) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -536,6 +538,7 @@ func (j *jsiiProxy_CfnConfigurationProfile) Validators() interface{} {
 }
 
 
+// Create a new `AWS::AppConfig::ConfigurationProfile`.
 func NewCfnConfigurationProfile(scope constructs.Construct, id *string, props *CfnConfigurationProfileProps) CfnConfigurationProfile {
 	_init_.Initialize()
 
@@ -553,6 +556,7 @@ func NewCfnConfigurationProfile(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::AppConfig::ConfigurationProfile`.
 func NewCfnConfigurationProfile_Override(c CfnConfigurationProfile, scope constructs.Construct, id *string, props *CfnConfigurationProfileProps) {
 	_init_.Initialize()
 

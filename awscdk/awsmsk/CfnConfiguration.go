@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmsk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmsk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnConfiguration interface {
 	awscdk.CfnResource
-	IConfigurationRef
 	awscdk.IInspectable
+	interfacesawsmsk.IConfigurationRef
 	// The Amazon Resource Name (ARN) of the configuration.
 	AttrArn() *string
 	// The time when the configuration revision was created.
@@ -63,7 +65,7 @@ type CfnConfiguration interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Configuration resource.
-	ConfigurationRef() *ConfigurationReference
+	ConfigurationRef() *interfacesawsmsk.ConfigurationReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -71,7 +73,7 @@ type CfnConfiguration interface {
 	// The description of the configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
 	KafkaVersionsList() *[]*string
 	SetKafkaVersionsList(val *[]*string)
@@ -248,8 +250,8 @@ type CfnConfiguration interface {
 // The jsii proxy struct for CfnConfiguration
 type jsiiProxy_CfnConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmskIConfigurationRef
 }
 
 func (j *jsiiProxy_CfnConfiguration) AttrArn() *string {
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnConfiguration) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguration) ConfigurationRef() *ConfigurationReference {
-	var returns *ConfigurationReference
+func (j *jsiiProxy_CfnConfiguration) ConfigurationRef() *interfacesawsmsk.ConfigurationReference {
+	var returns *interfacesawsmsk.ConfigurationReference
 	_jsii_.Get(
 		j,
 		"configurationRef",
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -463,6 +465,7 @@ func (j *jsiiProxy_CfnConfiguration) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::MSK::Configuration`.
 func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfigurationProps) CfnConfiguration {
 	_init_.Initialize()
 
@@ -480,6 +483,7 @@ func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfi
 	return &j
 }
 
+// Create a new `AWS::MSK::Configuration`.
 func NewCfnConfiguration_Override(c CfnConfiguration, scope constructs.Construct, id *string, props *CfnConfigurationProps) {
 	_init_.Initialize()
 

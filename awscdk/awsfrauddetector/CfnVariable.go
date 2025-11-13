@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfrauddetector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfrauddetector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnVariable interface {
 	awscdk.CfnResource
-	IVariableRef
 	awscdk.IInspectable
+	interfacesawsfrauddetector.IVariableRef
 	awscdk.ITaggable
 	// The ARN of the variable.
 	AttrArn() *string
@@ -67,7 +69,7 @@ type CfnVariable interface {
 	// The description of the variable.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -111,7 +113,7 @@ type CfnVariable interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a Variable resource.
-	VariableRef() *VariableReference
+	VariableRef() *interfacesawsfrauddetector.VariableReference
 	// The type of the variable.
 	//
 	// For more information see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
@@ -247,8 +249,8 @@ type CfnVariable interface {
 // The jsii proxy struct for CfnVariable
 type jsiiProxy_CfnVariable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVariableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfrauddetectorIVariableRef
 	internal.Type__awscdkITaggable
 }
 
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnVariable) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVariable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVariable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -462,8 +464,8 @@ func (j *jsiiProxy_CfnVariable) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVariable) VariableRef() *VariableReference {
-	var returns *VariableReference
+func (j *jsiiProxy_CfnVariable) VariableRef() *interfacesawsfrauddetector.VariableReference {
+	var returns *interfacesawsfrauddetector.VariableReference
 	_jsii_.Get(
 		j,
 		"variableRef",
@@ -483,6 +485,7 @@ func (j *jsiiProxy_CfnVariable) VariableType() *string {
 }
 
 
+// Create a new `AWS::FraudDetector::Variable`.
 func NewCfnVariable(scope constructs.Construct, id *string, props *CfnVariableProps) CfnVariable {
 	_init_.Initialize()
 
@@ -500,6 +503,7 @@ func NewCfnVariable(scope constructs.Construct, id *string, props *CfnVariablePr
 	return &j
 }
 
+// Create a new `AWS::FraudDetector::Variable`.
 func NewCfnVariable_Override(c CfnVariable, scope constructs.Construct, id *string, props *CfnVariableProps) {
 	_init_.Initialize()
 

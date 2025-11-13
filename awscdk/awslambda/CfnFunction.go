@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -124,8 +126,8 @@ import (
 //
 type CfnFunction interface {
 	awscdk.CfnResource
-	IFunctionRef
 	awscdk.IInspectable
+	interfacesawslambda.IFunctionRef
 	awscdk.ITaggable
 	// The instruction set architecture that the function supports.
 	Architectures() *[]*string
@@ -161,7 +163,7 @@ type CfnFunction interface {
 	// A description of the function.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Environment variables that are accessible from function code during execution.
 	Environment() interface{}
 	SetEnvironment(val interface{})
@@ -175,7 +177,7 @@ type CfnFunction interface {
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// A reference to a Function resource.
-	FunctionRef() *FunctionReference
+	FunctionRef() *interfacesawslambda.FunctionReference
 	// The name of the method within your code that Lambda calls to run your function.
 	Handler() *string
 	SetHandler(val *string)
@@ -393,8 +395,8 @@ type CfnFunction interface {
 // The jsii proxy struct for CfnFunction
 type jsiiProxy_CfnFunction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFunctionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslambdaIFunctionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -528,8 +530,8 @@ func (j *jsiiProxy_CfnFunction) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFunction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -578,8 +580,8 @@ func (j *jsiiProxy_CfnFunction) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunction) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_CfnFunction) FunctionRef() *interfacesawslambda.FunctionReference {
+	var returns *interfacesawslambda.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",
@@ -829,6 +831,7 @@ func (j *jsiiProxy_CfnFunction) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::Lambda::Function`.
 func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionProps) CfnFunction {
 	_init_.Initialize()
 
@@ -846,6 +849,7 @@ func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionPr
 	return &j
 }
 
+// Create a new `AWS::Lambda::Function`.
 func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *string, props *CfnFunctionProps) {
 	_init_.Initialize()
 
@@ -1104,13 +1108,13 @@ func (j *jsiiProxy_CfnFunction)SetVpcConfig(val interface{}) {
 }
 
 // Creates a new IFunctionRef from an ARN.
-func CfnFunction_FromFunctionArn(scope constructs.Construct, id *string, arn *string) IFunctionRef {
+func CfnFunction_FromFunctionArn(scope constructs.Construct, id *string, arn *string) interfacesawslambda.IFunctionRef {
 	_init_.Initialize()
 
 	if err := validateCfnFunction_FromFunctionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IFunctionRef
+	var returns interfacesawslambda.IFunctionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.CfnFunction",
@@ -1123,13 +1127,13 @@ func CfnFunction_FromFunctionArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new IFunctionRef from a functionName.
-func CfnFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) IFunctionRef {
+func CfnFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) interfacesawslambda.IFunctionRef {
 	_init_.Initialize()
 
 	if err := validateCfnFunction_FromFunctionNameParameters(scope, id, functionName); err != nil {
 		panic(err)
 	}
-	var returns IFunctionRef
+	var returns interfacesawslambda.IFunctionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.CfnFunction",

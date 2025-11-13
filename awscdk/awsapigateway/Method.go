@@ -8,6 +8,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,7 +49,7 @@ type Method interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	HttpMethod() *string
 	// Returns an execute-api ARN for this method:.
 	//
@@ -108,37 +110,37 @@ type Method interface {
 	// Grants an IAM principal permission to invoke this method.
 	GrantExecute(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns the given named metric for this API method.
-	Metric(metricName *string, stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	Metric(metricName *string, stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of requests served from the API cache in a given period.
 	// Default: - sum over 5 minutes.
 	//
-	MetricCacheHitCount(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricCacheHitCount(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of requests served from the backend in a given period, when API caching is enabled.
 	// Default: - sum over 5 minutes.
 	//
-	MetricCacheMissCount(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricCacheMissCount(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of client-side errors captured in a given period.
 	// Default: - sum over 5 minutes.
 	//
-	MetricClientError(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricClientError(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the total number API requests in a given period.
 	// Default: - sample count over 5 minutes.
 	//
-	MetricCount(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricCount(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
 	// Default: - average over 5 minutes.
 	//
-	MetricIntegrationLatency(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricIntegrationLatency(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
 	//
 	// The latency includes the integration latency and other API Gateway overhead.
 	// Default: - average over 5 minutes.
 	//
-	MetricLatency(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricLatency(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of server-side errors captured in a given period.
 	// Default: - sum over 5 minutes.
 	//
-	MetricServerError(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricServerError(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -158,8 +160,8 @@ func (j *jsiiProxy_Method) Api() IRestApi {
 	return returns
 }
 
-func (j *jsiiProxy_Method) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Method) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -443,7 +445,7 @@ func (m *jsiiProxy_Method) GrantExecute(grantee awsiam.IGrantable) awsiam.Grant 
 	return returns
 }
 
-func (m *jsiiProxy_Method) Metric(metricName *string, stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (m *jsiiProxy_Method) Metric(metricName *string, stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	if err := m.validateMetricParameters(metricName, stage, props); err != nil {
 		panic(err)
 	}
@@ -459,7 +461,7 @@ func (m *jsiiProxy_Method) Metric(metricName *string, stage IStageRef, props *aw
 	return returns
 }
 
-func (m *jsiiProxy_Method) MetricCacheHitCount(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (m *jsiiProxy_Method) MetricCacheHitCount(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	if err := m.validateMetricCacheHitCountParameters(stage, props); err != nil {
 		panic(err)
 	}
@@ -475,7 +477,7 @@ func (m *jsiiProxy_Method) MetricCacheHitCount(stage IStageRef, props *awscloudw
 	return returns
 }
 
-func (m *jsiiProxy_Method) MetricCacheMissCount(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (m *jsiiProxy_Method) MetricCacheMissCount(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	if err := m.validateMetricCacheMissCountParameters(stage, props); err != nil {
 		panic(err)
 	}
@@ -491,7 +493,7 @@ func (m *jsiiProxy_Method) MetricCacheMissCount(stage IStageRef, props *awscloud
 	return returns
 }
 
-func (m *jsiiProxy_Method) MetricClientError(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (m *jsiiProxy_Method) MetricClientError(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	if err := m.validateMetricClientErrorParameters(stage, props); err != nil {
 		panic(err)
 	}
@@ -507,7 +509,7 @@ func (m *jsiiProxy_Method) MetricClientError(stage IStageRef, props *awscloudwat
 	return returns
 }
 
-func (m *jsiiProxy_Method) MetricCount(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (m *jsiiProxy_Method) MetricCount(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	if err := m.validateMetricCountParameters(stage, props); err != nil {
 		panic(err)
 	}
@@ -523,7 +525,7 @@ func (m *jsiiProxy_Method) MetricCount(stage IStageRef, props *awscloudwatch.Met
 	return returns
 }
 
-func (m *jsiiProxy_Method) MetricIntegrationLatency(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (m *jsiiProxy_Method) MetricIntegrationLatency(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	if err := m.validateMetricIntegrationLatencyParameters(stage, props); err != nil {
 		panic(err)
 	}
@@ -539,7 +541,7 @@ func (m *jsiiProxy_Method) MetricIntegrationLatency(stage IStageRef, props *awsc
 	return returns
 }
 
-func (m *jsiiProxy_Method) MetricLatency(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (m *jsiiProxy_Method) MetricLatency(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	if err := m.validateMetricLatencyParameters(stage, props); err != nil {
 		panic(err)
 	}
@@ -555,7 +557,7 @@ func (m *jsiiProxy_Method) MetricLatency(stage IStageRef, props *awscloudwatch.M
 	return returns
 }
 
-func (m *jsiiProxy_Method) MetricServerError(stage IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (m *jsiiProxy_Method) MetricServerError(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	if err := m.validateMetricServerErrorParameters(stage, props); err != nil {
 		panic(err)
 	}

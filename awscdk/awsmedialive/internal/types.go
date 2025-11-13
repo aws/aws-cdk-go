@@ -1,11 +1,23 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsmedialiveIChannelRef = interfacesawsmedialive.IChannelRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsmedialiveIChannelPlacementGroupRef = interfacesawsmedialive.IChannelPlacementGroupRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsmedialiveICloudWatchAlarmTemplateRef = interfacesawsmedialive.ICloudWatchAlarmTemplateRef
+type Type__interfacesawsmedialiveICloudWatchAlarmTemplateGroupRef = interfacesawsmedialive.ICloudWatchAlarmTemplateGroupRef
+type Type__interfacesawsmedialiveIClusterRef = interfacesawsmedialive.IClusterRef
+type Type__interfacesawsmedialiveIEventBridgeRuleTemplateRef = interfacesawsmedialive.IEventBridgeRuleTemplateRef
+type Type__interfacesawsmedialiveIEventBridgeRuleTemplateGroupRef = interfacesawsmedialive.IEventBridgeRuleTemplateGroupRef
+type Type__interfacesawsmedialiveIInputRef = interfacesawsmedialive.IInputRef
+type Type__interfacesawsmedialiveIInputSecurityGroupRef = interfacesawsmedialive.IInputSecurityGroupRef
+type Type__interfacesawsmedialiveIMultiplexRef = interfacesawsmedialive.IMultiplexRef
+type Type__interfacesawsmedialiveIMultiplexprogramRef = interfacesawsmedialive.IMultiplexprogramRef
+type Type__interfacesawsmedialiveINetworkRef = interfacesawsmedialive.INetworkRef
+type Type__interfacesawsmedialiveISdiSourceRef = interfacesawsmedialive.ISdiSourceRef
+type Type__interfacesawsmedialiveISignalMapRef = interfacesawsmedialive.ISignalMapRef

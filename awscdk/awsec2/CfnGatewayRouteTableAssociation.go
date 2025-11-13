@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnGatewayRouteTableAssociation interface {
 	awscdk.CfnResource
-	IGatewayRouteTableAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.IGatewayRouteTableAssociationRef
 	// The ID of the route table association.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -40,12 +42,12 @@ type CfnGatewayRouteTableAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the gateway.
 	GatewayId() *string
 	SetGatewayId(val *string)
 	// A reference to a GatewayRouteTableAssociation resource.
-	GatewayRouteTableAssociationRef() *GatewayRouteTableAssociationReference
+	GatewayRouteTableAssociationRef() *interfacesawsec2.GatewayRouteTableAssociationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,8 +215,8 @@ type CfnGatewayRouteTableAssociation interface {
 // The jsii proxy struct for CfnGatewayRouteTableAssociation
 type jsiiProxy_CfnGatewayRouteTableAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGatewayRouteTableAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IGatewayRouteTableAssociationRef
 }
 
 func (j *jsiiProxy_CfnGatewayRouteTableAssociation) AttrAssociationId() *string {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnGatewayRouteTableAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGatewayRouteTableAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGatewayRouteTableAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnGatewayRouteTableAssociation) GatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGatewayRouteTableAssociation) GatewayRouteTableAssociationRef() *GatewayRouteTableAssociationReference {
-	var returns *GatewayRouteTableAssociationReference
+func (j *jsiiProxy_CfnGatewayRouteTableAssociation) GatewayRouteTableAssociationRef() *interfacesawsec2.GatewayRouteTableAssociationReference {
+	var returns *interfacesawsec2.GatewayRouteTableAssociationReference
 	_jsii_.Get(
 		j,
 		"gatewayRouteTableAssociationRef",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnGatewayRouteTableAssociation) UpdatedProperties() *map[str
 }
 
 
+// Create a new `AWS::EC2::GatewayRouteTableAssociation`.
 func NewCfnGatewayRouteTableAssociation(scope constructs.Construct, id *string, props *CfnGatewayRouteTableAssociationProps) CfnGatewayRouteTableAssociation {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnGatewayRouteTableAssociation(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::EC2::GatewayRouteTableAssociation`.
 func NewCfnGatewayRouteTableAssociation_Override(c CfnGatewayRouteTableAssociation, scope constructs.Construct, id *string, props *CfnGatewayRouteTableAssociationProps) {
 	_init_.Initialize()
 

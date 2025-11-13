@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssmsvoice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssmsvoice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnOptOutList interface {
 	awscdk.CfnResource
-	IOptOutListRef
 	awscdk.IInspectable
+	interfacesawssmsvoice.IOptOutListRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the `OptOutList` .
 	AttrArn() *string
@@ -50,7 +52,7 @@ type CfnOptOutList interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnOptOutList interface {
 	OptOutListName() *string
 	SetOptOutListName(val *string)
 	// A reference to a OptOutList resource.
-	OptOutListRef() *OptOutListReference
+	OptOutListRef() *interfacesawssmsvoice.OptOutListReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -223,8 +225,8 @@ type CfnOptOutList interface {
 // The jsii proxy struct for CfnOptOutList
 type jsiiProxy_CfnOptOutList struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOptOutListRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssmsvoiceIOptOutListRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -288,8 +290,8 @@ func (j *jsiiProxy_CfnOptOutList) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOptOutList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOptOutList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnOptOutList) OptOutListName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOptOutList) OptOutListRef() *OptOutListReference {
-	var returns *OptOutListReference
+func (j *jsiiProxy_CfnOptOutList) OptOutListRef() *interfacesawssmsvoice.OptOutListReference {
+	var returns *interfacesawssmsvoice.OptOutListReference
 	_jsii_.Get(
 		j,
 		"optOutListRef",
@@ -389,6 +391,7 @@ func (j *jsiiProxy_CfnOptOutList) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SMSVOICE::OptOutList`.
 func NewCfnOptOutList(scope constructs.Construct, id *string, props *CfnOptOutListProps) CfnOptOutList {
 	_init_.Initialize()
 
@@ -406,6 +409,7 @@ func NewCfnOptOutList(scope constructs.Construct, id *string, props *CfnOptOutLi
 	return &j
 }
 
+// Create a new `AWS::SMSVOICE::OptOutList`.
 func NewCfnOptOutList_Override(c CfnOptOutList, scope constructs.Construct, id *string, props *CfnOptOutListProps) {
 	_init_.Initialize()
 
@@ -436,13 +440,13 @@ func (j *jsiiProxy_CfnOptOutList)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IOptOutListRef from an ARN.
-func CfnOptOutList_FromOptOutListArn(scope constructs.Construct, id *string, arn *string) IOptOutListRef {
+func CfnOptOutList_FromOptOutListArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IOptOutListRef {
 	_init_.Initialize()
 
 	if err := validateCfnOptOutList_FromOptOutListArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IOptOutListRef
+	var returns interfacesawssmsvoice.IOptOutListRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnOptOutList",
@@ -455,13 +459,13 @@ func CfnOptOutList_FromOptOutListArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IOptOutListRef from a optOutListName.
-func CfnOptOutList_FromOptOutListName(scope constructs.Construct, id *string, optOutListName *string) IOptOutListRef {
+func CfnOptOutList_FromOptOutListName(scope constructs.Construct, id *string, optOutListName *string) interfacesawssmsvoice.IOptOutListRef {
 	_init_.Initialize()
 
 	if err := validateCfnOptOutList_FromOptOutListNameParameters(scope, id, optOutListName); err != nil {
 		panic(err)
 	}
-	var returns IOptOutListRef
+	var returns interfacesawssmsvoice.IOptOutListRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnOptOutList",

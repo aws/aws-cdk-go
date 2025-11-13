@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfis/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfis"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -123,8 +125,8 @@ import (
 //
 type CfnExperimentTemplate interface {
 	awscdk.CfnResource
-	IExperimentTemplateRef
 	awscdk.IInspectable
+	interfacesawsfis.IExperimentTemplateRef
 	awscdk.ITaggable
 	// The actions for the experiment.
 	Actions() interface{}
@@ -143,7 +145,7 @@ type CfnExperimentTemplate interface {
 	// The description for the experiment template.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The experiment options for an experiment template.
 	ExperimentOptions() interface{}
 	SetExperimentOptions(val interface{})
@@ -151,7 +153,7 @@ type CfnExperimentTemplate interface {
 	ExperimentReportConfiguration() interface{}
 	SetExperimentReportConfiguration(val interface{})
 	// A reference to a ExperimentTemplate resource.
-	ExperimentTemplateRef() *ExperimentTemplateReference
+	ExperimentTemplateRef() *interfacesawsfis.ExperimentTemplateReference
 	// The configuration for experiment logging.
 	LogConfiguration() interface{}
 	SetLogConfiguration(val interface{})
@@ -333,8 +335,8 @@ type CfnExperimentTemplate interface {
 // The jsii proxy struct for CfnExperimentTemplate
 type jsiiProxy_CfnExperimentTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IExperimentTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfisIExperimentTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -408,8 +410,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExperimentTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnExperimentTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -438,8 +440,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) ExperimentReportConfiguration() interf
 	return returns
 }
 
-func (j *jsiiProxy_CfnExperimentTemplate) ExperimentTemplateRef() *ExperimentTemplateReference {
-	var returns *ExperimentTemplateReference
+func (j *jsiiProxy_CfnExperimentTemplate) ExperimentTemplateRef() *interfacesawsfis.ExperimentTemplateReference {
+	var returns *interfacesawsfis.ExperimentTemplateReference
 	_jsii_.Get(
 		j,
 		"experimentTemplateRef",
@@ -569,6 +571,7 @@ func (j *jsiiProxy_CfnExperimentTemplate) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::FIS::ExperimentTemplate`.
 func NewCfnExperimentTemplate(scope constructs.Construct, id *string, props *CfnExperimentTemplateProps) CfnExperimentTemplate {
 	_init_.Initialize()
 
@@ -586,6 +589,7 @@ func NewCfnExperimentTemplate(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::FIS::ExperimentTemplate`.
 func NewCfnExperimentTemplate_Override(c CfnExperimentTemplate, scope constructs.Construct, id *string, props *CfnExperimentTemplateProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnFirewallDomainList interface {
 	awscdk.CfnResource
-	IFirewallDomainListRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IFirewallDomainListRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the firewall domain list.
 	AttrArn() *string
@@ -76,9 +78,9 @@ type CfnFirewallDomainList interface {
 	// A list of the domain lists that you have defined.
 	Domains() *[]*string
 	SetDomains(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FirewallDomainList resource.
-	FirewallDomainListRef() *FirewallDomainListReference
+	FirewallDomainListRef() *interfacesawsroute53resolver.FirewallDomainListReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -251,8 +253,8 @@ type CfnFirewallDomainList interface {
 // The jsii proxy struct for CfnFirewallDomainList
 type jsiiProxy_CfnFirewallDomainList struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFirewallDomainListRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIFirewallDomainListRef
 	internal.Type__awscdkITaggable
 }
 
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnFirewallDomainList) Domains() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallDomainList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFirewallDomainList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnFirewallDomainList) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallDomainList) FirewallDomainListRef() *FirewallDomainListReference {
-	var returns *FirewallDomainListReference
+func (j *jsiiProxy_CfnFirewallDomainList) FirewallDomainListRef() *interfacesawsroute53resolver.FirewallDomainListReference {
+	var returns *interfacesawsroute53resolver.FirewallDomainListReference
 	_jsii_.Get(
 		j,
 		"firewallDomainListRef",
@@ -517,6 +519,7 @@ func (j *jsiiProxy_CfnFirewallDomainList) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Route53Resolver::FirewallDomainList`.
 func NewCfnFirewallDomainList(scope constructs.Construct, id *string, props *CfnFirewallDomainListProps) CfnFirewallDomainList {
 	_init_.Initialize()
 
@@ -534,6 +537,7 @@ func NewCfnFirewallDomainList(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::FirewallDomainList`.
 func NewCfnFirewallDomainList_Override(c CfnFirewallDomainList, scope constructs.Construct, id *string, props *CfnFirewallDomainListProps) {
 	_init_.Initialize()
 

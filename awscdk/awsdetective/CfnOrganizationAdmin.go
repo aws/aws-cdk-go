@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdetective/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdetective"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnOrganizationAdmin interface {
 	awscdk.CfnResource
-	IOrganizationAdminRef
 	awscdk.IInspectable
+	interfacesawsdetective.IOrganizationAdminRef
 	// The AWS account identifier of the account to designate as the Detective administrator account for the organization.
 	AccountId() *string
 	SetAccountId(val *string)
@@ -42,7 +44,7 @@ type CfnOrganizationAdmin interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -56,7 +58,7 @@ type CfnOrganizationAdmin interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a OrganizationAdmin resource.
-	OrganizationAdminRef() *OrganizationAdminReference
+	OrganizationAdminRef() *interfacesawsdetective.OrganizationAdminReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -209,8 +211,8 @@ type CfnOrganizationAdmin interface {
 // The jsii proxy struct for CfnOrganizationAdmin
 type jsiiProxy_CfnOrganizationAdmin struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOrganizationAdminRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdetectiveIOrganizationAdminRef
 }
 
 func (j *jsiiProxy_CfnOrganizationAdmin) AccountId() *string {
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnOrganizationAdmin) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationAdmin) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOrganizationAdmin) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnOrganizationAdmin) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationAdmin) OrganizationAdminRef() *OrganizationAdminReference {
-	var returns *OrganizationAdminReference
+func (j *jsiiProxy_CfnOrganizationAdmin) OrganizationAdminRef() *interfacesawsdetective.OrganizationAdminReference {
+	var returns *interfacesawsdetective.OrganizationAdminReference
 	_jsii_.Get(
 		j,
 		"organizationAdminRef",
@@ -354,6 +356,7 @@ func (j *jsiiProxy_CfnOrganizationAdmin) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::Detective::OrganizationAdmin`.
 func NewCfnOrganizationAdmin(scope constructs.Construct, id *string, props *CfnOrganizationAdminProps) CfnOrganizationAdmin {
 	_init_.Initialize()
 
@@ -371,6 +374,7 @@ func NewCfnOrganizationAdmin(scope constructs.Construct, id *string, props *CfnO
 	return &j
 }
 
+// Create a new `AWS::Detective::OrganizationAdmin`.
 func NewCfnOrganizationAdmin_Override(c CfnOrganizationAdmin, scope constructs.Construct, id *string, props *CfnOrganizationAdminProps) {
 	_init_.Initialize()
 

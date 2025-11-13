@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnGCMChannel interface {
 	awscdk.CfnResource
-	IGCMChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IGCMChannelRef
 	// The Web API key, also called the *server key* , that you received from Google to communicate with Google services.
 	ApiKey() *string
 	SetApiKey(val *string)
@@ -61,9 +63,9 @@ type CfnGCMChannel interface {
 	// Specifies whether to enable the GCM channel for the Amazon Pinpoint application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a GCMChannel resource.
-	GcmChannelRef() *GCMChannelReference
+	GcmChannelRef() *interfacesawspinpoint.GCMChannelReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnGCMChannel interface {
 // The jsii proxy struct for CfnGCMChannel
 type jsiiProxy_CfnGCMChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGCMChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIGCMChannelRef
 }
 
 func (j *jsiiProxy_CfnGCMChannel) ApiKey() *string {
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnGCMChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGCMChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGCMChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnGCMChannel) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGCMChannel) GcmChannelRef() *GCMChannelReference {
-	var returns *GCMChannelReference
+func (j *jsiiProxy_CfnGCMChannel) GcmChannelRef() *interfacesawspinpoint.GCMChannelReference {
+	var returns *interfacesawspinpoint.GCMChannelReference
 	_jsii_.Get(
 		j,
 		"gcmChannelRef",
@@ -416,6 +418,7 @@ func (j *jsiiProxy_CfnGCMChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::GCMChannel`.
 func NewCfnGCMChannel(scope constructs.Construct, id *string, props *CfnGCMChannelProps) CfnGCMChannel {
 	_init_.Initialize()
 
@@ -433,6 +436,7 @@ func NewCfnGCMChannel(scope constructs.Construct, id *string, props *CfnGCMChann
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::GCMChannel`.
 func NewCfnGCMChannel_Override(c CfnGCMChannel, scope constructs.Construct, id *string, props *CfnGCMChannelProps) {
 	_init_.Initialize()
 

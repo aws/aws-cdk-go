@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -77,8 +79,8 @@ import (
 //
 type CfnGameServerGroup interface {
 	awscdk.CfnResource
-	IGameServerGroupRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IGameServerGroupRef
 	awscdk.ITaggable
 	// A unique identifier for the auto scaling group.
 	AttrAutoScalingGroupArn() *string
@@ -102,12 +104,12 @@ type CfnGameServerGroup interface {
 	// The type of delete to perform.
 	DeleteOption() *string
 	SetDeleteOption(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A developer-defined identifier for the game server group.
 	GameServerGroupName() *string
 	SetGameServerGroupName(val *string)
 	// A reference to a GameServerGroup resource.
-	GameServerGroupRef() *GameServerGroupReference
+	GameServerGroupRef() *interfacesawsgamelift.GameServerGroupReference
 	// A flag that indicates whether instances in the game server group are protected from early termination.
 	GameServerProtectionPolicy() *string
 	SetGameServerProtectionPolicy(val *string)
@@ -298,8 +300,8 @@ type CfnGameServerGroup interface {
 // The jsii proxy struct for CfnGameServerGroup
 type jsiiProxy_CfnGameServerGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGameServerGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIGameServerGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnGameServerGroup) DeleteOption() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGameServerGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -413,8 +415,8 @@ func (j *jsiiProxy_CfnGameServerGroup) GameServerGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) GameServerGroupRef() *GameServerGroupReference {
-	var returns *GameServerGroupReference
+func (j *jsiiProxy_CfnGameServerGroup) GameServerGroupRef() *interfacesawsgamelift.GameServerGroupReference {
+	var returns *interfacesawsgamelift.GameServerGroupReference
 	_jsii_.Get(
 		j,
 		"gameServerGroupRef",
@@ -574,6 +576,7 @@ func (j *jsiiProxy_CfnGameServerGroup) VpcSubnets() *[]*string {
 }
 
 
+// Create a new `AWS::GameLift::GameServerGroup`.
 func NewCfnGameServerGroup(scope constructs.Construct, id *string, props *CfnGameServerGroupProps) CfnGameServerGroup {
 	_init_.Initialize()
 
@@ -591,6 +594,7 @@ func NewCfnGameServerGroup(scope constructs.Construct, id *string, props *CfnGam
 	return &j
 }
 
+// Create a new `AWS::GameLift::GameServerGroup`.
 func NewCfnGameServerGroup_Override(c CfnGameServerGroup, scope constructs.Construct, id *string, props *CfnGameServerGroupProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskafkaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskafkaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnCustomPlugin interface {
 	awscdk.CfnResource
-	ICustomPluginRef
 	awscdk.IInspectable
+	interfacesawskafkaconnect.ICustomPluginRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the custom plugin.
 	AttrCustomPluginArn() *string
@@ -67,11 +69,11 @@ type CfnCustomPlugin interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomPlugin resource.
-	CustomPluginRef() *CustomPluginReference
+	CustomPluginRef() *interfacesawskafkaconnect.CustomPluginReference
 	// The description of the custom plugin.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Information about the location of the custom plugin.
 	Location() interface{}
 	SetLocation(val interface{})
@@ -245,8 +247,8 @@ type CfnCustomPlugin interface {
 // The jsii proxy struct for CfnCustomPlugin
 type jsiiProxy_CfnCustomPlugin struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomPluginRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskafkaconnectICustomPluginRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnCustomPlugin) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomPlugin) CustomPluginRef() *CustomPluginReference {
-	var returns *CustomPluginReference
+func (j *jsiiProxy_CfnCustomPlugin) CustomPluginRef() *interfacesawskafkaconnect.CustomPluginReference {
+	var returns *interfacesawskafkaconnect.CustomPluginReference
 	_jsii_.Get(
 		j,
 		"customPluginRef",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnCustomPlugin) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomPlugin) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomPlugin) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnCustomPlugin) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::KafkaConnect::CustomPlugin`.
 func NewCfnCustomPlugin(scope constructs.Construct, id *string, props *CfnCustomPluginProps) CfnCustomPlugin {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnCustomPlugin(scope constructs.Construct, id *string, props *CfnCustom
 	return &j
 }
 
+// Create a new `AWS::KafkaConnect::CustomPlugin`.
 func NewCfnCustomPlugin_Override(c CfnCustomPlugin, scope constructs.Construct, id *string, props *CfnCustomPluginProps) {
 	_init_.Initialize()
 

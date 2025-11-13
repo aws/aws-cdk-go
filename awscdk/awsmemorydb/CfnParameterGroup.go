@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmemorydb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmemorydb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnParameterGroup interface {
 	awscdk.CfnResource
-	IParameterGroupRef
 	awscdk.IInspectable
+	interfacesawsmemorydb.IParameterGroupRef
 	awscdk.ITaggable
 	// When you pass the logical ID of this resource to the intrinsic `Ref` function, Ref returns the ARN of the parameter group, such as `arn:aws:memorydb:us-east-1:123456789012:parametergroup/my-parameter-group`.
 	AttrArn() *string
@@ -56,7 +58,7 @@ type CfnParameterGroup interface {
 	// A description of the parameter group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the parameter group family that this parameter group is compatible with.
 	Family() *string
 	SetFamily(val *string)
@@ -76,7 +78,7 @@ type CfnParameterGroup interface {
 	ParameterGroupName() *string
 	SetParameterGroupName(val *string)
 	// A reference to a ParameterGroup resource.
-	ParameterGroupRef() *ParameterGroupReference
+	ParameterGroupRef() *interfacesawsmemorydb.ParameterGroupReference
 	// Returns the detailed parameter list for the parameter group.
 	Parameters() interface{}
 	SetParameters(val interface{})
@@ -237,8 +239,8 @@ type CfnParameterGroup interface {
 // The jsii proxy struct for CfnParameterGroup
 type jsiiProxy_CfnParameterGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IParameterGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmemorydbIParameterGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnParameterGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameterGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnParameterGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnParameterGroup) ParameterGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameterGroup) ParameterGroupRef() *ParameterGroupReference {
-	var returns *ParameterGroupReference
+func (j *jsiiProxy_CfnParameterGroup) ParameterGroupRef() *interfacesawsmemorydb.ParameterGroupReference {
+	var returns *interfacesawsmemorydb.ParameterGroupReference
 	_jsii_.Get(
 		j,
 		"parameterGroupRef",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnParameterGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::MemoryDB::ParameterGroup`.
 func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnParameterGroupProps) CfnParameterGroup {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnPara
 	return &j
 }
 
+// Create a new `AWS::MemoryDB::ParameterGroup`.
 func NewCfnParameterGroup_Override(c CfnParameterGroup, scope constructs.Construct, id *string, props *CfnParameterGroupProps) {
 	_init_.Initialize()
 
@@ -510,13 +514,13 @@ func (j *jsiiProxy_CfnParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IParameterGroupRef from a parameterGroupName.
-func CfnParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) IParameterGroupRef {
+func CfnParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) interfacesawsmemorydb.IParameterGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnParameterGroup_FromParameterGroupNameParameters(scope, id, parameterGroupName); err != nil {
 		panic(err)
 	}
-	var returns IParameterGroupRef
+	var returns interfacesawsmemorydb.IParameterGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_memorydb.CfnParameterGroup",

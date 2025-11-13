@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsproton/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsproton"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnEnvironmentTemplate interface {
 	awscdk.CfnResource
-	IEnvironmentTemplateRef
 	awscdk.IInspectable
+	interfacesawsproton.IEnvironmentTemplateRef
 	awscdk.ITaggable
 	// Returns the ARN of the environment template.
 	AttrArn() *string
@@ -64,9 +66,9 @@ type CfnEnvironmentTemplate interface {
 	// The customer provided encryption key for the environment template.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EnvironmentTemplate resource.
-	EnvironmentTemplateRef() *EnvironmentTemplateReference
+	EnvironmentTemplateRef() *interfacesawsproton.EnvironmentTemplateReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -242,8 +244,8 @@ type CfnEnvironmentTemplate interface {
 // The jsii proxy struct for CfnEnvironmentTemplate
 type jsiiProxy_CfnEnvironmentTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsprotonIEnvironmentTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnEnvironmentTemplate) EncryptionKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironmentTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnEnvironmentTemplate) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentTemplate) EnvironmentTemplateRef() *EnvironmentTemplateReference {
-	var returns *EnvironmentTemplateReference
+func (j *jsiiProxy_CfnEnvironmentTemplate) EnvironmentTemplateRef() *interfacesawsproton.EnvironmentTemplateReference {
+	var returns *interfacesawsproton.EnvironmentTemplateReference
 	_jsii_.Get(
 		j,
 		"environmentTemplateRef",
@@ -448,6 +450,7 @@ func (j *jsiiProxy_CfnEnvironmentTemplate) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::Proton::EnvironmentTemplate`.
 func NewCfnEnvironmentTemplate(scope constructs.Construct, id *string, props *CfnEnvironmentTemplateProps) CfnEnvironmentTemplate {
 	_init_.Initialize()
 
@@ -465,6 +468,7 @@ func NewCfnEnvironmentTemplate(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::Proton::EnvironmentTemplate`.
 func NewCfnEnvironmentTemplate_Override(c CfnEnvironmentTemplate, scope constructs.Construct, id *string, props *CfnEnvironmentTemplateProps) {
 	_init_.Initialize()
 

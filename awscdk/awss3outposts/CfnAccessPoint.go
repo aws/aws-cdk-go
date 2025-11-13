@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3outposts/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3outposts"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,10 +39,10 @@ import (
 //
 type CfnAccessPoint interface {
 	awscdk.CfnResource
-	IAccessPointRef
 	awscdk.IInspectable
+	interfacesawss3outposts.IAccessPointRef
 	// A reference to a AccessPoint resource.
-	AccessPointRef() *AccessPointReference
+	AccessPointRef() *interfacesawss3outposts.AccessPointReference
 	// This resource contains the details of the S3 on Outposts bucket access point ARN.
 	//
 	// This resource is read-only.
@@ -57,7 +59,7 @@ type CfnAccessPoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,12 +233,12 @@ type CfnAccessPoint interface {
 // The jsii proxy struct for CfnAccessPoint
 type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessPointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3outpostsIAccessPointRef
 }
 
-func (j *jsiiProxy_CfnAccessPoint) AccessPointRef() *AccessPointReference {
-	var returns *AccessPointReference
+func (j *jsiiProxy_CfnAccessPoint) AccessPointRef() *interfacesawss3outposts.AccessPointReference {
+	var returns *interfacesawss3outposts.AccessPointReference
 	_jsii_.Get(
 		j,
 		"accessPointRef",
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnAccessPoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessPoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -406,6 +408,7 @@ func (j *jsiiProxy_CfnAccessPoint) VpcConfiguration() interface{} {
 }
 
 
+// Create a new `AWS::S3Outposts::AccessPoint`.
 func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
@@ -423,6 +426,7 @@ func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessP
 	return &j
 }
 
+// Create a new `AWS::S3Outposts::AccessPoint`.
 func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 

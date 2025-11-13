@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::ProductSubscription` resource creates a subscription to a third-party product that generates findings that you want to receive in AWS Security Hub .
+// The `AWS::SecurityHub::ProductSubscription` resource creates a subscription to a third-party product that generates findings that you want to receive in Security Hub .
 //
-// For a list of integrations to third-party products, see [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) in the *AWS Security Hub User Guide* .
+// For a list of integrations to third-party products, see [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) in the *Security Hub User Guide* .
 //
 // To change a product subscription, remove the current product subscription resource, and then create a new one.
 //
@@ -30,8 +32,8 @@ import (
 //
 type CfnProductSubscription interface {
 	awscdk.CfnResource
-	IProductSubscriptionRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IProductSubscriptionRef
 	// The ARN of your subscription to the product to enable integrations for.
 	AttrProductSubscriptionArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -43,7 +45,7 @@ type CfnProductSubscription interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -60,7 +62,7 @@ type CfnProductSubscription interface {
 	ProductArn() *string
 	SetProductArn(val *string)
 	// A reference to a ProductSubscription resource.
-	ProductSubscriptionRef() *ProductSubscriptionReference
+	ProductSubscriptionRef() *interfacesawssecurityhub.ProductSubscriptionReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -213,8 +215,8 @@ type CfnProductSubscription interface {
 // The jsii proxy struct for CfnProductSubscription
 type jsiiProxy_CfnProductSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProductSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIProductSubscriptionRef
 }
 
 func (j *jsiiProxy_CfnProductSubscription) AttrProductSubscriptionArn() *string {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnProductSubscription) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProductSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProductSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnProductSubscription) ProductArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProductSubscription) ProductSubscriptionRef() *ProductSubscriptionReference {
-	var returns *ProductSubscriptionReference
+func (j *jsiiProxy_CfnProductSubscription) ProductSubscriptionRef() *interfacesawssecurityhub.ProductSubscriptionReference {
+	var returns *interfacesawssecurityhub.ProductSubscriptionReference
 	_jsii_.Get(
 		j,
 		"productSubscriptionRef",
@@ -358,6 +360,7 @@ func (j *jsiiProxy_CfnProductSubscription) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::SecurityHub::ProductSubscription`.
 func NewCfnProductSubscription(scope constructs.Construct, id *string, props *CfnProductSubscriptionProps) CfnProductSubscription {
 	_init_.Initialize()
 
@@ -375,6 +378,7 @@ func NewCfnProductSubscription(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::ProductSubscription`.
 func NewCfnProductSubscription_Override(c CfnProductSubscription, scope constructs.Construct, id *string, props *CfnProductSubscriptionProps) {
 	_init_.Initialize()
 

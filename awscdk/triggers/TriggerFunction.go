@@ -12,6 +12,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/triggers/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -60,13 +62,13 @@ type TriggerFunction interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// ARN of this function.
 	FunctionArn() *string
 	// Name of this function.
 	FunctionName() *string
 	// A reference to a Function resource.
-	FunctionRef() *awslambda.FunctionReference
+	FunctionRef() *interfacesawslambda.FunctionReference
 	// The principal this Lambda Function is running as.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
@@ -318,8 +320,8 @@ func (j *jsiiProxy_TriggerFunction) DeadLetterTopic() awssns.ITopic {
 	return returns
 }
 
-func (j *jsiiProxy_TriggerFunction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_TriggerFunction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_TriggerFunction) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_TriggerFunction) FunctionRef() *awslambda.FunctionReference {
-	var returns *awslambda.FunctionReference
+func (j *jsiiProxy_TriggerFunction) FunctionRef() *interfacesawslambda.FunctionReference {
+	var returns *interfacesawslambda.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",

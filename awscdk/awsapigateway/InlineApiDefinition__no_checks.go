@@ -8,7 +8,7 @@ func (i *jsiiProxy_InlineApiDefinition) validateBindParameters(scope constructs.
 	return nil
 }
 
-func (i *jsiiProxy_InlineApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi IRestApiRef) error {
+func (i *jsiiProxy_InlineApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi interfacesawsapigateway.IRestApiRef) error {
 	return nil
 }
 

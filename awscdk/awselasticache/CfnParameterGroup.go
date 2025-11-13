@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnParameterGroup interface {
 	awscdk.CfnResource
-	IParameterGroupRef
 	awscdk.IInspectable
+	interfacesawselasticache.IParameterGroupRef
 	awscdk.ITaggable
 	// A user-specified name for the cache parameter group.
 	AttrCacheParameterGroupName() *string
@@ -58,7 +60,7 @@ type CfnParameterGroup interface {
 	// The description for this cache parameter group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -72,7 +74,7 @@ type CfnParameterGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a ParameterGroup resource.
-	ParameterGroupRef() *ParameterGroupReference
+	ParameterGroupRef() *interfacesawselasticache.ParameterGroupReference
 	// A comma-delimited list of parameter name/value pairs.
 	Properties() interface{}
 	SetProperties(val interface{})
@@ -233,8 +235,8 @@ type CfnParameterGroup interface {
 // The jsii proxy struct for CfnParameterGroup
 type jsiiProxy_CfnParameterGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IParameterGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheIParameterGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnParameterGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameterGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnParameterGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnParameterGroup) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameterGroup) ParameterGroupRef() *ParameterGroupReference {
-	var returns *ParameterGroupReference
+func (j *jsiiProxy_CfnParameterGroup) ParameterGroupRef() *interfacesawselasticache.ParameterGroupReference {
+	var returns *interfacesawselasticache.ParameterGroupReference
 	_jsii_.Get(
 		j,
 		"parameterGroupRef",
@@ -419,6 +421,7 @@ func (j *jsiiProxy_CfnParameterGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::ElastiCache::ParameterGroup`.
 func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnParameterGroupProps) CfnParameterGroup {
 	_init_.Initialize()
 
@@ -436,6 +439,7 @@ func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnPara
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::ParameterGroup`.
 func NewCfnParameterGroup_Override(c CfnParameterGroup, scope constructs.Construct, id *string, props *CfnParameterGroupProps) {
 	_init_.Initialize()
 
@@ -491,13 +495,13 @@ func (j *jsiiProxy_CfnParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IParameterGroupRef from a cacheParameterGroupName.
-func CfnParameterGroup_FromCacheParameterGroupName(scope constructs.Construct, id *string, cacheParameterGroupName *string) IParameterGroupRef {
+func CfnParameterGroup_FromCacheParameterGroupName(scope constructs.Construct, id *string, cacheParameterGroupName *string) interfacesawselasticache.IParameterGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnParameterGroup_FromCacheParameterGroupNameParameters(scope, id, cacheParameterGroupName); err != nil {
 		panic(err)
 	}
-	var returns IParameterGroupRef
+	var returns interfacesawselasticache.IParameterGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspcaconnectorad/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspcaconnectorad"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnServicePrincipalName interface {
 	awscdk.CfnResource
-	IServicePrincipalNameRef
 	awscdk.IInspectable
+	interfacesawspcaconnectorad.IServicePrincipalNameRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -44,7 +46,7 @@ type CfnServicePrincipalName interface {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn() *string
 	SetDirectoryRegistrationArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -63,7 +65,7 @@ type CfnServicePrincipalName interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ServicePrincipalName resource.
-	ServicePrincipalNameRef() *ServicePrincipalNameReference
+	ServicePrincipalNameRef() *interfacesawspcaconnectorad.ServicePrincipalNameReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -211,8 +213,8 @@ type CfnServicePrincipalName interface {
 // The jsii proxy struct for CfnServicePrincipalName
 type jsiiProxy_CfnServicePrincipalName struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServicePrincipalNameRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspcaconnectoradIServicePrincipalNameRef
 }
 
 func (j *jsiiProxy_CfnServicePrincipalName) CfnOptions() awscdk.ICfnResourceOptions {
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnServicePrincipalName) DirectoryRegistrationArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServicePrincipalName) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServicePrincipalName) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnServicePrincipalName) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServicePrincipalName) ServicePrincipalNameRef() *ServicePrincipalNameReference {
-	var returns *ServicePrincipalNameReference
+func (j *jsiiProxy_CfnServicePrincipalName) ServicePrincipalNameRef() *interfacesawspcaconnectorad.ServicePrincipalNameReference {
+	var returns *interfacesawspcaconnectorad.ServicePrincipalNameReference
 	_jsii_.Get(
 		j,
 		"servicePrincipalNameRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnServicePrincipalName) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::PCAConnectorAD::ServicePrincipalName`.
 func NewCfnServicePrincipalName(scope constructs.Construct, id *string, props *CfnServicePrincipalNameProps) CfnServicePrincipalName {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnServicePrincipalName(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::PCAConnectorAD::ServicePrincipalName`.
 func NewCfnServicePrincipalName_Override(c CfnServicePrincipalName, scope constructs.Construct, id *string, props *CfnServicePrincipalNameProps) {
 	_init_.Initialize()
 

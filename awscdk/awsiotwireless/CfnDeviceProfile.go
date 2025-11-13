@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,8 +55,8 @@ import (
 //
 type CfnDeviceProfile interface {
 	awscdk.CfnResource
-	IDeviceProfileRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.IDeviceProfileRef
 	awscdk.ITaggable
 	// The ARN of the device profile created.
 	AttrArn() *string
@@ -70,8 +72,8 @@ type CfnDeviceProfile interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DeviceProfile resource.
-	DeviceProfileRef() *DeviceProfileReference
-	Env() *awscdk.ResourceEnvironment
+	DeviceProfileRef() *interfacesawsiotwireless.DeviceProfileReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,8 +249,8 @@ type CfnDeviceProfile interface {
 // The jsii proxy struct for CfnDeviceProfile
 type jsiiProxy_CfnDeviceProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeviceProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessIDeviceProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnDeviceProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceProfile) DeviceProfileRef() *DeviceProfileReference {
-	var returns *DeviceProfileReference
+func (j *jsiiProxy_CfnDeviceProfile) DeviceProfileRef() *interfacesawsiotwireless.DeviceProfileReference {
+	var returns *interfacesawsiotwireless.DeviceProfileReference
 	_jsii_.Get(
 		j,
 		"deviceProfileRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnDeviceProfile) DeviceProfileRef() *DeviceProfileReference 
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeviceProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnDeviceProfile) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::IoTWireless::DeviceProfile`.
 func NewCfnDeviceProfile(scope constructs.Construct, id *string, props *CfnDeviceProfileProps) CfnDeviceProfile {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnDeviceProfile(scope constructs.Construct, id *string, props *CfnDevic
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::DeviceProfile`.
 func NewCfnDeviceProfile_Override(c CfnDeviceProfile, scope constructs.Construct, id *string, props *CfnDeviceProfileProps) {
 	_init_.Initialize()
 
@@ -491,13 +495,13 @@ func (j *jsiiProxy_CfnDeviceProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDeviceProfileRef from an ARN.
-func CfnDeviceProfile_FromDeviceProfileArn(scope constructs.Construct, id *string, arn *string) IDeviceProfileRef {
+func CfnDeviceProfile_FromDeviceProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IDeviceProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeviceProfile_FromDeviceProfileArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDeviceProfileRef
+	var returns interfacesawsiotwireless.IDeviceProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
@@ -510,13 +514,13 @@ func CfnDeviceProfile_FromDeviceProfileArn(scope constructs.Construct, id *strin
 }
 
 // Creates a new IDeviceProfileRef from a deviceProfileId.
-func CfnDeviceProfile_FromDeviceProfileId(scope constructs.Construct, id *string, deviceProfileId *string) IDeviceProfileRef {
+func CfnDeviceProfile_FromDeviceProfileId(scope constructs.Construct, id *string, deviceProfileId *string) interfacesawsiotwireless.IDeviceProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeviceProfile_FromDeviceProfileIdParameters(scope, id, deviceProfileId); err != nil {
 		panic(err)
 	}
-	var returns IDeviceProfileRef
+	var returns interfacesawsiotwireless.IDeviceProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",

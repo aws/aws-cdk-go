@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnVPCEndpoint interface {
 	awscdk.CfnResource
-	IVPCEndpointRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCEndpointRef
 	awscdk.ITaggableV2
 	// The date and time the VPC endpoint was created.
 	//
@@ -100,7 +102,7 @@ type CfnVPCEndpoint interface {
 	// Describes the DNS options for an endpoint.
 	DnsOptions() interface{}
 	SetDnsOptions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The supported IP address types.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
@@ -169,7 +171,7 @@ type CfnVPCEndpoint interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPCEndpoint resource.
-	VpcEndpointRef() *VPCEndpointReference
+	VpcEndpointRef() *interfacesawsec2.VPCEndpointReference
 	// The type of endpoint.
 	VpcEndpointType() *string
 	SetVpcEndpointType(val *string)
@@ -306,8 +308,8 @@ type CfnVPCEndpoint interface {
 // The jsii proxy struct for CfnVPCEndpoint
 type jsiiProxy_CfnVPCEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCEndpointRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -411,8 +413,8 @@ func (j *jsiiProxy_CfnVPCEndpoint) DnsOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -591,8 +593,8 @@ func (j *jsiiProxy_CfnVPCEndpoint) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpoint) VpcEndpointRef() *VPCEndpointReference {
-	var returns *VPCEndpointReference
+func (j *jsiiProxy_CfnVPCEndpoint) VpcEndpointRef() *interfacesawsec2.VPCEndpointReference {
+	var returns *interfacesawsec2.VPCEndpointReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointRef",
@@ -622,6 +624,7 @@ func (j *jsiiProxy_CfnVPCEndpoint) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::VPCEndpoint`.
 func NewCfnVPCEndpoint(scope constructs.Construct, id *string, props *CfnVPCEndpointProps) CfnVPCEndpoint {
 	_init_.Initialize()
 
@@ -639,6 +642,7 @@ func NewCfnVPCEndpoint(scope constructs.Construct, id *string, props *CfnVPCEndp
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCEndpoint`.
 func NewCfnVPCEndpoint_Override(c CfnVPCEndpoint, scope constructs.Construct, id *string, props *CfnVPCEndpointProps) {
 	_init_.Initialize()
 
@@ -774,13 +778,13 @@ func (j *jsiiProxy_CfnVPCEndpoint)SetVpcId(val *string) {
 }
 
 // Creates a new IVPCEndpointRef from a vpcEndpointId.
-func CfnVPCEndpoint_FromVpcEndpointId(scope constructs.Construct, id *string, vpcEndpointId *string) IVPCEndpointRef {
+func CfnVPCEndpoint_FromVpcEndpointId(scope constructs.Construct, id *string, vpcEndpointId *string) interfacesawsec2.IVPCEndpointRef {
 	_init_.Initialize()
 
 	if err := validateCfnVPCEndpoint_FromVpcEndpointIdParameters(scope, id, vpcEndpointId); err != nil {
 		panic(err)
 	}
-	var returns IVPCEndpointRef
+	var returns interfacesawsec2.IVPCEndpointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVPCEndpoint",

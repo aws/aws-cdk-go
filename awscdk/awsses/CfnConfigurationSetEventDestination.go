@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnConfigurationSetEventDestination interface {
 	awscdk.CfnResource
-	IConfigurationSetEventDestinationRef
 	awscdk.IInspectable
+	interfacesawsses.IConfigurationSetEventDestinationRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -65,7 +67,7 @@ type CfnConfigurationSetEventDestination interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConfigurationSetEventDestination resource.
-	ConfigurationSetEventDestinationRef() *ConfigurationSetEventDestinationReference
+	ConfigurationSetEventDestinationRef() *interfacesawsses.ConfigurationSetEventDestinationReference
 	// The name of the configuration set that contains the event destination.
 	ConfigurationSetName() *string
 	SetConfigurationSetName(val *string)
@@ -73,7 +75,7 @@ type CfnConfigurationSetEventDestination interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An object that defines the event destination.
 	EventDestination() interface{}
 	SetEventDestination(val interface{})
@@ -241,8 +243,8 @@ type CfnConfigurationSetEventDestination interface {
 // The jsii proxy struct for CfnConfigurationSetEventDestination
 type jsiiProxy_CfnConfigurationSetEventDestination struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationSetEventDestinationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIConfigurationSetEventDestinationRef
 }
 
 func (j *jsiiProxy_CfnConfigurationSetEventDestination) AttrId() *string {
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) CfnResourceType() *strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSetEventDestination) ConfigurationSetEventDestinationRef() *ConfigurationSetEventDestinationReference {
-	var returns *ConfigurationSetEventDestinationReference
+func (j *jsiiProxy_CfnConfigurationSetEventDestination) ConfigurationSetEventDestinationRef() *interfacesawsses.ConfigurationSetEventDestinationReference {
+	var returns *interfacesawsses.ConfigurationSetEventDestinationReference
 	_jsii_.Get(
 		j,
 		"configurationSetEventDestinationRef",
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) CreationStack() *[]*stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSetEventDestination) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationSetEventDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,6 +398,7 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) UpdatedProperties() *map
 }
 
 
+// Create a new `AWS::SES::ConfigurationSetEventDestination`.
 func NewCfnConfigurationSetEventDestination(scope constructs.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) CfnConfigurationSetEventDestination {
 	_init_.Initialize()
 
@@ -413,6 +416,7 @@ func NewCfnConfigurationSetEventDestination(scope constructs.Construct, id *stri
 	return &j
 }
 
+// Create a new `AWS::SES::ConfigurationSetEventDestination`.
 func NewCfnConfigurationSetEventDestination_Override(c CfnConfigurationSetEventDestination, scope constructs.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) {
 	_init_.Initialize()
 

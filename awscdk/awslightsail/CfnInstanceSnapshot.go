@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnInstanceSnapshot interface {
 	awscdk.CfnResource
-	IInstanceSnapshotRef
 	awscdk.IInspectable
+	interfacesawslightsail.IInstanceSnapshotRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the snapshot ( `arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE` ).
 	AttrArn() *string
@@ -67,7 +69,7 @@ type CfnInstanceSnapshot interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name the user gave the instance ( `Amazon_Linux_2023-1` ).
 	InstanceName() *string
 	SetInstanceName(val *string)
@@ -75,7 +77,7 @@ type CfnInstanceSnapshot interface {
 	InstanceSnapshotName() *string
 	SetInstanceSnapshotName(val *string)
 	// A reference to a InstanceSnapshot resource.
-	InstanceSnapshotRef() *InstanceSnapshotReference
+	InstanceSnapshotRef() *interfacesawslightsail.InstanceSnapshotReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -243,8 +245,8 @@ type CfnInstanceSnapshot interface {
 // The jsii proxy struct for CfnInstanceSnapshot
 type jsiiProxy_CfnInstanceSnapshot struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceSnapshotRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIInstanceSnapshotRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnInstanceSnapshot) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceSnapshot) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceSnapshot) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnInstanceSnapshot) InstanceSnapshotName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceSnapshot) InstanceSnapshotRef() *InstanceSnapshotReference {
-	var returns *InstanceSnapshotReference
+func (j *jsiiProxy_CfnInstanceSnapshot) InstanceSnapshotRef() *interfacesawslightsail.InstanceSnapshotReference {
+	var returns *interfacesawslightsail.InstanceSnapshotReference
 	_jsii_.Get(
 		j,
 		"instanceSnapshotRef",
@@ -499,6 +501,7 @@ func (j *jsiiProxy_CfnInstanceSnapshot) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Lightsail::InstanceSnapshot`.
 func NewCfnInstanceSnapshot(scope constructs.Construct, id *string, props *CfnInstanceSnapshotProps) CfnInstanceSnapshot {
 	_init_.Initialize()
 
@@ -516,6 +519,7 @@ func NewCfnInstanceSnapshot(scope constructs.Construct, id *string, props *CfnIn
 	return &j
 }
 
+// Create a new `AWS::Lightsail::InstanceSnapshot`.
 func NewCfnInstanceSnapshot_Override(c CfnInstanceSnapshot, scope constructs.Construct, id *string, props *CfnInstanceSnapshotProps) {
 	_init_.Initialize()
 

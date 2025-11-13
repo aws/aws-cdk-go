@@ -53,8 +53,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConnectionAlias{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnectionAliasRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsworkspacesIConnectionAliasRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -117,8 +117,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnWorkspace{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWorkspaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsworkspacesIWorkspaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -184,8 +184,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnWorkspacesPool{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWorkspacesPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsworkspacesIWorkspacesPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -205,62 +205,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspaces.CfnWorkspacesPoolProps",
 		reflect.TypeOf((*CfnWorkspacesPoolProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspaces.ConnectionAliasReference",
-		reflect.TypeOf((*ConnectionAliasReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_workspaces.IConnectionAliasRef",
-		reflect.TypeOf((*IConnectionAliasRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectionAliasRef", GoGetter: "ConnectionAliasRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConnectionAliasRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_workspaces.IWorkspaceRef",
-		reflect.TypeOf((*IWorkspaceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "workspaceRef", GoGetter: "WorkspaceRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IWorkspaceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_workspaces.IWorkspacesPoolRef",
-		reflect.TypeOf((*IWorkspacesPoolRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "workspacesPoolRef", GoGetter: "WorkspacesPoolRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IWorkspacesPoolRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspaces.WorkspaceReference",
-		reflect.TypeOf((*WorkspaceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspaces.WorkspacesPoolReference",
-		reflect.TypeOf((*WorkspacesPoolReference)(nil)).Elem(),
 	)
 }

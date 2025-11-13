@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnDBSecurityGroup interface {
 	awscdk.CfnResource
-	IDBSecurityGroupRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBSecurityGroupRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -60,11 +62,11 @@ type CfnDBSecurityGroup interface {
 	DbSecurityGroupIngress() interface{}
 	SetDbSecurityGroupIngress(val interface{})
 	// A reference to a DBSecurityGroup resource.
-	DbSecurityGroupRef() *DBSecurityGroupReference
+	DbSecurityGroupRef() *interfacesawsrds.DBSecurityGroupReference
 	// The identifier of an Amazon virtual private cloud (VPC).
 	Ec2VpcId() *string
 	SetEc2VpcId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Provides the description of the DB security group.
 	GroupDescription() *string
 	SetGroupDescription(val *string)
@@ -237,8 +239,8 @@ type CfnDBSecurityGroup interface {
 // The jsii proxy struct for CfnDBSecurityGroup
 type jsiiProxy_CfnDBSecurityGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBSecurityGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBSecurityGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnDBSecurityGroup) DbSecurityGroupIngress() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSecurityGroup) DbSecurityGroupRef() *DBSecurityGroupReference {
-	var returns *DBSecurityGroupReference
+func (j *jsiiProxy_CfnDBSecurityGroup) DbSecurityGroupRef() *interfacesawsrds.DBSecurityGroupReference {
+	var returns *interfacesawsrds.DBSecurityGroupReference
 	_jsii_.Get(
 		j,
 		"dbSecurityGroupRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnDBSecurityGroup) Ec2VpcId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSecurityGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBSecurityGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,6 +425,7 @@ func (j *jsiiProxy_CfnDBSecurityGroup) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::RDS::DBSecurityGroup`.
 func NewCfnDBSecurityGroup(scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) CfnDBSecurityGroup {
 	_init_.Initialize()
 
@@ -440,6 +443,7 @@ func NewCfnDBSecurityGroup(scope constructs.Construct, id *string, props *CfnDBS
 	return &j
 }
 
+// Create a new `AWS::RDS::DBSecurityGroup`.
 func NewCfnDBSecurityGroup_Override(c CfnDBSecurityGroup, scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) {
 	_init_.Initialize()
 

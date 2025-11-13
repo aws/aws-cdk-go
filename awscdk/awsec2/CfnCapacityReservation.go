@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnCapacityReservation interface {
 	awscdk.CfnResource
-	ICapacityReservationRef
 	awscdk.IInspectable
+	interfacesawsec2.ICapacityReservationRef
 	awscdk.ITaggableV2
 	// Returns the Availability Zone in which the capacity is reserved.
 	//
@@ -118,7 +120,7 @@ type CfnCapacityReservation interface {
 	AvailabilityZoneId() *string
 	SetAvailabilityZoneId(val *string)
 	// A reference to a CapacityReservation resource.
-	CapacityReservationRef() *CapacityReservationReference
+	CapacityReservationRef() *interfacesawsec2.CapacityReservationReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -139,7 +141,7 @@ type CfnCapacityReservation interface {
 	// Indicates the way in which the Capacity Reservation ends.
 	EndDateType() *string
 	SetEndDateType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// *Deprecated.*.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
@@ -338,8 +340,8 @@ type CfnCapacityReservation interface {
 // The jsii proxy struct for CfnCapacityReservation
 type jsiiProxy_CfnCapacityReservation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICapacityReservationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ICapacityReservationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -523,8 +525,8 @@ func (j *jsiiProxy_CfnCapacityReservation) AvailabilityZoneId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) CapacityReservationRef() *CapacityReservationReference {
-	var returns *CapacityReservationReference
+func (j *jsiiProxy_CfnCapacityReservation) CapacityReservationRef() *interfacesawsec2.CapacityReservationReference {
+	var returns *interfacesawsec2.CapacityReservationReference
 	_jsii_.Get(
 		j,
 		"capacityReservationRef",
@@ -613,8 +615,8 @@ func (j *jsiiProxy_CfnCapacityReservation) EndDateType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCapacityReservation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -784,6 +786,7 @@ func (j *jsiiProxy_CfnCapacityReservation) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::EC2::CapacityReservation`.
 func NewCfnCapacityReservation(scope constructs.Construct, id *string, props *CfnCapacityReservationProps) CfnCapacityReservation {
 	_init_.Initialize()
 
@@ -801,6 +804,7 @@ func NewCfnCapacityReservation(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::EC2::CapacityReservation`.
 func NewCfnCapacityReservation_Override(c CfnCapacityReservation, scope constructs.Construct, id *string, props *CfnCapacityReservationProps) {
 	_init_.Initialize()
 
@@ -950,13 +954,13 @@ func (j *jsiiProxy_CfnCapacityReservation)SetUnusedReservationBillingOwnerId(val
 }
 
 // Creates a new ICapacityReservationRef from an ARN.
-func CfnCapacityReservation_FromCapacityReservationArn(scope constructs.Construct, id *string, arn *string) ICapacityReservationRef {
+func CfnCapacityReservation_FromCapacityReservationArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.ICapacityReservationRef {
 	_init_.Initialize()
 
 	if err := validateCfnCapacityReservation_FromCapacityReservationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ICapacityReservationRef
+	var returns interfacesawsec2.ICapacityReservationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnCapacityReservation",
@@ -969,13 +973,13 @@ func CfnCapacityReservation_FromCapacityReservationArn(scope constructs.Construc
 }
 
 // Creates a new ICapacityReservationRef from a capacityReservationId.
-func CfnCapacityReservation_FromCapacityReservationId(scope constructs.Construct, id *string, capacityReservationId *string) ICapacityReservationRef {
+func CfnCapacityReservation_FromCapacityReservationId(scope constructs.Construct, id *string, capacityReservationId *string) interfacesawsec2.ICapacityReservationRef {
 	_init_.Initialize()
 
 	if err := validateCfnCapacityReservation_FromCapacityReservationIdParameters(scope, id, capacityReservationId); err != nil {
 		panic(err)
 	}
-	var returns ICapacityReservationRef
+	var returns interfacesawsec2.ICapacityReservationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnCapacityReservation",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstransfer/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstransfer"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,14 +55,14 @@ import (
 //
 type CfnAgreement interface {
 	awscdk.CfnResource
-	IAgreementRef
 	awscdk.IInspectable
+	interfacesawstransfer.IAgreementRef
 	awscdk.ITaggable
 	// Connectors are used to send files using either the AS2 or SFTP protocol.
 	AccessRole() *string
 	SetAccessRole(val *string)
 	// A reference to a Agreement resource.
-	AgreementRef() *AgreementReference
+	AgreementRef() *interfacesawstransfer.AgreementReference
 	// The unique identifier for the AS2 agreement, returned after the API call succeeds.
 	AttrAgreementId() *string
 	// Specifies the unique Amazon Resource Name (ARN) for the agreement.
@@ -86,7 +88,7 @@ type CfnAgreement interface {
 	// Determines whether or not unsigned messages from your trading partners will be accepted.
 	EnforceMessageSigning() *string
 	SetEnforceMessageSigning(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A unique identifier for the AS2 local profile.
 	LocalProfileId() *string
 	SetLocalProfileId(val *string)
@@ -271,8 +273,8 @@ type CfnAgreement interface {
 // The jsii proxy struct for CfnAgreement
 type jsiiProxy_CfnAgreement struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAgreementRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstransferIAgreementRef
 	internal.Type__awscdkITaggable
 }
 
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnAgreement) AccessRole() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgreement) AgreementRef() *AgreementReference {
-	var returns *AgreementReference
+func (j *jsiiProxy_CfnAgreement) AgreementRef() *interfacesawstransfer.AgreementReference {
+	var returns *interfacesawstransfer.AgreementReference
 	_jsii_.Get(
 		j,
 		"agreementRef",
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnAgreement) EnforceMessageSigning() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgreement) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAgreement) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -537,6 +539,7 @@ func (j *jsiiProxy_CfnAgreement) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Transfer::Agreement`.
 func NewCfnAgreement(scope constructs.Construct, id *string, props *CfnAgreementProps) CfnAgreement {
 	_init_.Initialize()
 
@@ -554,6 +557,7 @@ func NewCfnAgreement(scope constructs.Construct, id *string, props *CfnAgreement
 	return &j
 }
 
+// Create a new `AWS::Transfer::Agreement`.
 func NewCfnAgreement_Override(c CfnAgreement, scope constructs.Construct, id *string, props *CfnAgreementProps) {
 	_init_.Initialize()
 

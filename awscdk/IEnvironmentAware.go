@@ -2,6 +2,8 @@ package awscdk
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 )
 
 // Used to indicate that a particular construct has an resource environment.
@@ -15,7 +17,7 @@ type IEnvironmentAware interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 }
 
 // The jsii proxy for IEnvironmentAware
@@ -23,8 +25,8 @@ type jsiiProxy_IEnvironmentAware struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_IEnvironmentAware) Env() *ResourceEnvironment {
-	var returns *ResourceEnvironment
+func (j *jsiiProxy_IEnvironmentAware) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnKeySigningKey interface {
 	awscdk.CfnResource
-	IKeySigningKeyRef
 	awscdk.IInspectable
+	interfacesawsroute53.IKeySigningKeyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -40,7 +42,7 @@ type CfnKeySigningKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique string (ID) that is used to identify a hosted zone.
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
@@ -48,7 +50,7 @@ type CfnKeySigningKey interface {
 	KeyManagementServiceArn() *string
 	SetKeyManagementServiceArn(val *string)
 	// A reference to a KeySigningKey resource.
-	KeySigningKeyRef() *KeySigningKeyReference
+	KeySigningKeyRef() *interfacesawsroute53.KeySigningKeyReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -219,8 +221,8 @@ type CfnKeySigningKey interface {
 // The jsii proxy struct for CfnKeySigningKey
 type jsiiProxy_CfnKeySigningKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKeySigningKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53IKeySigningKeyRef
 }
 
 func (j *jsiiProxy_CfnKeySigningKey) CfnOptions() awscdk.ICfnResourceOptions {
@@ -263,8 +265,8 @@ func (j *jsiiProxy_CfnKeySigningKey) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeySigningKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKeySigningKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -293,8 +295,8 @@ func (j *jsiiProxy_CfnKeySigningKey) KeyManagementServiceArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeySigningKey) KeySigningKeyRef() *KeySigningKeyReference {
-	var returns *KeySigningKeyReference
+func (j *jsiiProxy_CfnKeySigningKey) KeySigningKeyRef() *interfacesawsroute53.KeySigningKeyReference {
+	var returns *interfacesawsroute53.KeySigningKeyReference
 	_jsii_.Get(
 		j,
 		"keySigningKeyRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnKeySigningKey) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Route53::KeySigningKey`.
 func NewCfnKeySigningKey(scope constructs.Construct, id *string, props *CfnKeySigningKeyProps) CfnKeySigningKey {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnKeySigningKey(scope constructs.Construct, id *string, props *CfnKeySi
 	return &j
 }
 
+// Create a new `AWS::Route53::KeySigningKey`.
 func NewCfnKeySigningKey_Override(c CfnKeySigningKey, scope constructs.Construct, id *string, props *CfnKeySigningKeyProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsqbusiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsqbusiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnPermission interface {
 	awscdk.CfnResource
-	IPermissionRef
 	awscdk.IInspectable
+	interfacesawsqbusiness.IPermissionRef
 	// The list of Amazon Q Business actions that the ISV is allowed to perform.
 	Actions() *[]*string
 	SetActions(val *[]*string)
@@ -61,7 +63,7 @@ type CfnPermission interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -75,7 +77,7 @@ type CfnPermission interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Permission resource.
-	PermissionRef() *PermissionReference
+	PermissionRef() *interfacesawsqbusiness.PermissionReference
 	// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
 	Principal() *string
 	SetPrincipal(val *string)
@@ -234,8 +236,8 @@ type CfnPermission interface {
 // The jsii proxy struct for CfnPermission
 type jsiiProxy_CfnPermission struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPermissionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsqbusinessIPermissionRef
 }
 
 func (j *jsiiProxy_CfnPermission) Actions() *[]*string {
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnPermission) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermission) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPermission) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnPermission) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermission) PermissionRef() *PermissionReference {
-	var returns *PermissionReference
+func (j *jsiiProxy_CfnPermission) PermissionRef() *interfacesawsqbusiness.PermissionReference {
+	var returns *interfacesawsqbusiness.PermissionReference
 	_jsii_.Get(
 		j,
 		"permissionRef",
@@ -409,6 +411,7 @@ func (j *jsiiProxy_CfnPermission) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::QBusiness::Permission`.
 func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissionProps) CfnPermission {
 	_init_.Initialize()
 
@@ -426,6 +429,7 @@ func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissi
 	return &j
 }
 
+// Create a new `AWS::QBusiness::Permission`.
 func NewCfnPermission_Override(c CfnPermission, scope constructs.Construct, id *string, props *CfnPermissionProps) {
 	_init_.Initialize()
 

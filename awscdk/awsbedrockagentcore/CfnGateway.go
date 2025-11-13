@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrockagentcore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnGateway interface {
 	awscdk.CfnResource
-	IGatewayRef
 	awscdk.IInspectable
+	interfacesawsbedrockagentcore.IGatewayRef
 	awscdk.ITaggableV2
 	// The date and time at which the gateway was created.
 	AttrCreatedAt() *string
@@ -96,12 +98,12 @@ type CfnGateway interface {
 	// The description for the gateway.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The exception level for the gateway.
 	ExceptionLevel() *string
 	SetExceptionLevel(val *string)
 	// A reference to a Gateway resource.
-	GatewayRef() *GatewayReference
+	GatewayRef() *interfacesawsbedrockagentcore.GatewayReference
 	// The KMS key ARN for the gateway.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -283,8 +285,8 @@ type CfnGateway interface {
 // The jsii proxy struct for CfnGateway
 type jsiiProxy_CfnGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockagentcoreIGatewayRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -448,8 +450,8 @@ func (j *jsiiProxy_CfnGateway) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -468,8 +470,8 @@ func (j *jsiiProxy_CfnGateway) ExceptionLevel() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGateway) GatewayRef() *GatewayReference {
-	var returns *GatewayReference
+func (j *jsiiProxy_CfnGateway) GatewayRef() *interfacesawsbedrockagentcore.GatewayReference {
+	var returns *interfacesawsbedrockagentcore.GatewayReference
 	_jsii_.Get(
 		j,
 		"gatewayRef",
@@ -599,6 +601,7 @@ func (j *jsiiProxy_CfnGateway) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::BedrockAgentCore::Gateway`.
 func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProps) CfnGateway {
 	_init_.Initialize()
 
@@ -616,6 +619,7 @@ func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProp
 	return &j
 }
 
+// Create a new `AWS::BedrockAgentCore::Gateway`.
 func NewCfnGateway_Override(c CfnGateway, scope constructs.Construct, id *string, props *CfnGatewayProps) {
 	_init_.Initialize()
 

@@ -56,8 +56,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIndex{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIndexRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3vectorsIIndexRef)
 			return &j
 		},
 	)
@@ -113,8 +113,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVectorBucket{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVectorBucketRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3vectorsIVectorBucketRef)
 			return &j
 		},
 	)
@@ -165,8 +165,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVectorBucketPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVectorBucketPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3vectorsIVectorBucketPolicyRef)
 			return &j
 		},
 	)
@@ -177,62 +177,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3vectors.CfnVectorBucketProps",
 		reflect.TypeOf((*CfnVectorBucketProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3vectors.IIndexRef",
-		reflect.TypeOf((*IIndexRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "indexRef", GoGetter: "IndexRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIndexRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3vectors.IVectorBucketPolicyRef",
-		reflect.TypeOf((*IVectorBucketPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vectorBucketPolicyRef", GoGetter: "VectorBucketPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVectorBucketPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3vectors.IVectorBucketRef",
-		reflect.TypeOf((*IVectorBucketRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vectorBucketRef", GoGetter: "VectorBucketRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVectorBucketRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3vectors.IndexReference",
-		reflect.TypeOf((*IndexReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3vectors.VectorBucketPolicyReference",
-		reflect.TypeOf((*VectorBucketPolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3vectors.VectorBucketReference",
-		reflect.TypeOf((*VectorBucketReference)(nil)).Elem(),
 	)
 }

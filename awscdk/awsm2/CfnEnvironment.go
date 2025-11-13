@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsm2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsm2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnEnvironment interface {
 	awscdk.CfnResource
-	IEnvironmentRef
 	awscdk.IInspectable
+	interfacesawsm2.IEnvironmentRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the runtime environment.
 	AttrEnvironmentArn() *string
@@ -83,9 +85,9 @@ type CfnEnvironment interface {
 	// The version of the runtime engine.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Environment resource.
-	EnvironmentRef() *EnvironmentReference
+	EnvironmentRef() *interfacesawsm2.EnvironmentReference
 	// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025.
 	HighAvailabilityConfig() interface{}
 	SetHighAvailabilityConfig(val interface{})
@@ -285,8 +287,8 @@ type CfnEnvironment interface {
 // The jsii proxy struct for CfnEnvironment
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsm2IEnvironmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnEnvironment) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -390,8 +392,8 @@ func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *EnvironmentReference {
-	var returns *EnvironmentReference
+func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *interfacesawsm2.EnvironmentReference {
+	var returns *interfacesawsm2.EnvironmentReference
 	_jsii_.Get(
 		j,
 		"environmentRef",
@@ -581,6 +583,7 @@ func (j *jsiiProxy_CfnEnvironment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::M2::Environment`.
 func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
@@ -598,6 +601,7 @@ func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnviron
 	return &j
 }
 
+// Create a new `AWS::M2::Environment`.
 func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 

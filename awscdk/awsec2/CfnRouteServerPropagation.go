@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnRouteServerPropagation interface {
 	awscdk.CfnResource
-	IRouteServerPropagationRef
 	awscdk.IInspectable
+	interfacesawsec2.IRouteServerPropagationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnRouteServerPropagation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -60,7 +62,7 @@ type CfnRouteServerPropagation interface {
 	RouteServerId() *string
 	SetRouteServerId(val *string)
 	// A reference to a RouteServerPropagation resource.
-	RouteServerPropagationRef() *RouteServerPropagationReference
+	RouteServerPropagationRef() *interfacesawsec2.RouteServerPropagationReference
 	// The ID of the route table configured for route server propagation.
 	RouteTableId() *string
 	SetRouteTableId(val *string)
@@ -211,8 +213,8 @@ type CfnRouteServerPropagation interface {
 // The jsii proxy struct for CfnRouteServerPropagation
 type jsiiProxy_CfnRouteServerPropagation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteServerPropagationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IRouteServerPropagationRef
 }
 
 func (j *jsiiProxy_CfnRouteServerPropagation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -255,8 +257,8 @@ func (j *jsiiProxy_CfnRouteServerPropagation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServerPropagation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRouteServerPropagation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnRouteServerPropagation) RouteServerId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServerPropagation) RouteServerPropagationRef() *RouteServerPropagationReference {
-	var returns *RouteServerPropagationReference
+func (j *jsiiProxy_CfnRouteServerPropagation) RouteServerPropagationRef() *interfacesawsec2.RouteServerPropagationReference {
+	var returns *interfacesawsec2.RouteServerPropagationReference
 	_jsii_.Get(
 		j,
 		"routeServerPropagationRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnRouteServerPropagation) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::EC2::RouteServerPropagation`.
 func NewCfnRouteServerPropagation(scope constructs.Construct, id *string, props *CfnRouteServerPropagationProps) CfnRouteServerPropagation {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnRouteServerPropagation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::EC2::RouteServerPropagation`.
 func NewCfnRouteServerPropagation_Override(c CfnRouteServerPropagation, scope constructs.Construct, id *string, props *CfnRouteServerPropagationProps) {
 	_init_.Initialize()
 

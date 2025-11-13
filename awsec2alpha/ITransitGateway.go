@@ -5,6 +5,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -139,8 +140,8 @@ func (j *jsiiProxy_ITransitGateway) TransitGatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ITransitGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ITransitGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

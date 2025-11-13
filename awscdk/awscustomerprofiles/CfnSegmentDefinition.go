@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscustomerprofiles/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscustomerprofiles"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -336,8 +338,8 @@ import (
 //
 type CfnSegmentDefinition interface {
 	awscdk.CfnResource
-	ISegmentDefinitionRef
 	awscdk.IInspectable
+	interfacesawscustomerprofiles.ISegmentDefinitionRef
 	awscdk.ITaggableV2
 	// When the segment definition was created.
 	AttrCreatedAt() *string
@@ -363,7 +365,7 @@ type CfnSegmentDefinition interface {
 	// The name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -385,7 +387,7 @@ type CfnSegmentDefinition interface {
 	SegmentDefinitionName() *string
 	SetSegmentDefinitionName(val *string)
 	// A reference to a SegmentDefinition resource.
-	SegmentDefinitionRef() *SegmentDefinitionReference
+	SegmentDefinitionRef() *interfacesawscustomerprofiles.SegmentDefinitionReference
 	// Contains all groups of the segment definition.
 	SegmentGroups() interface{}
 	SetSegmentGroups(val interface{})
@@ -539,8 +541,8 @@ type CfnSegmentDefinition interface {
 // The jsii proxy struct for CfnSegmentDefinition
 type jsiiProxy_CfnSegmentDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISegmentDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscustomerprofilesISegmentDefinitionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -644,8 +646,8 @@ func (j *jsiiProxy_CfnSegmentDefinition) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSegmentDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSegmentDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -694,8 +696,8 @@ func (j *jsiiProxy_CfnSegmentDefinition) SegmentDefinitionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSegmentDefinition) SegmentDefinitionRef() *SegmentDefinitionReference {
-	var returns *SegmentDefinitionReference
+func (j *jsiiProxy_CfnSegmentDefinition) SegmentDefinitionRef() *interfacesawscustomerprofiles.SegmentDefinitionReference {
+	var returns *interfacesawscustomerprofiles.SegmentDefinitionReference
 	_jsii_.Get(
 		j,
 		"segmentDefinitionRef",
@@ -755,6 +757,7 @@ func (j *jsiiProxy_CfnSegmentDefinition) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::CustomerProfiles::SegmentDefinition`.
 func NewCfnSegmentDefinition(scope constructs.Construct, id *string, props *CfnSegmentDefinitionProps) CfnSegmentDefinition {
 	_init_.Initialize()
 
@@ -772,6 +775,7 @@ func NewCfnSegmentDefinition(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
+// Create a new `AWS::CustomerProfiles::SegmentDefinition`.
 func NewCfnSegmentDefinition_Override(c CfnSegmentDefinition, scope constructs.Construct, id *string, props *CfnSegmentDefinitionProps) {
 	_init_.Initialize()
 

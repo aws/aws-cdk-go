@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscustomerprofiles/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscustomerprofiles"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnEventStream interface {
 	awscdk.CfnResource
-	IEventStreamRef
 	awscdk.IInspectable
+	interfacesawscustomerprofiles.IEventStreamRef
 	awscdk.ITaggableV2
 	// The timestamp of when the export was created.
 	AttrCreatedAt() *string
@@ -61,12 +63,12 @@ type CfnEventStream interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the event stream.
 	EventStreamName() *string
 	SetEventStreamName(val *string)
 	// A reference to a EventStream resource.
-	EventStreamRef() *EventStreamReference
+	EventStreamRef() *interfacesawscustomerprofiles.EventStreamReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,8 +239,8 @@ type CfnEventStream interface {
 // The jsii proxy struct for CfnEventStream
 type jsiiProxy_CfnEventStream struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventStreamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscustomerprofilesIEventStreamRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnEventStream) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventStream) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnEventStream) EventStreamName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventStream) EventStreamRef() *EventStreamReference {
-	var returns *EventStreamReference
+func (j *jsiiProxy_CfnEventStream) EventStreamRef() *interfacesawscustomerprofiles.EventStreamReference {
+	var returns *interfacesawscustomerprofiles.EventStreamReference
 	_jsii_.Get(
 		j,
 		"eventStreamRef",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnEventStream) Uri() *string {
 }
 
 
+// Create a new `AWS::CustomerProfiles::EventStream`.
 func NewCfnEventStream(scope constructs.Construct, id *string, props *CfnEventStreamProps) CfnEventStream {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnEventStream(scope constructs.Construct, id *string, props *CfnEventSt
 	return &j
 }
 
+// Create a new `AWS::CustomerProfiles::EventStream`.
 func NewCfnEventStream_Override(c CfnEventStream, scope constructs.Construct, id *string, props *CfnEventStreamProps) {
 	_init_.Initialize()
 

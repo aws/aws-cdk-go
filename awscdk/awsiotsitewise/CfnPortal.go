@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotsitewise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnPortal interface {
 	awscdk.CfnResource
-	IPortalRef
 	awscdk.IInspectable
+	interfacesawsiotsitewise.IPortalRef
 	awscdk.ITaggable
 	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
 	Alarms() interface{}
@@ -79,7 +81,7 @@ type CfnPortal interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -110,7 +112,7 @@ type CfnPortal interface {
 	PortalName() *string
 	SetPortalName(val *string)
 	// A reference to a Portal resource.
-	PortalRef() *PortalReference
+	PortalRef() *interfacesawsiotsitewise.PortalReference
 	// Define the type of portal.
 	PortalType() *string
 	SetPortalType(val *string)
@@ -277,8 +279,8 @@ type CfnPortal interface {
 // The jsii proxy struct for CfnPortal
 type jsiiProxy_CfnPortal struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPortalRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotsitewiseIPortalRef
 	internal.Type__awscdkITaggable
 }
 
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnPortal) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortal) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPortal) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -452,8 +454,8 @@ func (j *jsiiProxy_CfnPortal) PortalName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortal) PortalRef() *PortalReference {
-	var returns *PortalReference
+func (j *jsiiProxy_CfnPortal) PortalRef() *interfacesawsiotsitewise.PortalReference {
+	var returns *interfacesawsiotsitewise.PortalReference
 	_jsii_.Get(
 		j,
 		"portalRef",
@@ -553,6 +555,7 @@ func (j *jsiiProxy_CfnPortal) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTSiteWise::Portal`.
 func NewCfnPortal(scope constructs.Construct, id *string, props *CfnPortalProps) CfnPortal {
 	_init_.Initialize()
 
@@ -570,6 +573,7 @@ func NewCfnPortal(scope constructs.Construct, id *string, props *CfnPortalProps)
 	return &j
 }
 
+// Create a new `AWS::IoTSiteWise::Portal`.
 func NewCfnPortal_Override(c CfnPortal, scope constructs.Construct, id *string, props *CfnPortalProps) {
 	_init_.Initialize()
 
@@ -676,13 +680,13 @@ func (j *jsiiProxy_CfnPortal)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IPortalRef from an ARN.
-func CfnPortal_FromPortalArn(scope constructs.Construct, id *string, arn *string) IPortalRef {
+func CfnPortal_FromPortalArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IPortalRef {
 	_init_.Initialize()
 
 	if err := validateCfnPortal_FromPortalArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IPortalRef
+	var returns interfacesawsiotsitewise.IPortalRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
@@ -695,13 +699,13 @@ func CfnPortal_FromPortalArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IPortalRef from a portalId.
-func CfnPortal_FromPortalId(scope constructs.Construct, id *string, portalId *string) IPortalRef {
+func CfnPortal_FromPortalId(scope constructs.Construct, id *string, portalId *string) interfacesawsiotsitewise.IPortalRef {
 	_init_.Initialize()
 
 	if err := validateCfnPortal_FromPortalIdParameters(scope, id, portalId); err != nil {
 		panic(err)
 	}
-	var returns IPortalRef
+	var returns interfacesawsiotsitewise.IPortalRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnPortal",

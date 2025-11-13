@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnMonitoringSubscription interface {
 	awscdk.CfnResource
-	IMonitoringSubscriptionRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IMonitoringSubscriptionRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -45,7 +47,7 @@ type CfnMonitoringSubscription interface {
 	// The ID of the distribution that you are enabling metrics for.
 	DistributionId() *string
 	SetDistributionId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -60,7 +62,7 @@ type CfnMonitoringSubscription interface {
 	MonitoringSubscription() interface{}
 	SetMonitoringSubscription(val interface{})
 	// A reference to a MonitoringSubscription resource.
-	MonitoringSubscriptionRef() *MonitoringSubscriptionReference
+	MonitoringSubscriptionRef() *interfacesawscloudfront.MonitoringSubscriptionReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -215,8 +217,8 @@ type CfnMonitoringSubscription interface {
 // The jsii proxy struct for CfnMonitoringSubscription
 type jsiiProxy_CfnMonitoringSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMonitoringSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIMonitoringSubscriptionRef
 }
 
 func (j *jsiiProxy_CfnMonitoringSubscription) CfnOptions() awscdk.ICfnResourceOptions {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnMonitoringSubscription) DistributionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMonitoringSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMonitoringSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnMonitoringSubscription) MonitoringSubscription() interface
 	return returns
 }
 
-func (j *jsiiProxy_CfnMonitoringSubscription) MonitoringSubscriptionRef() *MonitoringSubscriptionReference {
-	var returns *MonitoringSubscriptionReference
+func (j *jsiiProxy_CfnMonitoringSubscription) MonitoringSubscriptionRef() *interfacesawscloudfront.MonitoringSubscriptionReference {
+	var returns *interfacesawscloudfront.MonitoringSubscriptionReference
 	_jsii_.Get(
 		j,
 		"monitoringSubscriptionRef",
@@ -360,6 +362,7 @@ func (j *jsiiProxy_CfnMonitoringSubscription) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::CloudFront::MonitoringSubscription`.
 func NewCfnMonitoringSubscription(scope constructs.Construct, id *string, props *CfnMonitoringSubscriptionProps) CfnMonitoringSubscription {
 	_init_.Initialize()
 
@@ -377,6 +380,7 @@ func NewCfnMonitoringSubscription(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::CloudFront::MonitoringSubscription`.
 func NewCfnMonitoringSubscription_Override(c CfnMonitoringSubscription, scope constructs.Construct, id *string, props *CfnMonitoringSubscriptionProps) {
 	_init_.Initialize()
 

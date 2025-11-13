@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeartifact/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodeartifact"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -66,8 +68,8 @@ import (
 //
 type CfnPackageGroup interface {
 	awscdk.CfnResource
-	IPackageGroupRef
 	awscdk.IInspectable
+	interfacesawscodeartifact.IPackageGroupRef
 	awscdk.ITaggableV2
 	// The ARN of the package group.
 	AttrArn() *string
@@ -94,7 +96,7 @@ type CfnPackageGroup interface {
 	// The 12-digit account number of the AWS account that owns the domain.
 	DomainOwner() *string
 	SetDomainOwner(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -111,7 +113,7 @@ type CfnPackageGroup interface {
 	OriginConfiguration() interface{}
 	SetOriginConfiguration(val interface{})
 	// A reference to a PackageGroup resource.
-	PackageGroupRef() *PackageGroupReference
+	PackageGroupRef() *interfacesawscodeartifact.PackageGroupReference
 	// The pattern of the package group.
 	Pattern() *string
 	SetPattern(val *string)
@@ -270,8 +272,8 @@ type CfnPackageGroup interface {
 // The jsii proxy struct for CfnPackageGroup
 type jsiiProxy_CfnPackageGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPackageGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodeartifactIPackageGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnPackageGroup) DomainOwner() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackageGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPackageGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -415,8 +417,8 @@ func (j *jsiiProxy_CfnPackageGroup) OriginConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackageGroup) PackageGroupRef() *PackageGroupReference {
-	var returns *PackageGroupReference
+func (j *jsiiProxy_CfnPackageGroup) PackageGroupRef() *interfacesawscodeartifact.PackageGroupReference {
+	var returns *interfacesawscodeartifact.PackageGroupReference
 	_jsii_.Get(
 		j,
 		"packageGroupRef",
@@ -486,6 +488,7 @@ func (j *jsiiProxy_CfnPackageGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::CodeArtifact::PackageGroup`.
 func NewCfnPackageGroup(scope constructs.Construct, id *string, props *CfnPackageGroupProps) CfnPackageGroup {
 	_init_.Initialize()
 
@@ -503,6 +506,7 @@ func NewCfnPackageGroup(scope constructs.Construct, id *string, props *CfnPackag
 	return &j
 }
 
+// Create a new `AWS::CodeArtifact::PackageGroup`.
 func NewCfnPackageGroup_Override(c CfnPackageGroup, scope constructs.Construct, id *string, props *CfnPackageGroupProps) {
 	_init_.Initialize()
 

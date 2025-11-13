@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnServerCertificate interface {
 	awscdk.CfnResource
-	IServerCertificateRef
 	awscdk.IInspectable
+	interfacesawsiam.IServerCertificateRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::ServerCertificate` resource.
 	AttrArn() *string
@@ -64,7 +66,7 @@ type CfnServerCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -92,7 +94,7 @@ type CfnServerCertificate interface {
 	ServerCertificateName() *string
 	SetServerCertificateName(val *string)
 	// A reference to a ServerCertificate resource.
-	ServerCertificateRef() *ServerCertificateReference
+	ServerCertificateRef() *interfacesawsiam.ServerCertificateReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -245,8 +247,8 @@ type CfnServerCertificate interface {
 // The jsii proxy struct for CfnServerCertificate
 type jsiiProxy_CfnServerCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServerCertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIServerCertificateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnServerCertificate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServerCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -390,8 +392,8 @@ func (j *jsiiProxy_CfnServerCertificate) ServerCertificateName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerCertificate) ServerCertificateRef() *ServerCertificateReference {
-	var returns *ServerCertificateReference
+func (j *jsiiProxy_CfnServerCertificate) ServerCertificateRef() *interfacesawsiam.ServerCertificateReference {
+	var returns *interfacesawsiam.ServerCertificateReference
 	_jsii_.Get(
 		j,
 		"serverCertificateRef",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnServerCertificate) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::IAM::ServerCertificate`.
 func NewCfnServerCertificate(scope constructs.Construct, id *string, props *CfnServerCertificateProps) CfnServerCertificate {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnServerCertificate(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
+// Create a new `AWS::IAM::ServerCertificate`.
 func NewCfnServerCertificate_Override(c CfnServerCertificate, scope constructs.Construct, id *string, props *CfnServerCertificateProps) {
 	_init_.Initialize()
 

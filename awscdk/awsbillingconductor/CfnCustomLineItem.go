@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbillingconductor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbillingconductor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,8 +72,8 @@ import (
 //
 type CfnCustomLineItem interface {
 	awscdk.CfnResource
-	ICustomLineItemRef
 	awscdk.IInspectable
+	interfacesawsbillingconductor.ICustomLineItemRef
 	awscdk.ITaggable
 	// The AWS account in which this custom line item will be applied to.
 	AccountId() *string
@@ -112,11 +114,11 @@ type CfnCustomLineItem interface {
 	CustomLineItemChargeDetails() interface{}
 	SetCustomLineItemChargeDetails(val interface{})
 	// A reference to a CustomLineItem resource.
-	CustomLineItemRef() *CustomLineItemReference
+	CustomLineItemRef() *interfacesawsbillingconductor.CustomLineItemReference
 	// The custom line item's description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -291,8 +293,8 @@ type CfnCustomLineItem interface {
 // The jsii proxy struct for CfnCustomLineItem
 type jsiiProxy_CfnCustomLineItem struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomLineItemRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbillingconductorICustomLineItemRef
 	internal.Type__awscdkITaggable
 }
 
@@ -446,8 +448,8 @@ func (j *jsiiProxy_CfnCustomLineItem) CustomLineItemChargeDetails() interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomLineItem) CustomLineItemRef() *CustomLineItemReference {
-	var returns *CustomLineItemReference
+func (j *jsiiProxy_CfnCustomLineItem) CustomLineItemRef() *interfacesawsbillingconductor.CustomLineItemReference {
+	var returns *interfacesawsbillingconductor.CustomLineItemReference
 	_jsii_.Get(
 		j,
 		"customLineItemRef",
@@ -466,8 +468,8 @@ func (j *jsiiProxy_CfnCustomLineItem) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomLineItem) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomLineItem) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -577,6 +579,7 @@ func (j *jsiiProxy_CfnCustomLineItem) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::BillingConductor::CustomLineItem`.
 func NewCfnCustomLineItem(scope constructs.Construct, id *string, props *CfnCustomLineItemProps) CfnCustomLineItem {
 	_init_.Initialize()
 
@@ -594,6 +597,7 @@ func NewCfnCustomLineItem(scope constructs.Construct, id *string, props *CfnCust
 	return &j
 }
 
+// Create a new `AWS::BillingConductor::CustomLineItem`.
 func NewCfnCustomLineItem_Override(c CfnCustomLineItem, scope constructs.Construct, id *string, props *CfnCustomLineItemProps) {
 	_init_.Initialize()
 

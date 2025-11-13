@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotanalytics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotanalytics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnChannel interface {
 	awscdk.CfnResource
-	IChannelRef
 	awscdk.IInspectable
+	interfacesawsiotanalytics.IChannelRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -61,7 +63,7 @@ type CfnChannel interface {
 	ChannelName() *string
 	SetChannelName(val *string)
 	// A reference to a Channel resource.
-	ChannelRef() *ChannelReference
+	ChannelRef() *interfacesawsiotanalytics.ChannelReference
 	// Where channel data is stored.
 	ChannelStorage() interface{}
 	SetChannelStorage(val interface{})
@@ -69,7 +71,7 @@ type CfnChannel interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -242,8 +244,8 @@ type CfnChannel interface {
 // The jsii proxy struct for CfnChannel
 type jsiiProxy_CfnChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotanalyticsIChannelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnChannel) ChannelName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) ChannelRef() *ChannelReference {
-	var returns *ChannelReference
+func (j *jsiiProxy_CfnChannel) ChannelRef() *interfacesawsiotanalytics.ChannelReference {
+	var returns *interfacesawsiotanalytics.ChannelReference
 	_jsii_.Get(
 		j,
 		"channelRef",
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnChannel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,6 +430,7 @@ func (j *jsiiProxy_CfnChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTAnalytics::Channel`.
 func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
@@ -445,6 +448,7 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 	return &j
 }
 
+// Create a new `AWS::IoTAnalytics::Channel`.
 func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
@@ -497,13 +501,13 @@ func (j *jsiiProxy_CfnChannel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IChannelRef from a channelName.
-func CfnChannel_FromChannelName(scope constructs.Construct, id *string, channelName *string) IChannelRef {
+func CfnChannel_FromChannelName(scope constructs.Construct, id *string, channelName *string) interfacesawsiotanalytics.IChannelRef {
 	_init_.Initialize()
 
 	if err := validateCfnChannel_FromChannelNameParameters(scope, id, channelName); err != nil {
 		panic(err)
 	}
-	var returns IChannelRef
+	var returns interfacesawsiotanalytics.IChannelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotanalytics.CfnChannel",

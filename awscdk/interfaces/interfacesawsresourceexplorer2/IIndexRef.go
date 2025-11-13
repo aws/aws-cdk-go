@@ -1,0 +1,56 @@
+package interfacesawsresourceexplorer2
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsresourceexplorer2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a Index.
+// Experimental.
+type IIndexRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a Index resource.
+	// Experimental.
+	IndexRef() *IndexReference
+}
+
+// The jsii proxy for IIndexRef
+type jsiiProxy_IIndexRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IIndexRef) IndexRef() *IndexReference {
+	var returns *IndexReference
+	_jsii_.Get(
+		j,
+		"indexRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IIndexRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IIndexRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

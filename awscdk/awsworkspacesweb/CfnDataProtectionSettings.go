@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -74,8 +76,8 @@ import (
 //
 type CfnDataProtectionSettings interface {
 	awscdk.CfnResource
-	IDataProtectionSettingsRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.IDataProtectionSettingsRef
 	awscdk.ITaggableV2
 	// The additional encryption context of the data protection settings.
 	AdditionalEncryptionContext() interface{}
@@ -101,14 +103,14 @@ type CfnDataProtectionSettings interface {
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
 	// A reference to a DataProtectionSettings resource.
-	DataProtectionSettingsRef() *DataProtectionSettingsReference
+	DataProtectionSettingsRef() *interfacesawsworkspacesweb.DataProtectionSettingsReference
 	// The description of the data protection settings.
 	Description() *string
 	SetDescription(val *string)
 	// The display name of the data protection settings.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The inline redaction configuration for the data protection settings.
 	InlineRedactionConfiguration() interface{}
 	SetInlineRedactionConfiguration(val interface{})
@@ -279,8 +281,8 @@ type CfnDataProtectionSettings interface {
 // The jsii proxy struct for CfnDataProtectionSettings
 type jsiiProxy_CfnDataProtectionSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataProtectionSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebIDataProtectionSettingsRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnDataProtectionSettings) CustomerManagedKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataProtectionSettings) DataProtectionSettingsRef() *DataProtectionSettingsReference {
-	var returns *DataProtectionSettingsReference
+func (j *jsiiProxy_CfnDataProtectionSettings) DataProtectionSettingsRef() *interfacesawsworkspacesweb.DataProtectionSettingsReference {
+	var returns *interfacesawsworkspacesweb.DataProtectionSettingsReference
 	_jsii_.Get(
 		j,
 		"dataProtectionSettingsRef",
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnDataProtectionSettings) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataProtectionSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataProtectionSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnDataProtectionSettings) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::DataProtectionSettings`.
 func NewCfnDataProtectionSettings(scope constructs.Construct, id *string, props *CfnDataProtectionSettingsProps) CfnDataProtectionSettings {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnDataProtectionSettings(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::DataProtectionSettings`.
 func NewCfnDataProtectionSettings_Override(c CfnDataProtectionSettings, scope constructs.Construct, id *string, props *CfnDataProtectionSettingsProps) {
 	_init_.Initialize()
 

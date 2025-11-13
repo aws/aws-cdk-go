@@ -5,9 +5,9 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -181,7 +181,7 @@ func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 }
 
 // An EC2 instance.
-func BackupResource_FromEc2Instance(instance awsec2.IInstanceRef) BackupResource {
+func BackupResource_FromEc2Instance(instance interfacesawsec2.IInstanceRef) BackupResource {
 	_init_.Initialize()
 
 	if err := validateBackupResource_FromEc2InstanceParameters(instance); err != nil {

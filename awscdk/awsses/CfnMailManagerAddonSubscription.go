@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnMailManagerAddonSubscription interface {
 	awscdk.CfnResource
-	IMailManagerAddonSubscriptionRef
 	awscdk.IInspectable
+	interfacesawsses.IMailManagerAddonSubscriptionRef
 	awscdk.ITaggableV2
 	// The name of the Add On to subscribe to.
 	AddonName() *string
@@ -55,7 +57,7 @@ type CfnMailManagerAddonSubscription interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnMailManagerAddonSubscription interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MailManagerAddonSubscription resource.
-	MailManagerAddonSubscriptionRef() *MailManagerAddonSubscriptionReference
+	MailManagerAddonSubscriptionRef() *interfacesawsses.MailManagerAddonSubscriptionReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -225,8 +227,8 @@ type CfnMailManagerAddonSubscription interface {
 // The jsii proxy struct for CfnMailManagerAddonSubscription
 type jsiiProxy_CfnMailManagerAddonSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMailManagerAddonSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIMailManagerAddonSubscriptionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnMailManagerAddonSubscription) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerAddonSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMailManagerAddonSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnMailManagerAddonSubscription) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerAddonSubscription) MailManagerAddonSubscriptionRef() *MailManagerAddonSubscriptionReference {
-	var returns *MailManagerAddonSubscriptionReference
+func (j *jsiiProxy_CfnMailManagerAddonSubscription) MailManagerAddonSubscriptionRef() *interfacesawsses.MailManagerAddonSubscriptionReference {
+	var returns *interfacesawsses.MailManagerAddonSubscriptionReference
 	_jsii_.Get(
 		j,
 		"mailManagerAddonSubscriptionRef",
@@ -401,6 +403,7 @@ func (j *jsiiProxy_CfnMailManagerAddonSubscription) UpdatedProperties() *map[str
 }
 
 
+// Create a new `AWS::SES::MailManagerAddonSubscription`.
 func NewCfnMailManagerAddonSubscription(scope constructs.Construct, id *string, props *CfnMailManagerAddonSubscriptionProps) CfnMailManagerAddonSubscription {
 	_init_.Initialize()
 
@@ -418,6 +421,7 @@ func NewCfnMailManagerAddonSubscription(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::SES::MailManagerAddonSubscription`.
 func NewCfnMailManagerAddonSubscription_Override(c CfnMailManagerAddonSubscription, scope constructs.Construct, id *string, props *CfnMailManagerAddonSubscriptionProps) {
 	_init_.Initialize()
 
@@ -451,13 +455,13 @@ func (j *jsiiProxy_CfnMailManagerAddonSubscription)SetTags(val *[]*awscdk.CfnTag
 }
 
 // Creates a new IMailManagerAddonSubscriptionRef from a addonSubscriptionId.
-func CfnMailManagerAddonSubscription_FromAddonSubscriptionId(scope constructs.Construct, id *string, addonSubscriptionId *string) IMailManagerAddonSubscriptionRef {
+func CfnMailManagerAddonSubscription_FromAddonSubscriptionId(scope constructs.Construct, id *string, addonSubscriptionId *string) interfacesawsses.IMailManagerAddonSubscriptionRef {
 	_init_.Initialize()
 
 	if err := validateCfnMailManagerAddonSubscription_FromAddonSubscriptionIdParameters(scope, id, addonSubscriptionId); err != nil {
 		panic(err)
 	}
-	var returns IMailManagerAddonSubscriptionRef
+	var returns interfacesawsses.IMailManagerAddonSubscriptionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerAddonSubscription",

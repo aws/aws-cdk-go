@@ -1,15 +1,35 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsapigatewayIAccountRef = interfacesawsapigateway.IAccountRef
+type Type__interfacesawsapigatewayIApiKeyRef = interfacesawsapigateway.IApiKeyRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsapigatewayIAuthorizerRef = interfacesawsapigateway.IAuthorizerRef
+type Type__interfacesawsapigatewayIBasePathMappingRef = interfacesawsapigateway.IBasePathMappingRef
+type Type__interfacesawsapigatewayIBasePathMappingV2Ref = interfacesawsapigateway.IBasePathMappingV2Ref
+type Type__interfacesawsapigatewayIClientCertificateRef = interfacesawsapigateway.IClientCertificateRef
+type Type__interfacesawsapigatewayIDeploymentRef = interfacesawsapigateway.IDeploymentRef
+type Type__interfacesawsapigatewayIDocumentationPartRef = interfacesawsapigateway.IDocumentationPartRef
+type Type__interfacesawsapigatewayIDocumentationVersionRef = interfacesawsapigateway.IDocumentationVersionRef
+type Type__interfacesawsapigatewayIDomainNameRef = interfacesawsapigateway.IDomainNameRef
+type Type__interfacesawsapigatewayIDomainNameAccessAssociationRef = interfacesawsapigateway.IDomainNameAccessAssociationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsapigatewayIDomainNameV2Ref = interfacesawsapigateway.IDomainNameV2Ref
+type Type__interfacesawsapigatewayIGatewayResponseRef = interfacesawsapigateway.IGatewayResponseRef
+type Type__interfacesawsapigatewayIMethodRef = interfacesawsapigateway.IMethodRef
+type Type__interfacesawsapigatewayIModelRef = interfacesawsapigateway.IModelRef
+type Type__interfacesawsapigatewayIRequestValidatorRef = interfacesawsapigateway.IRequestValidatorRef
+type Type__interfacesawsapigatewayIResourceRef = interfacesawsapigateway.IResourceRef
+type Type__interfacesawsapigatewayIRestApiRef = interfacesawsapigateway.IRestApiRef
+type Type__interfacesawsapigatewayIStageRef = interfacesawsapigateway.IStageRef
+type Type__interfacesawsapigatewayIUsagePlanRef = interfacesawsapigateway.IUsagePlanRef
+type Type__interfacesawsapigatewayIUsagePlanKeyRef = interfacesawsapigateway.IUsagePlanKeyRef
+type Type__interfacesawsapigatewayIVpcLinkRef = interfacesawsapigateway.IVpcLinkRef
 type Type__awscdkIResource = awscdk.IResource
 type Type__awsiamIResourceWithPolicy = awsiam.IResourceWithPolicy

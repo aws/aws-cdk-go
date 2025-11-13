@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -265,8 +267,8 @@ import (
 //
 type CfnAutoScalingGroup interface {
 	awscdk.CfnResource
-	IAutoScalingGroupRef
 	awscdk.IInspectable
+	interfacesawsautoscaling.IAutoScalingGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the Auto Scaling group.
 	AttrAutoScalingGroupArn() *string
@@ -276,7 +278,7 @@ type CfnAutoScalingGroup interface {
 	AutoScalingGroupName() *string
 	SetAutoScalingGroupName(val *string)
 	// A reference to a AutoScalingGroup resource.
-	AutoScalingGroupRef() *AutoScalingGroupReference
+	AutoScalingGroupRef() *interfacesawsautoscaling.AutoScalingGroupReference
 	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution() interface{}
 	SetAvailabilityZoneDistribution(val interface{})
@@ -316,7 +318,7 @@ type CfnAutoScalingGroup interface {
 	// The unit of measurement for the value specified for desired capacity.
 	DesiredCapacityType() *string
 	SetDesiredCapacityType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check.
 	HealthCheckGracePeriod() *float64
 	SetHealthCheckGracePeriod(val *float64)
@@ -556,8 +558,8 @@ type CfnAutoScalingGroup interface {
 // The jsii proxy struct for CfnAutoScalingGroup
 type jsiiProxy_CfnAutoScalingGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAutoScalingGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsautoscalingIAutoScalingGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -581,8 +583,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) AutoScalingGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) AutoScalingGroupRef() *AutoScalingGroupReference {
-	var returns *AutoScalingGroupReference
+func (j *jsiiProxy_CfnAutoScalingGroup) AutoScalingGroupRef() *interfacesawsautoscaling.AutoScalingGroupReference {
+	var returns *interfacesawsautoscaling.AutoScalingGroupReference
 	_jsii_.Get(
 		j,
 		"autoScalingGroupRef",
@@ -731,8 +733,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) DesiredCapacityType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAutoScalingGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -1052,6 +1054,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) VpcZoneIdentifier() *[]*string {
 }
 
 
+// Create a new `AWS::AutoScaling::AutoScalingGroup`.
 func NewCfnAutoScalingGroup(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) CfnAutoScalingGroup {
 	_init_.Initialize()
 
@@ -1069,6 +1072,7 @@ func NewCfnAutoScalingGroup(scope constructs.Construct, id *string, props *CfnAu
 	return &j
 }
 
+// Create a new `AWS::AutoScaling::AutoScalingGroup`.
 func NewCfnAutoScalingGroup_Override(c CfnAutoScalingGroup, scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnQueue interface {
 	awscdk.CfnResource
-	IQueueRef
 	awscdk.IInspectable
+	interfacesawssqs.IQueueRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the queue.
 	//
@@ -89,7 +91,7 @@ type CfnQueue interface {
 	// The time in seconds for which the delivery of all messages in the queue is delayed.
 	DelaySeconds() *float64
 	SetDelaySeconds(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// If set to true, creates a FIFO queue.
 	FifoQueue() interface{}
 	SetFifoQueue(val interface{})
@@ -124,7 +126,7 @@ type CfnQueue interface {
 	QueueName() *string
 	SetQueueName(val *string)
 	// A reference to a Queue resource.
-	QueueRef() *QueueReference
+	QueueRef() *interfacesawssqs.QueueReference
 	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available.
 	ReceiveMessageWaitTimeSeconds() *float64
 	SetReceiveMessageWaitTimeSeconds(val *float64)
@@ -297,8 +299,8 @@ type CfnQueue interface {
 // The jsii proxy struct for CfnQueue
 type jsiiProxy_CfnQueue struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueueRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssqsIQueueRef
 	internal.Type__awscdkITaggable
 }
 
@@ -402,8 +404,8 @@ func (j *jsiiProxy_CfnQueue) DelaySeconds() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueue) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -502,8 +504,8 @@ func (j *jsiiProxy_CfnQueue) QueueName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) QueueRef() *QueueReference {
-	var returns *QueueReference
+func (j *jsiiProxy_CfnQueue) QueueRef() *interfacesawssqs.QueueReference {
+	var returns *interfacesawssqs.QueueReference
 	_jsii_.Get(
 		j,
 		"queueRef",
@@ -623,6 +625,7 @@ func (j *jsiiProxy_CfnQueue) VisibilityTimeout() *float64 {
 }
 
 
+// Create a new `AWS::SQS::Queue`.
 func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) CfnQueue {
 	_init_.Initialize()
 
@@ -640,6 +643,7 @@ func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) C
 	return &j
 }
 
+// Create a new `AWS::SQS::Queue`.
 func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, props *CfnQueueProps) {
 	_init_.Initialize()
 

@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -87,7 +88,7 @@ type Cluster interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Getter for execute command configuration associated with the cluster.
 	ExecuteCommandConfiguration() *ExecuteCommandConfiguration
 	// Whether the cluster has EC2 capacity associated with it.
@@ -266,8 +267,8 @@ func (j *jsiiProxy_Cluster) DefaultCloudMapNamespace() awsservicediscovery.IName
 	return returns
 }
 
-func (j *jsiiProxy_Cluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Cluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

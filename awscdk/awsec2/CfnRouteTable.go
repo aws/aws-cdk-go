@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnRouteTable interface {
 	awscdk.CfnResource
-	IRouteTableRef
 	awscdk.IInspectable
+	interfacesawsec2.IRouteTableRef
 	awscdk.ITaggable
 	// The ID of the route table.
 	AttrRouteTableId() *string
@@ -50,7 +52,7 @@ type CfnRouteTable interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnRouteTable interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RouteTable resource.
-	RouteTableRef() *RouteTableReference
+	RouteTableRef() *interfacesawsec2.RouteTableReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -225,8 +227,8 @@ type CfnRouteTable interface {
 // The jsii proxy struct for CfnRouteTable
 type jsiiProxy_CfnRouteTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteTableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IRouteTableRef
 	internal.Type__awscdkITaggable
 }
 
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnRouteTable) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRouteTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnRouteTable) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteTable) RouteTableRef() *RouteTableReference {
-	var returns *RouteTableReference
+func (j *jsiiProxy_CfnRouteTable) RouteTableRef() *interfacesawsec2.RouteTableReference {
+	var returns *interfacesawsec2.RouteTableReference
 	_jsii_.Get(
 		j,
 		"routeTableRef",
@@ -391,6 +393,7 @@ func (j *jsiiProxy_CfnRouteTable) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::RouteTable`.
 func NewCfnRouteTable(scope constructs.Construct, id *string, props *CfnRouteTableProps) CfnRouteTable {
 	_init_.Initialize()
 
@@ -408,6 +411,7 @@ func NewCfnRouteTable(scope constructs.Construct, id *string, props *CfnRouteTab
 	return &j
 }
 
+// Create a new `AWS::EC2::RouteTable`.
 func NewCfnRouteTable_Override(c CfnRouteTable, scope constructs.Construct, id *string, props *CfnRouteTableProps) {
 	_init_.Initialize()
 
@@ -441,13 +445,13 @@ func (j *jsiiProxy_CfnRouteTable)SetVpcId(val *string) {
 }
 
 // Creates a new IRouteTableRef from a routeTableId.
-func CfnRouteTable_FromRouteTableId(scope constructs.Construct, id *string, routeTableId *string) IRouteTableRef {
+func CfnRouteTable_FromRouteTableId(scope constructs.Construct, id *string, routeTableId *string) interfacesawsec2.IRouteTableRef {
 	_init_.Initialize()
 
 	if err := validateCfnRouteTable_FromRouteTableIdParameters(scope, id, routeTableId); err != nil {
 		panic(err)
 	}
-	var returns IRouteTableRef
+	var returns interfacesawsec2.IRouteTableRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnRouteTable",

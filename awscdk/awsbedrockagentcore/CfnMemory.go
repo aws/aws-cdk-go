@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrockagentcore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -145,8 +147,8 @@ import (
 //
 type CfnMemory interface {
 	awscdk.CfnResource
-	IMemoryRef
 	awscdk.IInspectable
+	interfacesawsbedrockagentcore.IMemoryRef
 	awscdk.ITaggableV2
 	// The timestamp when the memory record was created.
 	AttrCreatedAt() *string
@@ -175,7 +177,7 @@ type CfnMemory interface {
 	// The memory encryption key Amazon Resource Name (ARN).
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The event expiry configuration.
 	EventExpiryDuration() *float64
 	SetEventExpiryDuration(val *float64)
@@ -193,7 +195,7 @@ type CfnMemory interface {
 	MemoryExecutionRoleArn() *string
 	SetMemoryExecutionRoleArn(val *string)
 	// A reference to a Memory resource.
-	MemoryRef() *MemoryReference
+	MemoryRef() *interfacesawsbedrockagentcore.MemoryReference
 	// The memory strategies.
 	MemoryStrategies() interface{}
 	SetMemoryStrategies(val interface{})
@@ -357,8 +359,8 @@ type CfnMemory interface {
 // The jsii proxy struct for CfnMemory
 type jsiiProxy_CfnMemory struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMemoryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockagentcoreIMemoryRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -492,8 +494,8 @@ func (j *jsiiProxy_CfnMemory) EncryptionKeyArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMemory) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMemory) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -532,8 +534,8 @@ func (j *jsiiProxy_CfnMemory) MemoryExecutionRoleArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMemory) MemoryRef() *MemoryReference {
-	var returns *MemoryReference
+func (j *jsiiProxy_CfnMemory) MemoryRef() *interfacesawsbedrockagentcore.MemoryReference {
+	var returns *interfacesawsbedrockagentcore.MemoryReference
 	_jsii_.Get(
 		j,
 		"memoryRef",
@@ -623,6 +625,7 @@ func (j *jsiiProxy_CfnMemory) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::BedrockAgentCore::Memory`.
 func NewCfnMemory(scope constructs.Construct, id *string, props *CfnMemoryProps) CfnMemory {
 	_init_.Initialize()
 
@@ -640,6 +643,7 @@ func NewCfnMemory(scope constructs.Construct, id *string, props *CfnMemoryProps)
 	return &j
 }
 
+// Create a new `AWS::BedrockAgentCore::Memory`.
 func NewCfnMemory_Override(c CfnMemory, scope constructs.Construct, id *string, props *CfnMemoryProps) {
 	_init_.Initialize()
 

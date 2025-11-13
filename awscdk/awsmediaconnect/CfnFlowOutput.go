@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -78,8 +80,8 @@ import (
 //
 type CfnFlowOutput interface {
 	awscdk.CfnResource
-	IFlowOutputRef
 	awscdk.IInspectable
+	interfacesawsmediaconnect.IFlowOutputRef
 	// The ARN of the output.
 	AttrOutputArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -103,12 +105,12 @@ type CfnFlowOutput interface {
 	// The type of key used for the encryption.
 	Encryption() interface{}
 	SetEncryption(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow this output is attached to.
 	FlowArn() *string
 	SetFlowArn(val *string)
 	// A reference to a FlowOutput resource.
-	FlowOutputRef() *FlowOutputReference
+	FlowOutputRef() *interfacesawsmediaconnect.FlowOutputReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -312,8 +314,8 @@ type CfnFlowOutput interface {
 // The jsii proxy struct for CfnFlowOutput
 type jsiiProxy_CfnFlowOutput struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowOutputRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconnectIFlowOutputRef
 }
 
 func (j *jsiiProxy_CfnFlowOutput) AttrOutputArn() *string {
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnFlowOutput) Encryption() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowOutput) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlowOutput) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -426,8 +428,8 @@ func (j *jsiiProxy_CfnFlowOutput) FlowArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowOutput) FlowOutputRef() *FlowOutputReference {
-	var returns *FlowOutputReference
+func (j *jsiiProxy_CfnFlowOutput) FlowOutputRef() *interfacesawsmediaconnect.FlowOutputReference {
+	var returns *interfacesawsmediaconnect.FlowOutputReference
 	_jsii_.Get(
 		j,
 		"flowOutputRef",
@@ -627,6 +629,7 @@ func (j *jsiiProxy_CfnFlowOutput) VpcInterfaceAttachment() interface{} {
 }
 
 
+// Create a new `AWS::MediaConnect::FlowOutput`.
 func NewCfnFlowOutput(scope constructs.Construct, id *string, props *CfnFlowOutputProps) CfnFlowOutput {
 	_init_.Initialize()
 
@@ -644,6 +647,7 @@ func NewCfnFlowOutput(scope constructs.Construct, id *string, props *CfnFlowOutp
 	return &j
 }
 
+// Create a new `AWS::MediaConnect::FlowOutput`.
 func NewCfnFlowOutput_Override(c CfnFlowOutput, scope constructs.Construct, id *string, props *CfnFlowOutputProps) {
 	_init_.Initialize()
 

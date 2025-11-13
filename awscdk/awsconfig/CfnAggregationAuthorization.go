@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,11 +35,11 @@ import (
 //
 type CfnAggregationAuthorization interface {
 	awscdk.CfnResource
-	IAggregationAuthorizationRef
 	awscdk.IInspectable
+	interfacesawsconfig.IAggregationAuthorizationRef
 	awscdk.ITaggable
 	// A reference to a AggregationAuthorization resource.
-	AggregationAuthorizationRef() *AggregationAuthorizationReference
+	AggregationAuthorizationRef() *interfacesawsconfig.AggregationAuthorizationReference
 	// The Amazon Resource Name (ARN) of the aggregation object.
 	AttrAggregationAuthorizationArn() *string
 	// The 12-digit account ID of the account authorized to aggregate data.
@@ -55,7 +57,7 @@ type CfnAggregationAuthorization interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,13 +227,13 @@ type CfnAggregationAuthorization interface {
 // The jsii proxy struct for CfnAggregationAuthorization
 type jsiiProxy_CfnAggregationAuthorization struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAggregationAuthorizationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIAggregationAuthorizationRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAggregationAuthorization) AggregationAuthorizationRef() *AggregationAuthorizationReference {
-	var returns *AggregationAuthorizationReference
+func (j *jsiiProxy_CfnAggregationAuthorization) AggregationAuthorizationRef() *interfacesawsconfig.AggregationAuthorizationReference {
+	var returns *interfacesawsconfig.AggregationAuthorizationReference
 	_jsii_.Get(
 		j,
 		"aggregationAuthorizationRef",
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnAggregationAuthorization) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAggregationAuthorization) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAggregationAuthorization) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,6 +403,7 @@ func (j *jsiiProxy_CfnAggregationAuthorization) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::Config::AggregationAuthorization`.
 func NewCfnAggregationAuthorization(scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) CfnAggregationAuthorization {
 	_init_.Initialize()
 
@@ -418,6 +421,7 @@ func NewCfnAggregationAuthorization(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::Config::AggregationAuthorization`.
 func NewCfnAggregationAuthorization_Override(c CfnAggregationAuthorization, scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspaces/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnWorkspacesPool interface {
 	awscdk.CfnResource
-	IWorkspacesPoolRef
 	awscdk.IInspectable
+	interfacesawsworkspaces.IWorkspacesPoolRef
 	awscdk.ITaggableV2
 	// The persistent application settings for users of the pool.
 	ApplicationSettings() interface{}
@@ -85,7 +87,7 @@ type CfnWorkspacesPool interface {
 	// The identifier of the directory used by the pool.
 	DirectoryId() *string
 	SetDirectoryId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -134,7 +136,7 @@ type CfnWorkspacesPool interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WorkspacesPool resource.
-	WorkspacesPoolRef() *WorkspacesPoolReference
+	WorkspacesPoolRef() *interfacesawsworkspaces.WorkspacesPoolReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -265,8 +267,8 @@ type CfnWorkspacesPool interface {
 // The jsii proxy struct for CfnWorkspacesPool
 type jsiiProxy_CfnWorkspacesPool struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkspacesPoolRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspacesIWorkspacesPoolRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnWorkspacesPool) DirectoryId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspacesPool) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkspacesPool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -510,8 +512,8 @@ func (j *jsiiProxy_CfnWorkspacesPool) UpdatedProperties() *map[string]interface{
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspacesPool) WorkspacesPoolRef() *WorkspacesPoolReference {
-	var returns *WorkspacesPoolReference
+func (j *jsiiProxy_CfnWorkspacesPool) WorkspacesPoolRef() *interfacesawsworkspaces.WorkspacesPoolReference {
+	var returns *interfacesawsworkspaces.WorkspacesPoolReference
 	_jsii_.Get(
 		j,
 		"workspacesPoolRef",
@@ -521,6 +523,7 @@ func (j *jsiiProxy_CfnWorkspacesPool) WorkspacesPoolRef() *WorkspacesPoolReferen
 }
 
 
+// Create a new `AWS::WorkSpaces::WorkspacesPool`.
 func NewCfnWorkspacesPool(scope constructs.Construct, id *string, props *CfnWorkspacesPoolProps) CfnWorkspacesPool {
 	_init_.Initialize()
 
@@ -538,6 +541,7 @@ func NewCfnWorkspacesPool(scope constructs.Construct, id *string, props *CfnWork
 	return &j
 }
 
+// Create a new `AWS::WorkSpaces::WorkspacesPool`.
 func NewCfnWorkspacesPool_Override(c CfnWorkspacesPool, scope constructs.Construct, id *string, props *CfnWorkspacesPoolProps) {
 	_init_.Initialize()
 
@@ -642,13 +646,13 @@ func (j *jsiiProxy_CfnWorkspacesPool)SetTimeoutSettings(val interface{}) {
 }
 
 // Creates a new IWorkspacesPoolRef from a poolId.
-func CfnWorkspacesPool_FromPoolId(scope constructs.Construct, id *string, poolId *string) IWorkspacesPoolRef {
+func CfnWorkspacesPool_FromPoolId(scope constructs.Construct, id *string, poolId *string) interfacesawsworkspaces.IWorkspacesPoolRef {
 	_init_.Initialize()
 
 	if err := validateCfnWorkspacesPool_FromPoolIdParameters(scope, id, poolId); err != nil {
 		panic(err)
 	}
-	var returns IWorkspacesPoolRef
+	var returns interfacesawsworkspaces.IWorkspacesPoolRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_workspaces.CfnWorkspacesPool",

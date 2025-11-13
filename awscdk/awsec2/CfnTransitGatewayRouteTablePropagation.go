@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnTransitGatewayRouteTablePropagation interface {
 	awscdk.CfnResource
-	ITransitGatewayRouteTablePropagationRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayRouteTablePropagationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnTransitGatewayRouteTablePropagation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnTransitGatewayRouteTablePropagation interface {
 	TransitGatewayRouteTableId() *string
 	SetTransitGatewayRouteTableId(val *string)
 	// A reference to a TransitGatewayRouteTablePropagation resource.
-	TransitGatewayRouteTablePropagationRef() *TransitGatewayRouteTablePropagationReference
+	TransitGatewayRouteTablePropagationRef() *interfacesawsec2.TransitGatewayRouteTablePropagationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -211,8 +213,8 @@ type CfnTransitGatewayRouteTablePropagation interface {
 // The jsii proxy struct for CfnTransitGatewayRouteTablePropagation
 type jsiiProxy_CfnTransitGatewayRouteTablePropagation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayRouteTablePropagationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayRouteTablePropagationRef
 }
 
 func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -255,8 +257,8 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) CreationStack() *[]*s
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) TransitGatewayRouteTa
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) TransitGatewayRouteTablePropagationRef() *TransitGatewayRouteTablePropagationReference {
-	var returns *TransitGatewayRouteTablePropagationReference
+func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) TransitGatewayRouteTablePropagationRef() *interfacesawsec2.TransitGatewayRouteTablePropagationReference {
+	var returns *interfacesawsec2.TransitGatewayRouteTablePropagationReference
 	_jsii_.Get(
 		j,
 		"transitGatewayRouteTablePropagationRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) UpdatedProperties() *
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayRouteTablePropagation`.
 func NewCfnTransitGatewayRouteTablePropagation(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTablePropagationProps) CfnTransitGatewayRouteTablePropagation {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnTransitGatewayRouteTablePropagation(scope constructs.Construct, id *s
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayRouteTablePropagation`.
 func NewCfnTransitGatewayRouteTablePropagation_Override(c CfnTransitGatewayRouteTablePropagation, scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTablePropagationProps) {
 	_init_.Initialize()
 

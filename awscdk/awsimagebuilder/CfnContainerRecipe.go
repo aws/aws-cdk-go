@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,6 +21,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnContainerRecipe := awscdk.Aws_imagebuilder.NewCfnContainerRecipe(this, jsii.String("MyCfnContainerRecipe"), &CfnContainerRecipeProps{
+//   	ContainerType: jsii.String("containerType"),
+//   	Name: jsii.String("name"),
+//   	ParentImage: jsii.String("parentImage"),
+//   	TargetRepository: &TargetContainerRepositoryProperty{
+//   		RepositoryName: jsii.String("repositoryName"),
+//   		Service: jsii.String("service"),
+//   	},
+//   	Version: jsii.String("version"),
+//
+//   	// the properties below are optional
 //   	Components: []interface{}{
 //   		&ComponentConfigurationProperty{
 //   			ComponentArn: jsii.String("componentArn"),
@@ -32,16 +44,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	ContainerType: jsii.String("containerType"),
-//   	Name: jsii.String("name"),
-//   	ParentImage: jsii.String("parentImage"),
-//   	TargetRepository: &TargetContainerRepositoryProperty{
-//   		RepositoryName: jsii.String("repositoryName"),
-//   		Service: jsii.String("service"),
-//   	},
-//   	Version: jsii.String("version"),
-//
-//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	DockerfileTemplateData: jsii.String("dockerfileTemplateData"),
 //   	DockerfileTemplateUri: jsii.String("dockerfileTemplateUri"),
@@ -78,8 +80,8 @@ import (
 //
 type CfnContainerRecipe interface {
 	awscdk.CfnResource
-	IContainerRecipeRef
 	awscdk.IInspectable
+	interfacesawsimagebuilder.IContainerRecipeRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the container recipe.
 	//
@@ -96,7 +98,7 @@ type CfnContainerRecipe interface {
 	Components() interface{}
 	SetComponents(val interface{})
 	// A reference to a ContainerRecipe resource.
-	ContainerRecipeRef() *ContainerRecipeReference
+	ContainerRecipeRef() *interfacesawsimagebuilder.ContainerRecipeReference
 	// Specifies the type of container, such as Docker.
 	ContainerType() *string
 	SetContainerType(val *string)
@@ -113,7 +115,7 @@ type CfnContainerRecipe interface {
 	// The S3 URI for the Dockerfile that will be used to build your container image.
 	DockerfileTemplateUri() *string
 	SetDockerfileTemplateUri(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the operating system version for the base image.
 	ImageOsVersionOverride() *string
 	SetImageOsVersionOverride(val *string)
@@ -310,8 +312,8 @@ type CfnContainerRecipe interface {
 // The jsii proxy struct for CfnContainerRecipe
 type jsiiProxy_CfnContainerRecipe struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContainerRecipeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsimagebuilderIContainerRecipeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnContainerRecipe) Components() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerRecipe) ContainerRecipeRef() *ContainerRecipeReference {
-	var returns *ContainerRecipeReference
+func (j *jsiiProxy_CfnContainerRecipe) ContainerRecipeRef() *interfacesawsimagebuilder.ContainerRecipeReference {
+	var returns *interfacesawsimagebuilder.ContainerRecipeReference
 	_jsii_.Get(
 		j,
 		"containerRecipeRef",
@@ -435,8 +437,8 @@ func (j *jsiiProxy_CfnContainerRecipe) DockerfileTemplateUri() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerRecipe) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContainerRecipe) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -616,6 +618,7 @@ func (j *jsiiProxy_CfnContainerRecipe) WorkingDirectory() *string {
 }
 
 
+// Create a new `AWS::ImageBuilder::ContainerRecipe`.
 func NewCfnContainerRecipe(scope constructs.Construct, id *string, props *CfnContainerRecipeProps) CfnContainerRecipe {
 	_init_.Initialize()
 
@@ -633,6 +636,7 @@ func NewCfnContainerRecipe(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
+// Create a new `AWS::ImageBuilder::ContainerRecipe`.
 func NewCfnContainerRecipe_Override(c CfnContainerRecipe, scope constructs.Construct, id *string, props *CfnContainerRecipeProps) {
 	_init_.Initialize()
 

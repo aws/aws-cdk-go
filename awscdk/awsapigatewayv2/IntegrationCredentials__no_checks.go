@@ -4,7 +4,7 @@ package awsapigatewayv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateIntegrationCredentials_FromRoleParameters(role awsiam.IRoleRef) error {
+func validateIntegrationCredentials_FromRoleParameters(role interfacesawsiam.IRoleRef) error {
 	return nil
 }
 

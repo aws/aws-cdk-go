@@ -1,15 +1,31 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawscloudfrontIAnycastIpListRef = interfacesawscloudfront.IAnycastIpListRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawscloudfrontICachePolicyRef = interfacesawscloudfront.ICachePolicyRef
+type Type__interfacesawscloudfrontICloudFrontOriginAccessIdentityRef = interfacesawscloudfront.ICloudFrontOriginAccessIdentityRef
+type Type__interfacesawscloudfrontIConnectionGroupRef = interfacesawscloudfront.IConnectionGroupRef
+type Type__interfacesawscloudfrontIContinuousDeploymentPolicyRef = interfacesawscloudfront.IContinuousDeploymentPolicyRef
+type Type__interfacesawscloudfrontIDistributionRef = interfacesawscloudfront.IDistributionRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawscloudfrontIDistributionTenantRef = interfacesawscloudfront.IDistributionTenantRef
+type Type__interfacesawscloudfrontIFunctionRef = interfacesawscloudfront.IFunctionRef
+type Type__interfacesawscloudfrontIKeyGroupRef = interfacesawscloudfront.IKeyGroupRef
+type Type__interfacesawscloudfrontIKeyValueStoreRef = interfacesawscloudfront.IKeyValueStoreRef
+type Type__interfacesawscloudfrontIMonitoringSubscriptionRef = interfacesawscloudfront.IMonitoringSubscriptionRef
+type Type__interfacesawscloudfrontIOriginAccessControlRef = interfacesawscloudfront.IOriginAccessControlRef
+type Type__interfacesawscloudfrontIOriginRequestPolicyRef = interfacesawscloudfront.IOriginRequestPolicyRef
+type Type__interfacesawscloudfrontIPublicKeyRef = interfacesawscloudfront.IPublicKeyRef
+type Type__interfacesawscloudfrontIRealtimeLogConfigRef = interfacesawscloudfront.IRealtimeLogConfigRef
+type Type__interfacesawscloudfrontIResponseHeadersPolicyRef = interfacesawscloudfront.IResponseHeadersPolicyRef
+type Type__interfacesawscloudfrontIStreamingDistributionRef = interfacesawscloudfront.IStreamingDistributionRef
+type Type__interfacesawscloudfrontIVpcOriginRef = interfacesawscloudfront.IVpcOriginRef
 type Type__awscdkIResource = awscdk.IResource
 type Type__awsiamIGrantable = awsiam.IGrantable

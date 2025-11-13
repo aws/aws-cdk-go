@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -125,8 +127,8 @@ import (
 //
 type CfnSpace interface {
 	awscdk.CfnResource
-	ISpaceRef
 	awscdk.IInspectable
+	interfacesawssagemaker.ISpaceRef
 	awscdk.ITaggable
 	// The space's Amazon Resource Name (ARN).
 	AttrSpaceArn() *string
@@ -152,7 +154,7 @@ type CfnSpace interface {
 	// The ID of the associated domain.
 	DomainId() *string
 	SetDomainId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -180,7 +182,7 @@ type CfnSpace interface {
 	SpaceName() *string
 	SetSpaceName(val *string)
 	// A reference to a Space resource.
-	SpaceRef() *SpaceReference
+	SpaceRef() *interfacesawssagemaker.SpaceReference
 	// A collection of space settings.
 	SpaceSettings() interface{}
 	SetSpaceSettings(val interface{})
@@ -339,8 +341,8 @@ type CfnSpace interface {
 // The jsii proxy struct for CfnSpace
 type jsiiProxy_CfnSpace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISpaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerISpaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnSpace) DomainId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSpace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSpace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -484,8 +486,8 @@ func (j *jsiiProxy_CfnSpace) SpaceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSpace) SpaceRef() *SpaceReference {
-	var returns *SpaceReference
+func (j *jsiiProxy_CfnSpace) SpaceRef() *interfacesawssagemaker.SpaceReference {
+	var returns *interfacesawssagemaker.SpaceReference
 	_jsii_.Get(
 		j,
 		"spaceRef",
@@ -565,6 +567,7 @@ func (j *jsiiProxy_CfnSpace) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::Space`.
 func NewCfnSpace(scope constructs.Construct, id *string, props *CfnSpaceProps) CfnSpace {
 	_init_.Initialize()
 
@@ -582,6 +585,7 @@ func NewCfnSpace(scope constructs.Construct, id *string, props *CfnSpaceProps) C
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Space`.
 func NewCfnSpace_Override(c CfnSpace, scope constructs.Construct, id *string, props *CfnSpaceProps) {
 	_init_.Initialize()
 

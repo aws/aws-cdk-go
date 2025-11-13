@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +64,8 @@ import (
 //
 type CfnIndex interface {
 	awscdk.CfnResource
-	IIndexRef
 	awscdk.IInspectable
+	interfacesawsopensearchserverless.IIndexRef
 	// The unique identifier for the index.
 	AttrUuid() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -78,12 +80,12 @@ type CfnIndex interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the OpenSearch Serverless index.
 	IndexName() *string
 	SetIndexName(val *string)
 	// A reference to a Index resource.
-	IndexRef() *IndexReference
+	IndexRef() *interfacesawsopensearchserverless.IndexReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -254,8 +256,8 @@ type CfnIndex interface {
 // The jsii proxy struct for CfnIndex
 type jsiiProxy_CfnIndex struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIndexRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopensearchserverlessIIndexRef
 }
 
 func (j *jsiiProxy_CfnIndex) AttrUuid() *string {
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnIndex) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIndex) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnIndex) IndexName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) IndexRef() *IndexReference {
-	var returns *IndexReference
+func (j *jsiiProxy_CfnIndex) IndexRef() *interfacesawsopensearchserverless.IndexReference {
+	var returns *interfacesawsopensearchserverless.IndexReference
 	_jsii_.Get(
 		j,
 		"indexRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnIndex) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::OpenSearchServerless::Index`.
 func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) CfnIndex {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) C
 	return &j
 }
 
+// Create a new `AWS::OpenSearchServerless::Index`.
 func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, props *CfnIndexProps) {
 	_init_.Initialize()
 

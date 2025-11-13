@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsqldb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsqldb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnLedger interface {
 	awscdk.CfnResource
-	ILedgerRef
 	awscdk.IInspectable
+	interfacesawsqldb.ILedgerRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -55,12 +57,12 @@ type CfnLedger interface {
 	// Specifies whether the ledger is protected from being deleted by any user.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The key in AWS Key Management Service ( AWS KMS ) to use for encryption of data at rest in the ledger.
 	KmsKey() *string
 	SetKmsKey(val *string)
 	// A reference to a Ledger resource.
-	LedgerRef() *LedgerReference
+	LedgerRef() *interfacesawsqldb.LedgerReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -236,8 +238,8 @@ type CfnLedger interface {
 // The jsii proxy struct for CfnLedger
 type jsiiProxy_CfnLedger struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILedgerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsqldbILedgerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnLedger) DeletionProtection() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLedger) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLedger) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnLedger) KmsKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLedger) LedgerRef() *LedgerReference {
-	var returns *LedgerReference
+func (j *jsiiProxy_CfnLedger) LedgerRef() *interfacesawsqldb.LedgerReference {
+	var returns *interfacesawsqldb.LedgerReference
 	_jsii_.Get(
 		j,
 		"ledgerRef",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnLedger) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::QLDB::Ledger`.
 func NewCfnLedger(scope constructs.Construct, id *string, props *CfnLedgerProps) CfnLedger {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnLedger(scope constructs.Construct, id *string, props *CfnLedgerProps)
 	return &j
 }
 
+// Create a new `AWS::QLDB::Ledger`.
 func NewCfnLedger_Override(c CfnLedger, scope constructs.Construct, id *string, props *CfnLedgerProps) {
 	_init_.Initialize()
 

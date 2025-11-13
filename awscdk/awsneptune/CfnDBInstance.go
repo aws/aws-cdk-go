@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsneptune/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsneptune"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +64,8 @@ import (
 //
 type CfnDBInstance interface {
 	awscdk.CfnResource
-	IDBInstanceRef
 	awscdk.IInspectable
+	interfacesawsneptune.IDBInstanceRef
 	awscdk.ITaggable
 	// Indicates that major version upgrades are allowed.
 	AllowMajorVersionUpgrade() interface{}
@@ -101,7 +103,7 @@ type CfnDBInstance interface {
 	DbInstanceIdentifier() *string
 	SetDbInstanceIdentifier(val *string)
 	// A reference to a DBInstance resource.
-	DbInstanceRef() *DBInstanceReference
+	DbInstanceRef() *interfacesawsneptune.DBInstanceReference
 	// The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template.
 	DbParameterGroupName() *string
 	SetDbParameterGroupName(val *string)
@@ -113,7 +115,7 @@ type CfnDBInstance interface {
 	// A DB subnet group to associate with the DB instance.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -289,8 +291,8 @@ type CfnDBInstance interface {
 // The jsii proxy struct for CfnDBInstance
 type jsiiProxy_CfnDBInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsneptuneIDBInstanceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnDBInstance) DbInstanceIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBInstance) DbInstanceRef() *DBInstanceReference {
-	var returns *DBInstanceReference
+func (j *jsiiProxy_CfnDBInstance) DbInstanceRef() *interfacesawsneptune.DBInstanceReference {
+	var returns *interfacesawsneptune.DBInstanceReference
 	_jsii_.Get(
 		j,
 		"dbInstanceRef",
@@ -454,8 +456,8 @@ func (j *jsiiProxy_CfnDBInstance) DbSubnetGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -565,6 +567,7 @@ func (j *jsiiProxy_CfnDBInstance) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Neptune::DBInstance`.
 func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
 	_init_.Initialize()
 
@@ -582,6 +585,7 @@ func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstan
 	return &j
 }
 
+// Create a new `AWS::Neptune::DBInstance`.
 func NewCfnDBInstance_Override(c CfnDBInstance, scope constructs.Construct, id *string, props *CfnDBInstanceProps) {
 	_init_.Initialize()
 

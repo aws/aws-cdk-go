@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// An item enablement configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -40,14 +42,15 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconfiguration.html
 //
 type CfnEvaluationForm_EvaluationFormItemEnablementConfigurationProperty struct {
-	// Defines the enablement status to be applied when the specified condition is met.
+	// An enablement action that if condition is satisfied.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconfiguration.html#cfn-connect-evaluationform-evaluationformitemenablementconfiguration-action
 	//
 	Action *string `field:"required" json:"action" yaml:"action"`
+	// A condition for item enablement configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconfiguration.html#cfn-connect-evaluationform-evaluationformitemenablementconfiguration-condition
 	//
 	Condition interface{} `field:"required" json:"condition" yaml:"condition"`
-	// Specifies the default enablement status to be applied when the condition is not satisfied.
+	// An enablement action that if condition is not satisfied.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconfiguration.html#cfn-connect-evaluationform-evaluationformitemenablementconfiguration-defaultaction
 	//
 	DefaultAction *string `field:"optional" json:"defaultAction" yaml:"defaultAction"`

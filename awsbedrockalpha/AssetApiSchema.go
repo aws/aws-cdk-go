@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -158,7 +159,7 @@ func AssetApiSchema_FromLocalAsset(path *string) AssetApiSchema {
 
 // Creates an API Schema from an S3 File.
 // Experimental.
-func AssetApiSchema_FromS3File(bucket awss3.IBucketRef, objectKey *string) S3ApiSchema {
+func AssetApiSchema_FromS3File(bucket interfacesawss3.IBucketRef, objectKey *string) S3ApiSchema {
 	_init_.Initialize()
 
 	if err := validateAssetApiSchema_FromS3FileParameters(bucket, objectKey); err != nil {

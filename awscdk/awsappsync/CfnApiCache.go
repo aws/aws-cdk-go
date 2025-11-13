@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,10 +34,10 @@ import (
 //
 type CfnApiCache interface {
 	awscdk.CfnResource
-	IApiCacheRef
 	awscdk.IInspectable
+	interfacesawsappsync.IApiCacheRef
 	// A reference to a ApiCache resource.
-	ApiCacheRef() *ApiCacheReference
+	ApiCacheRef() *interfacesawsappsync.ApiCacheReference
 	// Caching behavior.
 	ApiCachingBehavior() *string
 	SetApiCachingBehavior(val *string)
@@ -55,7 +57,7 @@ type CfnApiCache interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Controls how cache health metrics will be emitted to CloudWatch.
 	//
 	// Cache health metrics include:.
@@ -236,12 +238,12 @@ type CfnApiCache interface {
 // The jsii proxy struct for CfnApiCache
 type jsiiProxy_CfnApiCache struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApiCacheRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIApiCacheRef
 }
 
-func (j *jsiiProxy_CfnApiCache) ApiCacheRef() *ApiCacheReference {
-	var returns *ApiCacheReference
+func (j *jsiiProxy_CfnApiCache) ApiCacheRef() *interfacesawsappsync.ApiCacheReference {
+	var returns *interfacesawsappsync.ApiCacheReference
 	_jsii_.Get(
 		j,
 		"apiCacheRef",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnApiCache) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiCache) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApiCache) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnApiCache) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppSync::ApiCache`.
 func NewCfnApiCache(scope constructs.Construct, id *string, props *CfnApiCacheProps) CfnApiCache {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnApiCache(scope constructs.Construct, id *string, props *CfnApiCachePr
 	return &j
 }
 
+// Create a new `AWS::AppSync::ApiCache`.
 func NewCfnApiCache_Override(c CfnApiCache, scope constructs.Construct, id *string, props *CfnApiCacheProps) {
 	_init_.Initialize()
 

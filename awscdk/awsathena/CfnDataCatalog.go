@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsathena/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsathena"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnDataCatalog interface {
 	awscdk.CfnResource
-	IDataCatalogRef
 	awscdk.IInspectable
+	interfacesawsathena.IDataCatalogRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -58,11 +60,11 @@ type CfnDataCatalog interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataCatalog resource.
-	DataCatalogRef() *DataCatalogReference
+	DataCatalogRef() *interfacesawsathena.DataCatalogReference
 	// A description of the data catalog.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Text of the error that occurred during data catalog creation or deletion.
 	Error() *string
 	SetError(val *string)
@@ -247,8 +249,8 @@ type CfnDataCatalog interface {
 // The jsii proxy struct for CfnDataCatalog
 type jsiiProxy_CfnDataCatalog struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataCatalogRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsathenaIDataCatalogRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnDataCatalog) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataCatalog) DataCatalogRef() *DataCatalogReference {
-	var returns *DataCatalogReference
+func (j *jsiiProxy_CfnDataCatalog) DataCatalogRef() *interfacesawsathena.DataCatalogReference {
+	var returns *interfacesawsathena.DataCatalogReference
 	_jsii_.Get(
 		j,
 		"dataCatalogRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnDataCatalog) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataCatalog) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataCatalog) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -463,6 +465,7 @@ func (j *jsiiProxy_CfnDataCatalog) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Athena::DataCatalog`.
 func NewCfnDataCatalog(scope constructs.Construct, id *string, props *CfnDataCatalogProps) CfnDataCatalog {
 	_init_.Initialize()
 
@@ -480,6 +483,7 @@ func NewCfnDataCatalog(scope constructs.Construct, id *string, props *CfnDataCat
 	return &j
 }
 
+// Create a new `AWS::Athena::DataCatalog`.
 func NewCfnDataCatalog_Override(c CfnDataCatalog, scope constructs.Construct, id *string, props *CfnDataCatalogProps) {
 	_init_.Initialize()
 
@@ -567,13 +571,13 @@ func (j *jsiiProxy_CfnDataCatalog)SetType(val *string) {
 }
 
 // Creates a new IDataCatalogRef from a dataCatalogName.
-func CfnDataCatalog_FromDataCatalogName(scope constructs.Construct, id *string, dataCatalogName *string) IDataCatalogRef {
+func CfnDataCatalog_FromDataCatalogName(scope constructs.Construct, id *string, dataCatalogName *string) interfacesawsathena.IDataCatalogRef {
 	_init_.Initialize()
 
 	if err := validateCfnDataCatalog_FromDataCatalogNameParameters(scope, id, dataCatalogName); err != nil {
 		panic(err)
 	}
-	var returns IDataCatalogRef
+	var returns interfacesawsathena.IDataCatalogRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_athena.CfnDataCatalog",

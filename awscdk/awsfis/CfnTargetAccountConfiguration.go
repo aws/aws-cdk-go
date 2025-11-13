@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfis/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfis"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnTargetAccountConfiguration interface {
 	awscdk.CfnResource
-	ITargetAccountConfigurationRef
 	awscdk.IInspectable
+	interfacesawsfis.ITargetAccountConfigurationRef
 	// The AWS account ID of the target account.
 	AccountId() *string
 	SetAccountId(val *string)
@@ -48,7 +50,7 @@ type CfnTargetAccountConfiguration interface {
 	// The description of the target account.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the experiment template.
 	ExperimentTemplateId() *string
 	SetExperimentTemplateId(val *string)
@@ -77,7 +79,7 @@ type CfnTargetAccountConfiguration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a TargetAccountConfiguration resource.
-	TargetAccountConfigurationRef() *TargetAccountConfigurationReference
+	TargetAccountConfigurationRef() *interfacesawsfis.TargetAccountConfigurationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -221,8 +223,8 @@ type CfnTargetAccountConfiguration interface {
 // The jsii proxy struct for CfnTargetAccountConfiguration
 type jsiiProxy_CfnTargetAccountConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITargetAccountConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfisITargetAccountConfigurationRef
 }
 
 func (j *jsiiProxy_CfnTargetAccountConfiguration) AccountId() *string {
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnTargetAccountConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTargetAccountConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTargetAccountConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnTargetAccountConfiguration) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTargetAccountConfiguration) TargetAccountConfigurationRef() *TargetAccountConfigurationReference {
-	var returns *TargetAccountConfigurationReference
+func (j *jsiiProxy_CfnTargetAccountConfiguration) TargetAccountConfigurationRef() *interfacesawsfis.TargetAccountConfigurationReference {
+	var returns *interfacesawsfis.TargetAccountConfigurationReference
 	_jsii_.Get(
 		j,
 		"targetAccountConfigurationRef",
@@ -386,6 +388,7 @@ func (j *jsiiProxy_CfnTargetAccountConfiguration) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::FIS::TargetAccountConfiguration`.
 func NewCfnTargetAccountConfiguration(scope constructs.Construct, id *string, props *CfnTargetAccountConfigurationProps) CfnTargetAccountConfiguration {
 	_init_.Initialize()
 
@@ -403,6 +406,7 @@ func NewCfnTargetAccountConfiguration(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::FIS::TargetAccountConfiguration`.
 func NewCfnTargetAccountConfiguration_Override(c CfnTargetAccountConfiguration, scope constructs.Construct, id *string, props *CfnTargetAccountConfigurationProps) {
 	_init_.Initialize()
 

@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_securitylake.AwsLogSourceReference",
-		reflect.TypeOf((*AwsLogSourceReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_securitylake.CfnAwsLogSource",
 		reflect.TypeOf((*CfnAwsLogSource)(nil)).Elem(),
@@ -55,8 +51,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAwsLogSource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAwsLogSourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecuritylakeIAwsLogSourceRef)
 			return &j
 		},
 	)
@@ -112,8 +108,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDataLake{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataLakeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecuritylakeIDataLakeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -195,8 +191,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSubscriber{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISubscriberRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecuritylakeISubscriberRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -260,8 +256,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSubscriberNotification{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISubscriberNotificationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecuritylakeISubscriberNotificationRef)
 			return &j
 		},
 	)
@@ -280,77 +276,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_securitylake.CfnSubscriberProps",
 		reflect.TypeOf((*CfnSubscriberProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_securitylake.DataLakeReference",
-		reflect.TypeOf((*DataLakeReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_securitylake.IAwsLogSourceRef",
-		reflect.TypeOf((*IAwsLogSourceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "awsLogSourceRef", GoGetter: "AwsLogSourceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAwsLogSourceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_securitylake.IDataLakeRef",
-		reflect.TypeOf((*IDataLakeRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataLakeRef", GoGetter: "DataLakeRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataLakeRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_securitylake.ISubscriberNotificationRef",
-		reflect.TypeOf((*ISubscriberNotificationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriberNotificationRef", GoGetter: "SubscriberNotificationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISubscriberNotificationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_securitylake.ISubscriberRef",
-		reflect.TypeOf((*ISubscriberRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriberRef", GoGetter: "SubscriberRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISubscriberRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_securitylake.SubscriberNotificationReference",
-		reflect.TypeOf((*SubscriberNotificationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_securitylake.SubscriberReference",
-		reflect.TypeOf((*SubscriberReference)(nil)).Elem(),
 	)
 }

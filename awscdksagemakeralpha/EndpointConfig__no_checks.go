@@ -8,6 +8,10 @@ func (e *jsiiProxy_EndpointConfig) validateAddInstanceProductionVariantParameter
 	return nil
 }
 
+func (e *jsiiProxy_EndpointConfig) validateAddServerlessProductionVariantParameters(props *ServerlessProductionVariantProps) error {
+	return nil
+}
+
 func (e *jsiiProxy_EndpointConfig) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

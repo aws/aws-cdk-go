@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediapackage/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackage"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -211,8 +213,8 @@ import (
 //
 type CfnOriginEndpoint interface {
 	awscdk.CfnResource
-	IOriginEndpointRef
 	awscdk.IInspectable
+	interfacesawsmediapackage.IOriginEndpointRef
 	awscdk.ITaggable
 	// The endpoint's unique system-generated resource name, based on the AWS record.
 	AttrArn() *string
@@ -244,7 +246,7 @@ type CfnOriginEndpoint interface {
 	// Any descriptive information that you want to add to the endpoint for future identification purposes.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Parameters for Apple HLS packaging.
 	HlsPackage() interface{}
 	SetHlsPackage(val interface{})
@@ -273,7 +275,7 @@ type CfnOriginEndpoint interface {
 	Origination() *string
 	SetOrigination(val *string)
 	// A reference to a OriginEndpoint resource.
-	OriginEndpointRef() *OriginEndpointReference
+	OriginEndpointRef() *interfacesawsmediapackage.OriginEndpointReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -440,8 +442,8 @@ type CfnOriginEndpoint interface {
 // The jsii proxy struct for CfnOriginEndpoint
 type jsiiProxy_CfnOriginEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOriginEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediapackageIOriginEndpointRef
 	internal.Type__awscdkITaggable
 }
 
@@ -555,8 +557,8 @@ func (j *jsiiProxy_CfnOriginEndpoint) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOriginEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -635,8 +637,8 @@ func (j *jsiiProxy_CfnOriginEndpoint) Origination() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) OriginEndpointRef() *OriginEndpointReference {
-	var returns *OriginEndpointReference
+func (j *jsiiProxy_CfnOriginEndpoint) OriginEndpointRef() *interfacesawsmediapackage.OriginEndpointReference {
+	var returns *interfacesawsmediapackage.OriginEndpointReference
 	_jsii_.Get(
 		j,
 		"originEndpointRef",
@@ -736,6 +738,7 @@ func (j *jsiiProxy_CfnOriginEndpoint) Whitelist() *[]*string {
 }
 
 
+// Create a new `AWS::MediaPackage::OriginEndpoint`.
 func NewCfnOriginEndpoint(scope constructs.Construct, id *string, props *CfnOriginEndpointProps) CfnOriginEndpoint {
 	_init_.Initialize()
 
@@ -753,6 +756,7 @@ func NewCfnOriginEndpoint(scope constructs.Construct, id *string, props *CfnOrig
 	return &j
 }
 
+// Create a new `AWS::MediaPackage::OriginEndpoint`.
 func NewCfnOriginEndpoint_Override(c CfnOriginEndpoint, scope constructs.Construct, id *string, props *CfnOriginEndpointProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsosis/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsosis"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -68,8 +70,8 @@ import (
 //
 type CfnPipeline interface {
 	awscdk.CfnResource
-	IPipelineRef
 	awscdk.IInspectable
+	interfacesawsosis.IPipelineRef
 	awscdk.ITaggable
 	// A list of the ingestion endpoints for the pipeline that you can send data to.
 	//
@@ -96,7 +98,7 @@ type CfnPipeline interface {
 	// Options to control how OpenSearch encrypts buffer data.
 	EncryptionAtRestOptions() interface{}
 	SetEncryptionAtRestOptions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -125,7 +127,7 @@ type CfnPipeline interface {
 	PipelineName() *string
 	SetPipelineName(val *string)
 	// A reference to a Pipeline resource.
-	PipelineRef() *PipelineReference
+	PipelineRef() *interfacesawsosis.PipelineReference
 	// The Amazon Resource Name (ARN) of the IAM role that the pipeline uses to access AWS resources.
 	PipelineRoleArn() *string
 	SetPipelineRoleArn(val *string)
@@ -291,8 +293,8 @@ type CfnPipeline interface {
 // The jsii proxy struct for CfnPipeline
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPipelineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsosisIPipelineRef
 	internal.Type__awscdkITaggable
 }
 
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnPipeline) EncryptionAtRestOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPipeline) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -476,8 +478,8 @@ func (j *jsiiProxy_CfnPipeline) PipelineName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) PipelineRef() *PipelineReference {
-	var returns *PipelineReference
+func (j *jsiiProxy_CfnPipeline) PipelineRef() *interfacesawsosis.PipelineReference {
+	var returns *interfacesawsosis.PipelineReference
 	_jsii_.Get(
 		j,
 		"pipelineRef",
@@ -577,6 +579,7 @@ func (j *jsiiProxy_CfnPipeline) VpcOptions() interface{} {
 }
 
 
+// Create a new `AWS::OSIS::Pipeline`.
 func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
@@ -594,6 +597,7 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 	return &j
 }
 
+// Create a new `AWS::OSIS::Pipeline`.
 func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 

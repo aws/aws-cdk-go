@@ -96,7 +96,15 @@ func (j *jsiiProxy_CfnRuntime) validateSetEnvironmentVariablesParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuntime) validateSetLifecycleConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuntime) validateSetNetworkConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnRuntime) validateSetRequestHeaderConfigurationParameters(val interface{}) error {
 	return nil
 }
 

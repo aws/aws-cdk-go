@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbudgets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbudgets"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -135,14 +137,14 @@ import (
 //
 type CfnBudget interface {
 	awscdk.CfnResource
-	IBudgetRef
 	awscdk.IInspectable
+	interfacesawsbudgets.IBudgetRef
 	AttrId() *string
 	// The budget object that you want to create.
 	Budget() interface{}
 	SetBudget(val interface{})
 	// A reference to a Budget resource.
-	BudgetRef() *BudgetReference
+	BudgetRef() *interfacesawsbudgets.BudgetReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -152,7 +154,7 @@ type CfnBudget interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -323,8 +325,8 @@ type CfnBudget interface {
 // The jsii proxy struct for CfnBudget
 type jsiiProxy_CfnBudget struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBudgetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbudgetsIBudgetRef
 }
 
 func (j *jsiiProxy_CfnBudget) AttrId() *string {
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnBudget) Budget() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBudget) BudgetRef() *BudgetReference {
-	var returns *BudgetReference
+func (j *jsiiProxy_CfnBudget) BudgetRef() *interfacesawsbudgets.BudgetReference {
+	var returns *interfacesawsbudgets.BudgetReference
 	_jsii_.Get(
 		j,
 		"budgetRef",
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnBudget) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBudget) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBudget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -488,6 +490,7 @@ func (j *jsiiProxy_CfnBudget) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Budgets::Budget`.
 func NewCfnBudget(scope constructs.Construct, id *string, props *CfnBudgetProps) CfnBudget {
 	_init_.Initialize()
 
@@ -505,6 +508,7 @@ func NewCfnBudget(scope constructs.Construct, id *string, props *CfnBudgetProps)
 	return &j
 }
 
+// Create a new `AWS::Budgets::Budget`.
 func NewCfnBudget_Override(c CfnBudget, scope constructs.Construct, id *string, props *CfnBudgetProps) {
 	_init_.Initialize()
 

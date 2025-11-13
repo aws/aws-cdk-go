@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnVerifiedAccessTrustProvider interface {
 	awscdk.CfnResource
-	IVerifiedAccessTrustProviderRef
 	awscdk.IInspectable
+	interfacesawsec2.IVerifiedAccessTrustProviderRef
 	awscdk.ITaggable
 	// The creation time.
 	AttrCreationTime() *string
@@ -92,7 +94,7 @@ type CfnVerifiedAccessTrustProvider interface {
 	// The type of device-based trust provider.
 	DeviceTrustProviderType() *string
 	SetDeviceTrustProviderType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -151,7 +153,7 @@ type CfnVerifiedAccessTrustProvider interface {
 	UserTrustProviderType() *string
 	SetUserTrustProviderType(val *string)
 	// A reference to a VerifiedAccessTrustProvider resource.
-	VerifiedAccessTrustProviderRef() *VerifiedAccessTrustProviderReference
+	VerifiedAccessTrustProviderRef() *interfacesawsec2.VerifiedAccessTrustProviderReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -282,8 +284,8 @@ type CfnVerifiedAccessTrustProvider interface {
 // The jsii proxy struct for CfnVerifiedAccessTrustProvider
 type jsiiProxy_CfnVerifiedAccessTrustProvider struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVerifiedAccessTrustProviderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVerifiedAccessTrustProviderRef
 	internal.Type__awscdkITaggable
 }
 
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) DeviceTrustProviderType() *st
 	return returns
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -537,8 +539,8 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) UserTrustProviderType() *stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) VerifiedAccessTrustProviderRef() *VerifiedAccessTrustProviderReference {
-	var returns *VerifiedAccessTrustProviderReference
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) VerifiedAccessTrustProviderRef() *interfacesawsec2.VerifiedAccessTrustProviderReference {
+	var returns *interfacesawsec2.VerifiedAccessTrustProviderReference
 	_jsii_.Get(
 		j,
 		"verifiedAccessTrustProviderRef",
@@ -548,6 +550,7 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) VerifiedAccessTrustProviderRe
 }
 
 
+// Create a new `AWS::EC2::VerifiedAccessTrustProvider`.
 func NewCfnVerifiedAccessTrustProvider(scope constructs.Construct, id *string, props *CfnVerifiedAccessTrustProviderProps) CfnVerifiedAccessTrustProvider {
 	_init_.Initialize()
 
@@ -565,6 +568,7 @@ func NewCfnVerifiedAccessTrustProvider(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::EC2::VerifiedAccessTrustProvider`.
 func NewCfnVerifiedAccessTrustProvider_Override(c CfnVerifiedAccessTrustProvider, scope constructs.Construct, id *string, props *CfnVerifiedAccessTrustProviderProps) {
 	_init_.Initialize()
 
@@ -677,13 +681,13 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider)SetUserTrustProviderType(val *
 }
 
 // Creates a new IVerifiedAccessTrustProviderRef from a verifiedAccessTrustProviderId.
-func CfnVerifiedAccessTrustProvider_FromVerifiedAccessTrustProviderId(scope constructs.Construct, id *string, verifiedAccessTrustProviderId *string) IVerifiedAccessTrustProviderRef {
+func CfnVerifiedAccessTrustProvider_FromVerifiedAccessTrustProviderId(scope constructs.Construct, id *string, verifiedAccessTrustProviderId *string) interfacesawsec2.IVerifiedAccessTrustProviderRef {
 	_init_.Initialize()
 
 	if err := validateCfnVerifiedAccessTrustProvider_FromVerifiedAccessTrustProviderIdParameters(scope, id, verifiedAccessTrustProviderId); err != nil {
 		panic(err)
 	}
-	var returns IVerifiedAccessTrustProviderRef
+	var returns interfacesawsec2.IVerifiedAccessTrustProviderRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessTrustProvider",

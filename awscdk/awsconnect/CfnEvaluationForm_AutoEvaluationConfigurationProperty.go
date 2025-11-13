@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Configuration information about automated evaluations.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -6,9 +6,10 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 )
 
-func (f *jsiiProxy_FirehoseLogDestination) validateBindParameters(stage IStageRef) error {
+func (f *jsiiProxy_FirehoseLogDestination) validateBindParameters(stage interfacesawsapigateway.IStageRef) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}

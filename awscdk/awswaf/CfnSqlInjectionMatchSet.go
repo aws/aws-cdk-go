@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswaf/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswaf"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnSqlInjectionMatchSet interface {
 	awscdk.CfnResource
-	ISqlInjectionMatchSetRef
 	awscdk.IInspectable
+	interfacesawswaf.ISqlInjectionMatchSetRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -56,7 +58,7 @@ type CfnSqlInjectionMatchSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -78,7 +80,7 @@ type CfnSqlInjectionMatchSet interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SqlInjectionMatchSet resource.
-	SqlInjectionMatchSetRef() *SqlInjectionMatchSetReference
+	SqlInjectionMatchSetRef() *interfacesawswaf.SqlInjectionMatchSetReference
 	// Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.
 	SqlInjectionMatchTuples() interface{}
 	SetSqlInjectionMatchTuples(val interface{})
@@ -229,8 +231,8 @@ type CfnSqlInjectionMatchSet interface {
 // The jsii proxy struct for CfnSqlInjectionMatchSet
 type jsiiProxy_CfnSqlInjectionMatchSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISqlInjectionMatchSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafISqlInjectionMatchSetRef
 }
 
 func (j *jsiiProxy_CfnSqlInjectionMatchSet) AttrId() *string {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnSqlInjectionMatchSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSqlInjectionMatchSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSqlInjectionMatchSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnSqlInjectionMatchSet) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSqlInjectionMatchSet) SqlInjectionMatchSetRef() *SqlInjectionMatchSetReference {
-	var returns *SqlInjectionMatchSetReference
+func (j *jsiiProxy_CfnSqlInjectionMatchSet) SqlInjectionMatchSetRef() *interfacesawswaf.SqlInjectionMatchSetReference {
+	var returns *interfacesawswaf.SqlInjectionMatchSetReference
 	_jsii_.Get(
 		j,
 		"sqlInjectionMatchSetRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnSqlInjectionMatchSet) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::WAF::SqlInjectionMatchSet`.
 func NewCfnSqlInjectionMatchSet(scope constructs.Construct, id *string, props *CfnSqlInjectionMatchSetProps) CfnSqlInjectionMatchSet {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnSqlInjectionMatchSet(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::WAF::SqlInjectionMatchSet`.
 func NewCfnSqlInjectionMatchSet_Override(c CfnSqlInjectionMatchSet, scope constructs.Construct, id *string, props *CfnSqlInjectionMatchSetProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnWirelessGateway interface {
 	awscdk.CfnResource
-	IWirelessGatewayRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.IWirelessGatewayRef
 	awscdk.ITaggable
 	// The ARN of the wireless gateway created.
 	AttrArn() *string
@@ -59,7 +61,7 @@ type CfnWirelessGateway interface {
 	// The description of the new resource.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt() *string
 	SetLastUplinkReceivedAt(val *string)
@@ -115,7 +117,7 @@ type CfnWirelessGateway interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WirelessGateway resource.
-	WirelessGatewayRef() *WirelessGatewayReference
+	WirelessGatewayRef() *interfacesawsiotwireless.WirelessGatewayReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -246,8 +248,8 @@ type CfnWirelessGateway interface {
 // The jsii proxy struct for CfnWirelessGateway
 type jsiiProxy_CfnWirelessGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWirelessGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessIWirelessGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnWirelessGateway) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWirelessGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWirelessGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -461,8 +463,8 @@ func (j *jsiiProxy_CfnWirelessGateway) UpdatedProperties() *map[string]interface
 	return returns
 }
 
-func (j *jsiiProxy_CfnWirelessGateway) WirelessGatewayRef() *WirelessGatewayReference {
-	var returns *WirelessGatewayReference
+func (j *jsiiProxy_CfnWirelessGateway) WirelessGatewayRef() *interfacesawsiotwireless.WirelessGatewayReference {
+	var returns *interfacesawsiotwireless.WirelessGatewayReference
 	_jsii_.Get(
 		j,
 		"wirelessGatewayRef",
@@ -472,6 +474,7 @@ func (j *jsiiProxy_CfnWirelessGateway) WirelessGatewayRef() *WirelessGatewayRefe
 }
 
 
+// Create a new `AWS::IoTWireless::WirelessGateway`.
 func NewCfnWirelessGateway(scope constructs.Construct, id *string, props *CfnWirelessGatewayProps) CfnWirelessGateway {
 	_init_.Initialize()
 
@@ -489,6 +492,7 @@ func NewCfnWirelessGateway(scope constructs.Construct, id *string, props *CfnWir
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::WirelessGateway`.
 func NewCfnWirelessGateway_Override(c CfnWirelessGateway, scope constructs.Construct, id *string, props *CfnWirelessGatewayProps) {
 	_init_.Initialize()
 
@@ -562,13 +566,13 @@ func (j *jsiiProxy_CfnWirelessGateway)SetThingName(val *string) {
 }
 
 // Creates a new IWirelessGatewayRef from an ARN.
-func CfnWirelessGateway_FromWirelessGatewayArn(scope constructs.Construct, id *string, arn *string) IWirelessGatewayRef {
+func CfnWirelessGateway_FromWirelessGatewayArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IWirelessGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnWirelessGateway_FromWirelessGatewayArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IWirelessGatewayRef
+	var returns interfacesawsiotwireless.IWirelessGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
@@ -581,13 +585,13 @@ func CfnWirelessGateway_FromWirelessGatewayArn(scope constructs.Construct, id *s
 }
 
 // Creates a new IWirelessGatewayRef from a wirelessGatewayId.
-func CfnWirelessGateway_FromWirelessGatewayId(scope constructs.Construct, id *string, wirelessGatewayId *string) IWirelessGatewayRef {
+func CfnWirelessGateway_FromWirelessGatewayId(scope constructs.Construct, id *string, wirelessGatewayId *string) interfacesawsiotwireless.IWirelessGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnWirelessGateway_FromWirelessGatewayIdParameters(scope, id, wirelessGatewayId); err != nil {
 		panic(err)
 	}
-	var returns IWirelessGatewayRef
+	var returns interfacesawsiotwireless.IWirelessGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",

@@ -3,6 +3,8 @@ package awsec2
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 )
 
 // Target for a client VPN route.
@@ -71,7 +73,7 @@ func ClientVpnRouteTarget_Local() ClientVpnRouteTarget {
 //
 // The specified subnet must be an existing target network of the client VPN
 // endpoint.
-func ClientVpnRouteTarget_Subnet(subnet ISubnetRef) ClientVpnRouteTarget {
+func ClientVpnRouteTarget_Subnet(subnet interfacesawsec2.ISubnetRef) ClientVpnRouteTarget {
 	_init_.Initialize()
 
 	if err := validateClientVpnRouteTarget_SubnetParameters(subnet); err != nil {

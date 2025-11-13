@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsxray/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsxray"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
-	IResourcePolicyRef
 	awscdk.IInspectable
+	interfacesawsxray.IResourcePolicyRef
 	// A flag to indicate whether to bypass the resource-based policy lockout safety check.
 	BypassPolicyLockoutCheck() interface{}
 	SetBypassPolicyLockoutCheck(val interface{})
@@ -44,7 +46,7 @@ type CfnResourcePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnResourcePolicy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourcePolicy resource.
-	ResourcePolicyRef() *ResourcePolicyReference
+	ResourcePolicyRef() *interfacesawsxray.ResourcePolicyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -217,8 +219,8 @@ type CfnResourcePolicy interface {
 // The jsii proxy struct for CfnResourcePolicy
 type jsiiProxy_CfnResourcePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourcePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsxrayIResourcePolicyRef
 }
 
 func (j *jsiiProxy_CfnResourcePolicy) BypassPolicyLockoutCheck() interface{} {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnResourcePolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourcePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourcePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnResourcePolicy) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourcePolicy) ResourcePolicyRef() *ResourcePolicyReference {
-	var returns *ResourcePolicyReference
+func (j *jsiiProxy_CfnResourcePolicy) ResourcePolicyRef() *interfacesawsxray.ResourcePolicyReference {
+	var returns *interfacesawsxray.ResourcePolicyReference
 	_jsii_.Get(
 		j,
 		"resourcePolicyRef",
@@ -372,6 +374,7 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::XRay::ResourcePolicy`.
 func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
@@ -389,6 +392,7 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
+// Create a new `AWS::XRay::ResourcePolicy`.
 func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 

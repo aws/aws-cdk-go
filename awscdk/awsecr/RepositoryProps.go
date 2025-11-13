@@ -2,7 +2,7 @@ package awsecr
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Example:
@@ -46,7 +46,7 @@ type RepositoryProps struct {
 	// Default: - If encryption is set to `KMS` and this property is undefined,
 	// an AWS managed KMS key is used.
 	//
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Enable the scan on push when creating the repository.
 	// Default: false.
 	//

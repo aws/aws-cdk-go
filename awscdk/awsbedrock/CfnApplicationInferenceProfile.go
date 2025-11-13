@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,11 +43,11 @@ import (
 //
 type CfnApplicationInferenceProfile interface {
 	awscdk.CfnResource
-	IApplicationInferenceProfileRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IApplicationInferenceProfileRef
 	awscdk.ITaggableV2
 	// A reference to a ApplicationInferenceProfile resource.
-	ApplicationInferenceProfileRef() *ApplicationInferenceProfileReference
+	ApplicationInferenceProfileRef() *interfacesawsbedrock.ApplicationInferenceProfileReference
 	// The time at which the inference profile was created.
 	AttrCreatedAt() *string
 	// The Amazon Resource Name (ARN) of the inference profile.
@@ -81,7 +83,7 @@ type CfnApplicationInferenceProfile interface {
 	// The description of the inference profile.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the inference profile.
 	InferenceProfileName() *string
 	SetInferenceProfileName(val *string)
@@ -255,13 +257,13 @@ type CfnApplicationInferenceProfile interface {
 // The jsii proxy struct for CfnApplicationInferenceProfile
 type jsiiProxy_CfnApplicationInferenceProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationInferenceProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIApplicationInferenceProfileRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnApplicationInferenceProfile) ApplicationInferenceProfileRef() *ApplicationInferenceProfileReference {
-	var returns *ApplicationInferenceProfileReference
+func (j *jsiiProxy_CfnApplicationInferenceProfile) ApplicationInferenceProfileRef() *interfacesawsbedrock.ApplicationInferenceProfileReference {
+	var returns *interfacesawsbedrock.ApplicationInferenceProfileReference
 	_jsii_.Get(
 		j,
 		"applicationInferenceProfileRef",
@@ -410,8 +412,8 @@ func (j *jsiiProxy_CfnApplicationInferenceProfile) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationInferenceProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationInferenceProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -511,6 +513,7 @@ func (j *jsiiProxy_CfnApplicationInferenceProfile) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::Bedrock::ApplicationInferenceProfile`.
 func NewCfnApplicationInferenceProfile(scope constructs.Construct, id *string, props *CfnApplicationInferenceProfileProps) CfnApplicationInferenceProfile {
 	_init_.Initialize()
 
@@ -528,6 +531,7 @@ func NewCfnApplicationInferenceProfile(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::Bedrock::ApplicationInferenceProfile`.
 func NewCfnApplicationInferenceProfile_Override(c CfnApplicationInferenceProfile, scope constructs.Construct, id *string, props *CfnApplicationInferenceProfileProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,8 +27,8 @@ import (
 //
 type CfnResolverConfig interface {
 	awscdk.CfnResource
-	IResolverConfigRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IResolverConfigRef
 	// The status of whether or not the Route 53 Resolver will create autodefined rules for reverse DNS lookups.
 	//
 	// This is enabled by default.
@@ -47,7 +49,7 @@ type CfnResolverConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -66,7 +68,7 @@ type CfnResolverConfig interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResolverConfig resource.
-	ResolverConfigRef() *ResolverConfigReference
+	ResolverConfigRef() *interfacesawsroute53resolver.ResolverConfigReference
 	// The ID of the Amazon Virtual Private Cloud VPC or a Route 53 Profile that you're configuring Resolver for.
 	ResourceId() *string
 	SetResourceId(val *string)
@@ -217,8 +219,8 @@ type CfnResolverConfig interface {
 // The jsii proxy struct for CfnResolverConfig
 type jsiiProxy_CfnResolverConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResolverConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIResolverConfigRef
 }
 
 func (j *jsiiProxy_CfnResolverConfig) AttrAutodefinedReverse() *string {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnResolverConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResolverConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnResolverConfig) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverConfig) ResolverConfigRef() *ResolverConfigReference {
-	var returns *ResolverConfigReference
+func (j *jsiiProxy_CfnResolverConfig) ResolverConfigRef() *interfacesawsroute53resolver.ResolverConfigReference {
+	var returns *interfacesawsroute53resolver.ResolverConfigReference
 	_jsii_.Get(
 		j,
 		"resolverConfigRef",
@@ -392,6 +394,7 @@ func (j *jsiiProxy_CfnResolverConfig) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Route53Resolver::ResolverConfig`.
 func NewCfnResolverConfig(scope constructs.Construct, id *string, props *CfnResolverConfigProps) CfnResolverConfig {
 	_init_.Initialize()
 
@@ -409,6 +412,7 @@ func NewCfnResolverConfig(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::ResolverConfig`.
 func NewCfnResolverConfig_Override(c CfnResolverConfig, scope constructs.Construct, id *string, props *CfnResolverConfigProps) {
 	_init_.Initialize()
 
@@ -442,13 +446,13 @@ func (j *jsiiProxy_CfnResolverConfig)SetResourceId(val *string) {
 }
 
 // Creates a new IResolverConfigRef from a resourceId.
-func CfnResolverConfig_FromResourceId(scope constructs.Construct, id *string, resourceId *string) IResolverConfigRef {
+func CfnResolverConfig_FromResourceId(scope constructs.Construct, id *string, resourceId *string) interfacesawsroute53resolver.IResolverConfigRef {
 	_init_.Initialize()
 
 	if err := validateCfnResolverConfig_FromResourceIdParameters(scope, id, resourceId); err != nil {
 		panic(err)
 	}
-	var returns IResolverConfigRef
+	var returns interfacesawsroute53resolver.IResolverConfigRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_route53resolver.CfnResolverConfig",

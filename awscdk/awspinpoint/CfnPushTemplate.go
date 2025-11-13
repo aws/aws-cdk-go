@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -78,8 +80,8 @@ import (
 //
 type CfnPushTemplate interface {
 	awscdk.CfnResource
-	IPushTemplateRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IPushTemplateRef
 	awscdk.ITaggable
 	// The message template to use for the ADM (Amazon Device Messaging) channel.
 	Adm() interface{}
@@ -108,7 +110,7 @@ type CfnPushTemplate interface {
 	// A JSON object that specifies the default values to use for message variables in the message template.
 	DefaultSubstitutions() *string
 	SetDefaultSubstitutions(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The message template to use for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 	Gcm() interface{}
 	SetGcm(val interface{})
@@ -125,7 +127,7 @@ type CfnPushTemplate interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PushTemplate resource.
-	PushTemplateRef() *PushTemplateReference
+	PushTemplateRef() *interfacesawspinpoint.PushTemplateReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -289,8 +291,8 @@ type CfnPushTemplate interface {
 // The jsii proxy struct for CfnPushTemplate
 type jsiiProxy_CfnPushTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPushTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIPushTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -404,8 +406,8 @@ func (j *jsiiProxy_CfnPushTemplate) DefaultSubstitutions() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPushTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPushTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -444,8 +446,8 @@ func (j *jsiiProxy_CfnPushTemplate) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPushTemplate) PushTemplateRef() *PushTemplateReference {
-	var returns *PushTemplateReference
+func (j *jsiiProxy_CfnPushTemplate) PushTemplateRef() *interfacesawspinpoint.PushTemplateReference {
+	var returns *interfacesawspinpoint.PushTemplateReference
 	_jsii_.Get(
 		j,
 		"pushTemplateRef",
@@ -535,6 +537,7 @@ func (j *jsiiProxy_CfnPushTemplate) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Pinpoint::PushTemplate`.
 func NewCfnPushTemplate(scope constructs.Construct, id *string, props *CfnPushTemplateProps) CfnPushTemplate {
 	_init_.Initialize()
 
@@ -552,6 +555,7 @@ func NewCfnPushTemplate(scope constructs.Construct, id *string, props *CfnPushTe
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::PushTemplate`.
 func NewCfnPushTemplate_Override(c CfnPushTemplate, scope constructs.Construct, id *string, props *CfnPushTemplateProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnLocationFSxWindows interface {
 	awscdk.CfnResource
-	ILocationFSxWindowsRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationFSxWindowsRef
 	awscdk.ITaggable
 	// The ARN of the specified FSx for Windows Server file system location.
 	AttrLocationArn() *string
@@ -58,12 +60,12 @@ type CfnLocationFSxWindows interface {
 	// Specifies the name of the Windows domain that the FSx for Windows File Server file system belongs to.
 	Domain() *string
 	SetDomain(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
 	FsxFilesystemArn() *string
 	SetFsxFilesystemArn(val *string)
 	// A reference to a LocationFSxWindows resource.
-	LocationFSxWindowsRef() *LocationFSxWindowsReference
+	LocationFSxWindowsRef() *interfacesawsdatasync.LocationFSxWindowsReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -245,8 +247,8 @@ type CfnLocationFSxWindows interface {
 // The jsii proxy struct for CfnLocationFSxWindows
 type jsiiProxy_CfnLocationFSxWindows struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationFSxWindowsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationFSxWindowsRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnLocationFSxWindows) Domain() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxWindows) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationFSxWindows) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnLocationFSxWindows) FsxFilesystemArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxWindows) LocationFSxWindowsRef() *LocationFSxWindowsReference {
-	var returns *LocationFSxWindowsReference
+func (j *jsiiProxy_CfnLocationFSxWindows) LocationFSxWindowsRef() *interfacesawsdatasync.LocationFSxWindowsReference {
+	var returns *interfacesawsdatasync.LocationFSxWindowsReference
 	_jsii_.Get(
 		j,
 		"locationFSxWindowsRef",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnLocationFSxWindows) User() *string {
 }
 
 
+// Create a new `AWS::DataSync::LocationFSxWindows`.
 func NewCfnLocationFSxWindows(scope constructs.Construct, id *string, props *CfnLocationFSxWindowsProps) CfnLocationFSxWindows {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnLocationFSxWindows(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationFSxWindows`.
 func NewCfnLocationFSxWindows_Override(c CfnLocationFSxWindows, scope constructs.Construct, id *string, props *CfnLocationFSxWindowsProps) {
 	_init_.Initialize()
 

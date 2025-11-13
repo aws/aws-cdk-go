@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslocation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslocation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnMap interface {
 	awscdk.CfnResource
-	IMapRef
 	awscdk.IInspectable
+	interfacesawslocation.IMapRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
 	//
@@ -78,7 +80,7 @@ type CfnMap interface {
 	// An optional description for the map resource.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -93,7 +95,7 @@ type CfnMap interface {
 	MapName() *string
 	SetMapName(val *string)
 	// A reference to a Map resource.
-	MapRef() *MapReference
+	MapRef() *interfacesawslocation.MapReference
 	// The tree node.
 	Node() constructs.Node
 	// No longer used.
@@ -256,8 +258,8 @@ type CfnMap interface {
 // The jsii proxy struct for CfnMap
 type jsiiProxy_CfnMap struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMapRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslocationIMapRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnMap) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMap) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMap) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -411,8 +413,8 @@ func (j *jsiiProxy_CfnMap) MapName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMap) MapRef() *MapReference {
-	var returns *MapReference
+func (j *jsiiProxy_CfnMap) MapRef() *interfacesawslocation.MapReference {
+	var returns *interfacesawslocation.MapReference
 	_jsii_.Get(
 		j,
 		"mapRef",
@@ -492,6 +494,7 @@ func (j *jsiiProxy_CfnMap) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Location::Map`.
 func NewCfnMap(scope constructs.Construct, id *string, props *CfnMapProps) CfnMap {
 	_init_.Initialize()
 
@@ -509,6 +512,7 @@ func NewCfnMap(scope constructs.Construct, id *string, props *CfnMapProps) CfnMa
 	return &j
 }
 
+// Create a new `AWS::Location::Map`.
 func NewCfnMap_Override(c CfnMap, scope constructs.Construct, id *string, props *CfnMapProps) {
 	_init_.Initialize()
 
@@ -569,13 +573,13 @@ func (j *jsiiProxy_CfnMap)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMapRef from an ARN.
-func CfnMap_FromMapArn(scope constructs.Construct, id *string, arn *string) IMapRef {
+func CfnMap_FromMapArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.IMapRef {
 	_init_.Initialize()
 
 	if err := validateCfnMap_FromMapArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IMapRef
+	var returns interfacesawslocation.IMapRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnMap",
@@ -588,13 +592,13 @@ func CfnMap_FromMapArn(scope constructs.Construct, id *string, arn *string) IMap
 }
 
 // Creates a new IMapRef from a mapName.
-func CfnMap_FromMapName(scope constructs.Construct, id *string, mapName *string) IMapRef {
+func CfnMap_FromMapName(scope constructs.Construct, id *string, mapName *string) interfacesawslocation.IMapRef {
 	_init_.Initialize()
 
 	if err := validateCfnMap_FromMapNameParameters(scope, id, mapName); err != nil {
 		panic(err)
 	}
-	var returns IMapRef
+	var returns interfacesawslocation.IMapRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnMap",

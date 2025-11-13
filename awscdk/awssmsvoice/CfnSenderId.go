@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssmsvoice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssmsvoice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnSenderId interface {
 	awscdk.CfnResource
-	ISenderIdRef
 	awscdk.IInspectable
+	interfacesawssmsvoice.ISenderIdRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name of the `SenderId` .
 	AttrArn() *string
@@ -53,7 +55,7 @@ type CfnSenderId interface {
 	// By default this is set to false.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
 	IsoCountryCode() *string
 	SetIsoCountryCode(val *string)
@@ -78,7 +80,7 @@ type CfnSenderId interface {
 	SenderId() *string
 	SetSenderId(val *string)
 	// A reference to a SenderId resource.
-	SenderIdRef() *SenderIdReference
+	SenderIdRef() *interfacesawssmsvoice.SenderIdReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -229,8 +231,8 @@ type CfnSenderId interface {
 // The jsii proxy struct for CfnSenderId
 type jsiiProxy_CfnSenderId struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISenderIdRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssmsvoiceISenderIdRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnSenderId) DeletionProtectionEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSenderId) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSenderId) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnSenderId) SenderId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSenderId) SenderIdRef() *SenderIdReference {
-	var returns *SenderIdReference
+func (j *jsiiProxy_CfnSenderId) SenderIdRef() *interfacesawssmsvoice.SenderIdReference {
+	var returns *interfacesawssmsvoice.SenderIdReference
 	_jsii_.Get(
 		j,
 		"senderIdRef",
@@ -415,6 +417,7 @@ func (j *jsiiProxy_CfnSenderId) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SMSVOICE::SenderId`.
 func NewCfnSenderId(scope constructs.Construct, id *string, props *CfnSenderIdProps) CfnSenderId {
 	_init_.Initialize()
 
@@ -432,6 +435,7 @@ func NewCfnSenderId(scope constructs.Construct, id *string, props *CfnSenderIdPr
 	return &j
 }
 
+// Create a new `AWS::SMSVOICE::SenderId`.
 func NewCfnSenderId_Override(c CfnSenderId, scope constructs.Construct, id *string, props *CfnSenderIdProps) {
 	_init_.Initialize()
 

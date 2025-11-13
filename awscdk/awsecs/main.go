@@ -335,10 +335,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CapacityProviderReference",
-		reflect.TypeOf((*CapacityProviderReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CapacityProviderStrategy",
 		reflect.TypeOf((*CapacityProviderStrategy)(nil)).Elem(),
 	)
@@ -388,8 +384,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCapacityProvider{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICapacityProviderRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecsICapacityProviderRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -511,8 +507,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCluster{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecsIClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -588,8 +584,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnClusterCapacityProviderAssociations{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IClusterCapacityProviderAssociationsRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecsIClusterCapacityProviderAssociationsRef)
 			return &j
 		},
 	)
@@ -648,8 +644,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPrimaryTaskSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrimaryTaskSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecsIPrimaryTaskSetRef)
 			return &j
 		},
 	)
@@ -726,8 +722,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IServiceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecsIServiceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -924,8 +920,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTaskDefinition{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITaskDefinitionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecsITaskDefinitionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1120,8 +1116,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTaskSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITaskSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecsITaskSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -1212,16 +1208,8 @@ func init() {
 		reflect.TypeOf((*ClusterAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ClusterCapacityProviderAssociationsReference",
-		reflect.TypeOf((*ClusterCapacityProviderAssociationsReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.ClusterProps",
 		reflect.TypeOf((*ClusterProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ClusterReference",
-		reflect.TypeOf((*ClusterReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CommonTaskDefinitionAttributes",
@@ -2126,21 +2114,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.ICapacityProviderRef",
-		reflect.TypeOf((*ICapacityProviderRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "capacityProviderRef", GoGetter: "CapacityProviderRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICapacityProviderRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ecs.ICluster",
 		reflect.TypeOf((*ICluster)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2160,36 +2133,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ICluster{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IClusterCapacityProviderAssociationsRef",
-		reflect.TypeOf((*IClusterCapacityProviderAssociationsRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterCapacityProviderAssociationsRef", GoGetter: "ClusterCapacityProviderAssociationsRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IClusterCapacityProviderAssociationsRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IClusterRef",
-		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IClusterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2344,21 +2287,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IPrimaryTaskSetRef",
-		reflect.TypeOf((*IPrimaryTaskSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "primaryTaskSetRef", GoGetter: "PrimaryTaskSetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPrimaryTaskSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ecs.IService",
 		reflect.TypeOf((*IService)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2372,21 +2300,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IServiceRef",
-		reflect.TypeOf((*IServiceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceRef", GoGetter: "ServiceRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IServiceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2422,36 +2335,6 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ITaskDefinitionExtension{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.ITaskDefinitionRef",
-		reflect.TypeOf((*ITaskDefinitionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionRef", GoGetter: "TaskDefinitionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITaskDefinitionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.ITaskSetRef",
-		reflect.TypeOf((*ITaskSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "taskSetRef", GoGetter: "TaskSetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITaskSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -2689,10 +2572,6 @@ func init() {
 		"aws-cdk-lib.aws_ecs.PortMapping",
 		reflect.TypeOf((*PortMapping)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.PrimaryTaskSetReference",
-		reflect.TypeOf((*PrimaryTaskSetReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ecs.PropagateManagedInstancesTags",
 		reflect.TypeOf((*PropagateManagedInstancesTags)(nil)).Elem(),
@@ -2878,10 +2757,6 @@ func init() {
 		"aws-cdk-lib.aws_ecs.ServiceManagedVolumeProps",
 		reflect.TypeOf((*ServiceManagedVolumeProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ServiceReference",
-		reflect.TypeOf((*ServiceReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
 		reflect.TypeOf((*SplunkLogDriver)(nil)).Elem(),
@@ -2998,10 +2873,6 @@ func init() {
 		"aws-cdk-lib.aws_ecs.TaskDefinitionProps",
 		reflect.TypeOf((*TaskDefinitionProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.TaskDefinitionReference",
-		reflect.TypeOf((*TaskDefinitionReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.TaskDefinitionRevision",
 		reflect.TypeOf((*TaskDefinitionRevision)(nil)).Elem(),
@@ -3011,10 +2882,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_TaskDefinitionRevision{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.TaskSetReference",
-		reflect.TypeOf((*TaskSetReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.Tmpfs",

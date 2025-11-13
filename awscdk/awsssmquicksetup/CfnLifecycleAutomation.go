@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmquicksetup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmquicksetup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnLifecycleAutomation interface {
 	awscdk.CfnResource
-	ILifecycleAutomationRef
 	awscdk.IInspectable
+	interfacesawsssmquicksetup.ILifecycleAutomationRef
 	awscdk.ITaggableV2
 	// Returns the ID of the SSM Association created to manage the automation document execution lifecycle.
 	AttrAssociationId() *string
@@ -59,9 +61,9 @@ type CfnLifecycleAutomation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LifecycleAutomation resource.
-	LifecycleAutomationRef() *LifecycleAutomationReference
+	LifecycleAutomationRef() *interfacesawsssmquicksetup.LifecycleAutomationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -232,8 +234,8 @@ type CfnLifecycleAutomation interface {
 // The jsii proxy struct for CfnLifecycleAutomation
 type jsiiProxy_CfnLifecycleAutomation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILifecycleAutomationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmquicksetupILifecycleAutomationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnLifecycleAutomation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecycleAutomation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLifecycleAutomation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnLifecycleAutomation) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecycleAutomation) LifecycleAutomationRef() *LifecycleAutomationReference {
-	var returns *LifecycleAutomationReference
+func (j *jsiiProxy_CfnLifecycleAutomation) LifecycleAutomationRef() *interfacesawsssmquicksetup.LifecycleAutomationReference {
+	var returns *interfacesawsssmquicksetup.LifecycleAutomationReference
 	_jsii_.Get(
 		j,
 		"lifecycleAutomationRef",
@@ -418,6 +420,7 @@ func (j *jsiiProxy_CfnLifecycleAutomation) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::SSMQuickSetup::LifecycleAutomation`.
 func NewCfnLifecycleAutomation(scope constructs.Construct, id *string, props *CfnLifecycleAutomationProps) CfnLifecycleAutomation {
 	_init_.Initialize()
 
@@ -435,6 +438,7 @@ func NewCfnLifecycleAutomation(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::SSMQuickSetup::LifecycleAutomation`.
 func NewCfnLifecycleAutomation_Override(c CfnLifecycleAutomation, scope constructs.Construct, id *string, props *CfnLifecycleAutomationProps) {
 	_init_.Initialize()
 

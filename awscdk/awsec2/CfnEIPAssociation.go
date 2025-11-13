@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnEIPAssociation interface {
 	awscdk.CfnResource
-	IEIPAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.IEIPAssociationRef
 	// The allocation ID.
 	AllocationId() *string
 	SetAllocationId(val *string)
@@ -53,8 +55,8 @@ type CfnEIPAssociation interface {
 	// Deprecated: this property has been deprecated.
 	SetEip(val *string)
 	// A reference to a EIPAssociation resource.
-	EipAssociationRef() *EIPAssociationReference
-	Env() *awscdk.ResourceEnvironment
+	EipAssociationRef() *interfacesawsec2.EIPAssociationReference
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -228,8 +230,8 @@ type CfnEIPAssociation interface {
 // The jsii proxy struct for CfnEIPAssociation
 type jsiiProxy_CfnEIPAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEIPAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IEIPAssociationRef
 }
 
 func (j *jsiiProxy_CfnEIPAssociation) AllocationId() *string {
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnEIPAssociation) Eip() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEIPAssociation) EipAssociationRef() *EIPAssociationReference {
-	var returns *EIPAssociationReference
+func (j *jsiiProxy_CfnEIPAssociation) EipAssociationRef() *interfacesawsec2.EIPAssociationReference {
+	var returns *interfacesawsec2.EIPAssociationReference
 	_jsii_.Get(
 		j,
 		"eipAssociationRef",
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnEIPAssociation) EipAssociationRef() *EIPAssociationReferen
 	return returns
 }
 
-func (j *jsiiProxy_CfnEIPAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEIPAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnEIPAssociation) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::EC2::EIPAssociation`.
 func NewCfnEIPAssociation(scope constructs.Construct, id *string, props *CfnEIPAssociationProps) CfnEIPAssociation {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnEIPAssociation(scope constructs.Construct, id *string, props *CfnEIPA
 	return &j
 }
 
+// Create a new `AWS::EC2::EIPAssociation`.
 func NewCfnEIPAssociation_Override(c CfnEIPAssociation, scope constructs.Construct, id *string, props *CfnEIPAssociationProps) {
 	_init_.Initialize()
 

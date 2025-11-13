@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrolesanywhere/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrolesanywhere"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,8 +55,8 @@ import (
 //
 type CfnProfile interface {
 	awscdk.CfnResource
-	IProfileRef
 	awscdk.IInspectable
+	interfacesawsrolesanywhere.IProfileRef
 	awscdk.ITaggable
 	// Used to determine if a custom role session name will be accepted in a temporary credential request.
 	AcceptRoleSessionName() interface{}
@@ -81,7 +83,7 @@ type CfnProfile interface {
 	// The enabled status of the resource.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnProfile interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Profile resource.
-	ProfileRef() *ProfileReference
+	ProfileRef() *interfacesawsrolesanywhere.ProfileReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -268,8 +270,8 @@ type CfnProfile interface {
 // The jsii proxy struct for CfnProfile
 type jsiiProxy_CfnProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrolesanywhereIProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnProfile) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,8 +425,8 @@ func (j *jsiiProxy_CfnProfile) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfile) ProfileRef() *ProfileReference {
-	var returns *ProfileReference
+func (j *jsiiProxy_CfnProfile) ProfileRef() *interfacesawsrolesanywhere.ProfileReference {
+	var returns *interfacesawsrolesanywhere.ProfileReference
 	_jsii_.Get(
 		j,
 		"profileRef",
@@ -524,6 +526,7 @@ func (j *jsiiProxy_CfnProfile) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RolesAnywhere::Profile`.
 func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProps) CfnProfile {
 	_init_.Initialize()
 
@@ -541,6 +544,7 @@ func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProp
 	return &j
 }
 
+// Create a new `AWS::RolesAnywhere::Profile`.
 func NewCfnProfile_Override(c CfnProfile, scope constructs.Construct, id *string, props *CfnProfileProps) {
 	_init_.Initialize()
 
@@ -653,13 +657,13 @@ func (j *jsiiProxy_CfnProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IProfileRef from an ARN.
-func CfnProfile_FromProfileArn(scope constructs.Construct, id *string, arn *string) IProfileRef {
+func CfnProfile_FromProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawsrolesanywhere.IProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnProfile_FromProfileArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IProfileRef
+	var returns interfacesawsrolesanywhere.IProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rolesanywhere.CfnProfile",
@@ -672,13 +676,13 @@ func CfnProfile_FromProfileArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IProfileRef from a profileId.
-func CfnProfile_FromProfileId(scope constructs.Construct, id *string, profileId *string) IProfileRef {
+func CfnProfile_FromProfileId(scope constructs.Construct, id *string, profileId *string) interfacesawsrolesanywhere.IProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnProfile_FromProfileIdParameters(scope, id, profileId); err != nil {
 		panic(err)
 	}
-	var returns IProfileRef
+	var returns interfacesawsrolesanywhere.IProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rolesanywhere.CfnProfile",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnotifications"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnNotificationConfiguration interface {
 	awscdk.CfnResource
-	INotificationConfigurationRef
 	awscdk.IInspectable
+	interfacesawsnotifications.INotificationConfigurationRef
 	awscdk.ITaggableV2
 	// The aggregation preference of the `NotificationConfiguration` .
 	AggregationDuration() *string
@@ -60,7 +62,7 @@ type CfnNotificationConfiguration interface {
 	// The description of the `NotificationConfiguration` .
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnNotificationConfiguration interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a NotificationConfiguration resource.
-	NotificationConfigurationRef() *NotificationConfigurationReference
+	NotificationConfigurationRef() *interfacesawsnotifications.NotificationConfigurationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -233,8 +235,8 @@ type CfnNotificationConfiguration interface {
 // The jsii proxy struct for CfnNotificationConfiguration
 type jsiiProxy_CfnNotificationConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INotificationConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnotificationsINotificationConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnNotificationConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNotificationConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -378,8 +380,8 @@ func (j *jsiiProxy_CfnNotificationConfiguration) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationConfiguration) NotificationConfigurationRef() *NotificationConfigurationReference {
-	var returns *NotificationConfigurationReference
+func (j *jsiiProxy_CfnNotificationConfiguration) NotificationConfigurationRef() *interfacesawsnotifications.NotificationConfigurationReference {
+	var returns *interfacesawsnotifications.NotificationConfigurationReference
 	_jsii_.Get(
 		j,
 		"notificationConfigurationRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnNotificationConfiguration) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::Notifications::NotificationConfiguration`.
 func NewCfnNotificationConfiguration(scope constructs.Construct, id *string, props *CfnNotificationConfigurationProps) CfnNotificationConfiguration {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnNotificationConfiguration(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::Notifications::NotificationConfiguration`.
 func NewCfnNotificationConfiguration_Override(c CfnNotificationConfiguration, scope constructs.Construct, id *string, props *CfnNotificationConfigurationProps) {
 	_init_.Initialize()
 

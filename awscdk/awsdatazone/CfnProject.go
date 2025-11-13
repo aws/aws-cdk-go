@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnProject interface {
 	awscdk.CfnResource
-	IProjectRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IProjectRef
 	// The timestamp of when a project was created.
 	AttrCreatedAt() *string
 	// The Amazon DataZone user who created the project.
@@ -80,7 +82,7 @@ type CfnProject interface {
 	// The ID of the domain unit.
 	DomainUnitId() *string
 	SetDomainUnitId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms() *[]*string
 	SetGlossaryTerms(val *[]*string)
@@ -106,7 +108,7 @@ type CfnProject interface {
 	ProjectProfileVersion() *string
 	SetProjectProfileVersion(val *string)
 	// A reference to a Project resource.
-	ProjectRef() *ProjectReference
+	ProjectRef() *interfacesawsdatazone.ProjectReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -262,8 +264,8 @@ type CfnProject interface {
 // The jsii proxy struct for CfnProject
 type jsiiProxy_CfnProject struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProjectRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIProjectRef
 }
 
 func (j *jsiiProxy_CfnProject) AttrCreatedAt() *string {
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnProject) DomainUnitId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProject) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -466,8 +468,8 @@ func (j *jsiiProxy_CfnProject) ProjectProfileVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) ProjectRef() *ProjectReference {
-	var returns *ProjectReference
+func (j *jsiiProxy_CfnProject) ProjectRef() *interfacesawsdatazone.ProjectReference {
+	var returns *interfacesawsdatazone.ProjectReference
 	_jsii_.Get(
 		j,
 		"projectRef",
@@ -527,6 +529,7 @@ func (j *jsiiProxy_CfnProject) UserParameters() interface{} {
 }
 
 
+// Create a new `AWS::DataZone::Project`.
 func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
@@ -544,6 +547,7 @@ func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProp
 	return &j
 }
 
+// Create a new `AWS::DataZone::Project`.
 func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 

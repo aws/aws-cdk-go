@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnMessageTemplateVersion interface {
 	awscdk.CfnResource
-	IMessageTemplateVersionRef
 	awscdk.IInspectable
+	interfacesawswisdom.IMessageTemplateVersionRef
 	// The Amazon Resource Name (ARN) of the Message Template Version.
 	AttrMessageTemplateVersionArn() *string
 	// The version number for this Message Template Version.
@@ -44,7 +46,7 @@ type CfnMessageTemplateVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -62,7 +64,7 @@ type CfnMessageTemplateVersion interface {
 	MessageTemplateContentSha256() *string
 	SetMessageTemplateContentSha256(val *string)
 	// A reference to a MessageTemplateVersion resource.
-	MessageTemplateVersionRef() *MessageTemplateVersionReference
+	MessageTemplateVersionRef() *interfacesawswisdom.MessageTemplateVersionReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -217,8 +219,8 @@ type CfnMessageTemplateVersion interface {
 // The jsii proxy struct for CfnMessageTemplateVersion
 type jsiiProxy_CfnMessageTemplateVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMessageTemplateVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIMessageTemplateVersionRef
 }
 
 func (j *jsiiProxy_CfnMessageTemplateVersion) AttrMessageTemplateVersionArn() *string {
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnMessageTemplateVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMessageTemplateVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMessageTemplateVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnMessageTemplateVersion) MessageTemplateContentSha256() *st
 	return returns
 }
 
-func (j *jsiiProxy_CfnMessageTemplateVersion) MessageTemplateVersionRef() *MessageTemplateVersionReference {
-	var returns *MessageTemplateVersionReference
+func (j *jsiiProxy_CfnMessageTemplateVersion) MessageTemplateVersionRef() *interfacesawswisdom.MessageTemplateVersionReference {
+	var returns *interfacesawswisdom.MessageTemplateVersionReference
 	_jsii_.Get(
 		j,
 		"messageTemplateVersionRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnMessageTemplateVersion) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::Wisdom::MessageTemplateVersion`.
 func NewCfnMessageTemplateVersion(scope constructs.Construct, id *string, props *CfnMessageTemplateVersionProps) CfnMessageTemplateVersion {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnMessageTemplateVersion(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::Wisdom::MessageTemplateVersion`.
 func NewCfnMessageTemplateVersion_Override(c CfnMessageTemplateVersion, scope constructs.Construct, id *string, props *CfnMessageTemplateVersionProps) {
 	_init_.Initialize()
 

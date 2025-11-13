@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnRegistryScanningConfiguration interface {
 	awscdk.CfnResource
-	IRegistryScanningConfigurationRef
 	awscdk.IInspectable
+	interfacesawsecr.IRegistryScanningConfigurationRef
 	// The account ID of the destination registry.
 	AttrRegistryId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -48,7 +50,7 @@ type CfnRegistryScanningConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnRegistryScanningConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RegistryScanningConfiguration resource.
-	RegistryScanningConfigurationRef() *RegistryScanningConfigurationReference
+	RegistryScanningConfigurationRef() *interfacesawsecr.RegistryScanningConfigurationReference
 	// The scanning rules associated with the registry.
 	Rules() interface{}
 	SetRules(val interface{})
@@ -221,8 +223,8 @@ type CfnRegistryScanningConfiguration interface {
 // The jsii proxy struct for CfnRegistryScanningConfiguration
 type jsiiProxy_CfnRegistryScanningConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRegistryScanningConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecrIRegistryScanningConfigurationRef
 }
 
 func (j *jsiiProxy_CfnRegistryScanningConfiguration) AttrRegistryId() *string {
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnRegistryScanningConfiguration) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegistryScanningConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRegistryScanningConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnRegistryScanningConfiguration) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegistryScanningConfiguration) RegistryScanningConfigurationRef() *RegistryScanningConfigurationReference {
-	var returns *RegistryScanningConfigurationReference
+func (j *jsiiProxy_CfnRegistryScanningConfiguration) RegistryScanningConfigurationRef() *interfacesawsecr.RegistryScanningConfigurationReference {
+	var returns *interfacesawsecr.RegistryScanningConfigurationReference
 	_jsii_.Get(
 		j,
 		"registryScanningConfigurationRef",
@@ -376,6 +378,7 @@ func (j *jsiiProxy_CfnRegistryScanningConfiguration) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::ECR::RegistryScanningConfiguration`.
 func NewCfnRegistryScanningConfiguration(scope constructs.Construct, id *string, props *CfnRegistryScanningConfigurationProps) CfnRegistryScanningConfiguration {
 	_init_.Initialize()
 
@@ -393,6 +396,7 @@ func NewCfnRegistryScanningConfiguration(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::ECR::RegistryScanningConfiguration`.
 func NewCfnRegistryScanningConfiguration_Override(c CfnRegistryScanningConfiguration, scope constructs.Construct, id *string, props *CfnRegistryScanningConfigurationProps) {
 	_init_.Initialize()
 

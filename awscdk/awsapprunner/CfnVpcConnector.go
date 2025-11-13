@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapprunner/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapprunner"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnVpcConnector interface {
 	awscdk.CfnResource
-	IVpcConnectorRef
 	awscdk.IInspectable
+	interfacesawsapprunner.IVpcConnectorRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of this VPC connector.
 	AttrVpcConnectorArn() *string
@@ -62,7 +64,7 @@ type CfnVpcConnector interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -112,7 +114,7 @@ type CfnVpcConnector interface {
 	VpcConnectorName() *string
 	SetVpcConnectorName(val *string)
 	// A reference to a VpcConnector resource.
-	VpcConnectorRef() *VpcConnectorReference
+	VpcConnectorRef() *interfacesawsapprunner.VpcConnectorReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -243,8 +245,8 @@ type CfnVpcConnector interface {
 // The jsii proxy struct for CfnVpcConnector
 type jsiiProxy_CfnVpcConnector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVpcConnectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapprunnerIVpcConnectorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnVpcConnector) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcConnector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVpcConnector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnVpcConnector) VpcConnectorName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcConnector) VpcConnectorRef() *VpcConnectorReference {
-	var returns *VpcConnectorReference
+func (j *jsiiProxy_CfnVpcConnector) VpcConnectorRef() *interfacesawsapprunner.VpcConnectorReference {
+	var returns *interfacesawsapprunner.VpcConnectorReference
 	_jsii_.Get(
 		j,
 		"vpcConnectorRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnVpcConnector) VpcConnectorRef() *VpcConnectorReference {
 }
 
 
+// Create a new `AWS::AppRunner::VpcConnector`.
 func NewCfnVpcConnector(scope constructs.Construct, id *string, props *CfnVpcConnectorProps) CfnVpcConnector {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnVpcConnector(scope constructs.Construct, id *string, props *CfnVpcCon
 	return &j
 }
 
+// Create a new `AWS::AppRunner::VpcConnector`.
 func NewCfnVpcConnector_Override(c CfnVpcConnector, scope constructs.Construct, id *string, props *CfnVpcConnectorProps) {
 	_init_.Initialize()
 

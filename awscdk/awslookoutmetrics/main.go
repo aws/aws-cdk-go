@@ -7,14 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.AlertReference",
-		reflect.TypeOf((*AlertReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.AnomalyDetectorReference",
-		reflect.TypeOf((*AnomalyDetectorReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert",
 		reflect.TypeOf((*CfnAlert)(nil)).Elem(),
@@ -61,8 +53,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAlert{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAlertRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslookoutmetricsIAlertRef)
 			return &j
 		},
 	)
@@ -128,8 +120,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAnomalyDetector{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAnomalyDetectorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslookoutmetricsIAnomalyDetectorRef)
 			return &j
 		},
 	)
@@ -192,35 +184,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetectorProps",
 		reflect.TypeOf((*CfnAnomalyDetectorProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lookoutmetrics.IAlertRef",
-		reflect.TypeOf((*IAlertRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "alertRef", GoGetter: "AlertRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAlertRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lookoutmetrics.IAnomalyDetectorRef",
-		reflect.TypeOf((*IAnomalyDetectorRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "anomalyDetectorRef", GoGetter: "AnomalyDetectorRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAnomalyDetectorRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

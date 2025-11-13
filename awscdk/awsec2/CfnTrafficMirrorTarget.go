@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnTrafficMirrorTarget interface {
 	awscdk.CfnResource
-	ITrafficMirrorTargetRef
 	awscdk.IInspectable
+	interfacesawsec2.ITrafficMirrorTargetRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -55,7 +57,7 @@ type CfnTrafficMirrorTarget interface {
 	// The description of the Traffic Mirror target.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the Gateway Load Balancer endpoint.
 	GatewayLoadBalancerEndpointId() *string
 	SetGatewayLoadBalancerEndpointId(val *string)
@@ -92,7 +94,7 @@ type CfnTrafficMirrorTarget interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TrafficMirrorTarget resource.
-	TrafficMirrorTargetRef() *TrafficMirrorTargetReference
+	TrafficMirrorTargetRef() *interfacesawsec2.TrafficMirrorTargetReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -236,8 +238,8 @@ type CfnTrafficMirrorTarget interface {
 // The jsii proxy struct for CfnTrafficMirrorTarget
 type jsiiProxy_CfnTrafficMirrorTarget struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrafficMirrorTargetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITrafficMirrorTargetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorTarget) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrafficMirrorTarget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorTarget) TrafficMirrorTargetRef() *TrafficMirrorTargetReference {
-	var returns *TrafficMirrorTargetReference
+func (j *jsiiProxy_CfnTrafficMirrorTarget) TrafficMirrorTargetRef() *interfacesawsec2.TrafficMirrorTargetReference {
+	var returns *interfacesawsec2.TrafficMirrorTargetReference
 	_jsii_.Get(
 		j,
 		"trafficMirrorTargetRef",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::EC2::TrafficMirrorTarget`.
 func NewCfnTrafficMirrorTarget(scope constructs.Construct, id *string, props *CfnTrafficMirrorTargetProps) CfnTrafficMirrorTarget {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnTrafficMirrorTarget(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::EC2::TrafficMirrorTarget`.
 func NewCfnTrafficMirrorTarget_Override(c CfnTrafficMirrorTarget, scope constructs.Construct, id *string, props *CfnTrafficMirrorTargetProps) {
 	_init_.Initialize()
 
@@ -503,13 +507,13 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ITrafficMirrorTargetRef from a trafficMirrorTargetId.
-func CfnTrafficMirrorTarget_FromTrafficMirrorTargetId(scope constructs.Construct, id *string, trafficMirrorTargetId *string) ITrafficMirrorTargetRef {
+func CfnTrafficMirrorTarget_FromTrafficMirrorTargetId(scope constructs.Construct, id *string, trafficMirrorTargetId *string) interfacesawsec2.ITrafficMirrorTargetRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrafficMirrorTarget_FromTrafficMirrorTargetIdParameters(scope, id, trafficMirrorTargetId); err != nil {
 		panic(err)
 	}
-	var returns ITrafficMirrorTargetRef
+	var returns interfacesawsec2.ITrafficMirrorTargetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorTarget",

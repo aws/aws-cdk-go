@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -221,8 +223,8 @@ import (
 //
 type CfnGatewayRoute interface {
 	awscdk.CfnResource
-	IGatewayRouteRef
 	awscdk.IInspectable
+	interfacesawsappmesh.IGatewayRouteRef
 	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the gateway route.
 	AttrArn() *string
@@ -252,12 +254,12 @@ type CfnGatewayRoute interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the gateway route.
 	GatewayRouteName() *string
 	SetGatewayRouteName(val *string)
 	// A reference to a GatewayRoute resource.
-	GatewayRouteRef() *GatewayRouteReference
+	GatewayRouteRef() *interfacesawsappmesh.GatewayRouteReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -439,8 +441,8 @@ type CfnGatewayRoute interface {
 // The jsii proxy struct for CfnGatewayRoute
 type jsiiProxy_CfnGatewayRoute struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGatewayRouteRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappmeshIGatewayRouteRef
 	internal.Type__awscdkITaggable
 }
 
@@ -564,8 +566,8 @@ func (j *jsiiProxy_CfnGatewayRoute) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGatewayRoute) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGatewayRoute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -584,8 +586,8 @@ func (j *jsiiProxy_CfnGatewayRoute) GatewayRouteName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGatewayRoute) GatewayRouteRef() *GatewayRouteReference {
-	var returns *GatewayRouteReference
+func (j *jsiiProxy_CfnGatewayRoute) GatewayRouteRef() *interfacesawsappmesh.GatewayRouteReference {
+	var returns *interfacesawsappmesh.GatewayRouteReference
 	_jsii_.Get(
 		j,
 		"gatewayRouteRef",
@@ -715,6 +717,7 @@ func (j *jsiiProxy_CfnGatewayRoute) VirtualGatewayName() *string {
 }
 
 
+// Create a new `AWS::AppMesh::GatewayRoute`.
 func NewCfnGatewayRoute(scope constructs.Construct, id *string, props *CfnGatewayRouteProps) CfnGatewayRoute {
 	_init_.Initialize()
 
@@ -732,6 +735,7 @@ func NewCfnGatewayRoute(scope constructs.Construct, id *string, props *CfnGatewa
 	return &j
 }
 
+// Create a new `AWS::AppMesh::GatewayRoute`.
 func NewCfnGatewayRoute_Override(c CfnGatewayRoute, scope constructs.Construct, id *string, props *CfnGatewayRouteProps) {
 	_init_.Initialize()
 

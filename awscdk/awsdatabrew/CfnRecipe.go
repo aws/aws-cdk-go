@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatabrew/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatabrew"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnRecipe interface {
 	awscdk.CfnResource
-	IRecipeRef
 	awscdk.IInspectable
+	interfacesawsdatabrew.IRecipeRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -71,7 +73,7 @@ type CfnRecipe interface {
 	// The description of the recipe.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -88,7 +90,7 @@ type CfnRecipe interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Recipe resource.
-	RecipeRef() *RecipeReference
+	RecipeRef() *interfacesawsdatabrew.RecipeReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -249,8 +251,8 @@ type CfnRecipe interface {
 // The jsii proxy struct for CfnRecipe
 type jsiiProxy_CfnRecipe struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRecipeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatabrewIRecipeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnRecipe) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecipe) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRecipe) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnRecipe) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecipe) RecipeRef() *RecipeReference {
-	var returns *RecipeReference
+func (j *jsiiProxy_CfnRecipe) RecipeRef() *interfacesawsdatabrew.RecipeReference {
+	var returns *interfacesawsdatabrew.RecipeReference
 	_jsii_.Get(
 		j,
 		"recipeRef",
@@ -425,6 +427,7 @@ func (j *jsiiProxy_CfnRecipe) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataBrew::Recipe`.
 func NewCfnRecipe(scope constructs.Construct, id *string, props *CfnRecipeProps) CfnRecipe {
 	_init_.Initialize()
 
@@ -442,6 +445,7 @@ func NewCfnRecipe(scope constructs.Construct, id *string, props *CfnRecipeProps)
 	return &j
 }
 
+// Create a new `AWS::DataBrew::Recipe`.
 func NewCfnRecipe_Override(c CfnRecipe, scope constructs.Construct, id *string, props *CfnRecipeProps) {
 	_init_.Initialize()
 

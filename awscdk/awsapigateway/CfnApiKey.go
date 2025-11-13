@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,11 +45,11 @@ import (
 //
 type CfnApiKey interface {
 	awscdk.CfnResource
-	IApiKeyRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IApiKeyRef
 	awscdk.ITaggable
 	// A reference to a ApiKey resource.
-	ApiKeyRef() *ApiKeyReference
+	ApiKeyRef() *interfacesawsapigateway.ApiKeyReference
 	// The ID for the API key.
 	//
 	// For example: `abc123` .
@@ -70,7 +72,7 @@ type CfnApiKey interface {
 	// Specifies whether the ApiKey can be used by callers.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value.
 	GenerateDistinctId() interface{}
 	SetGenerateDistinctId(val interface{})
@@ -252,13 +254,13 @@ type CfnApiKey interface {
 // The jsii proxy struct for CfnApiKey
 type jsiiProxy_CfnApiKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApiKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIApiKeyRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnApiKey) ApiKeyRef() *ApiKeyReference {
-	var returns *ApiKeyReference
+func (j *jsiiProxy_CfnApiKey) ApiKeyRef() *interfacesawsapigateway.ApiKeyReference {
+	var returns *interfacesawsapigateway.ApiKeyReference
 	_jsii_.Get(
 		j,
 		"apiKeyRef",
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnApiKey) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApiKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -478,6 +480,7 @@ func (j *jsiiProxy_CfnApiKey) Value() *string {
 }
 
 
+// Create a new `AWS::ApiGateway::ApiKey`.
 func NewCfnApiKey(scope constructs.Construct, id *string, props *CfnApiKeyProps) CfnApiKey {
 	_init_.Initialize()
 
@@ -495,6 +498,7 @@ func NewCfnApiKey(scope constructs.Construct, id *string, props *CfnApiKeyProps)
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::ApiKey`.
 func NewCfnApiKey_Override(c CfnApiKey, scope constructs.Construct, id *string, props *CfnApiKeyProps) {
 	_init_.Initialize()
 
@@ -582,13 +586,13 @@ func (j *jsiiProxy_CfnApiKey)SetValue(val *string) {
 }
 
 // Creates a new IApiKeyRef from a apiKeyId.
-func CfnApiKey_FromApiKeyId(scope constructs.Construct, id *string, apiKeyId *string) IApiKeyRef {
+func CfnApiKey_FromApiKeyId(scope constructs.Construct, id *string, apiKeyId *string) interfacesawsapigateway.IApiKeyRef {
 	_init_.Initialize()
 
 	if err := validateCfnApiKey_FromApiKeyIdParameters(scope, id, apiKeyId); err != nil {
 		panic(err)
 	}
-	var returns IApiKeyRef
+	var returns interfacesawsapigateway.IApiKeyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigateway.CfnApiKey",

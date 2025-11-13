@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssso/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssso"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,10 +33,10 @@ import (
 //
 type CfnAssignment interface {
 	awscdk.CfnResource
-	IAssignmentRef
 	awscdk.IInspectable
+	interfacesawssso.IAssignmentRef
 	// A reference to a Assignment resource.
-	AssignmentRef() *AssignmentReference
+	AssignmentRef() *interfacesawssso.AssignmentReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -44,7 +46,7 @@ type CfnAssignment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the IAM Identity Center instance under which the operation will be executed.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -227,12 +229,12 @@ type CfnAssignment interface {
 // The jsii proxy struct for CfnAssignment
 type jsiiProxy_CfnAssignment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssignmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssoIAssignmentRef
 }
 
-func (j *jsiiProxy_CfnAssignment) AssignmentRef() *AssignmentReference {
-	var returns *AssignmentReference
+func (j *jsiiProxy_CfnAssignment) AssignmentRef() *interfacesawssso.AssignmentReference {
+	var returns *interfacesawssso.AssignmentReference
 	_jsii_.Get(
 		j,
 		"assignmentRef",
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnAssignment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssignment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAssignment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -412,6 +414,7 @@ func (j *jsiiProxy_CfnAssignment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SSO::Assignment`.
 func NewCfnAssignment(scope constructs.Construct, id *string, props *CfnAssignmentProps) CfnAssignment {
 	_init_.Initialize()
 
@@ -429,6 +432,7 @@ func NewCfnAssignment(scope constructs.Construct, id *string, props *CfnAssignme
 	return &j
 }
 
+// Create a new `AWS::SSO::Assignment`.
 func NewCfnAssignment_Override(c CfnAssignment, scope constructs.Construct, id *string, props *CfnAssignmentProps) {
 	_init_.Initialize()
 

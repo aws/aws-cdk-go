@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnServiceAction interface {
 	awscdk.CfnResource
-	IServiceActionRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.IServiceActionRef
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
@@ -62,7 +64,7 @@ type CfnServiceAction interface {
 	// The self-service action description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnServiceAction interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ServiceAction resource.
-	ServiceActionRef() *ServiceActionReference
+	ServiceActionRef() *interfacesawsservicecatalog.ServiceActionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -232,8 +234,8 @@ type CfnServiceAction interface {
 // The jsii proxy struct for CfnServiceAction
 type jsiiProxy_CfnServiceAction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceActionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogIServiceActionRef
 }
 
 func (j *jsiiProxy_CfnServiceAction) AcceptLanguage() *string {
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnServiceAction) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceAction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceAction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnServiceAction) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceAction) ServiceActionRef() *ServiceActionReference {
-	var returns *ServiceActionReference
+func (j *jsiiProxy_CfnServiceAction) ServiceActionRef() *interfacesawsservicecatalog.ServiceActionReference {
+	var returns *interfacesawsservicecatalog.ServiceActionReference
 	_jsii_.Get(
 		j,
 		"serviceActionRef",
@@ -417,6 +419,7 @@ func (j *jsiiProxy_CfnServiceAction) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::ServiceCatalog::ServiceAction`.
 func NewCfnServiceAction(scope constructs.Construct, id *string, props *CfnServiceActionProps) CfnServiceAction {
 	_init_.Initialize()
 
@@ -434,6 +437,7 @@ func NewCfnServiceAction(scope constructs.Construct, id *string, props *CfnServi
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::ServiceAction`.
 func NewCfnServiceAction_Override(c CfnServiceAction, scope constructs.Construct, id *string, props *CfnServiceActionProps) {
 	_init_.Initialize()
 

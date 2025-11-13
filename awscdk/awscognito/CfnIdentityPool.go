@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnIdentityPool interface {
 	awscdk.CfnResource
-	IIdentityPoolRef
 	awscdk.IInspectable
+	interfacesawscognito.IIdentityPoolRef
 	awscdk.ITaggableV2
 	// Enables the Basic (Classic) authentication flow.
 	AllowClassicFlow() interface{}
@@ -65,12 +67,12 @@ type CfnIdentityPool interface {
 	// The "domain" Amazon Cognito uses when referencing your users.
 	DeveloperProviderName() *string
 	SetDeveloperProviderName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of your Amazon Cognito identity pool.
 	IdentityPoolName() *string
 	SetIdentityPoolName(val *string)
 	// A reference to a IdentityPool resource.
-	IdentityPoolRef() *IdentityPoolReference
+	IdentityPoolRef() *interfacesawscognito.IdentityPoolReference
 	// Tags to assign to the identity pool.
 	IdentityPoolTags() *[]*awscdk.CfnTag
 	SetIdentityPoolTags(val *[]*awscdk.CfnTag)
@@ -250,8 +252,8 @@ type CfnIdentityPool interface {
 // The jsii proxy struct for CfnIdentityPool
 type jsiiProxy_CfnIdentityPool struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdentityPoolRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIIdentityPoolRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnIdentityPool) DeveloperProviderName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPool) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdentityPool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -405,8 +407,8 @@ func (j *jsiiProxy_CfnIdentityPool) IdentityPoolName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPool) IdentityPoolRef() *IdentityPoolReference {
-	var returns *IdentityPoolReference
+func (j *jsiiProxy_CfnIdentityPool) IdentityPoolRef() *interfacesawscognito.IdentityPoolReference {
+	var returns *interfacesawscognito.IdentityPoolReference
 	_jsii_.Get(
 		j,
 		"identityPoolRef",
@@ -526,6 +528,7 @@ func (j *jsiiProxy_CfnIdentityPool) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Cognito::IdentityPool`.
 func NewCfnIdentityPool(scope constructs.Construct, id *string, props *CfnIdentityPoolProps) CfnIdentityPool {
 	_init_.Initialize()
 
@@ -543,6 +546,7 @@ func NewCfnIdentityPool(scope constructs.Construct, id *string, props *CfnIdenti
 	return &j
 }
 
+// Create a new `AWS::Cognito::IdentityPool`.
 func NewCfnIdentityPool_Override(c CfnIdentityPool, scope constructs.Construct, id *string, props *CfnIdentityPoolProps) {
 	_init_.Initialize()
 
@@ -668,13 +672,13 @@ func (j *jsiiProxy_CfnIdentityPool)SetSupportedLoginProviders(val interface{}) {
 }
 
 // Creates a new IIdentityPoolRef from a identityPoolId.
-func CfnIdentityPool_FromIdentityPoolId(scope constructs.Construct, id *string, identityPoolId *string) IIdentityPoolRef {
+func CfnIdentityPool_FromIdentityPoolId(scope constructs.Construct, id *string, identityPoolId *string) interfacesawscognito.IIdentityPoolRef {
 	_init_.Initialize()
 
 	if err := validateCfnIdentityPool_FromIdentityPoolIdParameters(scope, id, identityPoolId); err != nil {
 		panic(err)
 	}
-	var returns IIdentityPoolRef
+	var returns interfacesawscognito.IIdentityPoolRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cognito.CfnIdentityPool",

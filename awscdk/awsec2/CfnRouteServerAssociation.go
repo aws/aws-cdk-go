@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnRouteServerAssociation interface {
 	awscdk.CfnResource
-	IRouteServerAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.IRouteServerAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnRouteServerAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -57,7 +59,7 @@ type CfnRouteServerAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RouteServerAssociation resource.
-	RouteServerAssociationRef() *RouteServerAssociationReference
+	RouteServerAssociationRef() *interfacesawsec2.RouteServerAssociationReference
 	// The ID of the associated route server.
 	RouteServerId() *string
 	SetRouteServerId(val *string)
@@ -211,8 +213,8 @@ type CfnRouteServerAssociation interface {
 // The jsii proxy struct for CfnRouteServerAssociation
 type jsiiProxy_CfnRouteServerAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteServerAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IRouteServerAssociationRef
 }
 
 func (j *jsiiProxy_CfnRouteServerAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -255,8 +257,8 @@ func (j *jsiiProxy_CfnRouteServerAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServerAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRouteServerAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -295,8 +297,8 @@ func (j *jsiiProxy_CfnRouteServerAssociation) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServerAssociation) RouteServerAssociationRef() *RouteServerAssociationReference {
-	var returns *RouteServerAssociationReference
+func (j *jsiiProxy_CfnRouteServerAssociation) RouteServerAssociationRef() *interfacesawsec2.RouteServerAssociationReference {
+	var returns *interfacesawsec2.RouteServerAssociationReference
 	_jsii_.Get(
 		j,
 		"routeServerAssociationRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnRouteServerAssociation) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::RouteServerAssociation`.
 func NewCfnRouteServerAssociation(scope constructs.Construct, id *string, props *CfnRouteServerAssociationProps) CfnRouteServerAssociation {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnRouteServerAssociation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::EC2::RouteServerAssociation`.
 func NewCfnRouteServerAssociation_Override(c CfnRouteServerAssociation, scope constructs.Construct, id *string, props *CfnRouteServerAssociationProps) {
 	_init_.Initialize()
 

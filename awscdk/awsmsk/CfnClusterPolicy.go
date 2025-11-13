@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmsk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmsk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnClusterPolicy interface {
 	awscdk.CfnResource
-	IClusterPolicyRef
 	awscdk.IInspectable
+	interfacesawsmsk.IClusterPolicyRef
 	// The current version of the policy attached to the specified cluster.
 	AttrCurrentVersion() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -40,12 +42,12 @@ type CfnClusterPolicy interface {
 	ClusterArn() *string
 	SetClusterArn(val *string)
 	// A reference to a ClusterPolicy resource.
-	ClusterPolicyRef() *ClusterPolicyReference
+	ClusterPolicyRef() *interfacesawsmsk.ClusterPolicyReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,8 +215,8 @@ type CfnClusterPolicy interface {
 // The jsii proxy struct for CfnClusterPolicy
 type jsiiProxy_CfnClusterPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmskIClusterPolicyRef
 }
 
 func (j *jsiiProxy_CfnClusterPolicy) AttrCurrentVersion() *string {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnClusterPolicy) ClusterArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterPolicy) ClusterPolicyRef() *ClusterPolicyReference {
-	var returns *ClusterPolicyReference
+func (j *jsiiProxy_CfnClusterPolicy) ClusterPolicyRef() *interfacesawsmsk.ClusterPolicyReference {
+	var returns *interfacesawsmsk.ClusterPolicyReference
 	_jsii_.Get(
 		j,
 		"clusterPolicyRef",
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnClusterPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClusterPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnClusterPolicy) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::MSK::ClusterPolicy`.
 func NewCfnClusterPolicy(scope constructs.Construct, id *string, props *CfnClusterPolicyProps) CfnClusterPolicy {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnClusterPolicy(scope constructs.Construct, id *string, props *CfnClust
 	return &j
 }
 
+// Create a new `AWS::MSK::ClusterPolicy`.
 func NewCfnClusterPolicy_Override(c CfnClusterPolicy, scope constructs.Construct, id *string, props *CfnClusterPolicyProps) {
 	_init_.Initialize()
 

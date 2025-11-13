@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnPlaybackKeyPair interface {
 	awscdk.CfnResource
-	IPlaybackKeyPairRef
 	awscdk.IInspectable
+	interfacesawsivs.IPlaybackKeyPairRef
 	awscdk.ITaggable
 	// Key-pair ARN.
 	//
@@ -53,7 +55,7 @@ type CfnPlaybackKeyPair interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -70,7 +72,7 @@ type CfnPlaybackKeyPair interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PlaybackKeyPair resource.
-	PlaybackKeyPairRef() *PlaybackKeyPairReference
+	PlaybackKeyPairRef() *interfacesawsivs.PlaybackKeyPairReference
 	// The public portion of a customer-generated key pair.
 	PublicKeyMaterial() *string
 	SetPublicKeyMaterial(val *string)
@@ -231,8 +233,8 @@ type CfnPlaybackKeyPair interface {
 // The jsii proxy struct for CfnPlaybackKeyPair
 type jsiiProxy_CfnPlaybackKeyPair struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPlaybackKeyPairRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivsIPlaybackKeyPairRef
 	internal.Type__awscdkITaggable
 }
 
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnPlaybackKeyPair) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaybackKeyPair) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPlaybackKeyPair) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnPlaybackKeyPair) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaybackKeyPair) PlaybackKeyPairRef() *PlaybackKeyPairReference {
-	var returns *PlaybackKeyPairReference
+func (j *jsiiProxy_CfnPlaybackKeyPair) PlaybackKeyPairRef() *interfacesawsivs.PlaybackKeyPairReference {
+	var returns *interfacesawsivs.PlaybackKeyPairReference
 	_jsii_.Get(
 		j,
 		"playbackKeyPairRef",
@@ -417,6 +419,7 @@ func (j *jsiiProxy_CfnPlaybackKeyPair) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::IVS::PlaybackKeyPair`.
 func NewCfnPlaybackKeyPair(scope constructs.Construct, id *string, props *CfnPlaybackKeyPairProps) CfnPlaybackKeyPair {
 	_init_.Initialize()
 
@@ -434,6 +437,7 @@ func NewCfnPlaybackKeyPair(scope constructs.Construct, id *string, props *CfnPla
 	return &j
 }
 
+// Create a new `AWS::IVS::PlaybackKeyPair`.
 func NewCfnPlaybackKeyPair_Override(c CfnPlaybackKeyPair, scope constructs.Construct, id *string, props *CfnPlaybackKeyPairProps) {
 	_init_.Initialize()
 

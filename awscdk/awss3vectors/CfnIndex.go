@@ -6,10 +6,35 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3vectors/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3vectors"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::S3Vectors::Index.
+// The `AWS::S3Vectors::Index` resource defines a vector index within an Amazon S3 vector bucket.
+//
+// For more information, see [Creating a vector index in a vector bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-create-index.html) in the *Amazon Simple Storage Service User Guide* .
+//
+// You must specify either `VectorBucketName` or `VectorBucketArn` to identify the bucket that contains the index.
+//
+// To control how AWS CloudFormation handles the vector index when the stack is deleted, you can set a deletion policy for your index. You can choose to *retain* the index or to *delete* the index. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
+//
+// - **Permissions** - The required permissions for CloudFormation to use are based on the operations that are performed on the stack.
+//
+// - Create
+//
+// - s3vectors:CreateIndex
+// - s3vectors:GetIndex
+// - Read
+//
+// - s3vectors:GetIndex
+// - Delete
+//
+// - s3vectors:DeleteIndex
+// - s3vectors:GetIndex
+// - List
+//
+// - s3vectors:ListIndexes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,11 +61,15 @@ import (
 //
 type CfnIndex interface {
 	awscdk.CfnResource
-	IIndexRef
 	awscdk.IInspectable
-	// Date and time when the vector index was created.
+	interfacesawss3vectors.IIndexRef
+	// Returns the date and time when the vector index was created.
+	//
+	// Example: `2024-12-21T10:30:00Z`.
 	AttrCreationTime() *string
-	// The Amazon Resource Name (ARN) of the index.
+	// Returns the Amazon Resource Name (ARN) of the specified index.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`.
 	AttrIndexArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -58,14 +87,16 @@ type CfnIndex interface {
 	Dimension() *float64
 	SetDimension(val *float64)
 	// The distance metric to be used for similarity search.
+	//
+	// Valid values are:.
 	DistanceMetric() *string
 	SetDistanceMetric(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the vector index to create.
 	IndexName() *string
 	SetIndexName(val *string)
 	// A reference to a Index resource.
-	IndexRef() *IndexReference
+	IndexRef() *interfacesawss3vectors.IndexReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -103,7 +134,7 @@ type CfnIndex interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The Amazon Resource Name (ARN) of the vector bucket.
+	// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
 	VectorBucketArn() *string
 	SetVectorBucketArn(val *string)
 	// The name of the vector bucket that contains the vector index.
@@ -239,8 +270,8 @@ type CfnIndex interface {
 // The jsii proxy struct for CfnIndex
 type jsiiProxy_CfnIndex struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIndexRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3vectorsIIndexRef
 }
 
 func (j *jsiiProxy_CfnIndex) AttrCreationTime() *string {
@@ -333,8 +364,8 @@ func (j *jsiiProxy_CfnIndex) DistanceMetric() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIndex) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -353,8 +384,8 @@ func (j *jsiiProxy_CfnIndex) IndexName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) IndexRef() *IndexReference {
-	var returns *IndexReference
+func (j *jsiiProxy_CfnIndex) IndexRef() *interfacesawss3vectors.IndexReference {
+	var returns *interfacesawss3vectors.IndexReference
 	_jsii_.Get(
 		j,
 		"indexRef",
@@ -454,6 +485,7 @@ func (j *jsiiProxy_CfnIndex) VectorBucketName() *string {
 }
 
 
+// Create a new `AWS::S3Vectors::Index`.
 func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) CfnIndex {
 	_init_.Initialize()
 
@@ -471,6 +503,7 @@ func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) C
 	return &j
 }
 
+// Create a new `AWS::S3Vectors::Index`.
 func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, props *CfnIndexProps) {
 	_init_.Initialize()
 

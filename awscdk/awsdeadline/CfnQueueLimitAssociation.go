@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnQueueLimitAssociation interface {
 	awscdk.CfnResource
-	IQueueLimitAssociationRef
 	awscdk.IInspectable
+	interfacesawsdeadline.IQueueLimitAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -39,7 +41,7 @@ type CfnQueueLimitAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the farm that contains the queue-limit association.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -62,7 +64,7 @@ type CfnQueueLimitAssociation interface {
 	QueueId() *string
 	SetQueueId(val *string)
 	// A reference to a QueueLimitAssociation resource.
-	QueueLimitAssociationRef() *QueueLimitAssociationReference
+	QueueLimitAssociationRef() *interfacesawsdeadline.QueueLimitAssociationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -215,8 +217,8 @@ type CfnQueueLimitAssociation interface {
 // The jsii proxy struct for CfnQueueLimitAssociation
 type jsiiProxy_CfnQueueLimitAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueueLimitAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineIQueueLimitAssociationRef
 }
 
 func (j *jsiiProxy_CfnQueueLimitAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -259,8 +261,8 @@ func (j *jsiiProxy_CfnQueueLimitAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueueLimitAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueueLimitAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnQueueLimitAssociation) QueueId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueueLimitAssociation) QueueLimitAssociationRef() *QueueLimitAssociationReference {
-	var returns *QueueLimitAssociationReference
+func (j *jsiiProxy_CfnQueueLimitAssociation) QueueLimitAssociationRef() *interfacesawsdeadline.QueueLimitAssociationReference {
+	var returns *interfacesawsdeadline.QueueLimitAssociationReference
 	_jsii_.Get(
 		j,
 		"queueLimitAssociationRef",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnQueueLimitAssociation) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::Deadline::QueueLimitAssociation`.
 func NewCfnQueueLimitAssociation(scope constructs.Construct, id *string, props *CfnQueueLimitAssociationProps) CfnQueueLimitAssociation {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnQueueLimitAssociation(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Deadline::QueueLimitAssociation`.
 func NewCfnQueueLimitAssociation_Override(c CfnQueueLimitAssociation, scope constructs.Construct, id *string, props *CfnQueueLimitAssociationProps) {
 	_init_.Initialize()
 

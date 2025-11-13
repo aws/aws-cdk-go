@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnRouteServerPeer interface {
 	awscdk.CfnResource
-	IRouteServerPeerRef
 	awscdk.IInspectable
+	interfacesawsec2.IRouteServerPeerRef
 	awscdk.ITaggableV2
 	// The ARN of the route server peer.
 	AttrArn() *string
@@ -70,7 +72,7 @@ type CfnRouteServerPeer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -95,7 +97,7 @@ type CfnRouteServerPeer interface {
 	RouteServerEndpointId() *string
 	SetRouteServerEndpointId(val *string)
 	// A reference to a RouteServerPeer resource.
-	RouteServerPeerRef() *RouteServerPeerReference
+	RouteServerPeerRef() *interfacesawsec2.RouteServerPeerReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -246,8 +248,8 @@ type CfnRouteServerPeer interface {
 // The jsii proxy struct for CfnRouteServerPeer
 type jsiiProxy_CfnRouteServerPeer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteServerPeerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IRouteServerPeerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnRouteServerPeer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServerPeer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRouteServerPeer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -441,8 +443,8 @@ func (j *jsiiProxy_CfnRouteServerPeer) RouteServerEndpointId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServerPeer) RouteServerPeerRef() *RouteServerPeerReference {
-	var returns *RouteServerPeerReference
+func (j *jsiiProxy_CfnRouteServerPeer) RouteServerPeerRef() *interfacesawsec2.RouteServerPeerReference {
+	var returns *interfacesawsec2.RouteServerPeerReference
 	_jsii_.Get(
 		j,
 		"routeServerPeerRef",
@@ -492,6 +494,7 @@ func (j *jsiiProxy_CfnRouteServerPeer) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::EC2::RouteServerPeer`.
 func NewCfnRouteServerPeer(scope constructs.Construct, id *string, props *CfnRouteServerPeerProps) CfnRouteServerPeer {
 	_init_.Initialize()
 
@@ -509,6 +512,7 @@ func NewCfnRouteServerPeer(scope constructs.Construct, id *string, props *CfnRou
 	return &j
 }
 
+// Create a new `AWS::EC2::RouteServerPeer`.
 func NewCfnRouteServerPeer_Override(c CfnRouteServerPeer, scope constructs.Construct, id *string, props *CfnRouteServerPeerProps) {
 	_init_.Initialize()
 
@@ -564,13 +568,13 @@ func (j *jsiiProxy_CfnRouteServerPeer)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IRouteServerPeerRef from an ARN.
-func CfnRouteServerPeer_FromRouteServerPeerArn(scope constructs.Construct, id *string, arn *string) IRouteServerPeerRef {
+func CfnRouteServerPeer_FromRouteServerPeerArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IRouteServerPeerRef {
 	_init_.Initialize()
 
 	if err := validateCfnRouteServerPeer_FromRouteServerPeerArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IRouteServerPeerRef
+	var returns interfacesawsec2.IRouteServerPeerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnRouteServerPeer",
@@ -583,13 +587,13 @@ func CfnRouteServerPeer_FromRouteServerPeerArn(scope constructs.Construct, id *s
 }
 
 // Creates a new IRouteServerPeerRef from a routeServerPeerId.
-func CfnRouteServerPeer_FromRouteServerPeerId(scope constructs.Construct, id *string, routeServerPeerId *string) IRouteServerPeerRef {
+func CfnRouteServerPeer_FromRouteServerPeerId(scope constructs.Construct, id *string, routeServerPeerId *string) interfacesawsec2.IRouteServerPeerRef {
 	_init_.Initialize()
 
 	if err := validateCfnRouteServerPeer_FromRouteServerPeerIdParameters(scope, id, routeServerPeerId); err != nil {
 		panic(err)
 	}
-	var returns IRouteServerPeerRef
+	var returns interfacesawsec2.IRouteServerPeerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnRouteServerPeer",

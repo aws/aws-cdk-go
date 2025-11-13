@@ -3,6 +3,7 @@ package awscdk
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -10,7 +11,7 @@ import (
 // Interface for L2 Resource constructs.
 type IResource interface {
 	constructs.IConstruct
-	IEnvironmentAware
+	interfaces.IEnvironmentAware
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -28,7 +29,7 @@ type IResource interface {
 // The jsii proxy for IResource
 type jsiiProxy_IResource struct {
 	internal.Type__constructsIConstruct
-	jsiiProxy_IEnvironmentAware
+	internal.Type__interfacesIEnvironmentAware
 }
 
 func (i *jsiiProxy_IResource) ApplyRemovalPolicy(policy RemovalPolicy) {
@@ -52,8 +53,8 @@ func (j *jsiiProxy_IResource) Stack() Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IResource) Env() *ResourceEnvironment {
-	var returns *ResourceEnvironment
+func (j *jsiiProxy_IResource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

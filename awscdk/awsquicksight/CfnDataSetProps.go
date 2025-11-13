@@ -7,331 +7,7 @@ import (
 // Properties for defining a `CfnDataSet`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tagRuleConfigurations interface{}
-//
-//   cfnDataSetProps := &CfnDataSetProps{
-//   	AwsAccountId: jsii.String("awsAccountId"),
-//   	ColumnGroups: []interface{}{
-//   		&ColumnGroupProperty{
-//   			GeoSpatialColumnGroup: &GeoSpatialColumnGroupProperty{
-//   				Columns: []*string{
-//   					jsii.String("columns"),
-//   				},
-//   				Name: jsii.String("name"),
-//
-//   				// the properties below are optional
-//   				CountryCode: jsii.String("countryCode"),
-//   			},
-//   		},
-//   	},
-//   	ColumnLevelPermissionRules: []interface{}{
-//   		&ColumnLevelPermissionRuleProperty{
-//   			ColumnNames: []*string{
-//   				jsii.String("columnNames"),
-//   			},
-//   			Principals: []*string{
-//   				jsii.String("principals"),
-//   			},
-//   		},
-//   	},
-//   	DataSetId: jsii.String("dataSetId"),
-//   	DatasetParameters: []interface{}{
-//   		&DatasetParameterProperty{
-//   			DateTimeDatasetParameter: &DateTimeDatasetParameterProperty{
-//   				Id: jsii.String("id"),
-//   				Name: jsii.String("name"),
-//   				ValueType: jsii.String("valueType"),
-//
-//   				// the properties below are optional
-//   				DefaultValues: &DateTimeDatasetParameterDefaultValuesProperty{
-//   					StaticValues: []*string{
-//   						jsii.String("staticValues"),
-//   					},
-//   				},
-//   				TimeGranularity: jsii.String("timeGranularity"),
-//   			},
-//   			DecimalDatasetParameter: &DecimalDatasetParameterProperty{
-//   				Id: jsii.String("id"),
-//   				Name: jsii.String("name"),
-//   				ValueType: jsii.String("valueType"),
-//
-//   				// the properties below are optional
-//   				DefaultValues: &DecimalDatasetParameterDefaultValuesProperty{
-//   					StaticValues: []interface{}{
-//   						jsii.Number(123),
-//   					},
-//   				},
-//   			},
-//   			IntegerDatasetParameter: &IntegerDatasetParameterProperty{
-//   				Id: jsii.String("id"),
-//   				Name: jsii.String("name"),
-//   				ValueType: jsii.String("valueType"),
-//
-//   				// the properties below are optional
-//   				DefaultValues: &IntegerDatasetParameterDefaultValuesProperty{
-//   					StaticValues: []interface{}{
-//   						jsii.Number(123),
-//   					},
-//   				},
-//   			},
-//   			StringDatasetParameter: &StringDatasetParameterProperty{
-//   				Id: jsii.String("id"),
-//   				Name: jsii.String("name"),
-//   				ValueType: jsii.String("valueType"),
-//
-//   				// the properties below are optional
-//   				DefaultValues: &StringDatasetParameterDefaultValuesProperty{
-//   					StaticValues: []*string{
-//   						jsii.String("staticValues"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
-//   	DataSetRefreshProperties: &DataSetRefreshPropertiesProperty{
-//   		FailureConfiguration: &RefreshFailureConfigurationProperty{
-//   			EmailAlert: &RefreshFailureEmailAlertProperty{
-//   				AlertStatus: jsii.String("alertStatus"),
-//   			},
-//   		},
-//   		RefreshConfiguration: &RefreshConfigurationProperty{
-//   			IncrementalRefresh: &IncrementalRefreshProperty{
-//   				LookbackWindow: &LookbackWindowProperty{
-//   					ColumnName: jsii.String("columnName"),
-//   					Size: jsii.Number(123),
-//   					SizeUnit: jsii.String("sizeUnit"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	DataSetUsageConfiguration: &DataSetUsageConfigurationProperty{
-//   		DisableUseAsDirectQuerySource: jsii.Boolean(false),
-//   		DisableUseAsImportedSource: jsii.Boolean(false),
-//   	},
-//   	FieldFolders: map[string]interface{}{
-//   		"fieldFoldersKey": &FieldFolderProperty{
-//   			"columns": []*string{
-//   				jsii.String("columns"),
-//   			},
-//   			"description": jsii.String("description"),
-//   		},
-//   	},
-//   	FolderArns: []*string{
-//   		jsii.String("folderArns"),
-//   	},
-//   	ImportMode: jsii.String("importMode"),
-//   	IngestionWaitPolicy: &IngestionWaitPolicyProperty{
-//   		IngestionWaitTimeInHours: jsii.Number(123),
-//   		WaitForSpiceIngestion: jsii.Boolean(false),
-//   	},
-//   	LogicalTableMap: map[string]interface{}{
-//   		"logicalTableMapKey": &LogicalTableProperty{
-//   			"alias": jsii.String("alias"),
-//
-//   			// the properties below are optional
-//   			"dataTransforms": []interface{}{
-//   				&TransformOperationProperty{
-//   					"castColumnTypeOperation": &CastColumnTypeOperationProperty{
-//   						"newColumnType": jsii.String("newColumnType"),
-//
-//   						// the properties below are optional
-//   						"columnName": jsii.String("columnName"),
-//   						"format": jsii.String("format"),
-//   						"subType": jsii.String("subType"),
-//   					},
-//   					"createColumnsOperation": &CreateColumnsOperationProperty{
-//   						"columns": []interface{}{
-//   							&CalculatedColumnProperty{
-//   								"columnId": jsii.String("columnId"),
-//   								"columnName": jsii.String("columnName"),
-//   								"expression": jsii.String("expression"),
-//   							},
-//   						},
-//   					},
-//   					"filterOperation": &FilterOperationProperty{
-//   						"conditionExpression": jsii.String("conditionExpression"),
-//   					},
-//   					"overrideDatasetParameterOperation": &OverrideDatasetParameterOperationProperty{
-//   						"parameterName": jsii.String("parameterName"),
-//
-//   						// the properties below are optional
-//   						"newDefaultValues": &NewDefaultValuesProperty{
-//   							"dateTimeStaticValues": []*string{
-//   								jsii.String("dateTimeStaticValues"),
-//   							},
-//   							"decimalStaticValues": []interface{}{
-//   								jsii.Number(123),
-//   							},
-//   							"integerStaticValues": []interface{}{
-//   								jsii.Number(123),
-//   							},
-//   							"stringStaticValues": []*string{
-//   								jsii.String("stringStaticValues"),
-//   							},
-//   						},
-//   						"newParameterName": jsii.String("newParameterName"),
-//   					},
-//   					"projectOperation": &ProjectOperationProperty{
-//   						"projectedColumns": []*string{
-//   							jsii.String("projectedColumns"),
-//   						},
-//   					},
-//   					"renameColumnOperation": &RenameColumnOperationProperty{
-//   						"columnName": jsii.String("columnName"),
-//   						"newColumnName": jsii.String("newColumnName"),
-//   					},
-//   					"tagColumnOperation": &TagColumnOperationProperty{
-//   						"columnName": jsii.String("columnName"),
-//   						"tags": []ColumnTagProperty{
-//   							&ColumnTagProperty{
-//   								"columnDescription": &ColumnDescriptionProperty{
-//   									"text": jsii.String("text"),
-//   								},
-//   								"columnGeographicRole": jsii.String("columnGeographicRole"),
-//   							},
-//   						},
-//   					},
-//   					"untagColumnOperation": &UntagColumnOperationProperty{
-//   						"columnName": jsii.String("columnName"),
-//   						"tagNames": []*string{
-//   							jsii.String("tagNames"),
-//   						},
-//   					},
-//   				},
-//   			},
-//   			"source": &LogicalTableSourceProperty{
-//   				"dataSetArn": jsii.String("dataSetArn"),
-//   				"joinInstruction": &JoinInstructionProperty{
-//   					"leftOperand": jsii.String("leftOperand"),
-//   					"onClause": jsii.String("onClause"),
-//   					"rightOperand": jsii.String("rightOperand"),
-//   					"type": jsii.String("type"),
-//
-//   					// the properties below are optional
-//   					"leftJoinKeyProperties": &JoinKeyPropertiesProperty{
-//   						"uniqueKey": jsii.Boolean(false),
-//   					},
-//   					"rightJoinKeyProperties": &JoinKeyPropertiesProperty{
-//   						"uniqueKey": jsii.Boolean(false),
-//   					},
-//   				},
-//   				"physicalTableId": jsii.String("physicalTableId"),
-//   			},
-//   		},
-//   	},
-//   	Name: jsii.String("name"),
-//   	PerformanceConfiguration: &PerformanceConfigurationProperty{
-//   		UniqueKeys: []interface{}{
-//   			&UniqueKeyProperty{
-//   				ColumnNames: []*string{
-//   					jsii.String("columnNames"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	Permissions: []interface{}{
-//   		&ResourcePermissionProperty{
-//   			Actions: []*string{
-//   				jsii.String("actions"),
-//   			},
-//   			Principal: jsii.String("principal"),
-//   		},
-//   	},
-//   	PhysicalTableMap: map[string]interface{}{
-//   		"physicalTableMapKey": &PhysicalTableProperty{
-//   			"customSql": &CustomSqlProperty{
-//   				"dataSourceArn": jsii.String("dataSourceArn"),
-//   				"name": jsii.String("name"),
-//   				"sqlQuery": jsii.String("sqlQuery"),
-//
-//   				// the properties below are optional
-//   				"columns": []interface{}{
-//   					&InputColumnProperty{
-//   						"name": jsii.String("name"),
-//   						"type": jsii.String("type"),
-//
-//   						// the properties below are optional
-//   						"subType": jsii.String("subType"),
-//   					},
-//   				},
-//   			},
-//   			"relationalTable": &RelationalTableProperty{
-//   				"dataSourceArn": jsii.String("dataSourceArn"),
-//   				"name": jsii.String("name"),
-//
-//   				// the properties below are optional
-//   				"catalog": jsii.String("catalog"),
-//   				"inputColumns": []interface{}{
-//   					&InputColumnProperty{
-//   						"name": jsii.String("name"),
-//   						"type": jsii.String("type"),
-//
-//   						// the properties below are optional
-//   						"subType": jsii.String("subType"),
-//   					},
-//   				},
-//   				"schema": jsii.String("schema"),
-//   			},
-//   			"s3Source": &S3SourceProperty{
-//   				"dataSourceArn": jsii.String("dataSourceArn"),
-//
-//   				// the properties below are optional
-//   				"inputColumns": []interface{}{
-//   					&InputColumnProperty{
-//   						"name": jsii.String("name"),
-//   						"type": jsii.String("type"),
-//
-//   						// the properties below are optional
-//   						"subType": jsii.String("subType"),
-//   					},
-//   				},
-//   				"uploadSettings": &UploadSettingsProperty{
-//   					"containsHeader": jsii.Boolean(false),
-//   					"delimiter": jsii.String("delimiter"),
-//   					"format": jsii.String("format"),
-//   					"startFromRow": jsii.Number(123),
-//   					"textQualifier": jsii.String("textQualifier"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	RowLevelPermissionDataSet: &RowLevelPermissionDataSetProperty{
-//   		Arn: jsii.String("arn"),
-//   		PermissionPolicy: jsii.String("permissionPolicy"),
-//
-//   		// the properties below are optional
-//   		FormatVersion: jsii.String("formatVersion"),
-//   		Namespace: jsii.String("namespace"),
-//   		Status: jsii.String("status"),
-//   	},
-//   	RowLevelPermissionTagConfiguration: &RowLevelPermissionTagConfigurationProperty{
-//   		TagRules: []interface{}{
-//   			&RowLevelPermissionTagRuleProperty{
-//   				TagKey: jsii.String("tagKey"),
-//
-//   				// the properties below are optional
-//   				ColumnName: jsii.String("columnName"),
-//   				MatchAllValue: jsii.String("matchAllValue"),
-//   				TagMultiValueDelimiter: jsii.String("tagMultiValueDelimiter"),
-//   			},
-//   		},
-//
-//   		// the properties below are optional
-//   		Status: jsii.String("status"),
-//   		TagRuleConfigurations: tagRuleConfigurations,
-//   	},
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	UseAs: jsii.String("useAs"),
-//   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
 //
@@ -350,6 +26,10 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
 	//
 	ColumnLevelPermissionRules interface{} `field:"optional" json:"columnLevelPermissionRules" yaml:"columnLevelPermissionRules"`
+	// The data preparation configuration associated with this dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-dataprepconfiguration
+	//
+	DataPrepConfiguration interface{} `field:"optional" json:"dataPrepConfiguration" yaml:"dataPrepConfiguration"`
 	// An ID for the dataset that you want to create.
 	//
 	// This ID is unique per AWS Region for each AWS account.
@@ -386,9 +66,9 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
 	//
 	IngestionWaitPolicy interface{} `field:"optional" json:"ingestionWaitPolicy" yaml:"ingestionWaitPolicy"`
-	// Configures the combination and transformation of the data from the physical tables.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
 	//
+	// Deprecated: this property has been deprecated.
 	LogicalTableMap interface{} `field:"optional" json:"logicalTableMap" yaml:"logicalTableMap"`
 	// The display name for the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
@@ -406,14 +86,28 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
 	//
 	PhysicalTableMap interface{} `field:"optional" json:"physicalTableMap" yaml:"physicalTableMap"`
-	// The row-level security configuration for the data that you want to create.
+	// <p>Information about a dataset that contains permissions for row-level security (RLS).
+	//
+	// The permissions dataset maps fields to users or groups. For more information, see
+	//             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+	//                 Guide</i>.</p>
+	//          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+	//             not supported for new RLS datasets.</p>
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
 	//
+	// Deprecated: this property has been deprecated.
 	RowLevelPermissionDataSet interface{} `field:"optional" json:"rowLevelPermissionDataSet" yaml:"rowLevelPermissionDataSet"`
-	// The element you can use to define tags for row-level security.
+	// <p>The configuration of tags on a dataset to set row-level security.
+	//
+	// </p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration
 	//
+	// Deprecated: this property has been deprecated.
 	RowLevelPermissionTagConfiguration interface{} `field:"optional" json:"rowLevelPermissionTagConfiguration" yaml:"rowLevelPermissionTagConfiguration"`
+	// The semantic model configuration associated with this dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-semanticmodelconfiguration
+	//
+	SemanticModelConfiguration interface{} `field:"optional" json:"semanticModelConfiguration" yaml:"semanticModelConfiguration"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
 	//

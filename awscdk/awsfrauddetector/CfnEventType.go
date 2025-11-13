@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfrauddetector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfrauddetector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -87,8 +89,8 @@ import (
 //
 type CfnEventType interface {
 	awscdk.CfnResource
-	IEventTypeRef
 	awscdk.IInspectable
+	interfacesawsfrauddetector.IEventTypeRef
 	awscdk.ITaggable
 	// The event type ARN.
 	AttrArn() *string
@@ -111,9 +113,9 @@ type CfnEventType interface {
 	// The event type entity types.
 	EntityTypes() interface{}
 	SetEntityTypes(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EventType resource.
-	EventTypeRef() *EventTypeReference
+	EventTypeRef() *interfacesawsfrauddetector.EventTypeReference
 	// The event type event variables.
 	EventVariables() interface{}
 	SetEventVariables(val interface{})
@@ -292,8 +294,8 @@ type CfnEventType interface {
 // The jsii proxy struct for CfnEventType
 type jsiiProxy_CfnEventType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventTypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfrauddetectorIEventTypeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnEventType) EntityTypes() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnEventType) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventType) EventTypeRef() *EventTypeReference {
-	var returns *EventTypeReference
+func (j *jsiiProxy_CfnEventType) EventTypeRef() *interfacesawsfrauddetector.EventTypeReference {
+	var returns *interfacesawsfrauddetector.EventTypeReference
 	_jsii_.Get(
 		j,
 		"eventTypeRef",
@@ -518,6 +520,7 @@ func (j *jsiiProxy_CfnEventType) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::FraudDetector::EventType`.
 func NewCfnEventType(scope constructs.Construct, id *string, props *CfnEventTypeProps) CfnEventType {
 	_init_.Initialize()
 
@@ -535,6 +538,7 @@ func NewCfnEventType(scope constructs.Construct, id *string, props *CfnEventType
 	return &j
 }
 
+// Create a new `AWS::FraudDetector::EventType`.
 func NewCfnEventType_Override(c CfnEventType, scope constructs.Construct, id *string, props *CfnEventTypeProps) {
 	_init_.Initialize()
 

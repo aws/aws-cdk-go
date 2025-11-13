@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdirectoryservice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdirectoryservice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnSimpleAD interface {
 	awscdk.CfnResource
-	ISimpleADRef
 	awscdk.IInspectable
+	interfacesawsdirectoryservice.ISimpleADRef
 	// The alias for a directory.
 	//
 	// For example: `alias4-mydirectory-12345abcgmzsk` (if you have the `CreateAlias` property set to true).
@@ -71,7 +73,7 @@ type CfnSimpleAD interface {
 	// Whether to enable single sign-on for a directory.
 	EnableSso() interface{}
 	SetEnableSso(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -99,7 +101,7 @@ type CfnSimpleAD interface {
 	ShortName() *string
 	SetShortName(val *string)
 	// A reference to a SimpleAD resource.
-	SimpleAdRef() *SimpleADReference
+	SimpleAdRef() *interfacesawsdirectoryservice.SimpleADReference
 	// The size of the directory.
 	Size() *string
 	SetSize(val *string)
@@ -253,8 +255,8 @@ type CfnSimpleAD interface {
 // The jsii proxy struct for CfnSimpleAD
 type jsiiProxy_CfnSimpleAD struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISimpleADRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdirectoryserviceISimpleADRef
 }
 
 func (j *jsiiProxy_CfnSimpleAD) AttrAlias() *string {
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnSimpleAD) EnableSso() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimpleAD) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSimpleAD) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -437,8 +439,8 @@ func (j *jsiiProxy_CfnSimpleAD) ShortName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimpleAD) SimpleAdRef() *SimpleADReference {
-	var returns *SimpleADReference
+func (j *jsiiProxy_CfnSimpleAD) SimpleAdRef() *interfacesawsdirectoryservice.SimpleADReference {
+	var returns *interfacesawsdirectoryservice.SimpleADReference
 	_jsii_.Get(
 		j,
 		"simpleAdRef",
@@ -498,6 +500,7 @@ func (j *jsiiProxy_CfnSimpleAD) VpcSettings() interface{} {
 }
 
 
+// Create a new `AWS::DirectoryService::SimpleAD`.
 func NewCfnSimpleAD(scope constructs.Construct, id *string, props *CfnSimpleADProps) CfnSimpleAD {
 	_init_.Initialize()
 
@@ -515,6 +518,7 @@ func NewCfnSimpleAD(scope constructs.Construct, id *string, props *CfnSimpleADPr
 	return &j
 }
 
+// Create a new `AWS::DirectoryService::SimpleAD`.
 func NewCfnSimpleAD_Override(c CfnSimpleAD, scope constructs.Construct, id *string, props *CfnSimpleADProps) {
 	_init_.Initialize()
 
@@ -605,13 +609,13 @@ func (j *jsiiProxy_CfnSimpleAD)SetVpcSettings(val interface{}) {
 }
 
 // Creates a new ISimpleADRef from a directoryId.
-func CfnSimpleAD_FromDirectoryId(scope constructs.Construct, id *string, directoryId *string) ISimpleADRef {
+func CfnSimpleAD_FromDirectoryId(scope constructs.Construct, id *string, directoryId *string) interfacesawsdirectoryservice.ISimpleADRef {
 	_init_.Initialize()
 
 	if err := validateCfnSimpleAD_FromDirectoryIdParameters(scope, id, directoryId); err != nil {
 		panic(err)
 	}
-	var returns ISimpleADRef
+	var returns interfacesawsdirectoryservice.ISimpleADRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnVPNGateway interface {
 	awscdk.CfnResource
-	IVPNGatewayRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPNGatewayRef
 	awscdk.ITaggable
 	// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	AmazonSideAsn() *float64
@@ -54,7 +56,7 @@ type CfnVPNGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -98,7 +100,7 @@ type CfnVPNGateway interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPNGateway resource.
-	VpnGatewayRef() *VPNGatewayReference
+	VpnGatewayRef() *interfacesawsec2.VPNGatewayReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -229,8 +231,8 @@ type CfnVPNGateway interface {
 // The jsii proxy struct for CfnVPNGateway
 type jsiiProxy_CfnVPNGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPNGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPNGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnVPNGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPNGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPNGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnVPNGateway) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPNGateway) VpnGatewayRef() *VPNGatewayReference {
-	var returns *VPNGatewayReference
+func (j *jsiiProxy_CfnVPNGateway) VpnGatewayRef() *interfacesawsec2.VPNGatewayReference {
+	var returns *interfacesawsec2.VPNGatewayReference
 	_jsii_.Get(
 		j,
 		"vpnGatewayRef",
@@ -405,6 +407,7 @@ func (j *jsiiProxy_CfnVPNGateway) VpnGatewayRef() *VPNGatewayReference {
 }
 
 
+// Create a new `AWS::EC2::VPNGateway`.
 func NewCfnVPNGateway(scope constructs.Construct, id *string, props *CfnVPNGatewayProps) CfnVPNGateway {
 	_init_.Initialize()
 
@@ -422,6 +425,7 @@ func NewCfnVPNGateway(scope constructs.Construct, id *string, props *CfnVPNGatew
 	return &j
 }
 
+// Create a new `AWS::EC2::VPNGateway`.
 func NewCfnVPNGateway_Override(c CfnVPNGateway, scope constructs.Construct, id *string, props *CfnVPNGatewayProps) {
 	_init_.Initialize()
 
@@ -463,13 +467,13 @@ func (j *jsiiProxy_CfnVPNGateway)SetType(val *string) {
 }
 
 // Creates a new IVPNGatewayRef from a vpnGatewayId.
-func CfnVPNGateway_FromVpnGatewayId(scope constructs.Construct, id *string, vpnGatewayId *string) IVPNGatewayRef {
+func CfnVPNGateway_FromVpnGatewayId(scope constructs.Construct, id *string, vpnGatewayId *string) interfacesawsec2.IVPNGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnVPNGateway_FromVpnGatewayIdParameters(scope, id, vpnGatewayId); err != nil {
 		panic(err)
 	}
-	var returns IVPNGatewayRef
+	var returns interfacesawsec2.IVPNGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVPNGateway",

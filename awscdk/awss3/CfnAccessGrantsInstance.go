@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,11 +37,11 @@ import (
 //
 type CfnAccessGrantsInstance interface {
 	awscdk.CfnResource
-	IAccessGrantsInstanceRef
 	awscdk.IInspectable
+	interfacesawss3.IAccessGrantsInstanceRef
 	awscdk.ITaggableV2
 	// A reference to a AccessGrantsInstance resource.
-	AccessGrantsInstanceRef() *AccessGrantsInstanceReference
+	AccessGrantsInstanceRef() *interfacesawss3.AccessGrantsInstanceReference
 	// The ARN of the S3 Access Grants instance.
 	AttrAccessGrantsInstanceArn() *string
 	// The ID of the S3 Access Grants instance.
@@ -57,7 +59,7 @@ type CfnAccessGrantsInstance interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// If you would like to associate your S3 Access Grants instance with an AWS IAM Identity Center instance, use this field to pass the Amazon Resource Name (ARN) of the AWS IAM Identity Center instance that you are associating with your S3 Access Grants instance.
 	IdentityCenterArn() *string
 	SetIdentityCenterArn(val *string)
@@ -228,13 +230,13 @@ type CfnAccessGrantsInstance interface {
 // The jsii proxy struct for CfnAccessGrantsInstance
 type jsiiProxy_CfnAccessGrantsInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessGrantsInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IAccessGrantsInstanceRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAccessGrantsInstance) AccessGrantsInstanceRef() *AccessGrantsInstanceReference {
-	var returns *AccessGrantsInstanceReference
+func (j *jsiiProxy_CfnAccessGrantsInstance) AccessGrantsInstanceRef() *interfacesawss3.AccessGrantsInstanceReference {
+	var returns *interfacesawss3.AccessGrantsInstanceReference
 	_jsii_.Get(
 		j,
 		"accessGrantsInstanceRef",
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnAccessGrantsInstance) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessGrantsInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessGrantsInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -404,6 +406,7 @@ func (j *jsiiProxy_CfnAccessGrantsInstance) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::S3::AccessGrantsInstance`.
 func NewCfnAccessGrantsInstance(scope constructs.Construct, id *string, props *CfnAccessGrantsInstanceProps) CfnAccessGrantsInstance {
 	_init_.Initialize()
 
@@ -421,6 +424,7 @@ func NewCfnAccessGrantsInstance(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::S3::AccessGrantsInstance`.
 func NewCfnAccessGrantsInstance_Override(c CfnAccessGrantsInstance, scope constructs.Construct, id *string, props *CfnAccessGrantsInstanceProps) {
 	_init_.Initialize()
 

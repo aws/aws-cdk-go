@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnLocationAzureBlob interface {
 	awscdk.CfnResource
-	ILocationAzureBlobRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationAzureBlobRef
 	awscdk.ITaggableV2
 	// (Optional) Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container.
 	AgentArns() *[]*string
@@ -104,9 +106,9 @@ type CfnLocationAzureBlob interface {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text.
 	CustomSecretConfig() interface{}
 	SetCustomSecretConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LocationAzureBlob resource.
-	LocationAzureBlobRef() *LocationAzureBlobReference
+	LocationAzureBlobRef() *interfacesawsdatasync.LocationAzureBlobReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -277,8 +279,8 @@ type CfnLocationAzureBlob interface {
 // The jsii proxy struct for CfnLocationAzureBlob
 type jsiiProxy_CfnLocationAzureBlob struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationAzureBlobRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationAzureBlobRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -452,8 +454,8 @@ func (j *jsiiProxy_CfnLocationAzureBlob) CustomSecretConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationAzureBlob) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationAzureBlob) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -462,8 +464,8 @@ func (j *jsiiProxy_CfnLocationAzureBlob) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationAzureBlob) LocationAzureBlobRef() *LocationAzureBlobReference {
-	var returns *LocationAzureBlobReference
+func (j *jsiiProxy_CfnLocationAzureBlob) LocationAzureBlobRef() *interfacesawsdatasync.LocationAzureBlobReference {
+	var returns *interfacesawsdatasync.LocationAzureBlobReference
 	_jsii_.Get(
 		j,
 		"locationAzureBlobRef",
@@ -553,6 +555,7 @@ func (j *jsiiProxy_CfnLocationAzureBlob) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::DataSync::LocationAzureBlob`.
 func NewCfnLocationAzureBlob(scope constructs.Construct, id *string, props *CfnLocationAzureBlobProps) CfnLocationAzureBlob {
 	_init_.Initialize()
 
@@ -570,6 +573,7 @@ func NewCfnLocationAzureBlob(scope constructs.Construct, id *string, props *CfnL
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationAzureBlob`.
 func NewCfnLocationAzureBlob_Override(c CfnLocationAzureBlob, scope constructs.Construct, id *string, props *CfnLocationAzureBlobProps) {
 	_init_.Initialize()
 

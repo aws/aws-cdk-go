@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapprunner/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapprunner"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -133,8 +135,8 @@ import (
 //
 type CfnService interface {
 	awscdk.CfnResource
-	IServiceRef
 	awscdk.IInspectable
+	interfacesawsapprunner.IServiceRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of this service.
 	AttrServiceArn() *string
@@ -166,7 +168,7 @@ type CfnService interface {
 	// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
 	HealthCheckConfiguration() interface{}
 	SetHealthCheckConfiguration(val interface{})
@@ -200,7 +202,7 @@ type CfnService interface {
 	ServiceName() *string
 	SetServiceName(val *string)
 	// A reference to a Service resource.
-	ServiceRef() *ServiceReference
+	ServiceRef() *interfacesawsapprunner.ServiceReference
 	// The source to deploy to the App Runner service.
 	SourceConfiguration() interface{}
 	SetSourceConfiguration(val interface{})
@@ -356,8 +358,8 @@ type CfnService interface {
 // The jsii proxy struct for CfnService
 type jsiiProxy_CfnService struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapprunnerIServiceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -461,8 +463,8 @@ func (j *jsiiProxy_CfnService) EncryptionConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnService) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -551,8 +553,8 @@ func (j *jsiiProxy_CfnService) ServiceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) ServiceRef() *ServiceReference {
-	var returns *ServiceReference
+func (j *jsiiProxy_CfnService) ServiceRef() *interfacesawsapprunner.ServiceReference {
+	var returns *interfacesawsapprunner.ServiceReference
 	_jsii_.Get(
 		j,
 		"serviceRef",
@@ -622,6 +624,7 @@ func (j *jsiiProxy_CfnService) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppRunner::Service`.
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
@@ -639,6 +642,7 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 	return &j
 }
 
+// Create a new `AWS::AppRunner::Service`.
 func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 

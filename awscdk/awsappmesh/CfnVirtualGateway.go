@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -176,8 +178,8 @@ import (
 //
 type CfnVirtualGateway interface {
 	awscdk.CfnResource
-	IVirtualGatewayRef
 	awscdk.IInspectable
+	interfacesawsappmesh.IVirtualGatewayRef
 	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the virtual gateway.
 	AttrArn() *string
@@ -205,7 +207,7 @@ type CfnVirtualGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -258,7 +260,7 @@ type CfnVirtualGateway interface {
 	VirtualGatewayName() *string
 	SetVirtualGatewayName(val *string)
 	// A reference to a VirtualGateway resource.
-	VirtualGatewayRef() *VirtualGatewayReference
+	VirtualGatewayRef() *interfacesawsappmesh.VirtualGatewayReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -389,8 +391,8 @@ type CfnVirtualGateway interface {
 // The jsii proxy struct for CfnVirtualGateway
 type jsiiProxy_CfnVirtualGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVirtualGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappmeshIVirtualGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -504,8 +506,8 @@ func (j *jsiiProxy_CfnVirtualGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVirtualGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -634,8 +636,8 @@ func (j *jsiiProxy_CfnVirtualGateway) VirtualGatewayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualGateway) VirtualGatewayRef() *VirtualGatewayReference {
-	var returns *VirtualGatewayReference
+func (j *jsiiProxy_CfnVirtualGateway) VirtualGatewayRef() *interfacesawsappmesh.VirtualGatewayReference {
+	var returns *interfacesawsappmesh.VirtualGatewayReference
 	_jsii_.Get(
 		j,
 		"virtualGatewayRef",
@@ -645,6 +647,7 @@ func (j *jsiiProxy_CfnVirtualGateway) VirtualGatewayRef() *VirtualGatewayReferen
 }
 
 
+// Create a new `AWS::AppMesh::VirtualGateway`.
 func NewCfnVirtualGateway(scope constructs.Construct, id *string, props *CfnVirtualGatewayProps) CfnVirtualGateway {
 	_init_.Initialize()
 
@@ -662,6 +665,7 @@ func NewCfnVirtualGateway(scope constructs.Construct, id *string, props *CfnVirt
 	return &j
 }
 
+// Create a new `AWS::AppMesh::VirtualGateway`.
 func NewCfnVirtualGateway_Override(c CfnVirtualGateway, scope constructs.Construct, id *string, props *CfnVirtualGatewayProps) {
 	_init_.Initialize()
 

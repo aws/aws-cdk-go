@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnEncoderConfiguration interface {
 	awscdk.CfnResource
-	IEncoderConfigurationRef
 	awscdk.IInspectable
+	interfacesawsivs.IEncoderConfigurationRef
 	awscdk.ITaggableV2
 	// The encoder-configuration ARN.
 	//
@@ -57,8 +59,8 @@ type CfnEncoderConfiguration interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EncoderConfiguration resource.
-	EncoderConfigurationRef() *EncoderConfigurationReference
-	Env() *awscdk.ResourceEnvironment
+	EncoderConfigurationRef() *interfacesawsivs.EncoderConfigurationReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -232,8 +234,8 @@ type CfnEncoderConfiguration interface {
 // The jsii proxy struct for CfnEncoderConfiguration
 type jsiiProxy_CfnEncoderConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEncoderConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivsIEncoderConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnEncoderConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEncoderConfiguration) EncoderConfigurationRef() *EncoderConfigurationReference {
-	var returns *EncoderConfigurationReference
+func (j *jsiiProxy_CfnEncoderConfiguration) EncoderConfigurationRef() *interfacesawsivs.EncoderConfigurationReference {
+	var returns *interfacesawsivs.EncoderConfigurationReference
 	_jsii_.Get(
 		j,
 		"encoderConfigurationRef",
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnEncoderConfiguration) EncoderConfigurationRef() *EncoderCo
 	return returns
 }
 
-func (j *jsiiProxy_CfnEncoderConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEncoderConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -408,6 +410,7 @@ func (j *jsiiProxy_CfnEncoderConfiguration) Video() interface{} {
 }
 
 
+// Create a new `AWS::IVS::EncoderConfiguration`.
 func NewCfnEncoderConfiguration(scope constructs.Construct, id *string, props *CfnEncoderConfigurationProps) CfnEncoderConfiguration {
 	_init_.Initialize()
 
@@ -425,6 +428,7 @@ func NewCfnEncoderConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::IVS::EncoderConfiguration`.
 func NewCfnEncoderConfiguration_Override(c CfnEncoderConfiguration, scope constructs.Construct, id *string, props *CfnEncoderConfigurationProps) {
 	_init_.Initialize()
 

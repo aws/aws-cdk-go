@@ -1,7 +1,7 @@
 package awscdklocationalpha
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for a geofence collection.
@@ -37,6 +37,6 @@ type GeofenceCollectionProps struct {
 	// Default: - Use an AWS managed key.
 	//
 	// Experimental.
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

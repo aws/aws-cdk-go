@@ -61,8 +61,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLink{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILinkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsrtbfabricILinkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -181,8 +181,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRequesterGateway{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRequesterGatewayRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsrtbfabricIRequesterGatewayRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -247,8 +247,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResponderGateway{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResponderGatewayRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsrtbfabricIResponderGatewayRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -272,62 +272,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rtbfabric.CfnResponderGatewayProps",
 		reflect.TypeOf((*CfnResponderGatewayProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_rtbfabric.ILinkRef",
-		reflect.TypeOf((*ILinkRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "linkRef", GoGetter: "LinkRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILinkRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_rtbfabric.IRequesterGatewayRef",
-		reflect.TypeOf((*IRequesterGatewayRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "requesterGatewayRef", GoGetter: "RequesterGatewayRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRequesterGatewayRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_rtbfabric.IResponderGatewayRef",
-		reflect.TypeOf((*IResponderGatewayRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "responderGatewayRef", GoGetter: "ResponderGatewayRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResponderGatewayRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rtbfabric.LinkReference",
-		reflect.TypeOf((*LinkReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rtbfabric.RequesterGatewayReference",
-		reflect.TypeOf((*RequesterGatewayReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rtbfabric.ResponderGatewayReference",
-		reflect.TypeOf((*ResponderGatewayReference)(nil)).Elem(),
 	)
 }

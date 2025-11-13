@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnMatchmakingConfiguration interface {
 	awscdk.CfnResource
-	IMatchmakingConfigurationRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IMatchmakingConfigurationRef
 	awscdk.ITaggable
 	// A flag that determines whether a match that was created with this configuration must be accepted by the matched players.
 	AcceptanceRequired() interface{}
@@ -93,7 +95,7 @@ type CfnMatchmakingConfiguration interface {
 	// A description for the matchmaking configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether this matchmaking configuration is being used with Amazon GameLift Servers hosting or as a standalone matchmaking solution.
 	FlexMatchMode() *string
 	SetFlexMatchMode(val *string)
@@ -117,7 +119,7 @@ type CfnMatchmakingConfiguration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MatchmakingConfiguration resource.
-	MatchmakingConfigurationRef() *MatchmakingConfigurationReference
+	MatchmakingConfigurationRef() *interfacesawsgamelift.MatchmakingConfigurationReference
 	// A unique identifier for the matchmaking configuration.
 	Name() *string
 	SetName(val *string)
@@ -292,8 +294,8 @@ type CfnMatchmakingConfiguration interface {
 // The jsii proxy struct for CfnMatchmakingConfiguration
 type jsiiProxy_CfnMatchmakingConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMatchmakingConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIMatchmakingConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMatchmakingConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -487,8 +489,8 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) MatchmakingConfigurationRef() *MatchmakingConfigurationReference {
-	var returns *MatchmakingConfigurationReference
+func (j *jsiiProxy_CfnMatchmakingConfiguration) MatchmakingConfigurationRef() *interfacesawsgamelift.MatchmakingConfigurationReference {
+	var returns *interfacesawsgamelift.MatchmakingConfigurationReference
 	_jsii_.Get(
 		j,
 		"matchmakingConfigurationRef",
@@ -618,6 +620,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::GameLift::MatchmakingConfiguration`.
 func NewCfnMatchmakingConfiguration(scope constructs.Construct, id *string, props *CfnMatchmakingConfigurationProps) CfnMatchmakingConfiguration {
 	_init_.Initialize()
 
@@ -635,6 +638,7 @@ func NewCfnMatchmakingConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::GameLift::MatchmakingConfiguration`.
 func NewCfnMatchmakingConfiguration_Override(c CfnMatchmakingConfiguration, scope constructs.Construct, id *string, props *CfnMatchmakingConfigurationProps) {
 	_init_.Initialize()
 
@@ -800,13 +804,13 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag)
 }
 
 // Creates a new IMatchmakingConfigurationRef from an ARN.
-func CfnMatchmakingConfiguration_FromMatchmakingConfigurationArn(scope constructs.Construct, id *string, arn *string) IMatchmakingConfigurationRef {
+func CfnMatchmakingConfiguration_FromMatchmakingConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IMatchmakingConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnMatchmakingConfiguration_FromMatchmakingConfigurationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IMatchmakingConfigurationRef
+	var returns interfacesawsgamelift.IMatchmakingConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
@@ -819,13 +823,13 @@ func CfnMatchmakingConfiguration_FromMatchmakingConfigurationArn(scope construct
 }
 
 // Creates a new IMatchmakingConfigurationRef from a matchmakingConfigurationName.
-func CfnMatchmakingConfiguration_FromMatchmakingConfigurationName(scope constructs.Construct, id *string, matchmakingConfigurationName *string) IMatchmakingConfigurationRef {
+func CfnMatchmakingConfiguration_FromMatchmakingConfigurationName(scope constructs.Construct, id *string, matchmakingConfigurationName *string) interfacesawsgamelift.IMatchmakingConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnMatchmakingConfiguration_FromMatchmakingConfigurationNameParameters(scope, id, matchmakingConfigurationName); err != nil {
 		panic(err)
 	}
-	var returns IMatchmakingConfigurationRef
+	var returns interfacesawsgamelift.IMatchmakingConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",

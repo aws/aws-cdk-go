@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,7 +31,7 @@ type VpnConnectionBase interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -43,7 +45,7 @@ type VpnConnectionBase interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// A reference to a VPNConnection resource.
-	VpnConnectionRef() *VPNConnectionReference
+	VpnConnectionRef() *interfacesawsec2.VPNConnectionReference
 	// The id of the VPN connection.
 	VpnId() *string
 	// Apply the given removal policy to this resource.
@@ -124,8 +126,8 @@ func (j *jsiiProxy_VpnConnectionBase) CustomerGatewayIp() *string {
 	return returns
 }
 
-func (j *jsiiProxy_VpnConnectionBase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_VpnConnectionBase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -164,8 +166,8 @@ func (j *jsiiProxy_VpnConnectionBase) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_VpnConnectionBase) VpnConnectionRef() *VPNConnectionReference {
-	var returns *VPNConnectionReference
+func (j *jsiiProxy_VpnConnectionBase) VpnConnectionRef() *interfacesawsec2.VPNConnectionReference {
+	var returns *interfacesawsec2.VPNConnectionReference
 	_jsii_.Get(
 		j,
 		"vpnConnectionRef",

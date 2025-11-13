@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplify/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamplify"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -95,14 +97,14 @@ import (
 //
 type CfnApp interface {
 	awscdk.CfnResource
-	IAppRef
 	awscdk.IInspectable
+	interfacesawsamplify.IAppRef
 	awscdk.ITaggable
 	// The personal access token for a GitHub repository for an Amplify app.
 	AccessToken() *string
 	SetAccessToken(val *string)
 	// A reference to a App resource.
-	AppRef() *AppReference
+	AppRef() *interfacesawsamplify.AppReference
 	// Unique Id for the Amplify App.
 	AttrAppId() *string
 	// Name for the Amplify App.
@@ -147,7 +149,7 @@ type CfnApp interface {
 	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion() interface{}
 	SetEnableBranchAutoDeletion(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The environment variables for the Amplify app.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
@@ -338,8 +340,8 @@ type CfnApp interface {
 // The jsii proxy struct for CfnApp
 type jsiiProxy_CfnApp struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAppRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamplifyIAppRef
 	internal.Type__awscdkITaggable
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnApp) AccessToken() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApp) AppRef() *AppReference {
-	var returns *AppReference
+func (j *jsiiProxy_CfnApp) AppRef() *interfacesawsamplify.AppReference {
+	var returns *interfacesawsamplify.AppReference
 	_jsii_.Get(
 		j,
 		"appRef",
@@ -533,8 +535,8 @@ func (j *jsiiProxy_CfnApp) EnableBranchAutoDeletion() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApp) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApp) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -694,6 +696,7 @@ func (j *jsiiProxy_CfnApp) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Amplify::App`.
 func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnApp {
 	_init_.Initialize()
 
@@ -711,6 +714,7 @@ func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnAp
 	return &j
 }
 
+// Create a new `AWS::Amplify::App`.
 func NewCfnApp_Override(c CfnApp, scope constructs.Construct, id *string, props *CfnAppProps) {
 	_init_.Initialize()
 

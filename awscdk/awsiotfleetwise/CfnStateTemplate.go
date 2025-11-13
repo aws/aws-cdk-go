@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotfleetwise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotfleetwise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnStateTemplate interface {
 	awscdk.CfnResource
-	IStateTemplateRef
 	awscdk.IInspectable
+	interfacesawsiotfleetwise.IStateTemplateRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the state template.
 	AttrArn() *string
@@ -77,7 +79,7 @@ type CfnStateTemplate interface {
 	// A brief description of the state template.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -112,7 +114,7 @@ type CfnStateTemplate interface {
 	StateTemplateProperties() *[]*string
 	SetStateTemplateProperties(val *[]*string)
 	// A reference to a StateTemplate resource.
-	StateTemplateRef() *StateTemplateReference
+	StateTemplateRef() *interfacesawsiotfleetwise.StateTemplateReference
 	// Metadata that can be used to manage the state template.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -259,8 +261,8 @@ type CfnStateTemplate interface {
 // The jsii proxy struct for CfnStateTemplate
 type jsiiProxy_CfnStateTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStateTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotfleetwiseIStateTemplateRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnStateTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStateTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -464,8 +466,8 @@ func (j *jsiiProxy_CfnStateTemplate) StateTemplateProperties() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateTemplate) StateTemplateRef() *StateTemplateReference {
-	var returns *StateTemplateReference
+func (j *jsiiProxy_CfnStateTemplate) StateTemplateRef() *interfacesawsiotfleetwise.StateTemplateReference {
+	var returns *interfacesawsiotfleetwise.StateTemplateReference
 	_jsii_.Get(
 		j,
 		"stateTemplateRef",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnStateTemplate) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::IoTFleetWise::StateTemplate`.
 func NewCfnStateTemplate(scope constructs.Construct, id *string, props *CfnStateTemplateProps) CfnStateTemplate {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnStateTemplate(scope constructs.Construct, id *string, props *CfnState
 	return &j
 }
 
+// Create a new `AWS::IoTFleetWise::StateTemplate`.
 func NewCfnStateTemplate_Override(c CfnStateTemplate, scope constructs.Construct, id *string, props *CfnStateTemplateProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmsk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmsk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnServerlessCluster interface {
 	awscdk.CfnResource
-	IServerlessClusterRef
 	awscdk.IInspectable
+	interfacesawsmsk.IServerlessClusterRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the MSK cluster.
 	AttrArn() *string
@@ -68,7 +70,7 @@ type CfnServerlessCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -87,7 +89,7 @@ type CfnServerlessCluster interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ServerlessCluster resource.
-	ServerlessClusterRef() *ServerlessClusterReference
+	ServerlessClusterRef() *interfacesawsmsk.ServerlessClusterReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -243,8 +245,8 @@ type CfnServerlessCluster interface {
 // The jsii proxy struct for CfnServerlessCluster
 type jsiiProxy_CfnServerlessCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServerlessClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmskIServerlessClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnServerlessCluster) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServerlessCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnServerlessCluster) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCluster) ServerlessClusterRef() *ServerlessClusterReference {
-	var returns *ServerlessClusterReference
+func (j *jsiiProxy_CfnServerlessCluster) ServerlessClusterRef() *interfacesawsmsk.ServerlessClusterReference {
+	var returns *interfacesawsmsk.ServerlessClusterReference
 	_jsii_.Get(
 		j,
 		"serverlessClusterRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnServerlessCluster) VpcConfigs() interface{} {
 }
 
 
+// Create a new `AWS::MSK::ServerlessCluster`.
 func NewCfnServerlessCluster(scope constructs.Construct, id *string, props *CfnServerlessClusterProps) CfnServerlessCluster {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnServerlessCluster(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
+// Create a new `AWS::MSK::ServerlessCluster`.
 func NewCfnServerlessCluster_Override(c CfnServerlessCluster, scope constructs.Construct, id *string, props *CfnServerlessClusterProps) {
 	_init_.Initialize()
 

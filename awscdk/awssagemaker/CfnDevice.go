@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnDevice interface {
 	awscdk.CfnResource
-	IDeviceRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IDeviceRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -60,8 +62,8 @@ type CfnDevice interface {
 	DeviceFleetName() *string
 	SetDeviceFleetName(val *string)
 	// A reference to a Device resource.
-	DeviceRef() *DeviceReference
-	Env() *awscdk.ResourceEnvironment
+	DeviceRef() *interfacesawssagemaker.DeviceReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnDevice interface {
 // The jsii proxy struct for CfnDevice
 type jsiiProxy_CfnDevice struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeviceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIDeviceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnDevice) DeviceFleetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevice) DeviceRef() *DeviceReference {
-	var returns *DeviceReference
+func (j *jsiiProxy_CfnDevice) DeviceRef() *interfacesawssagemaker.DeviceReference {
+	var returns *interfacesawssagemaker.DeviceReference
 	_jsii_.Get(
 		j,
 		"deviceRef",
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnDevice) DeviceRef() *DeviceReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevice) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDevice) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -397,6 +399,7 @@ func (j *jsiiProxy_CfnDevice) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::Device`.
 func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps) CfnDevice {
 	_init_.Initialize()
 
@@ -414,6 +417,7 @@ func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps)
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Device`.
 func NewCfnDevice_Override(c CfnDevice, scope constructs.Construct, id *string, props *CfnDeviceProps) {
 	_init_.Initialize()
 

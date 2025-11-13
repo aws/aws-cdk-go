@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscustomerprofiles/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscustomerprofiles"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnObjectType interface {
 	awscdk.CfnResource
-	IObjectTypeRef
 	awscdk.IInspectable
+	interfacesawscustomerprofiles.IObjectTypeRef
 	awscdk.ITaggable
 	// Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type.
 	AllowProfileCreation() interface{}
@@ -95,7 +97,7 @@ type CfnObjectType interface {
 	// The customer-provided key to encrypt the profile object that will be created in this profile object type mapping.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The number of days until the data of this type expires.
 	ExpirationDays() *float64
 	SetExpirationDays(val *float64)
@@ -124,7 +126,7 @@ type CfnObjectType interface {
 	ObjectTypeName() *string
 	SetObjectTypeName(val *string)
 	// A reference to a ObjectType resource.
-	ObjectTypeRef() *ObjectTypeReference
+	ObjectTypeRef() *interfacesawscustomerprofiles.ObjectTypeReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -288,8 +290,8 @@ type CfnObjectType interface {
 // The jsii proxy struct for CfnObjectType
 type jsiiProxy_CfnObjectType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IObjectTypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscustomerprofilesIObjectTypeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnObjectType) EncryptionKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnObjectType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnObjectType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -483,8 +485,8 @@ func (j *jsiiProxy_CfnObjectType) ObjectTypeName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnObjectType) ObjectTypeRef() *ObjectTypeReference {
-	var returns *ObjectTypeReference
+func (j *jsiiProxy_CfnObjectType) ObjectTypeRef() *interfacesawscustomerprofiles.ObjectTypeReference {
+	var returns *interfacesawscustomerprofiles.ObjectTypeReference
 	_jsii_.Get(
 		j,
 		"objectTypeRef",
@@ -574,6 +576,7 @@ func (j *jsiiProxy_CfnObjectType) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CustomerProfiles::ObjectType`.
 func NewCfnObjectType(scope constructs.Construct, id *string, props *CfnObjectTypeProps) CfnObjectType {
 	_init_.Initialize()
 
@@ -591,6 +594,7 @@ func NewCfnObjectType(scope constructs.Construct, id *string, props *CfnObjectTy
 	return &j
 }
 
+// Create a new `AWS::CustomerProfiles::ObjectType`.
 func NewCfnObjectType_Override(c CfnObjectType, scope constructs.Construct, id *string, props *CfnObjectTypeProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmacie/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmacie"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnFindingsFilter interface {
 	awscdk.CfnResource
-	IFindingsFilterRef
 	awscdk.IInspectable
+	interfacesawsmacie.IFindingsFilterRef
 	awscdk.ITaggableV2
 	// The action to perform on findings that match the filter criteria ( `FindingCriteria` ).
 	//
@@ -84,12 +86,12 @@ type CfnFindingsFilter interface {
 	// The description can contain 1-512 characters.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The criteria to use to filter findings.
 	FindingCriteria() interface{}
 	SetFindingCriteria(val interface{})
 	// A reference to a FindingsFilter resource.
-	FindingsFilterRef() *FindingsFilterReference
+	FindingsFilterRef() *interfacesawsmacie.FindingsFilterReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -265,8 +267,8 @@ type CfnFindingsFilter interface {
 // The jsii proxy struct for CfnFindingsFilter
 type jsiiProxy_CfnFindingsFilter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFindingsFilterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmacieIFindingsFilterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnFindingsFilter) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFindingsFilter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFindingsFilter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -390,8 +392,8 @@ func (j *jsiiProxy_CfnFindingsFilter) FindingCriteria() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFindingsFilter) FindingsFilterRef() *FindingsFilterReference {
-	var returns *FindingsFilterReference
+func (j *jsiiProxy_CfnFindingsFilter) FindingsFilterRef() *interfacesawsmacie.FindingsFilterReference {
+	var returns *interfacesawsmacie.FindingsFilterReference
 	_jsii_.Get(
 		j,
 		"findingsFilterRef",
@@ -491,6 +493,7 @@ func (j *jsiiProxy_CfnFindingsFilter) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Macie::FindingsFilter`.
 func NewCfnFindingsFilter(scope constructs.Construct, id *string, props *CfnFindingsFilterProps) CfnFindingsFilter {
 	_init_.Initialize()
 
@@ -508,6 +511,7 @@ func NewCfnFindingsFilter(scope constructs.Construct, id *string, props *CfnFind
 	return &j
 }
 
+// Create a new `AWS::Macie::FindingsFilter`.
 func NewCfnFindingsFilter_Override(c CfnFindingsFilter, scope constructs.Construct, id *string, props *CfnFindingsFilterProps) {
 	_init_.Initialize()
 

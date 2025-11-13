@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,11 +50,11 @@ type KeyGroup interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the key group.
 	KeyGroupId() *string
 	// A reference to a KeyGroup resource.
-	KeyGroupRef() *KeyGroupReference
+	KeyGroupRef() *interfacesawscloudfront.KeyGroupReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -99,8 +101,8 @@ type jsiiProxy_KeyGroup struct {
 	jsiiProxy_IKeyGroup
 }
 
-func (j *jsiiProxy_KeyGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_KeyGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -119,8 +121,8 @@ func (j *jsiiProxy_KeyGroup) KeyGroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_KeyGroup) KeyGroupRef() *KeyGroupReference {
-	var returns *KeyGroupReference
+func (j *jsiiProxy_KeyGroup) KeyGroupRef() *interfacesawscloudfront.KeyGroupReference {
+	var returns *interfacesawscloudfront.KeyGroupReference
 	_jsii_.Get(
 		j,
 		"keyGroupRef",

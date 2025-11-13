@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,8 +26,8 @@ import (
 //
 type CfnResolverDNSSECConfig interface {
 	awscdk.CfnResource
-	IResolverDNSSECConfigRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IResolverDNSSECConfigRef
 	// The primary identifier of this `ResolverDNSSECConfig` resource.
 	//
 	// For example: `rdsc-689d45d1ae623bf3` .
@@ -47,7 +49,7 @@ type CfnResolverDNSSECConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -66,7 +68,7 @@ type CfnResolverDNSSECConfig interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResolverDNSSECConfig resource.
-	ResolverDnssecConfigRef() *ResolverDNSSECConfigReference
+	ResolverDnssecConfigRef() *interfacesawsroute53resolver.ResolverDNSSECConfigReference
 	// The ID of the virtual private cloud (VPC) that you're configuring the DNSSEC validation status for.
 	ResourceId() *string
 	SetResourceId(val *string)
@@ -217,8 +219,8 @@ type CfnResolverDNSSECConfig interface {
 // The jsii proxy struct for CfnResolverDNSSECConfig
 type jsiiProxy_CfnResolverDNSSECConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResolverDNSSECConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIResolverDNSSECConfigRef
 }
 
 func (j *jsiiProxy_CfnResolverDNSSECConfig) AttrId() *string {
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnResolverDNSSECConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverDNSSECConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResolverDNSSECConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnResolverDNSSECConfig) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverDNSSECConfig) ResolverDnssecConfigRef() *ResolverDNSSECConfigReference {
-	var returns *ResolverDNSSECConfigReference
+func (j *jsiiProxy_CfnResolverDNSSECConfig) ResolverDnssecConfigRef() *interfacesawsroute53resolver.ResolverDNSSECConfigReference {
+	var returns *interfacesawsroute53resolver.ResolverDNSSECConfigReference
 	_jsii_.Get(
 		j,
 		"resolverDnssecConfigRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnResolverDNSSECConfig) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::Route53Resolver::ResolverDNSSECConfig`.
 func NewCfnResolverDNSSECConfig(scope constructs.Construct, id *string, props *CfnResolverDNSSECConfigProps) CfnResolverDNSSECConfig {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnResolverDNSSECConfig(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::ResolverDNSSECConfig`.
 func NewCfnResolverDNSSECConfig_Override(c CfnResolverDNSSECConfig, scope constructs.Construct, id *string, props *CfnResolverDNSSECConfigProps) {
 	_init_.Initialize()
 

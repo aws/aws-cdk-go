@@ -1,10 +1,18 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsworkspaceswebIBrowserSettingsRef = interfacesawsworkspacesweb.IBrowserSettingsRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsworkspaceswebIDataProtectionSettingsRef = interfacesawsworkspacesweb.IDataProtectionSettingsRef
+type Type__interfacesawsworkspaceswebIIdentityProviderRef = interfacesawsworkspacesweb.IIdentityProviderRef
+type Type__interfacesawsworkspaceswebIIpAccessSettingsRef = interfacesawsworkspacesweb.IIpAccessSettingsRef
+type Type__interfacesawsworkspaceswebINetworkSettingsRef = interfacesawsworkspacesweb.INetworkSettingsRef
+type Type__interfacesawsworkspaceswebIPortalRef = interfacesawsworkspacesweb.IPortalRef
+type Type__interfacesawsworkspaceswebISessionLoggerRef = interfacesawsworkspacesweb.ISessionLoggerRef
+type Type__interfacesawsworkspaceswebITrustStoreRef = interfacesawsworkspacesweb.ITrustStoreRef
+type Type__interfacesawsworkspaceswebIUserAccessLoggingSettingsRef = interfacesawsworkspacesweb.IUserAccessLoggingSettingsRef
+type Type__interfacesawsworkspaceswebIUserSettingsRef = interfacesawsworkspacesweb.IUserSettingsRef

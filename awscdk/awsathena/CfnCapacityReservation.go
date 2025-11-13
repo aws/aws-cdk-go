@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsathena/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsathena"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnCapacityReservation interface {
 	awscdk.CfnResource
-	ICapacityReservationRef
 	awscdk.IInspectable
+	interfacesawsathena.ICapacityReservationRef
 	awscdk.ITaggableV2
 	// The number of data processing units currently allocated.
 	AttrAllocatedDpus() *float64
@@ -59,7 +61,7 @@ type CfnCapacityReservation interface {
 	CapacityAssignmentConfiguration() interface{}
 	SetCapacityAssignmentConfiguration(val interface{})
 	// A reference to a CapacityReservation resource.
-	CapacityReservationRef() *CapacityReservationReference
+	CapacityReservationRef() *interfacesawsathena.CapacityReservationReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -71,7 +73,7 @@ type CfnCapacityReservation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -245,8 +247,8 @@ type CfnCapacityReservation interface {
 // The jsii proxy struct for CfnCapacityReservation
 type jsiiProxy_CfnCapacityReservation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICapacityReservationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsathenaICapacityReservationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnCapacityReservation) CapacityAssignmentConfiguration() int
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) CapacityReservationRef() *CapacityReservationReference {
-	var returns *CapacityReservationReference
+func (j *jsiiProxy_CfnCapacityReservation) CapacityReservationRef() *interfacesawsathena.CapacityReservationReference {
+	var returns *interfacesawsathena.CapacityReservationReference
 	_jsii_.Get(
 		j,
 		"capacityReservationRef",
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnCapacityReservation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCapacityReservation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnCapacityReservation) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::Athena::CapacityReservation`.
 func NewCfnCapacityReservation(scope constructs.Construct, id *string, props *CfnCapacityReservationProps) CfnCapacityReservation {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnCapacityReservation(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::Athena::CapacityReservation`.
 func NewCfnCapacityReservation_Override(c CfnCapacityReservation, scope constructs.Construct, id *string, props *CfnCapacityReservationProps) {
 	_init_.Initialize()
 

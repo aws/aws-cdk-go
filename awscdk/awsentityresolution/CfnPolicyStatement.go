@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsentityresolution/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsentityresolution"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnPolicyStatement interface {
 	awscdk.CfnResource
-	IPolicyStatementRef
 	awscdk.IInspectable
+	interfacesawsentityresolution.IPolicyStatementRef
 	// The action that the principal can use on the resource.
 	Action() *[]*string
 	SetAction(val *[]*string)
@@ -60,7 +62,7 @@ type CfnPolicyStatement interface {
 	// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
 	Effect() *string
 	SetEffect(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnPolicyStatement interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PolicyStatement resource.
-	PolicyStatementRef() *PolicyStatementReference
+	PolicyStatementRef() *interfacesawsentityresolution.PolicyStatementReference
 	// The AWS service or AWS account that can access the resource defined as ARN.
 	Principal() *[]*string
 	SetPrincipal(val *[]*string)
@@ -233,8 +235,8 @@ type CfnPolicyStatement interface {
 // The jsii proxy struct for CfnPolicyStatement
 type jsiiProxy_CfnPolicyStatement struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPolicyStatementRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsentityresolutionIPolicyStatementRef
 }
 
 func (j *jsiiProxy_CfnPolicyStatement) Action() *[]*string {
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnPolicyStatement) Effect() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyStatement) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPolicyStatement) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnPolicyStatement) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyStatement) PolicyStatementRef() *PolicyStatementReference {
-	var returns *PolicyStatementReference
+func (j *jsiiProxy_CfnPolicyStatement) PolicyStatementRef() *interfacesawsentityresolution.PolicyStatementReference {
+	var returns *interfacesawsentityresolution.PolicyStatementReference
 	_jsii_.Get(
 		j,
 		"policyStatementRef",
@@ -418,6 +420,7 @@ func (j *jsiiProxy_CfnPolicyStatement) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::EntityResolution::PolicyStatement`.
 func NewCfnPolicyStatement(scope constructs.Construct, id *string, props *CfnPolicyStatementProps) CfnPolicyStatement {
 	_init_.Initialize()
 
@@ -435,6 +438,7 @@ func NewCfnPolicyStatement(scope constructs.Construct, id *string, props *CfnPol
 	return &j
 }
 
+// Create a new `AWS::EntityResolution::PolicyStatement`.
 func NewCfnPolicyStatement_Override(c CfnPolicyStatement, scope constructs.Construct, id *string, props *CfnPolicyStatementProps) {
 	_init_.Initialize()
 

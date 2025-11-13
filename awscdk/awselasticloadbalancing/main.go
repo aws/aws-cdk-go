@@ -70,8 +70,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLoadBalancer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoadBalancerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticloadbalancingILoadBalancerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -115,21 +115,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancing.HealthCheck",
 		reflect.TypeOf((*HealthCheck)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_elasticloadbalancing.ILoadBalancerRef",
-		reflect.TypeOf((*ILoadBalancerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILoadBalancerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_elasticloadbalancing.ILoadBalancerTarget",
@@ -208,10 +193,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancerProps",
 		reflect.TypeOf((*LoadBalancerProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancerReference",
-		reflect.TypeOf((*LoadBalancerReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancingProtocol",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnSizeConstraintSet interface {
 	awscdk.CfnResource
-	ISizeConstraintSetRef
 	awscdk.IInspectable
+	interfacesawswafregional.ISizeConstraintSetRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -58,7 +60,7 @@ type CfnSizeConstraintSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -83,7 +85,7 @@ type CfnSizeConstraintSet interface {
 	SizeConstraints() interface{}
 	SetSizeConstraints(val interface{})
 	// A reference to a SizeConstraintSet resource.
-	SizeConstraintSetRef() *SizeConstraintSetReference
+	SizeConstraintSetRef() *interfacesawswafregional.SizeConstraintSetReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -231,8 +233,8 @@ type CfnSizeConstraintSet interface {
 // The jsii proxy struct for CfnSizeConstraintSet
 type jsiiProxy_CfnSizeConstraintSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISizeConstraintSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalISizeConstraintSetRef
 }
 
 func (j *jsiiProxy_CfnSizeConstraintSet) AttrId() *string {
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnSizeConstraintSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSizeConstraintSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSizeConstraintSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnSizeConstraintSet) SizeConstraints() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSizeConstraintSet) SizeConstraintSetRef() *SizeConstraintSetReference {
-	var returns *SizeConstraintSetReference
+func (j *jsiiProxy_CfnSizeConstraintSet) SizeConstraintSetRef() *interfacesawswafregional.SizeConstraintSetReference {
+	var returns *interfacesawswafregional.SizeConstraintSetReference
 	_jsii_.Get(
 		j,
 		"sizeConstraintSetRef",
@@ -386,6 +388,7 @@ func (j *jsiiProxy_CfnSizeConstraintSet) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::WAFRegional::SizeConstraintSet`.
 func NewCfnSizeConstraintSet(scope constructs.Construct, id *string, props *CfnSizeConstraintSetProps) CfnSizeConstraintSet {
 	_init_.Initialize()
 
@@ -403,6 +406,7 @@ func NewCfnSizeConstraintSet(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::SizeConstraintSet`.
 func NewCfnSizeConstraintSet_Override(c CfnSizeConstraintSet, scope constructs.Construct, id *string, props *CfnSizeConstraintSetProps) {
 	_init_.Initialize()
 

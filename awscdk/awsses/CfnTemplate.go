@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnTemplate interface {
 	awscdk.CfnResource
-	ITemplateRef
 	awscdk.IInspectable
+	interfacesawsses.ITemplateRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -45,7 +47,7 @@ type CfnTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,7 +73,7 @@ type CfnTemplate interface {
 	Template() interface{}
 	SetTemplate(val interface{})
 	// A reference to a Template resource.
-	TemplateRef() *TemplateReference
+	TemplateRef() *interfacesawsses.TemplateReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -215,8 +217,8 @@ type CfnTemplate interface {
 // The jsii proxy struct for CfnTemplate
 type jsiiProxy_CfnTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesITemplateRef
 }
 
 func (j *jsiiProxy_CfnTemplate) AttrId() *string {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnTemplate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnTemplate) Template() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) TemplateRef() *TemplateReference {
-	var returns *TemplateReference
+func (j *jsiiProxy_CfnTemplate) TemplateRef() *interfacesawsses.TemplateReference {
+	var returns *interfacesawsses.TemplateReference
 	_jsii_.Get(
 		j,
 		"templateRef",
@@ -360,6 +362,7 @@ func (j *jsiiProxy_CfnTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SES::Template`.
 func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
@@ -377,6 +380,7 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 	return &j
 }
 
+// Create a new `AWS::SES::Template`.
 func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 

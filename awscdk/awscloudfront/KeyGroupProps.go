@@ -1,5 +1,8 @@
 package awscloudfront
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
+)
 
 // Properties for creating a Public Key.
 //
@@ -30,7 +33,7 @@ package awscloudfront
 //
 type KeyGroupProps struct {
 	// A list of public keys to add to the key group.
-	Items *[]IPublicKeyRef `field:"required" json:"items" yaml:"items"`
+	Items *[]interfacesawscloudfront.IPublicKeyRef `field:"required" json:"items" yaml:"items"`
 	// A comment to describe the key group.
 	// Default: - no comment.
 	//

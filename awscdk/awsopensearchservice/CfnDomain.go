@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchservice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -166,8 +168,8 @@ import (
 //
 type CfnDomain interface {
 	awscdk.CfnResource
-	IDomainRef
 	awscdk.IInspectable
+	interfacesawsopensearchservice.IDomainRef
 	awscdk.ITaggable
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions.
 	AccessPolicies() interface{}
@@ -232,7 +234,7 @@ type CfnDomain interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// A reference to a Domain resource.
-	DomainRef() *DomainReference
+	DomainRef() *interfacesawsopensearchservice.DomainReference
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
 	EbsOptions() interface{}
 	SetEbsOptions(val interface{})
@@ -242,7 +244,7 @@ type CfnDomain interface {
 	// The version of OpenSearch to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Configuration options for controlling IAM Identity Center integration within a domain.
 	IdentityCenterOptions() interface{}
 	SetIdentityCenterOptions(val interface{})
@@ -438,8 +440,8 @@ type CfnDomain interface {
 // The jsii proxy struct for CfnDomain
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopensearchserviceIDomainRef
 	internal.Type__awscdkITaggable
 }
 
@@ -733,8 +735,8 @@ func (j *jsiiProxy_CfnDomain) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) DomainRef() *DomainReference {
-	var returns *DomainReference
+func (j *jsiiProxy_CfnDomain) DomainRef() *interfacesawsopensearchservice.DomainReference {
+	var returns *interfacesawsopensearchservice.DomainReference
 	_jsii_.Get(
 		j,
 		"domainRef",
@@ -773,8 +775,8 @@ func (j *jsiiProxy_CfnDomain) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -954,6 +956,7 @@ func (j *jsiiProxy_CfnDomain) VpcOptions() interface{} {
 }
 
 
+// Create a new `AWS::OpenSearchService::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -971,6 +974,7 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
+// Create a new `AWS::OpenSearchService::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
@@ -1198,13 +1202,13 @@ func (j *jsiiProxy_CfnDomain)SetVpcOptions(val interface{}) {
 }
 
 // Creates a new IDomainRef from an ARN.
-func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string) IDomainRef {
+func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string) interfacesawsopensearchservice.IDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomain_FromDomainArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDomainRef
+	var returns interfacesawsopensearchservice.IDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
@@ -1217,13 +1221,13 @@ func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IDomainRef from a domainName.
-func CfnDomain_FromDomainName(scope constructs.Construct, id *string, domainName *string) IDomainRef {
+func CfnDomain_FromDomainName(scope constructs.Construct, id *string, domainName *string) interfacesawsopensearchservice.IDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomain_FromDomainNameParameters(scope, id, domainName); err != nil {
 		panic(err)
 	}
-	var returns IDomainRef
+	var returns interfacesawsopensearchservice.IDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain",

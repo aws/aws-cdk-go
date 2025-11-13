@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmquicksetup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmquicksetup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnConfigurationManager interface {
 	awscdk.CfnResource
-	IConfigurationManagerRef
 	awscdk.IInspectable
+	interfacesawsssmquicksetup.IConfigurationManagerRef
 	awscdk.ITaggableV2
 	// The datetime stamp when the configuration manager was created.
 	AttrCreatedAt() *string
@@ -70,7 +72,7 @@ type CfnConfigurationManager interface {
 	ConfigurationDefinitions() interface{}
 	SetConfigurationDefinitions(val interface{})
 	// A reference to a ConfigurationManager resource.
-	ConfigurationManagerRef() *ConfigurationManagerReference
+	ConfigurationManagerRef() *interfacesawsssmquicksetup.ConfigurationManagerReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -78,7 +80,7 @@ type CfnConfigurationManager interface {
 	// The description of the configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -249,8 +251,8 @@ type CfnConfigurationManager interface {
 // The jsii proxy struct for CfnConfigurationManager
 type jsiiProxy_CfnConfigurationManager struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationManagerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmquicksetupIConfigurationManagerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnConfigurationManager) ConfigurationDefinitions() interface
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationManager) ConfigurationManagerRef() *ConfigurationManagerReference {
-	var returns *ConfigurationManagerReference
+func (j *jsiiProxy_CfnConfigurationManager) ConfigurationManagerRef() *interfacesawsssmquicksetup.ConfigurationManagerReference {
+	var returns *interfacesawsssmquicksetup.ConfigurationManagerReference
 	_jsii_.Get(
 		j,
 		"configurationManagerRef",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnConfigurationManager) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationManager) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationManager) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -465,6 +467,7 @@ func (j *jsiiProxy_CfnConfigurationManager) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::SSMQuickSetup::ConfigurationManager`.
 func NewCfnConfigurationManager(scope constructs.Construct, id *string, props *CfnConfigurationManagerProps) CfnConfigurationManager {
 	_init_.Initialize()
 
@@ -482,6 +485,7 @@ func NewCfnConfigurationManager(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::SSMQuickSetup::ConfigurationManager`.
 func NewCfnConfigurationManager_Override(c CfnConfigurationManager, scope constructs.Construct, id *string, props *CfnConfigurationManagerProps) {
 	_init_.Initialize()
 

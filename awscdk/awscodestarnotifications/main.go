@@ -59,8 +59,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnNotificationRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_INotificationRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodestarnotificationsINotificationRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -95,21 +95,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_INotificationRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codestarnotifications.INotificationRuleRef",
-		reflect.TypeOf((*INotificationRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "notificationRuleRef", GoGetter: "NotificationRuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_INotificationRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -163,10 +148,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codestarnotifications.NotificationRuleProps",
 		reflect.TypeOf((*NotificationRuleProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codestarnotifications.NotificationRuleReference",
-		reflect.TypeOf((*NotificationRuleReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codestarnotifications.NotificationRuleSourceConfig",

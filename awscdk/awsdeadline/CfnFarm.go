@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnFarm interface {
 	awscdk.CfnResource
-	IFarmRef
 	awscdk.IInspectable
+	interfacesawsdeadline.IFarmRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) assigned to the farm.
 	AttrArn() *string
@@ -60,9 +62,9 @@ type CfnFarm interface {
 	// The display name of the farm.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Farm resource.
-	FarmRef() *FarmReference
+	FarmRef() *interfacesawsdeadline.FarmReference
 	// The ARN for the KMS key.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -233,8 +235,8 @@ type CfnFarm interface {
 // The jsii proxy struct for CfnFarm
 type jsiiProxy_CfnFarm struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFarmRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineIFarmRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnFarm) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFarm) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFarm) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnFarm) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFarm) FarmRef() *FarmReference {
-	var returns *FarmReference
+func (j *jsiiProxy_CfnFarm) FarmRef() *interfacesawsdeadline.FarmReference {
+	var returns *interfacesawsdeadline.FarmReference
 	_jsii_.Get(
 		j,
 		"farmRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnFarm) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Deadline::Farm`.
 func NewCfnFarm(scope constructs.Construct, id *string, props *CfnFarmProps) CfnFarm {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnFarm(scope constructs.Construct, id *string, props *CfnFarmProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Deadline::Farm`.
 func NewCfnFarm_Override(c CfnFarm, scope constructs.Construct, id *string, props *CfnFarmProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awshealthlake/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawshealthlake"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnFHIRDatastore interface {
 	awscdk.CfnResource
-	IFHIRDatastoreRef
 	awscdk.IInspectable
+	interfacesawshealthlake.IFHIRDatastoreRef
 	awscdk.ITaggable
 	// The time that a Data Store was created.
 	AttrCreatedAt() awscdk.IResolvable
@@ -88,9 +90,9 @@ type CfnFHIRDatastore interface {
 	// The FHIR release version supported by the data store.
 	DatastoreTypeVersion() *string
 	SetDatastoreTypeVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FHIRDatastore resource.
-	FhirDatastoreRef() *FHIRDatastoreReference
+	FhirDatastoreRef() *interfacesawshealthlake.FHIRDatastoreReference
 	// The identity provider configuration selected when the data store was created.
 	IdentityProviderConfiguration() interface{}
 	SetIdentityProviderConfiguration(val interface{})
@@ -269,8 +271,8 @@ type CfnFHIRDatastore interface {
 // The jsii proxy struct for CfnFHIRDatastore
 type jsiiProxy_CfnFHIRDatastore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFHIRDatastoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawshealthlakeIFHIRDatastoreRef
 	internal.Type__awscdkITaggable
 }
 
@@ -404,8 +406,8 @@ func (j *jsiiProxy_CfnFHIRDatastore) DatastoreTypeVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFHIRDatastore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFHIRDatastore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnFHIRDatastore) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFHIRDatastore) FhirDatastoreRef() *FHIRDatastoreReference {
-	var returns *FHIRDatastoreReference
+func (j *jsiiProxy_CfnFHIRDatastore) FhirDatastoreRef() *interfacesawshealthlake.FHIRDatastoreReference {
+	var returns *interfacesawshealthlake.FHIRDatastoreReference
 	_jsii_.Get(
 		j,
 		"fhirDatastoreRef",
@@ -535,6 +537,7 @@ func (j *jsiiProxy_CfnFHIRDatastore) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::HealthLake::FHIRDatastore`.
 func NewCfnFHIRDatastore(scope constructs.Construct, id *string, props *CfnFHIRDatastoreProps) CfnFHIRDatastore {
 	_init_.Initialize()
 
@@ -552,6 +555,7 @@ func NewCfnFHIRDatastore(scope constructs.Construct, id *string, props *CfnFHIRD
 	return &j
 }
 
+// Create a new `AWS::HealthLake::FHIRDatastore`.
 func NewCfnFHIRDatastore_Override(c CfnFHIRDatastore, scope constructs.Construct, id *string, props *CfnFHIRDatastoreProps) {
 	_init_.Initialize()
 
@@ -626,13 +630,13 @@ func (j *jsiiProxy_CfnFHIRDatastore)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IFHIRDatastoreRef from a datastoreId.
-func CfnFHIRDatastore_FromDatastoreId(scope constructs.Construct, id *string, datastoreId *string) IFHIRDatastoreRef {
+func CfnFHIRDatastore_FromDatastoreId(scope constructs.Construct, id *string, datastoreId *string) interfacesawshealthlake.IFHIRDatastoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnFHIRDatastore_FromDatastoreIdParameters(scope, id, datastoreId); err != nil {
 		panic(err)
 	}
-	var returns IFHIRDatastoreRef
+	var returns interfacesawshealthlake.IFHIRDatastoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore",

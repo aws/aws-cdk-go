@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnStreamKey interface {
 	awscdk.CfnResource
-	IStreamKeyRef
 	awscdk.IInspectable
+	interfacesawsivs.IStreamKeyRef
 	awscdk.ITaggable
 	// The stream-key ARN.
 	//
@@ -57,7 +59,7 @@ type CfnStreamKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,7 +82,7 @@ type CfnStreamKey interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StreamKey resource.
-	StreamKeyRef() *StreamKeyReference
+	StreamKeyRef() *interfacesawsivs.StreamKeyReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An array of key-value pairs to apply to this resource.
@@ -229,8 +231,8 @@ type CfnStreamKey interface {
 // The jsii proxy struct for CfnStreamKey
 type jsiiProxy_CfnStreamKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivsIStreamKeyRef
 	internal.Type__awscdkITaggable
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnStreamKey) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStreamKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnStreamKey) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamKey) StreamKeyRef() *StreamKeyReference {
-	var returns *StreamKeyReference
+func (j *jsiiProxy_CfnStreamKey) StreamKeyRef() *interfacesawsivs.StreamKeyReference {
+	var returns *interfacesawsivs.StreamKeyReference
 	_jsii_.Get(
 		j,
 		"streamKeyRef",
@@ -405,6 +407,7 @@ func (j *jsiiProxy_CfnStreamKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IVS::StreamKey`.
 func NewCfnStreamKey(scope constructs.Construct, id *string, props *CfnStreamKeyProps) CfnStreamKey {
 	_init_.Initialize()
 
@@ -422,6 +425,7 @@ func NewCfnStreamKey(scope constructs.Construct, id *string, props *CfnStreamKey
 	return &j
 }
 
+// Create a new `AWS::IVS::StreamKey`.
 func NewCfnStreamKey_Override(c CfnStreamKey, scope constructs.Construct, id *string, props *CfnStreamKeyProps) {
 	_init_.Initialize()
 

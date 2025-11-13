@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::Insight` resource creates a custom insight in AWS Security Hub .
+// The `AWS::SecurityHub::Insight` resource creates a custom insight in Security Hub .
 //
-// An insight is a collection of findings that relate to a security issue that requires attention or remediation. For more information, see [Insights in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) in the *AWS Security Hub User Guide* .
+// An insight is a collection of findings that relate to a security issue that requires attention or remediation. For more information, see [Insights in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) in the *Security Hub User Guide* .
 //
 // Tags aren't supported for this resource.
 //
@@ -705,8 +707,8 @@ import (
 //
 type CfnInsight interface {
 	awscdk.CfnResource
-	IInsightRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IInsightRef
 	// The ARN of a Security Hub insight.
 	AttrInsightArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -718,7 +720,7 @@ type CfnInsight interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// One or more attributes used to filter the findings included in the insight.
 	Filters() interface{}
 	SetFilters(val interface{})
@@ -726,7 +728,7 @@ type CfnInsight interface {
 	GroupByAttribute() *string
 	SetGroupByAttribute(val *string)
 	// A reference to a Insight resource.
-	InsightRef() *InsightReference
+	InsightRef() *interfacesawssecurityhub.InsightReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -894,8 +896,8 @@ type CfnInsight interface {
 // The jsii proxy struct for CfnInsight
 type jsiiProxy_CfnInsight struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInsightRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIInsightRef
 }
 
 func (j *jsiiProxy_CfnInsight) AttrInsightArn() *string {
@@ -948,8 +950,8 @@ func (j *jsiiProxy_CfnInsight) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInsight) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInsight) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -978,8 +980,8 @@ func (j *jsiiProxy_CfnInsight) GroupByAttribute() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInsight) InsightRef() *InsightReference {
-	var returns *InsightReference
+func (j *jsiiProxy_CfnInsight) InsightRef() *interfacesawssecurityhub.InsightReference {
+	var returns *interfacesawssecurityhub.InsightReference
 	_jsii_.Get(
 		j,
 		"insightRef",
@@ -1059,6 +1061,7 @@ func (j *jsiiProxy_CfnInsight) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SecurityHub::Insight`.
 func NewCfnInsight(scope constructs.Construct, id *string, props *CfnInsightProps) CfnInsight {
 	_init_.Initialize()
 
@@ -1076,6 +1079,7 @@ func NewCfnInsight(scope constructs.Construct, id *string, props *CfnInsightProp
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::Insight`.
 func NewCfnInsight_Override(c CfnInsight, scope constructs.Construct, id *string, props *CfnInsightProps) {
 	_init_.Initialize()
 

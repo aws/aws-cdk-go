@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -159,8 +161,8 @@ import (
 //
 type CfnMonitoringSchedule interface {
 	awscdk.CfnResource
-	IMonitoringScheduleRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IMonitoringScheduleRef
 	awscdk.ITaggable
 	// The time when the monitoring schedule was created.
 	AttrCreationTime() *string
@@ -180,7 +182,7 @@ type CfnMonitoringSchedule interface {
 	// The name of the endpoint using the monitoring schedule.
 	EndpointName() *string
 	SetEndpointName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason() *string
 	SetFailureReason(val *string)
@@ -204,7 +206,7 @@ type CfnMonitoringSchedule interface {
 	MonitoringScheduleName() *string
 	SetMonitoringScheduleName(val *string)
 	// A reference to a MonitoringSchedule resource.
-	MonitoringScheduleRef() *MonitoringScheduleReference
+	MonitoringScheduleRef() *interfacesawssagemaker.MonitoringScheduleReference
 	// The status of the monitoring schedule.
 	MonitoringScheduleStatus() *string
 	SetMonitoringScheduleStatus(val *string)
@@ -367,8 +369,8 @@ type CfnMonitoringSchedule interface {
 // The jsii proxy struct for CfnMonitoringSchedule
 type jsiiProxy_CfnMonitoringSchedule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMonitoringScheduleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIMonitoringScheduleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -452,8 +454,8 @@ func (j *jsiiProxy_CfnMonitoringSchedule) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMonitoringSchedule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMonitoringSchedule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -512,8 +514,8 @@ func (j *jsiiProxy_CfnMonitoringSchedule) MonitoringScheduleName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMonitoringSchedule) MonitoringScheduleRef() *MonitoringScheduleReference {
-	var returns *MonitoringScheduleReference
+func (j *jsiiProxy_CfnMonitoringSchedule) MonitoringScheduleRef() *interfacesawssagemaker.MonitoringScheduleReference {
+	var returns *interfacesawssagemaker.MonitoringScheduleReference
 	_jsii_.Get(
 		j,
 		"monitoringScheduleRef",
@@ -603,6 +605,7 @@ func (j *jsiiProxy_CfnMonitoringSchedule) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::SageMaker::MonitoringSchedule`.
 func NewCfnMonitoringSchedule(scope constructs.Construct, id *string, props *CfnMonitoringScheduleProps) CfnMonitoringSchedule {
 	_init_.Initialize()
 
@@ -620,6 +623,7 @@ func NewCfnMonitoringSchedule(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::SageMaker::MonitoringSchedule`.
 func NewCfnMonitoringSchedule_Override(c CfnMonitoringSchedule, scope constructs.Construct, id *string, props *CfnMonitoringScheduleProps) {
 	_init_.Initialize()
 

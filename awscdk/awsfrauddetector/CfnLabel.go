@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfrauddetector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfrauddetector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnLabel interface {
 	awscdk.CfnResource
-	ILabelRef
 	awscdk.IInspectable
+	interfacesawsfrauddetector.ILabelRef
 	awscdk.ITaggable
 	// The ARN of the label.
 	AttrArn() *string
@@ -56,9 +58,9 @@ type CfnLabel interface {
 	// The label description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Label resource.
-	LabelRef() *LabelReference
+	LabelRef() *interfacesawsfrauddetector.LabelReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnLabel interface {
 // The jsii proxy struct for CfnLabel
 type jsiiProxy_CfnLabel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILabelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfrauddetectorILabelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnLabel) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLabel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLabel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnLabel) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLabel) LabelRef() *LabelReference {
-	var returns *LabelReference
+func (j *jsiiProxy_CfnLabel) LabelRef() *interfacesawsfrauddetector.LabelReference {
+	var returns *interfacesawsfrauddetector.LabelReference
 	_jsii_.Get(
 		j,
 		"labelRef",
@@ -427,6 +429,7 @@ func (j *jsiiProxy_CfnLabel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::FraudDetector::Label`.
 func NewCfnLabel(scope constructs.Construct, id *string, props *CfnLabelProps) CfnLabel {
 	_init_.Initialize()
 
@@ -444,6 +447,7 @@ func NewCfnLabel(scope constructs.Construct, id *string, props *CfnLabelProps) C
 	return &j
 }
 
+// Create a new `AWS::FraudDetector::Label`.
 func NewCfnLabel_Override(c CfnLabel, scope constructs.Construct, id *string, props *CfnLabelProps) {
 	_init_.Initialize()
 

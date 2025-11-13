@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnViewVersion interface {
 	awscdk.CfnResource
-	IViewVersionRef
 	awscdk.IInspectable
+	interfacesawsconnect.IViewVersionRef
 	// Current version of the view.
 	AttrVersion() *float64
 	// The Amazon Resource Name (ARN) of the view version.
@@ -43,7 +45,7 @@ type CfnViewVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -88,7 +90,7 @@ type CfnViewVersion interface {
 	ViewContentSha256() *string
 	SetViewContentSha256(val *string)
 	// A reference to a ViewVersion resource.
-	ViewVersionRef() *ViewVersionReference
+	ViewVersionRef() *interfacesawsconnect.ViewVersionReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -219,8 +221,8 @@ type CfnViewVersion interface {
 // The jsii proxy struct for CfnViewVersion
 type jsiiProxy_CfnViewVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IViewVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIViewVersionRef
 }
 
 func (j *jsiiProxy_CfnViewVersion) AttrVersion() *float64 {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnViewVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnViewVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnViewVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnViewVersion) ViewContentSha256() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnViewVersion) ViewVersionRef() *ViewVersionReference {
-	var returns *ViewVersionReference
+func (j *jsiiProxy_CfnViewVersion) ViewVersionRef() *interfacesawsconnect.ViewVersionReference {
+	var returns *interfacesawsconnect.ViewVersionReference
 	_jsii_.Get(
 		j,
 		"viewVersionRef",
@@ -394,6 +396,7 @@ func (j *jsiiProxy_CfnViewVersion) ViewVersionRef() *ViewVersionReference {
 }
 
 
+// Create a new `AWS::Connect::ViewVersion`.
 func NewCfnViewVersion(scope constructs.Construct, id *string, props *CfnViewVersionProps) CfnViewVersion {
 	_init_.Initialize()
 
@@ -411,6 +414,7 @@ func NewCfnViewVersion(scope constructs.Construct, id *string, props *CfnViewVer
 	return &j
 }
 
+// Create a new `AWS::Connect::ViewVersion`.
 func NewCfnViewVersion_Override(c CfnViewVersion, scope constructs.Construct, id *string, props *CfnViewVersionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmacie/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmacie"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,11 +57,11 @@ import (
 //
 type CfnAllowList interface {
 	awscdk.CfnResource
-	IAllowListRef
 	awscdk.IInspectable
+	interfacesawsmacie.IAllowListRef
 	awscdk.ITaggable
 	// A reference to a AllowList resource.
-	AllowListRef() *AllowListReference
+	AllowListRef() *interfacesawsmacie.AllowListReference
 	// The Amazon Resource Name (ARN) of the allow list.
 	AttrArn() *string
 	// The unique identifier for the allow list.
@@ -94,7 +96,7 @@ type CfnAllowList interface {
 	// A custom description of the allow list.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -267,13 +269,13 @@ type CfnAllowList interface {
 // The jsii proxy struct for CfnAllowList
 type jsiiProxy_CfnAllowList struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAllowListRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmacieIAllowListRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAllowList) AllowListRef() *AllowListReference {
-	var returns *AllowListReference
+func (j *jsiiProxy_CfnAllowList) AllowListRef() *interfacesawsmacie.AllowListReference {
+	var returns *interfacesawsmacie.AllowListReference
 	_jsii_.Get(
 		j,
 		"allowListRef",
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnAllowList) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAllowList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAllowList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnAllowList) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Macie::AllowList`.
 func NewCfnAllowList(scope constructs.Construct, id *string, props *CfnAllowListProps) CfnAllowList {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnAllowList(scope constructs.Construct, id *string, props *CfnAllowList
 	return &j
 }
 
+// Create a new `AWS::Macie::AllowList`.
 func NewCfnAllowList_Override(c CfnAllowList, scope constructs.Construct, id *string, props *CfnAllowListProps) {
 	_init_.Initialize()
 

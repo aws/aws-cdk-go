@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeartifact/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodeartifact"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnDomain interface {
 	awscdk.CfnResource
-	IDomainRef
 	awscdk.IInspectable
+	interfacesawscodeartifact.IDomainRef
 	awscdk.ITaggable
 	// When you pass the logical ID of this resource, the function returns the Amazon Resource Name (ARN) of the domain.
 	AttrArn() *string
@@ -62,11 +64,11 @@ type CfnDomain interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// A reference to a Domain resource.
-	DomainRef() *DomainReference
+	DomainRef() *interfacesawscodeartifact.DomainReference
 	// The key used to encrypt the domain.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -239,8 +241,8 @@ type CfnDomain interface {
 // The jsii proxy struct for CfnDomain
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodeartifactIDomainRef
 	internal.Type__awscdkITaggable
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnDomain) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) DomainRef() *DomainReference {
-	var returns *DomainReference
+func (j *jsiiProxy_CfnDomain) DomainRef() *interfacesawscodeartifact.DomainReference {
+	var returns *interfacesawscodeartifact.DomainReference
 	_jsii_.Get(
 		j,
 		"domainRef",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnDomain) EncryptionKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -455,6 +457,7 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CodeArtifact::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -472,6 +475,7 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
+// Create a new `AWS::CodeArtifact::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 

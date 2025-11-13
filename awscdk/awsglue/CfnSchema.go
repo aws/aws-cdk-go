@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnSchema interface {
 	awscdk.CfnResource
-	ISchemaRef
 	awscdk.IInspectable
+	interfacesawsglue.ISchemaRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the schema.
 	AttrArn() *string
@@ -72,7 +74,7 @@ type CfnSchema interface {
 	// A description of the schema if specified when created.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -100,7 +102,7 @@ type CfnSchema interface {
 	SchemaDefinition() *string
 	SetSchemaDefinition(val *string)
 	// A reference to a Schema resource.
-	SchemaRef() *SchemaReference
+	SchemaRef() *interfacesawsglue.SchemaReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -253,8 +255,8 @@ type CfnSchema interface {
 // The jsii proxy struct for CfnSchema
 type jsiiProxy_CfnSchema struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISchemaRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueISchemaRef
 	internal.Type__awscdkITaggable
 }
 
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnSchema) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchema) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSchema) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnSchema) SchemaDefinition() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchema) SchemaRef() *SchemaReference {
-	var returns *SchemaReference
+func (j *jsiiProxy_CfnSchema) SchemaRef() *interfacesawsglue.SchemaReference {
+	var returns *interfacesawsglue.SchemaReference
 	_jsii_.Get(
 		j,
 		"schemaRef",
@@ -489,6 +491,7 @@ func (j *jsiiProxy_CfnSchema) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Glue::Schema`.
 func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps) CfnSchema {
 	_init_.Initialize()
 
@@ -506,6 +509,7 @@ func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps)
 	return &j
 }
 
+// Create a new `AWS::Glue::Schema`.
 func NewCfnSchema_Override(c CfnSchema, scope constructs.Construct, id *string, props *CfnSchemaProps) {
 	_init_.Initialize()
 

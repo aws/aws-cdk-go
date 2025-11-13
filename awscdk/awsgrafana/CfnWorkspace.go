@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgrafana/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgrafana"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -93,8 +95,8 @@ import (
 //
 type CfnWorkspace interface {
 	awscdk.CfnResource
-	IWorkspaceRef
 	awscdk.IInspectable
+	interfacesawsgrafana.IWorkspaceRef
 	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization.
 	AccountAccessType() *string
 	SetAccountAccessType(val *string)
@@ -155,7 +157,7 @@ type CfnWorkspace interface {
 	// The user-defined description of the workspace.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the version of Grafana to support in the workspace.
 	GrafanaVersion() *string
 	SetGrafanaVersion(val *string)
@@ -227,7 +229,7 @@ type CfnWorkspace interface {
 	VpcConfiguration() interface{}
 	SetVpcConfiguration(val interface{})
 	// A reference to a Workspace resource.
-	WorkspaceRef() *WorkspaceReference
+	WorkspaceRef() *interfacesawsgrafana.WorkspaceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -358,8 +360,8 @@ type CfnWorkspace interface {
 // The jsii proxy struct for CfnWorkspace
 type jsiiProxy_CfnWorkspace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkspaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgrafanaIWorkspaceRef
 }
 
 func (j *jsiiProxy_CfnWorkspace) AccountAccessType() *string {
@@ -532,8 +534,8 @@ func (j *jsiiProxy_CfnWorkspace) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkspace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -722,8 +724,8 @@ func (j *jsiiProxy_CfnWorkspace) VpcConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *WorkspaceReference {
-	var returns *WorkspaceReference
+func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *interfacesawsgrafana.WorkspaceReference {
+	var returns *interfacesawsgrafana.WorkspaceReference
 	_jsii_.Get(
 		j,
 		"workspaceRef",
@@ -733,6 +735,7 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *WorkspaceReference {
 }
 
 
+// Create a new `AWS::Grafana::Workspace`.
 func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
@@ -750,6 +753,7 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 	return &j
 }
 
+// Create a new `AWS::Grafana::Workspace`.
 func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 

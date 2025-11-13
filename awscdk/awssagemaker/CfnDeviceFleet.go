@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnDeviceFleet interface {
 	awscdk.CfnResource
-	IDeviceFleetRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IDeviceFleetRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -61,8 +63,8 @@ type CfnDeviceFleet interface {
 	DeviceFleetName() *string
 	SetDeviceFleetName(val *string)
 	// A reference to a DeviceFleet resource.
-	DeviceFleetRef() *DeviceFleetReference
-	Env() *awscdk.ResourceEnvironment
+	DeviceFleetRef() *interfacesawssagemaker.DeviceFleetReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -238,8 +240,8 @@ type CfnDeviceFleet interface {
 // The jsii proxy struct for CfnDeviceFleet
 type jsiiProxy_CfnDeviceFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeviceFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIDeviceFleetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnDeviceFleet) DeviceFleetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceFleet) DeviceFleetRef() *DeviceFleetReference {
-	var returns *DeviceFleetReference
+func (j *jsiiProxy_CfnDeviceFleet) DeviceFleetRef() *interfacesawssagemaker.DeviceFleetReference {
+	var returns *interfacesawssagemaker.DeviceFleetReference
 	_jsii_.Get(
 		j,
 		"deviceFleetRef",
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnDeviceFleet) DeviceFleetRef() *DeviceFleetReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeviceFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -424,6 +426,7 @@ func (j *jsiiProxy_CfnDeviceFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::DeviceFleet`.
 func NewCfnDeviceFleet(scope constructs.Construct, id *string, props *CfnDeviceFleetProps) CfnDeviceFleet {
 	_init_.Initialize()
 
@@ -441,6 +444,7 @@ func NewCfnDeviceFleet(scope constructs.Construct, id *string, props *CfnDeviceF
 	return &j
 }
 
+// Create a new `AWS::SageMaker::DeviceFleet`.
 func NewCfnDeviceFleet_Override(c CfnDeviceFleet, scope constructs.Construct, id *string, props *CfnDeviceFleetProps) {
 	_init_.Initialize()
 
@@ -504,13 +508,13 @@ func (j *jsiiProxy_CfnDeviceFleet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDeviceFleetRef from a deviceFleetName.
-func CfnDeviceFleet_FromDeviceFleetName(scope constructs.Construct, id *string, deviceFleetName *string) IDeviceFleetRef {
+func CfnDeviceFleet_FromDeviceFleetName(scope constructs.Construct, id *string, deviceFleetName *string) interfacesawssagemaker.IDeviceFleetRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeviceFleet_FromDeviceFleetNameParameters(scope, id, deviceFleetName); err != nil {
 		panic(err)
 	}
-	var returns IDeviceFleetRef
+	var returns interfacesawssagemaker.IDeviceFleetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnDeviceFleet",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,7 +36,7 @@ type DomainName interface {
 	// The Route53 hosted zone ID to use in order to connect a record set to this domain through an alias.
 	DomainNameAliasHostedZoneId() *string
 	// A reference to a DomainName resource.
-	DomainNameRef() *DomainNameReference
+	DomainNameRef() *interfacesawsapigateway.DomainNameReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -44,7 +46,7 @@ type DomainName interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -63,13 +65,13 @@ type DomainName interface {
 	// also only supports:
 	// - SecurityPolicy.TLS_1_2
 	// - EndpointType.REGIONAL
-	AddApiMapping(targetStage IStageRef, options *ApiMappingOptions)
+	AddApiMapping(targetStage interfacesawsapigateway.IStageRef, options *ApiMappingOptions)
 	// Maps this domain to an API endpoint.
 	//
 	// This uses the BasePathMapping from ApiGateway v1 which does not support multi-level paths.
 	//
 	// If you need to create a mapping for a multi-level path use `addApiMapping` instead.
-	AddBasePathMapping(targetApi IRestApiRef, options *BasePathMappingOptions) BasePathMapping
+	AddBasePathMapping(targetApi interfacesawsapigateway.IRestApiRef, options *BasePathMappingOptions) BasePathMapping
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -134,8 +136,8 @@ func (j *jsiiProxy_DomainName) DomainNameAliasHostedZoneId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_DomainName) DomainNameRef() *DomainNameReference {
-	var returns *DomainNameReference
+func (j *jsiiProxy_DomainName) DomainNameRef() *interfacesawsapigateway.DomainNameReference {
+	var returns *interfacesawsapigateway.DomainNameReference
 	_jsii_.Get(
 		j,
 		"domainNameRef",
@@ -144,8 +146,8 @@ func (j *jsiiProxy_DomainName) DomainNameRef() *DomainNameReference {
 	return returns
 }
 
-func (j *jsiiProxy_DomainName) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_DomainName) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -315,7 +317,7 @@ func DomainName_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (d *jsiiProxy_DomainName) AddApiMapping(targetStage IStageRef, options *ApiMappingOptions) {
+func (d *jsiiProxy_DomainName) AddApiMapping(targetStage interfacesawsapigateway.IStageRef, options *ApiMappingOptions) {
 	if err := d.validateAddApiMappingParameters(targetStage, options); err != nil {
 		panic(err)
 	}
@@ -326,7 +328,7 @@ func (d *jsiiProxy_DomainName) AddApiMapping(targetStage IStageRef, options *Api
 	)
 }
 
-func (d *jsiiProxy_DomainName) AddBasePathMapping(targetApi IRestApiRef, options *BasePathMappingOptions) BasePathMapping {
+func (d *jsiiProxy_DomainName) AddBasePathMapping(targetApi interfacesawsapigateway.IRestApiRef, options *BasePathMappingOptions) BasePathMapping {
 	if err := d.validateAddBasePathMappingParameters(targetApi, options); err != nil {
 		panic(err)
 	}

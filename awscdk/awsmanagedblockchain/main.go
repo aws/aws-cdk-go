@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.AccessorReference",
-		reflect.TypeOf((*AccessorReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_managedblockchain.CfnAccessor",
 		reflect.TypeOf((*CfnAccessor)(nil)).Elem(),
@@ -60,8 +56,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccessor{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsmanagedblockchainIAccessorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -116,8 +112,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMember{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMemberRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsmanagedblockchainIMemberRef)
 			return &j
 		},
 	)
@@ -204,8 +200,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnNode{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_INodeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsmanagedblockchainINodeRef)
 			return &j
 		},
 	)
@@ -216,58 +212,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_managedblockchain.CfnNodeProps",
 		reflect.TypeOf((*CfnNodeProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_managedblockchain.IAccessorRef",
-		reflect.TypeOf((*IAccessorRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessorRef", GoGetter: "AccessorRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccessorRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_managedblockchain.IMemberRef",
-		reflect.TypeOf((*IMemberRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "memberRef", GoGetter: "MemberRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMemberRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_managedblockchain.INodeRef",
-		reflect.TypeOf((*INodeRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "nodeRef", GoGetter: "NodeRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_INodeRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.MemberReference",
-		reflect.TypeOf((*MemberReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.NodeReference",
-		reflect.TypeOf((*NodeReference)(nil)).Elem(),
 	)
 }

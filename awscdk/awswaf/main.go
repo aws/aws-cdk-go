@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_waf.ByteMatchSetReference",
-		reflect.TypeOf((*ByteMatchSetReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_waf.CfnByteMatchSet",
 		reflect.TypeOf((*CfnByteMatchSet)(nil)).Elem(),
@@ -54,8 +50,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnByteMatchSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IByteMatchSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawswafIByteMatchSetRef)
 			return &j
 		},
 	)
@@ -114,8 +110,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIPSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIPSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawswafIIPSetRef)
 			return &j
 		},
 	)
@@ -171,8 +167,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawswafIRuleRef)
 			return &j
 		},
 	)
@@ -227,8 +223,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSizeConstraintSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISizeConstraintSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawswafISizeConstraintSetRef)
 			return &j
 		},
 	)
@@ -287,8 +283,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSqlInjectionMatchSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISqlInjectionMatchSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawswafISqlInjectionMatchSetRef)
 			return &j
 		},
 	)
@@ -349,8 +345,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnWebACL{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWebACLRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawswafIWebACLRef)
 			return &j
 		},
 	)
@@ -409,8 +405,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnXssMatchSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IXssMatchSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawswafIXssMatchSetRef)
 			return &j
 		},
 	)
@@ -425,134 +421,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_waf.CfnXssMatchSetProps",
 		reflect.TypeOf((*CfnXssMatchSetProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_waf.IByteMatchSetRef",
-		reflect.TypeOf((*IByteMatchSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "byteMatchSetRef", GoGetter: "ByteMatchSetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IByteMatchSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_waf.IIPSetRef",
-		reflect.TypeOf((*IIPSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "ipSetRef", GoGetter: "IpSetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIPSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_waf.IPSetReference",
-		reflect.TypeOf((*IPSetReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_waf.IRuleRef",
-		reflect.TypeOf((*IRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "ruleRef", GoGetter: "RuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_waf.ISizeConstraintSetRef",
-		reflect.TypeOf((*ISizeConstraintSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sizeConstraintSetRef", GoGetter: "SizeConstraintSetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISizeConstraintSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_waf.ISqlInjectionMatchSetRef",
-		reflect.TypeOf((*ISqlInjectionMatchSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sqlInjectionMatchSetRef", GoGetter: "SqlInjectionMatchSetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISqlInjectionMatchSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_waf.IWebACLRef",
-		reflect.TypeOf((*IWebACLRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "webAclRef", GoGetter: "WebAclRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IWebACLRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_waf.IXssMatchSetRef",
-		reflect.TypeOf((*IXssMatchSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "xssMatchSetRef", GoGetter: "XssMatchSetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IXssMatchSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_waf.RuleReference",
-		reflect.TypeOf((*RuleReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_waf.SizeConstraintSetReference",
-		reflect.TypeOf((*SizeConstraintSetReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_waf.SqlInjectionMatchSetReference",
-		reflect.TypeOf((*SqlInjectionMatchSetReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_waf.WebACLReference",
-		reflect.TypeOf((*WebACLReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_waf.XssMatchSetReference",
-		reflect.TypeOf((*XssMatchSetReference)(nil)).Elem(),
 	)
 }

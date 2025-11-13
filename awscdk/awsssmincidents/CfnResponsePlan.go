@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmincidents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmincidents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,8 +101,8 @@ import (
 //
 type CfnResponsePlan interface {
 	awscdk.CfnResource
-	IResponsePlanRef
 	awscdk.IInspectable
+	interfacesawsssmincidents.IResponsePlanRef
 	awscdk.ITaggable
 	// The actions that the response plan starts at the beginning of an incident.
 	Actions() interface{}
@@ -125,7 +127,7 @@ type CfnResponsePlan interface {
 	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements() *[]*string
 	SetEngagements(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Details used to create an incident when using this response plan.
 	IncidentTemplate() interface{}
 	SetIncidentTemplate(val interface{})
@@ -153,7 +155,7 @@ type CfnResponsePlan interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResponsePlan resource.
-	ResponsePlanRef() *ResponsePlanReference
+	ResponsePlanRef() *interfacesawsssmincidents.ResponsePlanReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -306,8 +308,8 @@ type CfnResponsePlan interface {
 // The jsii proxy struct for CfnResponsePlan
 type jsiiProxy_CfnResponsePlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResponsePlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmincidentsIResponsePlanRef
 	internal.Type__awscdkITaggable
 }
 
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnResponsePlan) Engagements() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResponsePlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResponsePlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -471,8 +473,8 @@ func (j *jsiiProxy_CfnResponsePlan) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResponsePlan) ResponsePlanRef() *ResponsePlanReference {
-	var returns *ResponsePlanReference
+func (j *jsiiProxy_CfnResponsePlan) ResponsePlanRef() *interfacesawsssmincidents.ResponsePlanReference {
+	var returns *interfacesawsssmincidents.ResponsePlanReference
 	_jsii_.Get(
 		j,
 		"responsePlanRef",
@@ -532,6 +534,7 @@ func (j *jsiiProxy_CfnResponsePlan) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::SSMIncidents::ResponsePlan`.
 func NewCfnResponsePlan(scope constructs.Construct, id *string, props *CfnResponsePlanProps) CfnResponsePlan {
 	_init_.Initialize()
 
@@ -549,6 +552,7 @@ func NewCfnResponsePlan(scope constructs.Construct, id *string, props *CfnRespon
 	return &j
 }
 
+// Create a new `AWS::SSMIncidents::ResponsePlan`.
 func NewCfnResponsePlan_Override(c CfnResponsePlan, scope constructs.Construct, id *string, props *CfnResponsePlanProps) {
 	_init_.Initialize()
 

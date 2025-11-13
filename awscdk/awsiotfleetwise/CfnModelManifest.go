@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotfleetwise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotfleetwise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnModelManifest interface {
 	awscdk.CfnResource
-	IModelManifestRef
 	awscdk.IInspectable
+	interfacesawsiotfleetwise.IModelManifestRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the vehicle model.
 	AttrArn() *string
@@ -61,7 +63,7 @@ type CfnModelManifest interface {
 	// A brief description of the vehicle model.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,7 +75,7 @@ type CfnModelManifest interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a ModelManifest resource.
-	ModelManifestRef() *ModelManifestReference
+	ModelManifestRef() *interfacesawsiotfleetwise.ModelManifestReference
 	// The name of the vehicle model.
 	Name() *string
 	SetName(val *string)
@@ -245,8 +247,8 @@ type CfnModelManifest interface {
 // The jsii proxy struct for CfnModelManifest
 type jsiiProxy_CfnModelManifest struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelManifestRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotfleetwiseIModelManifestRef
 	internal.Type__awscdkITaggable
 }
 
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnModelManifest) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelManifest) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModelManifest) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnModelManifest) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelManifest) ModelManifestRef() *ModelManifestReference {
-	var returns *ModelManifestReference
+func (j *jsiiProxy_CfnModelManifest) ModelManifestRef() *interfacesawsiotfleetwise.ModelManifestReference {
+	var returns *interfacesawsiotfleetwise.ModelManifestReference
 	_jsii_.Get(
 		j,
 		"modelManifestRef",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnModelManifest) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::IoTFleetWise::ModelManifest`.
 func NewCfnModelManifest(scope constructs.Construct, id *string, props *CfnModelManifestProps) CfnModelManifest {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnModelManifest(scope constructs.Construct, id *string, props *CfnModel
 	return &j
 }
 
+// Create a new `AWS::IoTFleetWise::ModelManifest`.
 func NewCfnModelManifest_Override(c CfnModelManifest, scope constructs.Construct, id *string, props *CfnModelManifestProps) {
 	_init_.Initialize()
 

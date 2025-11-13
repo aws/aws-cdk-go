@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnNotebookInstance interface {
 	awscdk.CfnResource
-	INotebookInstanceRef
 	awscdk.IInspectable
+	interfacesawssagemaker.INotebookInstanceRef
 	awscdk.ITaggable
 	// A list of Amazon Elastic Inference (EI) instance types to associate with the notebook instance.
 	AcceleratorTypes() *[]*string
@@ -83,7 +85,7 @@ type CfnNotebookInstance interface {
 	// Sets whether SageMaker AI provides internet access to the notebook instance.
 	DirectInternetAccess() *string
 	SetDirectInternetAccess(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Information on the IMDS configuration of the notebook instance.
 	InstanceMetadataServiceConfiguration() interface{}
 	SetInstanceMetadataServiceConfiguration(val interface{})
@@ -112,7 +114,7 @@ type CfnNotebookInstance interface {
 	NotebookInstanceName() *string
 	SetNotebookInstanceName(val *string)
 	// A reference to a NotebookInstance resource.
-	NotebookInstanceRef() *NotebookInstanceReference
+	NotebookInstanceRef() *interfacesawssagemaker.NotebookInstanceReference
 	// The platform identifier of the notebook instance runtime environment.
 	PlatformIdentifier() *string
 	SetPlatformIdentifier(val *string)
@@ -290,8 +292,8 @@ type CfnNotebookInstance interface {
 // The jsii proxy struct for CfnNotebookInstance
 type jsiiProxy_CfnNotebookInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INotebookInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerINotebookInstanceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -395,8 +397,8 @@ func (j *jsiiProxy_CfnNotebookInstance) DirectInternetAccess() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNotebookInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -475,8 +477,8 @@ func (j *jsiiProxy_CfnNotebookInstance) NotebookInstanceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) NotebookInstanceRef() *NotebookInstanceReference {
-	var returns *NotebookInstanceReference
+func (j *jsiiProxy_CfnNotebookInstance) NotebookInstanceRef() *interfacesawssagemaker.NotebookInstanceReference {
+	var returns *interfacesawssagemaker.NotebookInstanceReference
 	_jsii_.Get(
 		j,
 		"notebookInstanceRef",
@@ -606,6 +608,7 @@ func (j *jsiiProxy_CfnNotebookInstance) VolumeSizeInGb() *float64 {
 }
 
 
+// Create a new `AWS::SageMaker::NotebookInstance`.
 func NewCfnNotebookInstance(scope constructs.Construct, id *string, props *CfnNotebookInstanceProps) CfnNotebookInstance {
 	_init_.Initialize()
 
@@ -623,6 +626,7 @@ func NewCfnNotebookInstance(scope constructs.Construct, id *string, props *CfnNo
 	return &j
 }
 
+// Create a new `AWS::SageMaker::NotebookInstance`.
 func NewCfnNotebookInstance_Override(c CfnNotebookInstance, scope constructs.Construct, id *string, props *CfnNotebookInstanceProps) {
 	_init_.Initialize()
 

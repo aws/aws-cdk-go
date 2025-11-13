@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnTagOption interface {
 	awscdk.CfnResource
-	ITagOptionRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.ITagOptionRef
 	// The TagOption active state.
 	Active() interface{}
 	SetActive(val interface{})
@@ -46,7 +48,7 @@ type CfnTagOption interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The TagOption key.
 	Key() *string
 	SetKey(val *string)
@@ -72,7 +74,7 @@ type CfnTagOption interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a TagOption resource.
-	TagOptionRef() *TagOptionReference
+	TagOptionRef() *interfacesawsservicecatalog.TagOptionReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -219,8 +221,8 @@ type CfnTagOption interface {
 // The jsii proxy struct for CfnTagOption
 type jsiiProxy_CfnTagOption struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITagOptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogITagOptionRef
 }
 
 func (j *jsiiProxy_CfnTagOption) Active() interface{} {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnTagOption) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTagOption) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTagOption) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnTagOption) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTagOption) TagOptionRef() *TagOptionReference {
-	var returns *TagOptionReference
+func (j *jsiiProxy_CfnTagOption) TagOptionRef() *interfacesawsservicecatalog.TagOptionReference {
+	var returns *interfacesawsservicecatalog.TagOptionReference
 	_jsii_.Get(
 		j,
 		"tagOptionRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnTagOption) Value() *string {
 }
 
 
+// Create a new `AWS::ServiceCatalog::TagOption`.
 func NewCfnTagOption(scope constructs.Construct, id *string, props *CfnTagOptionProps) CfnTagOption {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnTagOption(scope constructs.Construct, id *string, props *CfnTagOption
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::TagOption`.
 func NewCfnTagOption_Override(c CfnTagOption, scope constructs.Construct, id *string, props *CfnTagOptionProps) {
 	_init_.Initialize()
 

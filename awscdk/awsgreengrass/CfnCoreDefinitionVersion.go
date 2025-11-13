@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnCoreDefinitionVersion interface {
 	awscdk.CfnResource
-	ICoreDefinitionVersionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.ICoreDefinitionVersionRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -52,7 +54,7 @@ type CfnCoreDefinitionVersion interface {
 	CoreDefinitionId() *string
 	SetCoreDefinitionId(val *string)
 	// A reference to a CoreDefinitionVersion resource.
-	CoreDefinitionVersionRef() *CoreDefinitionVersionReference
+	CoreDefinitionVersionRef() *interfacesawsgreengrass.CoreDefinitionVersionReference
 	// The Greengrass core in this version.
 	Cores() interface{}
 	SetCores(val interface{})
@@ -60,7 +62,7 @@ type CfnCoreDefinitionVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,8 +227,8 @@ type CfnCoreDefinitionVersion interface {
 // The jsii proxy struct for CfnCoreDefinitionVersion
 type jsiiProxy_CfnCoreDefinitionVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICoreDefinitionVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassICoreDefinitionVersionRef
 }
 
 func (j *jsiiProxy_CfnCoreDefinitionVersion) AttrId() *string {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) CoreDefinitionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreDefinitionVersion) CoreDefinitionVersionRef() *CoreDefinitionVersionReference {
-	var returns *CoreDefinitionVersionReference
+func (j *jsiiProxy_CfnCoreDefinitionVersion) CoreDefinitionVersionRef() *interfacesawsgreengrass.CoreDefinitionVersionReference {
+	var returns *interfacesawsgreengrass.CoreDefinitionVersionReference
 	_jsii_.Get(
 		j,
 		"coreDefinitionVersionRef",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreDefinitionVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCoreDefinitionVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,6 +382,7 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::Greengrass::CoreDefinitionVersion`.
 func NewCfnCoreDefinitionVersion(scope constructs.Construct, id *string, props *CfnCoreDefinitionVersionProps) CfnCoreDefinitionVersion {
 	_init_.Initialize()
 
@@ -397,6 +400,7 @@ func NewCfnCoreDefinitionVersion(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Greengrass::CoreDefinitionVersion`.
 func NewCfnCoreDefinitionVersion_Override(c CfnCoreDefinitionVersion, scope constructs.Construct, id *string, props *CfnCoreDefinitionVersionProps) {
 	_init_.Initialize()
 

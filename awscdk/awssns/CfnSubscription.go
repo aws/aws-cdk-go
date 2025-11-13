@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssns"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnSubscription interface {
 	awscdk.CfnResource
-	ISubscriptionRef
 	awscdk.IInspectable
+	interfacesawssns.ISubscriptionRef
 	// Returns the ARN of the subscription created by the `AWS::SNS::Subscription` resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -62,7 +64,7 @@ type CfnSubscription interface {
 	// The subscription's endpoint.
 	Endpoint() *string
 	SetEndpoint(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The filter policy JSON assigned to the subscription.
 	FilterPolicy() interface{}
 	SetFilterPolicy(val interface{})
@@ -106,7 +108,7 @@ type CfnSubscription interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Subscription resource.
-	SubscriptionRef() *SubscriptionReference
+	SubscriptionRef() *interfacesawssns.SubscriptionReference
 	// This property applies only to Amazon Data Firehose delivery stream subscriptions.
 	SubscriptionRoleArn() *string
 	SetSubscriptionRoleArn(val *string)
@@ -256,8 +258,8 @@ type CfnSubscription interface {
 // The jsii proxy struct for CfnSubscription
 type jsiiProxy_CfnSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssnsISubscriptionRef
 }
 
 func (j *jsiiProxy_CfnSubscription) AttrArn() *string {
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnSubscription) Endpoint() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -450,8 +452,8 @@ func (j *jsiiProxy_CfnSubscription) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscription) SubscriptionRef() *SubscriptionReference {
-	var returns *SubscriptionReference
+func (j *jsiiProxy_CfnSubscription) SubscriptionRef() *interfacesawssns.SubscriptionReference {
+	var returns *interfacesawssns.SubscriptionReference
 	_jsii_.Get(
 		j,
 		"subscriptionRef",
@@ -501,6 +503,7 @@ func (j *jsiiProxy_CfnSubscription) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::SNS::Subscription`.
 func NewCfnSubscription(scope constructs.Construct, id *string, props *CfnSubscriptionProps) CfnSubscription {
 	_init_.Initialize()
 
@@ -518,6 +521,7 @@ func NewCfnSubscription(scope constructs.Construct, id *string, props *CfnSubscr
 	return &j
 }
 
+// Create a new `AWS::SNS::Subscription`.
 func NewCfnSubscription_Override(c CfnSubscription, scope constructs.Construct, id *string, props *CfnSubscriptionProps) {
 	_init_.Initialize()
 

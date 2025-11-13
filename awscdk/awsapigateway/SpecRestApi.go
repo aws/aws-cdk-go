@@ -8,6 +8,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,7 +51,7 @@ type SpecRestApi interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// API Gateway deployment that represents the latest changes of the API.
 	//
 	// This resource will be automatically updated every time the REST API model changes.
@@ -74,7 +76,7 @@ type SpecRestApi interface {
 	// Note that this is different from `restApiId`.
 	RestApiName() *string
 	// A reference to a RestApi resource.
-	RestApiRef() *RestApiReference
+	RestApiRef() *interfacesawsapigateway.RestApiReference
 	// The resource ID of the root resource.
 	RestApiRootResourceId() *string
 	// Represents the root resource of this API endpoint ('/').
@@ -204,8 +206,8 @@ func (j *jsiiProxy_SpecRestApi) DomainName() DomainName {
 	return returns
 }
 
-func (j *jsiiProxy_SpecRestApi) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SpecRestApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -274,8 +276,8 @@ func (j *jsiiProxy_SpecRestApi) RestApiName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SpecRestApi) RestApiRef() *RestApiReference {
-	var returns *RestApiReference
+func (j *jsiiProxy_SpecRestApi) RestApiRef() *interfacesawsapigateway.RestApiReference {
+	var returns *interfacesawsapigateway.RestApiReference
 	_jsii_.Get(
 		j,
 		"restApiRef",

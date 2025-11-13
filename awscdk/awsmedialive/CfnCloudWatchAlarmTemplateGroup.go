@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnCloudWatchAlarmTemplateGroup interface {
 	awscdk.CfnResource
-	ICloudWatchAlarmTemplateGroupRef
 	awscdk.IInspectable
+	interfacesawsmedialive.ICloudWatchAlarmTemplateGroupRef
 	awscdk.ITaggableV2
 	// A cloudwatch alarm template group's ARN (Amazon Resource Name).
 	AttrArn() *string
@@ -52,7 +54,7 @@ type CfnCloudWatchAlarmTemplateGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CloudWatchAlarmTemplateGroup resource.
-	CloudWatchAlarmTemplateGroupRef() *CloudWatchAlarmTemplateGroupReference
+	CloudWatchAlarmTemplateGroupRef() *interfacesawsmedialive.CloudWatchAlarmTemplateGroupReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -60,7 +62,7 @@ type CfnCloudWatchAlarmTemplateGroup interface {
 	// A resource's optional description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnCloudWatchAlarmTemplateGroup interface {
 // The jsii proxy struct for CfnCloudWatchAlarmTemplateGroup
 type jsiiProxy_CfnCloudWatchAlarmTemplateGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICloudWatchAlarmTemplateGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveICloudWatchAlarmTemplateGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) CloudWatchAlarmTemplateGroupRef() *CloudWatchAlarmTemplateGroupReference {
-	var returns *CloudWatchAlarmTemplateGroupReference
+func (j *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) CloudWatchAlarmTemplateGroupRef() *interfacesawsmedialive.CloudWatchAlarmTemplateGroupReference {
+	var returns *interfacesawsmedialive.CloudWatchAlarmTemplateGroupReference
 	_jsii_.Get(
 		j,
 		"cloudWatchAlarmTemplateGroupRef",
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -447,6 +449,7 @@ func (j *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) UpdatedProperties() *map[str
 }
 
 
+// Create a new `AWS::MediaLive::CloudWatchAlarmTemplateGroup`.
 func NewCfnCloudWatchAlarmTemplateGroup(scope constructs.Construct, id *string, props *CfnCloudWatchAlarmTemplateGroupProps) CfnCloudWatchAlarmTemplateGroup {
 	_init_.Initialize()
 
@@ -464,6 +467,7 @@ func NewCfnCloudWatchAlarmTemplateGroup(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::MediaLive::CloudWatchAlarmTemplateGroup`.
 func NewCfnCloudWatchAlarmTemplateGroup_Override(c CfnCloudWatchAlarmTemplateGroup, scope constructs.Construct, id *string, props *CfnCloudWatchAlarmTemplateGroupProps) {
 	_init_.Initialize()
 

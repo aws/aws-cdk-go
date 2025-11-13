@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanrooms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanrooms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -23,6 +25,9 @@ import (
 //   	QueryLogStatus: jsii.String("queryLogStatus"),
 //
 //   	// the properties below are optional
+//   	AllowedResultRegions: []*string{
+//   		jsii.String("allowedResultRegions"),
+//   	},
 //   	AnalyticsEngine: jsii.String("analyticsEngine"),
 //   	AutoApprovedChangeTypes: []*string{
 //   		jsii.String("autoApprovedChangeTypes"),
@@ -106,9 +111,12 @@ import (
 //
 type CfnCollaboration interface {
 	awscdk.CfnResource
-	ICollaborationRef
 	awscdk.IInspectable
+	interfacesawscleanrooms.ICollaborationRef
 	awscdk.ITaggableV2
+	// The AWS Regions where collaboration query results can be stored.
+	AllowedResultRegions() *[]*string
+	SetAllowedResultRegions(val *[]*string)
 	// The analytics engine for the collaboration.
 	AnalyticsEngine() *string
 	SetAnalyticsEngine(val *string)
@@ -131,7 +139,7 @@ type CfnCollaboration interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Collaboration resource.
-	CollaborationRef() *CollaborationReference
+	CollaborationRef() *interfacesawscleanrooms.CollaborationReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -154,7 +162,7 @@ type CfnCollaboration interface {
 	// A description of the collaboration provided by the collaboration owner.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	JobLogStatus() *string
 	SetJobLogStatus(val *string)
@@ -334,9 +342,19 @@ type CfnCollaboration interface {
 // The jsii proxy struct for CfnCollaboration
 type jsiiProxy_CfnCollaboration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICollaborationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsICollaborationRef
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnCollaboration) AllowedResultRegions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"allowedResultRegions",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCollaboration) AnalyticsEngine() *string {
@@ -419,8 +437,8 @@ func (j *jsiiProxy_CfnCollaboration) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCollaboration) CollaborationRef() *CollaborationReference {
-	var returns *CollaborationReference
+func (j *jsiiProxy_CfnCollaboration) CollaborationRef() *interfacesawscleanrooms.CollaborationReference {
+	var returns *interfacesawscleanrooms.CollaborationReference
 	_jsii_.Get(
 		j,
 		"collaborationRef",
@@ -499,8 +517,8 @@ func (j *jsiiProxy_CfnCollaboration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCollaboration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCollaboration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -620,6 +638,7 @@ func (j *jsiiProxy_CfnCollaboration) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::CleanRooms::Collaboration`.
 func NewCfnCollaboration(scope constructs.Construct, id *string, props *CfnCollaborationProps) CfnCollaboration {
 	_init_.Initialize()
 
@@ -637,6 +656,7 @@ func NewCfnCollaboration(scope constructs.Construct, id *string, props *CfnColla
 	return &j
 }
 
+// Create a new `AWS::CleanRooms::Collaboration`.
 func NewCfnCollaboration_Override(c CfnCollaboration, scope constructs.Construct, id *string, props *CfnCollaborationProps) {
 	_init_.Initialize()
 
@@ -644,6 +664,14 @@ func NewCfnCollaboration_Override(c CfnCollaboration, scope constructs.Construct
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCollaboration)SetAllowedResultRegions(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"allowedResultRegions",
+		val,
 	)
 }
 

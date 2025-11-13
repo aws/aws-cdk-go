@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnManagedPolicy interface {
 	awscdk.CfnResource
-	IManagedPolicyRef
 	awscdk.IInspectable
+	interfacesawsiam.IManagedPolicyRef
 	// The number of principal entities (users, groups, and roles) that the policy is attached to.
 	AttrAttachmentCount() *float64
 	// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was created.
@@ -86,7 +88,7 @@ type CfnManagedPolicy interface {
 	// A friendly description of the policy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name (friendly name, not ARN) of the group to attach the policy to.
 	Groups() *[]*string
 	SetGroups(val *[]*string)
@@ -104,7 +106,7 @@ type CfnManagedPolicy interface {
 	ManagedPolicyName() *string
 	SetManagedPolicyName(val *string)
 	// A reference to a ManagedPolicy resource.
-	ManagedPolicyRef() *ManagedPolicyReference
+	ManagedPolicyRef() *interfacesawsiam.ManagedPolicyReference
 	// The tree node.
 	Node() constructs.Node
 	// The path for the policy.
@@ -271,8 +273,8 @@ type CfnManagedPolicy interface {
 // The jsii proxy struct for CfnManagedPolicy
 type jsiiProxy_CfnManagedPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IManagedPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIManagedPolicyRef
 }
 
 func (j *jsiiProxy_CfnManagedPolicy) AttrAttachmentCount() *float64 {
@@ -405,8 +407,8 @@ func (j *jsiiProxy_CfnManagedPolicy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnManagedPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -445,8 +447,8 @@ func (j *jsiiProxy_CfnManagedPolicy) ManagedPolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedPolicy) ManagedPolicyRef() *ManagedPolicyReference {
-	var returns *ManagedPolicyReference
+func (j *jsiiProxy_CfnManagedPolicy) ManagedPolicyRef() *interfacesawsiam.ManagedPolicyReference {
+	var returns *interfacesawsiam.ManagedPolicyReference
 	_jsii_.Get(
 		j,
 		"managedPolicyRef",
@@ -546,6 +548,7 @@ func (j *jsiiProxy_CfnManagedPolicy) Users() *[]*string {
 }
 
 
+// Create a new `AWS::IAM::ManagedPolicy`.
 func NewCfnManagedPolicy(scope constructs.Construct, id *string, props *CfnManagedPolicyProps) CfnManagedPolicy {
 	_init_.Initialize()
 
@@ -563,6 +566,7 @@ func NewCfnManagedPolicy(scope constructs.Construct, id *string, props *CfnManag
 	return &j
 }
 
+// Create a new `AWS::IAM::ManagedPolicy`.
 func NewCfnManagedPolicy_Override(c CfnManagedPolicy, scope constructs.Construct, id *string, props *CfnManagedPolicyProps) {
 	_init_.Initialize()
 

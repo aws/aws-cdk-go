@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotsitewise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,8 +59,8 @@ import (
 //
 type CfnGateway interface {
 	awscdk.CfnResource
-	IGatewayRef
 	awscdk.IInspectable
+	interfacesawsiotsitewise.IGatewayRef
 	awscdk.ITaggable
 	// The ID for the gateway.
 	AttrGatewayId() *string
@@ -71,7 +73,7 @@ type CfnGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of gateway capability summaries that each contain a namespace and status.
 	GatewayCapabilitySummaries() interface{}
 	SetGatewayCapabilitySummaries(val interface{})
@@ -82,7 +84,7 @@ type CfnGateway interface {
 	GatewayPlatform() interface{}
 	SetGatewayPlatform(val interface{})
 	// A reference to a Gateway resource.
-	GatewayRef() *GatewayReference
+	GatewayRef() *interfacesawsiotsitewise.GatewayReference
 	// The version of the gateway.
 	GatewayVersion() *string
 	SetGatewayVersion(val *string)
@@ -255,8 +257,8 @@ type CfnGateway interface {
 // The jsii proxy struct for CfnGateway
 type jsiiProxy_CfnGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotsitewiseIGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnGateway) GatewayPlatform() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGateway) GatewayRef() *GatewayReference {
-	var returns *GatewayReference
+func (j *jsiiProxy_CfnGateway) GatewayRef() *interfacesawsiotsitewise.GatewayReference {
+	var returns *interfacesawsiotsitewise.GatewayReference
 	_jsii_.Get(
 		j,
 		"gatewayRef",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnGateway) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTSiteWise::Gateway`.
 func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProps) CfnGateway {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProp
 	return &j
 }
 
+// Create a new `AWS::IoTSiteWise::Gateway`.
 func NewCfnGateway_Override(c CfnGateway, scope constructs.Construct, id *string, props *CfnGatewayProps) {
 	_init_.Initialize()
 
@@ -531,13 +535,13 @@ func (j *jsiiProxy_CfnGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IGatewayRef from a gatewayId.
-func CfnGateway_FromGatewayId(scope constructs.Construct, id *string, gatewayId *string) IGatewayRef {
+func CfnGateway_FromGatewayId(scope constructs.Construct, id *string, gatewayId *string) interfacesawsiotsitewise.IGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnGateway_FromGatewayIdParameters(scope, id, gatewayId); err != nil {
 		panic(err)
 	}
-	var returns IGatewayRef
+	var returns interfacesawsiotsitewise.IGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnGateway",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediapackage/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackage"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,11 +46,11 @@ import (
 //
 type CfnAsset interface {
 	awscdk.CfnResource
-	IAssetRef
 	awscdk.IInspectable
+	interfacesawsmediapackage.IAssetRef
 	awscdk.ITaggable
 	// A reference to a Asset resource.
-	AssetRef() *AssetReference
+	AssetRef() *interfacesawsmediapackage.AssetReference
 	// The Amazon Resource Name (ARN) for the asset.
 	//
 	// You can get this from the response to any request to the asset.
@@ -67,7 +69,7 @@ type CfnAsset interface {
 	// List of playback endpoints that are available for this asset.
 	EgressEndpoints() interface{}
 	SetEgressEndpoints(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Unique identifier that you assign to the asset.
 	Id() *string
 	SetId(val *string)
@@ -252,13 +254,13 @@ type CfnAsset interface {
 // The jsii proxy struct for CfnAsset
 type jsiiProxy_CfnAsset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediapackageIAssetRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAsset) AssetRef() *AssetReference {
-	var returns *AssetReference
+func (j *jsiiProxy_CfnAsset) AssetRef() *interfacesawsmediapackage.AssetReference {
+	var returns *interfacesawsmediapackage.AssetReference
 	_jsii_.Get(
 		j,
 		"assetRef",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnAsset) EgressEndpoints() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAsset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAsset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -478,6 +480,7 @@ func (j *jsiiProxy_CfnAsset) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaPackage::Asset`.
 func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) CfnAsset {
 	_init_.Initialize()
 
@@ -495,6 +498,7 @@ func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) C
 	return &j
 }
 
+// Create a new `AWS::MediaPackage::Asset`.
 func NewCfnAsset_Override(c CfnAsset, scope constructs.Construct, id *string, props *CfnAssetProps) {
 	_init_.Initialize()
 

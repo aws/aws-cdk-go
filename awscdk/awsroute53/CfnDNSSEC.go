@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,8 +26,8 @@ import (
 //
 type CfnDNSSEC interface {
 	awscdk.CfnResource
-	IDNSSECRef
 	awscdk.IInspectable
+	interfacesawsroute53.IDNSSECRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -36,8 +38,8 @@ type CfnDNSSEC interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DNSSEC resource.
-	DnssecRef() *DNSSECReference
-	Env() *awscdk.ResourceEnvironment
+	DnssecRef() *interfacesawsroute53.DNSSECReference
+	Env() *interfaces.ResourceEnvironment
 	// A unique string (ID) that is used to identify a hosted zone.
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
@@ -205,8 +207,8 @@ type CfnDNSSEC interface {
 // The jsii proxy struct for CfnDNSSEC
 type jsiiProxy_CfnDNSSEC struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDNSSECRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53IDNSSECRef
 }
 
 func (j *jsiiProxy_CfnDNSSEC) CfnOptions() awscdk.ICfnResourceOptions {
@@ -249,8 +251,8 @@ func (j *jsiiProxy_CfnDNSSEC) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDNSSEC) DnssecRef() *DNSSECReference {
-	var returns *DNSSECReference
+func (j *jsiiProxy_CfnDNSSEC) DnssecRef() *interfacesawsroute53.DNSSECReference {
+	var returns *interfacesawsroute53.DNSSECReference
 	_jsii_.Get(
 		j,
 		"dnssecRef",
@@ -259,8 +261,8 @@ func (j *jsiiProxy_CfnDNSSEC) DnssecRef() *DNSSECReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDNSSEC) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDNSSEC) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -340,6 +342,7 @@ func (j *jsiiProxy_CfnDNSSEC) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Route53::DNSSEC`.
 func NewCfnDNSSEC(scope constructs.Construct, id *string, props *CfnDNSSECProps) CfnDNSSEC {
 	_init_.Initialize()
 
@@ -357,6 +360,7 @@ func NewCfnDNSSEC(scope constructs.Construct, id *string, props *CfnDNSSECProps)
 	return &j
 }
 
+// Create a new `AWS::Route53::DNSSEC`.
 func NewCfnDNSSEC_Override(c CfnDNSSEC, scope constructs.Construct, id *string, props *CfnDNSSECProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsentityresolution/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsentityresolution"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -88,8 +90,8 @@ import (
 //
 type CfnIdMappingWorkflow interface {
 	awscdk.CfnResource
-	IIdMappingWorkflowRef
 	awscdk.IInspectable
+	interfacesawsentityresolution.IIdMappingWorkflowRef
 	awscdk.ITaggableV2
 	// The time of this IdMappingWorkflow got created.
 	AttrCreatedAt() *string
@@ -111,14 +113,14 @@ type CfnIdMappingWorkflow interface {
 	// A description of the workflow.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	IdMappingIncrementalRunConfig() interface{}
 	SetIdMappingIncrementalRunConfig(val interface{})
 	// An object which defines the ID mapping technique and any additional configurations.
 	IdMappingTechniques() interface{}
 	SetIdMappingTechniques(val interface{})
 	// A reference to a IdMappingWorkflow resource.
-	IdMappingWorkflowRef() *IdMappingWorkflowReference
+	IdMappingWorkflowRef() *interfacesawsentityresolution.IdMappingWorkflowReference
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig() interface{}
 	SetInputSourceConfig(val interface{})
@@ -298,8 +300,8 @@ type CfnIdMappingWorkflow interface {
 // The jsii proxy struct for CfnIdMappingWorkflow
 type jsiiProxy_CfnIdMappingWorkflow struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdMappingWorkflowRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsentityresolutionIIdMappingWorkflowRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnIdMappingWorkflow) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdMappingWorkflow) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdMappingWorkflow) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,8 +425,8 @@ func (j *jsiiProxy_CfnIdMappingWorkflow) IdMappingTechniques() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdMappingWorkflow) IdMappingWorkflowRef() *IdMappingWorkflowReference {
-	var returns *IdMappingWorkflowReference
+func (j *jsiiProxy_CfnIdMappingWorkflow) IdMappingWorkflowRef() *interfacesawsentityresolution.IdMappingWorkflowReference {
+	var returns *interfacesawsentityresolution.IdMappingWorkflowReference
 	_jsii_.Get(
 		j,
 		"idMappingWorkflowRef",
@@ -544,6 +546,7 @@ func (j *jsiiProxy_CfnIdMappingWorkflow) WorkflowName() *string {
 }
 
 
+// Create a new `AWS::EntityResolution::IdMappingWorkflow`.
 func NewCfnIdMappingWorkflow(scope constructs.Construct, id *string, props *CfnIdMappingWorkflowProps) CfnIdMappingWorkflow {
 	_init_.Initialize()
 
@@ -561,6 +564,7 @@ func NewCfnIdMappingWorkflow(scope constructs.Construct, id *string, props *CfnI
 	return &j
 }
 
+// Create a new `AWS::EntityResolution::IdMappingWorkflow`.
 func NewCfnIdMappingWorkflow_Override(c CfnIdMappingWorkflow, scope constructs.Construct, id *string, props *CfnIdMappingWorkflowProps) {
 	_init_.Initialize()
 
@@ -657,13 +661,13 @@ func (j *jsiiProxy_CfnIdMappingWorkflow)SetWorkflowName(val *string) {
 }
 
 // Creates a new IIdMappingWorkflowRef from a workflowName.
-func CfnIdMappingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) IIdMappingWorkflowRef {
+func CfnIdMappingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) interfacesawsentityresolution.IIdMappingWorkflowRef {
 	_init_.Initialize()
 
 	if err := validateCfnIdMappingWorkflow_FromWorkflowNameParameters(scope, id, workflowName); err != nil {
 		panic(err)
 	}
-	var returns IIdMappingWorkflowRef
+	var returns interfacesawsentityresolution.IIdMappingWorkflowRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow",

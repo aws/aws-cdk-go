@@ -6,6 +6,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -14,7 +16,7 @@ import (
 // This interface does double duty: it represents an actual KMS keys, but it
 // also represents things that can behave like KMS keys, like a key alias.
 type IKey interface {
-	IKeyRef
+	interfacesawskms.IKeyRef
 	awscdk.IResource
 	// Defines a new alias for the key.
 	AddAlias(alias *string) Alias
@@ -46,7 +48,7 @@ type IKey interface {
 
 // The jsii proxy for IKey
 type jsiiProxy_IKey struct {
-	jsiiProxy_IKeyRef
+	internal.Type__interfacesawskmsIKeyRef
 	internal.Type__awscdkIResource
 }
 
@@ -262,8 +264,8 @@ func (j *jsiiProxy_IKey) KeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -272,8 +274,8 @@ func (j *jsiiProxy_IKey) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IKey) KeyRef() *KeyReference {
-	var returns *KeyReference
+func (j *jsiiProxy_IKey) KeyRef() *interfacesawskms.KeyReference {
+	var returns *interfacesawskms.KeyReference
 	_jsii_.Get(
 		j,
 		"keyRef",

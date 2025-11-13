@@ -24,6 +24,10 @@ func (s *jsiiProxy_Secret) validateAttachParameters(target ISecretAttachmentTarg
 	return nil
 }
 
+func (s *jsiiProxy_Secret) validateCfnDynamicReferenceKeyParameters(options *awscdk.SecretsManagerSecretOptions) error {
+	return nil
+}
+
 func (s *jsiiProxy_Secret) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

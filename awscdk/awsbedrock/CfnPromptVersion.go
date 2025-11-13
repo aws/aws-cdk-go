@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnPromptVersion interface {
 	awscdk.CfnResource
-	IPromptVersionRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IPromptVersionRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).
 	AttrArn() *string
@@ -69,7 +71,7 @@ type CfnPromptVersion interface {
 	// The description of the prompt version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -86,7 +88,7 @@ type CfnPromptVersion interface {
 	PromptArn() *string
 	SetPromptArn(val *string)
 	// A reference to a PromptVersion resource.
-	PromptVersionRef() *PromptVersionReference
+	PromptVersionRef() *interfacesawsbedrock.PromptVersionReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -242,8 +244,8 @@ type CfnPromptVersion interface {
 // The jsii proxy struct for CfnPromptVersion
 type jsiiProxy_CfnPromptVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPromptVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIPromptVersionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnPromptVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPromptVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPromptVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -437,8 +439,8 @@ func (j *jsiiProxy_CfnPromptVersion) PromptArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPromptVersion) PromptVersionRef() *PromptVersionReference {
-	var returns *PromptVersionReference
+func (j *jsiiProxy_CfnPromptVersion) PromptVersionRef() *interfacesawsbedrock.PromptVersionReference {
+	var returns *interfacesawsbedrock.PromptVersionReference
 	_jsii_.Get(
 		j,
 		"promptVersionRef",
@@ -498,6 +500,7 @@ func (j *jsiiProxy_CfnPromptVersion) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Bedrock::PromptVersion`.
 func NewCfnPromptVersion(scope constructs.Construct, id *string, props *CfnPromptVersionProps) CfnPromptVersion {
 	_init_.Initialize()
 
@@ -515,6 +518,7 @@ func NewCfnPromptVersion(scope constructs.Construct, id *string, props *CfnPromp
 	return &j
 }
 
+// Create a new `AWS::Bedrock::PromptVersion`.
 func NewCfnPromptVersion_Override(c CfnPromptVersion, scope constructs.Construct, id *string, props *CfnPromptVersionProps) {
 	_init_.Initialize()
 

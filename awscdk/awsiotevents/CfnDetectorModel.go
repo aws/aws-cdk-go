@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnDetectorModel interface {
 	awscdk.CfnResource
-	IDetectorModelRef
 	awscdk.IInspectable
+	interfacesawsiotevents.IDetectorModelRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -50,8 +52,8 @@ type CfnDetectorModel interface {
 	DetectorModelName() *string
 	SetDetectorModelName(val *string)
 	// A reference to a DetectorModel resource.
-	DetectorModelRef() *DetectorModelReference
-	Env() *awscdk.ResourceEnvironment
+	DetectorModelRef() *interfacesawsiotevents.DetectorModelReference
+	Env() *interfaces.ResourceEnvironment
 	// Information about the order in which events are evaluated and how actions are executed.
 	EvaluationMethod() *string
 	SetEvaluationMethod(val *string)
@@ -230,8 +232,8 @@ type CfnDetectorModel interface {
 // The jsii proxy struct for CfnDetectorModel
 type jsiiProxy_CfnDetectorModel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDetectorModelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsioteventsIDetectorModelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnDetectorModel) DetectorModelName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDetectorModel) DetectorModelRef() *DetectorModelReference {
-	var returns *DetectorModelReference
+func (j *jsiiProxy_CfnDetectorModel) DetectorModelRef() *interfacesawsiotevents.DetectorModelReference {
+	var returns *interfacesawsiotevents.DetectorModelReference
 	_jsii_.Get(
 		j,
 		"detectorModelRef",
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnDetectorModel) DetectorModelRef() *DetectorModelReference 
 	return returns
 }
 
-func (j *jsiiProxy_CfnDetectorModel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDetectorModel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -436,6 +438,7 @@ func (j *jsiiProxy_CfnDetectorModel) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::IoTEvents::DetectorModel`.
 func NewCfnDetectorModel(scope constructs.Construct, id *string, props *CfnDetectorModelProps) CfnDetectorModel {
 	_init_.Initialize()
 
@@ -453,6 +456,7 @@ func NewCfnDetectorModel(scope constructs.Construct, id *string, props *CfnDetec
 	return &j
 }
 
+// Create a new `AWS::IoTEvents::DetectorModel`.
 func NewCfnDetectorModel_Override(c CfnDetectorModel, scope constructs.Construct, id *string, props *CfnDetectorModelProps) {
 	_init_.Initialize()
 
@@ -529,13 +533,13 @@ func (j *jsiiProxy_CfnDetectorModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDetectorModelRef from a detectorModelName.
-func CfnDetectorModel_FromDetectorModelName(scope constructs.Construct, id *string, detectorModelName *string) IDetectorModelRef {
+func CfnDetectorModel_FromDetectorModelName(scope constructs.Construct, id *string, detectorModelName *string) interfacesawsiotevents.IDetectorModelRef {
 	_init_.Initialize()
 
 	if err := validateCfnDetectorModel_FromDetectorModelNameParameters(scope, id, detectorModelName); err != nil {
 		panic(err)
 	}
-	var returns IDetectorModelRef
+	var returns interfacesawsiotevents.IDetectorModelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotevents.CfnDetectorModel",

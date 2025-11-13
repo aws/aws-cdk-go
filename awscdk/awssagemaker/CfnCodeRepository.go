@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnCodeRepository interface {
 	awscdk.CfnResource
-	ICodeRepositoryRef
 	awscdk.IInspectable
+	interfacesawssagemaker.ICodeRepositoryRef
 	awscdk.ITaggable
 	// The name of the code repository, such as `myCodeRepo` .
 	AttrCodeRepositoryName() *string
@@ -58,12 +60,12 @@ type CfnCodeRepository interface {
 	CodeRepositoryName() *string
 	SetCodeRepositoryName(val *string)
 	// A reference to a CodeRepository resource.
-	CodeRepositoryRef() *CodeRepositoryReference
+	CodeRepositoryRef() *interfacesawssagemaker.CodeRepositoryReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Configuration details for the Git repository, including the URL where it is located and the ARN of the AWS Secrets Manager secret that contains the credentials used to access the repository.
 	GitConfig() interface{}
 	SetGitConfig(val interface{})
@@ -236,8 +238,8 @@ type CfnCodeRepository interface {
 // The jsii proxy struct for CfnCodeRepository
 type jsiiProxy_CfnCodeRepository struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICodeRepositoryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerICodeRepositoryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnCodeRepository) CodeRepositoryName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeRepository) CodeRepositoryRef() *CodeRepositoryReference {
-	var returns *CodeRepositoryReference
+func (j *jsiiProxy_CfnCodeRepository) CodeRepositoryRef() *interfacesawssagemaker.CodeRepositoryReference {
+	var returns *interfacesawssagemaker.CodeRepositoryReference
 	_jsii_.Get(
 		j,
 		"codeRepositoryRef",
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnCodeRepository) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeRepository) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCodeRepository) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -422,6 +424,7 @@ func (j *jsiiProxy_CfnCodeRepository) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::SageMaker::CodeRepository`.
 func NewCfnCodeRepository(scope constructs.Construct, id *string, props *CfnCodeRepositoryProps) CfnCodeRepository {
 	_init_.Initialize()
 
@@ -439,6 +442,7 @@ func NewCfnCodeRepository(scope constructs.Construct, id *string, props *CfnCode
 	return &j
 }
 
+// Create a new `AWS::SageMaker::CodeRepository`.
 func NewCfnCodeRepository_Override(c CfnCodeRepository, scope constructs.Construct, id *string, props *CfnCodeRepositoryProps) {
 	_init_.Initialize()
 

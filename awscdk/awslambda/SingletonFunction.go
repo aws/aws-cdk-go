@@ -9,6 +9,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,13 +59,13 @@ type SingletonFunction interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN fo the function.
 	FunctionArn() *string
 	// The name of the function.
 	FunctionName() *string
 	// A reference to a Function resource.
-	FunctionRef() *FunctionReference
+	FunctionRef() *interfacesawslambda.FunctionReference
 	// The principal this Lambda Function is running as.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
@@ -263,8 +265,8 @@ func (j *jsiiProxy_SingletonFunction) CurrentVersion() Version {
 	return returns
 }
 
-func (j *jsiiProxy_SingletonFunction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SingletonFunction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -293,8 +295,8 @@ func (j *jsiiProxy_SingletonFunction) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SingletonFunction) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_SingletonFunction) FunctionRef() *interfacesawslambda.FunctionReference {
+	var returns *interfacesawslambda.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",

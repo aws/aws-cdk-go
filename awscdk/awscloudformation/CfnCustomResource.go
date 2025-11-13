@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnCustomResource interface {
 	awscdk.CfnResource
-	ICustomResourceRef
 	awscdk.IInspectable
+	interfacesawscloudformation.ICustomResourceRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,8 +48,8 @@ type CfnCustomResource interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomResource resource.
-	CustomResourceRef() *CustomResourceReference
-	Env() *awscdk.ResourceEnvironment
+	CustomResourceRef() *interfacesawscloudformation.CustomResourceReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -218,8 +220,8 @@ type CfnCustomResource interface {
 // The jsii proxy struct for CfnCustomResource
 type jsiiProxy_CfnCustomResource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomResourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationICustomResourceRef
 }
 
 func (j *jsiiProxy_CfnCustomResource) AttrId() *string {
@@ -272,8 +274,8 @@ func (j *jsiiProxy_CfnCustomResource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomResource) CustomResourceRef() *CustomResourceReference {
-	var returns *CustomResourceReference
+func (j *jsiiProxy_CfnCustomResource) CustomResourceRef() *interfacesawscloudformation.CustomResourceReference {
+	var returns *interfacesawscloudformation.CustomResourceReference
 	_jsii_.Get(
 		j,
 		"customResourceRef",
@@ -282,8 +284,8 @@ func (j *jsiiProxy_CfnCustomResource) CustomResourceRef() *CustomResourceReferen
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomResource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomResource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -373,6 +375,7 @@ func (j *jsiiProxy_CfnCustomResource) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::CloudFormation::CustomResource`.
 func NewCfnCustomResource(scope constructs.Construct, id *string, props *CfnCustomResourceProps) CfnCustomResource {
 	_init_.Initialize()
 
@@ -390,6 +393,7 @@ func NewCfnCustomResource(scope constructs.Construct, id *string, props *CfnCust
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::CustomResource`.
 func NewCfnCustomResource_Override(c CfnCustomResource, scope constructs.Construct, id *string, props *CfnCustomResourceProps) {
 	_init_.Initialize()
 

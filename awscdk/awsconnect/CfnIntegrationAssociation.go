@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnIntegrationAssociation interface {
 	awscdk.CfnResource
-	IIntegrationAssociationRef
 	awscdk.IInspectable
+	interfacesawsconnect.IIntegrationAssociationRef
 	// Identifier of the association with an Amazon Connect instance.
 	AttrIntegrationAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -39,7 +41,7 @@ type CfnIntegrationAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -47,7 +49,7 @@ type CfnIntegrationAssociation interface {
 	IntegrationArn() *string
 	SetIntegrationArn(val *string)
 	// A reference to a IntegrationAssociation resource.
-	IntegrationAssociationRef() *IntegrationAssociationReference
+	IntegrationAssociationRef() *interfacesawsconnect.IntegrationAssociationReference
 	// Specifies the integration type to be associated with the instance.
 	IntegrationType() *string
 	SetIntegrationType(val *string)
@@ -215,8 +217,8 @@ type CfnIntegrationAssociation interface {
 // The jsii proxy struct for CfnIntegrationAssociation
 type jsiiProxy_CfnIntegrationAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIntegrationAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIIntegrationAssociationRef
 }
 
 func (j *jsiiProxy_CfnIntegrationAssociation) AttrIntegrationAssociationId() *string {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnIntegrationAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegrationAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIntegrationAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnIntegrationAssociation) IntegrationArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegrationAssociation) IntegrationAssociationRef() *IntegrationAssociationReference {
-	var returns *IntegrationAssociationReference
+func (j *jsiiProxy_CfnIntegrationAssociation) IntegrationAssociationRef() *interfacesawsconnect.IntegrationAssociationReference {
+	var returns *interfacesawsconnect.IntegrationAssociationReference
 	_jsii_.Get(
 		j,
 		"integrationAssociationRef",
@@ -380,6 +382,7 @@ func (j *jsiiProxy_CfnIntegrationAssociation) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::Connect::IntegrationAssociation`.
 func NewCfnIntegrationAssociation(scope constructs.Construct, id *string, props *CfnIntegrationAssociationProps) CfnIntegrationAssociation {
 	_init_.Initialize()
 
@@ -397,6 +400,7 @@ func NewCfnIntegrationAssociation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::Connect::IntegrationAssociation`.
 func NewCfnIntegrationAssociation_Override(c CfnIntegrationAssociation, scope constructs.Construct, id *string, props *CfnIntegrationAssociationProps) {
 	_init_.Initialize()
 

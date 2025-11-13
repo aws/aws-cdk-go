@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnSessionLogger interface {
 	awscdk.CfnResource
-	ISessionLoggerRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.ISessionLoggerRef
 	awscdk.ITaggableV2
 	// The additional encryption context of the session logger.
 	AdditionalEncryptionContext() interface{}
@@ -84,7 +86,7 @@ type CfnSessionLogger interface {
 	// The human-readable display name.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The filter that specifies which events to monitor.
 	EventFilter() interface{}
 	SetEventFilter(val interface{})
@@ -109,7 +111,7 @@ type CfnSessionLogger interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SessionLogger resource.
-	SessionLoggerRef() *SessionLoggerReference
+	SessionLoggerRef() *interfacesawsworkspacesweb.SessionLoggerReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -259,8 +261,8 @@ type CfnSessionLogger interface {
 // The jsii proxy struct for CfnSessionLogger
 type jsiiProxy_CfnSessionLogger struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISessionLoggerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebISessionLoggerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnSessionLogger) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSessionLogger) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSessionLogger) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnSessionLogger) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSessionLogger) SessionLoggerRef() *SessionLoggerReference {
-	var returns *SessionLoggerReference
+func (j *jsiiProxy_CfnSessionLogger) SessionLoggerRef() *interfacesawsworkspacesweb.SessionLoggerReference {
+	var returns *interfacesawsworkspacesweb.SessionLoggerReference
 	_jsii_.Get(
 		j,
 		"sessionLoggerRef",
@@ -485,6 +487,7 @@ func (j *jsiiProxy_CfnSessionLogger) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::SessionLogger`.
 func NewCfnSessionLogger(scope constructs.Construct, id *string, props *CfnSessionLoggerProps) CfnSessionLogger {
 	_init_.Initialize()
 
@@ -502,6 +505,7 @@ func NewCfnSessionLogger(scope constructs.Construct, id *string, props *CfnSessi
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::SessionLogger`.
 func NewCfnSessionLogger_Override(c CfnSessionLogger, scope constructs.Construct, id *string, props *CfnSessionLoggerProps) {
 	_init_.Initialize()
 

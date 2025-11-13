@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalyticsv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisanalyticsv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,13 +51,13 @@ import (
 //
 type CfnApplicationOutput interface {
 	awscdk.CfnResource
-	IApplicationOutputRef
 	awscdk.IInspectable
+	interfacesawskinesisanalyticsv2.IApplicationOutputRef
 	// The name of the application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// A reference to a ApplicationOutput resource.
-	ApplicationOutputRef() *ApplicationOutputReference
+	ApplicationOutputRef() *interfacesawskinesisanalyticsv2.ApplicationOutputReference
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -66,7 +68,7 @@ type CfnApplicationOutput interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -234,8 +236,8 @@ type CfnApplicationOutput interface {
 // The jsii proxy struct for CfnApplicationOutput
 type jsiiProxy_CfnApplicationOutput struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationOutputRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisanalyticsv2IApplicationOutputRef
 }
 
 func (j *jsiiProxy_CfnApplicationOutput) ApplicationName() *string {
@@ -248,8 +250,8 @@ func (j *jsiiProxy_CfnApplicationOutput) ApplicationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationOutput) ApplicationOutputRef() *ApplicationOutputReference {
-	var returns *ApplicationOutputReference
+func (j *jsiiProxy_CfnApplicationOutput) ApplicationOutputRef() *interfacesawskinesisanalyticsv2.ApplicationOutputReference {
+	var returns *interfacesawskinesisanalyticsv2.ApplicationOutputReference
 	_jsii_.Get(
 		j,
 		"applicationOutputRef",
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnApplicationOutput) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationOutput) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationOutput) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -389,6 +391,7 @@ func (j *jsiiProxy_CfnApplicationOutput) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::KinesisAnalyticsV2::ApplicationOutput`.
 func NewCfnApplicationOutput(scope constructs.Construct, id *string, props *CfnApplicationOutputProps) CfnApplicationOutput {
 	_init_.Initialize()
 
@@ -406,6 +409,7 @@ func NewCfnApplicationOutput(scope constructs.Construct, id *string, props *CfnA
 	return &j
 }
 
+// Create a new `AWS::KinesisAnalyticsV2::ApplicationOutput`.
 func NewCfnApplicationOutput_Override(c CfnApplicationOutput, scope constructs.Construct, id *string, props *CfnApplicationOutputProps) {
 	_init_.Initialize()
 

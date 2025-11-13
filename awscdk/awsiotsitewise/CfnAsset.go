@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotsitewise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,8 +59,8 @@ import (
 //
 type CfnAsset interface {
 	awscdk.CfnResource
-	IAssetRef
 	awscdk.IInspectable
+	interfacesawsiotsitewise.IAssetRef
 	awscdk.ITaggable
 	// The ID of the asset, in UUID format.
 	AssetDescription() *string
@@ -79,7 +81,7 @@ type CfnAsset interface {
 	AssetProperties() interface{}
 	SetAssetProperties(val interface{})
 	// A reference to a Asset resource.
-	AssetRef() *AssetReference
+	AssetRef() *interfacesawsiotsitewise.AssetReference
 	// The ARN of the asset.
 	AttrAssetArn() *string
 	// The ID of the asset.
@@ -93,7 +95,7 @@ type CfnAsset interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -263,8 +265,8 @@ type CfnAsset interface {
 // The jsii proxy struct for CfnAsset
 type jsiiProxy_CfnAsset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotsitewiseIAssetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnAsset) AssetProperties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAsset) AssetRef() *AssetReference {
-	var returns *AssetReference
+func (j *jsiiProxy_CfnAsset) AssetRef() *interfacesawsiotsitewise.AssetReference {
+	var returns *interfacesawsiotsitewise.AssetReference
 	_jsii_.Get(
 		j,
 		"assetRef",
@@ -398,8 +400,8 @@ func (j *jsiiProxy_CfnAsset) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAsset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAsset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -489,6 +491,7 @@ func (j *jsiiProxy_CfnAsset) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTSiteWise::Asset`.
 func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) CfnAsset {
 	_init_.Initialize()
 
@@ -506,6 +509,7 @@ func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) C
 	return &j
 }
 
+// Create a new `AWS::IoTSiteWise::Asset`.
 func NewCfnAsset_Override(c CfnAsset, scope constructs.Construct, id *string, props *CfnAssetProps) {
 	_init_.Initialize()
 
@@ -588,13 +592,13 @@ func (j *jsiiProxy_CfnAsset)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IAssetRef from an ARN.
-func CfnAsset_FromAssetArn(scope constructs.Construct, id *string, arn *string) IAssetRef {
+func CfnAsset_FromAssetArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IAssetRef {
 	_init_.Initialize()
 
 	if err := validateCfnAsset_FromAssetArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAssetRef
+	var returns interfacesawsiotsitewise.IAssetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
@@ -607,13 +611,13 @@ func CfnAsset_FromAssetArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IAssetRef from a assetId.
-func CfnAsset_FromAssetId(scope constructs.Construct, id *string, assetId *string) IAssetRef {
+func CfnAsset_FromAssetId(scope constructs.Construct, id *string, assetId *string) interfacesawsiotsitewise.IAssetRef {
 	_init_.Initialize()
 
 	if err := validateCfnAsset_FromAssetIdParameters(scope, id, assetId); err != nil {
 		panic(err)
 	}
-	var returns IAssetRef
+	var returns interfacesawsiotsitewise.IAssetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnAsset",

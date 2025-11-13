@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnStateMachineAlias interface {
 	awscdk.CfnResource
-	IStateMachineAliasRef
 	awscdk.IInspectable
+	interfacesawsstepfunctions.IStateMachineAliasRef
 	// Returns the ARN of the state machine alias.
 	//
 	// For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:PROD` .
@@ -65,7 +67,7 @@ type CfnStateMachineAlias interface {
 	// An optional description of the state machine alias.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -94,7 +96,7 @@ type CfnStateMachineAlias interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StateMachineAlias resource.
-	StateMachineAliasRef() *StateMachineAliasReference
+	StateMachineAliasRef() *interfacesawsstepfunctions.StateMachineAliasReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -238,8 +240,8 @@ type CfnStateMachineAlias interface {
 // The jsii proxy struct for CfnStateMachineAlias
 type jsiiProxy_CfnStateMachineAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStateMachineAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsstepfunctionsIStateMachineAliasRef
 }
 
 func (j *jsiiProxy_CfnStateMachineAlias) AttrArn() *string {
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnStateMachineAlias) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachineAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStateMachineAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnStateMachineAlias) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachineAlias) StateMachineAliasRef() *StateMachineAliasReference {
-	var returns *StateMachineAliasReference
+func (j *jsiiProxy_CfnStateMachineAlias) StateMachineAliasRef() *interfacesawsstepfunctions.StateMachineAliasReference {
+	var returns *interfacesawsstepfunctions.StateMachineAliasReference
 	_jsii_.Get(
 		j,
 		"stateMachineAliasRef",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnStateMachineAlias) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::StepFunctions::StateMachineAlias`.
 func NewCfnStateMachineAlias(scope constructs.Construct, id *string, props *CfnStateMachineAliasProps) CfnStateMachineAlias {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnStateMachineAlias(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
+// Create a new `AWS::StepFunctions::StateMachineAlias`.
 func NewCfnStateMachineAlias_Override(c CfnStateMachineAlias, scope constructs.Construct, id *string, props *CfnStateMachineAliasProps) {
 	_init_.Initialize()
 

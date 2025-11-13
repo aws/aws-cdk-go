@@ -32,10 +32,6 @@ func init() {
 			return &jsiiProxy_AllowedMethods{}
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.AnycastIpListReference",
-		reflect.TypeOf((*AnycastIpListReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.AssetImportSource",
 		reflect.TypeOf((*AssetImportSource)(nil)).Elem(),
@@ -104,10 +100,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CachePolicyProps",
 		reflect.TypeOf((*CachePolicyProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.CachePolicyReference",
-		reflect.TypeOf((*CachePolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.CacheQueryStringBehavior",
@@ -178,8 +170,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAnycastIpList{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAnycastIpListRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIAnycastIpListRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -239,8 +231,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCachePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICachePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontICachePolicyRef)
 			return &j
 		},
 	)
@@ -311,8 +303,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCloudFrontOriginAccessIdentity{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICloudFrontOriginAccessIdentityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontICloudFrontOriginAccessIdentityRef)
 			return &j
 		},
 	)
@@ -378,8 +370,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConnectionGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnectionGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIConnectionGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -431,8 +423,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnContinuousDeploymentPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IContinuousDeploymentPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIContinuousDeploymentPolicyRef)
 			return &j
 		},
 	)
@@ -513,8 +505,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDistribution{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDistributionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIDistributionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -704,8 +696,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDistributionTenant{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDistributionTenantRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIDistributionTenantRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -790,8 +782,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFunction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFunctionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIFunctionRef)
 			return &j
 		},
 	)
@@ -854,8 +846,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnKeyGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKeyGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIKeyGroupRef)
 			return &j
 		},
 	)
@@ -913,8 +905,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnKeyValueStore{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKeyValueStoreRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIKeyValueStoreRef)
 			return &j
 		},
 	)
@@ -968,8 +960,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMonitoringSubscription{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMonitoringSubscriptionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIMonitoringSubscriptionRef)
 			return &j
 		},
 	)
@@ -1027,8 +1019,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnOriginAccessControl{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOriginAccessControlRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIOriginAccessControlRef)
 			return &j
 		},
 	)
@@ -1083,8 +1075,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnOriginRequestPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOriginRequestPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIOriginRequestPolicyRef)
 			return &j
 		},
 	)
@@ -1151,8 +1143,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPublicKey{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPublicKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIPublicKeyRef)
 			return &j
 		},
 	)
@@ -1209,8 +1201,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRealtimeLogConfig{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRealtimeLogConfigRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIRealtimeLogConfigRef)
 			return &j
 		},
 	)
@@ -1269,8 +1261,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResponseHeadersPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResponseHeadersPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIResponseHeadersPolicyRef)
 			return &j
 		},
 	)
@@ -1395,8 +1387,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStreamingDistribution{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStreamingDistributionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIStreamingDistributionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1470,8 +1462,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVpcOrigin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpcOriginRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIVpcOriginRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -1500,10 +1492,6 @@ func init() {
 			"GET_HEAD_OPTIONS": CloudFrontAllowedMethods_GET_HEAD_OPTIONS,
 			"ALL": CloudFrontAllowedMethods_ALL,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.CloudFrontOriginAccessIdentityReference",
-		reflect.TypeOf((*CloudFrontOriginAccessIdentityReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.CloudFrontWebDistribution",
@@ -1540,14 +1528,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CloudFrontWebDistributionProps",
 		reflect.TypeOf((*CloudFrontWebDistributionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.ConnectionGroupReference",
-		reflect.TypeOf((*ConnectionGroupReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.ContinuousDeploymentPolicyReference",
-		reflect.TypeOf((*ContinuousDeploymentPolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CustomOriginConfig",
@@ -1605,14 +1585,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.DistributionProps",
 		reflect.TypeOf((*DistributionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.DistributionReference",
-		reflect.TypeOf((*DistributionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.DistributionTenantReference",
-		reflect.TypeOf((*DistributionTenantReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.EdgeLambda",
@@ -1702,10 +1674,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.FunctionProps",
 		reflect.TypeOf((*FunctionProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.FunctionReference",
-		reflect.TypeOf((*FunctionReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.FunctionRuntime",
 		reflect.TypeOf((*FunctionRuntime)(nil)).Elem(),
@@ -1786,21 +1754,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IAnycastIpListRef",
-		reflect.TypeOf((*IAnycastIpListRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "anycastIpListRef", GoGetter: "AnycastIpListRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAnycastIpListRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cloudfront.ICachePolicy",
 		reflect.TypeOf((*ICachePolicy)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1811,67 +1764,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICachePolicy{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICachePolicyRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.ICachePolicyRef",
-		reflect.TypeOf((*ICachePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cachePolicyRef", GoGetter: "CachePolicyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICachePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.ICloudFrontOriginAccessIdentityRef",
-		reflect.TypeOf((*ICloudFrontOriginAccessIdentityRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cloudFrontOriginAccessIdentityRef", GoGetter: "CloudFrontOriginAccessIdentityRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICloudFrontOriginAccessIdentityRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IConnectionGroupRef",
-		reflect.TypeOf((*IConnectionGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectionGroupRef", GoGetter: "ConnectionGroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConnectionGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IContinuousDeploymentPolicyRef",
-		reflect.TypeOf((*IContinuousDeploymentPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "continuousDeploymentPolicyRef", GoGetter: "ContinuousDeploymentPolicyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IContinuousDeploymentPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontICachePolicyRef)
 			return &j
 		},
 	)
@@ -1892,38 +1785,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDistribution{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDistributionRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIDistributionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IDistributionRef",
-		reflect.TypeOf((*IDistributionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "distributionRef", GoGetter: "DistributionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDistributionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IDistributionTenantRef",
-		reflect.TypeOf((*IDistributionTenantRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "distributionTenantRef", GoGetter: "DistributionTenantRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDistributionTenantRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1941,23 +1804,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IFunction{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFunctionRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIFunctionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IFunctionRef",
-		reflect.TypeOf((*IFunctionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFunctionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1974,23 +1822,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IKeyGroup{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKeyGroupRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIKeyGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IKeyGroupRef",
-		reflect.TypeOf((*IKeyGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "keyGroupRef", GoGetter: "KeyGroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IKeyGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2009,38 +1842,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IKeyValueStore{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKeyValueStoreRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIKeyValueStoreRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IKeyValueStoreRef",
-		reflect.TypeOf((*IKeyValueStoreRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreRef", GoGetter: "KeyValueStoreRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IKeyValueStoreRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IMonitoringSubscriptionRef",
-		reflect.TypeOf((*IMonitoringSubscriptionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "monitoringSubscriptionRef", GoGetter: "MonitoringSubscriptionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMonitoringSubscriptionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2071,21 +1874,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IOriginAccessControlRef",
-		reflect.TypeOf((*IOriginAccessControlRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "originAccessControlRef", GoGetter: "OriginAccessControlRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IOriginAccessControlRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cloudfront.IOriginAccessIdentity",
 		reflect.TypeOf((*IOriginAccessIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2100,7 +1888,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginAccessIdentity{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICloudFrontOriginAccessIdentityRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontICloudFrontOriginAccessIdentityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
@@ -2117,22 +1905,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginRequestPolicy{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOriginRequestPolicyRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IOriginRequestPolicyRef",
-		reflect.TypeOf((*IOriginRequestPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "originRequestPolicyRef", GoGetter: "OriginRequestPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IOriginRequestPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIOriginRequestPolicyRef)
 			return &j
 		},
 	)
@@ -2149,23 +1922,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicKey{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPublicKeyRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIPublicKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IPublicKeyRef",
-		reflect.TypeOf((*IPublicKeyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "publicKeyRef", GoGetter: "PublicKeyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPublicKeyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2183,23 +1941,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IRealtimeLogConfig{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRealtimeLogConfigRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIRealtimeLogConfigRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IRealtimeLogConfigRef",
-		reflect.TypeOf((*IRealtimeLogConfigRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigRef", GoGetter: "RealtimeLogConfigRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRealtimeLogConfigRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2214,37 +1957,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IResponseHeadersPolicy{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResponseHeadersPolicyRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IResponseHeadersPolicyRef",
-		reflect.TypeOf((*IResponseHeadersPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyRef", GoGetter: "ResponseHeadersPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResponseHeadersPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IStreamingDistributionRef",
-		reflect.TypeOf((*IStreamingDistributionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamingDistributionRef", GoGetter: "StreamingDistributionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStreamingDistributionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIResponseHeadersPolicyRef)
 			return &j
 		},
 	)
@@ -2264,22 +1977,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IVpcOrigin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpcOriginRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudfront.IVpcOriginRef",
-		reflect.TypeOf((*IVpcOriginRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcOriginRef", GoGetter: "VpcOriginRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVpcOriginRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIVpcOriginRef)
 			return &j
 		},
 	)
@@ -2330,10 +2028,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.KeyGroupProps",
 		reflect.TypeOf((*KeyGroupProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.KeyGroupReference",
-		reflect.TypeOf((*KeyGroupReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.KeyValueStore",
 		reflect.TypeOf((*KeyValueStore)(nil)).Elem(),
@@ -2363,10 +2057,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.KeyValueStoreProps",
 		reflect.TypeOf((*KeyValueStoreProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.KeyValueStoreReference",
-		reflect.TypeOf((*KeyValueStoreReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cloudfront.LambdaEdgeEventType",
 		reflect.TypeOf((*LambdaEdgeEventType)(nil)).Elem(),
@@ -2386,10 +2076,6 @@ func init() {
 		reflect.TypeOf((*LoggingConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.MonitoringSubscriptionReference",
-		reflect.TypeOf((*MonitoringSubscriptionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.OriginAccessControlBaseProps",
 		reflect.TypeOf((*OriginAccessControlBaseProps)(nil)).Elem(),
 	)
@@ -2402,10 +2088,6 @@ func init() {
 			"MEDIASTORE": OriginAccessControlOriginType_MEDIASTORE,
 			"MEDIAPACKAGEV2": OriginAccessControlOriginType_MEDIAPACKAGEV2,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.OriginAccessControlReference",
-		reflect.TypeOf((*OriginAccessControlReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.OriginAccessIdentity",
@@ -2541,10 +2223,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.OriginRequestPolicyProps",
 		reflect.TypeOf((*OriginRequestPolicyProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.OriginRequestPolicyReference",
-		reflect.TypeOf((*OriginRequestPolicyReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.OriginRequestQueryStringBehavior",
 		reflect.TypeOf((*OriginRequestQueryStringBehavior)(nil)).Elem(),
@@ -2610,10 +2288,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.PublicKeyProps",
 		reflect.TypeOf((*PublicKeyProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.PublicKeyReference",
-		reflect.TypeOf((*PublicKeyReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.RealtimeLogConfig",
 		reflect.TypeOf((*RealtimeLogConfig)(nil)).Elem(),
@@ -2641,10 +2315,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.RealtimeLogConfigProps",
 		reflect.TypeOf((*RealtimeLogConfigProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.RealtimeLogConfigReference",
-		reflect.TypeOf((*RealtimeLogConfigReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.ResponseCustomHeader",
@@ -2696,10 +2366,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicyProps",
 		reflect.TypeOf((*ResponseHeadersPolicyProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicyReference",
-		reflect.TypeOf((*ResponseHeadersPolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.ResponseHeadersReferrerPolicy",
@@ -2815,10 +2481,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.SourceConfiguration",
 		reflect.TypeOf((*SourceConfiguration)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.StreamingDistributionReference",
-		reflect.TypeOf((*StreamingDistributionReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.ViewerCertificate",
 		reflect.TypeOf((*ViewerCertificate)(nil)).Elem(),
@@ -2892,9 +2554,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.VpcOriginProps",
 		reflect.TypeOf((*VpcOriginProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront.VpcOriginReference",
-		reflect.TypeOf((*VpcOriginReference)(nil)).Elem(),
 	)
 }

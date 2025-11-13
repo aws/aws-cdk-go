@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnIdentityPoolRoleAttachment interface {
 	awscdk.CfnResource
-	IIdentityPoolRoleAttachmentRef
 	awscdk.IInspectable
+	interfacesawscognito.IIdentityPoolRoleAttachmentRef
 	// The resource ID.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -61,12 +63,12 @@ type CfnIdentityPoolRoleAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An identity pool ID in the format `REGION:GUID` .
 	IdentityPoolId() *string
 	SetIdentityPoolId(val *string)
 	// A reference to a IdentityPoolRoleAttachment resource.
-	IdentityPoolRoleAttachmentRef() *IdentityPoolRoleAttachmentReference
+	IdentityPoolRoleAttachmentRef() *interfacesawscognito.IdentityPoolRoleAttachmentReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,8 +239,8 @@ type CfnIdentityPoolRoleAttachment interface {
 // The jsii proxy struct for CfnIdentityPoolRoleAttachment
 type jsiiProxy_CfnIdentityPoolRoleAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdentityPoolRoleAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIIdentityPoolRoleAttachmentRef
 }
 
 func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) AttrId() *string {
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) IdentityPoolId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) IdentityPoolRoleAttachmentRef() *IdentityPoolRoleAttachmentReference {
-	var returns *IdentityPoolRoleAttachmentReference
+func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) IdentityPoolRoleAttachmentRef() *interfacesawscognito.IdentityPoolRoleAttachmentReference {
+	var returns *interfacesawscognito.IdentityPoolRoleAttachmentReference
 	_jsii_.Get(
 		j,
 		"identityPoolRoleAttachmentRef",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::Cognito::IdentityPoolRoleAttachment`.
 func NewCfnIdentityPoolRoleAttachment(scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) CfnIdentityPoolRoleAttachment {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnIdentityPoolRoleAttachment(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::Cognito::IdentityPoolRoleAttachment`.
 func NewCfnIdentityPoolRoleAttachment_Override(c CfnIdentityPoolRoleAttachment, scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) {
 	_init_.Initialize()
 

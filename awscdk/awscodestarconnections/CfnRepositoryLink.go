@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarconnections/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodestarconnections"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnRepositoryLink interface {
 	awscdk.CfnResource
-	IRepositoryLinkRef
 	awscdk.IInspectable
+	interfacesawscodestarconnections.IRepositoryLinkRef
 	awscdk.ITaggableV2
 	// The name of the external provider where your third-party code repository is configured.
 	AttrProviderType() *string
@@ -61,7 +63,7 @@ type CfnRepositoryLink interface {
 	// The Amazon Resource Name (ARN) of the encryption key for the repository associated with the repository link.
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -83,7 +85,7 @@ type CfnRepositoryLink interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RepositoryLink resource.
-	RepositoryLinkRef() *RepositoryLinkReference
+	RepositoryLinkRef() *interfacesawscodestarconnections.RepositoryLinkReference
 	// The name of the repository associated with the repository link.
 	RepositoryName() *string
 	SetRepositoryName(val *string)
@@ -237,8 +239,8 @@ type CfnRepositoryLink interface {
 // The jsii proxy struct for CfnRepositoryLink
 type jsiiProxy_CfnRepositoryLink struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRepositoryLinkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodestarconnectionsIRepositoryLinkRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnRepositoryLink) EncryptionKeyArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepositoryLink) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRepositoryLink) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnRepositoryLink) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepositoryLink) RepositoryLinkRef() *RepositoryLinkReference {
-	var returns *RepositoryLinkReference
+func (j *jsiiProxy_CfnRepositoryLink) RepositoryLinkRef() *interfacesawscodestarconnections.RepositoryLinkReference {
+	var returns *interfacesawscodestarconnections.RepositoryLinkReference
 	_jsii_.Get(
 		j,
 		"repositoryLinkRef",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnRepositoryLink) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::CodeStarConnections::RepositoryLink`.
 func NewCfnRepositoryLink(scope constructs.Construct, id *string, props *CfnRepositoryLinkProps) CfnRepositoryLink {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnRepositoryLink(scope constructs.Construct, id *string, props *CfnRepo
 	return &j
 }
 
+// Create a new `AWS::CodeStarConnections::RepositoryLink`.
 func NewCfnRepositoryLink_Override(c CfnRepositoryLink, scope constructs.Construct, id *string, props *CfnRepositoryLinkProps) {
 	_init_.Initialize()
 

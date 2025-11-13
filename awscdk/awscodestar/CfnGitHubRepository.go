@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestar/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodestar"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnGitHubRepository interface {
 	awscdk.CfnResource
-	IGitHubRepositoryRef
 	awscdk.IInspectable
+	interfacesawscodestar.IGitHubRepositoryRef
 	// The repository ID.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -64,9 +66,9 @@ type CfnGitHubRepository interface {
 	// Indicates whether to enable issues for the GitHub repository.
 	EnableIssues() interface{}
 	SetEnableIssues(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a GitHubRepository resource.
-	GitHubRepositoryRef() *GitHubRepositoryReference
+	GitHubRepositoryRef() *interfacesawscodestar.GitHubRepositoryReference
 	// Indicates whether the GitHub repository is a private repository.
 	IsPrivate() interface{}
 	SetIsPrivate(val interface{})
@@ -246,8 +248,8 @@ type CfnGitHubRepository interface {
 // The jsii proxy struct for CfnGitHubRepository
 type jsiiProxy_CfnGitHubRepository struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGitHubRepositoryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodestarIGitHubRepositoryRef
 }
 
 func (j *jsiiProxy_CfnGitHubRepository) AttrId() *string {
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnGitHubRepository) EnableIssues() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGitHubRepository) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGitHubRepository) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnGitHubRepository) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGitHubRepository) GitHubRepositoryRef() *GitHubRepositoryReference {
-	var returns *GitHubRepositoryReference
+func (j *jsiiProxy_CfnGitHubRepository) GitHubRepositoryRef() *interfacesawscodestar.GitHubRepositoryReference {
+	var returns *interfacesawscodestar.GitHubRepositoryReference
 	_jsii_.Get(
 		j,
 		"gitHubRepositoryRef",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnGitHubRepository) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::CodeStar::GitHubRepository`.
 func NewCfnGitHubRepository(scope constructs.Construct, id *string, props *CfnGitHubRepositoryProps) CfnGitHubRepository {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnGitHubRepository(scope constructs.Construct, id *string, props *CfnGi
 	return &j
 }
 
+// Create a new `AWS::CodeStar::GitHubRepository`.
 func NewCfnGitHubRepository_Override(c CfnGitHubRepository, scope constructs.Construct, id *string, props *CfnGitHubRepositoryProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,13 +39,13 @@ import (
 //
 type CfnCapacityManagerDataExport interface {
 	awscdk.CfnResource
-	ICapacityManagerDataExportRef
 	awscdk.IInspectable
+	interfacesawsec2.ICapacityManagerDataExportRef
 	awscdk.ITaggableV2
 	// The unique identifier for the data export configuration.
 	AttrCapacityManagerDataExportId() *string
 	// A reference to a CapacityManagerDataExport resource.
-	CapacityManagerDataExportRef() *CapacityManagerDataExportReference
+	CapacityManagerDataExportRef() *interfacesawsec2.CapacityManagerDataExportReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -55,7 +57,7 @@ type CfnCapacityManagerDataExport interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnCapacityManagerDataExport interface {
 // The jsii proxy struct for CfnCapacityManagerDataExport
 type jsiiProxy_CfnCapacityManagerDataExport struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICapacityManagerDataExportRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ICapacityManagerDataExportRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -250,8 +252,8 @@ func (j *jsiiProxy_CfnCapacityManagerDataExport) AttrCapacityManagerDataExportId
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityManagerDataExport) CapacityManagerDataExportRef() *CapacityManagerDataExportReference {
-	var returns *CapacityManagerDataExportReference
+func (j *jsiiProxy_CfnCapacityManagerDataExport) CapacityManagerDataExportRef() *interfacesawsec2.CapacityManagerDataExportReference {
+	var returns *interfacesawsec2.CapacityManagerDataExportReference
 	_jsii_.Get(
 		j,
 		"capacityManagerDataExportRef",
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnCapacityManagerDataExport) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityManagerDataExport) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCapacityManagerDataExport) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -431,6 +433,7 @@ func (j *jsiiProxy_CfnCapacityManagerDataExport) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::EC2::CapacityManagerDataExport`.
 func NewCfnCapacityManagerDataExport(scope constructs.Construct, id *string, props *CfnCapacityManagerDataExportProps) CfnCapacityManagerDataExport {
 	_init_.Initialize()
 
@@ -448,6 +451,7 @@ func NewCfnCapacityManagerDataExport(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::EC2::CapacityManagerDataExport`.
 func NewCfnCapacityManagerDataExport_Override(c CfnCapacityManagerDataExport, scope constructs.Construct, id *string, props *CfnCapacityManagerDataExportProps) {
 	_init_.Initialize()
 
@@ -508,6 +512,25 @@ func (j *jsiiProxy_CfnCapacityManagerDataExport)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+// Creates a new ICapacityManagerDataExportRef from a capacityManagerDataExportId.
+func CfnCapacityManagerDataExport_FromCapacityManagerDataExportId(scope constructs.Construct, id *string, capacityManagerDataExportId *string) interfacesawsec2.ICapacityManagerDataExportRef {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityManagerDataExport_FromCapacityManagerDataExportIdParameters(scope, id, capacityManagerDataExportId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.ICapacityManagerDataExportRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCapacityManagerDataExport",
+		"fromCapacityManagerDataExportId",
+		[]interface{}{scope, id, capacityManagerDataExportId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

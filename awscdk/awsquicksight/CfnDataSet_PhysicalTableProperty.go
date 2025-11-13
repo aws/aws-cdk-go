@@ -12,57 +12,77 @@ package awsquicksight
 //
 //   physicalTableProperty := &PhysicalTableProperty{
 //   	CustomSql: &CustomSqlProperty{
-//   		DataSourceArn: jsii.String("dataSourceArn"),
-//   		Name: jsii.String("name"),
-//   		SqlQuery: jsii.String("sqlQuery"),
-//
-//   		// the properties below are optional
 //   		Columns: []interface{}{
 //   			&InputColumnProperty{
 //   				Name: jsii.String("name"),
 //   				Type: jsii.String("type"),
 //
 //   				// the properties below are optional
+//   				Id: jsii.String("id"),
 //   				SubType: jsii.String("subType"),
 //   			},
 //   		},
+//   		DataSourceArn: jsii.String("dataSourceArn"),
+//   		Name: jsii.String("name"),
+//   		SqlQuery: jsii.String("sqlQuery"),
 //   	},
 //   	RelationalTable: &RelationalTableProperty{
 //   		DataSourceArn: jsii.String("dataSourceArn"),
+//   		InputColumns: []interface{}{
+//   			&InputColumnProperty{
+//   				Name: jsii.String("name"),
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Id: jsii.String("id"),
+//   				SubType: jsii.String("subType"),
+//   			},
+//   		},
 //   		Name: jsii.String("name"),
 //
 //   		// the properties below are optional
 //   		Catalog: jsii.String("catalog"),
-//   		InputColumns: []interface{}{
-//   			&InputColumnProperty{
-//   				Name: jsii.String("name"),
-//   				Type: jsii.String("type"),
-//
-//   				// the properties below are optional
-//   				SubType: jsii.String("subType"),
-//   			},
-//   		},
 //   		Schema: jsii.String("schema"),
 //   	},
 //   	S3Source: &S3SourceProperty{
 //   		DataSourceArn: jsii.String("dataSourceArn"),
-//
-//   		// the properties below are optional
 //   		InputColumns: []interface{}{
 //   			&InputColumnProperty{
 //   				Name: jsii.String("name"),
 //   				Type: jsii.String("type"),
 //
 //   				// the properties below are optional
+//   				Id: jsii.String("id"),
 //   				SubType: jsii.String("subType"),
 //   			},
 //   		},
+//
+//   		// the properties below are optional
 //   		UploadSettings: &UploadSettingsProperty{
 //   			ContainsHeader: jsii.Boolean(false),
 //   			Delimiter: jsii.String("delimiter"),
 //   			Format: jsii.String("format"),
 //   			StartFromRow: jsii.Number(123),
 //   			TextQualifier: jsii.String("textQualifier"),
+//   		},
+//   	},
+//   	SaaSTable: &SaaSTableProperty{
+//   		DataSourceArn: jsii.String("dataSourceArn"),
+//   		InputColumns: []interface{}{
+//   			&InputColumnProperty{
+//   				Name: jsii.String("name"),
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Id: jsii.String("id"),
+//   				SubType: jsii.String("subType"),
+//   			},
+//   		},
+//   		TablePath: []interface{}{
+//   			&TablePathElementProperty{
+//   				Id: jsii.String("id"),
+//   				Name: jsii.String("name"),
+//   			},
 //   		},
 //   	},
 //   }
@@ -82,5 +102,9 @@ type CfnDataSet_PhysicalTableProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source
 	//
 	S3Source interface{} `field:"optional" json:"s3Source" yaml:"s3Source"`
+	// A physical table type for Software-as-a-Service (SaaS) sources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-saastable
+	//
+	SaaSTable interface{} `field:"optional" json:"saaSTable" yaml:"saaSTable"`
 }
 

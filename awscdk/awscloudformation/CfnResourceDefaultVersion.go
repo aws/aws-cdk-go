@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnResourceDefaultVersion interface {
 	awscdk.CfnResource
-	IResourceDefaultVersionRef
 	awscdk.IInspectable
+	interfacesawscloudformation.IResourceDefaultVersionRef
 	// The Amazon Resource Name (ARN) of the resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -43,7 +45,7 @@ type CfnResourceDefaultVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -62,7 +64,7 @@ type CfnResourceDefaultVersion interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourceDefaultVersion resource.
-	ResourceDefaultVersionRef() *ResourceDefaultVersionReference
+	ResourceDefaultVersionRef() *interfacesawscloudformation.ResourceDefaultVersionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -219,8 +221,8 @@ type CfnResourceDefaultVersion interface {
 // The jsii proxy struct for CfnResourceDefaultVersion
 type jsiiProxy_CfnResourceDefaultVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceDefaultVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationIResourceDefaultVersionRef
 }
 
 func (j *jsiiProxy_CfnResourceDefaultVersion) AttrArn() *string {
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnResourceDefaultVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceDefaultVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceDefaultVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnResourceDefaultVersion) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceDefaultVersion) ResourceDefaultVersionRef() *ResourceDefaultVersionReference {
-	var returns *ResourceDefaultVersionReference
+func (j *jsiiProxy_CfnResourceDefaultVersion) ResourceDefaultVersionRef() *interfacesawscloudformation.ResourceDefaultVersionReference {
+	var returns *interfacesawscloudformation.ResourceDefaultVersionReference
 	_jsii_.Get(
 		j,
 		"resourceDefaultVersionRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnResourceDefaultVersion) VersionId() *string {
 }
 
 
+// Create a new `AWS::CloudFormation::ResourceDefaultVersion`.
 func NewCfnResourceDefaultVersion(scope constructs.Construct, id *string, props *CfnResourceDefaultVersionProps) CfnResourceDefaultVersion {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnResourceDefaultVersion(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::ResourceDefaultVersion`.
 func NewCfnResourceDefaultVersion_Override(c CfnResourceDefaultVersion, scope constructs.Construct, id *string, props *CfnResourceDefaultVersionProps) {
 	_init_.Initialize()
 

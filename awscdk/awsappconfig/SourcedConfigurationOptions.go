@@ -1,8 +1,8 @@
 package awsappconfig
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Options for SourcedConfiguration.
@@ -91,7 +91,7 @@ type SourcedConfigurationOptions struct {
 	// The IAM role to retrieve the configuration.
 	// Default: - A role is generated.
 	//
-	RetrievalRole awsiam.IRoleRef `field:"optional" json:"retrievalRole" yaml:"retrievalRole"`
+	RetrievalRole interfacesawsiam.IRoleRef `field:"optional" json:"retrievalRole" yaml:"retrievalRole"`
 	// The version number of the sourced configuration to deploy.
 	//
 	// If this is not specified,

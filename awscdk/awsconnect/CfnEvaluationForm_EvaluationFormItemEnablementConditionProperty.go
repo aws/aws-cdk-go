@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// A condition for item enablement.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,13 +36,11 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementcondition.html
 //
 type CfnEvaluationForm_EvaluationFormItemEnablementConditionProperty struct {
-	// The list of operands that compose the condition.
-	//
-	// Each operand represents a specific criteria to be evaluated.
+	// Operands of the enablement condition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementcondition.html#cfn-connect-evaluationform-evaluationformitemenablementcondition-operands
 	//
 	Operands interface{} `field:"required" json:"operands" yaml:"operands"`
-	// The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+	// The operator to be used to be applied to operands if more than one provided.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementcondition.html#cfn-connect-evaluationform-evaluationformitemenablementcondition-operator
 	//
 	Operator *string `field:"optional" json:"operator" yaml:"operator"`

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnDimension interface {
 	awscdk.CfnResource
-	IDimensionRef
 	awscdk.IInspectable
+	interfacesawsiot.IDimensionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the dimension.
 	AttrArn() *string
@@ -53,8 +55,8 @@ type CfnDimension interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a Dimension resource.
-	DimensionRef() *DimensionReference
-	Env() *awscdk.ResourceEnvironment
+	DimensionRef() *interfacesawsiot.DimensionReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -233,8 +235,8 @@ type CfnDimension interface {
 // The jsii proxy struct for CfnDimension
 type jsiiProxy_CfnDimension struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDimensionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIDimensionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -288,8 +290,8 @@ func (j *jsiiProxy_CfnDimension) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDimension) DimensionRef() *DimensionReference {
-	var returns *DimensionReference
+func (j *jsiiProxy_CfnDimension) DimensionRef() *interfacesawsiot.DimensionReference {
+	var returns *interfacesawsiot.DimensionReference
 	_jsii_.Get(
 		j,
 		"dimensionRef",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnDimension) DimensionRef() *DimensionReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDimension) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDimension) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -419,6 +421,7 @@ func (j *jsiiProxy_CfnDimension) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::Dimension`.
 func NewCfnDimension(scope constructs.Construct, id *string, props *CfnDimensionProps) CfnDimension {
 	_init_.Initialize()
 
@@ -436,6 +439,7 @@ func NewCfnDimension(scope constructs.Construct, id *string, props *CfnDimension
 	return &j
 }
 
+// Create a new `AWS::IoT::Dimension`.
 func NewCfnDimension_Override(c CfnDimension, scope constructs.Construct, id *string, props *CfnDimensionProps) {
 	_init_.Initialize()
 
@@ -488,13 +492,13 @@ func (j *jsiiProxy_CfnDimension)SetType(val *string) {
 }
 
 // Creates a new IDimensionRef from an ARN.
-func CfnDimension_FromDimensionArn(scope constructs.Construct, id *string, arn *string) IDimensionRef {
+func CfnDimension_FromDimensionArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IDimensionRef {
 	_init_.Initialize()
 
 	if err := validateCfnDimension_FromDimensionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDimensionRef
+	var returns interfacesawsiot.IDimensionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnDimension",
@@ -507,13 +511,13 @@ func CfnDimension_FromDimensionArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IDimensionRef from a dimensionName.
-func CfnDimension_FromDimensionName(scope constructs.Construct, id *string, dimensionName *string) IDimensionRef {
+func CfnDimension_FromDimensionName(scope constructs.Construct, id *string, dimensionName *string) interfacesawsiot.IDimensionRef {
 	_init_.Initialize()
 
 	if err := validateCfnDimension_FromDimensionNameParameters(scope, id, dimensionName); err != nil {
 		panic(err)
 	}
-	var returns IDimensionRef
+	var returns interfacesawsiot.IDimensionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnDimension",

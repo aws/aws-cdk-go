@@ -60,6 +60,8 @@ type CfnRestoreTestingSelectionProps struct {
 	//
 	RestoreTestingPlanName *string `field:"required" json:"restoreTestingPlanName" yaml:"restoreTestingPlanName"`
 	// The unique name of the restore testing selection that belongs to the related restore testing plan.
+	//
+	// The name consists of only alphanumeric characters and underscores. Maximum length is 50.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-restoretestingselectionname
 	//
 	RestoreTestingSelectionName *string `field:"required" json:"restoreTestingSelectionName" yaml:"restoreTestingSelectionName"`

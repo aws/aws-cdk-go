@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,7 +71,7 @@ type Ec2Service interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
 	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
@@ -111,7 +112,7 @@ type Ec2Service interface {
 	//
 	// For more information, see
 	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-	AddPlacementStrategies(strategies ...PlacementStrategy)
+	AddPlacementStrategies(newStrategies ...PlacementStrategy)
 	// Adds a volume to the Service.
 	AddVolume(volume ServiceManagedVolume)
 	// Apply the given removal policy to this resource.
@@ -293,8 +294,8 @@ func (j *jsiiProxy_Ec2Service) DeploymentAlarms() *CfnService_DeploymentAlarmsPr
 	return returns
 }
 
-func (j *jsiiProxy_Ec2Service) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Ec2Service) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -644,9 +645,9 @@ func (e *jsiiProxy_Ec2Service) AddPlacementConstraints(constraints ...PlacementC
 	)
 }
 
-func (e *jsiiProxy_Ec2Service) AddPlacementStrategies(strategies ...PlacementStrategy) {
+func (e *jsiiProxy_Ec2Service) AddPlacementStrategies(newStrategies ...PlacementStrategy) {
 	args := []interface{}{}
-	for _, a := range strategies {
+	for _, a := range newStrategies {
 		args = append(args, a)
 	}
 

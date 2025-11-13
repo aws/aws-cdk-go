@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -190,7 +191,7 @@ func validateKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateKey_IsLookupDummyParameters(key IKeyRef) error {
+func validateKey_IsLookupDummyParameters(key interfacesawskms.IKeyRef) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
 	}

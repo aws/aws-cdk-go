@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnMlflowTrackingServer interface {
 	awscdk.CfnResource
-	IMlflowTrackingServerRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IMlflowTrackingServerRef
 	awscdk.ITaggableV2
 	// The Amazon S3 URI for MLFlow Tracking Server artifacts.
 	ArtifactStoreUri() *string
@@ -62,7 +64,7 @@ type CfnMlflowTrackingServer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnMlflowTrackingServer interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MlflowTrackingServer resource.
-	MlflowTrackingServerRef() *MlflowTrackingServerReference
+	MlflowTrackingServerRef() *interfacesawssagemaker.MlflowTrackingServerReference
 	// The MLFlow Version used on the MLFlow Tracking Server.
 	MlflowVersion() *string
 	SetMlflowVersion(val *string)
@@ -247,8 +249,8 @@ type CfnMlflowTrackingServer interface {
 // The jsii proxy struct for CfnMlflowTrackingServer
 type jsiiProxy_CfnMlflowTrackingServer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMlflowTrackingServerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIMlflowTrackingServerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnMlflowTrackingServer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMlflowTrackingServer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMlflowTrackingServer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnMlflowTrackingServer) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMlflowTrackingServer) MlflowTrackingServerRef() *MlflowTrackingServerReference {
-	var returns *MlflowTrackingServerReference
+func (j *jsiiProxy_CfnMlflowTrackingServer) MlflowTrackingServerRef() *interfacesawssagemaker.MlflowTrackingServerReference {
+	var returns *interfacesawssagemaker.MlflowTrackingServerReference
 	_jsii_.Get(
 		j,
 		"mlflowTrackingServerRef",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnMlflowTrackingServer) WeeklyMaintenanceWindowStart() *stri
 }
 
 
+// Create a new `AWS::SageMaker::MlflowTrackingServer`.
 func NewCfnMlflowTrackingServer(scope constructs.Construct, id *string, props *CfnMlflowTrackingServerProps) CfnMlflowTrackingServer {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnMlflowTrackingServer(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::SageMaker::MlflowTrackingServer`.
 func NewCfnMlflowTrackingServer_Override(c CfnMlflowTrackingServer, scope constructs.Construct, id *string, props *CfnMlflowTrackingServerProps) {
 	_init_.Initialize()
 

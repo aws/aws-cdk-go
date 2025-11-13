@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnDestination interface {
 	awscdk.CfnResource
-	IDestinationRef
 	awscdk.IInspectable
+	interfacesawslogs.IDestinationRef
 	awscdk.ITaggableV2
 	// The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
 	AttrArn() *string
@@ -60,8 +62,8 @@ type CfnDestination interface {
 	DestinationPolicy() *string
 	SetDestinationPolicy(val *string)
 	// A reference to a Destination resource.
-	DestinationRef() *DestinationReference
-	Env() *awscdk.ResourceEnvironment
+	DestinationRef() *interfacesawslogs.DestinationReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnDestination interface {
 // The jsii proxy struct for CfnDestination
 type jsiiProxy_CfnDestination struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDestinationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsIDestinationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnDestination) DestinationPolicy() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDestination) DestinationRef() *DestinationReference {
-	var returns *DestinationReference
+func (j *jsiiProxy_CfnDestination) DestinationRef() *interfacesawslogs.DestinationReference {
+	var returns *interfacesawslogs.DestinationReference
 	_jsii_.Get(
 		j,
 		"destinationRef",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnDestination) DestinationRef() *DestinationReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDestination) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -431,6 +433,7 @@ func (j *jsiiProxy_CfnDestination) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Logs::Destination`.
 func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestinationProps) CfnDestination {
 	_init_.Initialize()
 
@@ -448,6 +451,7 @@ func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestina
 	return &j
 }
 
+// Create a new `AWS::Logs::Destination`.
 func NewCfnDestination_Override(c CfnDestination, scope constructs.Construct, id *string, props *CfnDestinationProps) {
 	_init_.Initialize()
 
@@ -511,13 +515,13 @@ func (j *jsiiProxy_CfnDestination)SetTargetArn(val *string) {
 }
 
 // Creates a new IDestinationRef from an ARN.
-func CfnDestination_FromDestinationArn(scope constructs.Construct, id *string, arn *string) IDestinationRef {
+func CfnDestination_FromDestinationArn(scope constructs.Construct, id *string, arn *string) interfacesawslogs.IDestinationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDestination_FromDestinationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDestinationRef
+	var returns interfacesawslogs.IDestinationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnDestination",
@@ -530,13 +534,13 @@ func CfnDestination_FromDestinationArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IDestinationRef from a destinationName.
-func CfnDestination_FromDestinationName(scope constructs.Construct, id *string, destinationName *string) IDestinationRef {
+func CfnDestination_FromDestinationName(scope constructs.Construct, id *string, destinationName *string) interfacesawslogs.IDestinationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDestination_FromDestinationNameParameters(scope, id, destinationName); err != nil {
 		panic(err)
 	}
-	var returns IDestinationRef
+	var returns interfacesawslogs.IDestinationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnDestination",

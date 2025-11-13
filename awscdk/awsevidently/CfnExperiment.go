@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevidently/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevidently"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -81,8 +83,8 @@ import (
 //
 type CfnExperiment interface {
 	awscdk.CfnResource
-	IExperimentRef
 	awscdk.IInspectable
+	interfacesawsevidently.IExperimentRef
 	awscdk.ITaggable
 	// The ARN of the experiment.
 	//
@@ -100,9 +102,9 @@ type CfnExperiment interface {
 	// An optional description of the experiment.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Experiment resource.
-	ExperimentRef() *ExperimentReference
+	ExperimentRef() *interfacesawsevidently.ExperimentReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -302,8 +304,8 @@ type CfnExperiment interface {
 // The jsii proxy struct for CfnExperiment
 type jsiiProxy_CfnExperiment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IExperimentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsevidentlyIExperimentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnExperiment) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExperiment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnExperiment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnExperiment) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExperiment) ExperimentRef() *ExperimentReference {
-	var returns *ExperimentReference
+func (j *jsiiProxy_CfnExperiment) ExperimentRef() *interfacesawsevidently.ExperimentReference {
+	var returns *interfacesawsevidently.ExperimentReference
 	_jsii_.Get(
 		j,
 		"experimentRef",
@@ -568,6 +570,7 @@ func (j *jsiiProxy_CfnExperiment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Evidently::Experiment`.
 func NewCfnExperiment(scope constructs.Construct, id *string, props *CfnExperimentProps) CfnExperiment {
 	_init_.Initialize()
 
@@ -585,6 +588,7 @@ func NewCfnExperiment(scope constructs.Construct, id *string, props *CfnExperime
 	return &j
 }
 
+// Create a new `AWS::Evidently::Experiment`.
 func NewCfnExperiment_Override(c CfnExperiment, scope constructs.Construct, id *string, props *CfnExperimentProps) {
 	_init_.Initialize()
 

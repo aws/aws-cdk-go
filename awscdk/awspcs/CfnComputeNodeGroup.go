@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspcs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspcs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,8 +66,8 @@ import (
 //
 type CfnComputeNodeGroup interface {
 	awscdk.CfnResource
-	IComputeNodeGroupRef
 	awscdk.IInspectable
+	interfacesawspcs.IComputeNodeGroupRef
 	awscdk.ITaggableV2
 	// The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances.
 	AmiId() *string
@@ -91,7 +93,7 @@ type CfnComputeNodeGroup interface {
 	ClusterId() *string
 	SetClusterId(val *string)
 	// A reference to a ComputeNodeGroup resource.
-	ComputeNodeGroupRef() *ComputeNodeGroupReference
+	ComputeNodeGroupRef() *interfacesawspcs.ComputeNodeGroupReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -99,7 +101,7 @@ type CfnComputeNodeGroup interface {
 	// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 	CustomLaunchTemplate() interface{}
 	SetCustomLaunchTemplate(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances.
 	IamInstanceProfileArn() *string
 	SetIamInstanceProfileArn(val *string)
@@ -291,8 +293,8 @@ type CfnComputeNodeGroup interface {
 // The jsii proxy struct for CfnComputeNodeGroup
 type jsiiProxy_CfnComputeNodeGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IComputeNodeGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspcsIComputeNodeGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnComputeNodeGroup) ClusterId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComputeNodeGroup) ComputeNodeGroupRef() *ComputeNodeGroupReference {
-	var returns *ComputeNodeGroupReference
+func (j *jsiiProxy_CfnComputeNodeGroup) ComputeNodeGroupRef() *interfacesawspcs.ComputeNodeGroupReference {
+	var returns *interfacesawspcs.ComputeNodeGroupReference
 	_jsii_.Get(
 		j,
 		"computeNodeGroupRef",
@@ -426,8 +428,8 @@ func (j *jsiiProxy_CfnComputeNodeGroup) CustomLaunchTemplate() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComputeNodeGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnComputeNodeGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -587,6 +589,7 @@ func (j *jsiiProxy_CfnComputeNodeGroup) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::PCS::ComputeNodeGroup`.
 func NewCfnComputeNodeGroup(scope constructs.Construct, id *string, props *CfnComputeNodeGroupProps) CfnComputeNodeGroup {
 	_init_.Initialize()
 
@@ -604,6 +607,7 @@ func NewCfnComputeNodeGroup(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
+// Create a new `AWS::PCS::ComputeNodeGroup`.
 func NewCfnComputeNodeGroup_Override(c CfnComputeNodeGroup, scope constructs.Construct, id *string, props *CfnComputeNodeGroupProps) {
 	_init_.Initialize()
 

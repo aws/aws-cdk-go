@@ -54,8 +54,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCluster{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53recoverycontrolIClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -116,8 +116,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnControlPanel{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IControlPanelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53recoverycontrolIControlPanelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -171,8 +171,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRoutingControl{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRoutingControlRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53recoverycontrolIRoutingControlRef)
 			return &j
 		},
 	)
@@ -229,8 +229,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSafetyRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISafetyRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53recoverycontrolISafetyRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -250,81 +250,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRuleProps",
 		reflect.TypeOf((*CfnSafetyRuleProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53recoverycontrol.ClusterReference",
-		reflect.TypeOf((*ClusterReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53recoverycontrol.ControlPanelReference",
-		reflect.TypeOf((*ControlPanelReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_route53recoverycontrol.IClusterRef",
-		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IClusterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_route53recoverycontrol.IControlPanelRef",
-		reflect.TypeOf((*IControlPanelRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "controlPanelRef", GoGetter: "ControlPanelRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IControlPanelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_route53recoverycontrol.IRoutingControlRef",
-		reflect.TypeOf((*IRoutingControlRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "routingControlRef", GoGetter: "RoutingControlRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRoutingControlRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_route53recoverycontrol.ISafetyRuleRef",
-		reflect.TypeOf((*ISafetyRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "safetyRuleRef", GoGetter: "SafetyRuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISafetyRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53recoverycontrol.RoutingControlReference",
-		reflect.TypeOf((*RoutingControlReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53recoverycontrol.SafetyRuleReference",
-		reflect.TypeOf((*SafetyRuleReference)(nil)).Elem(),
 	)
 }

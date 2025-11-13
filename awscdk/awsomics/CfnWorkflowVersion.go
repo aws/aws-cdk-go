@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsomics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -84,8 +86,8 @@ import (
 //
 type CfnWorkflowVersion interface {
 	awscdk.CfnResource
-	IWorkflowVersionRef
 	awscdk.IInspectable
+	interfacesawsomics.IWorkflowVersionRef
 	awscdk.ITaggableV2
 	Accelerators() *string
 	SetAccelerators(val *string)
@@ -124,7 +126,7 @@ type CfnWorkflowVersion interface {
 	SetDescription(val *string)
 	Engine() *string
 	SetEngine(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -191,7 +193,7 @@ type CfnWorkflowVersion interface {
 	WorkflowId() *string
 	SetWorkflowId(val *string)
 	// A reference to a WorkflowVersion resource.
-	WorkflowVersionRef() *WorkflowVersionReference
+	WorkflowVersionRef() *interfacesawsomics.WorkflowVersionReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -322,8 +324,8 @@ type CfnWorkflowVersion interface {
 // The jsii proxy struct for CfnWorkflowVersion
 type jsiiProxy_CfnWorkflowVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkflowVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsomicsIWorkflowVersionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -497,8 +499,8 @@ func (j *jsiiProxy_CfnWorkflowVersion) Engine() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkflowVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkflowVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -687,8 +689,8 @@ func (j *jsiiProxy_CfnWorkflowVersion) WorkflowId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkflowVersion) WorkflowVersionRef() *WorkflowVersionReference {
-	var returns *WorkflowVersionReference
+func (j *jsiiProxy_CfnWorkflowVersion) WorkflowVersionRef() *interfacesawsomics.WorkflowVersionReference {
+	var returns *interfacesawsomics.WorkflowVersionReference
 	_jsii_.Get(
 		j,
 		"workflowVersionRef",
@@ -698,6 +700,7 @@ func (j *jsiiProxy_CfnWorkflowVersion) WorkflowVersionRef() *WorkflowVersionRefe
 }
 
 
+// Create a new `AWS::Omics::WorkflowVersion`.
 func NewCfnWorkflowVersion(scope constructs.Construct, id *string, props *CfnWorkflowVersionProps) CfnWorkflowVersion {
 	_init_.Initialize()
 
@@ -715,6 +718,7 @@ func NewCfnWorkflowVersion(scope constructs.Construct, id *string, props *CfnWor
 	return &j
 }
 
+// Create a new `AWS::Omics::WorkflowVersion`.
 func NewCfnWorkflowVersion_Override(c CfnWorkflowVersion, scope constructs.Construct, id *string, props *CfnWorkflowVersionProps) {
 	_init_.Initialize()
 

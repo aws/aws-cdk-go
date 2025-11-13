@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnListener interface {
 	awscdk.CfnResource
-	IListenerRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.IListenerRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the listener.
 	AttrArn() *string
@@ -75,9 +77,9 @@ type CfnListener interface {
 	// The action for the default rule.
 	DefaultAction() interface{}
 	SetDefaultAction(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Listener resource.
-	ListenerRef() *ListenerReference
+	ListenerRef() *interfacesawsvpclattice.ListenerReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -259,8 +261,8 @@ type CfnListener interface {
 // The jsii proxy struct for CfnListener
 type jsiiProxy_CfnListener struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IListenerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeIListenerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnListener) DefaultAction() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListener) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnListener) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnListener) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListener) ListenerRef() *ListenerReference {
-	var returns *ListenerReference
+func (j *jsiiProxy_CfnListener) ListenerRef() *interfacesawsvpclattice.ListenerReference {
+	var returns *interfacesawsvpclattice.ListenerReference
 	_jsii_.Get(
 		j,
 		"listenerRef",
@@ -495,6 +497,7 @@ func (j *jsiiProxy_CfnListener) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::VpcLattice::Listener`.
 func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerProps) CfnListener {
 	_init_.Initialize()
 
@@ -512,6 +515,7 @@ func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerPr
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::Listener`.
 func NewCfnListener_Override(c CfnListener, scope constructs.Construct, id *string, props *CfnListenerProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworkscm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworkscm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnServer interface {
 	awscdk.CfnResource
-	IServerRef
 	awscdk.IInspectable
+	interfacesawsopsworkscm.IServerRef
 	awscdk.ITaggable
 	// Associate a public IP address with a server that you are launching.
 	AssociatePublicIpAddress() interface{}
@@ -113,7 +115,7 @@ type CfnServer interface {
 	// The major release version of the engine that you want to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the instance profile that your Amazon EC2 instances use.
 	InstanceProfileArn() *string
 	SetInstanceProfileArn(val *string)
@@ -150,7 +152,7 @@ type CfnServer interface {
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// A reference to a Server resource.
-	ServerRef() *ServerReference
+	ServerRef() *interfacesawsopsworkscm.ServerReference
 	// The service role that the AWS OpsWorks CM service backend uses to work with your account.
 	ServiceRoleArn() *string
 	SetServiceRoleArn(val *string)
@@ -309,8 +311,8 @@ type CfnServer interface {
 // The jsii proxy struct for CfnServer
 type jsiiProxy_CfnServer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopsworkscmIServerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -494,8 +496,8 @@ func (j *jsiiProxy_CfnServer) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -594,8 +596,8 @@ func (j *jsiiProxy_CfnServer) SecurityGroupIds() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServer) ServerRef() *ServerReference {
-	var returns *ServerReference
+func (j *jsiiProxy_CfnServer) ServerRef() *interfacesawsopsworkscm.ServerReference {
+	var returns *interfacesawsopsworkscm.ServerReference
 	_jsii_.Get(
 		j,
 		"serverRef",
@@ -675,6 +677,7 @@ func (j *jsiiProxy_CfnServer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::OpsWorksCM::Server`.
 func NewCfnServer(scope constructs.Construct, id *string, props *CfnServerProps) CfnServer {
 	_init_.Initialize()
 
@@ -692,6 +695,7 @@ func NewCfnServer(scope constructs.Construct, id *string, props *CfnServerProps)
 	return &j
 }
 
+// Create a new `AWS::OpsWorksCM::Server`.
 func NewCfnServer_Override(c CfnServer, scope constructs.Construct, id *string, props *CfnServerProps) {
 	_init_.Initialize()
 

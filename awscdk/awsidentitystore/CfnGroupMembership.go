@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsidentitystore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsidentitystore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnGroupMembership interface {
 	awscdk.CfnResource
-	IGroupMembershipRef
 	awscdk.IInspectable
+	interfacesawsidentitystore.IGroupMembershipRef
 	// The identifier for a `GroupMembership` in the identity store.
 	AttrMembershipId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -43,12 +45,12 @@ type CfnGroupMembership interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier for a group in the identity store.
 	GroupId() *string
 	SetGroupId(val *string)
 	// A reference to a GroupMembership resource.
-	GroupMembershipRef() *GroupMembershipReference
+	GroupMembershipRef() *interfacesawsidentitystore.GroupMembershipReference
 	// The globally unique identifier for the identity store.
 	IdentityStoreId() *string
 	SetIdentityStoreId(val *string)
@@ -219,8 +221,8 @@ type CfnGroupMembership interface {
 // The jsii proxy struct for CfnGroupMembership
 type jsiiProxy_CfnGroupMembership struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGroupMembershipRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsidentitystoreIGroupMembershipRef
 }
 
 func (j *jsiiProxy_CfnGroupMembership) AttrMembershipId() *string {
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnGroupMembership) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupMembership) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGroupMembership) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -293,8 +295,8 @@ func (j *jsiiProxy_CfnGroupMembership) GroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupMembership) GroupMembershipRef() *GroupMembershipReference {
-	var returns *GroupMembershipReference
+func (j *jsiiProxy_CfnGroupMembership) GroupMembershipRef() *interfacesawsidentitystore.GroupMembershipReference {
+	var returns *interfacesawsidentitystore.GroupMembershipReference
 	_jsii_.Get(
 		j,
 		"groupMembershipRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnGroupMembership) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::IdentityStore::GroupMembership`.
 func NewCfnGroupMembership(scope constructs.Construct, id *string, props *CfnGroupMembershipProps) CfnGroupMembership {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnGroupMembership(scope constructs.Construct, id *string, props *CfnGro
 	return &j
 }
 
+// Create a new `AWS::IdentityStore::GroupMembership`.
 func NewCfnGroupMembership_Override(c CfnGroupMembership, scope constructs.Construct, id *string, props *CfnGroupMembershipProps) {
 	_init_.Initialize()
 

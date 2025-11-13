@@ -40,10 +40,6 @@ func init() {
 		"aws-cdk-lib.aws_events.ApiDestinationProps",
 		reflect.TypeOf((*ApiDestinationProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.ApiDestinationReference",
-		reflect.TypeOf((*ApiDestinationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events.Archive",
 		reflect.TypeOf((*Archive)(nil)).Elem(),
@@ -69,10 +65,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.ArchiveProps",
 		reflect.TypeOf((*ArchiveProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.ArchiveReference",
-		reflect.TypeOf((*ArchiveReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events.Authorization",
@@ -134,8 +126,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApiDestination{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiDestinationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseventsIApiDestinationRef)
 			return &j
 		},
 	)
@@ -190,8 +182,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnArchive{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IArchiveRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseventsIArchiveRef)
 			return &j
 		},
 	)
@@ -250,8 +242,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConnection{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseventsIConnectionRef)
 			return &j
 		},
 	)
@@ -350,8 +342,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEndpoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEndpointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseventsIEndpointRef)
 			return &j
 		},
 	)
@@ -435,8 +427,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEventBus{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEventBusRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseventsIEventBusRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -495,8 +487,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEventBusPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEventBusPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseventsIEventBusPolicyRef)
 			return &j
 		},
 	)
@@ -563,8 +555,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseventsIRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -698,16 +690,8 @@ func init() {
 		reflect.TypeOf((*ConnectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.ConnectionReference",
-		reflect.TypeOf((*ConnectionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.CronOptions",
 		reflect.TypeOf((*CronOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.EndpointReference",
-		reflect.TypeOf((*EndpointReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events.EventBus",
@@ -767,16 +751,8 @@ func init() {
 		reflect.TypeOf((*EventBusPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.EventBusPolicyReference",
-		reflect.TypeOf((*EventBusPolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.EventBusProps",
 		reflect.TypeOf((*EventBusProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.EventBusReference",
-		reflect.TypeOf((*EventBusReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.EventCommonOptions",
@@ -843,36 +819,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_events.IApiDestinationRef",
-		reflect.TypeOf((*IApiDestinationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "apiDestinationRef", GoGetter: "ApiDestinationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApiDestinationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_events.IArchiveRef",
-		reflect.TypeOf((*IArchiveRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "archiveRef", GoGetter: "ArchiveRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IArchiveRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_events.IConnection",
 		reflect.TypeOf((*IConnection)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -887,36 +833,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IConnection{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_events.IConnectionRef",
-		reflect.TypeOf((*IConnectionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectionRef", GoGetter: "ConnectionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConnectionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_events.IEndpointRef",
-		reflect.TypeOf((*IEndpointRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "endpointRef", GoGetter: "EndpointRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEndpointRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -942,36 +858,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_events.IEventBusPolicyRef",
-		reflect.TypeOf((*IEventBusPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "eventBusPolicyRef", GoGetter: "EventBusPolicyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEventBusPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_events.IEventBusRef",
-		reflect.TypeOf((*IEventBusRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "eventBusRef", GoGetter: "EventBusRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEventBusRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_events.IRule",
 		reflect.TypeOf((*IRule)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -985,21 +871,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_events.IRuleRef",
-		reflect.TypeOf((*IRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "ruleRef", GoGetter: "RuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1087,10 +958,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.RuleProps",
 		reflect.TypeOf((*RuleProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.RuleReference",
-		reflect.TypeOf((*RuleReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.RuleTargetConfig",

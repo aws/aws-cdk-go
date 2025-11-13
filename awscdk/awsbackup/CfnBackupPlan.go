@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -85,8 +87,8 @@ import (
 //
 type CfnBackupPlan interface {
 	awscdk.CfnResource
-	IBackupPlanRef
 	awscdk.IInspectable
+	interfacesawsbackup.IBackupPlanRef
 	awscdk.ITaggableV2
 	// An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 	//
@@ -102,7 +104,7 @@ type CfnBackupPlan interface {
 	BackupPlan() interface{}
 	SetBackupPlan(val interface{})
 	// A reference to a BackupPlan resource.
-	BackupPlanRef() *BackupPlanReference
+	BackupPlanRef() *interfacesawsbackup.BackupPlanReference
 	// The tags to assign to the backup plan.
 	BackupPlanTags() *map[string]*string
 	SetBackupPlanTags(val *map[string]*string)
@@ -117,7 +119,7 @@ type CfnBackupPlan interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -282,8 +284,8 @@ type CfnBackupPlan interface {
 // The jsii proxy struct for CfnBackupPlan
 type jsiiProxy_CfnBackupPlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBackupPlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupIBackupPlanRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnBackupPlan) BackupPlan() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupPlan) BackupPlanRef() *BackupPlanReference {
-	var returns *BackupPlanReference
+func (j *jsiiProxy_CfnBackupPlan) BackupPlanRef() *interfacesawsbackup.BackupPlanReference {
+	var returns *interfacesawsbackup.BackupPlanReference
 	_jsii_.Get(
 		j,
 		"backupPlanRef",
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnBackupPlan) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupPlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBackupPlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -468,6 +470,7 @@ func (j *jsiiProxy_CfnBackupPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Backup::BackupPlan`.
 func NewCfnBackupPlan(scope constructs.Construct, id *string, props *CfnBackupPlanProps) CfnBackupPlan {
 	_init_.Initialize()
 
@@ -485,6 +488,7 @@ func NewCfnBackupPlan(scope constructs.Construct, id *string, props *CfnBackupPl
 	return &j
 }
 
+// Create a new `AWS::Backup::BackupPlan`.
 func NewCfnBackupPlan_Override(c CfnBackupPlan, scope constructs.Construct, id *string, props *CfnBackupPlanProps) {
 	_init_.Initialize()
 
@@ -515,13 +519,13 @@ func (j *jsiiProxy_CfnBackupPlan)SetBackupPlanTags(val *map[string]*string) {
 }
 
 // Creates a new IBackupPlanRef from an ARN.
-func CfnBackupPlan_FromBackupPlanArn(scope constructs.Construct, id *string, arn *string) IBackupPlanRef {
+func CfnBackupPlan_FromBackupPlanArn(scope constructs.Construct, id *string, arn *string) interfacesawsbackup.IBackupPlanRef {
 	_init_.Initialize()
 
 	if err := validateCfnBackupPlan_FromBackupPlanArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IBackupPlanRef
+	var returns interfacesawsbackup.IBackupPlanRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_backup.CfnBackupPlan",
@@ -534,13 +538,13 @@ func CfnBackupPlan_FromBackupPlanArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IBackupPlanRef from a backupPlanId.
-func CfnBackupPlan_FromBackupPlanId(scope constructs.Construct, id *string, backupPlanId *string) IBackupPlanRef {
+func CfnBackupPlan_FromBackupPlanId(scope constructs.Construct, id *string, backupPlanId *string) interfacesawsbackup.IBackupPlanRef {
 	_init_.Initialize()
 
 	if err := validateCfnBackupPlan_FromBackupPlanIdParameters(scope, id, backupPlanId); err != nil {
 		panic(err)
 	}
-	var returns IBackupPlanRef
+	var returns interfacesawsbackup.IBackupPlanRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_backup.CfnBackupPlan",

@@ -84,6 +84,11 @@ type CfnService_ServiceConnectConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
+	// The configuration for Service Connect access logging.
+	//
+	// Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+	//
+	// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-accesslogconfiguration
 	//
 	AccessLogConfiguration interface{} `field:"optional" json:"accessLogConfiguration" yaml:"accessLogConfiguration"`

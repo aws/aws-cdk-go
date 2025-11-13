@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdklocationalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -38,7 +39,7 @@ type GeofenceCollection interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the geofence collection resource.
 	// Experimental.
 	GeofenceCollectionArn() *string
@@ -113,8 +114,8 @@ type jsiiProxy_GeofenceCollection struct {
 	jsiiProxy_IGeofenceCollection
 }
 
-func (j *jsiiProxy_GeofenceCollection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_GeofenceCollection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

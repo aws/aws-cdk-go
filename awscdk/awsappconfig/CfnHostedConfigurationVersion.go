@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnHostedConfigurationVersion interface {
 	awscdk.CfnResource
-	IHostedConfigurationVersionRef
 	awscdk.IInspectable
+	interfacesawsappconfig.IHostedConfigurationVersionRef
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -68,9 +70,9 @@ type CfnHostedConfigurationVersion interface {
 	// A description of the configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a HostedConfigurationVersion resource.
-	HostedConfigurationVersionRef() *HostedConfigurationVersionReference
+	HostedConfigurationVersionRef() *interfacesawsappconfig.HostedConfigurationVersionReference
 	// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version.
 	LatestVersionNumber() *float64
 	SetLatestVersionNumber(val *float64)
@@ -241,8 +243,8 @@ type CfnHostedConfigurationVersion interface {
 // The jsii proxy struct for CfnHostedConfigurationVersion
 type jsiiProxy_CfnHostedConfigurationVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHostedConfigurationVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappconfigIHostedConfigurationVersionRef
 }
 
 func (j *jsiiProxy_CfnHostedConfigurationVersion) ApplicationId() *string {
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHostedConfigurationVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHostedConfigurationVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) Env() *awscdk.ResourceEnvironm
 	return returns
 }
 
-func (j *jsiiProxy_CfnHostedConfigurationVersion) HostedConfigurationVersionRef() *HostedConfigurationVersionReference {
-	var returns *HostedConfigurationVersionReference
+func (j *jsiiProxy_CfnHostedConfigurationVersion) HostedConfigurationVersionRef() *interfacesawsappconfig.HostedConfigurationVersionReference {
+	var returns *interfacesawsappconfig.HostedConfigurationVersionReference
 	_jsii_.Get(
 		j,
 		"hostedConfigurationVersionRef",
@@ -446,6 +448,7 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) VersionLabel() *string {
 }
 
 
+// Create a new `AWS::AppConfig::HostedConfigurationVersion`.
 func NewCfnHostedConfigurationVersion(scope constructs.Construct, id *string, props *CfnHostedConfigurationVersionProps) CfnHostedConfigurationVersion {
 	_init_.Initialize()
 
@@ -463,6 +466,7 @@ func NewCfnHostedConfigurationVersion(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::AppConfig::HostedConfigurationVersion`.
 func NewCfnHostedConfigurationVersion_Override(c CfnHostedConfigurationVersion, scope constructs.Construct, id *string, props *CfnHostedConfigurationVersionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnPortal interface {
 	awscdk.CfnResource
-	IPortalRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.IPortalRef
 	awscdk.ITaggableV2
 	// The additional encryption context of the portal.
 	AdditionalEncryptionContext() interface{}
@@ -99,7 +101,7 @@ type CfnPortal interface {
 	// The name of the web portal.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The type and resources of the underlying instance.
 	InstanceType() *string
 	SetInstanceType(val *string)
@@ -125,7 +127,7 @@ type CfnPortal interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Portal resource.
-	PortalRef() *PortalReference
+	PortalRef() *interfacesawsworkspacesweb.PortalReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -293,8 +295,8 @@ type CfnPortal interface {
 // The jsii proxy struct for CfnPortal
 type jsiiProxy_CfnPortal struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPortalRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebIPortalRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -488,8 +490,8 @@ func (j *jsiiProxy_CfnPortal) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortal) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPortal) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -558,8 +560,8 @@ func (j *jsiiProxy_CfnPortal) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortal) PortalRef() *PortalReference {
-	var returns *PortalReference
+func (j *jsiiProxy_CfnPortal) PortalRef() *interfacesawsworkspacesweb.PortalReference {
+	var returns *interfacesawsworkspacesweb.PortalReference
 	_jsii_.Get(
 		j,
 		"portalRef",
@@ -659,6 +661,7 @@ func (j *jsiiProxy_CfnPortal) UserSettingsArn() *string {
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::Portal`.
 func NewCfnPortal(scope constructs.Construct, id *string, props *CfnPortalProps) CfnPortal {
 	_init_.Initialize()
 
@@ -676,6 +679,7 @@ func NewCfnPortal(scope constructs.Construct, id *string, props *CfnPortalProps)
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::Portal`.
 func NewCfnPortal_Override(c CfnPortal, scope constructs.Construct, id *string, props *CfnPortalProps) {
 	_init_.Initialize()
 

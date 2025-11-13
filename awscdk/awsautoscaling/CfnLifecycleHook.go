@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnLifecycleHook interface {
 	awscdk.CfnResource
-	ILifecycleHookRef
 	awscdk.IInspectable
+	interfacesawsautoscaling.ILifecycleHookRef
 	// The name of the Auto Scaling group.
 	AutoScalingGroupName() *string
 	SetAutoScalingGroupName(val *string)
@@ -56,7 +58,7 @@ type CfnLifecycleHook interface {
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
 	DefaultResult() *string
 	SetDefaultResult(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The maximum time, in seconds, that can elapse before the lifecycle hook times out.
 	HeartbeatTimeout() *float64
 	SetHeartbeatTimeout(val *float64)
@@ -64,7 +66,7 @@ type CfnLifecycleHook interface {
 	LifecycleHookName() *string
 	SetLifecycleHookName(val *string)
 	// A reference to a LifecycleHook resource.
-	LifecycleHookRef() *LifecycleHookReference
+	LifecycleHookRef() *interfacesawsautoscaling.LifecycleHookReference
 	// The lifecycle transition.
 	//
 	// For Auto Scaling groups, there are two major lifecycle transitions.
@@ -243,8 +245,8 @@ type CfnLifecycleHook interface {
 // The jsii proxy struct for CfnLifecycleHook
 type jsiiProxy_CfnLifecycleHook struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILifecycleHookRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsautoscalingILifecycleHookRef
 }
 
 func (j *jsiiProxy_CfnLifecycleHook) AutoScalingGroupName() *string {
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnLifecycleHook) DefaultResult() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLifecycleHook) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnLifecycleHook) LifecycleHookName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) LifecycleHookRef() *LifecycleHookReference {
-	var returns *LifecycleHookReference
+func (j *jsiiProxy_CfnLifecycleHook) LifecycleHookRef() *interfacesawsautoscaling.LifecycleHookReference {
+	var returns *interfacesawsautoscaling.LifecycleHookReference
 	_jsii_.Get(
 		j,
 		"lifecycleHookRef",
@@ -448,6 +450,7 @@ func (j *jsiiProxy_CfnLifecycleHook) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::AutoScaling::LifecycleHook`.
 func NewCfnLifecycleHook(scope constructs.Construct, id *string, props *CfnLifecycleHookProps) CfnLifecycleHook {
 	_init_.Initialize()
 
@@ -465,6 +468,7 @@ func NewCfnLifecycleHook(scope constructs.Construct, id *string, props *CfnLifec
 	return &j
 }
 
+// Create a new `AWS::AutoScaling::LifecycleHook`.
 func NewCfnLifecycleHook_Override(c CfnLifecycleHook, scope constructs.Construct, id *string, props *CfnLifecycleHookProps) {
 	_init_.Initialize()
 

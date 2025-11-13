@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -245,8 +247,8 @@ import (
 //
 type CfnMailManagerRuleSet interface {
 	awscdk.CfnResource
-	IMailManagerRuleSetRef
 	awscdk.IInspectable
+	interfacesawsses.IMailManagerRuleSetRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the rule set resource.
 	AttrRuleSetArn() *string
@@ -263,7 +265,7 @@ type CfnMailManagerRuleSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -275,7 +277,7 @@ type CfnMailManagerRuleSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MailManagerRuleSet resource.
-	MailManagerRuleSetRef() *MailManagerRuleSetReference
+	MailManagerRuleSetRef() *interfacesawsses.MailManagerRuleSetReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -439,8 +441,8 @@ type CfnMailManagerRuleSet interface {
 // The jsii proxy struct for CfnMailManagerRuleSet
 type jsiiProxy_CfnMailManagerRuleSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMailManagerRuleSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIMailManagerRuleSetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -514,8 +516,8 @@ func (j *jsiiProxy_CfnMailManagerRuleSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerRuleSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMailManagerRuleSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -534,8 +536,8 @@ func (j *jsiiProxy_CfnMailManagerRuleSet) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerRuleSet) MailManagerRuleSetRef() *MailManagerRuleSetReference {
-	var returns *MailManagerRuleSetReference
+func (j *jsiiProxy_CfnMailManagerRuleSet) MailManagerRuleSetRef() *interfacesawsses.MailManagerRuleSetReference {
+	var returns *interfacesawsses.MailManagerRuleSetReference
 	_jsii_.Get(
 		j,
 		"mailManagerRuleSetRef",
@@ -625,6 +627,7 @@ func (j *jsiiProxy_CfnMailManagerRuleSet) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::SES::MailManagerRuleSet`.
 func NewCfnMailManagerRuleSet(scope constructs.Construct, id *string, props *CfnMailManagerRuleSetProps) CfnMailManagerRuleSet {
 	_init_.Initialize()
 
@@ -642,6 +645,7 @@ func NewCfnMailManagerRuleSet(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::SES::MailManagerRuleSet`.
 func NewCfnMailManagerRuleSet_Override(c CfnMailManagerRuleSet, scope constructs.Construct, id *string, props *CfnMailManagerRuleSetProps) {
 	_init_.Initialize()
 
@@ -683,13 +687,13 @@ func (j *jsiiProxy_CfnMailManagerRuleSet)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMailManagerRuleSetRef from a ruleSetId.
-func CfnMailManagerRuleSet_FromRuleSetId(scope constructs.Construct, id *string, ruleSetId *string) IMailManagerRuleSetRef {
+func CfnMailManagerRuleSet_FromRuleSetId(scope constructs.Construct, id *string, ruleSetId *string) interfacesawsses.IMailManagerRuleSetRef {
 	_init_.Initialize()
 
 	if err := validateCfnMailManagerRuleSet_FromRuleSetIdParameters(scope, id, ruleSetId); err != nil {
 		panic(err)
 	}
-	var returns IMailManagerRuleSetRef
+	var returns interfacesawsses.IMailManagerRuleSetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet",

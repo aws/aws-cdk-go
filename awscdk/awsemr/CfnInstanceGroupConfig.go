@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -114,8 +116,8 @@ import (
 //
 type CfnInstanceGroupConfig interface {
 	awscdk.CfnResource
-	IInstanceGroupConfigRef
 	awscdk.IInspectable
+	interfacesawsemr.IInstanceGroupConfigRef
 	AttrId() *string
 	// `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` .
 	AutoScalingPolicy() interface{}
@@ -141,12 +143,12 @@ type CfnInstanceGroupConfig interface {
 	// `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
 	EbsConfiguration() interface{}
 	SetEbsConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Target number of instances for the instance group.
 	InstanceCount() *float64
 	SetInstanceCount(val *float64)
 	// A reference to a InstanceGroupConfig resource.
-	InstanceGroupConfigRef() *InstanceGroupConfigReference
+	InstanceGroupConfigRef() *interfacesawsemr.InstanceGroupConfigReference
 	// The role of the instance group in the cluster.
 	InstanceRole() *string
 	SetInstanceRole(val *string)
@@ -326,8 +328,8 @@ type CfnInstanceGroupConfig interface {
 // The jsii proxy struct for CfnInstanceGroupConfig
 type jsiiProxy_CfnInstanceGroupConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceGroupConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrIInstanceGroupConfigRef
 }
 
 func (j *jsiiProxy_CfnInstanceGroupConfig) AttrId() *string {
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) EbsConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceGroupConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceGroupConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -450,8 +452,8 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) InstanceCount() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceGroupConfig) InstanceGroupConfigRef() *InstanceGroupConfigReference {
-	var returns *InstanceGroupConfigReference
+func (j *jsiiProxy_CfnInstanceGroupConfig) InstanceGroupConfigRef() *interfacesawsemr.InstanceGroupConfigReference {
+	var returns *interfacesawsemr.InstanceGroupConfigReference
 	_jsii_.Get(
 		j,
 		"instanceGroupConfigRef",
@@ -571,6 +573,7 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::EMR::InstanceGroupConfig`.
 func NewCfnInstanceGroupConfig(scope constructs.Construct, id *string, props *CfnInstanceGroupConfigProps) CfnInstanceGroupConfig {
 	_init_.Initialize()
 
@@ -588,6 +591,7 @@ func NewCfnInstanceGroupConfig(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::EMR::InstanceGroupConfig`.
 func NewCfnInstanceGroupConfig_Override(c CfnInstanceGroupConfig, scope constructs.Construct, id *string, props *CfnInstanceGroupConfigProps) {
 	_init_.Initialize()
 

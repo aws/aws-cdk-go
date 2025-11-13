@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssso/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssso"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnInstanceAccessControlAttributeConfiguration interface {
 	awscdk.CfnResource
-	IInstanceAccessControlAttributeConfigurationRef
 	awscdk.IInspectable
+	interfacesawssso.IInstanceAccessControlAttributeConfigurationRef
 	// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
 	AccessControlAttributes() interface{}
 	SetAccessControlAttributes(val interface{})
@@ -66,14 +68,14 @@ type CfnInstanceAccessControlAttributeConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes.
 	// Deprecated: this property has been deprecated.
 	InstanceAccessControlAttributeConfiguration() interface{}
 	// Deprecated: this property has been deprecated.
 	SetInstanceAccessControlAttributeConfiguration(val interface{})
 	// A reference to a InstanceAccessControlAttributeConfiguration resource.
-	InstanceAccessControlAttributeConfigurationRef() *InstanceAccessControlAttributeConfigurationReference
+	InstanceAccessControlAttributeConfigurationRef() *interfacesawssso.InstanceAccessControlAttributeConfigurationReference
 	// The ARN of the IAM Identity Center instance under which the operation will be executed.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -241,8 +243,8 @@ type CfnInstanceAccessControlAttributeConfiguration interface {
 // The jsii proxy struct for CfnInstanceAccessControlAttributeConfiguration
 type jsiiProxy_CfnInstanceAccessControlAttributeConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceAccessControlAttributeConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssoIInstanceAccessControlAttributeConfigurationRef
 }
 
 func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) AccessControlAttributes() interface{} {
@@ -295,8 +297,8 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) CreationStack
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) InstanceAcces
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) InstanceAccessControlAttributeConfigurationRef() *InstanceAccessControlAttributeConfigurationReference {
-	var returns *InstanceAccessControlAttributeConfigurationReference
+func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) InstanceAccessControlAttributeConfigurationRef() *interfacesawssso.InstanceAccessControlAttributeConfigurationReference {
+	var returns *interfacesawssso.InstanceAccessControlAttributeConfigurationReference
 	_jsii_.Get(
 		j,
 		"instanceAccessControlAttributeConfigurationRef",
@@ -396,6 +398,7 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) UpdatedProper
 }
 
 
+// Create a new `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
 func NewCfnInstanceAccessControlAttributeConfiguration(scope constructs.Construct, id *string, props *CfnInstanceAccessControlAttributeConfigurationProps) CfnInstanceAccessControlAttributeConfiguration {
 	_init_.Initialize()
 
@@ -413,6 +416,7 @@ func NewCfnInstanceAccessControlAttributeConfiguration(scope constructs.Construc
 	return &j
 }
 
+// Create a new `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
 func NewCfnInstanceAccessControlAttributeConfiguration_Override(c CfnInstanceAccessControlAttributeConfiguration, scope constructs.Construct, id *string, props *CfnInstanceAccessControlAttributeConfigurationProps) {
 	_init_.Initialize()
 

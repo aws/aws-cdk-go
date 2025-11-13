@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnTaskTemplate interface {
 	awscdk.CfnResource
-	ITaskTemplateRef
 	awscdk.IInspectable
+	interfacesawsconnect.ITaskTemplateRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the task template.
 	AttrArn() *string
@@ -92,7 +94,7 @@ type CfnTaskTemplate interface {
 	// The description of the task template.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Fields that are part of the template.
 	Fields() interface{}
 	SetFields(val interface{})
@@ -135,7 +137,7 @@ type CfnTaskTemplate interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TaskTemplate resource.
-	TaskTemplateRef() *TaskTemplateReference
+	TaskTemplateRef() *interfacesawsconnect.TaskTemplateReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -279,8 +281,8 @@ type CfnTaskTemplate interface {
 // The jsii proxy struct for CfnTaskTemplate
 type jsiiProxy_CfnTaskTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITaskTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectITaskTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnTaskTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTaskTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -504,8 +506,8 @@ func (j *jsiiProxy_CfnTaskTemplate) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskTemplate) TaskTemplateRef() *TaskTemplateReference {
-	var returns *TaskTemplateReference
+func (j *jsiiProxy_CfnTaskTemplate) TaskTemplateRef() *interfacesawsconnect.TaskTemplateReference {
+	var returns *interfacesawsconnect.TaskTemplateReference
 	_jsii_.Get(
 		j,
 		"taskTemplateRef",
@@ -535,6 +537,7 @@ func (j *jsiiProxy_CfnTaskTemplate) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Connect::TaskTemplate`.
 func NewCfnTaskTemplate(scope constructs.Construct, id *string, props *CfnTaskTemplateProps) CfnTaskTemplate {
 	_init_.Initialize()
 
@@ -552,6 +555,7 @@ func NewCfnTaskTemplate(scope constructs.Construct, id *string, props *CfnTaskTe
 	return &j
 }
 
+// Create a new `AWS::Connect::TaskTemplate`.
 func NewCfnTaskTemplate_Override(c CfnTaskTemplate, scope constructs.Construct, id *string, props *CfnTaskTemplateProps) {
 	_init_.Initialize()
 

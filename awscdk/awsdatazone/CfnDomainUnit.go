@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnDomainUnit interface {
 	awscdk.CfnResource
-	IDomainUnitRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IDomainUnitRef
 	// The time stamp at which the domain unit was created.
 	AttrCreatedAt() *string
 	// The ID of the domain in which the domain unit lives.
@@ -59,8 +61,8 @@ type CfnDomainUnit interface {
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
 	// A reference to a DomainUnit resource.
-	DomainUnitRef() *DomainUnitReference
-	Env() *awscdk.ResourceEnvironment
+	DomainUnitRef() *interfacesawsdatazone.DomainUnitReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnDomainUnit interface {
 // The jsii proxy struct for CfnDomainUnit
 type jsiiProxy_CfnDomainUnit struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainUnitRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIDomainUnitRef
 }
 
 func (j *jsiiProxy_CfnDomainUnit) AttrCreatedAt() *string {
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnDomainUnit) DomainIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainUnit) DomainUnitRef() *DomainUnitReference {
-	var returns *DomainUnitReference
+func (j *jsiiProxy_CfnDomainUnit) DomainUnitRef() *interfacesawsdatazone.DomainUnitReference {
+	var returns *interfacesawsdatazone.DomainUnitReference
 	_jsii_.Get(
 		j,
 		"domainUnitRef",
@@ -365,8 +367,8 @@ func (j *jsiiProxy_CfnDomainUnit) DomainUnitRef() *DomainUnitReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainUnit) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomainUnit) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -456,6 +458,7 @@ func (j *jsiiProxy_CfnDomainUnit) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataZone::DomainUnit`.
 func NewCfnDomainUnit(scope constructs.Construct, id *string, props *CfnDomainUnitProps) CfnDomainUnit {
 	_init_.Initialize()
 
@@ -473,6 +476,7 @@ func NewCfnDomainUnit(scope constructs.Construct, id *string, props *CfnDomainUn
 	return &j
 }
 
+// Create a new `AWS::DataZone::DomainUnit`.
 func NewCfnDomainUnit_Override(c CfnDomainUnit, scope constructs.Construct, id *string, props *CfnDomainUnitProps) {
 	_init_.Initialize()
 

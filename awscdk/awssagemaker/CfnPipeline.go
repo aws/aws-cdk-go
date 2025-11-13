@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnPipeline interface {
 	awscdk.CfnResource
-	IPipelineRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IPipelineRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,7 +56,7 @@ type CfnPipeline interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -83,7 +85,7 @@ type CfnPipeline interface {
 	PipelineName() *string
 	SetPipelineName(val *string)
 	// A reference to a Pipeline resource.
-	PipelineRef() *PipelineReference
+	PipelineRef() *interfacesawssagemaker.PipelineReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -244,8 +246,8 @@ type CfnPipeline interface {
 // The jsii proxy struct for CfnPipeline
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPipelineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIPipelineRef
 	internal.Type__awscdkITaggable
 }
 
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnPipeline) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPipeline) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnPipeline) PipelineName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) PipelineRef() *PipelineReference {
-	var returns *PipelineReference
+func (j *jsiiProxy_CfnPipeline) PipelineRef() *interfacesawssagemaker.PipelineReference {
+	var returns *interfacesawssagemaker.PipelineReference
 	_jsii_.Get(
 		j,
 		"pipelineRef",
@@ -450,6 +452,7 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::Pipeline`.
 func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
@@ -467,6 +470,7 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Pipeline`.
 func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
@@ -546,13 +550,13 @@ func (j *jsiiProxy_CfnPipeline)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IPipelineRef from a pipelineName.
-func CfnPipeline_FromPipelineName(scope constructs.Construct, id *string, pipelineName *string) IPipelineRef {
+func CfnPipeline_FromPipelineName(scope constructs.Construct, id *string, pipelineName *string) interfacesawssagemaker.IPipelineRef {
 	_init_.Initialize()
 
 	if err := validateCfnPipeline_FromPipelineNameParameters(scope, id, pipelineName); err != nil {
 		panic(err)
 	}
-	var returns IPipelineRef
+	var returns interfacesawssagemaker.IPipelineRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnPipeline",

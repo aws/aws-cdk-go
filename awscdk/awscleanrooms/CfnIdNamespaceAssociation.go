@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanrooms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanrooms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnIdNamespaceAssociation interface {
 	awscdk.CfnResource
-	IIdNamespaceAssociationRef
 	awscdk.IInspectable
+	interfacesawscleanrooms.IIdNamespaceAssociationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the ID namespace association.
 	AttrArn() *string
@@ -69,12 +71,12 @@ type CfnIdNamespaceAssociation interface {
 	// The description of the ID namespace association.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration settings for the ID mapping table.
 	IdMappingConfig() interface{}
 	SetIdMappingConfig(val interface{})
 	// A reference to a IdNamespaceAssociation resource.
-	IdNamespaceAssociationRef() *IdNamespaceAssociationReference
+	IdNamespaceAssociationRef() *interfacesawscleanrooms.IdNamespaceAssociationReference
 	// The input reference configuration for the ID namespace association.
 	InputReferenceConfig() interface{}
 	SetInputReferenceConfig(val interface{})
@@ -251,8 +253,8 @@ type CfnIdNamespaceAssociation interface {
 // The jsii proxy struct for CfnIdNamespaceAssociation
 type jsiiProxy_CfnIdNamespaceAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdNamespaceAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsIIdNamespaceAssociationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnIdNamespaceAssociation) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdNamespaceAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdNamespaceAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnIdNamespaceAssociation) IdMappingConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdNamespaceAssociation) IdNamespaceAssociationRef() *IdNamespaceAssociationReference {
-	var returns *IdNamespaceAssociationReference
+func (j *jsiiProxy_CfnIdNamespaceAssociation) IdNamespaceAssociationRef() *interfacesawscleanrooms.IdNamespaceAssociationReference {
+	var returns *interfacesawscleanrooms.IdNamespaceAssociationReference
 	_jsii_.Get(
 		j,
 		"idNamespaceAssociationRef",
@@ -507,6 +509,7 @@ func (j *jsiiProxy_CfnIdNamespaceAssociation) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::CleanRooms::IdNamespaceAssociation`.
 func NewCfnIdNamespaceAssociation(scope constructs.Construct, id *string, props *CfnIdNamespaceAssociationProps) CfnIdNamespaceAssociation {
 	_init_.Initialize()
 
@@ -524,6 +527,7 @@ func NewCfnIdNamespaceAssociation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::CleanRooms::IdNamespaceAssociation`.
 func NewCfnIdNamespaceAssociation_Override(c CfnIdNamespaceAssociation, scope constructs.Construct, id *string, props *CfnIdNamespaceAssociationProps) {
 	_init_.Initialize()
 

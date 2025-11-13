@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrobomaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrobomaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnSimulationApplication interface {
 	awscdk.CfnResource
-	ISimulationApplicationRef
 	awscdk.IInspectable
+	interfacesawsrobomaker.ISimulationApplicationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the simulation application.
 	AttrArn() *string
@@ -73,7 +75,7 @@ type CfnSimulationApplication interface {
 	// The current revision id.
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The environment of the simulation application.
 	Environment() *string
 	SetEnvironment(val *string)
@@ -104,7 +106,7 @@ type CfnSimulationApplication interface {
 	RobotSoftwareSuite() interface{}
 	SetRobotSoftwareSuite(val interface{})
 	// A reference to a SimulationApplication resource.
-	SimulationApplicationRef() *SimulationApplicationReference
+	SimulationApplicationRef() *interfacesawsrobomaker.SimulationApplicationReference
 	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite() interface{}
 	SetSimulationSoftwareSuite(val interface{})
@@ -263,8 +265,8 @@ type CfnSimulationApplication interface {
 // The jsii proxy struct for CfnSimulationApplication
 type jsiiProxy_CfnSimulationApplication struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISimulationApplicationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrobomakerISimulationApplicationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnSimulationApplication) CurrentRevisionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimulationApplication) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSimulationApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnSimulationApplication) RobotSoftwareSuite() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimulationApplication) SimulationApplicationRef() *SimulationApplicationReference {
-	var returns *SimulationApplicationReference
+func (j *jsiiProxy_CfnSimulationApplication) SimulationApplicationRef() *interfacesawsrobomaker.SimulationApplicationReference {
+	var returns *interfacesawsrobomaker.SimulationApplicationReference
 	_jsii_.Get(
 		j,
 		"simulationApplicationRef",
@@ -499,6 +501,7 @@ func (j *jsiiProxy_CfnSimulationApplication) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::RoboMaker::SimulationApplication`.
 func NewCfnSimulationApplication(scope constructs.Construct, id *string, props *CfnSimulationApplicationProps) CfnSimulationApplication {
 	_init_.Initialize()
 
@@ -516,6 +519,7 @@ func NewCfnSimulationApplication(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::RoboMaker::SimulationApplication`.
 func NewCfnSimulationApplication_Override(c CfnSimulationApplication, scope constructs.Construct, id *string, props *CfnSimulationApplicationProps) {
 	_init_.Initialize()
 

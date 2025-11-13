@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -181,8 +183,8 @@ import (
 //
 type CfnFleet interface {
 	awscdk.CfnResource
-	IFleetRef
 	awscdk.IInspectable
+	interfacesawsdeadline.IFleetRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) assigned to the fleet.
 	AttrArn() *string
@@ -215,12 +217,12 @@ type CfnFleet interface {
 	// The display name of the fleet summary to update.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The farm ID.
 	FarmId() *string
 	SetFarmId(val *string)
 	// A reference to a Fleet resource.
-	FleetRef() *FleetReference
+	FleetRef() *interfacesawsdeadline.FleetReference
 	// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
 	HostConfiguration() interface{}
 	SetHostConfiguration(val interface{})
@@ -400,8 +402,8 @@ type CfnFleet interface {
 // The jsii proxy struct for CfnFleet
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineIFleetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -545,8 +547,8 @@ func (j *jsiiProxy_CfnFleet) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -565,8 +567,8 @@ func (j *jsiiProxy_CfnFleet) FarmId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) FleetRef() *FleetReference {
-	var returns *FleetReference
+func (j *jsiiProxy_CfnFleet) FleetRef() *interfacesawsdeadline.FleetReference {
+	var returns *interfacesawsdeadline.FleetReference
 	_jsii_.Get(
 		j,
 		"fleetRef",
@@ -686,6 +688,7 @@ func (j *jsiiProxy_CfnFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Deadline::Fleet`.
 func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) CfnFleet {
 	_init_.Initialize()
 
@@ -703,6 +706,7 @@ func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) C
 	return &j
 }
 
+// Create a new `AWS::Deadline::Fleet`.
 func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, props *CfnFleetProps) {
 	_init_.Initialize()
 

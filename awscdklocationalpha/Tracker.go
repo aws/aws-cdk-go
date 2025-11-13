@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdklocationalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -38,7 +39,7 @@ type Tracker interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -121,8 +122,8 @@ type jsiiProxy_Tracker struct {
 	jsiiProxy_ITracker
 }
 
-func (j *jsiiProxy_Tracker) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Tracker) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

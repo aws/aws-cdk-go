@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnLoadBalancer interface {
 	awscdk.CfnResource
-	ILoadBalancerRef
 	awscdk.IInspectable
+	interfacesawslightsail.ILoadBalancerRef
 	awscdk.ITaggable
 	// The Lightsail instances to attach to the load balancer.
 	AttachedInstances() *[]*string
@@ -60,7 +62,7 @@ type CfnLoadBalancer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The path on the attached instance where the health check will be performed.
 	HealthCheckPath() *string
 	SetHealthCheckPath(val *string)
@@ -74,7 +76,7 @@ type CfnLoadBalancer interface {
 	LoadBalancerName() *string
 	SetLoadBalancerName(val *string)
 	// A reference to a LoadBalancer resource.
-	LoadBalancerRef() *LoadBalancerReference
+	LoadBalancerRef() *interfacesawslightsail.LoadBalancerReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnLoadBalancer interface {
 // The jsii proxy struct for CfnLoadBalancer
 type jsiiProxy_CfnLoadBalancer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoadBalancerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailILoadBalancerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnLoadBalancer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLoadBalancer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnLoadBalancer) LoadBalancerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancer) LoadBalancerRef() *LoadBalancerReference {
-	var returns *LoadBalancerReference
+func (j *jsiiProxy_CfnLoadBalancer) LoadBalancerRef() *interfacesawslightsail.LoadBalancerReference {
+	var returns *interfacesawslightsail.LoadBalancerReference
 	_jsii_.Get(
 		j,
 		"loadBalancerRef",
@@ -489,6 +491,7 @@ func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Lightsail::LoadBalancer`.
 func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
 	_init_.Initialize()
 
@@ -506,6 +509,7 @@ func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBa
 	return &j
 }
 
+// Create a new `AWS::Lightsail::LoadBalancer`.
 func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, id *string, props *CfnLoadBalancerProps) {
 	_init_.Initialize()
 

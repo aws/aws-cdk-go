@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsinspector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnResourceGroup interface {
 	awscdk.CfnResource
-	IResourceGroupRef
 	awscdk.IInspectable
+	interfacesawsinspector.IResourceGroupRef
 	// The Amazon Resource Name (ARN) that specifies the resource group that is created.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -44,7 +46,7 @@ type CfnResourceGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -63,7 +65,7 @@ type CfnResourceGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourceGroup resource.
-	ResourceGroupRef() *ResourceGroupReference
+	ResourceGroupRef() *interfacesawsinspector.ResourceGroupReference
 	// The tags (key and value pairs) that will be associated with the resource group.
 	ResourceGroupTags() interface{}
 	SetResourceGroupTags(val interface{})
@@ -214,8 +216,8 @@ type CfnResourceGroup interface {
 // The jsii proxy struct for CfnResourceGroup
 type jsiiProxy_CfnResourceGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsinspectorIResourceGroupRef
 }
 
 func (j *jsiiProxy_CfnResourceGroup) AttrArn() *string {
@@ -268,8 +270,8 @@ func (j *jsiiProxy_CfnResourceGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnResourceGroup) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceGroup) ResourceGroupRef() *ResourceGroupReference {
-	var returns *ResourceGroupReference
+func (j *jsiiProxy_CfnResourceGroup) ResourceGroupRef() *interfacesawsinspector.ResourceGroupReference {
+	var returns *interfacesawsinspector.ResourceGroupReference
 	_jsii_.Get(
 		j,
 		"resourceGroupRef",
@@ -359,6 +361,7 @@ func (j *jsiiProxy_CfnResourceGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Inspector::ResourceGroup`.
 func NewCfnResourceGroup(scope constructs.Construct, id *string, props *CfnResourceGroupProps) CfnResourceGroup {
 	_init_.Initialize()
 
@@ -376,6 +379,7 @@ func NewCfnResourceGroup(scope constructs.Construct, id *string, props *CfnResou
 	return &j
 }
 
+// Create a new `AWS::Inspector::ResourceGroup`.
 func NewCfnResourceGroup_Override(c CfnResourceGroup, scope constructs.Construct, id *string, props *CfnResourceGroupProps) {
 	_init_.Initialize()
 

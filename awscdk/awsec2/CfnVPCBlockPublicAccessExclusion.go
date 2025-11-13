@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnVPCBlockPublicAccessExclusion interface {
 	awscdk.CfnResource
-	IVPCBlockPublicAccessExclusionRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCBlockPublicAccessExclusionRef
 	awscdk.ITaggableV2
 	// The ID of the exclusion.
 	AttrExclusionId() *string
@@ -52,7 +54,7 @@ type CfnVPCBlockPublicAccessExclusion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The desired VPC Block Public Access mode for a specific VPC or subnet exclusion.
 	InternetGatewayExclusionMode() *string
 	SetInternetGatewayExclusionMode(val *string)
@@ -97,7 +99,7 @@ type CfnVPCBlockPublicAccessExclusion interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPCBlockPublicAccessExclusion resource.
-	VpcBlockPublicAccessExclusionRef() *VPCBlockPublicAccessExclusionReference
+	VpcBlockPublicAccessExclusionRef() *interfacesawsec2.VPCBlockPublicAccessExclusionReference
 	// The ID of the VPC you want to exclude.
 	VpcId() *string
 	SetVpcId(val *string)
@@ -231,8 +233,8 @@ type CfnVPCBlockPublicAccessExclusion interface {
 // The jsii proxy struct for CfnVPCBlockPublicAccessExclusion
 type jsiiProxy_CfnVPCBlockPublicAccessExclusion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCBlockPublicAccessExclusionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCBlockPublicAccessExclusionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnVPCBlockPublicAccessExclusion) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCBlockPublicAccessExclusion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCBlockPublicAccessExclusion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnVPCBlockPublicAccessExclusion) UpdatedProperties() *map[st
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCBlockPublicAccessExclusion) VpcBlockPublicAccessExclusionRef() *VPCBlockPublicAccessExclusionReference {
-	var returns *VPCBlockPublicAccessExclusionReference
+func (j *jsiiProxy_CfnVPCBlockPublicAccessExclusion) VpcBlockPublicAccessExclusionRef() *interfacesawsec2.VPCBlockPublicAccessExclusionReference {
+	var returns *interfacesawsec2.VPCBlockPublicAccessExclusionReference
 	_jsii_.Get(
 		j,
 		"vpcBlockPublicAccessExclusionRef",
@@ -417,6 +419,7 @@ func (j *jsiiProxy_CfnVPCBlockPublicAccessExclusion) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::VPCBlockPublicAccessExclusion`.
 func NewCfnVPCBlockPublicAccessExclusion(scope constructs.Construct, id *string, props *CfnVPCBlockPublicAccessExclusionProps) CfnVPCBlockPublicAccessExclusion {
 	_init_.Initialize()
 
@@ -434,6 +437,7 @@ func NewCfnVPCBlockPublicAccessExclusion(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCBlockPublicAccessExclusion`.
 func NewCfnVPCBlockPublicAccessExclusion_Override(c CfnVPCBlockPublicAccessExclusion, scope constructs.Construct, id *string, props *CfnVPCBlockPublicAccessExclusionProps) {
 	_init_.Initialize()
 

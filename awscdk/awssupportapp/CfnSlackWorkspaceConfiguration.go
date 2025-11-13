@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssupportapp/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssupportapp"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnSlackWorkspaceConfiguration interface {
 	awscdk.CfnResource
-	ISlackWorkspaceConfigurationRef
 	awscdk.IInspectable
+	interfacesawssupportapp.ISlackWorkspaceConfigurationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -48,7 +50,7 @@ type CfnSlackWorkspaceConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnSlackWorkspaceConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SlackWorkspaceConfiguration resource.
-	SlackWorkspaceConfigurationRef() *SlackWorkspaceConfigurationReference
+	SlackWorkspaceConfigurationRef() *interfacesawssupportapp.SlackWorkspaceConfigurationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -221,8 +223,8 @@ type CfnSlackWorkspaceConfiguration interface {
 // The jsii proxy struct for CfnSlackWorkspaceConfiguration
 type jsiiProxy_CfnSlackWorkspaceConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISlackWorkspaceConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssupportappISlackWorkspaceConfigurationRef
 }
 
 func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) CfnOptions() awscdk.ICfnResourceOptions {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) SlackWorkspaceConfigurationRef() *SlackWorkspaceConfigurationReference {
-	var returns *SlackWorkspaceConfigurationReference
+func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) SlackWorkspaceConfigurationRef() *interfacesawssupportapp.SlackWorkspaceConfigurationReference {
+	var returns *interfacesawssupportapp.SlackWorkspaceConfigurationReference
 	_jsii_.Get(
 		j,
 		"slackWorkspaceConfigurationRef",
@@ -366,6 +368,7 @@ func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) VersionId() *string {
 }
 
 
+// Create a new `AWS::SupportApp::SlackWorkspaceConfiguration`.
 func NewCfnSlackWorkspaceConfiguration(scope constructs.Construct, id *string, props *CfnSlackWorkspaceConfigurationProps) CfnSlackWorkspaceConfiguration {
 	_init_.Initialize()
 
@@ -383,6 +386,7 @@ func NewCfnSlackWorkspaceConfiguration(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::SupportApp::SlackWorkspaceConfiguration`.
 func NewCfnSlackWorkspaceConfiguration_Override(c CfnSlackWorkspaceConfiguration, scope constructs.Construct, id *string, props *CfnSlackWorkspaceConfigurationProps) {
 	_init_.Initialize()
 

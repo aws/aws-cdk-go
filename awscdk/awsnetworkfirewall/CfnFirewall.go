@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkfirewall/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkfirewall"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnFirewall interface {
 	awscdk.CfnResource
-	IFirewallRef
 	awscdk.IInspectable
+	interfacesawsnetworkfirewall.IFirewallRef
 	awscdk.ITaggable
 	// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall.
 	//
@@ -69,6 +71,9 @@ type CfnFirewall interface {
 	AttrFirewallArn() *string
 	// The name of the firewallresource.
 	AttrFirewallId() *string
+	// The unique identifier of the transit gateway attachment associated with this firewall.
+	//
+	// This field is only present for transit gateway-attached firewalls.
 	AttrTransitGatewayAttachmentId() *string
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration.
 	AvailabilityZoneChangeProtection() interface{}
@@ -94,7 +99,7 @@ type CfnFirewall interface {
 	// An optional setting indicating the specific traffic analysis types to enable on the firewall.
 	EnabledAnalysisTypes() *[]*string
 	SetEnabledAnalysisTypes(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The descriptive name of the firewall.
 	FirewallName() *string
 	SetFirewallName(val *string)
@@ -105,7 +110,7 @@ type CfnFirewall interface {
 	FirewallPolicyChangeProtection() interface{}
 	SetFirewallPolicyChangeProtection(val interface{})
 	// A reference to a Firewall resource.
-	FirewallRef() *FirewallReference
+	FirewallRef() *interfacesawsnetworkfirewall.FirewallReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -287,8 +292,8 @@ type CfnFirewall interface {
 // The jsii proxy struct for CfnFirewall
 type jsiiProxy_CfnFirewall struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFirewallRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkfirewallIFirewallRef
 	internal.Type__awscdkITaggable
 }
 
@@ -422,8 +427,8 @@ func (j *jsiiProxy_CfnFirewall) EnabledAnalysisTypes() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewall) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFirewall) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -462,8 +467,8 @@ func (j *jsiiProxy_CfnFirewall) FirewallPolicyChangeProtection() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewall) FirewallRef() *FirewallReference {
-	var returns *FirewallReference
+func (j *jsiiProxy_CfnFirewall) FirewallRef() *interfacesawsnetworkfirewall.FirewallReference {
+	var returns *interfacesawsnetworkfirewall.FirewallReference
 	_jsii_.Get(
 		j,
 		"firewallRef",
@@ -593,6 +598,7 @@ func (j *jsiiProxy_CfnFirewall) VpcId() *string {
 }
 
 
+// Create a new `AWS::NetworkFirewall::Firewall`.
 func NewCfnFirewall(scope constructs.Construct, id *string, props *CfnFirewallProps) CfnFirewall {
 	_init_.Initialize()
 
@@ -610,6 +616,7 @@ func NewCfnFirewall(scope constructs.Construct, id *string, props *CfnFirewallPr
 	return &j
 }
 
+// Create a new `AWS::NetworkFirewall::Firewall`.
 func NewCfnFirewall_Override(c CfnFirewall, scope constructs.Construct, id *string, props *CfnFirewallProps) {
 	_init_.Initialize()
 

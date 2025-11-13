@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,8 +26,8 @@ import (
 //
 type CfnServiceLinkedRole interface {
 	awscdk.CfnResource
-	IServiceLinkedRoleRef
 	awscdk.IInspectable
+	interfacesawsiam.IServiceLinkedRoleRef
 	// Returns the friendly name that identifies the role.
 	//
 	// For example, `AWSServiceRoleForAutoScaling` or `AWSServiceRoleForAutoScaling_TestSuffix` if a `CustomSuffix` is specified.
@@ -48,7 +50,7 @@ type CfnServiceLinkedRole interface {
 	// The description of the role.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnServiceLinkedRole interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ServiceLinkedRole resource.
-	ServiceLinkedRoleRef() *ServiceLinkedRoleReference
+	ServiceLinkedRoleRef() *interfacesawsiam.ServiceLinkedRoleReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -215,8 +217,8 @@ type CfnServiceLinkedRole interface {
 // The jsii proxy struct for CfnServiceLinkedRole
 type jsiiProxy_CfnServiceLinkedRole struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceLinkedRoleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIServiceLinkedRoleRef
 }
 
 func (j *jsiiProxy_CfnServiceLinkedRole) AttrRoleName() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnServiceLinkedRole) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceLinkedRole) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceLinkedRole) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnServiceLinkedRole) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceLinkedRole) ServiceLinkedRoleRef() *ServiceLinkedRoleReference {
-	var returns *ServiceLinkedRoleReference
+func (j *jsiiProxy_CfnServiceLinkedRole) ServiceLinkedRoleRef() *interfacesawsiam.ServiceLinkedRoleReference {
+	var returns *interfacesawsiam.ServiceLinkedRoleReference
 	_jsii_.Get(
 		j,
 		"serviceLinkedRoleRef",
@@ -380,6 +382,7 @@ func (j *jsiiProxy_CfnServiceLinkedRole) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::IAM::ServiceLinkedRole`.
 func NewCfnServiceLinkedRole(scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) CfnServiceLinkedRole {
 	_init_.Initialize()
 
@@ -397,6 +400,7 @@ func NewCfnServiceLinkedRole(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
+// Create a new `AWS::IAM::ServiceLinkedRole`.
 func NewCfnServiceLinkedRole_Override(c CfnServiceLinkedRole, scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) {
 	_init_.Initialize()
 

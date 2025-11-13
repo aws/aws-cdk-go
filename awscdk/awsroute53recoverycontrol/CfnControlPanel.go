@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoverycontrol/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoverycontrol"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnControlPanel interface {
 	awscdk.CfnResource
-	IControlPanelRef
 	awscdk.IInspectable
+	interfacesawsroute53recoverycontrol.IControlPanelRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the control panel.
 	AttrControlPanelArn() *string
@@ -57,12 +59,12 @@ type CfnControlPanel interface {
 	ClusterArn() *string
 	SetClusterArn(val *string)
 	// A reference to a ControlPanel resource.
-	ControlPanelRef() *ControlPanelReference
+	ControlPanelRef() *interfacesawsroute53recoverycontrol.ControlPanelReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnControlPanel interface {
 // The jsii proxy struct for CfnControlPanel
 type jsiiProxy_CfnControlPanel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IControlPanelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53recoverycontrolIControlPanelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnControlPanel) ClusterArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnControlPanel) ControlPanelRef() *ControlPanelReference {
-	var returns *ControlPanelReference
+func (j *jsiiProxy_CfnControlPanel) ControlPanelRef() *interfacesawsroute53recoverycontrol.ControlPanelReference {
+	var returns *interfacesawsroute53recoverycontrol.ControlPanelReference
 	_jsii_.Get(
 		j,
 		"controlPanelRef",
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnControlPanel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnControlPanel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnControlPanel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnControlPanel) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Route53RecoveryControl::ControlPanel`.
 func NewCfnControlPanel(scope constructs.Construct, id *string, props *CfnControlPanelProps) CfnControlPanel {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnControlPanel(scope constructs.Construct, id *string, props *CfnContro
 	return &j
 }
 
+// Create a new `AWS::Route53RecoveryControl::ControlPanel`.
 func NewCfnControlPanel_Override(c CfnControlPanel, scope constructs.Construct, id *string, props *CfnControlPanelProps) {
 	_init_.Initialize()
 

@@ -72,7 +72,7 @@ import (
 type CfnStackProps struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects.
 	//
-	// Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// Users of the stack can connect to WorkSpaces Applications only through the specified endpoints.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-accessendpoints
 	//
 	AccessEndpoints interface{} `field:"optional" json:"accessEndpoints" yaml:"accessEndpoints"`
@@ -100,7 +100,9 @@ type CfnStackProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
-	// The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+	// The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe.
+	//
+	// You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-embedhostdomains
 	//
 	EmbedHostDomains *[]*string `field:"optional" json:"embedHostDomains" yaml:"embedHostDomains"`

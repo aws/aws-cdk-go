@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -121,8 +123,8 @@ import (
 //
 type CfnConnectionGroup interface {
 	awscdk.CfnResource
-	IConnectionGroupRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IConnectionGroupRef
 	awscdk.ITaggableV2
 	// The ID of the Anycast static IP list.
 	AnycastIpListId() *string
@@ -151,7 +153,7 @@ type CfnConnectionGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConnectionGroup resource.
-	ConnectionGroupRef() *ConnectionGroupReference
+	ConnectionGroupRef() *interfacesawscloudfront.ConnectionGroupReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -159,7 +161,7 @@ type CfnConnectionGroup interface {
 	// Whether the connection group is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// IPv6 is enabled for the connection group.
 	Ipv6Enabled() interface{}
 	SetIpv6Enabled(val interface{})
@@ -333,8 +335,8 @@ type CfnConnectionGroup interface {
 // The jsii proxy struct for CfnConnectionGroup
 type jsiiProxy_CfnConnectionGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectionGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIConnectionGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -468,8 +470,8 @@ func (j *jsiiProxy_CfnConnectionGroup) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectionGroup) ConnectionGroupRef() *ConnectionGroupReference {
-	var returns *ConnectionGroupReference
+func (j *jsiiProxy_CfnConnectionGroup) ConnectionGroupRef() *interfacesawscloudfront.ConnectionGroupReference {
+	var returns *interfacesawscloudfront.ConnectionGroupReference
 	_jsii_.Get(
 		j,
 		"connectionGroupRef",
@@ -498,8 +500,8 @@ func (j *jsiiProxy_CfnConnectionGroup) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectionGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnectionGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -599,6 +601,7 @@ func (j *jsiiProxy_CfnConnectionGroup) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::CloudFront::ConnectionGroup`.
 func NewCfnConnectionGroup(scope constructs.Construct, id *string, props *CfnConnectionGroupProps) CfnConnectionGroup {
 	_init_.Initialize()
 
@@ -616,6 +619,7 @@ func NewCfnConnectionGroup(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
+// Create a new `AWS::CloudFront::ConnectionGroup`.
 func NewCfnConnectionGroup_Override(c CfnConnectionGroup, scope constructs.Construct, id *string, props *CfnConnectionGroupProps) {
 	_init_.Initialize()
 

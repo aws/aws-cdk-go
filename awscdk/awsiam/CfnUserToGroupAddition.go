@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnUserToGroupAddition interface {
 	awscdk.CfnResource
-	IUserToGroupAdditionRef
 	awscdk.IInspectable
+	interfacesawsiam.IUserToGroupAdditionRef
 	// The stable and unique string identifying the group.
 	//
 	// For more information about IDs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -42,7 +44,7 @@ type CfnUserToGroupAddition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the group to update.
 	GroupName() *string
 	SetGroupName(val *string)
@@ -84,7 +86,7 @@ type CfnUserToGroupAddition interface {
 	Users() *[]*string
 	SetUsers(val *[]*string)
 	// A reference to a UserToGroupAddition resource.
-	UserToGroupAdditionRef() *UserToGroupAdditionReference
+	UserToGroupAdditionRef() *interfacesawsiam.UserToGroupAdditionReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -215,8 +217,8 @@ type CfnUserToGroupAddition interface {
 // The jsii proxy struct for CfnUserToGroupAddition
 type jsiiProxy_CfnUserToGroupAddition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserToGroupAdditionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIUserToGroupAdditionRef
 }
 
 func (j *jsiiProxy_CfnUserToGroupAddition) AttrId() *string {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnUserToGroupAddition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserToGroupAddition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserToGroupAddition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnUserToGroupAddition) Users() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserToGroupAddition) UserToGroupAdditionRef() *UserToGroupAdditionReference {
-	var returns *UserToGroupAdditionReference
+func (j *jsiiProxy_CfnUserToGroupAddition) UserToGroupAdditionRef() *interfacesawsiam.UserToGroupAdditionReference {
+	var returns *interfacesawsiam.UserToGroupAdditionReference
 	_jsii_.Get(
 		j,
 		"userToGroupAdditionRef",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnUserToGroupAddition) UserToGroupAdditionRef() *UserToGroup
 }
 
 
+// Create a new `AWS::IAM::UserToGroupAddition`.
 func NewCfnUserToGroupAddition(scope constructs.Construct, id *string, props *CfnUserToGroupAdditionProps) CfnUserToGroupAddition {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnUserToGroupAddition(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::IAM::UserToGroupAddition`.
 func NewCfnUserToGroupAddition_Override(c CfnUserToGroupAddition, scope constructs.Construct, id *string, props *CfnUserToGroupAdditionProps) {
 	_init_.Initialize()
 

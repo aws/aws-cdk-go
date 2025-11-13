@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnReplicationConfig interface {
 	awscdk.CfnResource
-	IReplicationConfigRef
 	awscdk.IInspectable
+	interfacesawsdms.IReplicationConfigRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of this AWS DMS Serverless replication configuration.
 	AttrReplicationConfigArn() *string
@@ -77,7 +79,7 @@ type CfnReplicationConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -99,7 +101,7 @@ type CfnReplicationConfig interface {
 	ReplicationConfigIdentifier() *string
 	SetReplicationConfigIdentifier(val *string)
 	// A reference to a ReplicationConfig resource.
-	ReplicationConfigRef() *ReplicationConfigReference
+	ReplicationConfigRef() *interfacesawsdms.ReplicationConfigReference
 	// Optional JSON settings for AWS DMS Serverless replications that are provisioned using this replication configuration.
 	ReplicationSettings() interface{}
 	SetReplicationSettings(val interface{})
@@ -271,8 +273,8 @@ type CfnReplicationConfig interface {
 // The jsii proxy struct for CfnReplicationConfig
 type jsiiProxy_CfnReplicationConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicationConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIReplicationConfigRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnReplicationConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicationConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnReplicationConfig) ReplicationConfigIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationConfig) ReplicationConfigRef() *ReplicationConfigReference {
-	var returns *ReplicationConfigReference
+func (j *jsiiProxy_CfnReplicationConfig) ReplicationConfigRef() *interfacesawsdms.ReplicationConfigReference {
+	var returns *interfacesawsdms.ReplicationConfigReference
 	_jsii_.Get(
 		j,
 		"replicationConfigRef",
@@ -517,6 +519,7 @@ func (j *jsiiProxy_CfnReplicationConfig) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::DMS::ReplicationConfig`.
 func NewCfnReplicationConfig(scope constructs.Construct, id *string, props *CfnReplicationConfigProps) CfnReplicationConfig {
 	_init_.Initialize()
 
@@ -534,6 +537,7 @@ func NewCfnReplicationConfig(scope constructs.Construct, id *string, props *CfnR
 	return &j
 }
 
+// Create a new `AWS::DMS::ReplicationConfig`.
 func NewCfnReplicationConfig_Override(c CfnReplicationConfig, scope constructs.Construct, id *string, props *CfnReplicationConfigProps) {
 	_init_.Initialize()
 

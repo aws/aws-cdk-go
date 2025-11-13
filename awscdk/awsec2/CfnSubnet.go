@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -16,7 +18,7 @@ import (
 // For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide* .
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //   var vpc Vpc
 //
 //
@@ -43,7 +45,7 @@ import (
 //   }
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
 //   	VpcSubnets: []SubnetSelection{
@@ -51,15 +53,15 @@ import (
 //   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},
-//   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
 //
 type CfnSubnet interface {
 	awscdk.CfnResource
-	ISubnetRef
 	awscdk.IInspectable
+	interfacesawsec2.ISubnetRef
 	awscdk.ITaggable
 	// Indicates whether a network interface created in this subnet receives an IPv6 address.
 	//
@@ -111,7 +113,7 @@ type CfnSubnet interface {
 	// Indicates the device position for local network interfaces in this subnet.
 	EnableLniAtDeviceIndex() *float64
 	SetEnableLniAtDeviceIndex(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId() *string
 	SetIpv4IpamPoolId(val *string)
@@ -163,7 +165,7 @@ type CfnSubnet interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Subnet resource.
-	SubnetRef() *SubnetReference
+	SubnetRef() *interfacesawsec2.SubnetReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Any tags assigned to the subnet.
@@ -315,8 +317,8 @@ type CfnSubnet interface {
 // The jsii proxy struct for CfnSubnet
 type jsiiProxy_CfnSubnet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubnetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISubnetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -510,8 +512,8 @@ func (j *jsiiProxy_CfnSubnet) EnableLniAtDeviceIndex() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubnet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -650,8 +652,8 @@ func (j *jsiiProxy_CfnSubnet) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnet) SubnetRef() *SubnetReference {
-	var returns *SubnetReference
+func (j *jsiiProxy_CfnSubnet) SubnetRef() *interfacesawsec2.SubnetReference {
+	var returns *interfacesawsec2.SubnetReference
 	_jsii_.Get(
 		j,
 		"subnetRef",
@@ -711,6 +713,7 @@ func (j *jsiiProxy_CfnSubnet) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::Subnet`.
 func NewCfnSubnet(scope constructs.Construct, id *string, props *CfnSubnetProps) CfnSubnet {
 	_init_.Initialize()
 
@@ -728,6 +731,7 @@ func NewCfnSubnet(scope constructs.Construct, id *string, props *CfnSubnetProps)
 	return &j
 }
 
+// Create a new `AWS::EC2::Subnet`.
 func NewCfnSubnet_Override(c CfnSubnet, scope constructs.Construct, id *string, props *CfnSubnetProps) {
 	_init_.Initialize()
 
@@ -893,13 +897,13 @@ func (j *jsiiProxy_CfnSubnet)SetVpcId(val *string) {
 }
 
 // Creates a new ISubnetRef from a subnetId.
-func CfnSubnet_FromSubnetId(scope constructs.Construct, id *string, subnetId *string) ISubnetRef {
+func CfnSubnet_FromSubnetId(scope constructs.Construct, id *string, subnetId *string) interfacesawsec2.ISubnetRef {
 	_init_.Initialize()
 
 	if err := validateCfnSubnet_FromSubnetIdParameters(scope, id, subnetId); err != nil {
 		panic(err)
 	}
-	var returns ISubnetRef
+	var returns interfacesawsec2.ISubnetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnSubnet",

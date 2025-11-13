@@ -31,20 +31,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.ApiCacheReference",
-		reflect.TypeOf((*ApiCacheReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.ApiKeyConfig",
 		reflect.TypeOf((*ApiKeyConfig)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.ApiKeyReference",
-		reflect.TypeOf((*ApiKeyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.ApiReference",
-		reflect.TypeOf((*ApiReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.AppSyncApiKeyConfig",
@@ -532,8 +520,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApi{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -618,8 +606,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApiCache{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiCacheRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIApiCacheRef)
 			return &j
 		},
 	)
@@ -673,8 +661,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApiKey{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIApiKeyRef)
 			return &j
 		},
 	)
@@ -736,8 +724,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnChannelNamespace{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IChannelNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIChannelNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -821,8 +809,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDataSource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataSourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIDataSourceRef)
 			return &j
 		},
 	)
@@ -923,8 +911,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDomainName{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDomainNameRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIDomainNameRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -972,8 +960,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDomainNameApiAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDomainNameApiAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIDomainNameApiAssociationRef)
 			return &j
 		},
 	)
@@ -1043,8 +1031,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFunctionConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFunctionConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIFunctionConfigurationRef)
 			return &j
 		},
 	)
@@ -1130,8 +1118,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGraphQLApi{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGraphQLApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIGraphQLApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1212,8 +1200,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGraphQLSchema{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGraphQLSchemaRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIGraphQLSchemaRef)
 			return &j
 		},
 	)
@@ -1281,8 +1269,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResolver{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResolverRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIResolverRef)
 			return &j
 		},
 	)
@@ -1363,8 +1351,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSourceApiAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISourceApiAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncISourceApiAssociationRef)
 			return &j
 		},
 	)
@@ -1409,10 +1397,6 @@ func init() {
 		"aws-cdk-lib.aws_appsync.ChannelNamespaceProps",
 		reflect.TypeOf((*ChannelNamespaceProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.ChannelNamespaceReference",
-		reflect.TypeOf((*ChannelNamespaceReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.Code",
 		reflect.TypeOf((*Code)(nil)).Elem(),
@@ -1431,10 +1415,6 @@ func init() {
 		"aws-cdk-lib.aws_appsync.DataSourceOptions",
 		reflect.TypeOf((*DataSourceOptions)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.DataSourceReference",
-		reflect.TypeOf((*DataSourceReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.Definition",
 		reflect.TypeOf((*Definition)(nil)).Elem(),
@@ -1445,14 +1425,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_Definition{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.DomainNameApiAssociationReference",
-		reflect.TypeOf((*DomainNameApiAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.DomainNameReference",
-		reflect.TypeOf((*DomainNameReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.DomainOptions",
@@ -1644,10 +1616,6 @@ func init() {
 			"ALL": FieldLogLevel_ALL,
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.FunctionConfigurationReference",
-		reflect.TypeOf((*FunctionConfigurationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.FunctionRuntime",
 		reflect.TypeOf((*FunctionRuntime)(nil)).Elem(),
@@ -1666,14 +1634,6 @@ func init() {
 		map[string]interface{}{
 			"JS": FunctionRuntimeFamily_JS,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.GraphQLApiReference",
-		reflect.TypeOf((*GraphQLApiReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.GraphQLSchemaReference",
-		reflect.TypeOf((*GraphQLSchemaReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.GraphqlApi",
@@ -1829,51 +1789,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IApiCacheRef",
-		reflect.TypeOf((*IApiCacheRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "apiCacheRef", GoGetter: "ApiCacheRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApiCacheRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IApiKeyRef",
-		reflect.TypeOf((*IApiKeyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApiKeyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IApiRef",
-		reflect.TypeOf((*IApiRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApiRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_appsync.IAppSyncAuthConfig",
 		reflect.TypeOf((*IAppSyncAuthConfig)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1919,66 +1834,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IChannelNamespaceRef",
-		reflect.TypeOf((*IChannelNamespaceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelNamespaceRef", GoGetter: "ChannelNamespaceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IChannelNamespaceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IDataSourceRef",
-		reflect.TypeOf((*IDataSourceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataSourceRef", GoGetter: "DataSourceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataSourceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IDomainNameApiAssociationRef",
-		reflect.TypeOf((*IDomainNameApiAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "domainNameApiAssociationRef", GoGetter: "DomainNameApiAssociationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDomainNameApiAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IDomainNameRef",
-		reflect.TypeOf((*IDomainNameRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "domainNameRef", GoGetter: "DomainNameRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDomainNameRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_appsync.IEventApi",
 		reflect.TypeOf((*IEventApi)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2007,51 +1862,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IEventApi{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApi)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IFunctionConfigurationRef",
-		reflect.TypeOf((*IFunctionConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "functionConfigurationRef", GoGetter: "FunctionConfigurationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFunctionConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IGraphQLApiRef",
-		reflect.TypeOf((*IGraphQLApiRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "graphQlApiRef", GoGetter: "GraphQlApiRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGraphQLApiRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IGraphQLSchemaRef",
-		reflect.TypeOf((*IGraphQLSchemaRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "graphQlSchemaRef", GoGetter: "GraphQlSchemaRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGraphQLSchemaRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2087,21 +1897,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IGraphqlApi{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.IResolverRef",
-		reflect.TypeOf((*IResolverRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resolverRef", GoGetter: "ResolverRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResolverRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2142,21 +1937,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ISourceApiAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appsync.ISourceApiAssociationRef",
-		reflect.TypeOf((*ISourceApiAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sourceApiAssociationRef", GoGetter: "SourceApiAssociationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISourceApiAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2397,10 +2177,6 @@ func init() {
 		reflect.TypeOf((*ResolverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.ResolverReference",
-		reflect.TypeOf((*ResolverReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.RuntimeConfig",
 		reflect.TypeOf((*RuntimeConfig)(nil)).Elem(),
 	)
@@ -2474,10 +2250,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.SourceApiAssociationProps",
 		reflect.TypeOf((*SourceApiAssociationProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appsync.SourceApiAssociationReference",
-		reflect.TypeOf((*SourceApiAssociationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.SourceApiOptions",

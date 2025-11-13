@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnCertificate interface {
 	awscdk.CfnResource
-	ICertificateRef
 	awscdk.IInspectable
+	interfacesawscertificatemanager.ICertificateRef
 	awscdk.ITaggable
 	AttrId() *string
 	// The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate.
@@ -66,7 +68,7 @@ type CfnCertificate interface {
 	CertificateExport() *string
 	SetCertificateExport(val *string)
 	// A reference to a Certificate resource.
-	CertificateRef() *CertificateReference
+	CertificateRef() *interfacesawscertificatemanager.CertificateReference
 	// You can opt out of certificate transparency logging by specifying the `DISABLED` option.
 	CertificateTransparencyLoggingPreference() *string
 	SetCertificateTransparencyLoggingPreference(val *string)
@@ -85,7 +87,7 @@ type CfnCertificate interface {
 	// Domain information that domain name registrars use to verify your identity.
 	DomainValidationOptions() interface{}
 	SetDomainValidationOptions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
 	KeyAlgorithm() *string
 	SetKeyAlgorithm(val *string)
@@ -264,8 +266,8 @@ type CfnCertificate interface {
 // The jsii proxy struct for CfnCertificate
 type jsiiProxy_CfnCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscertificatemanagerICertificateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnCertificate) CertificateExport() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) CertificateRef() *CertificateReference {
-	var returns *CertificateReference
+func (j *jsiiProxy_CfnCertificate) CertificateRef() *interfacesawscertificatemanager.CertificateReference {
+	var returns *interfacesawscertificatemanager.CertificateReference
 	_jsii_.Get(
 		j,
 		"certificateRef",
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnCertificate) DomainValidationOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -500,6 +502,7 @@ func (j *jsiiProxy_CfnCertificate) ValidationMethod() *string {
 }
 
 
+// Create a new `AWS::CertificateManager::Certificate`.
 func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
@@ -517,6 +520,7 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 	return &j
 }
 
+// Create a new `AWS::CertificateManager::Certificate`.
 func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 
@@ -609,13 +613,13 @@ func (j *jsiiProxy_CfnCertificate)SetValidationMethod(val *string) {
 }
 
 // Creates a new ICertificateRef from a certificateId.
-func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) ICertificateRef {
+func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) interfacesawscertificatemanager.ICertificateRef {
 	_init_.Initialize()
 
 	if err := validateCfnCertificate_FromCertificateIdParameters(scope, id, certificateId); err != nil {
 		panic(err)
 	}
-	var returns ICertificateRef
+	var returns interfacesawscertificatemanager.ICertificateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_certificatemanager.CfnCertificate",

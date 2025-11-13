@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnMesh interface {
 	awscdk.CfnResource
-	IMeshRef
 	awscdk.IInspectable
+	interfacesawsappmesh.IMeshRef
 	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the mesh.
 	AttrArn() *string
@@ -69,7 +71,7 @@ type CfnMesh interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnMesh interface {
 	MeshName() *string
 	SetMeshName(val *string)
 	// A reference to a Mesh resource.
-	MeshRef() *MeshReference
+	MeshRef() *interfacesawsappmesh.MeshReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -247,8 +249,8 @@ type CfnMesh interface {
 // The jsii proxy struct for CfnMesh
 type jsiiProxy_CfnMesh struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMeshRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappmeshIMeshRef
 	internal.Type__awscdkITaggable
 }
 
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnMesh) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMesh) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMesh) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnMesh) MeshName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMesh) MeshRef() *MeshReference {
-	var returns *MeshReference
+func (j *jsiiProxy_CfnMesh) MeshRef() *interfacesawsappmesh.MeshReference {
+	var returns *interfacesawsappmesh.MeshReference
 	_jsii_.Get(
 		j,
 		"meshRef",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnMesh) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppMesh::Mesh`.
 func NewCfnMesh(scope constructs.Construct, id *string, props *CfnMeshProps) CfnMesh {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnMesh(scope constructs.Construct, id *string, props *CfnMeshProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::AppMesh::Mesh`.
 func NewCfnMesh_Override(c CfnMesh, scope constructs.Construct, id *string, props *CfnMeshProps) {
 	_init_.Initialize()
 

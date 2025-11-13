@@ -180,9 +180,6 @@ func validateCfnContainerRecipe_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnContainerRecipe) validateSetComponentsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,11 +56,11 @@ import (
 //
 type CfnAccessPoint interface {
 	awscdk.CfnResource
-	IAccessPointRef
 	awscdk.IInspectable
+	interfacesawsefs.IAccessPointRef
 	awscdk.ITaggable
 	// A reference to a AccessPoint resource.
-	AccessPointRef() *AccessPointReference
+	AccessPointRef() *interfacesawsefs.AccessPointReference
 	// An array of key-value pairs to apply to this resource.
 	AccessPointTagsRaw() *[]*CfnAccessPoint_AccessPointTagProperty
 	SetAccessPointTagsRaw(val *[]*CfnAccessPoint_AccessPointTagProperty)
@@ -78,7 +80,7 @@ type CfnAccessPoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the EFS file system that the access point applies to.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
@@ -254,13 +256,13 @@ type CfnAccessPoint interface {
 // The jsii proxy struct for CfnAccessPoint
 type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessPointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsefsIAccessPointRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAccessPoint) AccessPointRef() *AccessPointReference {
-	var returns *AccessPointReference
+func (j *jsiiProxy_CfnAccessPoint) AccessPointRef() *interfacesawsefs.AccessPointReference {
+	var returns *interfacesawsefs.AccessPointReference
 	_jsii_.Get(
 		j,
 		"accessPointRef",
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnAccessPoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessPoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -460,6 +462,7 @@ func (j *jsiiProxy_CfnAccessPoint) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EFS::AccessPoint`.
 func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
@@ -477,6 +480,7 @@ func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessP
 	return &j
 }
 
+// Create a new `AWS::EFS::AccessPoint`.
 func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
@@ -540,13 +544,13 @@ func (j *jsiiProxy_CfnAccessPoint)SetRootDirectory(val interface{}) {
 }
 
 // Creates a new IAccessPointRef from an ARN.
-func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, arn *string) IAccessPointRef {
+func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, arn *string) interfacesawsefs.IAccessPointRef {
 	_init_.Initialize()
 
 	if err := validateCfnAccessPoint_FromAccessPointArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAccessPointRef
+	var returns interfacesawsefs.IAccessPointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_efs.CfnAccessPoint",
@@ -559,13 +563,13 @@ func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IAccessPointRef from a accessPointId.
-func CfnAccessPoint_FromAccessPointId(scope constructs.Construct, id *string, accessPointId *string) IAccessPointRef {
+func CfnAccessPoint_FromAccessPointId(scope constructs.Construct, id *string, accessPointId *string) interfacesawsefs.IAccessPointRef {
 	_init_.Initialize()
 
 	if err := validateCfnAccessPoint_FromAccessPointIdParameters(scope, id, accessPointId); err != nil {
 		panic(err)
 	}
-	var returns IAccessPointRef
+	var returns interfacesawsefs.IAccessPointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_efs.CfnAccessPoint",

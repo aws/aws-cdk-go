@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -167,8 +169,8 @@ import (
 //
 type CfnUserPool interface {
 	awscdk.CfnResource
-	IUserPoolRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolRef
 	awscdk.ITaggable
 	// The available verified method a user can use to recover their password when they call `ForgotPassword` .
 	AccountRecoverySetting() interface{}
@@ -221,7 +223,7 @@ type CfnUserPool interface {
 	// Set enabled MFA options on a specified user pool.
 	EnabledMfas() *[]*string
 	SetEnabledMfas(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A collection of user pool Lambda triggers.
 	LambdaConfig() interface{}
 	SetLambdaConfig(val interface{})
@@ -295,7 +297,7 @@ type CfnUserPool interface {
 	UserPoolName() *string
 	SetUserPoolName(val *string)
 	// A reference to a UserPool resource.
-	UserPoolRef() *UserPoolReference
+	UserPoolRef() *interfacesawscognito.UserPoolReference
 	// The tag keys and values to assign to the user pool.
 	UserPoolTagsRaw() interface{}
 	SetUserPoolTagsRaw(val interface{})
@@ -441,8 +443,8 @@ type CfnUserPool interface {
 // The jsii proxy struct for CfnUserPool
 type jsiiProxy_CfnUserPool struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolRef
 	internal.Type__awscdkITaggable
 }
 
@@ -646,8 +648,8 @@ func (j *jsiiProxy_CfnUserPool) EnabledMfas() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPool) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -846,8 +848,8 @@ func (j *jsiiProxy_CfnUserPool) UserPoolName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPool) UserPoolRef() *UserPoolReference {
-	var returns *UserPoolReference
+func (j *jsiiProxy_CfnUserPool) UserPoolRef() *interfacesawscognito.UserPoolReference {
+	var returns *interfacesawscognito.UserPoolReference
 	_jsii_.Get(
 		j,
 		"userPoolRef",
@@ -907,6 +909,7 @@ func (j *jsiiProxy_CfnUserPool) WebAuthnUserVerification() *string {
 }
 
 
+// Create a new `AWS::Cognito::UserPool`.
 func NewCfnUserPool(scope constructs.Construct, id *string, props *CfnUserPoolProps) CfnUserPool {
 	_init_.Initialize()
 
@@ -924,6 +927,7 @@ func NewCfnUserPool(scope constructs.Construct, id *string, props *CfnUserPoolPr
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPool`.
 func NewCfnUserPool_Override(c CfnUserPool, scope constructs.Construct, id *string, props *CfnUserPoolProps) {
 	_init_.Initialize()
 
@@ -1203,13 +1207,13 @@ func (j *jsiiProxy_CfnUserPool)SetWebAuthnUserVerification(val *string) {
 }
 
 // Creates a new IUserPoolRef from an ARN.
-func CfnUserPool_FromUserPoolArn(scope constructs.Construct, id *string, arn *string) IUserPoolRef {
+func CfnUserPool_FromUserPoolArn(scope constructs.Construct, id *string, arn *string) interfacesawscognito.IUserPoolRef {
 	_init_.Initialize()
 
 	if err := validateCfnUserPool_FromUserPoolArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IUserPoolRef
+	var returns interfacesawscognito.IUserPoolRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cognito.CfnUserPool",
@@ -1222,13 +1226,13 @@ func CfnUserPool_FromUserPoolArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new IUserPoolRef from a userPoolId.
-func CfnUserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId *string) IUserPoolRef {
+func CfnUserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId *string) interfacesawscognito.IUserPoolRef {
 	_init_.Initialize()
 
 	if err := validateCfnUserPool_FromUserPoolIdParameters(scope, id, userPoolId); err != nil {
 		panic(err)
 	}
-	var returns IUserPoolRef
+	var returns interfacesawscognito.IUserPoolRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cognito.CfnUserPool",

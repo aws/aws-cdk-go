@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,7 +33,7 @@ type SamlProvider interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -45,7 +47,7 @@ type SamlProvider interface {
 	// The Amazon Resource Name (ARN) of the provider.
 	SamlProviderArn() *string
 	// A reference to a SAMLProvider resource.
-	SamlProviderRef() *SAMLProviderReference
+	SamlProviderRef() *interfacesawsiam.SAMLProviderReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -82,8 +84,8 @@ type jsiiProxy_SamlProvider struct {
 	jsiiProxy_ISamlProvider
 }
 
-func (j *jsiiProxy_SamlProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SamlProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -122,8 +124,8 @@ func (j *jsiiProxy_SamlProvider) SamlProviderArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SamlProvider) SamlProviderRef() *SAMLProviderReference {
-	var returns *SAMLProviderReference
+func (j *jsiiProxy_SamlProvider) SamlProviderRef() *interfacesawsiam.SAMLProviderReference {
+	var returns *interfacesawsiam.SAMLProviderReference
 	_jsii_.Get(
 		j,
 		"samlProviderRef",

@@ -1,11 +1,19 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsivsIChannelRef = interfacesawsivs.IChannelRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsivsIEncoderConfigurationRef = interfacesawsivs.IEncoderConfigurationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsivsIIngestConfigurationRef = interfacesawsivs.IIngestConfigurationRef
+type Type__interfacesawsivsIPlaybackKeyPairRef = interfacesawsivs.IPlaybackKeyPairRef
+type Type__interfacesawsivsIPlaybackRestrictionPolicyRef = interfacesawsivs.IPlaybackRestrictionPolicyRef
+type Type__interfacesawsivsIPublicKeyRef = interfacesawsivs.IPublicKeyRef
+type Type__interfacesawsivsIRecordingConfigurationRef = interfacesawsivs.IRecordingConfigurationRef
+type Type__interfacesawsivsIStageRef = interfacesawsivs.IStageRef
+type Type__interfacesawsivsIStorageConfigurationRef = interfacesawsivs.IStorageConfigurationRef
+type Type__interfacesawsivsIStreamKeyRef = interfacesawsivs.IStreamKeyRef

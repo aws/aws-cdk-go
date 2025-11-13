@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconvert/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconvert"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnPreset interface {
 	awscdk.CfnResource
-	IPresetRef
 	awscdk.IInspectable
+	interfacesawsmediaconvert.IPresetRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
 	AttrArn() *string
@@ -60,7 +62,7 @@ type CfnPreset interface {
 	// The new description for the preset, if you are changing it.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnPreset interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Preset resource.
-	PresetRef() *PresetReference
+	PresetRef() *interfacesawsmediaconvert.PresetReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -238,8 +240,8 @@ type CfnPreset interface {
 // The jsii proxy struct for CfnPreset
 type jsiiProxy_CfnPreset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPresetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconvertIPresetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnPreset) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPreset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPreset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnPreset) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPreset) PresetRef() *PresetReference {
-	var returns *PresetReference
+func (j *jsiiProxy_CfnPreset) PresetRef() *interfacesawsmediaconvert.PresetReference {
+	var returns *interfacesawsmediaconvert.PresetReference
 	_jsii_.Get(
 		j,
 		"presetRef",
@@ -454,6 +456,7 @@ func (j *jsiiProxy_CfnPreset) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaConvert::Preset`.
 func NewCfnPreset(scope constructs.Construct, id *string, props *CfnPresetProps) CfnPreset {
 	_init_.Initialize()
 
@@ -471,6 +474,7 @@ func NewCfnPreset(scope constructs.Construct, id *string, props *CfnPresetProps)
 	return &j
 }
 
+// Create a new `AWS::MediaConvert::Preset`.
 func NewCfnPreset_Override(c CfnPreset, scope constructs.Construct, id *string, props *CfnPresetProps) {
 	_init_.Initialize()
 

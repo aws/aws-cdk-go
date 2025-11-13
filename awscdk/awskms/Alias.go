@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,7 +48,7 @@ type Alias interface {
 	// The name of the alias.
 	AliasName() *string
 	// A reference to a Alias resource.
-	AliasRef() *AliasReference
+	AliasRef() *interfacesawskms.AliasReference
 	// The Key to which the Alias refers.
 	AliasTargetKey() IKey
 	// The environment this resource belongs to.
@@ -58,14 +60,14 @@ type Alias interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the alias.
 	// Deprecated: use `aliasArn` instead.
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
 	KeyId() *string
 	// A reference to a Key resource.
-	KeyRef() *KeyReference
+	KeyRef() *interfacesawskms.KeyReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -154,8 +156,8 @@ func (j *jsiiProxy_Alias) AliasName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Alias) AliasRef() *AliasReference {
-	var returns *AliasReference
+func (j *jsiiProxy_Alias) AliasRef() *interfacesawskms.AliasReference {
+	var returns *interfacesawskms.AliasReference
 	_jsii_.Get(
 		j,
 		"aliasRef",
@@ -174,8 +176,8 @@ func (j *jsiiProxy_Alias) AliasTargetKey() IKey {
 	return returns
 }
 
-func (j *jsiiProxy_Alias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Alias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -204,8 +206,8 @@ func (j *jsiiProxy_Alias) KeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Alias) KeyRef() *KeyReference {
-	var returns *KeyReference
+func (j *jsiiProxy_Alias) KeyRef() *interfacesawskms.KeyReference {
+	var returns *interfacesawskms.KeyReference
 	_jsii_.Get(
 		j,
 		"keyRef",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -89,8 +91,8 @@ import (
 //
 type CfnConnection interface {
 	awscdk.CfnResource
-	IConnectionRef
 	awscdk.IInspectable
+	interfacesawsglue.IConnectionRef
 	AttrId() *string
 	// The ID of the data catalog to create the catalog object in.
 	CatalogId() *string
@@ -104,12 +106,12 @@ type CfnConnection interface {
 	ConnectionInput() interface{}
 	SetConnectionInput(val interface{})
 	// A reference to a Connection resource.
-	ConnectionRef() *ConnectionReference
+	ConnectionRef() *interfacesawsglue.ConnectionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -274,8 +276,8 @@ type CfnConnection interface {
 // The jsii proxy struct for CfnConnection
 type jsiiProxy_CfnConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIConnectionRef
 }
 
 func (j *jsiiProxy_CfnConnection) AttrId() *string {
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnConnection) ConnectionInput() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnection) ConnectionRef() *ConnectionReference {
-	var returns *ConnectionReference
+func (j *jsiiProxy_CfnConnection) ConnectionRef() *interfacesawsglue.ConnectionReference {
+	var returns *interfacesawsglue.ConnectionReference
 	_jsii_.Get(
 		j,
 		"connectionRef",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnConnection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnConnection) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Glue::Connection`.
 func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnectionProps) CfnConnection {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnecti
 	return &j
 }
 
+// Create a new `AWS::Glue::Connection`.
 func NewCfnConnection_Override(c CfnConnection, scope constructs.Construct, id *string, props *CfnConnectionProps) {
 	_init_.Initialize()
 

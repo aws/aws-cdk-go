@@ -1,11 +1,15 @@
 package awsec2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
+)
 
 // Properties for a ClientVpnAuthorizationRule.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clientVpnEndpointRef IClientVpnEndpointRef
@@ -33,6 +37,6 @@ type ClientVpnAuthorizationRuleProps struct {
 	// The client VPN endpoint to which to add the rule.
 	// Default: clientVpnEndpoint is required.
 	//
-	ClientVpnEndpoint IClientVpnEndpointRef `field:"optional" json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
+	ClientVpnEndpoint interfacesawsec2.IClientVpnEndpointRef `field:"optional" json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
 }
 

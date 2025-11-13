@@ -4,6 +4,9 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -11,7 +14,7 @@ import (
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html
 //
 type IGroup interface {
-	IGroupRef
+	interfacesawsiam.IGroupRef
 	IIdentity
 	// Returns the IAM Group ARN.
 	GroupArn() *string
@@ -21,7 +24,7 @@ type IGroup interface {
 
 // The jsii proxy for IGroup
 type jsiiProxy_IGroup struct {
-	jsiiProxy_IGroupRef
+	internal.Type__interfacesawsiamIGroupRef
 	jsiiProxy_IIdentity
 }
 
@@ -104,8 +107,8 @@ func (j *jsiiProxy_IGroup) AssumeRoleAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -124,8 +127,8 @@ func (j *jsiiProxy_IGroup) GrantPrincipal() IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IGroup) GroupRef() *GroupReference {
-	var returns *GroupReference
+func (j *jsiiProxy_IGroup) GroupRef() *interfacesawsiam.GroupReference {
+	var returns *interfacesawsiam.GroupReference
 	_jsii_.Get(
 		j,
 		"groupRef",

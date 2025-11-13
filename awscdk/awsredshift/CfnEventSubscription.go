@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnEventSubscription interface {
 	awscdk.CfnResource
-	IEventSubscriptionRef
 	awscdk.IInspectable
+	interfacesawsredshift.IEventSubscriptionRef
 	awscdk.ITaggable
 	// The AWS account associated with the Amazon Redshift event notification subscription.
 	AttrCustomerAwsId() *string
@@ -76,12 +78,12 @@ type CfnEventSubscription interface {
 	// A boolean value;.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the Amazon Redshift event categories to be published by the event notification subscription.
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
 	// A reference to a EventSubscription resource.
-	EventSubscriptionRef() *EventSubscriptionReference
+	EventSubscriptionRef() *interfacesawsredshift.EventSubscriptionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -266,8 +268,8 @@ type CfnEventSubscription interface {
 // The jsii proxy struct for CfnEventSubscription
 type jsiiProxy_CfnEventSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIEventSubscriptionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnEventSubscription) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnEventSubscription) EventCategories() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) EventSubscriptionRef() *EventSubscriptionReference {
-	var returns *EventSubscriptionReference
+func (j *jsiiProxy_CfnEventSubscription) EventSubscriptionRef() *interfacesawsredshift.EventSubscriptionReference {
+	var returns *interfacesawsredshift.EventSubscriptionReference
 	_jsii_.Get(
 		j,
 		"eventSubscriptionRef",
@@ -542,6 +544,7 @@ func (j *jsiiProxy_CfnEventSubscription) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::Redshift::EventSubscription`.
 func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
 	_init_.Initialize()
 
@@ -559,6 +562,7 @@ func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnE
 	return &j
 }
 
+// Create a new `AWS::Redshift::EventSubscription`.
 func NewCfnEventSubscription_Override(c CfnEventSubscription, scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnKeyGroup interface {
 	awscdk.CfnResource
-	IKeyGroupRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IKeyGroupRef
 	// The identifier for the key group.
 	AttrId() *string
 	// The date and time when the key group was last modified.
@@ -49,12 +51,12 @@ type CfnKeyGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The key group configuration.
 	KeyGroupConfig() interface{}
 	SetKeyGroupConfig(val interface{})
 	// A reference to a KeyGroup resource.
-	KeyGroupRef() *KeyGroupReference
+	KeyGroupRef() *interfacesawscloudfront.KeyGroupReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -219,8 +221,8 @@ type CfnKeyGroup interface {
 // The jsii proxy struct for CfnKeyGroup
 type jsiiProxy_CfnKeyGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKeyGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIKeyGroupRef
 }
 
 func (j *jsiiProxy_CfnKeyGroup) AttrId() *string {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnKeyGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKeyGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnKeyGroup) KeyGroupConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyGroup) KeyGroupRef() *KeyGroupReference {
-	var returns *KeyGroupReference
+func (j *jsiiProxy_CfnKeyGroup) KeyGroupRef() *interfacesawscloudfront.KeyGroupReference {
+	var returns *interfacesawscloudfront.KeyGroupReference
 	_jsii_.Get(
 		j,
 		"keyGroupRef",
@@ -374,6 +376,7 @@ func (j *jsiiProxy_CfnKeyGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFront::KeyGroup`.
 func NewCfnKeyGroup(scope constructs.Construct, id *string, props *CfnKeyGroupProps) CfnKeyGroup {
 	_init_.Initialize()
 
@@ -391,6 +394,7 @@ func NewCfnKeyGroup(scope constructs.Construct, id *string, props *CfnKeyGroupPr
 	return &j
 }
 
+// Create a new `AWS::CloudFront::KeyGroup`.
 func NewCfnKeyGroup_Override(c CfnKeyGroup, scope constructs.Construct, id *string, props *CfnKeyGroupProps) {
 	_init_.Initialize()
 

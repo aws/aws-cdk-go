@@ -44,6 +44,7 @@ type CfnDistribution_VpcOriginConfigProperty struct {
 	// Default: - 30.
 	//
 	OriginReadTimeout *float64 `field:"optional" json:"originReadTimeout" yaml:"originReadTimeout"`
+	// The account ID of the AWS account that owns the VPC origin.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-vpcoriginconfig.html#cfn-cloudfront-distribution-vpcoriginconfig-owneraccountid
 	//
 	OwnerAccountId *string `field:"optional" json:"ownerAccountId" yaml:"ownerAccountId"`

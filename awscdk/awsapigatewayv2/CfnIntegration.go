@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnIntegration interface {
 	awscdk.CfnResource
-	IIntegrationRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IIntegrationRef
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
@@ -80,12 +82,12 @@ type CfnIntegration interface {
 	// The description of the integration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the integration's HTTP method type.
 	IntegrationMethod() *string
 	SetIntegrationMethod(val *string)
 	// A reference to a Integration resource.
-	IntegrationRef() *IntegrationReference
+	IntegrationRef() *interfacesawsapigatewayv2.IntegrationReference
 	// Supported only for HTTP API `AWS_PROXY` integrations.
 	IntegrationSubtype() *string
 	SetIntegrationSubtype(val *string)
@@ -285,8 +287,8 @@ type CfnIntegration interface {
 // The jsii proxy struct for CfnIntegration
 type jsiiProxy_CfnIntegration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIntegrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IIntegrationRef
 }
 
 func (j *jsiiProxy_CfnIntegration) ApiId() *string {
@@ -399,8 +401,8 @@ func (j *jsiiProxy_CfnIntegration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIntegration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -419,8 +421,8 @@ func (j *jsiiProxy_CfnIntegration) IntegrationMethod() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) IntegrationRef() *IntegrationReference {
-	var returns *IntegrationReference
+func (j *jsiiProxy_CfnIntegration) IntegrationRef() *interfacesawsapigatewayv2.IntegrationReference {
+	var returns *interfacesawsapigatewayv2.IntegrationReference
 	_jsii_.Get(
 		j,
 		"integrationRef",
@@ -600,6 +602,7 @@ func (j *jsiiProxy_CfnIntegration) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGatewayV2::Integration`.
 func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegrationProps) CfnIntegration {
 	_init_.Initialize()
 
@@ -617,6 +620,7 @@ func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegra
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::Integration`.
 func NewCfnIntegration_Override(c CfnIntegration, scope constructs.Construct, id *string, props *CfnIntegrationProps) {
 	_init_.Initialize()
 

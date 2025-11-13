@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventschemas/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseventschemas"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnRegistry interface {
 	awscdk.CfnResource
-	IRegistryRef
 	awscdk.IInspectable
+	interfacesawseventschemas.IRegistryRef
 	awscdk.ITaggable
 	// The ARN of the registry.
 	AttrRegistryArn() *string
@@ -52,7 +54,7 @@ type CfnRegistry interface {
 	// A description of the registry to be created.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnRegistry interface {
 	RegistryName() *string
 	SetRegistryName(val *string)
 	// A reference to a Registry resource.
-	RegistryRef() *RegistryReference
+	RegistryRef() *interfacesawseventschemas.RegistryReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -227,8 +229,8 @@ type CfnRegistry interface {
 // The jsii proxy struct for CfnRegistry
 type jsiiProxy_CfnRegistry struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRegistryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventschemasIRegistryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnRegistry) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegistry) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRegistry) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnRegistry) RegistryName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegistry) RegistryRef() *RegistryReference {
-	var returns *RegistryReference
+func (j *jsiiProxy_CfnRegistry) RegistryRef() *interfacesawseventschemas.RegistryReference {
+	var returns *interfacesawseventschemas.RegistryReference
 	_jsii_.Get(
 		j,
 		"registryRef",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnRegistry) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EventSchemas::Registry`.
 func NewCfnRegistry(scope constructs.Construct, id *string, props *CfnRegistryProps) CfnRegistry {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnRegistry(scope constructs.Construct, id *string, props *CfnRegistryPr
 	return &j
 }
 
+// Create a new `AWS::EventSchemas::Registry`.
 func NewCfnRegistry_Override(c CfnRegistry, scope constructs.Construct, id *string, props *CfnRegistryProps) {
 	_init_.Initialize()
 

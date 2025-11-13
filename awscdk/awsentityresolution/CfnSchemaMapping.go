@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsentityresolution/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsentityresolution"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnSchemaMapping interface {
 	awscdk.CfnResource
-	ISchemaMappingRef
 	awscdk.IInspectable
+	interfacesawsentityresolution.ISchemaMappingRef
 	awscdk.ITaggableV2
 	// The time of this SchemaMapping got created.
 	AttrCreatedAt() *string
@@ -72,7 +74,7 @@ type CfnSchemaMapping interface {
 	// A description of the schema.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -94,7 +96,7 @@ type CfnSchemaMapping interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SchemaMapping resource.
-	SchemaMappingRef() *SchemaMappingReference
+	SchemaMappingRef() *interfacesawsentityresolution.SchemaMappingReference
 	// The name of the schema.
 	SchemaName() *string
 	SetSchemaName(val *string)
@@ -248,8 +250,8 @@ type CfnSchemaMapping interface {
 // The jsii proxy struct for CfnSchemaMapping
 type jsiiProxy_CfnSchemaMapping struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISchemaMappingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsentityresolutionISchemaMappingRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnSchemaMapping) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchemaMapping) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSchemaMapping) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnSchemaMapping) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchemaMapping) SchemaMappingRef() *SchemaMappingReference {
-	var returns *SchemaMappingReference
+func (j *jsiiProxy_CfnSchemaMapping) SchemaMappingRef() *interfacesawsentityresolution.SchemaMappingReference {
+	var returns *interfacesawsentityresolution.SchemaMappingReference
 	_jsii_.Get(
 		j,
 		"schemaMappingRef",
@@ -464,6 +466,7 @@ func (j *jsiiProxy_CfnSchemaMapping) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::EntityResolution::SchemaMapping`.
 func NewCfnSchemaMapping(scope constructs.Construct, id *string, props *CfnSchemaMappingProps) CfnSchemaMapping {
 	_init_.Initialize()
 
@@ -481,6 +484,7 @@ func NewCfnSchemaMapping(scope constructs.Construct, id *string, props *CfnSchem
 	return &j
 }
 
+// Create a new `AWS::EntityResolution::SchemaMapping`.
 func NewCfnSchemaMapping_Override(c CfnSchemaMapping, scope constructs.Construct, id *string, props *CfnSchemaMappingProps) {
 	_init_.Initialize()
 
@@ -533,13 +537,13 @@ func (j *jsiiProxy_CfnSchemaMapping)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ISchemaMappingRef from a schemaName.
-func CfnSchemaMapping_FromSchemaName(scope constructs.Construct, id *string, schemaName *string) ISchemaMappingRef {
+func CfnSchemaMapping_FromSchemaName(scope constructs.Construct, id *string, schemaName *string) interfacesawsentityresolution.ISchemaMappingRef {
 	_init_.Initialize()
 
 	if err := validateCfnSchemaMapping_FromSchemaNameParameters(scope, id, schemaName); err != nil {
 		panic(err)
 	}
-	var returns ISchemaMappingRef
+	var returns interfacesawsentityresolution.ISchemaMappingRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_entityresolution.CfnSchemaMapping",

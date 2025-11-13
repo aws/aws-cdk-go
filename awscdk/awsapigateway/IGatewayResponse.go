@@ -5,18 +5,20 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents gateway response resource.
 type IGatewayResponse interface {
-	IGatewayResponseRef
+	interfacesawsapigateway.IGatewayResponseRef
 	awscdk.IResource
 }
 
 // The jsii proxy for IGatewayResponse
 type jsiiProxy_IGatewayResponse struct {
-	jsiiProxy_IGatewayResponseRef
+	internal.Type__interfacesawsapigatewayIGatewayResponseRef
 	internal.Type__awscdkIResource
 }
 
@@ -31,8 +33,8 @@ func (i *jsiiProxy_IGatewayResponse) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
-func (j *jsiiProxy_IGatewayResponse) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IGatewayResponse) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -41,8 +43,8 @@ func (j *jsiiProxy_IGatewayResponse) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IGatewayResponse) GatewayResponseRef() *GatewayResponseReference {
-	var returns *GatewayResponseReference
+func (j *jsiiProxy_IGatewayResponse) GatewayResponseRef() *interfacesawsapigateway.GatewayResponseReference {
+	var returns *interfacesawsapigateway.GatewayResponseReference
 	_jsii_.Get(
 		j,
 		"gatewayResponseRef",

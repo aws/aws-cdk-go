@@ -67,8 +67,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConnectAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnectAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerIConnectAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -149,8 +149,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConnectPeer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnectPeerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerIConnectPeerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -224,8 +224,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCoreNetwork{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICoreNetworkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerICoreNetworkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -294,8 +294,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCustomerGatewayAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICustomerGatewayAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerICustomerGatewayAssociationRef)
 			return &j
 		},
 	)
@@ -358,8 +358,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDevice{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeviceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerIDeviceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -435,8 +435,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDirectConnectGatewayAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDirectConnectGatewayAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerIDirectConnectGatewayAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -500,8 +500,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGlobalNetwork{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGlobalNetworkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerIGlobalNetworkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -562,8 +562,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLink{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILinkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerILinkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -615,8 +615,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLinkAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILinkAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerILinkAssociationRef)
 			return &j
 		},
 	)
@@ -677,8 +677,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSite{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISiteRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerISiteRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -750,8 +750,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSiteToSiteVpnAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISiteToSiteVpnAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerISiteToSiteVpnAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -822,8 +822,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayPeering{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITransitGatewayPeeringRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerITransitGatewayPeeringRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -874,8 +874,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayRegistration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITransitGatewayRegistrationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerITransitGatewayRegistrationRef)
 			return &j
 		},
 	)
@@ -943,8 +943,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayRouteTableAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITransitGatewayRouteTableAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerITransitGatewayRouteTableAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1022,8 +1022,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVpcAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpcAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsnetworkmanagerIVpcAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1043,290 +1043,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnVpcAttachmentProps",
 		reflect.TypeOf((*CfnVpcAttachmentProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.ConnectAttachmentReference",
-		reflect.TypeOf((*ConnectAttachmentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.ConnectPeerReference",
-		reflect.TypeOf((*ConnectPeerReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.CoreNetworkReference",
-		reflect.TypeOf((*CoreNetworkReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.CustomerGatewayAssociationReference",
-		reflect.TypeOf((*CustomerGatewayAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.DeviceReference",
-		reflect.TypeOf((*DeviceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.DirectConnectGatewayAttachmentReference",
-		reflect.TypeOf((*DirectConnectGatewayAttachmentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.GlobalNetworkReference",
-		reflect.TypeOf((*GlobalNetworkReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.IConnectAttachmentRef",
-		reflect.TypeOf((*IConnectAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectAttachmentRef", GoGetter: "ConnectAttachmentRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConnectAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.IConnectPeerRef",
-		reflect.TypeOf((*IConnectPeerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectPeerRef", GoGetter: "ConnectPeerRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConnectPeerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ICoreNetworkRef",
-		reflect.TypeOf((*ICoreNetworkRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "coreNetworkRef", GoGetter: "CoreNetworkRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICoreNetworkRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ICustomerGatewayAssociationRef",
-		reflect.TypeOf((*ICustomerGatewayAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "customerGatewayAssociationRef", GoGetter: "CustomerGatewayAssociationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICustomerGatewayAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.IDeviceRef",
-		reflect.TypeOf((*IDeviceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deviceRef", GoGetter: "DeviceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeviceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.IDirectConnectGatewayAttachmentRef",
-		reflect.TypeOf((*IDirectConnectGatewayAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "directConnectGatewayAttachmentRef", GoGetter: "DirectConnectGatewayAttachmentRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDirectConnectGatewayAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.IGlobalNetworkRef",
-		reflect.TypeOf((*IGlobalNetworkRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "globalNetworkRef", GoGetter: "GlobalNetworkRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGlobalNetworkRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ILinkAssociationRef",
-		reflect.TypeOf((*ILinkAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "linkAssociationRef", GoGetter: "LinkAssociationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILinkAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ILinkRef",
-		reflect.TypeOf((*ILinkRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "linkRef", GoGetter: "LinkRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILinkRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ISiteRef",
-		reflect.TypeOf((*ISiteRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "siteRef", GoGetter: "SiteRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISiteRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ISiteToSiteVpnAttachmentRef",
-		reflect.TypeOf((*ISiteToSiteVpnAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "siteToSiteVpnAttachmentRef", GoGetter: "SiteToSiteVpnAttachmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISiteToSiteVpnAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ITransitGatewayPeeringRef",
-		reflect.TypeOf((*ITransitGatewayPeeringRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPeeringRef", GoGetter: "TransitGatewayPeeringRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITransitGatewayPeeringRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ITransitGatewayRegistrationRef",
-		reflect.TypeOf((*ITransitGatewayRegistrationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRegistrationRef", GoGetter: "TransitGatewayRegistrationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITransitGatewayRegistrationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.ITransitGatewayRouteTableAttachmentRef",
-		reflect.TypeOf((*ITransitGatewayRouteTableAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteTableAttachmentRef", GoGetter: "TransitGatewayRouteTableAttachmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITransitGatewayRouteTableAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_networkmanager.IVpcAttachmentRef",
-		reflect.TypeOf((*IVpcAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcAttachmentRef", GoGetter: "VpcAttachmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVpcAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.LinkAssociationReference",
-		reflect.TypeOf((*LinkAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.LinkReference",
-		reflect.TypeOf((*LinkReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.SiteReference",
-		reflect.TypeOf((*SiteReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.SiteToSiteVpnAttachmentReference",
-		reflect.TypeOf((*SiteToSiteVpnAttachmentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.TransitGatewayPeeringReference",
-		reflect.TypeOf((*TransitGatewayPeeringReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.TransitGatewayRegistrationReference",
-		reflect.TypeOf((*TransitGatewayRegistrationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.TransitGatewayRouteTableAttachmentReference",
-		reflect.TypeOf((*TransitGatewayRouteTableAttachmentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_networkmanager.VpcAttachmentReference",
-		reflect.TypeOf((*VpcAttachmentReference)(nil)).Elem(),
 	)
 }

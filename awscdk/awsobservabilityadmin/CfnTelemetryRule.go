@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsobservabilityadmin/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsobservabilityadmin"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnTelemetryRule interface {
 	awscdk.CfnResource
-	ITelemetryRuleRef
 	awscdk.IInspectable
+	interfacesawsobservabilityadmin.ITelemetryRuleRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the telemetry rule.
 	AttrRuleArn() *string
@@ -67,7 +69,7 @@ type CfnTelemetryRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -99,7 +101,7 @@ type CfnTelemetryRule interface {
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// A reference to a TelemetryRule resource.
-	TelemetryRuleRef() *TelemetryRuleReference
+	TelemetryRuleRef() *interfacesawsobservabilityadmin.TelemetryRuleReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -243,8 +245,8 @@ type CfnTelemetryRule interface {
 // The jsii proxy struct for CfnTelemetryRule
 type jsiiProxy_CfnTelemetryRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITelemetryRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsobservabilityadminITelemetryRuleRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnTelemetryRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTelemetryRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTelemetryRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnTelemetryRule) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTelemetryRule) TelemetryRuleRef() *TelemetryRuleReference {
-	var returns *TelemetryRuleReference
+func (j *jsiiProxy_CfnTelemetryRule) TelemetryRuleRef() *interfacesawsobservabilityadmin.TelemetryRuleReference {
+	var returns *interfacesawsobservabilityadmin.TelemetryRuleReference
 	_jsii_.Get(
 		j,
 		"telemetryRuleRef",
@@ -419,6 +421,7 @@ func (j *jsiiProxy_CfnTelemetryRule) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::ObservabilityAdmin::TelemetryRule`.
 func NewCfnTelemetryRule(scope constructs.Construct, id *string, props *CfnTelemetryRuleProps) CfnTelemetryRule {
 	_init_.Initialize()
 
@@ -436,6 +439,7 @@ func NewCfnTelemetryRule(scope constructs.Construct, id *string, props *CfnTelem
 	return &j
 }
 
+// Create a new `AWS::ObservabilityAdmin::TelemetryRule`.
 func NewCfnTelemetryRule_Override(c CfnTelemetryRule, scope constructs.Construct, id *string, props *CfnTelemetryRuleProps) {
 	_init_.Initialize()
 

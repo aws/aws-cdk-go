@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskendraranking/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskendraranking"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnExecutionPlan interface {
 	awscdk.CfnResource
-	IExecutionPlanRef
 	awscdk.IInspectable
+	interfacesawskendraranking.IExecutionPlanRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the rescore execution plan.
 	AttrArn() *string
@@ -62,9 +64,9 @@ type CfnExecutionPlan interface {
 	// A description for the rescore execution plan.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a ExecutionPlan resource.
-	ExecutionPlanRef() *ExecutionPlanReference
+	ExecutionPlanRef() *interfacesawskendraranking.ExecutionPlanReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,8 +239,8 @@ type CfnExecutionPlan interface {
 // The jsii proxy struct for CfnExecutionPlan
 type jsiiProxy_CfnExecutionPlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IExecutionPlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskendrarankingIExecutionPlanRef
 	internal.Type__awscdkITaggable
 }
 
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnExecutionPlan) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExecutionPlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnExecutionPlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnExecutionPlan) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExecutionPlan) ExecutionPlanRef() *ExecutionPlanReference {
-	var returns *ExecutionPlanReference
+func (j *jsiiProxy_CfnExecutionPlan) ExecutionPlanRef() *interfacesawskendraranking.ExecutionPlanReference {
+	var returns *interfacesawskendraranking.ExecutionPlanReference
 	_jsii_.Get(
 		j,
 		"executionPlanRef",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnExecutionPlan) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::KendraRanking::ExecutionPlan`.
 func NewCfnExecutionPlan(scope constructs.Construct, id *string, props *CfnExecutionPlanProps) CfnExecutionPlan {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnExecutionPlan(scope constructs.Construct, id *string, props *CfnExecu
 	return &j
 }
 
+// Create a new `AWS::KendraRanking::ExecutionPlan`.
 func NewCfnExecutionPlan_Override(c CfnExecutionPlan, scope constructs.Construct, id *string, props *CfnExecutionPlanProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnLogStream interface {
 	awscdk.CfnResource
-	ILogStreamRef
 	awscdk.IInspectable
+	interfacesawslogs.ILogStreamRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -48,7 +50,7 @@ type CfnLogStream interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the log group where the log stream is created.
 	LogGroupName() *string
 	SetLogGroupName(val *string)
@@ -66,7 +68,7 @@ type CfnLogStream interface {
 	LogStreamName() *string
 	SetLogStreamName(val *string)
 	// A reference to a LogStream resource.
-	LogStreamRef() *LogStreamReference
+	LogStreamRef() *interfacesawslogs.LogStreamReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -221,8 +223,8 @@ type CfnLogStream interface {
 // The jsii proxy struct for CfnLogStream
 type jsiiProxy_CfnLogStream struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILogStreamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsILogStreamRef
 }
 
 func (j *jsiiProxy_CfnLogStream) CfnOptions() awscdk.ICfnResourceOptions {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnLogStream) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogStream) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLogStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnLogStream) LogStreamName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogStream) LogStreamRef() *LogStreamReference {
-	var returns *LogStreamReference
+func (j *jsiiProxy_CfnLogStream) LogStreamRef() *interfacesawslogs.LogStreamReference {
+	var returns *interfacesawslogs.LogStreamReference
 	_jsii_.Get(
 		j,
 		"logStreamRef",
@@ -366,6 +368,7 @@ func (j *jsiiProxy_CfnLogStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Logs::LogStream`.
 func NewCfnLogStream(scope constructs.Construct, id *string, props *CfnLogStreamProps) CfnLogStream {
 	_init_.Initialize()
 
@@ -383,6 +386,7 @@ func NewCfnLogStream(scope constructs.Construct, id *string, props *CfnLogStream
 	return &j
 }
 
+// Create a new `AWS::Logs::LogStream`.
 func NewCfnLogStream_Override(c CfnLogStream, scope constructs.Construct, id *string, props *CfnLogStreamProps) {
 	_init_.Initialize()
 

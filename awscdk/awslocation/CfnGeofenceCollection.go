@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslocation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslocation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnGeofenceCollection interface {
 	awscdk.CfnResource
-	IGeofenceCollectionRef
 	awscdk.IInspectable
+	interfacesawslocation.IGeofenceCollectionRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the geofence collection resource.
 	//
@@ -72,9 +74,9 @@ type CfnGeofenceCollection interface {
 	// An optional description for the geofence collection.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a GeofenceCollection resource.
-	GeofenceCollectionRef() *GeofenceCollectionReference
+	GeofenceCollectionRef() *interfacesawslocation.GeofenceCollectionReference
 	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -254,8 +256,8 @@ type CfnGeofenceCollection interface {
 // The jsii proxy struct for CfnGeofenceCollection
 type jsiiProxy_CfnGeofenceCollection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGeofenceCollectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslocationIGeofenceCollectionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnGeofenceCollection) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGeofenceCollection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGeofenceCollection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnGeofenceCollection) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGeofenceCollection) GeofenceCollectionRef() *GeofenceCollectionReference {
-	var returns *GeofenceCollectionReference
+func (j *jsiiProxy_CfnGeofenceCollection) GeofenceCollectionRef() *interfacesawslocation.GeofenceCollectionReference {
+	var returns *interfacesawslocation.GeofenceCollectionReference
 	_jsii_.Get(
 		j,
 		"geofenceCollectionRef",
@@ -490,6 +492,7 @@ func (j *jsiiProxy_CfnGeofenceCollection) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Location::GeofenceCollection`.
 func NewCfnGeofenceCollection(scope constructs.Construct, id *string, props *CfnGeofenceCollectionProps) CfnGeofenceCollection {
 	_init_.Initialize()
 
@@ -507,6 +510,7 @@ func NewCfnGeofenceCollection(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Location::GeofenceCollection`.
 func NewCfnGeofenceCollection_Override(c CfnGeofenceCollection, scope constructs.Construct, id *string, props *CfnGeofenceCollectionProps) {
 	_init_.Initialize()
 
@@ -572,13 +576,13 @@ func (j *jsiiProxy_CfnGeofenceCollection)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IGeofenceCollectionRef from a collectionName.
-func CfnGeofenceCollection_FromCollectionName(scope constructs.Construct, id *string, collectionName *string) IGeofenceCollectionRef {
+func CfnGeofenceCollection_FromCollectionName(scope constructs.Construct, id *string, collectionName *string) interfacesawslocation.IGeofenceCollectionRef {
 	_init_.Initialize()
 
 	if err := validateCfnGeofenceCollection_FromCollectionNameParameters(scope, id, collectionName); err != nil {
 		panic(err)
 	}
-	var returns IGeofenceCollectionRef
+	var returns interfacesawslocation.IGeofenceCollectionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnGeofenceCollection",
@@ -591,13 +595,13 @@ func CfnGeofenceCollection_FromCollectionName(scope constructs.Construct, id *st
 }
 
 // Creates a new IGeofenceCollectionRef from an ARN.
-func CfnGeofenceCollection_FromGeofenceCollectionArn(scope constructs.Construct, id *string, arn *string) IGeofenceCollectionRef {
+func CfnGeofenceCollection_FromGeofenceCollectionArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.IGeofenceCollectionRef {
 	_init_.Initialize()
 
 	if err := validateCfnGeofenceCollection_FromGeofenceCollectionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IGeofenceCollectionRef
+	var returns interfacesawslocation.IGeofenceCollectionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnGeofenceCollection",

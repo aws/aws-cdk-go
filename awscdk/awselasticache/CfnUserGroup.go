@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnUserGroup interface {
 	awscdk.CfnResource
-	IUserGroupRef
 	awscdk.IInspectable
+	interfacesawselasticache.IUserGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the user group.
 	AttrArn() *string
@@ -57,7 +59,7 @@ type CfnUserGroup interface {
 	// The current supported values are valkey and redis.
 	Engine() *string
 	SetEngine(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnUserGroup interface {
 	UserGroupId() *string
 	SetUserGroupId(val *string)
 	// A reference to a UserGroup resource.
-	UserGroupRef() *UserGroupReference
+	UserGroupRef() *interfacesawselasticache.UserGroupReference
 	// The list of user IDs that belong to the user group.
 	UserIds() *[]*string
 	SetUserIds(val *[]*string)
@@ -235,8 +237,8 @@ type CfnUserGroup interface {
 // The jsii proxy struct for CfnUserGroup
 type jsiiProxy_CfnUserGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheIUserGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnUserGroup) Engine() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -410,8 +412,8 @@ func (j *jsiiProxy_CfnUserGroup) UserGroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserGroup) UserGroupRef() *UserGroupReference {
-	var returns *UserGroupReference
+func (j *jsiiProxy_CfnUserGroup) UserGroupRef() *interfacesawselasticache.UserGroupReference {
+	var returns *interfacesawselasticache.UserGroupReference
 	_jsii_.Get(
 		j,
 		"userGroupRef",
@@ -431,6 +433,7 @@ func (j *jsiiProxy_CfnUserGroup) UserIds() *[]*string {
 }
 
 
+// Create a new `AWS::ElastiCache::UserGroup`.
 func NewCfnUserGroup(scope constructs.Construct, id *string, props *CfnUserGroupProps) CfnUserGroup {
 	_init_.Initialize()
 
@@ -448,6 +451,7 @@ func NewCfnUserGroup(scope constructs.Construct, id *string, props *CfnUserGroup
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::UserGroup`.
 func NewCfnUserGroup_Override(c CfnUserGroup, scope constructs.Construct, id *string, props *CfnUserGroupProps) {
 	_init_.Initialize()
 
@@ -503,13 +507,13 @@ func (j *jsiiProxy_CfnUserGroup)SetUserIds(val *[]*string) {
 }
 
 // Creates a new IUserGroupRef from an ARN.
-func CfnUserGroup_FromUserGroupArn(scope constructs.Construct, id *string, arn *string) IUserGroupRef {
+func CfnUserGroup_FromUserGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawselasticache.IUserGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnUserGroup_FromUserGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IUserGroupRef
+	var returns interfacesawselasticache.IUserGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
@@ -522,13 +526,13 @@ func CfnUserGroup_FromUserGroupArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IUserGroupRef from a userGroupId.
-func CfnUserGroup_FromUserGroupId(scope constructs.Construct, id *string, userGroupId *string) IUserGroupRef {
+func CfnUserGroup_FromUserGroupId(scope constructs.Construct, id *string, userGroupId *string) interfacesawselasticache.IUserGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnUserGroup_FromUserGroupIdParameters(scope, id, userGroupId); err != nil {
 		panic(err)
 	}
-	var returns IUserGroupRef
+	var returns interfacesawselasticache.IUserGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnUserGroup",

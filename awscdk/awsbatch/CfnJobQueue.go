@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnJobQueue interface {
 	awscdk.CfnResource
-	IJobQueueRef
 	awscdk.IInspectable
+	interfacesawsbatch.IJobQueueRef
 	awscdk.ITaggable
 	// Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
 	AttrJobQueueArn() *string
@@ -72,12 +74,12 @@ type CfnJobQueue interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the job queue.
 	JobQueueName() *string
 	SetJobQueueName(val *string)
 	// A reference to a JobQueue resource.
-	JobQueueRef() *JobQueueReference
+	JobQueueRef() *interfacesawsbatch.JobQueueReference
 	// The type of job queue.
 	JobQueueType() *string
 	SetJobQueueType(val *string)
@@ -265,8 +267,8 @@ type CfnJobQueue interface {
 // The jsii proxy struct for CfnJobQueue
 type jsiiProxy_CfnJobQueue struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IJobQueueRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbatchIJobQueueRef
 	internal.Type__awscdkITaggable
 }
 
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnJobQueue) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobQueue) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnJobQueue) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnJobQueue) JobQueueName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobQueue) JobQueueRef() *JobQueueReference {
-	var returns *JobQueueReference
+func (j *jsiiProxy_CfnJobQueue) JobQueueRef() *interfacesawsbatch.JobQueueReference {
+	var returns *interfacesawsbatch.JobQueueReference
 	_jsii_.Get(
 		j,
 		"jobQueueRef",
@@ -501,6 +503,7 @@ func (j *jsiiProxy_CfnJobQueue) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Batch::JobQueue`.
 func NewCfnJobQueue(scope constructs.Construct, id *string, props *CfnJobQueueProps) CfnJobQueue {
 	_init_.Initialize()
 
@@ -518,6 +521,7 @@ func NewCfnJobQueue(scope constructs.Construct, id *string, props *CfnJobQueuePr
 	return &j
 }
 
+// Create a new `AWS::Batch::JobQueue`.
 func NewCfnJobQueue_Override(c CfnJobQueue, scope constructs.Construct, id *string, props *CfnJobQueueProps) {
 	_init_.Initialize()
 

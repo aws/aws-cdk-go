@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdkapprunneralpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -55,7 +56,7 @@ type VpcConnector interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -129,8 +130,8 @@ func (j *jsiiProxy_VpcConnector) Connections() awsec2.Connections {
 	return returns
 }
 
-func (j *jsiiProxy_VpcConnector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_VpcConnector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

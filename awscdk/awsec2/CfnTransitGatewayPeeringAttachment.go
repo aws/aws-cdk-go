@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnTransitGatewayPeeringAttachment interface {
 	awscdk.CfnResource
-	ITransitGatewayPeeringAttachmentRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayPeeringAttachmentRef
 	awscdk.ITaggable
 	// The time the transit gateway peering attachment was created.
 	AttrCreationTime() *string
@@ -62,7 +64,7 @@ type CfnTransitGatewayPeeringAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -102,7 +104,7 @@ type CfnTransitGatewayPeeringAttachment interface {
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
 	// A reference to a TransitGatewayPeeringAttachment resource.
-	TransitGatewayPeeringAttachmentRef() *TransitGatewayPeeringAttachmentReference
+	TransitGatewayPeeringAttachmentRef() *interfacesawsec2.TransitGatewayPeeringAttachmentReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,8 +248,8 @@ type CfnTransitGatewayPeeringAttachment interface {
 // The jsii proxy struct for CfnTransitGatewayPeeringAttachment
 type jsiiProxy_CfnTransitGatewayPeeringAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayPeeringAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayPeeringAttachmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) CreationStack() *[]*strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -461,8 +463,8 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) TransitGatewayId() *strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) TransitGatewayPeeringAttachmentRef() *TransitGatewayPeeringAttachmentReference {
-	var returns *TransitGatewayPeeringAttachmentReference
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) TransitGatewayPeeringAttachmentRef() *interfacesawsec2.TransitGatewayPeeringAttachmentReference {
+	var returns *interfacesawsec2.TransitGatewayPeeringAttachmentReference
 	_jsii_.Get(
 		j,
 		"transitGatewayPeeringAttachmentRef",
@@ -492,6 +494,7 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) UpdatedProperties() *map[
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayPeeringAttachment`.
 func NewCfnTransitGatewayPeeringAttachment(scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) CfnTransitGatewayPeeringAttachment {
 	_init_.Initialize()
 
@@ -509,6 +512,7 @@ func NewCfnTransitGatewayPeeringAttachment(scope constructs.Construct, id *strin
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayPeeringAttachment`.
 func NewCfnTransitGatewayPeeringAttachment_Override(c CfnTransitGatewayPeeringAttachment, scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) {
 	_init_.Initialize()
 
@@ -575,13 +579,13 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetTransitGatewayId(val *s
 }
 
 // Creates a new ITransitGatewayPeeringAttachmentRef from a transitGatewayAttachmentId.
-func CfnTransitGatewayPeeringAttachment_FromTransitGatewayAttachmentId(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) ITransitGatewayPeeringAttachmentRef {
+func CfnTransitGatewayPeeringAttachment_FromTransitGatewayAttachmentId(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) interfacesawsec2.ITransitGatewayPeeringAttachmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnTransitGatewayPeeringAttachment_FromTransitGatewayAttachmentIdParameters(scope, id, transitGatewayAttachmentId); err != nil {
 		panic(err)
 	}
-	var returns ITransitGatewayPeeringAttachmentRef
+	var returns interfacesawsec2.ITransitGatewayPeeringAttachmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",

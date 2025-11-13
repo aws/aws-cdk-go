@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3tables/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3tables"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnNamespace interface {
 	awscdk.CfnResource
-	INamespaceRef
 	awscdk.IInspectable
+	interfacesawss3tables.INamespaceRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -43,7 +45,7 @@ type CfnNamespace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -58,7 +60,7 @@ type CfnNamespace interface {
 	Namespace() *string
 	SetNamespace(val *string)
 	// A reference to a Namespace resource.
-	NamespaceRef() *NamespaceReference
+	NamespaceRef() *interfacesawss3tables.NamespaceReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -216,8 +218,8 @@ type CfnNamespace interface {
 // The jsii proxy struct for CfnNamespace
 type jsiiProxy_CfnNamespace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INamespaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3tablesINamespaceRef
 }
 
 func (j *jsiiProxy_CfnNamespace) CfnOptions() awscdk.ICfnResourceOptions {
@@ -260,8 +262,8 @@ func (j *jsiiProxy_CfnNamespace) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNamespace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNamespace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnNamespace) Namespace() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNamespace) NamespaceRef() *NamespaceReference {
-	var returns *NamespaceReference
+func (j *jsiiProxy_CfnNamespace) NamespaceRef() *interfacesawss3tables.NamespaceReference {
+	var returns *interfacesawss3tables.NamespaceReference
 	_jsii_.Get(
 		j,
 		"namespaceRef",
@@ -361,6 +363,7 @@ func (j *jsiiProxy_CfnNamespace) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::S3Tables::Namespace`.
 func NewCfnNamespace(scope constructs.Construct, id *string, props *CfnNamespaceProps) CfnNamespace {
 	_init_.Initialize()
 
@@ -378,6 +381,7 @@ func NewCfnNamespace(scope constructs.Construct, id *string, props *CfnNamespace
 	return &j
 }
 
+// Create a new `AWS::S3Tables::Namespace`.
 func NewCfnNamespace_Override(c CfnNamespace, scope constructs.Construct, id *string, props *CfnNamespaceProps) {
 	_init_.Initialize()
 

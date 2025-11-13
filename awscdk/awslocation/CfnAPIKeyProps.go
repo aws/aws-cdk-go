@@ -22,6 +22,17 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		AllowAndroidApps: []interface{}{
+//   			&AndroidAppProperty{
+//   				CertificateFingerprint: jsii.String("certificateFingerprint"),
+//   				Package: jsii.String("package"),
+//   			},
+//   		},
+//   		AllowAppleApps: []interface{}{
+//   			&AppleAppProperty{
+//   				BundleId: jsii.String("bundleId"),
+//   			},
+//   		},
 //   		AllowReferers: []*string{
 //   			jsii.String("allowReferers"),
 //   		},

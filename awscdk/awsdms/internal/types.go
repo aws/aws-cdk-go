@@ -1,11 +1,20 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsdmsICertificateRef = interfacesawsdms.ICertificateRef
+type Type__interfacesawsdmsIDataMigrationRef = interfacesawsdms.IDataMigrationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsdmsIDataProviderRef = interfacesawsdms.IDataProviderRef
+type Type__interfacesawsdmsIEndpointRef = interfacesawsdms.IEndpointRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsdmsIEventSubscriptionRef = interfacesawsdms.IEventSubscriptionRef
+type Type__interfacesawsdmsIInstanceProfileRef = interfacesawsdms.IInstanceProfileRef
+type Type__interfacesawsdmsIMigrationProjectRef = interfacesawsdms.IMigrationProjectRef
+type Type__interfacesawsdmsIReplicationConfigRef = interfacesawsdms.IReplicationConfigRef
+type Type__interfacesawsdmsIReplicationInstanceRef = interfacesawsdms.IReplicationInstanceRef
+type Type__interfacesawsdmsIReplicationSubnetGroupRef = interfacesawsdms.IReplicationSubnetGroupRef
+type Type__interfacesawsdmsIReplicationTaskRef = interfacesawsdms.IReplicationTaskRef

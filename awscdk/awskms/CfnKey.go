@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -81,8 +83,8 @@ import (
 //
 type CfnKey interface {
 	awscdk.CfnResource
-	IKeyRef
 	awscdk.IInspectable
+	interfacesawskms.IKeyRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
 	//
@@ -117,12 +119,12 @@ type CfnKey interface {
 	// Enables automatic rotation of the key material for the specified KMS key.
 	EnableKeyRotation() interface{}
 	SetEnableKeyRotation(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The key policy to attach to the KMS key.
 	KeyPolicy() interface{}
 	SetKeyPolicy(val interface{})
 	// A reference to a Key resource.
-	KeyRef() *KeyReference
+	KeyRef() *interfacesawskms.KeyReference
 	// Specifies the type of KMS key to create.
 	KeySpec() *string
 	SetKeySpec(val *string)
@@ -310,8 +312,8 @@ type CfnKey interface {
 // The jsii proxy struct for CfnKey
 type jsiiProxy_CfnKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskmsIKeyRef
 	internal.Type__awscdkITaggable
 }
 
@@ -415,8 +417,8 @@ func (j *jsiiProxy_CfnKey) EnableKeyRotation() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -435,8 +437,8 @@ func (j *jsiiProxy_CfnKey) KeyPolicy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKey) KeyRef() *KeyReference {
-	var returns *KeyReference
+func (j *jsiiProxy_CfnKey) KeyRef() *interfacesawskms.KeyReference {
+	var returns *interfacesawskms.KeyReference
 	_jsii_.Get(
 		j,
 		"keyRef",
@@ -586,6 +588,7 @@ func (j *jsiiProxy_CfnKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::KMS::Key`.
 func NewCfnKey(scope constructs.Construct, id *string, props *CfnKeyProps) CfnKey {
 	_init_.Initialize()
 
@@ -603,6 +606,7 @@ func NewCfnKey(scope constructs.Construct, id *string, props *CfnKeyProps) CfnKe
 	return &j
 }
 
+// Create a new `AWS::KMS::Key`.
 func NewCfnKey_Override(c CfnKey, scope constructs.Construct, id *string, props *CfnKeyProps) {
 	_init_.Initialize()
 
@@ -725,13 +729,13 @@ func (j *jsiiProxy_CfnKey)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IKeyRef from an ARN.
-func CfnKey_FromKeyArn(scope constructs.Construct, id *string, arn *string) IKeyRef {
+func CfnKey_FromKeyArn(scope constructs.Construct, id *string, arn *string) interfacesawskms.IKeyRef {
 	_init_.Initialize()
 
 	if err := validateCfnKey_FromKeyArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IKeyRef
+	var returns interfacesawskms.IKeyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kms.CfnKey",
@@ -744,13 +748,13 @@ func CfnKey_FromKeyArn(scope constructs.Construct, id *string, arn *string) IKey
 }
 
 // Creates a new IKeyRef from a keyId.
-func CfnKey_FromKeyId(scope constructs.Construct, id *string, keyId *string) IKeyRef {
+func CfnKey_FromKeyId(scope constructs.Construct, id *string, keyId *string) interfacesawskms.IKeyRef {
 	_init_.Initialize()
 
 	if err := validateCfnKey_FromKeyIdParameters(scope, id, keyId); err != nil {
 		panic(err)
 	}
-	var returns IKeyRef
+	var returns interfacesawskms.IKeyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kms.CfnKey",

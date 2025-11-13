@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodestarnotifications"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnNotificationRule interface {
 	awscdk.CfnResource
-	INotificationRuleRef
 	awscdk.IInspectable
+	interfacesawscodestarnotifications.INotificationRuleRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the notification rule.
 	AttrArn() *string
@@ -66,7 +68,7 @@ type CfnNotificationRule interface {
 	// The level of detail to include in the notifications for this resource.
 	DetailType() *string
 	SetDetailType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The event type associated with this notification rule.
 	EventTypeId() *string
 	SetEventTypeId(val *string)
@@ -89,7 +91,7 @@ type CfnNotificationRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a NotificationRule resource.
-	NotificationRuleRef() *NotificationRuleReference
+	NotificationRuleRef() *interfacesawscodestarnotifications.NotificationRuleReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -259,8 +261,8 @@ type CfnNotificationRule interface {
 // The jsii proxy struct for CfnNotificationRule
 type jsiiProxy_CfnNotificationRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INotificationRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodestarnotificationsINotificationRuleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnNotificationRule) DetailType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNotificationRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnNotificationRule) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationRule) NotificationRuleRef() *NotificationRuleReference {
-	var returns *NotificationRuleReference
+func (j *jsiiProxy_CfnNotificationRule) NotificationRuleRef() *interfacesawscodestarnotifications.NotificationRuleReference {
+	var returns *interfacesawscodestarnotifications.NotificationRuleReference
 	_jsii_.Get(
 		j,
 		"notificationRuleRef",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnNotificationRule) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::CodeStarNotifications::NotificationRule`.
 func NewCfnNotificationRule(scope constructs.Construct, id *string, props *CfnNotificationRuleProps) CfnNotificationRule {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnNotificationRule(scope constructs.Construct, id *string, props *CfnNo
 	return &j
 }
 
+// Create a new `AWS::CodeStarNotifications::NotificationRule`.
 func NewCfnNotificationRule_Override(c CfnNotificationRule, scope constructs.Construct, id *string, props *CfnNotificationRuleProps) {
 	_init_.Initialize()
 

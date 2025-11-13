@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnDestination interface {
 	awscdk.CfnResource
-	IDestinationRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.IDestinationRef
 	awscdk.ITaggable
 	// The ARN of the destination created.
 	AttrArn() *string
@@ -54,8 +56,8 @@ type CfnDestination interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a Destination resource.
-	DestinationRef() *DestinationReference
-	Env() *awscdk.ResourceEnvironment
+	DestinationRef() *interfacesawsiotwireless.DestinationReference
+	Env() *interfaces.ResourceEnvironment
 	// The rule name to send messages to.
 	Expression() *string
 	SetExpression(val *string)
@@ -237,8 +239,8 @@ type CfnDestination interface {
 // The jsii proxy struct for CfnDestination
 type jsiiProxy_CfnDestination struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDestinationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessIDestinationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnDestination) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDestination) DestinationRef() *DestinationReference {
-	var returns *DestinationReference
+func (j *jsiiProxy_CfnDestination) DestinationRef() *interfacesawsiotwireless.DestinationReference {
+	var returns *interfacesawsiotwireless.DestinationReference
 	_jsii_.Get(
 		j,
 		"destinationRef",
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnDestination) DestinationRef() *DestinationReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDestination) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnDestination) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTWireless::Destination`.
 func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestinationProps) CfnDestination {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestina
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::Destination`.
 func NewCfnDestination_Override(c CfnDestination, scope constructs.Construct, id *string, props *CfnDestinationProps) {
 	_init_.Initialize()
 
@@ -531,13 +535,13 @@ func (j *jsiiProxy_CfnDestination)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDestinationRef from an ARN.
-func CfnDestination_FromDestinationArn(scope constructs.Construct, id *string, arn *string) IDestinationRef {
+func CfnDestination_FromDestinationArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IDestinationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDestination_FromDestinationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDestinationRef
+	var returns interfacesawsiotwireless.IDestinationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnDestination",
@@ -550,13 +554,13 @@ func CfnDestination_FromDestinationArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IDestinationRef from a destinationName.
-func CfnDestination_FromDestinationName(scope constructs.Construct, id *string, destinationName *string) IDestinationRef {
+func CfnDestination_FromDestinationName(scope constructs.Construct, id *string, destinationName *string) interfacesawsiotwireless.IDestinationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDestination_FromDestinationNameParameters(scope, id, destinationName); err != nil {
 		panic(err)
 	}
-	var returns IDestinationRef
+	var returns interfacesawsiotwireless.IDestinationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnDestination",

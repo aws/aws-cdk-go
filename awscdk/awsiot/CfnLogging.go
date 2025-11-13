@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnLogging interface {
 	awscdk.CfnResource
-	ILoggingRef
 	awscdk.IInspectable
+	interfacesawsiot.ILoggingRef
 	// The account ID.
 	AccountId() *string
 	SetAccountId(val *string)
@@ -48,9 +50,9 @@ type CfnLogging interface {
 	// The default log level.
 	DefaultLogLevel() *string
 	SetDefaultLogLevel(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Logging resource.
-	LoggingRef() *LoggingReference
+	LoggingRef() *interfacesawsiot.LoggingReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -218,8 +220,8 @@ type CfnLogging interface {
 // The jsii proxy struct for CfnLogging
 type jsiiProxy_CfnLogging struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoggingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotILoggingRef
 }
 
 func (j *jsiiProxy_CfnLogging) AccountId() *string {
@@ -282,8 +284,8 @@ func (j *jsiiProxy_CfnLogging) DefaultLogLevel() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogging) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLogging) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -292,8 +294,8 @@ func (j *jsiiProxy_CfnLogging) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogging) LoggingRef() *LoggingReference {
-	var returns *LoggingReference
+func (j *jsiiProxy_CfnLogging) LoggingRef() *interfacesawsiot.LoggingReference {
+	var returns *interfacesawsiot.LoggingReference
 	_jsii_.Get(
 		j,
 		"loggingRef",
@@ -373,6 +375,7 @@ func (j *jsiiProxy_CfnLogging) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::Logging`.
 func NewCfnLogging(scope constructs.Construct, id *string, props *CfnLoggingProps) CfnLogging {
 	_init_.Initialize()
 
@@ -390,6 +393,7 @@ func NewCfnLogging(scope constructs.Construct, id *string, props *CfnLoggingProp
 	return &j
 }
 
+// Create a new `AWS::IoT::Logging`.
 func NewCfnLogging_Override(c CfnLogging, scope constructs.Construct, id *string, props *CfnLoggingProps) {
 	_init_.Initialize()
 

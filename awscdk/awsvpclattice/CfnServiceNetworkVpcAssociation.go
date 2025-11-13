@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,6 +27,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnServiceNetworkVpcAssociation := awscdk.Aws_vpclattice.NewCfnServiceNetworkVpcAssociation(this, jsii.String("MyCfnServiceNetworkVpcAssociation"), &CfnServiceNetworkVpcAssociationProps{
+//   	DnsOptions: &DnsOptionsProperty{
+//   		PrivateDnsPreference: jsii.String("privateDnsPreference"),
+//   		PrivateDnsSpecifiedDomains: []*string{
+//   			jsii.String("privateDnsSpecifiedDomains"),
+//   		},
+//   	},
+//   	PrivateDnsEnabled: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -42,8 +51,8 @@ import (
 //
 type CfnServiceNetworkVpcAssociation interface {
 	awscdk.CfnResource
-	IServiceNetworkVpcAssociationRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.IServiceNetworkVpcAssociationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
 	AttrArn() *string
@@ -70,7 +79,9 @@ type CfnServiceNetworkVpcAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	DnsOptions() interface{}
+	SetDnsOptions(val interface{})
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -83,6 +94,8 @@ type CfnServiceNetworkVpcAssociation interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	PrivateDnsEnabled() interface{}
+	SetPrivateDnsEnabled(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -95,7 +108,7 @@ type CfnServiceNetworkVpcAssociation interface {
 	ServiceNetworkIdentifier() *string
 	SetServiceNetworkIdentifier(val *string)
 	// A reference to a ServiceNetworkVpcAssociation resource.
-	ServiceNetworkVpcAssociationRef() *ServiceNetworkVpcAssociationReference
+	ServiceNetworkVpcAssociationRef() *interfacesawsvpclattice.ServiceNetworkVpcAssociationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -251,8 +264,8 @@ type CfnServiceNetworkVpcAssociation interface {
 // The jsii proxy struct for CfnServiceNetworkVpcAssociation
 type jsiiProxy_CfnServiceNetworkVpcAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceNetworkVpcAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeIServiceNetworkVpcAssociationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -376,8 +389,18 @@ func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) DnsOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dnsOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,6 +424,16 @@ func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) PrivateDnsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"privateDnsEnabled",
 		&returns,
 	)
 	return returns
@@ -436,8 +469,8 @@ func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) ServiceNetworkIdentifier() *
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) ServiceNetworkVpcAssociationRef() *ServiceNetworkVpcAssociationReference {
-	var returns *ServiceNetworkVpcAssociationReference
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) ServiceNetworkVpcAssociationRef() *interfacesawsvpclattice.ServiceNetworkVpcAssociationReference {
+	var returns *interfacesawsvpclattice.ServiceNetworkVpcAssociationReference
 	_jsii_.Get(
 		j,
 		"serviceNetworkVpcAssociationRef",
@@ -507,6 +540,7 @@ func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) VpcIdentifier() *string {
 }
 
 
+// Create a new `AWS::VpcLattice::ServiceNetworkVpcAssociation`.
 func NewCfnServiceNetworkVpcAssociation(scope constructs.Construct, id *string, props *CfnServiceNetworkVpcAssociationProps) CfnServiceNetworkVpcAssociation {
 	_init_.Initialize()
 
@@ -524,6 +558,7 @@ func NewCfnServiceNetworkVpcAssociation(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::ServiceNetworkVpcAssociation`.
 func NewCfnServiceNetworkVpcAssociation_Override(c CfnServiceNetworkVpcAssociation, scope constructs.Construct, id *string, props *CfnServiceNetworkVpcAssociationProps) {
 	_init_.Initialize()
 
@@ -531,6 +566,28 @@ func NewCfnServiceNetworkVpcAssociation_Override(c CfnServiceNetworkVpcAssociati
 		"aws-cdk-lib.aws_vpclattice.CfnServiceNetworkVpcAssociation",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation)SetDnsOptions(val interface{}) {
+	if err := j.validateSetDnsOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dnsOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation)SetPrivateDnsEnabled(val interface{}) {
+	if err := j.validateSetPrivateDnsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"privateDnsEnabled",
+		val,
 	)
 }
 

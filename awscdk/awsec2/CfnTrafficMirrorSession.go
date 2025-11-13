@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnTrafficMirrorSession interface {
 	awscdk.CfnResource
-	ITrafficMirrorSessionRef
 	awscdk.IInspectable
+	interfacesawsec2.ITrafficMirrorSessionRef
 	awscdk.ITaggable
 	// The ID of a Traffic Mirror session.
 	AttrId() *string
@@ -62,7 +64,7 @@ type CfnTrafficMirrorSession interface {
 	// The description of the Traffic Mirror session.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -105,7 +107,7 @@ type CfnTrafficMirrorSession interface {
 	TrafficMirrorFilterId() *string
 	SetTrafficMirrorFilterId(val *string)
 	// A reference to a TrafficMirrorSession resource.
-	TrafficMirrorSessionRef() *TrafficMirrorSessionReference
+	TrafficMirrorSessionRef() *interfacesawsec2.TrafficMirrorSessionReference
 	// The ID of the Traffic Mirror target.
 	TrafficMirrorTargetId() *string
 	SetTrafficMirrorTargetId(val *string)
@@ -255,8 +257,8 @@ type CfnTrafficMirrorSession interface {
 // The jsii proxy struct for CfnTrafficMirrorSession
 type jsiiProxy_CfnTrafficMirrorSession struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrafficMirrorSessionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITrafficMirrorSessionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnTrafficMirrorSession) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorSession) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrafficMirrorSession) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -440,8 +442,8 @@ func (j *jsiiProxy_CfnTrafficMirrorSession) TrafficMirrorFilterId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorSession) TrafficMirrorSessionRef() *TrafficMirrorSessionReference {
-	var returns *TrafficMirrorSessionReference
+func (j *jsiiProxy_CfnTrafficMirrorSession) TrafficMirrorSessionRef() *interfacesawsec2.TrafficMirrorSessionReference {
+	var returns *interfacesawsec2.TrafficMirrorSessionReference
 	_jsii_.Get(
 		j,
 		"trafficMirrorSessionRef",
@@ -491,6 +493,7 @@ func (j *jsiiProxy_CfnTrafficMirrorSession) VirtualNetworkId() *float64 {
 }
 
 
+// Create a new `AWS::EC2::TrafficMirrorSession`.
 func NewCfnTrafficMirrorSession(scope constructs.Construct, id *string, props *CfnTrafficMirrorSessionProps) CfnTrafficMirrorSession {
 	_init_.Initialize()
 
@@ -508,6 +511,7 @@ func NewCfnTrafficMirrorSession(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::EC2::TrafficMirrorSession`.
 func NewCfnTrafficMirrorSession_Override(c CfnTrafficMirrorSession, scope constructs.Construct, id *string, props *CfnTrafficMirrorSessionProps) {
 	_init_.Initialize()
 
@@ -606,13 +610,13 @@ func (j *jsiiProxy_CfnTrafficMirrorSession)SetVirtualNetworkId(val *float64) {
 }
 
 // Creates a new ITrafficMirrorSessionRef from a trafficMirrorSessionId.
-func CfnTrafficMirrorSession_FromTrafficMirrorSessionId(scope constructs.Construct, id *string, trafficMirrorSessionId *string) ITrafficMirrorSessionRef {
+func CfnTrafficMirrorSession_FromTrafficMirrorSessionId(scope constructs.Construct, id *string, trafficMirrorSessionId *string) interfacesawsec2.ITrafficMirrorSessionRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrafficMirrorSession_FromTrafficMirrorSessionIdParameters(scope, id, trafficMirrorSessionId); err != nil {
 		panic(err)
 	}
-	var returns ITrafficMirrorSessionRef
+	var returns interfacesawsec2.ITrafficMirrorSessionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorSession",

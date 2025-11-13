@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnResourceVersion interface {
 	awscdk.CfnResource
-	IResourceVersionRef
 	awscdk.IInspectable
+	interfacesawscloudformation.IResourceVersionRef
 	// The Amazon Resource Name (ARN) of the resource.
 	AttrArn() *string
 	// Whether the specified resource version is set as the default version.
@@ -84,7 +86,7 @@ type CfnResourceVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -109,7 +111,7 @@ type CfnResourceVersion interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourceVersion resource.
-	ResourceVersionRef() *ResourceVersionReference
+	ResourceVersionRef() *interfacesawscloudformation.ResourceVersionReference
 	// A URL to the S3 bucket for the resource project package that contains the necessary files for the resource you want to register.
 	SchemaHandlerPackage() *string
 	SetSchemaHandlerPackage(val *string)
@@ -263,8 +265,8 @@ type CfnResourceVersion interface {
 // The jsii proxy struct for CfnResourceVersion
 type jsiiProxy_CfnResourceVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationIResourceVersionRef
 }
 
 func (j *jsiiProxy_CfnResourceVersion) AttrArn() *string {
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnResourceVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnResourceVersion) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceVersion) ResourceVersionRef() *ResourceVersionReference {
-	var returns *ResourceVersionReference
+func (j *jsiiProxy_CfnResourceVersion) ResourceVersionRef() *interfacesawscloudformation.ResourceVersionReference {
+	var returns *interfacesawscloudformation.ResourceVersionReference
 	_jsii_.Get(
 		j,
 		"resourceVersionRef",
@@ -488,6 +490,7 @@ func (j *jsiiProxy_CfnResourceVersion) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::CloudFormation::ResourceVersion`.
 func NewCfnResourceVersion(scope constructs.Construct, id *string, props *CfnResourceVersionProps) CfnResourceVersion {
 	_init_.Initialize()
 
@@ -505,6 +508,7 @@ func NewCfnResourceVersion(scope constructs.Construct, id *string, props *CfnRes
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::ResourceVersion`.
 func NewCfnResourceVersion_Override(c CfnResourceVersion, scope constructs.Construct, id *string, props *CfnResourceVersionProps) {
 	_init_.Initialize()
 

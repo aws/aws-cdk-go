@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// An enablement expression source item.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,11 +18,11 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsource.html
 //
 type CfnEvaluationForm_EvaluationFormItemEnablementSourceProperty struct {
-	// The type of the source entity.
+	// A type of source item.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsource.html#cfn-connect-evaluationform-evaluationformitemenablementsource-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The identifier to reference the item.
+	// A referenceId of the source item.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsource.html#cfn-connect-evaluationform-evaluationformitemenablementsource-refid
 	//
 	RefId *string `field:"optional" json:"refId" yaml:"refId"`

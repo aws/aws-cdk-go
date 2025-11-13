@@ -5,7 +5,7 @@ package awsbedrockalpha
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 func validateInlineApiSchema_FromInlineParameters(schema *string) error {
@@ -24,7 +24,7 @@ func validateInlineApiSchema_FromLocalAssetParameters(path *string) error {
 	return nil
 }
 
-func validateInlineApiSchema_FromS3FileParameters(bucket awss3.IBucketRef, objectKey *string) error {
+func validateInlineApiSchema_FromS3FileParameters(bucket interfacesawss3.IBucketRef, objectKey *string) error {
 	if bucket == nil {
 		return fmt.Errorf("parameter bucket is required, but nil was provided")
 	}

@@ -61,8 +61,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPublicRepository{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPublicRepositoryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecrIPublicRepositoryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -121,8 +121,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPullThroughCacheRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPullThroughCacheRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecrIPullThroughCacheRuleRef)
 			return &j
 		},
 	)
@@ -172,8 +172,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRegistryPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRegistryPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecrIRegistryPolicyRef)
 			return &j
 		},
 	)
@@ -224,8 +224,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRegistryScanningConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRegistryScanningConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecrIRegistryScanningConfigurationRef)
 			return &j
 		},
 	)
@@ -283,8 +283,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReplicationConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReplicationConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecrIReplicationConfigurationRef)
 			return &j
 		},
 	)
@@ -360,8 +360,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRepository{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRepositoryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecrIRepositoryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -434,8 +434,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRepositoryCreationTemplate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRepositoryCreationTemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecrIRepositoryCreationTemplateRef)
 			return &j
 		},
 	)
@@ -454,81 +454,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecr.CfnRepositoryProps",
 		reflect.TypeOf((*CfnRepositoryProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecr.IPublicRepositoryRef",
-		reflect.TypeOf((*IPublicRepositoryRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "publicRepositoryRef", GoGetter: "PublicRepositoryRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPublicRepositoryRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecr.IPullThroughCacheRuleRef",
-		reflect.TypeOf((*IPullThroughCacheRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "pullThroughCacheRuleRef", GoGetter: "PullThroughCacheRuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPullThroughCacheRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecr.IRegistryPolicyRef",
-		reflect.TypeOf((*IRegistryPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "registryPolicyRef", GoGetter: "RegistryPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRegistryPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecr.IRegistryScanningConfigurationRef",
-		reflect.TypeOf((*IRegistryScanningConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "registryScanningConfigurationRef", GoGetter: "RegistryScanningConfigurationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRegistryScanningConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecr.IReplicationConfigurationRef",
-		reflect.TypeOf((*IReplicationConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "replicationConfigurationRef", GoGetter: "ReplicationConfigurationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReplicationConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ecr.IRepository",
@@ -562,36 +487,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecr.IRepositoryCreationTemplateRef",
-		reflect.TypeOf((*IRepositoryCreationTemplateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "repositoryCreationTemplateRef", GoGetter: "RepositoryCreationTemplateRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRepositoryCreationTemplateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecr.IRepositoryRef",
-		reflect.TypeOf((*IRepositoryRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "repositoryRef", GoGetter: "RepositoryRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRepositoryRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecr.ImageTagMutabilityExclusionFilter",
 		reflect.TypeOf((*ImageTagMutabilityExclusionFilter)(nil)).Elem(),
@@ -619,26 +514,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_PublicGalleryAuthorizationToken{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecr.PublicRepositoryReference",
-		reflect.TypeOf((*PublicRepositoryReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecr.PullThroughCacheRuleReference",
-		reflect.TypeOf((*PullThroughCacheRuleReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecr.RegistryPolicyReference",
-		reflect.TypeOf((*RegistryPolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecr.RegistryScanningConfigurationReference",
-		reflect.TypeOf((*RegistryScanningConfigurationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecr.ReplicationConfigurationReference",
-		reflect.TypeOf((*ReplicationConfigurationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecr.Repository",
@@ -720,10 +595,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecr.RepositoryCreationTemplateReference",
-		reflect.TypeOf((*RepositoryCreationTemplateReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecr.RepositoryEncryption",
 		reflect.TypeOf((*RepositoryEncryption)(nil)).Elem(),
@@ -741,10 +612,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecr.RepositoryProps",
 		reflect.TypeOf((*RepositoryProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecr.RepositoryReference",
-		reflect.TypeOf((*RepositoryReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ecr.TagMutability",

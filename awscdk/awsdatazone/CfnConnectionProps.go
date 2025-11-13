@@ -24,6 +24,11 @@ package awsdatazone
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
 //   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //   	Props: &ConnectionPropertiesInputProperty{
+//   		AmazonQProperties: &AmazonQPropertiesInputProperty{
+//   			AuthMode: jsii.String("authMode"),
+//   			IsEnabled: jsii.Boolean(false),
+//   			ProfileArn: jsii.String("profileArn"),
+//   		},
 //   		AthenaProperties: &AthenaPropertiesInputProperty{
 //   			WorkgroupName: jsii.String("workgroupName"),
 //   		},
@@ -150,6 +155,7 @@ package awsdatazone
 //   			WorkerType: jsii.String("workerType"),
 //   		},
 //   	},
+//   	Scope: jsii.String("scope"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html
@@ -189,5 +195,9 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-props
 	//
 	Props interface{} `field:"optional" json:"props" yaml:"props"`
+	// The scope of the connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-scope
+	//
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 }
 

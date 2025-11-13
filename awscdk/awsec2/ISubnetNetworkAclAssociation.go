@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A SubnetNetworkAclAssociation.
 type ISubnetNetworkAclAssociation interface {
 	awscdk.IResource
-	ISubnetNetworkAclAssociationRef
+	interfacesawsec2.ISubnetNetworkAclAssociationRef
 	// ID for the current SubnetNetworkAclAssociation.
 	SubnetNetworkAclAssociationAssociationId() *string
 }
@@ -19,7 +21,7 @@ type ISubnetNetworkAclAssociation interface {
 // The jsii proxy for ISubnetNetworkAclAssociation
 type jsiiProxy_ISubnetNetworkAclAssociation struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_ISubnetNetworkAclAssociationRef
+	internal.Type__interfacesawsec2ISubnetNetworkAclAssociationRef
 }
 
 func (i *jsiiProxy_ISubnetNetworkAclAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -43,8 +45,8 @@ func (j *jsiiProxy_ISubnetNetworkAclAssociation) SubnetNetworkAclAssociationAsso
 	return returns
 }
 
-func (j *jsiiProxy_ISubnetNetworkAclAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ISubnetNetworkAclAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -73,8 +75,8 @@ func (j *jsiiProxy_ISubnetNetworkAclAssociation) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_ISubnetNetworkAclAssociation) SubnetNetworkAclAssociationRef() *SubnetNetworkAclAssociationReference {
-	var returns *SubnetNetworkAclAssociationReference
+func (j *jsiiProxy_ISubnetNetworkAclAssociation) SubnetNetworkAclAssociationRef() *interfacesawsec2.SubnetNetworkAclAssociationReference {
+	var returns *interfacesawsec2.SubnetNetworkAclAssociationReference
 	_jsii_.Get(
 		j,
 		"subnetNetworkAclAssociationRef",

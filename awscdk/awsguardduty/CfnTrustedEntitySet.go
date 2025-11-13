@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsguardduty/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnTrustedEntitySet interface {
 	awscdk.CfnResource
-	ITrustedEntitySetRef
 	awscdk.IInspectable
+	interfacesawsguardduty.ITrustedEntitySetRef
 	awscdk.ITaggableV2
 	// A boolean value that determines if GuardDuty can start using this list for custom threat detection.
 	Activate() interface{}
@@ -72,7 +74,7 @@ type CfnTrustedEntitySet interface {
 	// The unique regional detector ID of the GuardDuty account for which you want to create a trusted entity set.
 	DetectorId() *string
 	SetDetectorId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
 	ExpectedBucketOwner() *string
 	SetExpectedBucketOwner(val *string)
@@ -110,7 +112,7 @@ type CfnTrustedEntitySet interface {
 	Tags() *[]*CfnTrustedEntitySet_TagItemProperty
 	SetTags(val *[]*CfnTrustedEntitySet_TagItemProperty)
 	// A reference to a TrustedEntitySet resource.
-	TrustedEntitySetRef() *TrustedEntitySetReference
+	TrustedEntitySetRef() *interfacesawsguardduty.TrustedEntitySetReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -254,8 +256,8 @@ type CfnTrustedEntitySet interface {
 // The jsii proxy struct for CfnTrustedEntitySet
 type jsiiProxy_CfnTrustedEntitySet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrustedEntitySetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsguarddutyITrustedEntitySetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnTrustedEntitySet) DetectorId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrustedEntitySet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrustedEntitySet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -479,8 +481,8 @@ func (j *jsiiProxy_CfnTrustedEntitySet) Tags() *[]*CfnTrustedEntitySet_TagItemPr
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrustedEntitySet) TrustedEntitySetRef() *TrustedEntitySetReference {
-	var returns *TrustedEntitySetReference
+func (j *jsiiProxy_CfnTrustedEntitySet) TrustedEntitySetRef() *interfacesawsguardduty.TrustedEntitySetReference {
+	var returns *interfacesawsguardduty.TrustedEntitySetReference
 	_jsii_.Get(
 		j,
 		"trustedEntitySetRef",
@@ -510,6 +512,7 @@ func (j *jsiiProxy_CfnTrustedEntitySet) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::GuardDuty::TrustedEntitySet`.
 func NewCfnTrustedEntitySet(scope constructs.Construct, id *string, props *CfnTrustedEntitySetProps) CfnTrustedEntitySet {
 	_init_.Initialize()
 
@@ -527,6 +530,7 @@ func NewCfnTrustedEntitySet(scope constructs.Construct, id *string, props *CfnTr
 	return &j
 }
 
+// Create a new `AWS::GuardDuty::TrustedEntitySet`.
 func NewCfnTrustedEntitySet_Override(c CfnTrustedEntitySet, scope constructs.Construct, id *string, props *CfnTrustedEntitySetProps) {
 	_init_.Initialize()
 

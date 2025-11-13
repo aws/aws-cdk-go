@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnGuardrail interface {
 	awscdk.CfnResource
-	IGuardrailRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IGuardrailRef
 	awscdk.ITaggableV2
 	// The date and time at which the guardrail was created.
 	AttrCreatedAt() *string
@@ -101,9 +103,9 @@ type CfnGuardrail interface {
 	// A description of the guardrail.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Guardrail resource.
-	GuardrailRef() *GuardrailReference
+	GuardrailRef() *interfacesawsbedrock.GuardrailReference
 	// The ARN of the AWS KMS key that you use to encrypt the guardrail.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -286,8 +288,8 @@ type CfnGuardrail interface {
 // The jsii proxy struct for CfnGuardrail
 type jsiiProxy_CfnGuardrail struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGuardrailRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIGuardrailRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -491,8 +493,8 @@ func (j *jsiiProxy_CfnGuardrail) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGuardrail) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGuardrail) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -501,8 +503,8 @@ func (j *jsiiProxy_CfnGuardrail) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGuardrail) GuardrailRef() *GuardrailReference {
-	var returns *GuardrailReference
+func (j *jsiiProxy_CfnGuardrail) GuardrailRef() *interfacesawsbedrock.GuardrailReference {
+	var returns *interfacesawsbedrock.GuardrailReference
 	_jsii_.Get(
 		j,
 		"guardrailRef",
@@ -632,6 +634,7 @@ func (j *jsiiProxy_CfnGuardrail) WordPolicyConfig() interface{} {
 }
 
 
+// Create a new `AWS::Bedrock::Guardrail`.
 func NewCfnGuardrail(scope constructs.Construct, id *string, props *CfnGuardrailProps) CfnGuardrail {
 	_init_.Initialize()
 
@@ -649,6 +652,7 @@ func NewCfnGuardrail(scope constructs.Construct, id *string, props *CfnGuardrail
 	return &j
 }
 
+// Create a new `AWS::Bedrock::Guardrail`.
 func NewCfnGuardrail_Override(c CfnGuardrail, scope constructs.Construct, id *string, props *CfnGuardrailProps) {
 	_init_.Initialize()
 

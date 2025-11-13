@@ -1,10 +1,16 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsbedrockagentcoreIBrowserCustomRef = interfacesawsbedrockagentcore.IBrowserCustomRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsbedrockagentcoreICodeInterpreterCustomRef = interfacesawsbedrockagentcore.ICodeInterpreterCustomRef
+type Type__interfacesawsbedrockagentcoreIGatewayRef = interfacesawsbedrockagentcore.IGatewayRef
+type Type__interfacesawsbedrockagentcoreIGatewayTargetRef = interfacesawsbedrockagentcore.IGatewayTargetRef
+type Type__interfacesawsbedrockagentcoreIMemoryRef = interfacesawsbedrockagentcore.IMemoryRef
+type Type__interfacesawsbedrockagentcoreIRuntimeRef = interfacesawsbedrockagentcore.IRuntimeRef
+type Type__interfacesawsbedrockagentcoreIRuntimeEndpointRef = interfacesawsbedrockagentcore.IRuntimeEndpointRef
+type Type__interfacesawsbedrockagentcoreIWorkloadIdentityRef = interfacesawsbedrockagentcore.IWorkloadIdentityRef

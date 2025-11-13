@@ -6,9 +6,10 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 )
 
-func (l *jsiiProxy_LogGroupLogDestination) validateBindParameters(stage IStageRef) error {
+func (l *jsiiProxy_LogGroupLogDestination) validateBindParameters(stage interfacesawsapigateway.IStageRef) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}

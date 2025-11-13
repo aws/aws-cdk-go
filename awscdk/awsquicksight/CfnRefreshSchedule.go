@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnRefreshSchedule interface {
 	awscdk.CfnResource
-	IRefreshScheduleRef
 	awscdk.IInspectable
+	interfacesawsquicksight.IRefreshScheduleRef
 	// The Amazon Resource Name (ARN) for the refresh schedule.
 	AttrArn() *string
 	// The AWS account ID of the account that you are creating a schedule in.
@@ -58,7 +60,7 @@ type CfnRefreshSchedule interface {
 	// The ID of the dataset that you are creating a refresh schedule for.
 	DataSetId() *string
 	SetDataSetId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnRefreshSchedule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RefreshSchedule resource.
-	RefreshScheduleRef() *RefreshScheduleReference
+	RefreshScheduleRef() *interfacesawsquicksight.RefreshScheduleReference
 	// The refresh schedule of a dataset.
 	Schedule() interface{}
 	SetSchedule(val interface{})
@@ -228,8 +230,8 @@ type CfnRefreshSchedule interface {
 // The jsii proxy struct for CfnRefreshSchedule
 type jsiiProxy_CfnRefreshSchedule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRefreshScheduleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightIRefreshScheduleRef
 }
 
 func (j *jsiiProxy_CfnRefreshSchedule) AttrArn() *string {
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnRefreshSchedule) DataSetId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRefreshSchedule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRefreshSchedule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnRefreshSchedule) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRefreshSchedule) RefreshScheduleRef() *RefreshScheduleReference {
-	var returns *RefreshScheduleReference
+func (j *jsiiProxy_CfnRefreshSchedule) RefreshScheduleRef() *interfacesawsquicksight.RefreshScheduleReference {
+	var returns *interfacesawsquicksight.RefreshScheduleReference
 	_jsii_.Get(
 		j,
 		"refreshScheduleRef",
@@ -393,6 +395,7 @@ func (j *jsiiProxy_CfnRefreshSchedule) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::QuickSight::RefreshSchedule`.
 func NewCfnRefreshSchedule(scope constructs.Construct, id *string, props *CfnRefreshScheduleProps) CfnRefreshSchedule {
 	_init_.Initialize()
 
@@ -410,6 +413,7 @@ func NewCfnRefreshSchedule(scope constructs.Construct, id *string, props *CfnRef
 	return &j
 }
 
+// Create a new `AWS::QuickSight::RefreshSchedule`.
 func NewCfnRefreshSchedule_Override(c CfnRefreshSchedule, scope constructs.Construct, id *string, props *CfnRefreshScheduleProps) {
 	_init_.Initialize()
 

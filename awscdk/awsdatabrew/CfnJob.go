@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatabrew/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatabrew"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -201,8 +203,8 @@ import (
 //
 type CfnJob interface {
 	awscdk.CfnResource
-	IJobRef
 	awscdk.IInspectable
+	interfacesawsdatabrew.IJobRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -228,9 +230,9 @@ type CfnJob interface {
 	// The encryption mode for the job, which can be one of the following:.
 	EncryptionMode() *string
 	SetEncryptionMode(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Job resource.
-	JobRef() *JobReference
+	JobRef() *interfacesawsdatabrew.JobReference
 	// A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run.
 	JobSample() interface{}
 	SetJobSample(val interface{})
@@ -442,8 +444,8 @@ type CfnJob interface {
 // The jsii proxy struct for CfnJob
 type jsiiProxy_CfnJob struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IJobRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatabrewIJobRef
 	internal.Type__awscdkITaggable
 }
 
@@ -537,8 +539,8 @@ func (j *jsiiProxy_CfnJob) EncryptionMode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJob) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnJob) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -547,8 +549,8 @@ func (j *jsiiProxy_CfnJob) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJob) JobRef() *JobReference {
-	var returns *JobReference
+func (j *jsiiProxy_CfnJob) JobRef() *interfacesawsdatabrew.JobReference {
+	var returns *interfacesawsdatabrew.JobReference
 	_jsii_.Get(
 		j,
 		"jobRef",
@@ -778,6 +780,7 @@ func (j *jsiiProxy_CfnJob) ValidationConfigurations() interface{} {
 }
 
 
+// Create a new `AWS::DataBrew::Job`.
 func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJob {
 	_init_.Initialize()
 
@@ -795,6 +798,7 @@ func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJo
 	return &j
 }
 
+// Create a new `AWS::DataBrew::Job`.
 func NewCfnJob_Override(c CfnJob, scope constructs.Construct, id *string, props *CfnJobProps) {
 	_init_.Initialize()
 

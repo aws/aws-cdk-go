@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsforecast/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsforecast"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnDataset interface {
 	awscdk.CfnResource
-	IDatasetRef
 	awscdk.IInspectable
+	interfacesawsforecast.IDatasetRef
 	// The Amazon Resource Name (ARN) of the dataset.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -78,7 +80,7 @@ type CfnDataset interface {
 	DatasetName() *string
 	SetDatasetName(val *string)
 	// A reference to a Dataset resource.
-	DatasetRef() *DatasetReference
+	DatasetRef() *interfacesawsforecast.DatasetReference
 	// The dataset type.
 	DatasetType() *string
 	SetDatasetType(val *string)
@@ -88,7 +90,7 @@ type CfnDataset interface {
 	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -259,8 +261,8 @@ type CfnDataset interface {
 // The jsii proxy struct for CfnDataset
 type jsiiProxy_CfnDataset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatasetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsforecastIDatasetRef
 }
 
 func (j *jsiiProxy_CfnDataset) AttrArn() *string {
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnDataset) DatasetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) DatasetRef() *DatasetReference {
-	var returns *DatasetReference
+func (j *jsiiProxy_CfnDataset) DatasetRef() *interfacesawsforecast.DatasetReference {
+	var returns *interfacesawsforecast.DatasetReference
 	_jsii_.Get(
 		j,
 		"datasetRef",
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnDataset) EncryptionConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -464,6 +466,7 @@ func (j *jsiiProxy_CfnDataset) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Forecast::Dataset`.
 func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
 	_init_.Initialize()
 
@@ -481,6 +484,7 @@ func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProp
 	return &j
 }
 
+// Create a new `AWS::Forecast::Dataset`.
 func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string, props *CfnDatasetProps) {
 	_init_.Initialize()
 

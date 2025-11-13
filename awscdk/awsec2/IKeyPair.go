@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An EC2 Key Pair.
 type IKeyPair interface {
-	IKeyPairRef
+	interfacesawsec2.IKeyPairRef
 	awscdk.IResource
 	// The name of the key pair.
 	KeyPairName() *string
@@ -20,7 +22,7 @@ type IKeyPair interface {
 
 // The jsii proxy for IKeyPair
 type jsiiProxy_IKeyPair struct {
-	jsiiProxy_IKeyPairRef
+	internal.Type__interfacesawsec2IKeyPairRef
 	internal.Type__awscdkIResource
 }
 
@@ -55,8 +57,8 @@ func (j *jsiiProxy_IKeyPair) Type() KeyPairType {
 	return returns
 }
 
-func (j *jsiiProxy_IKeyPair) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IKeyPair) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -65,8 +67,8 @@ func (j *jsiiProxy_IKeyPair) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IKeyPair) KeyPairRef() *KeyPairReference {
-	var returns *KeyPairReference
+func (j *jsiiProxy_IKeyPair) KeyPairRef() *interfacesawsec2.KeyPairReference {
+	var returns *interfacesawsec2.KeyPairReference
 	_jsii_.Get(
 		j,
 		"keyPairRef",

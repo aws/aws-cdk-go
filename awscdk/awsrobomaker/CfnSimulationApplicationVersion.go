@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrobomaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrobomaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnSimulationApplicationVersion interface {
 	awscdk.CfnResource
-	ISimulationApplicationVersionRef
 	awscdk.IInspectable
+	interfacesawsrobomaker.ISimulationApplicationVersionRef
 	// The application information for the simulation application.
 	Application() *string
 	SetApplication(val *string)
@@ -48,7 +50,7 @@ type CfnSimulationApplicationVersion interface {
 	// The current revision id for the simulation application.
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnSimulationApplicationVersion interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SimulationApplicationVersion resource.
-	SimulationApplicationVersionRef() *SimulationApplicationVersionReference
+	SimulationApplicationVersionRef() *interfacesawsrobomaker.SimulationApplicationVersionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -215,8 +217,8 @@ type CfnSimulationApplicationVersion interface {
 // The jsii proxy struct for CfnSimulationApplicationVersion
 type jsiiProxy_CfnSimulationApplicationVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISimulationApplicationVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrobomakerISimulationApplicationVersionRef
 }
 
 func (j *jsiiProxy_CfnSimulationApplicationVersion) Application() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnSimulationApplicationVersion) CurrentRevisionId() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimulationApplicationVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSimulationApplicationVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnSimulationApplicationVersion) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimulationApplicationVersion) SimulationApplicationVersionRef() *SimulationApplicationVersionReference {
-	var returns *SimulationApplicationVersionReference
+func (j *jsiiProxy_CfnSimulationApplicationVersion) SimulationApplicationVersionRef() *interfacesawsrobomaker.SimulationApplicationVersionReference {
+	var returns *interfacesawsrobomaker.SimulationApplicationVersionReference
 	_jsii_.Get(
 		j,
 		"simulationApplicationVersionRef",
@@ -380,6 +382,7 @@ func (j *jsiiProxy_CfnSimulationApplicationVersion) UpdatedProperties() *map[str
 }
 
 
+// Create a new `AWS::RoboMaker::SimulationApplicationVersion`.
 func NewCfnSimulationApplicationVersion(scope constructs.Construct, id *string, props *CfnSimulationApplicationVersionProps) CfnSimulationApplicationVersion {
 	_init_.Initialize()
 
@@ -397,6 +400,7 @@ func NewCfnSimulationApplicationVersion(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::RoboMaker::SimulationApplicationVersion`.
 func NewCfnSimulationApplicationVersion_Override(c CfnSimulationApplicationVersion, scope constructs.Construct, id *string, props *CfnSimulationApplicationVersionProps) {
 	_init_.Initialize()
 

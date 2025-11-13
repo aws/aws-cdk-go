@@ -18,7 +18,7 @@ package awsmacie
 type CfnSessionProps struct {
 	// Specifies how often Amazon Macie publishes updates to policy findings for the account.
 	//
-	// This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events ). Valid values are:
+	// This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events ). Valid values are:
 	//
 	// - FIFTEEN_MINUTES
 	// - ONE_HOUR

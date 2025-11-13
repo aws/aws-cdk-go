@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,8 +27,8 @@ import (
 //
 type CfnMeteredProduct interface {
 	awscdk.CfnResource
-	IMeteredProductRef
 	awscdk.IInspectable
+	interfacesawsdeadline.IMeteredProductRef
 	// The Amazon Resource Name (ARN) of the metered product.
 	AttrArn() *string
 	// The family to which the metered product belongs.
@@ -44,7 +46,7 @@ type CfnMeteredProduct interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon EC2 identifier of the license endpoint.
 	LicenseEndpointId() *string
 	SetLicenseEndpointId(val *string)
@@ -59,7 +61,7 @@ type CfnMeteredProduct interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MeteredProduct resource.
-	MeteredProductRef() *MeteredProductReference
+	MeteredProductRef() *interfacesawsdeadline.MeteredProductReference
 	// The tree node.
 	Node() constructs.Node
 	// The product ID.
@@ -217,8 +219,8 @@ type CfnMeteredProduct interface {
 // The jsii proxy struct for CfnMeteredProduct
 type jsiiProxy_CfnMeteredProduct struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMeteredProductRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineIMeteredProductRef
 }
 
 func (j *jsiiProxy_CfnMeteredProduct) AttrArn() *string {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnMeteredProduct) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMeteredProduct) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMeteredProduct) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnMeteredProduct) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMeteredProduct) MeteredProductRef() *MeteredProductReference {
-	var returns *MeteredProductReference
+func (j *jsiiProxy_CfnMeteredProduct) MeteredProductRef() *interfacesawsdeadline.MeteredProductReference {
+	var returns *interfacesawsdeadline.MeteredProductReference
 	_jsii_.Get(
 		j,
 		"meteredProductRef",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnMeteredProduct) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Deadline::MeteredProduct`.
 func NewCfnMeteredProduct(scope constructs.Construct, id *string, props *CfnMeteredProductProps) CfnMeteredProduct {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnMeteredProduct(scope constructs.Construct, id *string, props *CfnMete
 	return &j
 }
 
+// Create a new `AWS::Deadline::MeteredProduct`.
 func NewCfnMeteredProduct_Override(c CfnMeteredProduct, scope constructs.Construct, id *string, props *CfnMeteredProductProps) {
 	_init_.Initialize()
 

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for ``DatabaseClusterFromSnapshot``.
@@ -342,7 +343,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// If specified, `storageEncrypted` will be set to `true`.
 	// Default: - if storageEncrypted is true then the default master key, no key otherwise.
 	//
-	StorageEncryptionKey awskms.IKeyRef `field:"optional" json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
+	StorageEncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 	// The storage type to be associated with the DB cluster.
 	// Default: - DBClusterStorageType.AURORA
 	//

@@ -24,6 +24,10 @@ type ISecret interface {
 	//
 	// Returns: An attached secret.
 	Attach(target ISecretAttachmentTarget) ISecret
+	// Returns a key which can be used within an AWS CloudFormation dynamic reference to dynamically load this secret from AWS Secrets Manager.
+	// See: https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html
+	//
+	CfnDynamicReferenceKey(options *awscdk.SecretsManagerSecretOptions) *string
 	// Denies the `DeleteSecret` action to all principals within the current account.
 	DenyAccountRootDelete()
 	// Grants reading the secret value to some role.
@@ -102,6 +106,22 @@ func (i *jsiiProxy_ISecret) Attach(target ISecretAttachmentTarget) ISecret {
 		i,
 		"attach",
 		[]interface{}{target},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ISecret) CfnDynamicReferenceKey(options *awscdk.SecretsManagerSecretOptions) *string {
+	if err := i.validateCfnDynamicReferenceKeyParameters(options); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		i,
+		"cfnDynamicReferenceKey",
+		[]interface{}{options},
 		&returns,
 	)
 

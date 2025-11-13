@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsqbusiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsqbusiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnWebExperience interface {
 	awscdk.CfnResource
-	IWebExperienceRef
 	awscdk.IInspectable
+	interfacesawsqbusiness.IWebExperienceRef
 	awscdk.ITaggableV2
 	// The identifier of the Amazon Q Business web experience.
 	ApplicationId() *string
@@ -97,7 +99,7 @@ type CfnWebExperience interface {
 	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	CustomizationConfiguration() interface{}
 	SetCustomizationConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration() interface{}
 	SetIdentityProviderConfiguration(val interface{})
@@ -154,7 +156,7 @@ type CfnWebExperience interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WebExperience resource.
-	WebExperienceRef() *WebExperienceReference
+	WebExperienceRef() *interfacesawsqbusiness.WebExperienceReference
 	// A message in an Amazon Q Business web experience.
 	WelcomeMessage() *string
 	SetWelcomeMessage(val *string)
@@ -288,8 +290,8 @@ type CfnWebExperience interface {
 // The jsii proxy struct for CfnWebExperience
 type jsiiProxy_CfnWebExperience struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWebExperienceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsqbusinessIWebExperienceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -433,8 +435,8 @@ func (j *jsiiProxy_CfnWebExperience) CustomizationConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebExperience) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWebExperience) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -573,8 +575,8 @@ func (j *jsiiProxy_CfnWebExperience) UpdatedProperties() *map[string]interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebExperience) WebExperienceRef() *WebExperienceReference {
-	var returns *WebExperienceReference
+func (j *jsiiProxy_CfnWebExperience) WebExperienceRef() *interfacesawsqbusiness.WebExperienceReference {
+	var returns *interfacesawsqbusiness.WebExperienceReference
 	_jsii_.Get(
 		j,
 		"webExperienceRef",
@@ -594,6 +596,7 @@ func (j *jsiiProxy_CfnWebExperience) WelcomeMessage() *string {
 }
 
 
+// Create a new `AWS::QBusiness::WebExperience`.
 func NewCfnWebExperience(scope constructs.Construct, id *string, props *CfnWebExperienceProps) CfnWebExperience {
 	_init_.Initialize()
 
@@ -611,6 +614,7 @@ func NewCfnWebExperience(scope constructs.Construct, id *string, props *CfnWebEx
 	return &j
 }
 
+// Create a new `AWS::QBusiness::WebExperience`.
 func NewCfnWebExperience_Override(c CfnWebExperience, scope constructs.Construct, id *string, props *CfnWebExperienceProps) {
 	_init_.Initialize()
 

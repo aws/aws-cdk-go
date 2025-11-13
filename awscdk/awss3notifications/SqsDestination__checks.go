@@ -5,12 +5,12 @@ package awss3notifications
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (s *jsiiProxy_SqsDestination) validateBindParameters(scope constructs.Construct, bucket awss3.IBucketRef) error {
+func (s *jsiiProxy_SqsDestination) validateBindParameters(scope constructs.Construct, bucket interfacesawss3.IBucketRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

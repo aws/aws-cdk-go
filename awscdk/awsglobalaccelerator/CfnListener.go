@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnListener interface {
 	awscdk.CfnResource
-	IListenerRef
 	awscdk.IInspectable
+	interfacesawsglobalaccelerator.IListenerRef
 	// The Amazon Resource Name (ARN) of your accelerator.
 	AcceleratorArn() *string
 	SetAcceleratorArn(val *string)
@@ -55,9 +57,9 @@ type CfnListener interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Listener resource.
-	ListenerRef() *ListenerReference
+	ListenerRef() *interfacesawsglobalaccelerator.ListenerReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -228,8 +230,8 @@ type CfnListener interface {
 // The jsii proxy struct for CfnListener
 type jsiiProxy_CfnListener struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IListenerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglobalacceleratorIListenerRef
 }
 
 func (j *jsiiProxy_CfnListener) AcceleratorArn() *string {
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnListener) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListener) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnListener) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnListener) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListener) ListenerRef() *ListenerReference {
-	var returns *ListenerReference
+func (j *jsiiProxy_CfnListener) ListenerRef() *interfacesawsglobalaccelerator.ListenerReference {
+	var returns *interfacesawsglobalaccelerator.ListenerReference
 	_jsii_.Get(
 		j,
 		"listenerRef",
@@ -403,6 +405,7 @@ func (j *jsiiProxy_CfnListener) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GlobalAccelerator::Listener`.
 func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerProps) CfnListener {
 	_init_.Initialize()
 
@@ -420,6 +423,7 @@ func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerPr
 	return &j
 }
 
+// Create a new `AWS::GlobalAccelerator::Listener`.
 func NewCfnListener_Override(c CfnListener, scope constructs.Construct, id *string, props *CfnListenerProps) {
 	_init_.Initialize()
 

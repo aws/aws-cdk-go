@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnLicenseEndpoint interface {
 	awscdk.CfnResource
-	ILicenseEndpointRef
 	awscdk.IInspectable
+	interfacesawsdeadline.ILicenseEndpointRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the license endpoint.
 	AttrArn() *string
@@ -62,9 +64,9 @@ type CfnLicenseEndpoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LicenseEndpoint resource.
-	LicenseEndpointRef() *LicenseEndpointReference
+	LicenseEndpointRef() *interfacesawsdeadline.LicenseEndpointReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,8 +243,8 @@ type CfnLicenseEndpoint interface {
 // The jsii proxy struct for CfnLicenseEndpoint
 type jsiiProxy_CfnLicenseEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILicenseEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineILicenseEndpointRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnLicenseEndpoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLicenseEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLicenseEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnLicenseEndpoint) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLicenseEndpoint) LicenseEndpointRef() *LicenseEndpointReference {
-	var returns *LicenseEndpointReference
+func (j *jsiiProxy_CfnLicenseEndpoint) LicenseEndpointRef() *interfacesawsdeadline.LicenseEndpointReference {
+	var returns *interfacesawsdeadline.LicenseEndpointReference
 	_jsii_.Get(
 		j,
 		"licenseEndpointRef",
@@ -467,6 +469,7 @@ func (j *jsiiProxy_CfnLicenseEndpoint) VpcId() *string {
 }
 
 
+// Create a new `AWS::Deadline::LicenseEndpoint`.
 func NewCfnLicenseEndpoint(scope constructs.Construct, id *string, props *CfnLicenseEndpointProps) CfnLicenseEndpoint {
 	_init_.Initialize()
 
@@ -484,6 +487,7 @@ func NewCfnLicenseEndpoint(scope constructs.Construct, id *string, props *CfnLic
 	return &j
 }
 
+// Create a new `AWS::Deadline::LicenseEndpoint`.
 func NewCfnLicenseEndpoint_Override(c CfnLicenseEndpoint, scope constructs.Construct, id *string, props *CfnLicenseEndpointProps) {
 	_init_.Initialize()
 

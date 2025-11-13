@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
-	ILoggingConfigurationRef
 	awscdk.IInspectable
+	interfacesawswafv2.ILoggingConfigurationRef
 	// Indicates whether the logging configuration was created by AWS Firewall Manager , as part of an AWS WAF policy configuration.
 	//
 	// If true, only Firewall Manager can modify or delete the configuration.
@@ -80,12 +82,12 @@ type CfnLoggingConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logging destination configuration that you want to associate with the web ACL.
 	LogDestinationConfigs() *[]*string
 	SetLogDestinationConfigs(val *[]*string)
 	// A reference to a LoggingConfiguration resource.
-	LoggingConfigurationRef() *LoggingConfigurationReference
+	LoggingConfigurationRef() *interfacesawswafv2.LoggingConfigurationReference
 	// Filtering that specifies which web requests are kept in the logs and which are dropped.
 	LoggingFilter() interface{}
 	SetLoggingFilter(val interface{})
@@ -259,8 +261,8 @@ type CfnLoggingConfiguration interface {
 // The jsii proxy struct for CfnLoggingConfiguration
 type jsiiProxy_CfnLoggingConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoggingConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafv2ILoggingConfigurationRef
 }
 
 func (j *jsiiProxy_CfnLoggingConfiguration) AttrManagedByFirewallManager() awscdk.IResolvable {
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLoggingConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) LogDestinationConfigs() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) LoggingConfigurationRef() *LoggingConfigurationReference {
-	var returns *LoggingConfigurationReference
+func (j *jsiiProxy_CfnLoggingConfiguration) LoggingConfigurationRef() *interfacesawswafv2.LoggingConfigurationReference {
+	var returns *interfacesawswafv2.LoggingConfigurationReference
 	_jsii_.Get(
 		j,
 		"loggingConfigurationRef",
@@ -434,6 +436,7 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::WAFv2::LoggingConfiguration`.
 func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
@@ -451,6 +454,7 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::WAFv2::LoggingConfiguration`.
 func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 

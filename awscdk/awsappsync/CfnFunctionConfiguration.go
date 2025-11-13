@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnFunctionConfiguration interface {
 	awscdk.CfnResource
-	IFunctionConfigurationRef
 	awscdk.IInspectable
+	interfacesawsappsync.IFunctionConfigurationRef
 	// The AWS AppSync GraphQL API that you want to attach using this function.
 	ApiId() *string
 	SetApiId(val *string)
@@ -90,9 +92,9 @@ type CfnFunctionConfiguration interface {
 	// The `Function` description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FunctionConfiguration resource.
-	FunctionConfigurationRef() *FunctionConfigurationReference
+	FunctionConfigurationRef() *interfacesawsappsync.FunctionConfigurationReference
 	// The version of the request mapping template.
 	FunctionVersion() *string
 	SetFunctionVersion(val *string)
@@ -284,8 +286,8 @@ type CfnFunctionConfiguration interface {
 // The jsii proxy struct for CfnFunctionConfiguration
 type jsiiProxy_CfnFunctionConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFunctionConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIFunctionConfigurationRef
 }
 
 func (j *jsiiProxy_CfnFunctionConfiguration) ApiId() *string {
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnFunctionConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunctionConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFunctionConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnFunctionConfiguration) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunctionConfiguration) FunctionConfigurationRef() *FunctionConfigurationReference {
-	var returns *FunctionConfigurationReference
+func (j *jsiiProxy_CfnFunctionConfiguration) FunctionConfigurationRef() *interfacesawsappsync.FunctionConfigurationReference {
+	var returns *interfacesawsappsync.FunctionConfigurationReference
 	_jsii_.Get(
 		j,
 		"functionConfigurationRef",
@@ -589,6 +591,7 @@ func (j *jsiiProxy_CfnFunctionConfiguration) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::AppSync::FunctionConfiguration`.
 func NewCfnFunctionConfiguration(scope constructs.Construct, id *string, props *CfnFunctionConfigurationProps) CfnFunctionConfiguration {
 	_init_.Initialize()
 
@@ -606,6 +609,7 @@ func NewCfnFunctionConfiguration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::AppSync::FunctionConfiguration`.
 func NewCfnFunctionConfiguration_Override(c CfnFunctionConfiguration, scope constructs.Construct, id *string, props *CfnFunctionConfigurationProps) {
 	_init_.Initialize()
 

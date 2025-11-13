@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnEventBridgeRuleTemplate interface {
 	awscdk.CfnResource
-	IEventBridgeRuleTemplateRef
 	awscdk.IInspectable
+	interfacesawsmedialive.IEventBridgeRuleTemplateRef
 	awscdk.ITaggableV2
 	// Target ARNs must be either an SNS topic or CloudWatch log group.
 	AttrArn() *string
@@ -70,9 +72,9 @@ type CfnEventBridgeRuleTemplate interface {
 	// A resource's optional description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EventBridgeRuleTemplate resource.
-	EventBridgeRuleTemplateRef() *EventBridgeRuleTemplateReference
+	EventBridgeRuleTemplateRef() *interfacesawsmedialive.EventBridgeRuleTemplateReference
 	// The destinations that will receive the event notifications.
 	EventTargets() interface{}
 	SetEventTargets(val interface{})
@@ -252,8 +254,8 @@ type CfnEventBridgeRuleTemplate interface {
 // The jsii proxy struct for CfnEventBridgeRuleTemplate
 type jsiiProxy_CfnEventBridgeRuleTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventBridgeRuleTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveIEventBridgeRuleTemplateRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnEventBridgeRuleTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventBridgeRuleTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventBridgeRuleTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnEventBridgeRuleTemplate) Env() *awscdk.ResourceEnvironment
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventBridgeRuleTemplate) EventBridgeRuleTemplateRef() *EventBridgeRuleTemplateReference {
-	var returns *EventBridgeRuleTemplateReference
+func (j *jsiiProxy_CfnEventBridgeRuleTemplate) EventBridgeRuleTemplateRef() *interfacesawsmedialive.EventBridgeRuleTemplateReference {
+	var returns *interfacesawsmedialive.EventBridgeRuleTemplateReference
 	_jsii_.Get(
 		j,
 		"eventBridgeRuleTemplateRef",
@@ -508,6 +510,7 @@ func (j *jsiiProxy_CfnEventBridgeRuleTemplate) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::MediaLive::EventBridgeRuleTemplate`.
 func NewCfnEventBridgeRuleTemplate(scope constructs.Construct, id *string, props *CfnEventBridgeRuleTemplateProps) CfnEventBridgeRuleTemplate {
 	_init_.Initialize()
 
@@ -525,6 +528,7 @@ func NewCfnEventBridgeRuleTemplate(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::MediaLive::EventBridgeRuleTemplate`.
 func NewCfnEventBridgeRuleTemplate_Override(c CfnEventBridgeRuleTemplate, scope constructs.Construct, id *string, props *CfnEventBridgeRuleTemplateProps) {
 	_init_.Initialize()
 

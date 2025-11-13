@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -82,8 +84,8 @@ import (
 //
 type CfnSecurityConfiguration interface {
 	awscdk.CfnResource
-	ISecurityConfigurationRef
 	awscdk.IInspectable
+	interfacesawsemr.ISecurityConfigurationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -93,7 +95,7 @@ type CfnSecurityConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -118,7 +120,7 @@ type CfnSecurityConfiguration interface {
 	SecurityConfiguration() interface{}
 	SetSecurityConfiguration(val interface{})
 	// A reference to a SecurityConfiguration resource.
-	SecurityConfigurationRef() *SecurityConfigurationReference
+	SecurityConfigurationRef() *interfacesawsemr.SecurityConfigurationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -266,8 +268,8 @@ type CfnSecurityConfiguration interface {
 // The jsii proxy struct for CfnSecurityConfiguration
 type jsiiProxy_CfnSecurityConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrISecurityConfigurationRef
 }
 
 func (j *jsiiProxy_CfnSecurityConfiguration) CfnOptions() awscdk.ICfnResourceOptions {
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnSecurityConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnSecurityConfiguration) SecurityConfiguration() interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityConfiguration) SecurityConfigurationRef() *SecurityConfigurationReference {
-	var returns *SecurityConfigurationReference
+func (j *jsiiProxy_CfnSecurityConfiguration) SecurityConfigurationRef() *interfacesawsemr.SecurityConfigurationReference {
+	var returns *interfacesawsemr.SecurityConfigurationReference
 	_jsii_.Get(
 		j,
 		"securityConfigurationRef",
@@ -411,6 +413,7 @@ func (j *jsiiProxy_CfnSecurityConfiguration) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::EMR::SecurityConfiguration`.
 func NewCfnSecurityConfiguration(scope constructs.Construct, id *string, props *CfnSecurityConfigurationProps) CfnSecurityConfiguration {
 	_init_.Initialize()
 
@@ -428,6 +431,7 @@ func NewCfnSecurityConfiguration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::EMR::SecurityConfiguration`.
 func NewCfnSecurityConfiguration_Override(c CfnSecurityConfiguration, scope constructs.Construct, id *string, props *CfnSecurityConfigurationProps) {
 	_init_.Initialize()
 

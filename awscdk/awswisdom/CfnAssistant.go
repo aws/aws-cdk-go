@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,11 +39,11 @@ import (
 //
 type CfnAssistant interface {
 	awscdk.CfnResource
-	IAssistantRef
 	awscdk.IInspectable
+	interfacesawswisdom.IAssistantRef
 	awscdk.ITaggable
 	// A reference to a Assistant resource.
-	AssistantRef() *AssistantReference
+	AssistantRef() *interfacesawswisdom.AssistantReference
 	// The Amazon Resource Name (ARN) of the assistant.
 	AttrAssistantArn() *string
 	// The ID of the Wisdom assistant.
@@ -58,7 +60,7 @@ type CfnAssistant interface {
 	// The description of the assistant.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,13 +239,13 @@ type CfnAssistant interface {
 // The jsii proxy struct for CfnAssistant
 type jsiiProxy_CfnAssistant struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssistantRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIAssistantRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAssistant) AssistantRef() *AssistantReference {
-	var returns *AssistantReference
+func (j *jsiiProxy_CfnAssistant) AssistantRef() *interfacesawswisdom.AssistantReference {
+	var returns *interfacesawswisdom.AssistantReference
 	_jsii_.Get(
 		j,
 		"assistantRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnAssistant) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssistant) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAssistant) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnAssistant) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Wisdom::Assistant`.
 func NewCfnAssistant(scope constructs.Construct, id *string, props *CfnAssistantProps) CfnAssistant {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnAssistant(scope constructs.Construct, id *string, props *CfnAssistant
 	return &j
 }
 
+// Create a new `AWS::Wisdom::Assistant`.
 func NewCfnAssistant_Override(c CfnAssistant, scope constructs.Construct, id *string, props *CfnAssistantProps) {
 	_init_.Initialize()
 
@@ -523,13 +527,13 @@ func (j *jsiiProxy_CfnAssistant)SetType(val *string) {
 }
 
 // Creates a new IAssistantRef from an ARN.
-func CfnAssistant_FromAssistantArn(scope constructs.Construct, id *string, arn *string) IAssistantRef {
+func CfnAssistant_FromAssistantArn(scope constructs.Construct, id *string, arn *string) interfacesawswisdom.IAssistantRef {
 	_init_.Initialize()
 
 	if err := validateCfnAssistant_FromAssistantArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAssistantRef
+	var returns interfacesawswisdom.IAssistantRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wisdom.CfnAssistant",
@@ -542,13 +546,13 @@ func CfnAssistant_FromAssistantArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IAssistantRef from a assistantId.
-func CfnAssistant_FromAssistantId(scope constructs.Construct, id *string, assistantId *string) IAssistantRef {
+func CfnAssistant_FromAssistantId(scope constructs.Construct, id *string, assistantId *string) interfacesawswisdom.IAssistantRef {
 	_init_.Initialize()
 
 	if err := validateCfnAssistant_FromAssistantIdParameters(scope, id, assistantId); err != nil {
 		panic(err)
 	}
-	var returns IAssistantRef
+	var returns interfacesawswisdom.IAssistantRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wisdom.CfnAssistant",

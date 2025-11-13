@@ -4,19 +4,19 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Configuration props for EKS Fargate.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //
 //
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
-//   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+//   	Version: eks.KubernetesVersion_V1_34(),
+//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 //   })
 //
 type FargateClusterProps struct {
@@ -204,7 +204,7 @@ type FargateClusterProps struct {
 	//   all etcd volumes used by Amazon EKS are encrypted at the disk-level
 	//   using AWS-Managed encryption keys.
 	//
-	SecretsEncryptionKey awskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
+	SecretsEncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//

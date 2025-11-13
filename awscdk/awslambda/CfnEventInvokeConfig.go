@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnEventInvokeConfig interface {
 	awscdk.CfnResource
-	IEventInvokeConfigRef
 	awscdk.IInspectable
+	interfacesawslambda.IEventInvokeConfigRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -53,9 +55,9 @@ type CfnEventInvokeConfig interface {
 	// A destination for events after they have been sent to a function for processing.
 	DestinationConfig() interface{}
 	SetDestinationConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EventInvokeConfig resource.
-	EventInvokeConfigRef() *EventInvokeConfigReference
+	EventInvokeConfigRef() *interfacesawslambda.EventInvokeConfigReference
 	// The name of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
@@ -232,8 +234,8 @@ type CfnEventInvokeConfig interface {
 // The jsii proxy struct for CfnEventInvokeConfig
 type jsiiProxy_CfnEventInvokeConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventInvokeConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslambdaIEventInvokeConfigRef
 }
 
 func (j *jsiiProxy_CfnEventInvokeConfig) CfnOptions() awscdk.ICfnResourceOptions {
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnEventInvokeConfig) DestinationConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventInvokeConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventInvokeConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnEventInvokeConfig) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventInvokeConfig) EventInvokeConfigRef() *EventInvokeConfigReference {
-	var returns *EventInvokeConfigReference
+func (j *jsiiProxy_CfnEventInvokeConfig) EventInvokeConfigRef() *interfacesawslambda.EventInvokeConfigReference {
+	var returns *interfacesawslambda.EventInvokeConfigReference
 	_jsii_.Get(
 		j,
 		"eventInvokeConfigRef",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnEventInvokeConfig) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::Lambda::EventInvokeConfig`.
 func NewCfnEventInvokeConfig(scope constructs.Construct, id *string, props *CfnEventInvokeConfigProps) CfnEventInvokeConfig {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnEventInvokeConfig(scope constructs.Construct, id *string, props *CfnE
 	return &j
 }
 
+// Create a new `AWS::Lambda::EventInvokeConfig`.
 func NewCfnEventInvokeConfig_Override(c CfnEventInvokeConfig, scope constructs.Construct, id *string, props *CfnEventInvokeConfigProps) {
 	_init_.Initialize()
 

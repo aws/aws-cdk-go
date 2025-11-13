@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -82,8 +84,8 @@ import (
 //
 type CfnTaskSet interface {
 	awscdk.CfnResource
-	ITaskSetRef
 	awscdk.IInspectable
+	interfacesawsecs.ITaskSetRef
 	awscdk.ITaggableV2
 	// The ID of the task set.
 	AttrId() *string
@@ -104,7 +106,7 @@ type CfnTaskSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An optional non-unique tag that identifies this task set in external systems.
 	ExternalId() *string
 	SetExternalId(val *string)
@@ -157,7 +159,7 @@ type CfnTaskSet interface {
 	TaskDefinition() *string
 	SetTaskDefinition(val *string)
 	// A reference to a TaskSet resource.
-	TaskSetRef() *TaskSetReference
+	TaskSetRef() *interfacesawsecs.TaskSetReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -301,8 +303,8 @@ type CfnTaskSet interface {
 // The jsii proxy struct for CfnTaskSet
 type jsiiProxy_CfnTaskSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITaskSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecsITaskSetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -386,8 +388,8 @@ func (j *jsiiProxy_CfnTaskSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTaskSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -536,8 +538,8 @@ func (j *jsiiProxy_CfnTaskSet) TaskDefinition() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskSet) TaskSetRef() *TaskSetReference {
-	var returns *TaskSetReference
+func (j *jsiiProxy_CfnTaskSet) TaskSetRef() *interfacesawsecs.TaskSetReference {
+	var returns *interfacesawsecs.TaskSetReference
 	_jsii_.Get(
 		j,
 		"taskSetRef",
@@ -567,6 +569,7 @@ func (j *jsiiProxy_CfnTaskSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ECS::TaskSet`.
 func NewCfnTaskSet(scope constructs.Construct, id *string, props *CfnTaskSetProps) CfnTaskSet {
 	_init_.Initialize()
 
@@ -584,6 +587,7 @@ func NewCfnTaskSet(scope constructs.Construct, id *string, props *CfnTaskSetProp
 	return &j
 }
 
+// Create a new `AWS::ECS::TaskSet`.
 func NewCfnTaskSet_Override(c CfnTaskSet, scope constructs.Construct, id *string, props *CfnTaskSetProps) {
 	_init_.Initialize()
 

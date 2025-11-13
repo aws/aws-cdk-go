@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewFargateCluster(this, jsii.String("FargateCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   })
 //
 // Experimental.
@@ -99,7 +100,7 @@ type FargateCluster interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
 	//
@@ -392,8 +393,8 @@ func (j *jsiiProxy_FargateCluster) EksPodIdentityAgent() IAddon {
 	return returns
 }
 
-func (j *jsiiProxy_FargateCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_FargateCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

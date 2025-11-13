@@ -509,6 +509,32 @@ getMessageIntegration := apigateway.NewAwsIntegration(&AwsIntegrationProps{
 })
 ```
 
+### Lambda Integration Permissions
+
+By default, creating a `LambdaIntegration` will add a permission for API Gateway to invoke your AWS Lambda function, scoped to the specific method which uses the integration.
+
+If you reuse the same AWS Lambda function for many integrations, the AWS Lambda permission policy size can be exceeded by adding a separate policy statement for each method which invokes the AWS Lambda function. To avoid this, you can opt to scope permissions to any method on the API by setting `scopePermissionToMethod` to `false`, and this will ensure only a single policy statement is added to the AWS Lambda permission policy.
+
+```go
+var book Resource
+var backend Function
+
+
+getBookIntegration := apigateway.NewLambdaIntegration(backend, &LambdaIntegrationOptions{
+	ScopePermissionToMethod: jsii.Boolean(false),
+})
+createBookIntegration := apigateway.NewLambdaIntegration(backend, &LambdaIntegrationOptions{
+	ScopePermissionToMethod: jsii.Boolean(false),
+})
+
+book.AddMethod(jsii.String("GET"), getBookIntegration)
+book.AddMethod(jsii.String("POST"), createBookIntegration)
+```
+
+In the above example, a single permission is added, shared by both `getBookIntegration` and `createBookIntegration`.
+
+Note that setting `scopePermissionToMethod` to `false` will always allow test invocations, no matter the value specified for `allowTestInvoke`.
+
 ## Usage Plan & API Keys
 
 A usage plan specifies who can access one or more deployed API stages and methods, and the rate at which they can be

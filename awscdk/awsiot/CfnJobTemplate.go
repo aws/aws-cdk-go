@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +64,8 @@ import (
 //
 type CfnJobTemplate interface {
 	awscdk.CfnResource
-	IJobTemplateRef
 	awscdk.IInspectable
+	interfacesawsiot.IJobTemplateRef
 	awscdk.ITaggable
 	// The criteria that determine when and how a job abort takes place.
 	AbortConfig() interface{}
@@ -91,7 +93,7 @@ type CfnJobTemplate interface {
 	// An S3 link, or S3 object URL, to the job document.
 	DocumentSource() *string
 	SetDocumentSource(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the job to use as the basis for the job template.
 	JobArn() *string
 	SetJobArn(val *string)
@@ -105,7 +107,7 @@ type CfnJobTemplate interface {
 	JobTemplateId() *string
 	SetJobTemplateId(val *string)
 	// A reference to a JobTemplate resource.
-	JobTemplateRef() *JobTemplateReference
+	JobTemplateRef() *interfacesawsiot.JobTemplateReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -284,8 +286,8 @@ type CfnJobTemplate interface {
 // The jsii proxy struct for CfnJobTemplate
 type jsiiProxy_CfnJobTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IJobTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIJobTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -389,8 +391,8 @@ func (j *jsiiProxy_CfnJobTemplate) DocumentSource() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnJobTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -439,8 +441,8 @@ func (j *jsiiProxy_CfnJobTemplate) JobTemplateId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobTemplate) JobTemplateRef() *JobTemplateReference {
-	var returns *JobTemplateReference
+func (j *jsiiProxy_CfnJobTemplate) JobTemplateRef() *interfacesawsiot.JobTemplateReference {
+	var returns *interfacesawsiot.JobTemplateReference
 	_jsii_.Get(
 		j,
 		"jobTemplateRef",
@@ -560,6 +562,7 @@ func (j *jsiiProxy_CfnJobTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::JobTemplate`.
 func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemplateProps) CfnJobTemplate {
 	_init_.Initialize()
 
@@ -577,6 +580,7 @@ func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemp
 	return &j
 }
 
+// Create a new `AWS::IoT::JobTemplate`.
 func NewCfnJobTemplate_Override(c CfnJobTemplate, scope constructs.Construct, id *string, props *CfnJobTemplateProps) {
 	_init_.Initialize()
 
@@ -707,13 +711,13 @@ func (j *jsiiProxy_CfnJobTemplate)SetTimeoutConfig(val interface{}) {
 }
 
 // Creates a new IJobTemplateRef from an ARN.
-func CfnJobTemplate_FromJobTemplateArn(scope constructs.Construct, id *string, arn *string) IJobTemplateRef {
+func CfnJobTemplate_FromJobTemplateArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IJobTemplateRef {
 	_init_.Initialize()
 
 	if err := validateCfnJobTemplate_FromJobTemplateArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IJobTemplateRef
+	var returns interfacesawsiot.IJobTemplateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnJobTemplate",
@@ -726,13 +730,13 @@ func CfnJobTemplate_FromJobTemplateArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IJobTemplateRef from a jobTemplateId.
-func CfnJobTemplate_FromJobTemplateId(scope constructs.Construct, id *string, jobTemplateId *string) IJobTemplateRef {
+func CfnJobTemplate_FromJobTemplateId(scope constructs.Construct, id *string, jobTemplateId *string) interfacesawsiot.IJobTemplateRef {
 	_init_.Initialize()
 
 	if err := validateCfnJobTemplate_FromJobTemplateIdParameters(scope, id, jobTemplateId); err != nil {
 		panic(err)
 	}
-	var returns IJobTemplateRef
+	var returns interfacesawsiot.IJobTemplateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnJobTemplate",

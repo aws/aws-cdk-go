@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssmsvoice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssmsvoice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnPhoneNumber interface {
 	awscdk.CfnResource
-	IPhoneNumberRef
 	awscdk.IInspectable
+	interfacesawssmsvoice.IPhoneNumberRef
 	awscdk.ITaggableV2
 	// The `PhoneNumber` 's Amazon Resource Name (ARN).
 	AttrArn() *string
@@ -88,7 +90,7 @@ type CfnPhoneNumber interface {
 	// By default this is set to false.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
 	IsoCountryCode() *string
 	SetIsoCountryCode(val *string)
@@ -120,7 +122,7 @@ type CfnPhoneNumber interface {
 	OptOutListName() *string
 	SetOptOutListName(val *string)
 	// A reference to a PhoneNumber resource.
-	PhoneNumberRef() *PhoneNumberReference
+	PhoneNumberRef() *interfacesawssmsvoice.PhoneNumberReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -282,8 +284,8 @@ type CfnPhoneNumber interface {
 // The jsii proxy struct for CfnPhoneNumber
 type jsiiProxy_CfnPhoneNumber struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPhoneNumberRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssmsvoiceIPhoneNumberRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnPhoneNumber) DeletionProtectionEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPhoneNumber) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -467,8 +469,8 @@ func (j *jsiiProxy_CfnPhoneNumber) OptOutListName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) PhoneNumberRef() *PhoneNumberReference {
-	var returns *PhoneNumberReference
+func (j *jsiiProxy_CfnPhoneNumber) PhoneNumberRef() *interfacesawssmsvoice.PhoneNumberReference {
+	var returns *interfacesawssmsvoice.PhoneNumberReference
 	_jsii_.Get(
 		j,
 		"phoneNumberRef",
@@ -548,6 +550,7 @@ func (j *jsiiProxy_CfnPhoneNumber) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SMSVOICE::PhoneNumber`.
 func NewCfnPhoneNumber(scope constructs.Construct, id *string, props *CfnPhoneNumberProps) CfnPhoneNumber {
 	_init_.Initialize()
 
@@ -565,6 +568,7 @@ func NewCfnPhoneNumber(scope constructs.Construct, id *string, props *CfnPhoneNu
 	return &j
 }
 
+// Create a new `AWS::SMSVOICE::PhoneNumber`.
 func NewCfnPhoneNumber_Override(c CfnPhoneNumber, scope constructs.Construct, id *string, props *CfnPhoneNumberProps) {
 	_init_.Initialize()
 
@@ -683,13 +687,13 @@ func (j *jsiiProxy_CfnPhoneNumber)SetTwoWay(val interface{}) {
 }
 
 // Creates a new IPhoneNumberRef from an ARN.
-func CfnPhoneNumber_FromPhoneNumberArn(scope constructs.Construct, id *string, arn *string) IPhoneNumberRef {
+func CfnPhoneNumber_FromPhoneNumberArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IPhoneNumberRef {
 	_init_.Initialize()
 
 	if err := validateCfnPhoneNumber_FromPhoneNumberArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IPhoneNumberRef
+	var returns interfacesawssmsvoice.IPhoneNumberRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnPhoneNumber",
@@ -702,13 +706,13 @@ func CfnPhoneNumber_FromPhoneNumberArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IPhoneNumberRef from a phoneNumberId.
-func CfnPhoneNumber_FromPhoneNumberId(scope constructs.Construct, id *string, phoneNumberId *string) IPhoneNumberRef {
+func CfnPhoneNumber_FromPhoneNumberId(scope constructs.Construct, id *string, phoneNumberId *string) interfacesawssmsvoice.IPhoneNumberRef {
 	_init_.Initialize()
 
 	if err := validateCfnPhoneNumber_FromPhoneNumberIdParameters(scope, id, phoneNumberId); err != nil {
 		panic(err)
 	}
-	var returns IPhoneNumberRef
+	var returns interfacesawssmsvoice.IPhoneNumberRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnPhoneNumber",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslocation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslocation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnRouteCalculator interface {
 	awscdk.CfnResource
-	IRouteCalculatorRef
 	awscdk.IInspectable
+	interfacesawslocation.IRouteCalculatorRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the route calculator resource.
 	//
@@ -78,7 +80,7 @@ type CfnRouteCalculator interface {
 	// The optional description for the route calculator resource.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -102,7 +104,7 @@ type CfnRouteCalculator interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RouteCalculator resource.
-	RouteCalculatorRef() *RouteCalculatorReference
+	RouteCalculatorRef() *interfacesawslocation.RouteCalculatorReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -253,8 +255,8 @@ type CfnRouteCalculator interface {
 // The jsii proxy struct for CfnRouteCalculator
 type jsiiProxy_CfnRouteCalculator struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteCalculatorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslocationIRouteCalculatorRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -378,8 +380,8 @@ func (j *jsiiProxy_CfnRouteCalculator) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteCalculator) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRouteCalculator) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnRouteCalculator) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteCalculator) RouteCalculatorRef() *RouteCalculatorReference {
-	var returns *RouteCalculatorReference
+func (j *jsiiProxy_CfnRouteCalculator) RouteCalculatorRef() *interfacesawslocation.RouteCalculatorReference {
+	var returns *interfacesawslocation.RouteCalculatorReference
 	_jsii_.Get(
 		j,
 		"routeCalculatorRef",
@@ -479,6 +481,7 @@ func (j *jsiiProxy_CfnRouteCalculator) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Location::RouteCalculator`.
 func NewCfnRouteCalculator(scope constructs.Construct, id *string, props *CfnRouteCalculatorProps) CfnRouteCalculator {
 	_init_.Initialize()
 
@@ -496,6 +499,7 @@ func NewCfnRouteCalculator(scope constructs.Construct, id *string, props *CfnRou
 	return &j
 }
 
+// Create a new `AWS::Location::RouteCalculator`.
 func NewCfnRouteCalculator_Override(c CfnRouteCalculator, scope constructs.Construct, id *string, props *CfnRouteCalculatorProps) {
 	_init_.Initialize()
 
@@ -556,13 +560,13 @@ func (j *jsiiProxy_CfnRouteCalculator)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IRouteCalculatorRef from a calculatorName.
-func CfnRouteCalculator_FromCalculatorName(scope constructs.Construct, id *string, calculatorName *string) IRouteCalculatorRef {
+func CfnRouteCalculator_FromCalculatorName(scope constructs.Construct, id *string, calculatorName *string) interfacesawslocation.IRouteCalculatorRef {
 	_init_.Initialize()
 
 	if err := validateCfnRouteCalculator_FromCalculatorNameParameters(scope, id, calculatorName); err != nil {
 		panic(err)
 	}
-	var returns IRouteCalculatorRef
+	var returns interfacesawslocation.IRouteCalculatorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnRouteCalculator",
@@ -575,13 +579,13 @@ func CfnRouteCalculator_FromCalculatorName(scope constructs.Construct, id *strin
 }
 
 // Creates a new IRouteCalculatorRef from an ARN.
-func CfnRouteCalculator_FromRouteCalculatorArn(scope constructs.Construct, id *string, arn *string) IRouteCalculatorRef {
+func CfnRouteCalculator_FromRouteCalculatorArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.IRouteCalculatorRef {
 	_init_.Initialize()
 
 	if err := validateCfnRouteCalculator_FromRouteCalculatorArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IRouteCalculatorRef
+	var returns interfacesawslocation.IRouteCalculatorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnRouteCalculator",

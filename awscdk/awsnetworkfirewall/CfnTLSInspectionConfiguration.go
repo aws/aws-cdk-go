@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkfirewall/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkfirewall"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -82,8 +84,8 @@ import (
 //
 type CfnTLSInspectionConfiguration interface {
 	awscdk.CfnResource
-	ITLSInspectionConfigurationRef
 	awscdk.IInspectable
+	interfacesawsnetworkfirewall.ITLSInspectionConfigurationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the TLS inspection configuration.
 	AttrTlsInspectionConfigurationArn() *string
@@ -105,7 +107,7 @@ type CfnTLSInspectionConfiguration interface {
 	// A description of the TLS inspection configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -137,7 +139,7 @@ type CfnTLSInspectionConfiguration interface {
 	TlsInspectionConfigurationName() *string
 	SetTlsInspectionConfigurationName(val *string)
 	// A reference to a TLSInspectionConfiguration resource.
-	TlsInspectionConfigurationRef() *TLSInspectionConfigurationReference
+	TlsInspectionConfigurationRef() *interfacesawsnetworkfirewall.TLSInspectionConfigurationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -281,8 +283,8 @@ type CfnTLSInspectionConfiguration interface {
 // The jsii proxy struct for CfnTLSInspectionConfiguration
 type jsiiProxy_CfnTLSInspectionConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITLSInspectionConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkfirewallITLSInspectionConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnTLSInspectionConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTLSInspectionConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTLSInspectionConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -446,8 +448,8 @@ func (j *jsiiProxy_CfnTLSInspectionConfiguration) TlsInspectionConfigurationName
 	return returns
 }
 
-func (j *jsiiProxy_CfnTLSInspectionConfiguration) TlsInspectionConfigurationRef() *TLSInspectionConfigurationReference {
-	var returns *TLSInspectionConfigurationReference
+func (j *jsiiProxy_CfnTLSInspectionConfiguration) TlsInspectionConfigurationRef() *interfacesawsnetworkfirewall.TLSInspectionConfigurationReference {
+	var returns *interfacesawsnetworkfirewall.TLSInspectionConfigurationReference
 	_jsii_.Get(
 		j,
 		"tlsInspectionConfigurationRef",
@@ -477,6 +479,7 @@ func (j *jsiiProxy_CfnTLSInspectionConfiguration) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::NetworkFirewall::TLSInspectionConfiguration`.
 func NewCfnTLSInspectionConfiguration(scope constructs.Construct, id *string, props *CfnTLSInspectionConfigurationProps) CfnTLSInspectionConfiguration {
 	_init_.Initialize()
 
@@ -494,6 +497,7 @@ func NewCfnTLSInspectionConfiguration(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::NetworkFirewall::TLSInspectionConfiguration`.
 func NewCfnTLSInspectionConfiguration_Override(c CfnTLSInspectionConfiguration, scope constructs.Construct, id *string, props *CfnTLSInspectionConfigurationProps) {
 	_init_.Initialize()
 

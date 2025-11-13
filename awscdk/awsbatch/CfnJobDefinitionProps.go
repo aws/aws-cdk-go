@@ -70,6 +70,7 @@ type CfnJobDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
 	//
 	PropagateTags interface{} `field:"optional" json:"propagateTags" yaml:"propagateTags"`
+	// Specifies the resource retention policy settings for the job definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-resourceretentionpolicy
 	//
 	ResourceRetentionPolicy interface{} `field:"optional" json:"resourceRetentionPolicy" yaml:"resourceRetentionPolicy"`

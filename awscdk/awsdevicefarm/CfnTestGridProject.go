@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevicefarm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevicefarm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnTestGridProject interface {
 	awscdk.CfnResource
-	ITestGridProjectRef
 	awscdk.IInspectable
+	interfacesawsdevicefarm.ITestGridProjectRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `TestGrid` project.
 	//
@@ -63,7 +65,7 @@ type CfnTestGridProject interface {
 	// A human-readable description for the project.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -94,7 +96,7 @@ type CfnTestGridProject interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TestGridProject resource.
-	TestGridProjectRef() *TestGridProjectReference
+	TestGridProjectRef() *interfacesawsdevicefarm.TestGridProjectReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -241,8 +243,8 @@ type CfnTestGridProject interface {
 // The jsii proxy struct for CfnTestGridProject
 type jsiiProxy_CfnTestGridProject struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITestGridProjectRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdevicefarmITestGridProjectRef
 	internal.Type__awscdkITaggable
 }
 
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnTestGridProject) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTestGridProject) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTestGridProject) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -386,8 +388,8 @@ func (j *jsiiProxy_CfnTestGridProject) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTestGridProject) TestGridProjectRef() *TestGridProjectReference {
-	var returns *TestGridProjectReference
+func (j *jsiiProxy_CfnTestGridProject) TestGridProjectRef() *interfacesawsdevicefarm.TestGridProjectReference {
+	var returns *interfacesawsdevicefarm.TestGridProjectReference
 	_jsii_.Get(
 		j,
 		"testGridProjectRef",
@@ -427,6 +429,7 @@ func (j *jsiiProxy_CfnTestGridProject) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::DeviceFarm::TestGridProject`.
 func NewCfnTestGridProject(scope constructs.Construct, id *string, props *CfnTestGridProjectProps) CfnTestGridProject {
 	_init_.Initialize()
 
@@ -444,6 +447,7 @@ func NewCfnTestGridProject(scope constructs.Construct, id *string, props *CfnTes
 	return &j
 }
 
+// Create a new `AWS::DeviceFarm::TestGridProject`.
 func NewCfnTestGridProject_Override(c CfnTestGridProject, scope constructs.Construct, id *string, props *CfnTestGridProjectProps) {
 	_init_.Initialize()
 

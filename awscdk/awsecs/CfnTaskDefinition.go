@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -314,8 +316,8 @@ import (
 //
 type CfnTaskDefinition interface {
 	awscdk.CfnResource
-	ITaskDefinitionRef
 	awscdk.IInspectable
+	interfacesawsecs.ITaskDefinitionRef
 	awscdk.ITaggable
 	// The ARN of the task definition.
 	AttrTaskDefinitionArn() *string
@@ -337,7 +339,7 @@ type CfnTaskDefinition interface {
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers.
 	EnableFaultInjection() interface{}
 	SetEnableFaultInjection(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
@@ -402,7 +404,7 @@ type CfnTaskDefinition interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TaskDefinition resource.
-	TaskDefinitionRef() *TaskDefinitionReference
+	TaskDefinitionRef() *interfacesawsecs.TaskDefinitionReference
 	// The short name or full Amazon Resource Name (ARN) of the AWS Identity and Access Management role that grants containers in the task permission to call AWS APIs on your behalf.
 	TaskRoleArn() *string
 	SetTaskRoleArn(val *string)
@@ -552,8 +554,8 @@ type CfnTaskDefinition interface {
 // The jsii proxy struct for CfnTaskDefinition
 type jsiiProxy_CfnTaskDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITaskDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecsITaskDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -637,8 +639,8 @@ func (j *jsiiProxy_CfnTaskDefinition) EnableFaultInjection() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTaskDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -827,8 +829,8 @@ func (j *jsiiProxy_CfnTaskDefinition) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskDefinition) TaskDefinitionRef() *TaskDefinitionReference {
-	var returns *TaskDefinitionReference
+func (j *jsiiProxy_CfnTaskDefinition) TaskDefinitionRef() *interfacesawsecs.TaskDefinitionReference {
+	var returns *interfacesawsecs.TaskDefinitionReference
 	_jsii_.Get(
 		j,
 		"taskDefinitionRef",
@@ -878,6 +880,7 @@ func (j *jsiiProxy_CfnTaskDefinition) Volumes() interface{} {
 }
 
 
+// Create a new `AWS::ECS::TaskDefinition`.
 func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) CfnTaskDefinition {
 	_init_.Initialize()
 
@@ -895,6 +898,7 @@ func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTask
 	return &j
 }
 
+// Create a new `AWS::ECS::TaskDefinition`.
 func NewCfnTaskDefinition_Override(c CfnTaskDefinition, scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) {
 	_init_.Initialize()
 

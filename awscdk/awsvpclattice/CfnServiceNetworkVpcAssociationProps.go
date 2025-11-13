@@ -12,6 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnServiceNetworkVpcAssociationProps := &CfnServiceNetworkVpcAssociationProps{
+//   	DnsOptions: &DnsOptionsProperty{
+//   		PrivateDnsPreference: jsii.String("privateDnsPreference"),
+//   		PrivateDnsSpecifiedDomains: []*string{
+//   			jsii.String("privateDnsSpecifiedDomains"),
+//   		},
+//   	},
+//   	PrivateDnsEnabled: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -28,6 +35,12 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html
 //
 type CfnServiceNetworkVpcAssociationProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html#cfn-vpclattice-servicenetworkvpcassociation-dnsoptions
+	//
+	DnsOptions interface{} `field:"optional" json:"dnsOptions" yaml:"dnsOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html#cfn-vpclattice-servicenetworkvpcassociation-privatednsenabled
+	//
+	PrivateDnsEnabled interface{} `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
 	// The IDs of the security groups.
 	//
 	// Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .

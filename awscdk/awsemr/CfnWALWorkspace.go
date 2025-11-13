@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnWALWorkspace interface {
 	awscdk.CfnResource
-	IWALWorkspaceRef
 	awscdk.IInspectable
+	interfacesawsemr.IWALWorkspaceRef
 	awscdk.ITaggableV2
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -44,7 +46,7 @@ type CfnWALWorkspace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -86,7 +88,7 @@ type CfnWALWorkspace interface {
 	WalWorkspaceName() *string
 	SetWalWorkspaceName(val *string)
 	// A reference to a WALWorkspace resource.
-	WalWorkspaceRef() *WALWorkspaceReference
+	WalWorkspaceRef() *interfacesawsemr.WALWorkspaceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -217,8 +219,8 @@ type CfnWALWorkspace interface {
 // The jsii proxy struct for CfnWALWorkspace
 type jsiiProxy_CfnWALWorkspace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWALWorkspaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrIWALWorkspaceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -272,8 +274,8 @@ func (j *jsiiProxy_CfnWALWorkspace) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWALWorkspace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWALWorkspace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnWALWorkspace) WalWorkspaceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWALWorkspace) WalWorkspaceRef() *WALWorkspaceReference {
-	var returns *WALWorkspaceReference
+func (j *jsiiProxy_CfnWALWorkspace) WalWorkspaceRef() *interfacesawsemr.WALWorkspaceReference {
+	var returns *interfacesawsemr.WALWorkspaceReference
 	_jsii_.Get(
 		j,
 		"walWorkspaceRef",
@@ -373,6 +375,7 @@ func (j *jsiiProxy_CfnWALWorkspace) WalWorkspaceRef() *WALWorkspaceReference {
 }
 
 
+// Create a new `AWS::EMR::WALWorkspace`.
 func NewCfnWALWorkspace(scope constructs.Construct, id *string, props *CfnWALWorkspaceProps) CfnWALWorkspace {
 	_init_.Initialize()
 
@@ -390,6 +393,7 @@ func NewCfnWALWorkspace(scope constructs.Construct, id *string, props *CfnWALWor
 	return &j
 }
 
+// Create a new `AWS::EMR::WALWorkspace`.
 func NewCfnWALWorkspace_Override(c CfnWALWorkspace, scope constructs.Construct, id *string, props *CfnWALWorkspaceProps) {
 	_init_.Initialize()
 

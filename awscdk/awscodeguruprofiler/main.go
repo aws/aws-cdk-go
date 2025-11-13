@@ -54,8 +54,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnProfilingGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IProfilingGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodeguruprofilerIProfilingGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -99,21 +99,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codeguruprofiler.IProfilingGroupRef",
-		reflect.TypeOf((*IProfilingGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "profilingGroupRef", GoGetter: "ProfilingGroupRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IProfilingGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroup",
 		reflect.TypeOf((*ProfilingGroup)(nil)).Elem(),
@@ -142,9 +127,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroupProps",
 		reflect.TypeOf((*ProfilingGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroupReference",
-		reflect.TypeOf((*ProfilingGroupReference)(nil)).Elem(),
 	)
 }

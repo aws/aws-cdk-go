@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnStreamingDistribution interface {
 	awscdk.CfnResource
-	IStreamingDistributionRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IStreamingDistributionRef
 	awscdk.ITaggable
 	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 	AttrDomainName() *string
@@ -75,7 +77,7 @@ type CfnStreamingDistribution interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnStreamingDistribution interface {
 	StreamingDistributionConfig() interface{}
 	SetStreamingDistributionConfig(val interface{})
 	// A reference to a StreamingDistribution resource.
-	StreamingDistributionRef() *StreamingDistributionReference
+	StreamingDistributionRef() *interfacesawscloudfront.StreamingDistributionReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// A complex type that contains zero or more `Tag` elements.
@@ -250,8 +252,8 @@ type CfnStreamingDistribution interface {
 // The jsii proxy struct for CfnStreamingDistribution
 type jsiiProxy_CfnStreamingDistribution struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamingDistributionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIStreamingDistributionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnStreamingDistribution) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamingDistribution) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStreamingDistribution) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnStreamingDistribution) StreamingDistributionConfig() inter
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamingDistribution) StreamingDistributionRef() *StreamingDistributionReference {
-	var returns *StreamingDistributionReference
+func (j *jsiiProxy_CfnStreamingDistribution) StreamingDistributionRef() *interfacesawscloudfront.StreamingDistributionReference {
+	var returns *interfacesawscloudfront.StreamingDistributionReference
 	_jsii_.Get(
 		j,
 		"streamingDistributionRef",
@@ -426,6 +428,7 @@ func (j *jsiiProxy_CfnStreamingDistribution) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::CloudFront::StreamingDistribution`.
 func NewCfnStreamingDistribution(scope constructs.Construct, id *string, props *CfnStreamingDistributionProps) CfnStreamingDistribution {
 	_init_.Initialize()
 
@@ -443,6 +446,7 @@ func NewCfnStreamingDistribution(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::CloudFront::StreamingDistribution`.
 func NewCfnStreamingDistribution_Override(c CfnStreamingDistribution, scope constructs.Construct, id *string, props *CfnStreamingDistributionProps) {
 	_init_.Initialize()
 

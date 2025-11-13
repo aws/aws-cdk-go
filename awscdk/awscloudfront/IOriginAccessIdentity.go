@@ -6,12 +6,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for CloudFront OriginAccessIdentity.
 type IOriginAccessIdentity interface {
-	ICloudFrontOriginAccessIdentityRef
+	interfacesawscloudfront.ICloudFrontOriginAccessIdentityRef
 	awsiam.IGrantable
 	awscdk.IResource
 	// The Origin Access Identity Id (physical id) This was called originAccessIdentityName before.
@@ -23,7 +25,7 @@ type IOriginAccessIdentity interface {
 
 // The jsii proxy for IOriginAccessIdentity
 type jsiiProxy_IOriginAccessIdentity struct {
-	jsiiProxy_ICloudFrontOriginAccessIdentityRef
+	internal.Type__interfacesawscloudfrontICloudFrontOriginAccessIdentityRef
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
 }
@@ -59,8 +61,8 @@ func (j *jsiiProxy_IOriginAccessIdentity) OriginAccessIdentityName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IOriginAccessIdentity) CloudFrontOriginAccessIdentityRef() *CloudFrontOriginAccessIdentityReference {
-	var returns *CloudFrontOriginAccessIdentityReference
+func (j *jsiiProxy_IOriginAccessIdentity) CloudFrontOriginAccessIdentityRef() *interfacesawscloudfront.CloudFrontOriginAccessIdentityReference {
+	var returns *interfacesawscloudfront.CloudFrontOriginAccessIdentityReference
 	_jsii_.Get(
 		j,
 		"cloudFrontOriginAccessIdentityRef",
@@ -69,8 +71,8 @@ func (j *jsiiProxy_IOriginAccessIdentity) CloudFrontOriginAccessIdentityRef() *C
 	return returns
 }
 
-func (j *jsiiProxy_IOriginAccessIdentity) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IOriginAccessIdentity) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

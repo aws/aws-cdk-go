@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Class to define an API Schema from an inline string.
@@ -163,7 +164,7 @@ func InlineApiSchema_FromLocalAsset(path *string) AssetApiSchema {
 
 // Creates an API Schema from an S3 File.
 // Experimental.
-func InlineApiSchema_FromS3File(bucket awss3.IBucketRef, objectKey *string) S3ApiSchema {
+func InlineApiSchema_FromS3File(bucket interfacesawss3.IBucketRef, objectKey *string) S3ApiSchema {
 	_init_.Initialize()
 
 	if err := validateInlineApiSchema_FromS3FileParameters(bucket, objectKey); err != nil {

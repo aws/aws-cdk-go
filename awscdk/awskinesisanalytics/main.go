@@ -7,34 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisanalytics.ApplicationCloudWatchLoggingOptionV2Reference",
-		reflect.TypeOf((*ApplicationCloudWatchLoggingOptionV2Reference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisanalytics.ApplicationOutputReference",
-		reflect.TypeOf((*ApplicationOutputReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisanalytics.ApplicationOutputV2Reference",
-		reflect.TypeOf((*ApplicationOutputV2Reference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisanalytics.ApplicationReference",
-		reflect.TypeOf((*ApplicationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisanalytics.ApplicationReferenceDataSourceReference",
-		reflect.TypeOf((*ApplicationReferenceDataSourceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisanalytics.ApplicationReferenceDataSourceV2Reference",
-		reflect.TypeOf((*ApplicationReferenceDataSourceV2Reference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisanalytics.ApplicationV2Reference",
-		reflect.TypeOf((*ApplicationV2Reference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplication",
 		reflect.TypeOf((*CfnApplication)(nil)).Elem(),
@@ -80,8 +52,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplication{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisanalyticsIApplicationRef)
 			return &j
 		},
 	)
@@ -176,8 +148,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationCloudWatchLoggingOptionV2Ref)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisanalyticsv2IApplicationCloudWatchLoggingOptionRef)
 			return &j
 		},
 	)
@@ -232,8 +204,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplicationOutput{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationOutputRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisanalyticsIApplicationOutputRef)
 			return &j
 		},
 	)
@@ -304,8 +276,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplicationOutputV2{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationOutputV2Ref)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisanalyticsv2IApplicationOutputRef)
 			return &j
 		},
 	)
@@ -380,8 +352,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplicationReferenceDataSource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationReferenceDataSourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisanalyticsIApplicationReferenceDataSourceRef)
 			return &j
 		},
 	)
@@ -464,8 +436,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplicationReferenceDataSourceV2{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationReferenceDataSourceV2Ref)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisanalyticsv2IApplicationReferenceDataSourceRef)
 			return &j
 		},
 	)
@@ -555,8 +527,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplicationV2{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationV2Ref)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisanalyticsv2IApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -720,110 +692,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2Props",
 		reflect.TypeOf((*CfnApplicationV2Props)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisanalytics.IApplicationCloudWatchLoggingOptionV2Ref",
-		reflect.TypeOf((*IApplicationCloudWatchLoggingOptionV2Ref)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationCloudWatchLoggingOptionRef", GoGetter: "ApplicationCloudWatchLoggingOptionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationCloudWatchLoggingOptionV2Ref{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisanalytics.IApplicationOutputRef",
-		reflect.TypeOf((*IApplicationOutputRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationOutputRef", GoGetter: "ApplicationOutputRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationOutputRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisanalytics.IApplicationOutputV2Ref",
-		reflect.TypeOf((*IApplicationOutputV2Ref)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationOutputRef", GoGetter: "ApplicationOutputRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationOutputV2Ref{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisanalytics.IApplicationRef",
-		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisanalytics.IApplicationReferenceDataSourceRef",
-		reflect.TypeOf((*IApplicationReferenceDataSourceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationReferenceDataSourceRef", GoGetter: "ApplicationReferenceDataSourceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationReferenceDataSourceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisanalytics.IApplicationReferenceDataSourceV2Ref",
-		reflect.TypeOf((*IApplicationReferenceDataSourceV2Ref)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationReferenceDataSourceRef", GoGetter: "ApplicationReferenceDataSourceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationReferenceDataSourceV2Ref{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisanalytics.IApplicationV2Ref",
-		reflect.TypeOf((*IApplicationV2Ref)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationV2Ref{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

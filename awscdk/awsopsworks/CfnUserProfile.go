@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnUserProfile interface {
 	awscdk.CfnResource
-	IUserProfileRef
 	awscdk.IInspectable
+	interfacesawsopsworks.IUserProfileRef
 	// Whether users can specify their own SSH public key through the My Settings page.
 	AllowSelfManagement() interface{}
 	SetAllowSelfManagement(val interface{})
@@ -46,7 +48,7 @@ type CfnUserProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The user's IAM ARN.
 	IamUserArn() *string
 	SetIamUserArn(val *string)
@@ -91,7 +93,7 @@ type CfnUserProfile interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a UserProfile resource.
-	UserProfileRef() *UserProfileReference
+	UserProfileRef() *interfacesawsopsworks.UserProfileReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -222,8 +224,8 @@ type CfnUserProfile interface {
 // The jsii proxy struct for CfnUserProfile
 type jsiiProxy_CfnUserProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopsworksIUserProfileRef
 }
 
 func (j *jsiiProxy_CfnUserProfile) AllowSelfManagement() interface{} {
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnUserProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnUserProfile) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserProfile) UserProfileRef() *UserProfileReference {
-	var returns *UserProfileReference
+func (j *jsiiProxy_CfnUserProfile) UserProfileRef() *interfacesawsopsworks.UserProfileReference {
+	var returns *interfacesawsopsworks.UserProfileReference
 	_jsii_.Get(
 		j,
 		"userProfileRef",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnUserProfile) UserProfileRef() *UserProfileReference {
 }
 
 
+// Create a new `AWS::OpsWorks::UserProfile`.
 func NewCfnUserProfile(scope constructs.Construct, id *string, props *CfnUserProfileProps) CfnUserProfile {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnUserProfile(scope constructs.Construct, id *string, props *CfnUserPro
 	return &j
 }
 
+// Create a new `AWS::OpsWorks::UserProfile`.
 func NewCfnUserProfile_Override(c CfnUserProfile, scope constructs.Construct, id *string, props *CfnUserProfileProps) {
 	_init_.Initialize()
 

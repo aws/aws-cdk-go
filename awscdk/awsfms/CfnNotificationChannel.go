@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnNotificationChannel interface {
 	awscdk.CfnResource
-	INotificationChannelRef
 	awscdk.IInspectable
+	interfacesawsfms.INotificationChannelRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnNotificationChannel interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -52,7 +54,7 @@ type CfnNotificationChannel interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a NotificationChannel resource.
-	NotificationChannelRef() *NotificationChannelReference
+	NotificationChannelRef() *interfacesawsfms.NotificationChannelReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -211,8 +213,8 @@ type CfnNotificationChannel interface {
 // The jsii proxy struct for CfnNotificationChannel
 type jsiiProxy_CfnNotificationChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INotificationChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfmsINotificationChannelRef
 }
 
 func (j *jsiiProxy_CfnNotificationChannel) CfnOptions() awscdk.ICfnResourceOptions {
@@ -255,8 +257,8 @@ func (j *jsiiProxy_CfnNotificationChannel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNotificationChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnNotificationChannel) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationChannel) NotificationChannelRef() *NotificationChannelReference {
-	var returns *NotificationChannelReference
+func (j *jsiiProxy_CfnNotificationChannel) NotificationChannelRef() *interfacesawsfms.NotificationChannelReference {
+	var returns *interfacesawsfms.NotificationChannelReference
 	_jsii_.Get(
 		j,
 		"notificationChannelRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnNotificationChannel) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::FMS::NotificationChannel`.
 func NewCfnNotificationChannel(scope constructs.Construct, id *string, props *CfnNotificationChannelProps) CfnNotificationChannel {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnNotificationChannel(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::FMS::NotificationChannel`.
 func NewCfnNotificationChannel_Override(c CfnNotificationChannel, scope constructs.Construct, id *string, props *CfnNotificationChannelProps) {
 	_init_.Initialize()
 

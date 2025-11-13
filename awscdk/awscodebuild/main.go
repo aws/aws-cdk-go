@@ -171,8 +171,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFleet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFleetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodebuildIFleetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -273,8 +273,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnProject{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IProjectRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodebuildIProjectRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -423,8 +423,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReportGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReportGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodebuildIReportGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -486,8 +486,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSourceCredential{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISourceCredentialRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodebuildISourceCredentialRef)
 			return &j
 		},
 	)
@@ -680,10 +680,6 @@ func init() {
 		"aws-cdk-lib.aws_codebuild.FleetProps",
 		reflect.TypeOf((*FleetProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codebuild.FleetReference",
-		reflect.TypeOf((*FleetReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codebuild.GitHubEnterpriseSourceCredentials",
 		reflect.TypeOf((*GitHubEnterpriseSourceCredentials)(nil)).Elem(),
@@ -823,21 +819,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codebuild.IFleetRef",
-		reflect.TypeOf((*IFleetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFleetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_codebuild.IProject",
 		reflect.TypeOf((*IProject)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -878,21 +859,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codebuild.IProjectRef",
-		reflect.TypeOf((*IProjectRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IProjectRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_codebuild.IReportGroup",
 		reflect.TypeOf((*IReportGroup)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -911,21 +877,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codebuild.IReportGroupRef",
-		reflect.TypeOf((*IReportGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "reportGroupRef", GoGetter: "ReportGroupRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReportGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_codebuild.ISource",
 		reflect.TypeOf((*ISource)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -936,21 +887,6 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ISource{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codebuild.ISourceCredentialRef",
-		reflect.TypeOf((*ISourceCredentialRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sourceCredentialRef", GoGetter: "SourceCredentialRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISourceCredentialRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -1214,10 +1150,6 @@ func init() {
 		"aws-cdk-lib.aws_codebuild.ProjectProps",
 		reflect.TypeOf((*ProjectProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codebuild.ProjectReference",
-		reflect.TypeOf((*ProjectReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_codebuild.ProjectVisibility",
 		reflect.TypeOf((*ProjectVisibility)(nil)).Elem(),
@@ -1255,10 +1187,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.ReportGroupProps",
 		reflect.TypeOf((*ReportGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codebuild.ReportGroupReference",
-		reflect.TypeOf((*ReportGroupReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_codebuild.ReportGroupType",
@@ -1298,10 +1226,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.SourceConfig",
 		reflect.TypeOf((*SourceConfig)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codebuild.SourceCredentialReference",
-		reflect.TypeOf((*SourceCredentialReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.SourceProps",

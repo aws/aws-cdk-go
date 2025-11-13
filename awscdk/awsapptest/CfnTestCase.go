@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapptest/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapptest"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -132,8 +134,8 @@ import (
 //
 type CfnTestCase interface {
 	awscdk.CfnResource
-	ITestCaseRef
 	awscdk.IInspectable
+	interfacesawsapptest.ITestCaseRef
 	awscdk.ITaggableV2
 	// The creation time of the test case.
 	AttrCreationTime() *string
@@ -162,7 +164,7 @@ type CfnTestCase interface {
 	// The description of the test case.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -194,7 +196,7 @@ type CfnTestCase interface {
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// A reference to a TestCase resource.
-	TestCaseRef() *TestCaseReference
+	TestCaseRef() *interfacesawsapptest.TestCaseReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -338,8 +340,8 @@ type CfnTestCase interface {
 // The jsii proxy struct for CfnTestCase
 type jsiiProxy_CfnTestCase struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITestCaseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapptestITestCaseRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -473,8 +475,8 @@ func (j *jsiiProxy_CfnTestCase) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTestCase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTestCase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -553,8 +555,8 @@ func (j *jsiiProxy_CfnTestCase) Tags() *map[string]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTestCase) TestCaseRef() *TestCaseReference {
-	var returns *TestCaseReference
+func (j *jsiiProxy_CfnTestCase) TestCaseRef() *interfacesawsapptest.TestCaseReference {
+	var returns *interfacesawsapptest.TestCaseReference
 	_jsii_.Get(
 		j,
 		"testCaseRef",
@@ -584,6 +586,7 @@ func (j *jsiiProxy_CfnTestCase) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppTest::TestCase`.
 func NewCfnTestCase(scope constructs.Construct, id *string, props *CfnTestCaseProps) CfnTestCase {
 	_init_.Initialize()
 
@@ -601,6 +604,7 @@ func NewCfnTestCase(scope constructs.Construct, id *string, props *CfnTestCasePr
 	return &j
 }
 
+// Create a new `AWS::AppTest::TestCase`.
 func NewCfnTestCase_Override(c CfnTestCase, scope constructs.Construct, id *string, props *CfnTestCaseProps) {
 	_init_.Initialize()
 
@@ -650,13 +654,13 @@ func (j *jsiiProxy_CfnTestCase)SetTags(val *map[string]*string) {
 }
 
 // Creates a new ITestCaseRef from an ARN.
-func CfnTestCase_FromTestCaseArn(scope constructs.Construct, id *string, arn *string) ITestCaseRef {
+func CfnTestCase_FromTestCaseArn(scope constructs.Construct, id *string, arn *string) interfacesawsapptest.ITestCaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnTestCase_FromTestCaseArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ITestCaseRef
+	var returns interfacesawsapptest.ITestCaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apptest.CfnTestCase",
@@ -669,13 +673,13 @@ func CfnTestCase_FromTestCaseArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new ITestCaseRef from a testCaseId.
-func CfnTestCase_FromTestCaseId(scope constructs.Construct, id *string, testCaseId *string) ITestCaseRef {
+func CfnTestCase_FromTestCaseId(scope constructs.Construct, id *string, testCaseId *string) interfacesawsapptest.ITestCaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnTestCase_FromTestCaseIdParameters(scope, id, testCaseId); err != nil {
 		panic(err)
 	}
-	var returns ITestCaseRef
+	var returns interfacesawsapptest.ITestCaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apptest.CfnTestCase",

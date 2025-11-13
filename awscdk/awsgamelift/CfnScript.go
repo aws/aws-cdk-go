@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnScript interface {
 	awscdk.CfnResource
-	IScriptRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IScriptRef
 	awscdk.ITaggable
 	// The unique Amazon Resource Name (ARN) for the script.
 	AttrArn() *string
@@ -67,7 +69,7 @@ type CfnScript interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -89,7 +91,7 @@ type CfnScript interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Script resource.
-	ScriptRef() *ScriptReference
+	ScriptRef() *interfacesawsgamelift.ScriptReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -248,8 +250,8 @@ type CfnScript interface {
 // The jsii proxy struct for CfnScript
 type jsiiProxy_CfnScript struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScriptRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIScriptRef
 	internal.Type__awscdkITaggable
 }
 
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnScript) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScript) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScript) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnScript) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScript) ScriptRef() *ScriptReference {
-	var returns *ScriptReference
+func (j *jsiiProxy_CfnScript) ScriptRef() *interfacesawsgamelift.ScriptReference {
+	var returns *interfacesawsgamelift.ScriptReference
 	_jsii_.Get(
 		j,
 		"scriptRef",
@@ -464,6 +466,7 @@ func (j *jsiiProxy_CfnScript) Version() *string {
 }
 
 
+// Create a new `AWS::GameLift::Script`.
 func NewCfnScript(scope constructs.Construct, id *string, props *CfnScriptProps) CfnScript {
 	_init_.Initialize()
 
@@ -481,6 +484,7 @@ func NewCfnScript(scope constructs.Construct, id *string, props *CfnScriptProps)
 	return &j
 }
 
+// Create a new `AWS::GameLift::Script`.
 func NewCfnScript_Override(c CfnScript, scope constructs.Construct, id *string, props *CfnScriptProps) {
 	_init_.Initialize()
 
@@ -530,13 +534,13 @@ func (j *jsiiProxy_CfnScript)SetVersion(val *string) {
 }
 
 // Creates a new IScriptRef from an ARN.
-func CfnScript_FromScriptArn(scope constructs.Construct, id *string, arn *string) IScriptRef {
+func CfnScript_FromScriptArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IScriptRef {
 	_init_.Initialize()
 
 	if err := validateCfnScript_FromScriptArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IScriptRef
+	var returns interfacesawsgamelift.IScriptRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnScript",
@@ -549,13 +553,13 @@ func CfnScript_FromScriptArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IScriptRef from a scriptId.
-func CfnScript_FromScriptId(scope constructs.Construct, id *string, scriptId *string) IScriptRef {
+func CfnScript_FromScriptId(scope constructs.Construct, id *string, scriptId *string) interfacesawsgamelift.IScriptRef {
 	_init_.Initialize()
 
 	if err := validateCfnScript_FromScriptIdParameters(scope, id, scriptId); err != nil {
 		panic(err)
 	}
-	var returns IScriptRef
+	var returns interfacesawsgamelift.IScriptRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnScript",

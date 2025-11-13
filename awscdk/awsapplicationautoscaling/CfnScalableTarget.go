@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnScalableTarget interface {
 	awscdk.CfnResource
-	IScalableTargetRef
 	awscdk.IInspectable
+	interfacesawsapplicationautoscaling.IScalableTargetRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -67,7 +69,7 @@ type CfnScalableTarget interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnScalableTarget interface {
 	ScalableDimension() *string
 	SetScalableDimension(val *string)
 	// A reference to a ScalableTarget resource.
-	ScalableTargetRef() *ScalableTargetReference
+	ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference
 	// The scheduled actions for the scalable target.
 	ScheduledActions() interface{}
 	SetScheduledActions(val interface{})
@@ -258,8 +260,8 @@ type CfnScalableTarget interface {
 // The jsii proxy struct for CfnScalableTarget
 type jsiiProxy_CfnScalableTarget struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScalableTargetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapplicationautoscalingIScalableTargetRef
 }
 
 func (j *jsiiProxy_CfnScalableTarget) AttrId() *string {
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnScalableTarget) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalableTarget) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScalableTarget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,8 +404,8 @@ func (j *jsiiProxy_CfnScalableTarget) ScalableDimension() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalableTarget) ScalableTargetRef() *ScalableTargetReference {
-	var returns *ScalableTargetReference
+func (j *jsiiProxy_CfnScalableTarget) ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference {
+	var returns *interfacesawsapplicationautoscaling.ScalableTargetReference
 	_jsii_.Get(
 		j,
 		"scalableTargetRef",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnScalableTarget) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::ApplicationAutoScaling::ScalableTarget`.
 func NewCfnScalableTarget(scope constructs.Construct, id *string, props *CfnScalableTargetProps) CfnScalableTarget {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnScalableTarget(scope constructs.Construct, id *string, props *CfnScal
 	return &j
 }
 
+// Create a new `AWS::ApplicationAutoScaling::ScalableTarget`.
 func NewCfnScalableTarget_Override(c CfnScalableTarget, scope constructs.Construct, id *string, props *CfnScalableTargetProps) {
 	_init_.Initialize()
 

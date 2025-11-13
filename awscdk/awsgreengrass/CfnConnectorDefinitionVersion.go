@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnConnectorDefinitionVersion interface {
 	awscdk.CfnResource
-	IConnectorDefinitionVersionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IConnectorDefinitionVersionRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,7 +55,7 @@ type CfnConnectorDefinitionVersion interface {
 	ConnectorDefinitionId() *string
 	SetConnectorDefinitionId(val *string)
 	// A reference to a ConnectorDefinitionVersion resource.
-	ConnectorDefinitionVersionRef() *ConnectorDefinitionVersionReference
+	ConnectorDefinitionVersionRef() *interfacesawsgreengrass.ConnectorDefinitionVersionReference
 	// The connectors in this version.
 	Connectors() interface{}
 	SetConnectors(val interface{})
@@ -61,7 +63,7 @@ type CfnConnectorDefinitionVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -226,8 +228,8 @@ type CfnConnectorDefinitionVersion interface {
 // The jsii proxy struct for CfnConnectorDefinitionVersion
 type jsiiProxy_CfnConnectorDefinitionVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectorDefinitionVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIConnectorDefinitionVersionRef
 }
 
 func (j *jsiiProxy_CfnConnectorDefinitionVersion) AttrId() *string {
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) ConnectorDefinitionId() *strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorDefinitionVersion) ConnectorDefinitionVersionRef() *ConnectorDefinitionVersionReference {
-	var returns *ConnectorDefinitionVersionReference
+func (j *jsiiProxy_CfnConnectorDefinitionVersion) ConnectorDefinitionVersionRef() *interfacesawsgreengrass.ConnectorDefinitionVersionReference {
+	var returns *interfacesawsgreengrass.ConnectorDefinitionVersionReference
 	_jsii_.Get(
 		j,
 		"connectorDefinitionVersionRef",
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorDefinitionVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnectorDefinitionVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -381,6 +383,7 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::Greengrass::ConnectorDefinitionVersion`.
 func NewCfnConnectorDefinitionVersion(scope constructs.Construct, id *string, props *CfnConnectorDefinitionVersionProps) CfnConnectorDefinitionVersion {
 	_init_.Initialize()
 
@@ -398,6 +401,7 @@ func NewCfnConnectorDefinitionVersion(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::Greengrass::ConnectorDefinitionVersion`.
 func NewCfnConnectorDefinitionVersion_Override(c CfnConnectorDefinitionVersion, scope constructs.Construct, id *string, props *CfnConnectorDefinitionVersionProps) {
 	_init_.Initialize()
 

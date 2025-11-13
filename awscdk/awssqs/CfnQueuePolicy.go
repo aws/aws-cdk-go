@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnQueuePolicy interface {
 	awscdk.CfnResource
-	IQueuePolicyRef
 	awscdk.IInspectable
+	interfacesawssqs.IQueuePolicyRef
 	// The provider-assigned unique ID for this managed resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -44,7 +46,7 @@ type CfnQueuePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -61,7 +63,7 @@ type CfnQueuePolicy interface {
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	// A reference to a QueuePolicy resource.
-	QueuePolicyRef() *QueuePolicyReference
+	QueuePolicyRef() *interfacesawssqs.QueuePolicyReference
 	// The URLs of the queues to which you want to add the policy.
 	Queues() *[]*string
 	SetQueues(val *[]*string)
@@ -217,8 +219,8 @@ type CfnQueuePolicy interface {
 // The jsii proxy struct for CfnQueuePolicy
 type jsiiProxy_CfnQueuePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueuePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssqsIQueuePolicyRef
 }
 
 func (j *jsiiProxy_CfnQueuePolicy) AttrId() *string {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnQueuePolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueuePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueuePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnQueuePolicy) PolicyDocument() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueuePolicy) QueuePolicyRef() *QueuePolicyReference {
-	var returns *QueuePolicyReference
+func (j *jsiiProxy_CfnQueuePolicy) QueuePolicyRef() *interfacesawssqs.QueuePolicyReference {
+	var returns *interfacesawssqs.QueuePolicyReference
 	_jsii_.Get(
 		j,
 		"queuePolicyRef",
@@ -372,6 +374,7 @@ func (j *jsiiProxy_CfnQueuePolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SQS::QueuePolicy`.
 func NewCfnQueuePolicy(scope constructs.Construct, id *string, props *CfnQueuePolicyProps) CfnQueuePolicy {
 	_init_.Initialize()
 
@@ -389,6 +392,7 @@ func NewCfnQueuePolicy(scope constructs.Construct, id *string, props *CfnQueuePo
 	return &j
 }
 
+// Create a new `AWS::SQS::QueuePolicy`.
 func NewCfnQueuePolicy_Override(c CfnQueuePolicy, scope constructs.Construct, id *string, props *CfnQueuePolicyProps) {
 	_init_.Initialize()
 

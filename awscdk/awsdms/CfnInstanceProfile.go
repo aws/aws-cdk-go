@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnInstanceProfile interface {
 	awscdk.CfnResource
-	IInstanceProfileRef
 	awscdk.IInspectable
+	interfacesawsdms.IInstanceProfileRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) string that uniquely identifies the instance profile.
 	AttrInstanceProfileArn() *string
@@ -64,7 +66,7 @@ type CfnInstanceProfile interface {
 	// A description of the instance profile.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the instance profile.
 	InstanceProfileIdentifier() *string
 	SetInstanceProfileIdentifier(val *string)
@@ -72,7 +74,7 @@ type CfnInstanceProfile interface {
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
 	// A reference to a InstanceProfile resource.
-	InstanceProfileRef() *InstanceProfileReference
+	InstanceProfileRef() *interfacesawsdms.InstanceProfileReference
 	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the connection parameters for the instance profile.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -255,8 +257,8 @@ type CfnInstanceProfile interface {
 // The jsii proxy struct for CfnInstanceProfile
 type jsiiProxy_CfnInstanceProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIInstanceProfileRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnInstanceProfile) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnInstanceProfile) InstanceProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceProfile) InstanceProfileRef() *InstanceProfileReference {
-	var returns *InstanceProfileReference
+func (j *jsiiProxy_CfnInstanceProfile) InstanceProfileRef() *interfacesawsdms.InstanceProfileReference {
+	var returns *interfacesawsdms.InstanceProfileReference
 	_jsii_.Get(
 		j,
 		"instanceProfileRef",
@@ -511,6 +513,7 @@ func (j *jsiiProxy_CfnInstanceProfile) VpcSecurityGroups() *[]*string {
 }
 
 
+// Create a new `AWS::DMS::InstanceProfile`.
 func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnInstanceProfileProps) CfnInstanceProfile {
 	_init_.Initialize()
 
@@ -528,6 +531,7 @@ func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnIns
 	return &j
 }
 
+// Create a new `AWS::DMS::InstanceProfile`.
 func NewCfnInstanceProfile_Override(c CfnInstanceProfile, scope constructs.Construct, id *string, props *CfnInstanceProfileProps) {
 	_init_.Initialize()
 

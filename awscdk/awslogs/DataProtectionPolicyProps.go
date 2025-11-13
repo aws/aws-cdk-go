@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Properties for creating a data protection policy.
@@ -73,6 +73,6 @@ type DataProtectionPolicyProps struct {
 	// The bucket must already exist.
 	// Default: - no S3 bucket audit destination.
 	//
-	S3BucketAuditDestination awss3.IBucketRef `field:"optional" json:"s3BucketAuditDestination" yaml:"s3BucketAuditDestination"`
+	S3BucketAuditDestination interfacesawss3.IBucketRef `field:"optional" json:"s3BucketAuditDestination" yaml:"s3BucketAuditDestination"`
 }
 

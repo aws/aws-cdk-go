@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnRepositoryCreationTemplate interface {
 	awscdk.CfnResource
-	IRepositoryCreationTemplateRef
 	awscdk.IInspectable
+	interfacesawsecr.IRepositoryCreationTemplateRef
 	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards.
 	AppliedFor() *[]*string
 	SetAppliedFor(val *[]*string)
@@ -79,7 +81,7 @@ type CfnRepositoryCreationTemplate interface {
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tag mutability setting for the repository.
 	ImageTagMutability() *string
 	SetImageTagMutability(val *string)
@@ -110,7 +112,7 @@ type CfnRepositoryCreationTemplate interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RepositoryCreationTemplate resource.
-	RepositoryCreationTemplateRef() *RepositoryCreationTemplateReference
+	RepositoryCreationTemplateRef() *interfacesawsecr.RepositoryCreationTemplateReference
 	// The repository policy to apply to repositories created using the template.
 	RepositoryPolicy() *string
 	SetRepositoryPolicy(val *string)
@@ -264,8 +266,8 @@ type CfnRepositoryCreationTemplate interface {
 // The jsii proxy struct for CfnRepositoryCreationTemplate
 type jsiiProxy_CfnRepositoryCreationTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRepositoryCreationTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecrIRepositoryCreationTemplateRef
 }
 
 func (j *jsiiProxy_CfnRepositoryCreationTemplate) AppliedFor() *[]*string {
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate) EncryptionConfiguration() inte
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepositoryCreationTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRepositoryCreationTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -448,8 +450,8 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepositoryCreationTemplate) RepositoryCreationTemplateRef() *RepositoryCreationTemplateReference {
-	var returns *RepositoryCreationTemplateReference
+func (j *jsiiProxy_CfnRepositoryCreationTemplate) RepositoryCreationTemplateRef() *interfacesawsecr.RepositoryCreationTemplateReference {
+	var returns *interfacesawsecr.RepositoryCreationTemplateReference
 	_jsii_.Get(
 		j,
 		"repositoryCreationTemplateRef",
@@ -509,6 +511,7 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::ECR::RepositoryCreationTemplate`.
 func NewCfnRepositoryCreationTemplate(scope constructs.Construct, id *string, props *CfnRepositoryCreationTemplateProps) CfnRepositoryCreationTemplate {
 	_init_.Initialize()
 
@@ -526,6 +529,7 @@ func NewCfnRepositoryCreationTemplate(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::ECR::RepositoryCreationTemplate`.
 func NewCfnRepositoryCreationTemplate_Override(c CfnRepositoryCreationTemplate, scope constructs.Construct, id *string, props *CfnRepositoryCreationTemplateProps) {
 	_init_.Initialize()
 

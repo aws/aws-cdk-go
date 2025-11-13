@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,14 +51,14 @@ import (
 //
 type CfnAddon interface {
 	awscdk.CfnResource
-	IAddonRef
 	awscdk.IInspectable
+	interfacesawseks.IAddonRef
 	awscdk.ITaggable
 	// The name of the add-on.
 	AddonName() *string
 	SetAddonName(val *string)
 	// A reference to a Addon resource.
-	AddonRef() *AddonReference
+	AddonRef() *interfacesawseks.AddonReference
 	// The version of the add-on.
 	AddonVersion() *string
 	SetAddonVersion(val *string)
@@ -77,7 +79,7 @@ type CfnAddon interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -262,8 +264,8 @@ type CfnAddon interface {
 // The jsii proxy struct for CfnAddon
 type jsiiProxy_CfnAddon struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAddonRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseksIAddonRef
 	internal.Type__awscdkITaggable
 }
 
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnAddon) AddonName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAddon) AddonRef() *AddonReference {
-	var returns *AddonReference
+func (j *jsiiProxy_CfnAddon) AddonRef() *interfacesawseks.AddonReference {
+	var returns *interfacesawseks.AddonReference
 	_jsii_.Get(
 		j,
 		"addonRef",
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnAddon) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAddon) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAddon) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -508,6 +510,7 @@ func (j *jsiiProxy_CfnAddon) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EKS::Addon`.
 func NewCfnAddon(scope constructs.Construct, id *string, props *CfnAddonProps) CfnAddon {
 	_init_.Initialize()
 
@@ -525,6 +528,7 @@ func NewCfnAddon(scope constructs.Construct, id *string, props *CfnAddonProps) C
 	return &j
 }
 
+// Create a new `AWS::EKS::Addon`.
 func NewCfnAddon_Override(c CfnAddon, scope constructs.Construct, id *string, props *CfnAddonProps) {
 	_init_.Initialize()
 

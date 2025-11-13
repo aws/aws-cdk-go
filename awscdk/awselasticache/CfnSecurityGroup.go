@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnSecurityGroup interface {
 	awscdk.CfnResource
-	ISecurityGroupRef
 	awscdk.IInspectable
+	interfacesawselasticache.ISecurityGroupRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -52,7 +54,7 @@ type CfnSecurityGroup interface {
 	// A description for the cache security group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,7 +73,7 @@ type CfnSecurityGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SecurityGroup resource.
-	SecurityGroupRef() *SecurityGroupReference
+	SecurityGroupRef() *interfacesawselasticache.SecurityGroupReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -224,8 +226,8 @@ type CfnSecurityGroup interface {
 // The jsii proxy struct for CfnSecurityGroup
 type jsiiProxy_CfnSecurityGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheISecurityGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnSecurityGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnSecurityGroup) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroup) SecurityGroupRef() *SecurityGroupReference {
-	var returns *SecurityGroupReference
+func (j *jsiiProxy_CfnSecurityGroup) SecurityGroupRef() *interfacesawselasticache.SecurityGroupReference {
+	var returns *interfacesawselasticache.SecurityGroupReference
 	_jsii_.Get(
 		j,
 		"securityGroupRef",
@@ -390,6 +392,7 @@ func (j *jsiiProxy_CfnSecurityGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::ElastiCache::SecurityGroup`.
 func NewCfnSecurityGroup(scope constructs.Construct, id *string, props *CfnSecurityGroupProps) CfnSecurityGroup {
 	_init_.Initialize()
 
@@ -407,6 +410,7 @@ func NewCfnSecurityGroup(scope constructs.Construct, id *string, props *CfnSecur
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::SecurityGroup`.
 func NewCfnSecurityGroup_Override(c CfnSecurityGroup, scope constructs.Construct, id *string, props *CfnSecurityGroupProps) {
 	_init_.Initialize()
 

@@ -14,9 +14,11 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var booksDefaultFn Function
+//   var bookStoreDefaultFn Function
 //
-//   booksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+//
+//   getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
+//   bookStoreDefaultIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), bookStoreDefaultFn)
 //
 //   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
@@ -25,7 +27,14 @@ import (
 //   	Methods: []HttpMethod{
 //   		apigwv2.HttpMethod_GET,
 //   	},
-//   	Integration: booksIntegration,
+//   	Integration: getBooksIntegration,
+//   })
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/books"),
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_ANY,
+//   	},
+//   	Integration: bookStoreDefaultIntegration,
 //   })
 //
 type HttpLambdaIntegration interface {

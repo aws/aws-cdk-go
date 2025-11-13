@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnInput interface {
 	awscdk.CfnResource
-	IInputRef
 	awscdk.IInspectable
+	interfacesawsiotevents.IInputRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,7 +56,7 @@ type CfnInput interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The definition of the input.
 	InputDefinition() interface{}
 	SetInputDefinition(val interface{})
@@ -65,7 +67,7 @@ type CfnInput interface {
 	InputName() *string
 	SetInputName(val *string)
 	// A reference to a Input resource.
-	InputRef() *InputReference
+	InputRef() *interfacesawsiotevents.InputReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnInput interface {
 // The jsii proxy struct for CfnInput
 type jsiiProxy_CfnInput struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInputRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsioteventsIInputRef
 	internal.Type__awscdkITaggable
 }
 
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnInput) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInput) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInput) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnInput) InputName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInput) InputRef() *InputReference {
-	var returns *InputReference
+func (j *jsiiProxy_CfnInput) InputRef() *interfacesawsiotevents.InputReference {
+	var returns *interfacesawsiotevents.InputReference
 	_jsii_.Get(
 		j,
 		"inputRef",
@@ -411,6 +413,7 @@ func (j *jsiiProxy_CfnInput) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTEvents::Input`.
 func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) CfnInput {
 	_init_.Initialize()
 
@@ -428,6 +431,7 @@ func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) C
 	return &j
 }
 
+// Create a new `AWS::IoTEvents::Input`.
 func NewCfnInput_Override(c CfnInput, scope constructs.Construct, id *string, props *CfnInputProps) {
 	_init_.Initialize()
 
@@ -477,13 +481,13 @@ func (j *jsiiProxy_CfnInput)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IInputRef from a inputName.
-func CfnInput_FromInputName(scope constructs.Construct, id *string, inputName *string) IInputRef {
+func CfnInput_FromInputName(scope constructs.Construct, id *string, inputName *string) interfacesawsiotevents.IInputRef {
 	_init_.Initialize()
 
 	if err := validateCfnInput_FromInputNameParameters(scope, id, inputName); err != nil {
 		panic(err)
 	}
-	var returns IInputRef
+	var returns interfacesawsiotevents.IInputRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotevents.CfnInput",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspcaconnectorad/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspcaconnectorad"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnTemplateGroupAccessControlEntry interface {
 	awscdk.CfnResource
-	ITemplateGroupAccessControlEntryRef
 	awscdk.IInspectable
+	interfacesawspcaconnectorad.ITemplateGroupAccessControlEntryRef
 	// Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
 	AccessRights() interface{}
 	SetAccessRights(val interface{})
@@ -48,7 +50,7 @@ type CfnTemplateGroupAccessControlEntry interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Name of the Active Directory group.
 	GroupDisplayName() *string
 	SetGroupDisplayName(val *string)
@@ -80,7 +82,7 @@ type CfnTemplateGroupAccessControlEntry interface {
 	TemplateArn() *string
 	SetTemplateArn(val *string)
 	// A reference to a TemplateGroupAccessControlEntry resource.
-	TemplateGroupAccessControlEntryRef() *TemplateGroupAccessControlEntryReference
+	TemplateGroupAccessControlEntryRef() *interfacesawspcaconnectorad.TemplateGroupAccessControlEntryReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,8 +226,8 @@ type CfnTemplateGroupAccessControlEntry interface {
 // The jsii proxy struct for CfnTemplateGroupAccessControlEntry
 type jsiiProxy_CfnTemplateGroupAccessControlEntry struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITemplateGroupAccessControlEntryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspcaconnectoradITemplateGroupAccessControlEntryRef
 }
 
 func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) AccessRights() interface{} {
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) CreationStack() *[]*strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) TemplateArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) TemplateGroupAccessControlEntryRef() *TemplateGroupAccessControlEntryReference {
-	var returns *TemplateGroupAccessControlEntryReference
+func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) TemplateGroupAccessControlEntryRef() *interfacesawspcaconnectorad.TemplateGroupAccessControlEntryReference {
+	var returns *interfacesawspcaconnectorad.TemplateGroupAccessControlEntryReference
 	_jsii_.Get(
 		j,
 		"templateGroupAccessControlEntryRef",
@@ -389,6 +391,7 @@ func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) UpdatedProperties() *map[
 }
 
 
+// Create a new `AWS::PCAConnectorAD::TemplateGroupAccessControlEntry`.
 func NewCfnTemplateGroupAccessControlEntry(scope constructs.Construct, id *string, props *CfnTemplateGroupAccessControlEntryProps) CfnTemplateGroupAccessControlEntry {
 	_init_.Initialize()
 
@@ -406,6 +409,7 @@ func NewCfnTemplateGroupAccessControlEntry(scope constructs.Construct, id *strin
 	return &j
 }
 
+// Create a new `AWS::PCAConnectorAD::TemplateGroupAccessControlEntry`.
 func NewCfnTemplateGroupAccessControlEntry_Override(c CfnTemplateGroupAccessControlEntry, scope constructs.Construct, id *string, props *CfnTemplateGroupAccessControlEntryProps) {
 	_init_.Initialize()
 

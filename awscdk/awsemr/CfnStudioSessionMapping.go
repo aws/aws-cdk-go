@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnStudioSessionMapping interface {
 	awscdk.CfnResource
-	IStudioSessionMappingRef
 	awscdk.IInspectable
+	interfacesawsemr.IStudioSessionMappingRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnStudioSessionMapping interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the user or group.
 	IdentityName() *string
 	SetIdentityName(val *string)
@@ -73,7 +75,7 @@ type CfnStudioSessionMapping interface {
 	StudioId() *string
 	SetStudioId(val *string)
 	// A reference to a StudioSessionMapping resource.
-	StudioSessionMappingRef() *StudioSessionMappingReference
+	StudioSessionMappingRef() *interfacesawsemr.StudioSessionMappingReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -217,8 +219,8 @@ type CfnStudioSessionMapping interface {
 // The jsii proxy struct for CfnStudioSessionMapping
 type jsiiProxy_CfnStudioSessionMapping struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStudioSessionMappingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrIStudioSessionMappingRef
 }
 
 func (j *jsiiProxy_CfnStudioSessionMapping) CfnOptions() awscdk.ICfnResourceOptions {
@@ -261,8 +263,8 @@ func (j *jsiiProxy_CfnStudioSessionMapping) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudioSessionMapping) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStudioSessionMapping) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnStudioSessionMapping) StudioId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudioSessionMapping) StudioSessionMappingRef() *StudioSessionMappingReference {
-	var returns *StudioSessionMappingReference
+func (j *jsiiProxy_CfnStudioSessionMapping) StudioSessionMappingRef() *interfacesawsemr.StudioSessionMappingReference {
+	var returns *interfacesawsemr.StudioSessionMappingReference
 	_jsii_.Get(
 		j,
 		"studioSessionMappingRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnStudioSessionMapping) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::EMR::StudioSessionMapping`.
 func NewCfnStudioSessionMapping(scope constructs.Construct, id *string, props *CfnStudioSessionMappingProps) CfnStudioSessionMapping {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnStudioSessionMapping(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::EMR::StudioSessionMapping`.
 func NewCfnStudioSessionMapping_Override(c CfnStudioSessionMapping, scope constructs.Construct, id *string, props *CfnStudioSessionMappingProps) {
 	_init_.Initialize()
 

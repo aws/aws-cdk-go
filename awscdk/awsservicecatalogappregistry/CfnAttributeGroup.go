@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalogappregistry/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalogappregistry"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,13 +37,13 @@ import (
 //
 type CfnAttributeGroup interface {
 	awscdk.CfnResource
-	IAttributeGroupRef
 	awscdk.IInspectable
+	interfacesawsservicecatalogappregistry.IAttributeGroupRef
 	awscdk.ITaggable
 	// The Amazon resource name (ARN) that specifies the attribute group across services.
 	AttrArn() *string
 	// A reference to a AttributeGroup resource.
-	AttributeGroupRef() *AttributeGroupReference
+	AttributeGroupRef() *interfacesawsservicecatalogappregistry.AttributeGroupReference
 	// A nested object in a JSON or YAML template that supports arbitrary definitions.
 	Attributes() interface{}
 	SetAttributes(val interface{})
@@ -59,7 +61,7 @@ type CfnAttributeGroup interface {
 	// The description of the attribute group that the user provides.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -232,8 +234,8 @@ type CfnAttributeGroup interface {
 // The jsii proxy struct for CfnAttributeGroup
 type jsiiProxy_CfnAttributeGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAttributeGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogappregistryIAttributeGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -247,8 +249,8 @@ func (j *jsiiProxy_CfnAttributeGroup) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAttributeGroup) AttributeGroupRef() *AttributeGroupReference {
-	var returns *AttributeGroupReference
+func (j *jsiiProxy_CfnAttributeGroup) AttributeGroupRef() *interfacesawsservicecatalogappregistry.AttributeGroupReference {
+	var returns *interfacesawsservicecatalogappregistry.AttributeGroupReference
 	_jsii_.Get(
 		j,
 		"attributeGroupRef",
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnAttributeGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAttributeGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAttributeGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,6 +430,7 @@ func (j *jsiiProxy_CfnAttributeGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
 func NewCfnAttributeGroup(scope constructs.Construct, id *string, props *CfnAttributeGroupProps) CfnAttributeGroup {
 	_init_.Initialize()
 
@@ -445,6 +448,7 @@ func NewCfnAttributeGroup(scope constructs.Construct, id *string, props *CfnAttr
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
 func NewCfnAttributeGroup_Override(c CfnAttributeGroup, scope constructs.Construct, id *string, props *CfnAttributeGroupProps) {
 	_init_.Initialize()
 
@@ -494,13 +498,13 @@ func (j *jsiiProxy_CfnAttributeGroup)SetTagsRaw(val *map[string]*string) {
 }
 
 // Creates a new IAttributeGroupRef from an ARN.
-func CfnAttributeGroup_FromAttributeGroupArn(scope constructs.Construct, id *string, arn *string) IAttributeGroupRef {
+func CfnAttributeGroup_FromAttributeGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsservicecatalogappregistry.IAttributeGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnAttributeGroup_FromAttributeGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAttributeGroupRef
+	var returns interfacesawsservicecatalogappregistry.IAttributeGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_servicecatalogappregistry.CfnAttributeGroup",
@@ -513,13 +517,13 @@ func CfnAttributeGroup_FromAttributeGroupArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IAttributeGroupRef from a attributeGroupId.
-func CfnAttributeGroup_FromAttributeGroupId(scope constructs.Construct, id *string, attributeGroupId *string) IAttributeGroupRef {
+func CfnAttributeGroup_FromAttributeGroupId(scope constructs.Construct, id *string, attributeGroupId *string) interfacesawsservicecatalogappregistry.IAttributeGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnAttributeGroup_FromAttributeGroupIdParameters(scope, id, attributeGroupId); err != nil {
 		panic(err)
 	}
-	var returns IAttributeGroupRef
+	var returns interfacesawsservicecatalogappregistry.IAttributeGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_servicecatalogappregistry.CfnAttributeGroup",

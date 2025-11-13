@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnEventSubscription interface {
 	awscdk.CfnResource
-	IEventSubscriptionRef
 	awscdk.IInspectable
+	interfacesawsrds.IEventSubscriptionRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -58,12 +60,12 @@ type CfnEventSubscription interface {
 	// Specifies whether to activate the subscription.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
 	// A reference to a EventSubscription resource.
-	EventSubscriptionRef() *EventSubscriptionReference
+	EventSubscriptionRef() *interfacesawsrds.EventSubscriptionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -245,8 +247,8 @@ type CfnEventSubscription interface {
 // The jsii proxy struct for CfnEventSubscription
 type jsiiProxy_CfnEventSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIEventSubscriptionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnEventSubscription) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnEventSubscription) EventCategories() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) EventSubscriptionRef() *EventSubscriptionReference {
-	var returns *EventSubscriptionReference
+func (j *jsiiProxy_CfnEventSubscription) EventSubscriptionRef() *interfacesawsrds.EventSubscriptionReference {
+	var returns *interfacesawsrds.EventSubscriptionReference
 	_jsii_.Get(
 		j,
 		"eventSubscriptionRef",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnEventSubscription) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::RDS::EventSubscription`.
 func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnE
 	return &j
 }
 
+// Create a new `AWS::RDS::EventSubscription`.
 func NewCfnEventSubscription_Override(c CfnEventSubscription, scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) {
 	_init_.Initialize()
 
@@ -544,13 +548,13 @@ func (j *jsiiProxy_CfnEventSubscription)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IEventSubscriptionRef from a subscriptionName.
-func CfnEventSubscription_FromSubscriptionName(scope constructs.Construct, id *string, subscriptionName *string) IEventSubscriptionRef {
+func CfnEventSubscription_FromSubscriptionName(scope constructs.Construct, id *string, subscriptionName *string) interfacesawsrds.IEventSubscriptionRef {
 	_init_.Initialize()
 
 	if err := validateCfnEventSubscription_FromSubscriptionNameParameters(scope, id, subscriptionName); err != nil {
 		panic(err)
 	}
-	var returns IEventSubscriptionRef
+	var returns interfacesawsrds.IEventSubscriptionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rds.CfnEventSubscription",

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,7 +62,7 @@ type ManagedEc2EcsComputeEnvironment interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Configure which AMIs this Compute Environment can launch.
 	//
 	// Leave this `undefined` to allow Batch to choose the latest AMIs it supports for each instance that it launches.
@@ -255,8 +256,8 @@ func (j *jsiiProxy_ManagedEc2EcsComputeEnvironment) Enabled() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_ManagedEc2EcsComputeEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ManagedEc2EcsComputeEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

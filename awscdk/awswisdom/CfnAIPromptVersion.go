@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,13 +30,13 @@ import (
 //
 type CfnAIPromptVersion interface {
 	awscdk.CfnResource
-	IAIPromptVersionRef
 	awscdk.IInspectable
+	interfacesawswisdom.IAIPromptVersionRef
 	// The identifier of the Amazon Q in Connect AI prompt.
 	AiPromptId() *string
 	SetAiPromptId(val *string)
 	// A reference to a AIPromptVersion resource.
-	AiPromptVersionRef() *AIPromptVersionReference
+	AiPromptVersionRef() *interfacesawswisdom.AIPromptVersionReference
 	// The identifier of the Amazon Q in Connect assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
@@ -53,7 +55,7 @@ type CfnAIPromptVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +223,8 @@ type CfnAIPromptVersion interface {
 // The jsii proxy struct for CfnAIPromptVersion
 type jsiiProxy_CfnAIPromptVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAIPromptVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIAIPromptVersionRef
 }
 
 func (j *jsiiProxy_CfnAIPromptVersion) AiPromptId() *string {
@@ -235,8 +237,8 @@ func (j *jsiiProxy_CfnAIPromptVersion) AiPromptId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIPromptVersion) AiPromptVersionRef() *AIPromptVersionReference {
-	var returns *AIPromptVersionReference
+func (j *jsiiProxy_CfnAIPromptVersion) AiPromptVersionRef() *interfacesawswisdom.AIPromptVersionReference {
+	var returns *interfacesawswisdom.AIPromptVersionReference
 	_jsii_.Get(
 		j,
 		"aiPromptVersionRef",
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnAIPromptVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIPromptVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAIPromptVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -416,6 +418,7 @@ func (j *jsiiProxy_CfnAIPromptVersion) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Wisdom::AIPromptVersion`.
 func NewCfnAIPromptVersion(scope constructs.Construct, id *string, props *CfnAIPromptVersionProps) CfnAIPromptVersion {
 	_init_.Initialize()
 
@@ -433,6 +436,7 @@ func NewCfnAIPromptVersion(scope constructs.Construct, id *string, props *CfnAIP
 	return &j
 }
 
+// Create a new `AWS::Wisdom::AIPromptVersion`.
 func NewCfnAIPromptVersion_Override(c CfnAIPromptVersion, scope constructs.Construct, id *string, props *CfnAIPromptVersionProps) {
 	_init_.Initialize()
 

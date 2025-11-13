@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnUser interface {
 	awscdk.CfnResource
-	IUserRef
 	awscdk.IInspectable
+	interfacesawsconnect.IUserRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the user.
 	AttrUserArn() *string
@@ -82,7 +84,7 @@ type CfnUser interface {
 	// The identifier of the user account in the directory used for identity management.
 	DirectoryUserId() *string
 	SetDirectoryUserId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the user's hierarchy group.
 	HierarchyGroupArn() *string
 	SetHierarchyGroupArn(val *string)
@@ -150,7 +152,7 @@ type CfnUser interface {
 	UserProficiencies() interface{}
 	SetUserProficiencies(val interface{})
 	// A reference to a User resource.
-	UserRef() *UserReference
+	UserRef() *interfacesawsconnect.UserReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -281,8 +283,8 @@ type CfnUser interface {
 // The jsii proxy struct for CfnUser
 type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIUserRef
 	internal.Type__awscdkITaggable
 }
 
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnUser) DirectoryUserId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUser) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUser) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -526,8 +528,8 @@ func (j *jsiiProxy_CfnUser) UserProficiencies() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUser) UserRef() *UserReference {
-	var returns *UserReference
+func (j *jsiiProxy_CfnUser) UserRef() *interfacesawsconnect.UserReference {
+	var returns *interfacesawsconnect.UserReference
 	_jsii_.Get(
 		j,
 		"userRef",
@@ -537,6 +539,7 @@ func (j *jsiiProxy_CfnUser) UserRef() *UserReference {
 }
 
 
+// Create a new `AWS::Connect::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
@@ -554,6 +557,7 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Connect::User`.
 func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 

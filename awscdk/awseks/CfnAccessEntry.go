@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,11 +57,11 @@ import (
 //
 type CfnAccessEntry interface {
 	awscdk.CfnResource
-	IAccessEntryRef
 	awscdk.IInspectable
+	interfacesawseks.IAccessEntryRef
 	awscdk.ITaggableV2
 	// A reference to a AccessEntry resource.
-	AccessEntryRef() *AccessEntryReference
+	AccessEntryRef() *interfacesawseks.AccessEntryReference
 	// The access policies to associate to the access entry.
 	AccessPolicies() interface{}
 	SetAccessPolicies(val interface{})
@@ -79,7 +81,7 @@ type CfnAccessEntry interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The value for `name` that you've specified for `kind: Group` as a `subject` in a Kubernetes `RoleBinding` or `ClusterRoleBinding` object.
 	KubernetesGroups() *[]*string
 	SetKubernetesGroups(val *[]*string)
@@ -259,13 +261,13 @@ type CfnAccessEntry interface {
 // The jsii proxy struct for CfnAccessEntry
 type jsiiProxy_CfnAccessEntry struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessEntryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseksIAccessEntryRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAccessEntry) AccessEntryRef() *AccessEntryReference {
-	var returns *AccessEntryReference
+func (j *jsiiProxy_CfnAccessEntry) AccessEntryRef() *interfacesawseks.AccessEntryReference {
+	var returns *interfacesawseks.AccessEntryReference
 	_jsii_.Get(
 		j,
 		"accessEntryRef",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnAccessEntry) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessEntry) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessEntry) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -475,6 +477,7 @@ func (j *jsiiProxy_CfnAccessEntry) Username() *string {
 }
 
 
+// Create a new `AWS::EKS::AccessEntry`.
 func NewCfnAccessEntry(scope constructs.Construct, id *string, props *CfnAccessEntryProps) CfnAccessEntry {
 	_init_.Initialize()
 
@@ -492,6 +495,7 @@ func NewCfnAccessEntry(scope constructs.Construct, id *string, props *CfnAccessE
 	return &j
 }
 
+// Create a new `AWS::EKS::AccessEntry`.
 func NewCfnAccessEntry_Override(c CfnAccessEntry, scope constructs.Construct, id *string, props *CfnAccessEntryProps) {
 	_init_.Initialize()
 

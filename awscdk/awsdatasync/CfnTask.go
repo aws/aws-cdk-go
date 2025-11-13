@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -113,8 +115,8 @@ import (
 //
 type CfnTask interface {
 	awscdk.CfnResource
-	ITaskRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ITaskRef
 	awscdk.ITaggable
 	// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
 	AttrDestinationNetworkInterfaceArns() *[]*string
@@ -139,7 +141,7 @@ type CfnTask interface {
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
 	DestinationLocationArn() *string
 	SetDestinationLocationArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer.
 	Excludes() interface{}
 	SetExcludes(val interface{})
@@ -191,7 +193,7 @@ type CfnTask interface {
 	TaskMode() *string
 	SetTaskMode(val *string)
 	// A reference to a Task resource.
-	TaskRef() *TaskReference
+	TaskRef() *interfacesawsdatasync.TaskReference
 	// The configuration of your task report, which provides detailed information about your DataSync transfer.
 	TaskReportConfig() interface{}
 	SetTaskReportConfig(val interface{})
@@ -338,8 +340,8 @@ type CfnTask interface {
 // The jsii proxy struct for CfnTask
 type jsiiProxy_CfnTask struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITaskRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncITaskRef
 	internal.Type__awscdkITaggable
 }
 
@@ -443,8 +445,8 @@ func (j *jsiiProxy_CfnTask) DestinationLocationArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTask) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTask) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -593,8 +595,8 @@ func (j *jsiiProxy_CfnTask) TaskMode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTask) TaskRef() *TaskReference {
-	var returns *TaskReference
+func (j *jsiiProxy_CfnTask) TaskRef() *interfacesawsdatasync.TaskReference {
+	var returns *interfacesawsdatasync.TaskReference
 	_jsii_.Get(
 		j,
 		"taskRef",
@@ -634,6 +636,7 @@ func (j *jsiiProxy_CfnTask) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataSync::Task`.
 func NewCfnTask(scope constructs.Construct, id *string, props *CfnTaskProps) CfnTask {
 	_init_.Initialize()
 
@@ -651,6 +654,7 @@ func NewCfnTask(scope constructs.Construct, id *string, props *CfnTaskProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::DataSync::Task`.
 func NewCfnTask_Override(c CfnTask, scope constructs.Construct, id *string, props *CfnTaskProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnSubscriptionDefinitionVersion interface {
 	awscdk.CfnResource
-	ISubscriptionDefinitionVersionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.ISubscriptionDefinitionVersionRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -50,7 +52,7 @@ type CfnSubscriptionDefinitionVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -76,7 +78,7 @@ type CfnSubscriptionDefinitionVersion interface {
 	SubscriptionDefinitionId() *string
 	SetSubscriptionDefinitionId(val *string)
 	// A reference to a SubscriptionDefinitionVersion resource.
-	SubscriptionDefinitionVersionRef() *SubscriptionDefinitionVersionReference
+	SubscriptionDefinitionVersionRef() *interfacesawsgreengrass.SubscriptionDefinitionVersionReference
 	// The subscriptions in this version.
 	Subscriptions() interface{}
 	SetSubscriptions(val interface{})
@@ -223,8 +225,8 @@ type CfnSubscriptionDefinitionVersion interface {
 // The jsii proxy struct for CfnSubscriptionDefinitionVersion
 type jsiiProxy_CfnSubscriptionDefinitionVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubscriptionDefinitionVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassISubscriptionDefinitionVersionRef
 }
 
 func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) AttrId() *string {
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) SubscriptionDefinitionId() 
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) SubscriptionDefinitionVersionRef() *SubscriptionDefinitionVersionReference {
-	var returns *SubscriptionDefinitionVersionReference
+func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) SubscriptionDefinitionVersionRef() *interfacesawsgreengrass.SubscriptionDefinitionVersionReference {
+	var returns *interfacesawsgreengrass.SubscriptionDefinitionVersionReference
 	_jsii_.Get(
 		j,
 		"subscriptionDefinitionVersionRef",
@@ -378,6 +380,7 @@ func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::Greengrass::SubscriptionDefinitionVersion`.
 func NewCfnSubscriptionDefinitionVersion(scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionVersionProps) CfnSubscriptionDefinitionVersion {
 	_init_.Initialize()
 
@@ -395,6 +398,7 @@ func NewCfnSubscriptionDefinitionVersion(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::Greengrass::SubscriptionDefinitionVersion`.
 func NewCfnSubscriptionDefinitionVersion_Override(c CfnSubscriptionDefinitionVersion, scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionVersionProps) {
 	_init_.Initialize()
 

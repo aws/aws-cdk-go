@@ -6,10 +6,40 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3vectors/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3vectors"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::S3Vectors::VectorBucketPolicy.
+// The `AWS::S3Vectors::VectorBucketPolicy` resource defines an Amazon S3 vector bucket policy to control access to an Amazon S3 vector bucket.
+//
+// Vector bucket policies are written in JSON and allow you to grant or deny permissions across all (or a subset of) objects within a vector bucket.
+//
+// You must specify either `VectorBucketName` or `VectorBucketArn` to identify the target bucket.
+//
+// To control how AWS CloudFormation handles the vector bucket policy when the stack is deleted, you can set a deletion policy for your policy. You can choose to *retain* the policy or to *delete* the policy. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
+//
+// - **Permissions** - The required permissions for CloudFormation to use are based on the operations that are performed on the stack.
+//
+// - Create
+//
+// - s3vectors:GetVectorBucketPolicy
+// - s3vectors:PutVectorBucketPolicy
+// - Read
+//
+// - s3vectors:GetVectorBucketPolicy
+// - Update
+//
+// - s3vectors:GetVectorBucketPolicy
+// - s3vectors:PutVectorBucketPolicy
+// - Delete
+//
+// - s3vectors:GetVectorBucketPolicy
+// - s3vectors:DeleteVectorBucketPolicy
+// - List
+//
+// - s3vectors:GetVectorBucketPolicy
+// - s3vectors:ListVectorBuckets.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,8 +60,8 @@ import (
 //
 type CfnVectorBucketPolicy interface {
 	awscdk.CfnResource
-	IVectorBucketPolicyRef
 	awscdk.IInspectable
+	interfacesawss3vectors.IVectorBucketPolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -41,7 +71,7 @@ type CfnVectorBucketPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -54,6 +84,7 @@ type CfnVectorBucketPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// A policy document containing permissions to add to the specified vector bucket.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -78,14 +109,14 @@ type CfnVectorBucketPolicy interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The Amazon Resource Name (ARN) of the vector bucket.
+	// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
 	VectorBucketArn() *string
 	SetVectorBucketArn(val *string)
-	// The name of the vector bucket.
+	// The name of the S3 vector bucket to which the policy applies.
 	VectorBucketName() *string
 	SetVectorBucketName(val *string)
 	// A reference to a VectorBucketPolicy resource.
-	VectorBucketPolicyRef() *VectorBucketPolicyReference
+	VectorBucketPolicyRef() *interfacesawss3vectors.VectorBucketPolicyReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -216,8 +247,8 @@ type CfnVectorBucketPolicy interface {
 // The jsii proxy struct for CfnVectorBucketPolicy
 type jsiiProxy_CfnVectorBucketPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVectorBucketPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3vectorsIVectorBucketPolicyRef
 }
 
 func (j *jsiiProxy_CfnVectorBucketPolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -260,8 +291,8 @@ func (j *jsiiProxy_CfnVectorBucketPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVectorBucketPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVectorBucketPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -360,8 +391,8 @@ func (j *jsiiProxy_CfnVectorBucketPolicy) VectorBucketName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVectorBucketPolicy) VectorBucketPolicyRef() *VectorBucketPolicyReference {
-	var returns *VectorBucketPolicyReference
+func (j *jsiiProxy_CfnVectorBucketPolicy) VectorBucketPolicyRef() *interfacesawss3vectors.VectorBucketPolicyReference {
+	var returns *interfacesawss3vectors.VectorBucketPolicyReference
 	_jsii_.Get(
 		j,
 		"vectorBucketPolicyRef",
@@ -371,6 +402,7 @@ func (j *jsiiProxy_CfnVectorBucketPolicy) VectorBucketPolicyRef() *VectorBucketP
 }
 
 
+// Create a new `AWS::S3Vectors::VectorBucketPolicy`.
 func NewCfnVectorBucketPolicy(scope constructs.Construct, id *string, props *CfnVectorBucketPolicyProps) CfnVectorBucketPolicy {
 	_init_.Initialize()
 
@@ -388,6 +420,7 @@ func NewCfnVectorBucketPolicy(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::S3Vectors::VectorBucketPolicy`.
 func NewCfnVectorBucketPolicy_Override(c CfnVectorBucketPolicy, scope constructs.Construct, id *string, props *CfnVectorBucketPolicyProps) {
 	_init_.Initialize()
 

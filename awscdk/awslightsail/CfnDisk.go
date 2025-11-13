@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnDisk interface {
 	awscdk.CfnResource
-	IDiskRef
 	awscdk.IInspectable
+	interfacesawslightsail.IDiskRef
 	awscdk.ITaggable
 	// An array of add-ons for the disk.
 	AddOns() interface{}
@@ -97,8 +99,8 @@ type CfnDisk interface {
 	DiskName() *string
 	SetDiskName(val *string)
 	// A reference to a Disk resource.
-	DiskRef() *DiskReference
-	Env() *awscdk.ResourceEnvironment
+	DiskRef() *interfacesawslightsail.DiskReference
+	Env() *interfaces.ResourceEnvironment
 	// The AWS Region and Availability Zone where the disk is located.
 	Location() interface{}
 	SetLocation(val interface{})
@@ -274,8 +276,8 @@ type CfnDisk interface {
 // The jsii proxy struct for CfnDisk
 type jsiiProxy_CfnDisk struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDiskRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIDiskRef
 	internal.Type__awscdkITaggable
 }
 
@@ -459,8 +461,8 @@ func (j *jsiiProxy_CfnDisk) DiskName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDisk) DiskRef() *DiskReference {
-	var returns *DiskReference
+func (j *jsiiProxy_CfnDisk) DiskRef() *interfacesawslightsail.DiskReference {
+	var returns *interfacesawslightsail.DiskReference
 	_jsii_.Get(
 		j,
 		"diskRef",
@@ -469,8 +471,8 @@ func (j *jsiiProxy_CfnDisk) DiskRef() *DiskReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDisk) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDisk) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -580,6 +582,7 @@ func (j *jsiiProxy_CfnDisk) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lightsail::Disk`.
 func NewCfnDisk(scope constructs.Construct, id *string, props *CfnDiskProps) CfnDisk {
 	_init_.Initialize()
 
@@ -597,6 +600,7 @@ func NewCfnDisk(scope constructs.Construct, id *string, props *CfnDiskProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Lightsail::Disk`.
 func NewCfnDisk_Override(c CfnDisk, scope constructs.Construct, id *string, props *CfnDiskProps) {
 	_init_.Initialize()
 

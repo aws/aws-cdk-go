@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::OrganizationConfiguration` resource specifies the way that your AWS organization is configured in AWS Security Hub .
+// The `AWS::SecurityHub::OrganizationConfiguration` resource specifies the way that your AWS organization is configured in Security Hub .
 //
-// Specifically, you can use this resource to specify the configuration type for your organization and whether to automatically Security Hub and security standards in new member accounts. For more information, see [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) in the *AWS Security Hub User Guide* .
+// Specifically, you can use this resource to specify the configuration type for your organization and whether to automatically Security Hub and security standards in new member accounts. For more information, see [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) in the *Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,8 +32,8 @@ import (
 //
 type CfnOrganizationConfiguration interface {
 	awscdk.CfnResource
-	IOrganizationConfigurationRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IOrganizationConfigurationRef
 	// Whether the maximum number of allowed member accounts are already associated with the Security Hub administrator account.
 	AttrMemberAccountLimitReached() awscdk.IResolvable
 	// The organization configuration identifier, formatted as `AccountId/Region/securityhub-organization-configuration` .
@@ -62,7 +64,7 @@ type CfnOrganizationConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -76,7 +78,7 @@ type CfnOrganizationConfiguration interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a OrganizationConfiguration resource.
-	OrganizationConfigurationRef() *OrganizationConfigurationReference
+	OrganizationConfigurationRef() *interfacesawssecurityhub.OrganizationConfigurationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -229,8 +231,8 @@ type CfnOrganizationConfiguration interface {
 // The jsii proxy struct for CfnOrganizationConfiguration
 type jsiiProxy_CfnOrganizationConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOrganizationConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIOrganizationConfigurationRef
 }
 
 func (j *jsiiProxy_CfnOrganizationConfiguration) AttrMemberAccountLimitReached() awscdk.IResolvable {
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnOrganizationConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOrganizationConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnOrganizationConfiguration) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationConfiguration) OrganizationConfigurationRef() *OrganizationConfigurationReference {
-	var returns *OrganizationConfigurationReference
+func (j *jsiiProxy_CfnOrganizationConfiguration) OrganizationConfigurationRef() *interfacesawssecurityhub.OrganizationConfigurationReference {
+	var returns *interfacesawssecurityhub.OrganizationConfigurationReference
 	_jsii_.Get(
 		j,
 		"organizationConfigurationRef",
@@ -424,6 +426,7 @@ func (j *jsiiProxy_CfnOrganizationConfiguration) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::SecurityHub::OrganizationConfiguration`.
 func NewCfnOrganizationConfiguration(scope constructs.Construct, id *string, props *CfnOrganizationConfigurationProps) CfnOrganizationConfiguration {
 	_init_.Initialize()
 
@@ -441,6 +444,7 @@ func NewCfnOrganizationConfiguration(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::OrganizationConfiguration`.
 func NewCfnOrganizationConfiguration_Override(c CfnOrganizationConfiguration, scope constructs.Construct, id *string, props *CfnOrganizationConfigurationProps) {
 	_init_.Initialize()
 

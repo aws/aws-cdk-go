@@ -80,6 +80,14 @@ func validateCfnServiceNetworkVpcAssociation_IsConstructParameters(x interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) validateSetDnsOptionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) validateSetPrivateDnsEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

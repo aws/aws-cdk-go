@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssmsvoice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssmsvoice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnProtectConfiguration interface {
 	awscdk.CfnResource
-	IProtectConfigurationRef
 	awscdk.IInspectable
+	interfacesawssmsvoice.IProtectConfigurationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the protect configuration.
 	AttrArn() *string
@@ -76,7 +78,7 @@ type CfnProtectConfiguration interface {
 	// The status of deletion protection for the protect configuration.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -90,7 +92,7 @@ type CfnProtectConfiguration interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a ProtectConfiguration resource.
-	ProtectConfigurationRef() *ProtectConfigurationReference
+	ProtectConfigurationRef() *interfacesawssmsvoice.ProtectConfigurationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -246,8 +248,8 @@ type CfnProtectConfiguration interface {
 // The jsii proxy struct for CfnProtectConfiguration
 type jsiiProxy_CfnProtectConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProtectConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssmsvoiceIProtectConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnProtectConfiguration) DeletionProtectionEnabled() interfac
 	return returns
 }
 
-func (j *jsiiProxy_CfnProtectConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProtectConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnProtectConfiguration) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProtectConfiguration) ProtectConfigurationRef() *ProtectConfigurationReference {
-	var returns *ProtectConfigurationReference
+func (j *jsiiProxy_CfnProtectConfiguration) ProtectConfigurationRef() *interfacesawssmsvoice.ProtectConfigurationReference {
+	var returns *interfacesawssmsvoice.ProtectConfigurationReference
 	_jsii_.Get(
 		j,
 		"protectConfigurationRef",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnProtectConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::SMSVOICE::ProtectConfiguration`.
 func NewCfnProtectConfiguration(scope constructs.Construct, id *string, props *CfnProtectConfigurationProps) CfnProtectConfiguration {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnProtectConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::SMSVOICE::ProtectConfiguration`.
 func NewCfnProtectConfiguration_Override(c CfnProtectConfiguration, scope constructs.Construct, id *string, props *CfnProtectConfigurationProps) {
 	_init_.Initialize()
 
@@ -493,13 +497,13 @@ func (j *jsiiProxy_CfnProtectConfiguration)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IProtectConfigurationRef from an ARN.
-func CfnProtectConfiguration_FromProtectConfigurationArn(scope constructs.Construct, id *string, arn *string) IProtectConfigurationRef {
+func CfnProtectConfiguration_FromProtectConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IProtectConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnProtectConfiguration_FromProtectConfigurationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IProtectConfigurationRef
+	var returns interfacesawssmsvoice.IProtectConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnProtectConfiguration",
@@ -512,13 +516,13 @@ func CfnProtectConfiguration_FromProtectConfigurationArn(scope constructs.Constr
 }
 
 // Creates a new IProtectConfigurationRef from a protectConfigurationId.
-func CfnProtectConfiguration_FromProtectConfigurationId(scope constructs.Construct, id *string, protectConfigurationId *string) IProtectConfigurationRef {
+func CfnProtectConfiguration_FromProtectConfigurationId(scope constructs.Construct, id *string, protectConfigurationId *string) interfacesawssmsvoice.IProtectConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnProtectConfiguration_FromProtectConfigurationIdParameters(scope, id, protectConfigurationId); err != nil {
 		panic(err)
 	}
-	var returns IProtectConfigurationRef
+	var returns interfacesawssmsvoice.IProtectConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnProtectConfiguration",

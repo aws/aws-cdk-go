@@ -20,10 +20,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codedeploy.ApplicationReference",
-		reflect.TypeOf((*ApplicationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codedeploy.AutoRollbackConfig",
 		reflect.TypeOf((*AutoRollbackConfig)(nil)).Elem(),
 	)
@@ -110,8 +106,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplication{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodedeployIApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -165,8 +161,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDeploymentConfig{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeploymentConfigRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodedeployIDeploymentConfigRef)
 			return &j
 		},
 	)
@@ -260,8 +256,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDeploymentGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeploymentGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodedeployIDeploymentGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -414,14 +410,6 @@ func init() {
 			"LINEAR": CustomLambdaDeploymentConfigType_LINEAR,
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codedeploy.DeploymentConfigReference",
-		reflect.TypeOf((*DeploymentConfigReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codedeploy.DeploymentGroupReference",
-		reflect.TypeOf((*DeploymentGroupReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codedeploy.EcsApplication",
 		reflect.TypeOf((*EcsApplication)(nil)).Elem(),
@@ -516,21 +504,6 @@ func init() {
 		reflect.TypeOf((*EcsDeploymentGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codedeploy.IApplicationRef",
-		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_codedeploy.IBaseDeploymentConfig",
 		reflect.TypeOf((*IBaseDeploymentConfig)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -539,36 +512,6 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IBaseDeploymentConfig{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codedeploy.IDeploymentConfigRef",
-		reflect.TypeOf((*IDeploymentConfigRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deploymentConfigRef", GoGetter: "DeploymentConfigRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeploymentConfigRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codedeploy.IDeploymentGroupRef",
-		reflect.TypeOf((*IDeploymentGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deploymentGroupRef", GoGetter: "DeploymentGroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeploymentGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterInterface(

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -104,8 +106,8 @@ import (
 //
 type CfnSecurityProfile interface {
 	awscdk.CfnResource
-	ISecurityProfileRef
 	awscdk.IInspectable
+	interfacesawsiot.ISecurityProfileRef
 	awscdk.ITaggable
 	// A list of metrics whose data is retained (stored).
 	AdditionalMetricsToRetainV2() interface{}
@@ -127,7 +129,7 @@ type CfnSecurityProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -155,7 +157,7 @@ type CfnSecurityProfile interface {
 	SecurityProfileName() *string
 	SetSecurityProfileName(val *string)
 	// A reference to a SecurityProfile resource.
-	SecurityProfileRef() *SecurityProfileReference
+	SecurityProfileRef() *interfacesawsiot.SecurityProfileReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -311,8 +313,8 @@ type CfnSecurityProfile interface {
 // The jsii proxy struct for CfnSecurityProfile
 type jsiiProxy_CfnSecurityProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotISecurityProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnSecurityProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -466,8 +468,8 @@ func (j *jsiiProxy_CfnSecurityProfile) SecurityProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityProfile) SecurityProfileRef() *SecurityProfileReference {
-	var returns *SecurityProfileReference
+func (j *jsiiProxy_CfnSecurityProfile) SecurityProfileRef() *interfacesawsiot.SecurityProfileReference {
+	var returns *interfacesawsiot.SecurityProfileReference
 	_jsii_.Get(
 		j,
 		"securityProfileRef",
@@ -537,6 +539,7 @@ func (j *jsiiProxy_CfnSecurityProfile) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::IoT::SecurityProfile`.
 func NewCfnSecurityProfile(scope constructs.Construct, id *string, props *CfnSecurityProfileProps) CfnSecurityProfile {
 	_init_.Initialize()
 
@@ -554,6 +557,7 @@ func NewCfnSecurityProfile(scope constructs.Construct, id *string, props *CfnSec
 	return &j
 }
 
+// Create a new `AWS::IoT::SecurityProfile`.
 func NewCfnSecurityProfile_Override(c CfnSecurityProfile, scope constructs.Construct, id *string, props *CfnSecurityProfileProps) {
 	_init_.Initialize()
 
@@ -644,13 +648,13 @@ func (j *jsiiProxy_CfnSecurityProfile)SetTargetArns(val *[]*string) {
 }
 
 // Creates a new ISecurityProfileRef from an ARN.
-func CfnSecurityProfile_FromSecurityProfileArn(scope constructs.Construct, id *string, arn *string) ISecurityProfileRef {
+func CfnSecurityProfile_FromSecurityProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.ISecurityProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnSecurityProfile_FromSecurityProfileArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ISecurityProfileRef
+	var returns interfacesawsiot.ISecurityProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnSecurityProfile",
@@ -663,13 +667,13 @@ func CfnSecurityProfile_FromSecurityProfileArn(scope constructs.Construct, id *s
 }
 
 // Creates a new ISecurityProfileRef from a securityProfileName.
-func CfnSecurityProfile_FromSecurityProfileName(scope constructs.Construct, id *string, securityProfileName *string) ISecurityProfileRef {
+func CfnSecurityProfile_FromSecurityProfileName(scope constructs.Construct, id *string, securityProfileName *string) interfacesawsiot.ISecurityProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnSecurityProfile_FromSecurityProfileNameParameters(scope, id, securityProfileName); err != nil {
 		panic(err)
 	}
-	var returns ISecurityProfileRef
+	var returns interfacesawsiot.ISecurityProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnSecurityProfile",

@@ -1,7 +1,7 @@
 package awscdkgluealpha
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Job bookmarks encryption configuration.
@@ -28,6 +28,6 @@ type JobBookmarksEncryption struct {
 	// Default: A key will be created if one is not provided.
 	//
 	// Experimental.
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

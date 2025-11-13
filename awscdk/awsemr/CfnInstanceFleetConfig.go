@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -112,8 +114,8 @@ import (
 //
 type CfnInstanceFleetConfig interface {
 	awscdk.CfnResource
-	IInstanceFleetConfigRef
 	awscdk.IInspectable
+	interfacesawsemr.IInstanceFleetConfigRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -127,9 +129,9 @@ type CfnInstanceFleetConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InstanceFleetConfig resource.
-	InstanceFleetConfigRef() *InstanceFleetConfigReference
+	InstanceFleetConfigRef() *interfacesawsemr.InstanceFleetConfigReference
 	// The node type that the instance fleet hosts.
 	InstanceFleetType() *string
 	SetInstanceFleetType(val *string)
@@ -315,8 +317,8 @@ type CfnInstanceFleetConfig interface {
 // The jsii proxy struct for CfnInstanceFleetConfig
 type jsiiProxy_CfnInstanceFleetConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceFleetConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrIInstanceFleetConfigRef
 }
 
 func (j *jsiiProxy_CfnInstanceFleetConfig) AttrId() *string {
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceFleetConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceFleetConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -389,8 +391,8 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceFleetConfig) InstanceFleetConfigRef() *InstanceFleetConfigReference {
-	var returns *InstanceFleetConfigReference
+func (j *jsiiProxy_CfnInstanceFleetConfig) InstanceFleetConfigRef() *interfacesawsemr.InstanceFleetConfigReference {
+	var returns *interfacesawsemr.InstanceFleetConfigReference
 	_jsii_.Get(
 		j,
 		"instanceFleetConfigRef",
@@ -530,6 +532,7 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::EMR::InstanceFleetConfig`.
 func NewCfnInstanceFleetConfig(scope constructs.Construct, id *string, props *CfnInstanceFleetConfigProps) CfnInstanceFleetConfig {
 	_init_.Initialize()
 
@@ -547,6 +550,7 @@ func NewCfnInstanceFleetConfig(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::EMR::InstanceFleetConfig`.
 func NewCfnInstanceFleetConfig_Override(c CfnInstanceFleetConfig, scope constructs.Construct, id *string, props *CfnInstanceFleetConfigProps) {
 	_init_.Initialize()
 

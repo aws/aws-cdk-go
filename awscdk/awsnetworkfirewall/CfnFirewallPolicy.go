@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkfirewall/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkfirewall"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -98,8 +100,8 @@ import (
 //
 type CfnFirewallPolicy interface {
 	awscdk.CfnResource
-	IFirewallPolicyRef
 	awscdk.IInspectable
+	interfacesawsnetworkfirewall.IFirewallPolicyRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the firewall policy.
 	AttrFirewallPolicyArn() *string
@@ -117,7 +119,7 @@ type CfnFirewallPolicy interface {
 	// A description of the firewall policy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
 	FirewallPolicy() interface{}
 	SetFirewallPolicy(val interface{})
@@ -125,7 +127,7 @@ type CfnFirewallPolicy interface {
 	FirewallPolicyName() *string
 	SetFirewallPolicyName(val *string)
 	// A reference to a FirewallPolicy resource.
-	FirewallPolicyRef() *FirewallPolicyReference
+	FirewallPolicyRef() *interfacesawsnetworkfirewall.FirewallPolicyReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -295,8 +297,8 @@ type CfnFirewallPolicy interface {
 // The jsii proxy struct for CfnFirewallPolicy
 type jsiiProxy_CfnFirewallPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFirewallPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkfirewallIFirewallPolicyRef
 	internal.Type__awscdkITaggable
 }
 
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnFirewallPolicy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFirewallPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnFirewallPolicy) FirewallPolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallPolicy) FirewallPolicyRef() *FirewallPolicyReference {
-	var returns *FirewallPolicyReference
+func (j *jsiiProxy_CfnFirewallPolicy) FirewallPolicyRef() *interfacesawsnetworkfirewall.FirewallPolicyReference {
+	var returns *interfacesawsnetworkfirewall.FirewallPolicyReference
 	_jsii_.Get(
 		j,
 		"firewallPolicyRef",
@@ -491,6 +493,7 @@ func (j *jsiiProxy_CfnFirewallPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::NetworkFirewall::FirewallPolicy`.
 func NewCfnFirewallPolicy(scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) CfnFirewallPolicy {
 	_init_.Initialize()
 
@@ -508,6 +511,7 @@ func NewCfnFirewallPolicy(scope constructs.Construct, id *string, props *CfnFire
 	return &j
 }
 
+// Create a new `AWS::NetworkFirewall::FirewallPolicy`.
 func NewCfnFirewallPolicy_Override(c CfnFirewallPolicy, scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnWirelessDeviceImportTask interface {
 	awscdk.CfnResource
-	IWirelessDeviceImportTaskRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.IWirelessDeviceImportTaskRef
 	awscdk.ITaggable
 	// The ARN (Amazon Resource Name) of the import task.
 	AttrArn() *string
@@ -79,7 +81,7 @@ type CfnWirelessDeviceImportTask interface {
 	// The name of the destination that describes the IoT rule to route messages from the Sidewalk devices in the import task to other applications.
 	DestinationName() *string
 	SetDestinationName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -123,7 +125,7 @@ type CfnWirelessDeviceImportTask interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WirelessDeviceImportTask resource.
-	WirelessDeviceImportTaskRef() *WirelessDeviceImportTaskReference
+	WirelessDeviceImportTaskRef() *interfacesawsiotwireless.WirelessDeviceImportTaskReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -254,8 +256,8 @@ type CfnWirelessDeviceImportTask interface {
 // The jsii proxy struct for CfnWirelessDeviceImportTask
 type jsiiProxy_CfnWirelessDeviceImportTask struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWirelessDeviceImportTaskRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessIWirelessDeviceImportTaskRef
 	internal.Type__awscdkITaggable
 }
 
@@ -409,8 +411,8 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask) DestinationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWirelessDeviceImportTask) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWirelessDeviceImportTask) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -509,8 +511,8 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask) UpdatedProperties() *map[string]
 	return returns
 }
 
-func (j *jsiiProxy_CfnWirelessDeviceImportTask) WirelessDeviceImportTaskRef() *WirelessDeviceImportTaskReference {
-	var returns *WirelessDeviceImportTaskReference
+func (j *jsiiProxy_CfnWirelessDeviceImportTask) WirelessDeviceImportTaskRef() *interfacesawsiotwireless.WirelessDeviceImportTaskReference {
+	var returns *interfacesawsiotwireless.WirelessDeviceImportTaskReference
 	_jsii_.Get(
 		j,
 		"wirelessDeviceImportTaskRef",
@@ -520,6 +522,7 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask) WirelessDeviceImportTaskRef() *W
 }
 
 
+// Create a new `AWS::IoTWireless::WirelessDeviceImportTask`.
 func NewCfnWirelessDeviceImportTask(scope constructs.Construct, id *string, props *CfnWirelessDeviceImportTaskProps) CfnWirelessDeviceImportTask {
 	_init_.Initialize()
 
@@ -537,6 +540,7 @@ func NewCfnWirelessDeviceImportTask(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::WirelessDeviceImportTask`.
 func NewCfnWirelessDeviceImportTask_Override(c CfnWirelessDeviceImportTask, scope constructs.Construct, id *string, props *CfnWirelessDeviceImportTaskProps) {
 	_init_.Initialize()
 
@@ -578,6 +582,44 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask)SetTagsRaw(val *[]*awscdk.CfnTag)
 		"tagsRaw",
 		val,
 	)
+}
+
+// Creates a new IWirelessDeviceImportTaskRef from an ARN.
+func CfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IWirelessDeviceImportTaskRef {
+	_init_.Initialize()
+
+	if err := validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsiotwireless.IWirelessDeviceImportTaskRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDeviceImportTask",
+		"fromWirelessDeviceImportTaskArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IWirelessDeviceImportTaskRef from a wirelessDeviceImportTaskId.
+func CfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskId(scope constructs.Construct, id *string, wirelessDeviceImportTaskId *string) interfacesawsiotwireless.IWirelessDeviceImportTaskRef {
+	_init_.Initialize()
+
+	if err := validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskIdParameters(scope, id, wirelessDeviceImportTaskId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsiotwireless.IWirelessDeviceImportTaskRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDeviceImportTask",
+		"fromWirelessDeviceImportTaskId",
+		[]interface{}{scope, id, wirelessDeviceImportTaskId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

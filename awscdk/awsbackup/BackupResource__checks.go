@@ -8,9 +8,9 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,7 +38,7 @@ func validateBackupResource_FromDynamoDbTableParameters(table awsdynamodb.ITable
 	return nil
 }
 
-func validateBackupResource_FromEc2InstanceParameters(instance awsec2.IInstanceRef) error {
+func validateBackupResource_FromEc2InstanceParameters(instance interfacesawsec2.IInstanceRef) error {
 	if instance == nil {
 		return fmt.Errorf("parameter instance is required, but nil was provided")
 	}

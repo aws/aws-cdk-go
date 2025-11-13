@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -138,8 +140,8 @@ import (
 //
 type CfnCrawler interface {
 	awscdk.CfnResource
-	ICrawlerRef
 	awscdk.IInspectable
+	interfacesawsglue.ICrawlerRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -153,7 +155,7 @@ type CfnCrawler interface {
 	Configuration() *string
 	SetConfiguration(val *string)
 	// A reference to a Crawler resource.
-	CrawlerRef() *CrawlerReference
+	CrawlerRef() *interfacesawsglue.CrawlerReference
 	// The name of the `SecurityConfiguration` structure to be used by this crawler.
 	CrawlerSecurityConfiguration() *string
 	SetCrawlerSecurityConfiguration(val *string)
@@ -167,7 +169,7 @@ type CfnCrawler interface {
 	// A description of the crawler.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
 	LakeFormationConfiguration() interface{}
 	SetLakeFormationConfiguration(val interface{})
@@ -361,8 +363,8 @@ type CfnCrawler interface {
 // The jsii proxy struct for CfnCrawler
 type jsiiProxy_CfnCrawler struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICrawlerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueICrawlerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnCrawler) Configuration() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCrawler) CrawlerRef() *CrawlerReference {
-	var returns *CrawlerReference
+func (j *jsiiProxy_CfnCrawler) CrawlerRef() *interfacesawsglue.CrawlerReference {
+	var returns *interfacesawsglue.CrawlerReference
 	_jsii_.Get(
 		j,
 		"crawlerRef",
@@ -466,8 +468,8 @@ func (j *jsiiProxy_CfnCrawler) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCrawler) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCrawler) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -637,6 +639,7 @@ func (j *jsiiProxy_CfnCrawler) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Glue::Crawler`.
 func NewCfnCrawler(scope constructs.Construct, id *string, props *CfnCrawlerProps) CfnCrawler {
 	_init_.Initialize()
 
@@ -654,6 +657,7 @@ func NewCfnCrawler(scope constructs.Construct, id *string, props *CfnCrawlerProp
 	return &j
 }
 
+// Create a new `AWS::Glue::Crawler`.
 func NewCfnCrawler_Override(c CfnCrawler, scope constructs.Construct, id *string, props *CfnCrawlerProps) {
 	_init_.Initialize()
 
@@ -795,13 +799,13 @@ func (j *jsiiProxy_CfnCrawler)SetTargets(val interface{}) {
 }
 
 // Creates a new ICrawlerRef from a crawlerName.
-func CfnCrawler_FromCrawlerName(scope constructs.Construct, id *string, crawlerName *string) ICrawlerRef {
+func CfnCrawler_FromCrawlerName(scope constructs.Construct, id *string, crawlerName *string) interfacesawsglue.ICrawlerRef {
 	_init_.Initialize()
 
 	if err := validateCfnCrawler_FromCrawlerNameParameters(scope, id, crawlerName); err != nil {
 		panic(err)
 	}
-	var returns ICrawlerRef
+	var returns interfacesawsglue.ICrawlerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_glue.CfnCrawler",

@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // User-based authentication for a client VPN endpoint.
@@ -62,7 +62,7 @@ func ClientVpnUserBasedAuthentication_ActiveDirectory(directoryId *string) Clien
 }
 
 // Federated authentication.
-func ClientVpnUserBasedAuthentication_Federated(samlProvider awsiam.ISAMLProviderRef, selfServiceSamlProvider awsiam.ISAMLProviderRef) ClientVpnUserBasedAuthentication {
+func ClientVpnUserBasedAuthentication_Federated(samlProvider interfacesawsiam.ISAMLProviderRef, selfServiceSamlProvider interfacesawsiam.ISAMLProviderRef) ClientVpnUserBasedAuthentication {
 	_init_.Initialize()
 
 	if err := validateClientVpnUserBasedAuthentication_FederatedParameters(samlProvider); err != nil {

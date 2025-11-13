@@ -135,8 +135,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCustomActionType{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICustomActionTypeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodepipelineICustomActionTypeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -211,8 +211,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPipeline{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPipelineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodepipelineIPipelineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -375,8 +375,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnWebhook{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWebhookRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodepipelineIWebhookRef)
 			return &j
 		},
 	)
@@ -433,10 +433,6 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline.CustomActionRegistrationProps",
 		reflect.TypeOf((*CustomActionRegistrationProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline.CustomActionTypeReference",
-		reflect.TypeOf((*CustomActionTypeReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_codepipeline.ExecutionMode",
 		reflect.TypeOf((*ExecutionMode)(nil)).Elem(),
@@ -492,21 +488,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codepipeline.ICustomActionTypeRef",
-		reflect.TypeOf((*ICustomActionTypeRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "customActionTypeRef", GoGetter: "CustomActionTypeRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICustomActionTypeRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_codepipeline.IPipeline",
 		reflect.TypeOf((*IPipeline)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -533,21 +514,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codepipeline.IPipelineRef",
-		reflect.TypeOf((*IPipelineRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "pipelineRef", GoGetter: "PipelineRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPipelineRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_codepipeline.IStage",
 		reflect.TypeOf((*IStage)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -559,21 +525,6 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IStage{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codepipeline.IWebhookRef",
-		reflect.TypeOf((*IWebhookRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "webhookRef", GoGetter: "WebhookRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IWebhookRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -649,10 +600,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.PipelineProps",
 		reflect.TypeOf((*PipelineProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline.PipelineReference",
-		reflect.TypeOf((*PipelineReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_codepipeline.PipelineType",
@@ -742,9 +689,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.VariableProps",
 		reflect.TypeOf((*VariableProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline.WebhookReference",
-		reflect.TypeOf((*WebhookReference)(nil)).Elem(),
 	)
 }

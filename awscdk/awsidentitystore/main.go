@@ -51,8 +51,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsidentitystoreIGroupRef)
 			return &j
 		},
 	)
@@ -100,8 +100,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGroupMembership{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGroupMembershipRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsidentitystoreIGroupMembershipRef)
 			return &j
 		},
 	)
@@ -116,43 +116,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_identitystore.CfnGroupProps",
 		reflect.TypeOf((*CfnGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_identitystore.GroupMembershipReference",
-		reflect.TypeOf((*GroupMembershipReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_identitystore.GroupReference",
-		reflect.TypeOf((*GroupReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_identitystore.IGroupMembershipRef",
-		reflect.TypeOf((*IGroupMembershipRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "groupMembershipRef", GoGetter: "GroupMembershipRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGroupMembershipRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_identitystore.IGroupRef",
-		reflect.TypeOf((*IGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

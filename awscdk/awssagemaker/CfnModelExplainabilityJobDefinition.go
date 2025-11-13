@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -123,8 +125,8 @@ import (
 //
 type CfnModelExplainabilityJobDefinition interface {
 	awscdk.CfnResource
-	IModelExplainabilityJobDefinitionRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IModelExplainabilityJobDefinitionRef
 	awscdk.ITaggable
 	// The time when the job definition was created.
 	AttrCreationTime() *string
@@ -142,7 +144,7 @@ type CfnModelExplainabilityJobDefinition interface {
 	// The name of the endpoint used to run the monitoring job.
 	EndpointName() *string
 	SetEndpointName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the model explainability job definition.
 	JobDefinitionName() *string
 	SetJobDefinitionName(val *string)
@@ -166,7 +168,7 @@ type CfnModelExplainabilityJobDefinition interface {
 	ModelExplainabilityBaselineConfig() interface{}
 	SetModelExplainabilityBaselineConfig(val interface{})
 	// A reference to a ModelExplainabilityJobDefinition resource.
-	ModelExplainabilityJobDefinitionRef() *ModelExplainabilityJobDefinitionReference
+	ModelExplainabilityJobDefinitionRef() *interfacesawssagemaker.ModelExplainabilityJobDefinitionReference
 	// Inputs for the model explainability job.
 	ModelExplainabilityJobInput() interface{}
 	SetModelExplainabilityJobInput(val interface{})
@@ -341,8 +343,8 @@ type CfnModelExplainabilityJobDefinition interface {
 // The jsii proxy struct for CfnModelExplainabilityJobDefinition
 type jsiiProxy_CfnModelExplainabilityJobDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelExplainabilityJobDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIModelExplainabilityJobDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -476,8 +478,8 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) ModelExplainabilityBasel
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionRef() *ModelExplainabilityJobDefinitionReference {
-	var returns *ModelExplainabilityJobDefinitionReference
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionRef() *interfacesawssagemaker.ModelExplainabilityJobDefinitionReference {
+	var returns *interfacesawssagemaker.ModelExplainabilityJobDefinitionReference
 	_jsii_.Get(
 		j,
 		"modelExplainabilityJobDefinitionRef",
@@ -607,6 +609,7 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) UpdatedProperties() *map
 }
 
 
+// Create a new `AWS::SageMaker::ModelExplainabilityJobDefinition`.
 func NewCfnModelExplainabilityJobDefinition(scope constructs.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) CfnModelExplainabilityJobDefinition {
 	_init_.Initialize()
 
@@ -624,6 +627,7 @@ func NewCfnModelExplainabilityJobDefinition(scope constructs.Construct, id *stri
 	return &j
 }
 
+// Create a new `AWS::SageMaker::ModelExplainabilityJobDefinition`.
 func NewCfnModelExplainabilityJobDefinition_Override(c CfnModelExplainabilityJobDefinition, scope constructs.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmincidents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmincidents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnReplicationSet interface {
 	awscdk.CfnResource
-	IReplicationSetRef
 	awscdk.IInspectable
+	interfacesawsssmincidents.IReplicationSetRef
 	awscdk.ITaggable
 	// The ARN of the ReplicationSet.
 	AttrArn() *string
@@ -57,7 +59,7 @@ type CfnReplicationSet interface {
 	// Determines if the replication set deletion protection is enabled or not.
 	DeletionProtected() interface{}
 	SetDeletionProtected(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -79,7 +81,7 @@ type CfnReplicationSet interface {
 	Regions() interface{}
 	SetRegions(val interface{})
 	// A reference to a ReplicationSet resource.
-	ReplicationSetRef() *ReplicationSetReference
+	ReplicationSetRef() *interfacesawsssmincidents.ReplicationSetReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -232,8 +234,8 @@ type CfnReplicationSet interface {
 // The jsii proxy struct for CfnReplicationSet
 type jsiiProxy_CfnReplicationSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicationSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmincidentsIReplicationSetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnReplicationSet) DeletionProtected() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicationSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnReplicationSet) Regions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationSet) ReplicationSetRef() *ReplicationSetReference {
-	var returns *ReplicationSetReference
+func (j *jsiiProxy_CfnReplicationSet) ReplicationSetRef() *interfacesawsssmincidents.ReplicationSetReference {
+	var returns *interfacesawsssmincidents.ReplicationSetReference
 	_jsii_.Get(
 		j,
 		"replicationSetRef",
@@ -408,6 +410,7 @@ func (j *jsiiProxy_CfnReplicationSet) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::SSMIncidents::ReplicationSet`.
 func NewCfnReplicationSet(scope constructs.Construct, id *string, props *CfnReplicationSetProps) CfnReplicationSet {
 	_init_.Initialize()
 
@@ -425,6 +428,7 @@ func NewCfnReplicationSet(scope constructs.Construct, id *string, props *CfnRepl
 	return &j
 }
 
+// Create a new `AWS::SSMIncidents::ReplicationSet`.
 func NewCfnReplicationSet_Override(c CfnReplicationSet, scope constructs.Construct, id *string, props *CfnReplicationSetProps) {
 	_init_.Initialize()
 

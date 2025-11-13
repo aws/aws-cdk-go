@@ -5,10 +5,11 @@ package awss3
 import (
 	"fmt"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_IBucketNotificationDestination) validateBindParameters(scope constructs.Construct, bucket IBucketRef) error {
+func (i *jsiiProxy_IBucketNotificationDestination) validateBindParameters(scope constructs.Construct, bucket interfacesawss3.IBucketRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

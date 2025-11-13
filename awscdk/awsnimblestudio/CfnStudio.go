@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnimblestudio/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnimblestudio"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnStudio interface {
 	awscdk.CfnResource
-	IStudioRef
 	awscdk.IInspectable
+	interfacesawsnimblestudio.IStudioRef
 	awscdk.ITaggable
 	// <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>.
 	AdminRoleArn() *string
@@ -63,7 +65,7 @@ type CfnStudio interface {
 	// <p>A friendly name for the studio.</p>.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -92,7 +94,7 @@ type CfnStudio interface {
 	StudioName() *string
 	SetStudioName(val *string)
 	// A reference to a Studio resource.
-	StudioRef() *StudioReference
+	StudioRef() *interfacesawsnimblestudio.StudioReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	TagsRaw() *map[string]*string
@@ -243,8 +245,8 @@ type CfnStudio interface {
 // The jsii proxy struct for CfnStudio
 type jsiiProxy_CfnStudio struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStudioRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnimblestudioIStudioRef
 	internal.Type__awscdkITaggable
 }
 
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnStudio) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudio) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStudio) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnStudio) StudioName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudio) StudioRef() *StudioReference {
-	var returns *StudioReference
+func (j *jsiiProxy_CfnStudio) StudioRef() *interfacesawsnimblestudio.StudioReference {
+	var returns *interfacesawsnimblestudio.StudioReference
 	_jsii_.Get(
 		j,
 		"studioRef",
@@ -479,6 +481,7 @@ func (j *jsiiProxy_CfnStudio) UserRoleArn() *string {
 }
 
 
+// Create a new `AWS::NimbleStudio::Studio`.
 func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps) CfnStudio {
 	_init_.Initialize()
 
@@ -496,6 +499,7 @@ func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps)
 	return &j
 }
 
+// Create a new `AWS::NimbleStudio::Studio`.
 func NewCfnStudio_Override(c CfnStudio, scope constructs.Construct, id *string, props *CfnStudioProps) {
 	_init_.Initialize()
 
@@ -570,13 +574,13 @@ func (j *jsiiProxy_CfnStudio)SetUserRoleArn(val *string) {
 }
 
 // Creates a new IStudioRef from a studioId.
-func CfnStudio_FromStudioId(scope constructs.Construct, id *string, studioId *string) IStudioRef {
+func CfnStudio_FromStudioId(scope constructs.Construct, id *string, studioId *string) interfacesawsnimblestudio.IStudioRef {
 	_init_.Initialize()
 
 	if err := validateCfnStudio_FromStudioIdParameters(scope, id, studioId); err != nil {
 		panic(err)
 	}
-	var returns IStudioRef
+	var returns interfacesawsnimblestudio.IStudioRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_nimblestudio.CfnStudio",

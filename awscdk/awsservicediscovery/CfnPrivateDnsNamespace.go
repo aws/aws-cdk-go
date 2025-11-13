@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnPrivateDnsNamespace interface {
 	awscdk.CfnResource
-	IPrivateDnsNamespaceRef
 	awscdk.IInspectable
+	interfacesawsservicediscovery.IPrivateDnsNamespaceRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the private namespace.
 	AttrArn() *string
@@ -64,7 +66,7 @@ type CfnPrivateDnsNamespace interface {
 	// A description for the namespace.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,7 +83,7 @@ type CfnPrivateDnsNamespace interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PrivateDnsNamespace resource.
-	PrivateDnsNamespaceRef() *PrivateDnsNamespaceReference
+	PrivateDnsNamespaceRef() *interfacesawsservicediscovery.PrivateDnsNamespaceReference
 	// Properties for the private DNS namespace.
 	Properties() interface{}
 	SetProperties(val interface{})
@@ -245,8 +247,8 @@ type CfnPrivateDnsNamespace interface {
 // The jsii proxy struct for CfnPrivateDnsNamespace
 type jsiiProxy_CfnPrivateDnsNamespace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPrivateDnsNamespaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicediscoveryIPrivateDnsNamespaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrivateDnsNamespace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPrivateDnsNamespace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrivateDnsNamespace) PrivateDnsNamespaceRef() *PrivateDnsNamespaceReference {
-	var returns *PrivateDnsNamespaceReference
+func (j *jsiiProxy_CfnPrivateDnsNamespace) PrivateDnsNamespaceRef() *interfacesawsservicediscovery.PrivateDnsNamespaceReference {
+	var returns *interfacesawsservicediscovery.PrivateDnsNamespaceReference
 	_jsii_.Get(
 		j,
 		"privateDnsNamespaceRef",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) Vpc() *string {
 }
 
 
+// Create a new `AWS::ServiceDiscovery::PrivateDnsNamespace`.
 func NewCfnPrivateDnsNamespace(scope constructs.Construct, id *string, props *CfnPrivateDnsNamespaceProps) CfnPrivateDnsNamespace {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnPrivateDnsNamespace(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::ServiceDiscovery::PrivateDnsNamespace`.
 func NewCfnPrivateDnsNamespace_Override(c CfnPrivateDnsNamespace, scope constructs.Construct, id *string, props *CfnPrivateDnsNamespaceProps) {
 	_init_.Initialize()
 

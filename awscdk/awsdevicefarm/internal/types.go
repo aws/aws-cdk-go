@@ -1,10 +1,14 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevicefarm"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsdevicefarmIDevicePoolRef = interfacesawsdevicefarm.IDevicePoolRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsdevicefarmIInstanceProfileRef = interfacesawsdevicefarm.IInstanceProfileRef
+type Type__interfacesawsdevicefarmINetworkProfileRef = interfacesawsdevicefarm.INetworkProfileRef
+type Type__interfacesawsdevicefarmIProjectRef = interfacesawsdevicefarm.IProjectRef
+type Type__interfacesawsdevicefarmITestGridProjectRef = interfacesawsdevicefarm.ITestGridProjectRef
+type Type__interfacesawsdevicefarmIVPCEConfigurationRef = interfacesawsdevicefarm.IVPCEConfigurationRef

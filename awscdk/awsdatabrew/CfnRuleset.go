@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatabrew/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatabrew"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +64,8 @@ import (
 //
 type CfnRuleset interface {
 	awscdk.CfnResource
-	IRulesetRef
 	awscdk.IInspectable
+	interfacesawsdatabrew.IRulesetRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -77,7 +79,7 @@ type CfnRuleset interface {
 	// The description of the ruleset.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -102,7 +104,7 @@ type CfnRuleset interface {
 	Rules() interface{}
 	SetRules(val interface{})
 	// A reference to a Ruleset resource.
-	RulesetRef() *RulesetReference
+	RulesetRef() *interfacesawsdatabrew.RulesetReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -258,8 +260,8 @@ type CfnRuleset interface {
 // The jsii proxy struct for CfnRuleset
 type jsiiProxy_CfnRuleset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRulesetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatabrewIRulesetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnRuleset) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRuleset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnRuleset) Rules() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleset) RulesetRef() *RulesetReference {
-	var returns *RulesetReference
+func (j *jsiiProxy_CfnRuleset) RulesetRef() *interfacesawsdatabrew.RulesetReference {
+	var returns *interfacesawsdatabrew.RulesetReference
 	_jsii_.Get(
 		j,
 		"rulesetRef",
@@ -444,6 +446,7 @@ func (j *jsiiProxy_CfnRuleset) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataBrew::Ruleset`.
 func NewCfnRuleset(scope constructs.Construct, id *string, props *CfnRulesetProps) CfnRuleset {
 	_init_.Initialize()
 
@@ -461,6 +464,7 @@ func NewCfnRuleset(scope constructs.Construct, id *string, props *CfnRulesetProp
 	return &j
 }
 
+// Create a new `AWS::DataBrew::Ruleset`.
 func NewCfnRuleset_Override(c CfnRuleset, scope constructs.Construct, id *string, props *CfnRulesetProps) {
 	_init_.Initialize()
 

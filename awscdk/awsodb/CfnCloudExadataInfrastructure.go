@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnCloudExadataInfrastructure interface {
 	awscdk.CfnResource
-	ICloudExadataInfrastructureRef
 	awscdk.IInspectable
+	interfacesawsodb.ICloudExadataInfrastructureRef
 	awscdk.ITaggableV2
 	// The number of storage servers requested for the Exadata infrastructure.
 	AttrActivatedStorageCount() *float64
@@ -124,7 +126,7 @@ type CfnCloudExadataInfrastructure interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CloudExadataInfrastructure resource.
-	CloudExadataInfrastructureRef() *CloudExadataInfrastructureReference
+	CloudExadataInfrastructureRef() *interfacesawsodb.CloudExadataInfrastructureReference
 	// The number of database servers for the Exadata infrastructure.
 	ComputeCount() *float64
 	SetComputeCount(val *float64)
@@ -141,7 +143,7 @@ type CfnCloudExadataInfrastructure interface {
 	// The user-friendly name for the Exadata infrastructure.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -321,8 +323,8 @@ type CfnCloudExadataInfrastructure interface {
 // The jsii proxy struct for CfnCloudExadataInfrastructure
 type jsiiProxy_CfnCloudExadataInfrastructure struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICloudExadataInfrastructureRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsodbICloudExadataInfrastructureRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -596,8 +598,8 @@ func (j *jsiiProxy_CfnCloudExadataInfrastructure) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudExadataInfrastructure) CloudExadataInfrastructureRef() *CloudExadataInfrastructureReference {
-	var returns *CloudExadataInfrastructureReference
+func (j *jsiiProxy_CfnCloudExadataInfrastructure) CloudExadataInfrastructureRef() *interfacesawsodb.CloudExadataInfrastructureReference {
+	var returns *interfacesawsodb.CloudExadataInfrastructureReference
 	_jsii_.Get(
 		j,
 		"cloudExadataInfrastructureRef",
@@ -656,8 +658,8 @@ func (j *jsiiProxy_CfnCloudExadataInfrastructure) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudExadataInfrastructure) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCloudExadataInfrastructure) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -777,6 +779,7 @@ func (j *jsiiProxy_CfnCloudExadataInfrastructure) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::ODB::CloudExadataInfrastructure`.
 func NewCfnCloudExadataInfrastructure(scope constructs.Construct, id *string, props *CfnCloudExadataInfrastructureProps) CfnCloudExadataInfrastructure {
 	_init_.Initialize()
 
@@ -794,6 +797,7 @@ func NewCfnCloudExadataInfrastructure(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::ODB::CloudExadataInfrastructure`.
 func NewCfnCloudExadataInfrastructure_Override(c CfnCloudExadataInfrastructure, scope constructs.Construct, id *string, props *CfnCloudExadataInfrastructureProps) {
 	_init_.Initialize()
 

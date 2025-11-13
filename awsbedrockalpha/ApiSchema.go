@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Represents the concept of an API Schema for a Bedrock Agent Action Group.
@@ -127,7 +128,7 @@ func ApiSchema_FromLocalAsset(path *string) AssetApiSchema {
 
 // Creates an API Schema from an S3 File.
 // Experimental.
-func ApiSchema_FromS3File(bucket awss3.IBucketRef, objectKey *string) S3ApiSchema {
+func ApiSchema_FromS3File(bucket interfacesawss3.IBucketRef, objectKey *string) S3ApiSchema {
 	_init_.Initialize()
 
 	if err := validateApiSchema_FromS3FileParameters(bucket, objectKey); err != nil {

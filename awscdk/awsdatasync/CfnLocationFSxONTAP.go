@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnLocationFSxONTAP interface {
 	awscdk.CfnResource
-	ILocationFSxONTAPRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationFSxONTAPRef
 	awscdk.ITaggable
 	// The ARN of the FSx for ONTAP file system in the specified location.
 	AttrFsxFilesystemArn() *string
@@ -73,9 +75,9 @@ type CfnLocationFSxONTAP interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LocationFSxONTAP resource.
-	LocationFSxOntapRef() *LocationFSxONTAPReference
+	LocationFSxOntapRef() *interfacesawsdatasync.LocationFSxONTAPReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -257,8 +259,8 @@ type CfnLocationFSxONTAP interface {
 // The jsii proxy struct for CfnLocationFSxONTAP
 type jsiiProxy_CfnLocationFSxONTAP struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationFSxONTAPRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationFSxONTAPRef
 	internal.Type__awscdkITaggable
 }
 
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnLocationFSxONTAP) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxONTAP) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationFSxONTAP) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnLocationFSxONTAP) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxONTAP) LocationFSxOntapRef() *LocationFSxONTAPReference {
-	var returns *LocationFSxONTAPReference
+func (j *jsiiProxy_CfnLocationFSxONTAP) LocationFSxOntapRef() *interfacesawsdatasync.LocationFSxONTAPReference {
+	var returns *interfacesawsdatasync.LocationFSxONTAPReference
 	_jsii_.Get(
 		j,
 		"locationFSxOntapRef",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnLocationFSxONTAP) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::DataSync::LocationFSxONTAP`.
 func NewCfnLocationFSxONTAP(scope constructs.Construct, id *string, props *CfnLocationFSxONTAPProps) CfnLocationFSxONTAP {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnLocationFSxONTAP(scope constructs.Construct, id *string, props *CfnLo
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationFSxONTAP`.
 func NewCfnLocationFSxONTAP_Override(c CfnLocationFSxONTAP, scope constructs.Construct, id *string, props *CfnLocationFSxONTAPProps) {
 	_init_.Initialize()
 

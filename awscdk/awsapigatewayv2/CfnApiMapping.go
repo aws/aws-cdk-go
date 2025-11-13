@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnApiMapping interface {
 	awscdk.CfnResource
-	IApiMappingRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IApiMappingRef
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
@@ -40,7 +42,7 @@ type CfnApiMapping interface {
 	ApiMappingKey() *string
 	SetApiMappingKey(val *string)
 	// A reference to a ApiMapping resource.
-	ApiMappingRef() *ApiMappingReference
+	ApiMappingRef() *interfacesawsapigatewayv2.ApiMappingReference
 	// The API mapping resource ID.
 	AttrApiMappingId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -55,7 +57,7 @@ type CfnApiMapping interface {
 	// The domain name.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnApiMapping interface {
 // The jsii proxy struct for CfnApiMapping
 type jsiiProxy_CfnApiMapping struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApiMappingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IApiMappingRef
 }
 
 func (j *jsiiProxy_CfnApiMapping) ApiId() *string {
@@ -247,8 +249,8 @@ func (j *jsiiProxy_CfnApiMapping) ApiMappingKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiMapping) ApiMappingRef() *ApiMappingReference {
-	var returns *ApiMappingReference
+func (j *jsiiProxy_CfnApiMapping) ApiMappingRef() *interfacesawsapigatewayv2.ApiMappingReference {
+	var returns *interfacesawsapigatewayv2.ApiMappingReference
 	_jsii_.Get(
 		j,
 		"apiMappingRef",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnApiMapping) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiMapping) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApiMapping) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnApiMapping) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGatewayV2::ApiMapping`.
 func NewCfnApiMapping(scope constructs.Construct, id *string, props *CfnApiMappingProps) CfnApiMapping {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnApiMapping(scope constructs.Construct, id *string, props *CfnApiMappi
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::ApiMapping`.
 func NewCfnApiMapping_Override(c CfnApiMapping, scope constructs.Construct, id *string, props *CfnApiMappingProps) {
 	_init_.Initialize()
 

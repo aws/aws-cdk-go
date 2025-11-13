@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an APIGateway Stage.
 type IStage interface {
 	awscdk.IResource
-	IStageRef
+	interfacesawsapigateway.IStageRef
 	// Add an ApiKey to this Stage.
 	AddApiKey(id *string, options *ApiKeyOptions) IApiKey
 	// RestApi to which this stage is associated.
@@ -23,7 +25,7 @@ type IStage interface {
 // The jsii proxy for IStage
 type jsiiProxy_IStage struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IStageRef
+	internal.Type__interfacesawsapigatewayIStageRef
 }
 
 func (i *jsiiProxy_IStage) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
@@ -73,8 +75,8 @@ func (j *jsiiProxy_IStage) StageName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IStage) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IStage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -103,8 +105,8 @@ func (j *jsiiProxy_IStage) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IStage) StageRef() *StageReference {
-	var returns *StageReference
+func (j *jsiiProxy_IStage) StageRef() *interfacesawsapigateway.StageReference {
+	var returns *interfacesawsapigateway.StageReference
 	_jsii_.Get(
 		j,
 		"stageRef",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnCoreNetwork interface {
 	awscdk.CfnResource
-	ICoreNetworkRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.ICoreNetworkRef
 	awscdk.ITaggable
 	// The ARN of the core network.
 	AttrCoreNetworkArn() *string
@@ -63,7 +65,7 @@ type CfnCoreNetwork interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CoreNetwork resource.
-	CoreNetworkRef() *CoreNetworkReference
+	CoreNetworkRef() *interfacesawsnetworkmanager.CoreNetworkReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -71,7 +73,7 @@ type CfnCoreNetwork interface {
 	// The description of a core network.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the global network that your core network is a part of.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
@@ -249,8 +251,8 @@ type CfnCoreNetwork interface {
 // The jsii proxy struct for CfnCoreNetwork
 type jsiiProxy_CfnCoreNetwork struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICoreNetworkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerICoreNetworkRef
 	internal.Type__awscdkITaggable
 }
 
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnCoreNetwork) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreNetwork) CoreNetworkRef() *CoreNetworkReference {
-	var returns *CoreNetworkReference
+func (j *jsiiProxy_CfnCoreNetwork) CoreNetworkRef() *interfacesawsnetworkmanager.CoreNetworkReference {
+	var returns *interfacesawsnetworkmanager.CoreNetworkReference
 	_jsii_.Get(
 		j,
 		"coreNetworkRef",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnCoreNetwork) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreNetwork) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCoreNetwork) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnCoreNetwork) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::NetworkManager::CoreNetwork`.
 func NewCfnCoreNetwork(scope constructs.Construct, id *string, props *CfnCoreNetworkProps) CfnCoreNetwork {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnCoreNetwork(scope constructs.Construct, id *string, props *CfnCoreNet
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::CoreNetwork`.
 func NewCfnCoreNetwork_Override(c CfnCoreNetwork, scope constructs.Construct, id *string, props *CfnCoreNetworkProps) {
 	_init_.Initialize()
 

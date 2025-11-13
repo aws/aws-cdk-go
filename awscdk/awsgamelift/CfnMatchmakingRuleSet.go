@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnMatchmakingRuleSet interface {
 	awscdk.CfnResource
-	IMatchmakingRuleSetRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IMatchmakingRuleSetRef
 	awscdk.ITaggable
 	// The unique Amazon Resource Name (ARN) assigned to the rule set.
 	AttrArn() *string
@@ -65,7 +67,7 @@ type CfnMatchmakingRuleSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnMatchmakingRuleSet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MatchmakingRuleSet resource.
-	MatchmakingRuleSetRef() *MatchmakingRuleSetReference
+	MatchmakingRuleSetRef() *interfacesawsgamelift.MatchmakingRuleSetReference
 	// A unique identifier for the matchmaking rule set.
 	Name() *string
 	SetName(val *string)
@@ -243,8 +245,8 @@ type CfnMatchmakingRuleSet interface {
 // The jsii proxy struct for CfnMatchmakingRuleSet
 type jsiiProxy_CfnMatchmakingRuleSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMatchmakingRuleSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIMatchmakingRuleSetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchmakingRuleSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMatchmakingRuleSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchmakingRuleSet) MatchmakingRuleSetRef() *MatchmakingRuleSetReference {
-	var returns *MatchmakingRuleSetReference
+func (j *jsiiProxy_CfnMatchmakingRuleSet) MatchmakingRuleSetRef() *interfacesawsgamelift.MatchmakingRuleSetReference {
+	var returns *interfacesawsgamelift.MatchmakingRuleSetReference
 	_jsii_.Get(
 		j,
 		"matchmakingRuleSetRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::GameLift::MatchmakingRuleSet`.
 func NewCfnMatchmakingRuleSet(scope constructs.Construct, id *string, props *CfnMatchmakingRuleSetProps) CfnMatchmakingRuleSet {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnMatchmakingRuleSet(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::GameLift::MatchmakingRuleSet`.
 func NewCfnMatchmakingRuleSet_Override(c CfnMatchmakingRuleSet, scope constructs.Construct, id *string, props *CfnMatchmakingRuleSetProps) {
 	_init_.Initialize()
 
@@ -500,13 +504,13 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMatchmakingRuleSetRef from an ARN.
-func CfnMatchmakingRuleSet_FromMatchmakingRuleSetArn(scope constructs.Construct, id *string, arn *string) IMatchmakingRuleSetRef {
+func CfnMatchmakingRuleSet_FromMatchmakingRuleSetArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IMatchmakingRuleSetRef {
 	_init_.Initialize()
 
 	if err := validateCfnMatchmakingRuleSet_FromMatchmakingRuleSetArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IMatchmakingRuleSetRef
+	var returns interfacesawsgamelift.IMatchmakingRuleSetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
@@ -519,13 +523,13 @@ func CfnMatchmakingRuleSet_FromMatchmakingRuleSetArn(scope constructs.Construct,
 }
 
 // Creates a new IMatchmakingRuleSetRef from a matchmakingRuleSetName.
-func CfnMatchmakingRuleSet_FromMatchmakingRuleSetName(scope constructs.Construct, id *string, matchmakingRuleSetName *string) IMatchmakingRuleSetRef {
+func CfnMatchmakingRuleSet_FromMatchmakingRuleSetName(scope constructs.Construct, id *string, matchmakingRuleSetName *string) interfacesawsgamelift.IMatchmakingRuleSetRef {
 	_init_.Initialize()
 
 	if err := validateCfnMatchmakingRuleSet_FromMatchmakingRuleSetNameParameters(scope, id, matchmakingRuleSetName); err != nil {
 		panic(err)
 	}
-	var returns IMatchmakingRuleSetRef
+	var returns interfacesawsgamelift.IMatchmakingRuleSetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspcaconnectorad/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspcaconnectorad"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnConnector interface {
 	awscdk.CfnResource
-	IConnectorRef
 	awscdk.IInspectable
+	interfacesawspcaconnectorad.IConnectorRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	AttrConnectorArn() *string
@@ -56,7 +58,7 @@ type CfnConnector interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Connector resource.
-	ConnectorRef() *ConnectorReference
+	ConnectorRef() *interfacesawspcaconnectorad.ConnectorReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -64,7 +66,7 @@ type CfnConnector interface {
 	// The identifier of the Active Directory.
 	DirectoryId() *string
 	SetDirectoryId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnConnector interface {
 // The jsii proxy struct for CfnConnector
 type jsiiProxy_CfnConnector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspcaconnectoradIConnectorRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnConnector) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) ConnectorRef() *ConnectorReference {
-	var returns *ConnectorReference
+func (j *jsiiProxy_CfnConnector) ConnectorRef() *interfacesawspcaconnectorad.ConnectorReference {
+	var returns *interfacesawspcaconnectorad.ConnectorReference
 	_jsii_.Get(
 		j,
 		"connectorRef",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnConnector) DirectoryId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,6 +423,7 @@ func (j *jsiiProxy_CfnConnector) VpcInformation() interface{} {
 }
 
 
+// Create a new `AWS::PCAConnectorAD::Connector`.
 func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
 	_init_.Initialize()
 
@@ -438,6 +441,7 @@ func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnector
 	return &j
 }
 
+// Create a new `AWS::PCAConnectorAD::Connector`.
 func NewCfnConnector_Override(c CfnConnector, scope constructs.Construct, id *string, props *CfnConnectorProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnLaunchTemplateConstraint interface {
 	awscdk.CfnResource
-	ILaunchTemplateConstraintRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.ILaunchTemplateConstraintRef
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
@@ -49,9 +51,9 @@ type CfnLaunchTemplateConstraint interface {
 	// The description of the constraint.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LaunchTemplateConstraint resource.
-	LaunchTemplateConstraintRef() *LaunchTemplateConstraintReference
+	LaunchTemplateConstraintRef() *interfacesawsservicecatalog.LaunchTemplateConstraintReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,8 +227,8 @@ type CfnLaunchTemplateConstraint interface {
 // The jsii proxy struct for CfnLaunchTemplateConstraint
 type jsiiProxy_CfnLaunchTemplateConstraint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILaunchTemplateConstraintRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogILaunchTemplateConstraintRef
 }
 
 func (j *jsiiProxy_CfnLaunchTemplateConstraint) AcceptLanguage() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnLaunchTemplateConstraint) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchTemplateConstraint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLaunchTemplateConstraint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnLaunchTemplateConstraint) Env() *awscdk.ResourceEnvironmen
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchTemplateConstraint) LaunchTemplateConstraintRef() *LaunchTemplateConstraintReference {
-	var returns *LaunchTemplateConstraintReference
+func (j *jsiiProxy_CfnLaunchTemplateConstraint) LaunchTemplateConstraintRef() *interfacesawsservicecatalog.LaunchTemplateConstraintReference {
+	var returns *interfacesawsservicecatalog.LaunchTemplateConstraintReference
 	_jsii_.Get(
 		j,
 		"launchTemplateConstraintRef",
@@ -410,6 +412,7 @@ func (j *jsiiProxy_CfnLaunchTemplateConstraint) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::ServiceCatalog::LaunchTemplateConstraint`.
 func NewCfnLaunchTemplateConstraint(scope constructs.Construct, id *string, props *CfnLaunchTemplateConstraintProps) CfnLaunchTemplateConstraint {
 	_init_.Initialize()
 
@@ -427,6 +430,7 @@ func NewCfnLaunchTemplateConstraint(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::LaunchTemplateConstraint`.
 func NewCfnLaunchTemplateConstraint_Override(c CfnLaunchTemplateConstraint, scope constructs.Construct, id *string, props *CfnLaunchTemplateConstraintProps) {
 	_init_.Initialize()
 

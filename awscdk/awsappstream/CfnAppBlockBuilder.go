@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnAppBlockBuilder interface {
 	awscdk.CfnResource
-	IAppBlockBuilderRef
 	awscdk.IInspectable
+	interfacesawsappstream.IAppBlockBuilderRef
 	awscdk.ITaggableV2
 	// The access endpoints of the app block builder.
 	AccessEndpoints() interface{}
@@ -65,7 +67,7 @@ type CfnAppBlockBuilder interface {
 	AppBlockArns() *[]*string
 	SetAppBlockArns(val *[]*string)
 	// A reference to a AppBlockBuilder resource.
-	AppBlockBuilderRef() *AppBlockBuilderReference
+	AppBlockBuilderRef() *interfacesawsappstream.AppBlockBuilderReference
 	// The ARN of the app block builder.
 	AttrArn() *string
 	// The time when the app block builder was created.
@@ -90,7 +92,7 @@ type CfnAppBlockBuilder interface {
 	// Indicates whether default internet access is enabled for the app block builder.
 	EnableDefaultInternetAccess() interface{}
 	SetEnableDefaultInternetAccess(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the IAM role that is applied to the app block builder.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
@@ -273,8 +275,8 @@ type CfnAppBlockBuilder interface {
 // The jsii proxy struct for CfnAppBlockBuilder
 type jsiiProxy_CfnAppBlockBuilder struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAppBlockBuilderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIAppBlockBuilderRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnAppBlockBuilder) AppBlockArns() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppBlockBuilder) AppBlockBuilderRef() *AppBlockBuilderReference {
-	var returns *AppBlockBuilderReference
+func (j *jsiiProxy_CfnAppBlockBuilder) AppBlockBuilderRef() *interfacesawsappstream.AppBlockBuilderReference {
+	var returns *interfacesawsappstream.AppBlockBuilderReference
 	_jsii_.Get(
 		j,
 		"appBlockBuilderRef",
@@ -408,8 +410,8 @@ func (j *jsiiProxy_CfnAppBlockBuilder) EnableDefaultInternetAccess() interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppBlockBuilder) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAppBlockBuilder) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -539,6 +541,7 @@ func (j *jsiiProxy_CfnAppBlockBuilder) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::AppStream::AppBlockBuilder`.
 func NewCfnAppBlockBuilder(scope constructs.Construct, id *string, props *CfnAppBlockBuilderProps) CfnAppBlockBuilder {
 	_init_.Initialize()
 
@@ -556,6 +559,7 @@ func NewCfnAppBlockBuilder(scope constructs.Construct, id *string, props *CfnApp
 	return &j
 }
 
+// Create a new `AWS::AppStream::AppBlockBuilder`.
 func NewCfnAppBlockBuilder_Override(c CfnAppBlockBuilder, scope constructs.Construct, id *string, props *CfnAppBlockBuilderProps) {
 	_init_.Initialize()
 
@@ -676,13 +680,13 @@ func (j *jsiiProxy_CfnAppBlockBuilder)SetVpcConfig(val interface{}) {
 }
 
 // Creates a new IAppBlockBuilderRef from an ARN.
-func CfnAppBlockBuilder_FromAppBlockBuilderArn(scope constructs.Construct, id *string, arn *string) IAppBlockBuilderRef {
+func CfnAppBlockBuilder_FromAppBlockBuilderArn(scope constructs.Construct, id *string, arn *string) interfacesawsappstream.IAppBlockBuilderRef {
 	_init_.Initialize()
 
 	if err := validateCfnAppBlockBuilder_FromAppBlockBuilderArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAppBlockBuilderRef
+	var returns interfacesawsappstream.IAppBlockBuilderRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appstream.CfnAppBlockBuilder",
@@ -695,13 +699,13 @@ func CfnAppBlockBuilder_FromAppBlockBuilderArn(scope constructs.Construct, id *s
 }
 
 // Creates a new IAppBlockBuilderRef from a appBlockBuilderName.
-func CfnAppBlockBuilder_FromAppBlockBuilderName(scope constructs.Construct, id *string, appBlockBuilderName *string) IAppBlockBuilderRef {
+func CfnAppBlockBuilder_FromAppBlockBuilderName(scope constructs.Construct, id *string, appBlockBuilderName *string) interfacesawsappstream.IAppBlockBuilderRef {
 	_init_.Initialize()
 
 	if err := validateCfnAppBlockBuilder_FromAppBlockBuilderNameParameters(scope, id, appBlockBuilderName); err != nil {
 		panic(err)
 	}
-	var returns IAppBlockBuilderRef
+	var returns interfacesawsappstream.IAppBlockBuilderRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appstream.CfnAppBlockBuilder",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnSAMLProvider interface {
 	awscdk.CfnResource
-	ISAMLProviderRef
 	awscdk.IInspectable
+	interfacesawsiam.ISAMLProviderRef
 	awscdk.ITaggable
 	// Specifies the new private key from your external identity provider.
 	AddPrivateKey() *string
@@ -70,7 +72,7 @@ type CfnSAMLProvider interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnSAMLProvider interface {
 	SamlMetadataDocument() *string
 	SetSamlMetadataDocument(val *string)
 	// A reference to a SAMLProvider resource.
-	SamlProviderRef() *SAMLProviderReference
+	SamlProviderRef() *interfacesawsiam.SAMLProviderReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -254,8 +256,8 @@ type CfnSAMLProvider interface {
 // The jsii proxy struct for CfnSAMLProvider
 type jsiiProxy_CfnSAMLProvider struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISAMLProviderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamISAMLProviderRef
 	internal.Type__awscdkITaggable
 }
 
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnSAMLProvider) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSAMLProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSAMLProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -419,8 +421,8 @@ func (j *jsiiProxy_CfnSAMLProvider) SamlMetadataDocument() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSAMLProvider) SamlProviderRef() *SAMLProviderReference {
-	var returns *SAMLProviderReference
+func (j *jsiiProxy_CfnSAMLProvider) SamlProviderRef() *interfacesawsiam.SAMLProviderReference {
+	var returns *interfacesawsiam.SAMLProviderReference
 	_jsii_.Get(
 		j,
 		"samlProviderRef",
@@ -480,6 +482,7 @@ func (j *jsiiProxy_CfnSAMLProvider) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::IAM::SAMLProvider`.
 func NewCfnSAMLProvider(scope constructs.Construct, id *string, props *CfnSAMLProviderProps) CfnSAMLProvider {
 	_init_.Initialize()
 
@@ -497,6 +500,7 @@ func NewCfnSAMLProvider(scope constructs.Construct, id *string, props *CfnSAMLPr
 	return &j
 }
 
+// Create a new `AWS::IAM::SAMLProvider`.
 func NewCfnSAMLProvider_Override(c CfnSAMLProvider, scope constructs.Construct, id *string, props *CfnSAMLProviderProps) {
 	_init_.Initialize()
 

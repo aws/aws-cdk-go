@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslakeformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslakeformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -68,8 +70,8 @@ import (
 //
 type CfnPermissions interface {
 	awscdk.CfnResource
-	IPermissionsRef
 	awscdk.IInspectable
+	interfacesawslakeformation.IPermissionsRef
 	// A unique identifier for the batch permissions request entry.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -84,7 +86,7 @@ type CfnPermissions interface {
 	// The AWS Lake Formation principal.
 	DataLakePrincipal() interface{}
 	SetDataLakePrincipal(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnPermissions interface {
 	Permissions() *[]*string
 	SetPermissions(val *[]*string)
 	// A reference to a Permissions resource.
-	PermissionsRef() *PermissionsReference
+	PermissionsRef() *interfacesawslakeformation.PermissionsReference
 	// Indicates the ability to grant permissions (as a subset of permissions granted).
 	PermissionsWithGrantOption() *[]*string
 	SetPermissionsWithGrantOption(val *[]*string)
@@ -260,8 +262,8 @@ type CfnPermissions interface {
 // The jsii proxy struct for CfnPermissions
 type jsiiProxy_CfnPermissions struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPermissionsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslakeformationIPermissionsRef
 }
 
 func (j *jsiiProxy_CfnPermissions) AttrId() *string {
@@ -324,8 +326,8 @@ func (j *jsiiProxy_CfnPermissions) DataLakePrincipal() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermissions) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPermissions) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnPermissions) Permissions() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermissions) PermissionsRef() *PermissionsReference {
-	var returns *PermissionsReference
+func (j *jsiiProxy_CfnPermissions) PermissionsRef() *interfacesawslakeformation.PermissionsReference {
+	var returns *interfacesawslakeformation.PermissionsReference
 	_jsii_.Get(
 		j,
 		"permissionsRef",
@@ -435,6 +437,7 @@ func (j *jsiiProxy_CfnPermissions) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::LakeFormation::Permissions`.
 func NewCfnPermissions(scope constructs.Construct, id *string, props *CfnPermissionsProps) CfnPermissions {
 	_init_.Initialize()
 
@@ -452,6 +455,7 @@ func NewCfnPermissions(scope constructs.Construct, id *string, props *CfnPermiss
 	return &j
 }
 
+// Create a new `AWS::LakeFormation::Permissions`.
 func NewCfnPermissions_Override(c CfnPermissions, scope constructs.Construct, id *string, props *CfnPermissionsProps) {
 	_init_.Initialize()
 

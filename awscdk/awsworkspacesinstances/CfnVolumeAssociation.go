@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesinstances/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesinstances"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnVolumeAssociation interface {
 	awscdk.CfnResource
-	IVolumeAssociationRef
 	awscdk.IInspectable
+	interfacesawsworkspacesinstances.IVolumeAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -46,7 +48,7 @@ type CfnVolumeAssociation interface {
 	// Mode to use when disassociating the volume.
 	DisassociateMode() *string
 	SetDisassociateMode(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnVolumeAssociation interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VolumeAssociation resource.
-	VolumeAssociationRef() *VolumeAssociationReference
+	VolumeAssociationRef() *interfacesawsworkspacesinstances.VolumeAssociationReference
 	// ID of the volume to attach to the workspace instance.
 	VolumeId() *string
 	SetVolumeId(val *string)
@@ -219,8 +221,8 @@ type CfnVolumeAssociation interface {
 // The jsii proxy struct for CfnVolumeAssociation
 type jsiiProxy_CfnVolumeAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVolumeAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspacesinstancesIVolumeAssociationRef
 }
 
 func (j *jsiiProxy_CfnVolumeAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnVolumeAssociation) DisassociateMode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolumeAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVolumeAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnVolumeAssociation) UpdatedProperties() *map[string]interfa
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolumeAssociation) VolumeAssociationRef() *VolumeAssociationReference {
-	var returns *VolumeAssociationReference
+func (j *jsiiProxy_CfnVolumeAssociation) VolumeAssociationRef() *interfacesawsworkspacesinstances.VolumeAssociationReference {
+	var returns *interfacesawsworkspacesinstances.VolumeAssociationReference
 	_jsii_.Get(
 		j,
 		"volumeAssociationRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnVolumeAssociation) WorkspaceInstanceId() *string {
 }
 
 
+// Create a new `AWS::WorkspacesInstances::VolumeAssociation`.
 func NewCfnVolumeAssociation(scope constructs.Construct, id *string, props *CfnVolumeAssociationProps) CfnVolumeAssociation {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnVolumeAssociation(scope constructs.Construct, id *string, props *CfnV
 	return &j
 }
 
+// Create a new `AWS::WorkspacesInstances::VolumeAssociation`.
 func NewCfnVolumeAssociation_Override(c CfnVolumeAssociation, scope constructs.Construct, id *string, props *CfnVolumeAssociationProps) {
 	_init_.Initialize()
 

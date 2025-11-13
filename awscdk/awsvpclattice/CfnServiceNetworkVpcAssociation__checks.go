@@ -179,6 +179,47 @@ func validateCfnServiceNetworkVpcAssociation_IsConstructParameters(x interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) validateSetDnsOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnServiceNetworkVpcAssociation_DnsOptionsProperty:
+		val := val.(*CfnServiceNetworkVpcAssociation_DnsOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnServiceNetworkVpcAssociation_DnsOptionsProperty:
+		val_ := val.(CfnServiceNetworkVpcAssociation_DnsOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServiceNetworkVpcAssociation_DnsOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) validateSetPrivateDnsEnabledParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnServiceNetworkVpcAssociation) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

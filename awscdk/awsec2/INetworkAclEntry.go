@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A NetworkAclEntry.
 type INetworkAclEntry interface {
-	INetworkAclEntryRef
+	interfacesawsec2.INetworkAclEntryRef
 	awscdk.IResource
 	// The network ACL.
 	NetworkAcl() INetworkAcl
@@ -18,7 +20,7 @@ type INetworkAclEntry interface {
 
 // The jsii proxy for INetworkAclEntry
 type jsiiProxy_INetworkAclEntry struct {
-	jsiiProxy_INetworkAclEntryRef
+	internal.Type__interfacesawsec2INetworkAclEntryRef
 	internal.Type__awscdkIResource
 }
 
@@ -43,8 +45,8 @@ func (j *jsiiProxy_INetworkAclEntry) NetworkAcl() INetworkAcl {
 	return returns
 }
 
-func (j *jsiiProxy_INetworkAclEntry) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_INetworkAclEntry) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -53,8 +55,8 @@ func (j *jsiiProxy_INetworkAclEntry) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_INetworkAclEntry) NetworkAclEntryRef() *NetworkAclEntryReference {
-	var returns *NetworkAclEntryReference
+func (j *jsiiProxy_INetworkAclEntry) NetworkAclEntryRef() *interfacesawsec2.NetworkAclEntryReference {
+	var returns *interfacesawsec2.NetworkAclEntryReference
 	_jsii_.Get(
 		j,
 		"networkAclEntryRef",

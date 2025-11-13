@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscomprehend/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscomprehend"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -86,8 +88,8 @@ import (
 //
 type CfnDocumentClassifier interface {
 	awscdk.CfnResource
-	IDocumentClassifierRef
 	awscdk.IInspectable
+	interfacesawscomprehend.IDocumentClassifierRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the document classifier.
 	AttrArn() *string
@@ -109,8 +111,8 @@ type CfnDocumentClassifier interface {
 	DocumentClassifierName() *string
 	SetDocumentClassifierName(val *string)
 	// A reference to a DocumentClassifier resource.
-	DocumentClassifierRef() *DocumentClassifierReference
-	Env() *awscdk.ResourceEnvironment
+	DocumentClassifierRef() *interfacesawscomprehend.DocumentClassifierReference
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the format and location of the input data for the job.
 	InputDataConfig() interface{}
 	SetInputDataConfig(val interface{})
@@ -305,8 +307,8 @@ type CfnDocumentClassifier interface {
 // The jsii proxy struct for CfnDocumentClassifier
 type jsiiProxy_CfnDocumentClassifier struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDocumentClassifierRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscomprehendIDocumentClassifierRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -390,8 +392,8 @@ func (j *jsiiProxy_CfnDocumentClassifier) DocumentClassifierName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocumentClassifier) DocumentClassifierRef() *DocumentClassifierReference {
-	var returns *DocumentClassifierReference
+func (j *jsiiProxy_CfnDocumentClassifier) DocumentClassifierRef() *interfacesawscomprehend.DocumentClassifierReference {
+	var returns *interfacesawscomprehend.DocumentClassifierReference
 	_jsii_.Get(
 		j,
 		"documentClassifierRef",
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnDocumentClassifier) DocumentClassifierRef() *DocumentClass
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocumentClassifier) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDocumentClassifier) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -571,6 +573,7 @@ func (j *jsiiProxy_CfnDocumentClassifier) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::Comprehend::DocumentClassifier`.
 func NewCfnDocumentClassifier(scope constructs.Construct, id *string, props *CfnDocumentClassifierProps) CfnDocumentClassifier {
 	_init_.Initialize()
 
@@ -588,6 +591,7 @@ func NewCfnDocumentClassifier(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Comprehend::DocumentClassifier`.
 func NewCfnDocumentClassifier_Override(c CfnDocumentClassifier, scope constructs.Construct, id *string, props *CfnDocumentClassifierProps) {
 	_init_.Initialize()
 

@@ -3,6 +3,7 @@ package awsec2
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 )
 
 // Properties of an EC2 Instance.
@@ -162,7 +163,7 @@ type InstanceProps struct {
 	// The placement group that you want to launch the instance into.
 	// Default: - no placement group will be used for this instance.
 	//
-	PlacementGroup IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup interfacesawsec2.IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// Defines a private IP address to associate with an instance.
 	//
 	// Private IP should be available within the VPC that the instance is build within.

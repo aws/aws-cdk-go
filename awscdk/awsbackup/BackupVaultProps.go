@@ -3,8 +3,8 @@ package awsbackup
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for a BackupVault.
@@ -39,7 +39,7 @@ type BackupVaultProps struct {
 	// The server-side encryption key to use to protect your backups.
 	// Default: - an Amazon managed KMS key.
 	//
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Configuration for AWS Backup Vault Lock.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html
 	//

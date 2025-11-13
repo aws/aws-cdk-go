@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnRestoreTestingPlan interface {
 	awscdk.CfnResource
-	IRestoreTestingPlanRef
 	awscdk.IInspectable
+	interfacesawsbackup.IRestoreTestingPlanRef
 	awscdk.ITaggableV2
 	// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
 	AttrRestoreTestingPlanArn() *string
@@ -68,7 +70,7 @@ type CfnRestoreTestingPlan interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -93,7 +95,7 @@ type CfnRestoreTestingPlan interface {
 	RestoreTestingPlanName() *string
 	SetRestoreTestingPlanName(val *string)
 	// A reference to a RestoreTestingPlan resource.
-	RestoreTestingPlanRef() *RestoreTestingPlanReference
+	RestoreTestingPlanRef() *interfacesawsbackup.RestoreTestingPlanReference
 	// A CRON expression in specified timezone when a restore testing plan is executed.
 	ScheduleExpression() *string
 	SetScheduleExpression(val *string)
@@ -253,8 +255,8 @@ type CfnRestoreTestingPlan interface {
 // The jsii proxy struct for CfnRestoreTestingPlan
 type jsiiProxy_CfnRestoreTestingPlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRestoreTestingPlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupIRestoreTestingPlanRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnRestoreTestingPlan) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRestoreTestingPlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRestoreTestingPlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -378,8 +380,8 @@ func (j *jsiiProxy_CfnRestoreTestingPlan) RestoreTestingPlanName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRestoreTestingPlan) RestoreTestingPlanRef() *RestoreTestingPlanReference {
-	var returns *RestoreTestingPlanReference
+func (j *jsiiProxy_CfnRestoreTestingPlan) RestoreTestingPlanRef() *interfacesawsbackup.RestoreTestingPlanReference {
+	var returns *interfacesawsbackup.RestoreTestingPlanReference
 	_jsii_.Get(
 		j,
 		"restoreTestingPlanRef",
@@ -459,6 +461,7 @@ func (j *jsiiProxy_CfnRestoreTestingPlan) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Backup::RestoreTestingPlan`.
 func NewCfnRestoreTestingPlan(scope constructs.Construct, id *string, props *CfnRestoreTestingPlanProps) CfnRestoreTestingPlan {
 	_init_.Initialize()
 
@@ -476,6 +479,7 @@ func NewCfnRestoreTestingPlan(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Backup::RestoreTestingPlan`.
 func NewCfnRestoreTestingPlan_Override(c CfnRestoreTestingPlan, scope constructs.Construct, id *string, props *CfnRestoreTestingPlanProps) {
 	_init_.Initialize()
 

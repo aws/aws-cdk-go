@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnDeliveryChannel interface {
 	awscdk.CfnResource
-	IDeliveryChannelRef
 	awscdk.IInspectable
+	interfacesawsconfig.IDeliveryChannelRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -63,8 +65,8 @@ type CfnDeliveryChannel interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DeliveryChannel resource.
-	DeliveryChannelRef() *DeliveryChannelReference
-	Env() *awscdk.ResourceEnvironment
+	DeliveryChannelRef() *interfacesawsconfig.DeliveryChannelReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -244,8 +246,8 @@ type CfnDeliveryChannel interface {
 // The jsii proxy struct for CfnDeliveryChannel
 type jsiiProxy_CfnDeliveryChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeliveryChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIDeliveryChannelRef
 }
 
 func (j *jsiiProxy_CfnDeliveryChannel) AttrId() *string {
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnDeliveryChannel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliveryChannel) DeliveryChannelRef() *DeliveryChannelReference {
-	var returns *DeliveryChannelReference
+func (j *jsiiProxy_CfnDeliveryChannel) DeliveryChannelRef() *interfacesawsconfig.DeliveryChannelReference {
+	var returns *interfacesawsconfig.DeliveryChannelReference
 	_jsii_.Get(
 		j,
 		"deliveryChannelRef",
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnDeliveryChannel) DeliveryChannelRef() *DeliveryChannelRefe
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliveryChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeliveryChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnDeliveryChannel) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Config::DeliveryChannel`.
 func NewCfnDeliveryChannel(scope constructs.Construct, id *string, props *CfnDeliveryChannelProps) CfnDeliveryChannel {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnDeliveryChannel(scope constructs.Construct, id *string, props *CfnDel
 	return &j
 }
 
+// Create a new `AWS::Config::DeliveryChannel`.
 func NewCfnDeliveryChannel_Override(c CfnDeliveryChannel, scope constructs.Construct, id *string, props *CfnDeliveryChannelProps) {
 	_init_.Initialize()
 

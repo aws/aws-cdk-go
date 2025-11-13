@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnDiskSnapshot interface {
 	awscdk.CfnResource
-	IDiskSnapshotRef
 	awscdk.IInspectable
+	interfacesawslightsail.IDiskSnapshotRef
 	awscdk.ITaggableV2
 	// The date when the disk snapshot was created.
 	AttrCreatedAt() *string
@@ -76,8 +78,8 @@ type CfnDiskSnapshot interface {
 	DiskSnapshotName() *string
 	SetDiskSnapshotName(val *string)
 	// A reference to a DiskSnapshot resource.
-	DiskSnapshotRef() *DiskSnapshotReference
-	Env() *awscdk.ResourceEnvironment
+	DiskSnapshotRef() *interfacesawslightsail.DiskSnapshotReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -245,8 +247,8 @@ type CfnDiskSnapshot interface {
 // The jsii proxy struct for CfnDiskSnapshot
 type jsiiProxy_CfnDiskSnapshot struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDiskSnapshotRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIDiskSnapshotRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -420,8 +422,8 @@ func (j *jsiiProxy_CfnDiskSnapshot) DiskSnapshotName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDiskSnapshot) DiskSnapshotRef() *DiskSnapshotReference {
-	var returns *DiskSnapshotReference
+func (j *jsiiProxy_CfnDiskSnapshot) DiskSnapshotRef() *interfacesawslightsail.DiskSnapshotReference {
+	var returns *interfacesawslightsail.DiskSnapshotReference
 	_jsii_.Get(
 		j,
 		"diskSnapshotRef",
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnDiskSnapshot) DiskSnapshotRef() *DiskSnapshotReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDiskSnapshot) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDiskSnapshot) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -511,6 +513,7 @@ func (j *jsiiProxy_CfnDiskSnapshot) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Lightsail::DiskSnapshot`.
 func NewCfnDiskSnapshot(scope constructs.Construct, id *string, props *CfnDiskSnapshotProps) CfnDiskSnapshot {
 	_init_.Initialize()
 
@@ -528,6 +531,7 @@ func NewCfnDiskSnapshot(scope constructs.Construct, id *string, props *CfnDiskSn
 	return &j
 }
 
+// Create a new `AWS::Lightsail::DiskSnapshot`.
 func NewCfnDiskSnapshot_Override(c CfnDiskSnapshot, scope constructs.Construct, id *string, props *CfnDiskSnapshotProps) {
 	_init_.Initialize()
 

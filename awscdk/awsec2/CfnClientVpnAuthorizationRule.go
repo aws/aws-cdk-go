@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnClientVpnAuthorizationRule interface {
 	awscdk.CfnResource
-	IClientVpnAuthorizationRuleRef
 	awscdk.IInspectable
+	interfacesawsec2.IClientVpnAuthorizationRuleRef
 	// The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group.
 	AccessGroupId() *string
 	SetAccessGroupId(val *string)
@@ -47,7 +49,7 @@ type CfnClientVpnAuthorizationRule interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ClientVpnAuthorizationRule resource.
-	ClientVpnAuthorizationRuleRef() *ClientVpnAuthorizationRuleReference
+	ClientVpnAuthorizationRuleRef() *interfacesawsec2.ClientVpnAuthorizationRuleReference
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId() *string
 	SetClientVpnEndpointId(val *string)
@@ -58,7 +60,7 @@ type CfnClientVpnAuthorizationRule interface {
 	// A brief description of the authorization rule.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -226,8 +228,8 @@ type CfnClientVpnAuthorizationRule interface {
 // The jsii proxy struct for CfnClientVpnAuthorizationRule
 type jsiiProxy_CfnClientVpnAuthorizationRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClientVpnAuthorizationRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IClientVpnAuthorizationRuleRef
 }
 
 func (j *jsiiProxy_CfnClientVpnAuthorizationRule) AccessGroupId() *string {
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnClientVpnAuthorizationRule) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientVpnAuthorizationRule) ClientVpnAuthorizationRuleRef() *ClientVpnAuthorizationRuleReference {
-	var returns *ClientVpnAuthorizationRuleReference
+func (j *jsiiProxy_CfnClientVpnAuthorizationRule) ClientVpnAuthorizationRuleRef() *interfacesawsec2.ClientVpnAuthorizationRuleReference {
+	var returns *interfacesawsec2.ClientVpnAuthorizationRuleReference
 	_jsii_.Get(
 		j,
 		"clientVpnAuthorizationRuleRef",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnClientVpnAuthorizationRule) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientVpnAuthorizationRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClientVpnAuthorizationRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -411,6 +413,7 @@ func (j *jsiiProxy_CfnClientVpnAuthorizationRule) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::EC2::ClientVpnAuthorizationRule`.
 func NewCfnClientVpnAuthorizationRule(scope constructs.Construct, id *string, props *CfnClientVpnAuthorizationRuleProps) CfnClientVpnAuthorizationRule {
 	_init_.Initialize()
 
@@ -428,6 +431,7 @@ func NewCfnClientVpnAuthorizationRule(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::EC2::ClientVpnAuthorizationRule`.
 func NewCfnClientVpnAuthorizationRule_Override(c CfnClientVpnAuthorizationRule, scope constructs.Construct, id *string, props *CfnClientVpnAuthorizationRuleProps) {
 	_init_.Initialize()
 

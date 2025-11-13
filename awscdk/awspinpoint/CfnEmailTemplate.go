@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnEmailTemplate interface {
 	awscdk.CfnResource
-	IEmailTemplateRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IEmailTemplateRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the message template.
 	AttrArn() *string
@@ -55,8 +57,8 @@ type CfnEmailTemplate interface {
 	DefaultSubstitutions() *string
 	SetDefaultSubstitutions(val *string)
 	// A reference to a EmailTemplate resource.
-	EmailTemplateRef() *EmailTemplateReference
-	Env() *awscdk.ResourceEnvironment
+	EmailTemplateRef() *interfacesawspinpoint.EmailTemplateReference
+	Env() *interfaces.ResourceEnvironment
 	// The message body, in HTML format, to use in email messages that are based on the message template.
 	HtmlPart() *string
 	SetHtmlPart(val *string)
@@ -241,8 +243,8 @@ type CfnEmailTemplate interface {
 // The jsii proxy struct for CfnEmailTemplate
 type jsiiProxy_CfnEmailTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEmailTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIEmailTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnEmailTemplate) DefaultSubstitutions() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailTemplate) EmailTemplateRef() *EmailTemplateReference {
-	var returns *EmailTemplateReference
+func (j *jsiiProxy_CfnEmailTemplate) EmailTemplateRef() *interfacesawspinpoint.EmailTemplateReference {
+	var returns *interfacesawspinpoint.EmailTemplateReference
 	_jsii_.Get(
 		j,
 		"emailTemplateRef",
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnEmailTemplate) EmailTemplateRef() *EmailTemplateReference 
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEmailTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -467,6 +469,7 @@ func (j *jsiiProxy_CfnEmailTemplate) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Pinpoint::EmailTemplate`.
 func NewCfnEmailTemplate(scope constructs.Construct, id *string, props *CfnEmailTemplateProps) CfnEmailTemplate {
 	_init_.Initialize()
 
@@ -484,6 +487,7 @@ func NewCfnEmailTemplate(scope constructs.Construct, id *string, props *CfnEmail
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::EmailTemplate`.
 func NewCfnEmailTemplate_Override(c CfnEmailTemplate, scope constructs.Construct, id *string, props *CfnEmailTemplateProps) {
 	_init_.Initialize()
 

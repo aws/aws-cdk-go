@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnContactFlowVersion interface {
 	awscdk.CfnResource
-	IContactFlowVersionRef
 	awscdk.IInspectable
+	interfacesawsconnect.IContactFlowVersionRef
 	// The Amazon Resource Name (ARN) of the flow version.
 	AttrContactFlowVersionArn() *string
 	// Indicates the checksum value of the flow content.
@@ -44,7 +46,7 @@ type CfnContactFlowVersion interface {
 	ContactFlowId() *string
 	SetContactFlowId(val *string)
 	// A reference to a ContactFlowVersion resource.
-	ContactFlowVersionRef() *ContactFlowVersionReference
+	ContactFlowVersionRef() *interfacesawsconnect.ContactFlowVersionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -52,7 +54,7 @@ type CfnContactFlowVersion interface {
 	// The description of the flow version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -217,8 +219,8 @@ type CfnContactFlowVersion interface {
 // The jsii proxy struct for CfnContactFlowVersion
 type jsiiProxy_CfnContactFlowVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContactFlowVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIContactFlowVersionRef
 }
 
 func (j *jsiiProxy_CfnContactFlowVersion) AttrContactFlowVersionArn() *string {
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnContactFlowVersion) ContactFlowId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactFlowVersion) ContactFlowVersionRef() *ContactFlowVersionReference {
-	var returns *ContactFlowVersionReference
+func (j *jsiiProxy_CfnContactFlowVersion) ContactFlowVersionRef() *interfacesawsconnect.ContactFlowVersionReference {
+	var returns *interfacesawsconnect.ContactFlowVersionReference
 	_jsii_.Get(
 		j,
 		"contactFlowVersionRef",
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnContactFlowVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactFlowVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContactFlowVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -392,6 +394,7 @@ func (j *jsiiProxy_CfnContactFlowVersion) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Connect::ContactFlowVersion`.
 func NewCfnContactFlowVersion(scope constructs.Construct, id *string, props *CfnContactFlowVersionProps) CfnContactFlowVersion {
 	_init_.Initialize()
 
@@ -409,6 +412,7 @@ func NewCfnContactFlowVersion(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Connect::ContactFlowVersion`.
 func NewCfnContactFlowVersion_Override(c CfnContactFlowVersion, scope constructs.Construct, id *string, props *CfnContactFlowVersionProps) {
 	_init_.Initialize()
 

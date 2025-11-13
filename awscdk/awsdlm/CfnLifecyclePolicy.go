@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdlm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdlm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -216,8 +218,8 @@ import (
 //
 type CfnLifecyclePolicy interface {
 	awscdk.CfnResource
-	ILifecyclePolicyRef
 	awscdk.IInspectable
+	interfacesawsdlm.ILifecyclePolicyRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the lifecycle policy.
 	AttrArn() *string
@@ -246,7 +248,7 @@ type CfnLifecyclePolicy interface {
 	// A description of the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// *[Default policies only]* Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.
 	Exclusions() interface{}
 	SetExclusions(val interface{})
@@ -257,7 +259,7 @@ type CfnLifecyclePolicy interface {
 	ExtendDeletion() interface{}
 	SetExtendDeletion(val interface{})
 	// A reference to a LifecyclePolicy resource.
-	LifecyclePolicyRef() *LifecyclePolicyReference
+	LifecyclePolicyRef() *interfacesawsdlm.LifecyclePolicyReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -436,8 +438,8 @@ type CfnLifecyclePolicy interface {
 // The jsii proxy struct for CfnLifecyclePolicy
 type jsiiProxy_CfnLifecyclePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILifecyclePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdlmILifecyclePolicyRef
 	internal.Type__awscdkITaggable
 }
 
@@ -551,8 +553,8 @@ func (j *jsiiProxy_CfnLifecyclePolicy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecyclePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLifecyclePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -591,8 +593,8 @@ func (j *jsiiProxy_CfnLifecyclePolicy) ExtendDeletion() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecyclePolicy) LifecyclePolicyRef() *LifecyclePolicyReference {
-	var returns *LifecyclePolicyReference
+func (j *jsiiProxy_CfnLifecyclePolicy) LifecyclePolicyRef() *interfacesawsdlm.LifecyclePolicyReference {
+	var returns *interfacesawsdlm.LifecyclePolicyReference
 	_jsii_.Get(
 		j,
 		"lifecyclePolicyRef",
@@ -712,6 +714,7 @@ func (j *jsiiProxy_CfnLifecyclePolicy) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::DLM::LifecyclePolicy`.
 func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) CfnLifecyclePolicy {
 	_init_.Initialize()
 
@@ -729,6 +732,7 @@ func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLif
 	return &j
 }
 
+// Create a new `AWS::DLM::LifecyclePolicy`.
 func NewCfnLifecyclePolicy_Override(c CfnLifecyclePolicy, scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) {
 	_init_.Initialize()
 

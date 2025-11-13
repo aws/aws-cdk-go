@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscontroltower/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscontroltower"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnLandingZone interface {
 	awscdk.CfnResource
-	ILandingZoneRef
 	awscdk.IInspectable
+	interfacesawscontroltower.ILandingZoneRef
 	awscdk.ITaggableV2
 	// The ARN of the landing zone.
 	AttrArn() *string
@@ -63,9 +65,9 @@ type CfnLandingZone interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LandingZone resource.
-	LandingZoneRef() *LandingZoneReference
+	LandingZoneRef() *interfacesawscontroltower.LandingZoneReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -239,8 +241,8 @@ type CfnLandingZone interface {
 // The jsii proxy struct for CfnLandingZone
 type jsiiProxy_CfnLandingZone struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILandingZoneRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscontroltowerILandingZoneRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnLandingZone) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLandingZone) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLandingZone) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnLandingZone) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLandingZone) LandingZoneRef() *LandingZoneReference {
-	var returns *LandingZoneReference
+func (j *jsiiProxy_CfnLandingZone) LandingZoneRef() *interfacesawscontroltower.LandingZoneReference {
+	var returns *interfacesawscontroltower.LandingZoneReference
 	_jsii_.Get(
 		j,
 		"landingZoneRef",
@@ -455,6 +457,7 @@ func (j *jsiiProxy_CfnLandingZone) Version() *string {
 }
 
 
+// Create a new `AWS::ControlTower::LandingZone`.
 func NewCfnLandingZone(scope constructs.Construct, id *string, props *CfnLandingZoneProps) CfnLandingZone {
 	_init_.Initialize()
 
@@ -472,6 +475,7 @@ func NewCfnLandingZone(scope constructs.Construct, id *string, props *CfnLanding
 	return &j
 }
 
+// Create a new `AWS::ControlTower::LandingZone`.
 func NewCfnLandingZone_Override(c CfnLandingZone, scope constructs.Construct, id *string, props *CfnLandingZoneProps) {
 	_init_.Initialize()
 

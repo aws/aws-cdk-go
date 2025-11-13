@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmcontacts/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmcontacts"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,8 +73,8 @@ import (
 //
 type CfnRotation interface {
 	awscdk.CfnResource
-	IRotationRef
 	awscdk.IInspectable
+	interfacesawsssmcontacts.IRotationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `Rotation` resource.
 	AttrArn() *string
@@ -88,7 +90,7 @@ type CfnRotation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -113,7 +115,7 @@ type CfnRotation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Rotation resource.
-	RotationRef() *RotationReference
+	RotationRef() *interfacesawsssmcontacts.RotationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -272,8 +274,8 @@ type CfnRotation interface {
 // The jsii proxy struct for CfnRotation
 type jsiiProxy_CfnRotation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRotationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmcontactsIRotationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnRotation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRotation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRotation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnRotation) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRotation) RotationRef() *RotationReference {
-	var returns *RotationReference
+func (j *jsiiProxy_CfnRotation) RotationRef() *interfacesawsssmcontacts.RotationReference {
+	var returns *interfacesawsssmcontacts.RotationReference
 	_jsii_.Get(
 		j,
 		"rotationRef",
@@ -478,6 +480,7 @@ func (j *jsiiProxy_CfnRotation) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SSMContacts::Rotation`.
 func NewCfnRotation(scope constructs.Construct, id *string, props *CfnRotationProps) CfnRotation {
 	_init_.Initialize()
 
@@ -495,6 +498,7 @@ func NewCfnRotation(scope constructs.Construct, id *string, props *CfnRotationPr
 	return &j
 }
 
+// Create a new `AWS::SSMContacts::Rotation`.
 func NewCfnRotation_Override(c CfnRotation, scope constructs.Construct, id *string, props *CfnRotationProps) {
 	_init_.Initialize()
 

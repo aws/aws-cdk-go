@@ -126,8 +126,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGlobalTable{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGlobalTableRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdynamodbIGlobalTableRef)
 			return &j
 		},
 	)
@@ -294,8 +294,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTable{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITableRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdynamodbITableRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -408,25 +408,6 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.GlobalSecondaryIndexPropsV2",
 		reflect.TypeOf((*GlobalSecondaryIndexPropsV2)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dynamodb.GlobalTableReference",
-		reflect.TypeOf((*GlobalTableReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_dynamodb.IGlobalTableRef",
-		reflect.TypeOf((*IGlobalTableRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "globalTableRef", GoGetter: "GlobalTableRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGlobalTableRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_dynamodb.IScalableTableAttribute",
 		reflect.TypeOf((*IScalableTableAttribute)(nil)).Elem(),
@@ -471,21 +452,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ITable{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_dynamodb.ITableRef",
-		reflect.TypeOf((*ITableRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITableRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -836,10 +802,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.TablePropsV2",
 		reflect.TypeOf((*TablePropsV2)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dynamodb.TableReference",
-		reflect.TypeOf((*TableReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_dynamodb.TableV2",

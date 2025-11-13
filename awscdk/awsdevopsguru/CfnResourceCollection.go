@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevopsguru/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevopsguru"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnResourceCollection interface {
 	awscdk.CfnResource
-	IResourceCollectionRef
 	awscdk.IInspectable
+	interfacesawsdevopsguru.IResourceCollectionRef
 	// The type of AWS resource collections to return.
 	//
 	// The one valid value is `CLOUD_FORMATION` for AWS CloudFormation stacks.
@@ -55,7 +57,7 @@ type CfnResourceCollection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnResourceCollection interface {
 	ResourceCollectionFilter() interface{}
 	SetResourceCollectionFilter(val interface{})
 	// A reference to a ResourceCollection resource.
-	ResourceCollectionRef() *ResourceCollectionReference
+	ResourceCollectionRef() *interfacesawsdevopsguru.ResourceCollectionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -225,8 +227,8 @@ type CfnResourceCollection interface {
 // The jsii proxy struct for CfnResourceCollection
 type jsiiProxy_CfnResourceCollection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceCollectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdevopsguruIResourceCollectionRef
 }
 
 func (j *jsiiProxy_CfnResourceCollection) AttrResourceCollectionType() *string {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnResourceCollection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceCollection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceCollection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnResourceCollection) ResourceCollectionFilter() interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceCollection) ResourceCollectionRef() *ResourceCollectionReference {
-	var returns *ResourceCollectionReference
+func (j *jsiiProxy_CfnResourceCollection) ResourceCollectionRef() *interfacesawsdevopsguru.ResourceCollectionReference {
+	var returns *interfacesawsdevopsguru.ResourceCollectionReference
 	_jsii_.Get(
 		j,
 		"resourceCollectionRef",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnResourceCollection) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::DevOpsGuru::ResourceCollection`.
 func NewCfnResourceCollection(scope constructs.Construct, id *string, props *CfnResourceCollectionProps) CfnResourceCollection {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnResourceCollection(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::DevOpsGuru::ResourceCollection`.
 func NewCfnResourceCollection_Override(c CfnResourceCollection, scope constructs.Construct, id *string, props *CfnResourceCollectionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3tables/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3tables"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnTableBucketPolicy interface {
 	awscdk.CfnResource
-	ITableBucketPolicyRef
 	awscdk.IInspectable
+	interfacesawss3tables.ITableBucketPolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -45,7 +47,7 @@ type CfnTableBucketPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnTableBucketPolicy interface {
 	TableBucketArn() *string
 	SetTableBucketArn(val *string)
 	// A reference to a TableBucketPolicy resource.
-	TableBucketPolicyRef() *TableBucketPolicyReference
+	TableBucketPolicyRef() *interfacesawss3tables.TableBucketPolicyReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -218,8 +220,8 @@ type CfnTableBucketPolicy interface {
 // The jsii proxy struct for CfnTableBucketPolicy
 type jsiiProxy_CfnTableBucketPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITableBucketPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3tablesITableBucketPolicyRef
 }
 
 func (j *jsiiProxy_CfnTableBucketPolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -262,8 +264,8 @@ func (j *jsiiProxy_CfnTableBucketPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTableBucketPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTableBucketPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnTableBucketPolicy) TableBucketArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTableBucketPolicy) TableBucketPolicyRef() *TableBucketPolicyReference {
-	var returns *TableBucketPolicyReference
+func (j *jsiiProxy_CfnTableBucketPolicy) TableBucketPolicyRef() *interfacesawss3tables.TableBucketPolicyReference {
+	var returns *interfacesawss3tables.TableBucketPolicyReference
 	_jsii_.Get(
 		j,
 		"tableBucketPolicyRef",
@@ -363,6 +365,7 @@ func (j *jsiiProxy_CfnTableBucketPolicy) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::S3Tables::TableBucketPolicy`.
 func NewCfnTableBucketPolicy(scope constructs.Construct, id *string, props *CfnTableBucketPolicyProps) CfnTableBucketPolicy {
 	_init_.Initialize()
 
@@ -380,6 +383,7 @@ func NewCfnTableBucketPolicy(scope constructs.Construct, id *string, props *CfnT
 	return &j
 }
 
+// Create a new `AWS::S3Tables::TableBucketPolicy`.
 func NewCfnTableBucketPolicy_Override(c CfnTableBucketPolicy, scope constructs.Construct, id *string, props *CfnTableBucketPolicyProps) {
 	_init_.Initialize()
 

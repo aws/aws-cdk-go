@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnDataMigration interface {
 	awscdk.CfnResource
-	IDataMigrationRef
 	awscdk.IInspectable
+	interfacesawsdms.IDataMigrationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that identifies this replication.
 	AttrDataMigrationArn() *string
@@ -74,14 +76,14 @@ type CfnDataMigration interface {
 	DataMigrationName() *string
 	SetDataMigrationName(val *string)
 	// A reference to a DataMigration resource.
-	DataMigrationRef() *DataMigrationReference
+	DataMigrationRef() *interfacesawsdms.DataMigrationReference
 	// Specifies CloudWatch settings and selection rules for the data migration.
 	DataMigrationSettings() interface{}
 	SetDataMigrationSettings(val interface{})
 	// Specifies whether the data migration is full-load only, change data capture (CDC) only, or full-load and CDC.
 	DataMigrationType() *string
 	SetDataMigrationType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -258,8 +260,8 @@ type CfnDataMigration interface {
 // The jsii proxy struct for CfnDataMigration
 type jsiiProxy_CfnDataMigration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataMigrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIDataMigrationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnDataMigration) DataMigrationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataMigration) DataMigrationRef() *DataMigrationReference {
-	var returns *DataMigrationReference
+func (j *jsiiProxy_CfnDataMigration) DataMigrationRef() *interfacesawsdms.DataMigrationReference {
+	var returns *interfacesawsdms.DataMigrationReference
 	_jsii_.Get(
 		j,
 		"dataMigrationRef",
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnDataMigration) DataMigrationType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataMigration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataMigration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -494,6 +496,7 @@ func (j *jsiiProxy_CfnDataMigration) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::DMS::DataMigration`.
 func NewCfnDataMigration(scope constructs.Construct, id *string, props *CfnDataMigrationProps) CfnDataMigration {
 	_init_.Initialize()
 
@@ -511,6 +514,7 @@ func NewCfnDataMigration(scope constructs.Construct, id *string, props *CfnDataM
 	return &j
 }
 
+// Create a new `AWS::DMS::DataMigration`.
 func NewCfnDataMigration_Override(c CfnDataMigration, scope constructs.Construct, id *string, props *CfnDataMigrationProps) {
 	_init_.Initialize()
 

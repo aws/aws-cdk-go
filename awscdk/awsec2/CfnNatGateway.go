@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnNatGateway interface {
 	awscdk.CfnResource
-	INatGatewayRef
 	awscdk.IInspectable
+	interfacesawsec2.INatGatewayRef
 	awscdk.ITaggable
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
 	AllocationId() *string
@@ -72,7 +74,7 @@ type CfnNatGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -87,7 +89,7 @@ type CfnNatGateway interface {
 	MaxDrainDurationSeconds() *float64
 	SetMaxDrainDurationSeconds(val *float64)
 	// A reference to a NatGateway resource.
-	NatGatewayRef() *NatGatewayReference
+	NatGatewayRef() *interfacesawsec2.NatGatewayReference
 	// The tree node.
 	Node() constructs.Node
 	// The private IPv4 address to assign to the NAT gateway.
@@ -265,8 +267,8 @@ type CfnNatGateway interface {
 // The jsii proxy struct for CfnNatGateway
 type jsiiProxy_CfnNatGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INatGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INatGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnNatGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNatGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNatGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnNatGateway) MaxDrainDurationSeconds() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNatGateway) NatGatewayRef() *NatGatewayReference {
-	var returns *NatGatewayReference
+func (j *jsiiProxy_CfnNatGateway) NatGatewayRef() *interfacesawsec2.NatGatewayReference {
+	var returns *interfacesawsec2.NatGatewayReference
 	_jsii_.Get(
 		j,
 		"natGatewayRef",
@@ -521,6 +523,7 @@ func (j *jsiiProxy_CfnNatGateway) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::NatGateway`.
 func NewCfnNatGateway(scope constructs.Construct, id *string, props *CfnNatGatewayProps) CfnNatGateway {
 	_init_.Initialize()
 
@@ -538,6 +541,7 @@ func NewCfnNatGateway(scope constructs.Construct, id *string, props *CfnNatGatew
 	return &j
 }
 
+// Create a new `AWS::EC2::NatGateway`.
 func NewCfnNatGateway_Override(c CfnNatGateway, scope constructs.Construct, id *string, props *CfnNatGatewayProps) {
 	_init_.Initialize()
 
@@ -632,13 +636,13 @@ func (j *jsiiProxy_CfnNatGateway)SetVpcId(val *string) {
 }
 
 // Creates a new INatGatewayRef from a natGatewayId.
-func CfnNatGateway_FromNatGatewayId(scope constructs.Construct, id *string, natGatewayId *string) INatGatewayRef {
+func CfnNatGateway_FromNatGatewayId(scope constructs.Construct, id *string, natGatewayId *string) interfacesawsec2.INatGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnNatGateway_FromNatGatewayIdParameters(scope, id, natGatewayId); err != nil {
 		panic(err)
 	}
-	var returns INatGatewayRef
+	var returns interfacesawsec2.INatGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNatGateway",

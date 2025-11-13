@@ -1,10 +1,13 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackagev2"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsmediapackagev2IChannelRef = interfacesawsmediapackagev2.IChannelRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsmediapackagev2IChannelGroupRef = interfacesawsmediapackagev2.IChannelGroupRef
+type Type__interfacesawsmediapackagev2IChannelPolicyRef = interfacesawsmediapackagev2.IChannelPolicyRef
+type Type__interfacesawsmediapackagev2IOriginEndpointRef = interfacesawsmediapackagev2.IOriginEndpointRef
+type Type__interfacesawsmediapackagev2IOriginEndpointPolicyRef = interfacesawsmediapackagev2.IOriginEndpointPolicyRef

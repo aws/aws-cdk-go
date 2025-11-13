@@ -1,6 +1,8 @@
 package awsaps
 
 
+// The configuration for the anomaly detection algorithm.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,6 +29,7 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-anomalydetectorconfiguration.html
 //
 type CfnAnomalyDetector_AnomalyDetectorConfigurationProperty struct {
+	// The Random Cut Forest algorithm configuration for anomaly detection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-anomalydetectorconfiguration.html#cfn-aps-anomalydetector-anomalydetectorconfiguration-randomcutforest
 	//
 	RandomCutForest interface{} `field:"required" json:"randomCutForest" yaml:"randomCutForest"`

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnVpcLink interface {
 	awscdk.CfnResource
-	IVpcLinkRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IVpcLinkRef
 	awscdk.ITaggable
 	// The ID for the VPC link.
 	//
@@ -57,7 +59,7 @@ type CfnVpcLink interface {
 	// The description of the VPC link.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -104,7 +106,7 @@ type CfnVpcLink interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VpcLink resource.
-	VpcLinkRef() *VpcLinkReference
+	VpcLinkRef() *interfacesawsapigateway.VpcLinkReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -235,8 +237,8 @@ type CfnVpcLink interface {
 // The jsii proxy struct for CfnVpcLink
 type jsiiProxy_CfnVpcLink struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVpcLinkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIVpcLinkRef
 	internal.Type__awscdkITaggable
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnVpcLink) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcLink) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVpcLink) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -410,8 +412,8 @@ func (j *jsiiProxy_CfnVpcLink) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcLink) VpcLinkRef() *VpcLinkReference {
-	var returns *VpcLinkReference
+func (j *jsiiProxy_CfnVpcLink) VpcLinkRef() *interfacesawsapigateway.VpcLinkReference {
+	var returns *interfacesawsapigateway.VpcLinkReference
 	_jsii_.Get(
 		j,
 		"vpcLinkRef",
@@ -421,6 +423,7 @@ func (j *jsiiProxy_CfnVpcLink) VpcLinkRef() *VpcLinkReference {
 }
 
 
+// Create a new `AWS::ApiGateway::VpcLink`.
 func NewCfnVpcLink(scope constructs.Construct, id *string, props *CfnVpcLinkProps) CfnVpcLink {
 	_init_.Initialize()
 
@@ -438,6 +441,7 @@ func NewCfnVpcLink(scope constructs.Construct, id *string, props *CfnVpcLinkProp
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::VpcLink`.
 func NewCfnVpcLink_Override(c CfnVpcLink, scope constructs.Construct, id *string, props *CfnVpcLinkProps) {
 	_init_.Initialize()
 
@@ -490,13 +494,13 @@ func (j *jsiiProxy_CfnVpcLink)SetTargetArns(val *[]*string) {
 }
 
 // Creates a new IVpcLinkRef from a vpcLinkId.
-func CfnVpcLink_FromVpcLinkId(scope constructs.Construct, id *string, vpcLinkId *string) IVpcLinkRef {
+func CfnVpcLink_FromVpcLinkId(scope constructs.Construct, id *string, vpcLinkId *string) interfacesawsapigateway.IVpcLinkRef {
 	_init_.Initialize()
 
 	if err := validateCfnVpcLink_FromVpcLinkIdParameters(scope, id, vpcLinkId); err != nil {
 		panic(err)
 	}
-	var returns IVpcLinkRef
+	var returns interfacesawsapigateway.IVpcLinkRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigateway.CfnVpcLink",

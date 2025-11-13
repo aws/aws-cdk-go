@@ -8,12 +8,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IFunction interface {
 	awsec2.IConnectable
-	IFunctionRef
+	interfacesawslambda.IFunctionRef
 	awsiam.IGrantable
 	awscdk.IResource
 	// Adds an event source to this function.
@@ -105,7 +107,7 @@ type IFunction interface {
 // The jsii proxy for IFunction
 type jsiiProxy_IFunction struct {
 	internal.Type__awsec2IConnectable
-	jsiiProxy_IFunctionRef
+	internal.Type__interfacesawslambdaIFunctionRef
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
 }
@@ -447,8 +449,8 @@ func (j *jsiiProxy_IFunction) Connections() awsec2.Connections {
 	return returns
 }
 
-func (j *jsiiProxy_IFunction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IFunction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -457,8 +459,8 @@ func (j *jsiiProxy_IFunction) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IFunction) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_IFunction) FunctionRef() *interfacesawslambda.FunctionReference {
+	var returns *interfacesawslambda.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",

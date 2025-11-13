@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -72,8 +74,8 @@ import (
 //
 type CfnResourceDataSync interface {
 	awscdk.CfnResource
-	IResourceDataSyncRef
 	awscdk.IInspectable
+	interfacesawsssm.IResourceDataSyncRef
 	AttrSyncName() *string
 	// The name of the S3 bucket where the aggregated data is stored.
 	BucketName() *string
@@ -93,7 +95,7 @@ type CfnResourceDataSync interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 .
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -115,7 +117,7 @@ type CfnResourceDataSync interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourceDataSync resource.
-	ResourceDataSyncRef() *ResourceDataSyncReference
+	ResourceDataSyncRef() *interfacesawsssm.ResourceDataSyncReference
 	// Configuration information for the target S3 bucket.
 	S3Destination() interface{}
 	SetS3Destination(val interface{})
@@ -278,8 +280,8 @@ type CfnResourceDataSync interface {
 // The jsii proxy struct for CfnResourceDataSync
 type jsiiProxy_CfnResourceDataSync struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceDataSyncRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmIResourceDataSyncRef
 }
 
 func (j *jsiiProxy_CfnResourceDataSync) AttrSyncName() *string {
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnResourceDataSync) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceDataSync) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceDataSync) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnResourceDataSync) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceDataSync) ResourceDataSyncRef() *ResourceDataSyncReference {
-	var returns *ResourceDataSyncReference
+func (j *jsiiProxy_CfnResourceDataSync) ResourceDataSyncRef() *interfacesawsssm.ResourceDataSyncReference {
+	var returns *interfacesawsssm.ResourceDataSyncReference
 	_jsii_.Get(
 		j,
 		"resourceDataSyncRef",
@@ -503,6 +505,7 @@ func (j *jsiiProxy_CfnResourceDataSync) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::SSM::ResourceDataSync`.
 func NewCfnResourceDataSync(scope constructs.Construct, id *string, props *CfnResourceDataSyncProps) CfnResourceDataSync {
 	_init_.Initialize()
 
@@ -520,6 +523,7 @@ func NewCfnResourceDataSync(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
+// Create a new `AWS::SSM::ResourceDataSync`.
 func NewCfnResourceDataSync_Override(c CfnResourceDataSync, scope constructs.Construct, id *string, props *CfnResourceDataSyncProps) {
 	_init_.Initialize()
 
@@ -612,13 +616,13 @@ func (j *jsiiProxy_CfnResourceDataSync)SetSyncType(val *string) {
 }
 
 // Creates a new IResourceDataSyncRef from a syncName.
-func CfnResourceDataSync_FromSyncName(scope constructs.Construct, id *string, syncName *string) IResourceDataSyncRef {
+func CfnResourceDataSync_FromSyncName(scope constructs.Construct, id *string, syncName *string) interfacesawsssm.IResourceDataSyncRef {
 	_init_.Initialize()
 
 	if err := validateCfnResourceDataSync_FromSyncNameParameters(scope, id, syncName); err != nil {
 		panic(err)
 	}
-	var returns IResourceDataSyncRef
+	var returns interfacesawsssm.IResourceDataSyncRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ssm.CfnResourceDataSync",

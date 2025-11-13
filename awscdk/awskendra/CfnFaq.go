@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskendra/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskendra"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnFaq interface {
 	awscdk.CfnResource
-	IFaqRef
 	awscdk.IInspectable
+	interfacesawskendra.IFaqRef
 	awscdk.ITaggable
 	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`.
 	AttrArn() *string
@@ -62,9 +64,9 @@ type CfnFaq interface {
 	// A description for the FAQ.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Faq resource.
-	FaqRef() *FaqReference
+	FaqRef() *interfacesawskendra.FaqReference
 	// The format of the input file.
 	FileFormat() *string
 	SetFileFormat(val *string)
@@ -252,8 +254,8 @@ type CfnFaq interface {
 // The jsii proxy struct for CfnFaq
 type jsiiProxy_CfnFaq struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFaqRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskendraIFaqRef
 	internal.Type__awscdkITaggable
 }
 
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnFaq) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFaq) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFaq) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnFaq) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFaq) FaqRef() *FaqReference {
-	var returns *FaqReference
+func (j *jsiiProxy_CfnFaq) FaqRef() *interfacesawskendra.FaqReference {
+	var returns *interfacesawskendra.FaqReference
 	_jsii_.Get(
 		j,
 		"faqRef",
@@ -488,6 +490,7 @@ func (j *jsiiProxy_CfnFaq) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Kendra::Faq`.
 func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFaq {
 	_init_.Initialize()
 
@@ -505,6 +508,7 @@ func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFa
 	return &j
 }
 
+// Create a new `AWS::Kendra::Faq`.
 func NewCfnFaq_Override(c CfnFaq, scope constructs.Construct, id *string, props *CfnFaqProps) {
 	_init_.Initialize()
 

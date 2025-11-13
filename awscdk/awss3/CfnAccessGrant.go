@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,11 +53,11 @@ import (
 //
 type CfnAccessGrant interface {
 	awscdk.CfnResource
-	IAccessGrantRef
 	awscdk.IInspectable
+	interfacesawss3.IAccessGrantRef
 	awscdk.ITaggableV2
 	// A reference to a AccessGrant resource.
-	AccessGrantRef() *AccessGrantReference
+	AccessGrantRef() *interfacesawss3.AccessGrantReference
 	// The configuration options of the grant location.
 	AccessGrantsLocationConfiguration() interface{}
 	SetAccessGrantsLocationConfiguration(val interface{})
@@ -86,7 +88,7 @@ type CfnAccessGrant interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The user, group, or role to which you are granting access.
 	Grantee() interface{}
 	SetGrantee(val interface{})
@@ -263,13 +265,13 @@ type CfnAccessGrant interface {
 // The jsii proxy struct for CfnAccessGrant
 type jsiiProxy_CfnAccessGrant struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessGrantRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IAccessGrantRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAccessGrant) AccessGrantRef() *AccessGrantReference {
-	var returns *AccessGrantReference
+func (j *jsiiProxy_CfnAccessGrant) AccessGrantRef() *interfacesawss3.AccessGrantReference {
+	var returns *interfacesawss3.AccessGrantReference
 	_jsii_.Get(
 		j,
 		"accessGrantRef",
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnAccessGrant) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessGrant) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessGrant) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -499,6 +501,7 @@ func (j *jsiiProxy_CfnAccessGrant) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::S3::AccessGrant`.
 func NewCfnAccessGrant(scope constructs.Construct, id *string, props *CfnAccessGrantProps) CfnAccessGrant {
 	_init_.Initialize()
 
@@ -516,6 +519,7 @@ func NewCfnAccessGrant(scope constructs.Construct, id *string, props *CfnAccessG
 	return &j
 }
 
+// Create a new `AWS::S3::AccessGrant`.
 func NewCfnAccessGrant_Override(c CfnAccessGrant, scope constructs.Construct, id *string, props *CfnAccessGrantProps) {
 	_init_.Initialize()
 

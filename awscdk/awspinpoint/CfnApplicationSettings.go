@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,13 +46,13 @@ import (
 //
 type CfnApplicationSettings interface {
 	awscdk.CfnResource
-	IApplicationSettingsRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IApplicationSettingsRef
 	// The unique identifier for the Amazon Pinpoint application.
 	ApplicationId() *string
 	SetApplicationId(val *string)
 	// A reference to a ApplicationSettings resource.
-	ApplicationSettingsRef() *ApplicationSettingsReference
+	ApplicationSettingsRef() *interfacesawspinpoint.ApplicationSettingsReference
 	AttrId() *string
 	// The settings for the Lambda function to use by default as a code hook for campaigns in the application.
 	CampaignHook() interface{}
@@ -66,7 +68,7 @@ type CfnApplicationSettings interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The default sending limits for campaigns in the application.
 	Limits() interface{}
 	SetLimits(val interface{})
@@ -237,8 +239,8 @@ type CfnApplicationSettings interface {
 // The jsii proxy struct for CfnApplicationSettings
 type jsiiProxy_CfnApplicationSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIApplicationSettingsRef
 }
 
 func (j *jsiiProxy_CfnApplicationSettings) ApplicationId() *string {
@@ -251,8 +253,8 @@ func (j *jsiiProxy_CfnApplicationSettings) ApplicationId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationSettings) ApplicationSettingsRef() *ApplicationSettingsReference {
-	var returns *ApplicationSettingsReference
+func (j *jsiiProxy_CfnApplicationSettings) ApplicationSettingsRef() *interfacesawspinpoint.ApplicationSettingsReference {
+	var returns *interfacesawspinpoint.ApplicationSettingsReference
 	_jsii_.Get(
 		j,
 		"applicationSettingsRef",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnApplicationSettings) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -422,6 +424,7 @@ func (j *jsiiProxy_CfnApplicationSettings) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::Pinpoint::ApplicationSettings`.
 func NewCfnApplicationSettings(scope constructs.Construct, id *string, props *CfnApplicationSettingsProps) CfnApplicationSettings {
 	_init_.Initialize()
 
@@ -439,6 +442,7 @@ func NewCfnApplicationSettings(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::ApplicationSettings`.
 func NewCfnApplicationSettings_Override(c CfnApplicationSettings, scope constructs.Construct, id *string, props *CfnApplicationSettingsProps) {
 	_init_.Initialize()
 

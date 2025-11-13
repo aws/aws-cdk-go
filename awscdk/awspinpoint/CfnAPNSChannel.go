@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,10 +40,10 @@ import (
 //
 type CfnAPNSChannel interface {
 	awscdk.CfnResource
-	IAPNSChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IAPNSChannelRef
 	// A reference to a APNSChannel resource.
-	ApnsChannelRef() *APNSChannelReference
+	ApnsChannelRef() *interfacesawspinpoint.APNSChannelReference
 	// The unique identifier for the Amazon Pinpoint application that the APNs channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -70,7 +72,7 @@ type CfnAPNSChannel interface {
 	// Specifies whether to enable the APNs channel for the application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,12 +249,12 @@ type CfnAPNSChannel interface {
 // The jsii proxy struct for CfnAPNSChannel
 type jsiiProxy_CfnAPNSChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAPNSChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIAPNSChannelRef
 }
 
-func (j *jsiiProxy_CfnAPNSChannel) ApnsChannelRef() *APNSChannelReference {
-	var returns *APNSChannelReference
+func (j *jsiiProxy_CfnAPNSChannel) ApnsChannelRef() *interfacesawspinpoint.APNSChannelReference {
+	var returns *interfacesawspinpoint.APNSChannelReference
 	_jsii_.Get(
 		j,
 		"apnsChannelRef",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnAPNSChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAPNSChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAPNSChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -472,6 +474,7 @@ func (j *jsiiProxy_CfnAPNSChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::APNSChannel`.
 func NewCfnAPNSChannel(scope constructs.Construct, id *string, props *CfnAPNSChannelProps) CfnAPNSChannel {
 	_init_.Initialize()
 
@@ -489,6 +492,7 @@ func NewCfnAPNSChannel(scope constructs.Construct, id *string, props *CfnAPNSCha
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::APNSChannel`.
 func NewCfnAPNSChannel_Override(c CfnAPNSChannel, scope constructs.Construct, id *string, props *CfnAPNSChannelProps) {
 	_init_.Initialize()
 

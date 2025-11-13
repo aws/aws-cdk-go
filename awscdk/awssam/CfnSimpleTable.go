@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnSimpleTable interface {
 	awscdk.CfnResource
-	ISimpleTableRef
 	awscdk.IInspectable
+	interfacesawssam.ISimpleTableRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,7 +56,7 @@ type CfnSimpleTable interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnSimpleTable interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SimpleTable resource.
-	SimpleTableRef() *SimpleTableReference
+	SimpleTableRef() *interfacesawssam.SimpleTableReference
 	SseSpecification() interface{}
 	SetSseSpecification(val interface{})
 	// The stack in which this element is defined.
@@ -233,8 +235,8 @@ type CfnSimpleTable interface {
 // The jsii proxy struct for CfnSimpleTable
 type jsiiProxy_CfnSimpleTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISimpleTableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssamISimpleTableRef
 	internal.Type__awscdkITaggable
 }
 
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnSimpleTable) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimpleTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSimpleTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnSimpleTable) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimpleTable) SimpleTableRef() *SimpleTableReference {
-	var returns *SimpleTableReference
+func (j *jsiiProxy_CfnSimpleTable) SimpleTableRef() *interfacesawssam.SimpleTableReference {
+	var returns *interfacesawssam.SimpleTableReference
 	_jsii_.Get(
 		j,
 		"simpleTableRef",
@@ -419,6 +421,7 @@ func (j *jsiiProxy_CfnSimpleTable) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Serverless::SimpleTable`.
 func NewCfnSimpleTable(scope constructs.Construct, id *string, props *CfnSimpleTableProps) CfnSimpleTable {
 	_init_.Initialize()
 
@@ -436,6 +439,7 @@ func NewCfnSimpleTable(scope constructs.Construct, id *string, props *CfnSimpleT
 	return &j
 }
 
+// Create a new `AWS::Serverless::SimpleTable`.
 func NewCfnSimpleTable_Override(c CfnSimpleTable, scope constructs.Construct, id *string, props *CfnSimpleTableProps) {
 	_init_.Initialize()
 

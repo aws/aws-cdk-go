@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -355,8 +357,8 @@ import (
 //
 type CfnSpotFleet interface {
 	awscdk.CfnResource
-	ISpotFleetRef
 	awscdk.IInspectable
+	interfacesawsec2.ISpotFleetRef
 	// The ID of the Spot Fleet.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -368,7 +370,7 @@ type CfnSpotFleet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -387,7 +389,7 @@ type CfnSpotFleet interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SpotFleet resource.
-	SpotFleetRef() *SpotFleetReference
+	SpotFleetRef() *interfacesawsec2.SpotFleetReference
 	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData() interface{}
 	SetSpotFleetRequestConfigData(val interface{})
@@ -538,8 +540,8 @@ type CfnSpotFleet interface {
 // The jsii proxy struct for CfnSpotFleet
 type jsiiProxy_CfnSpotFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISpotFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISpotFleetRef
 }
 
 func (j *jsiiProxy_CfnSpotFleet) AttrId() *string {
@@ -592,8 +594,8 @@ func (j *jsiiProxy_CfnSpotFleet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSpotFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSpotFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -632,8 +634,8 @@ func (j *jsiiProxy_CfnSpotFleet) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSpotFleet) SpotFleetRef() *SpotFleetReference {
-	var returns *SpotFleetReference
+func (j *jsiiProxy_CfnSpotFleet) SpotFleetRef() *interfacesawsec2.SpotFleetReference {
+	var returns *interfacesawsec2.SpotFleetReference
 	_jsii_.Get(
 		j,
 		"spotFleetRef",
@@ -683,6 +685,7 @@ func (j *jsiiProxy_CfnSpotFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::SpotFleet`.
 func NewCfnSpotFleet(scope constructs.Construct, id *string, props *CfnSpotFleetProps) CfnSpotFleet {
 	_init_.Initialize()
 
@@ -700,6 +703,7 @@ func NewCfnSpotFleet(scope constructs.Construct, id *string, props *CfnSpotFleet
 	return &j
 }
 
+// Create a new `AWS::EC2::SpotFleet`.
 func NewCfnSpotFleet_Override(c CfnSpotFleet, scope constructs.Construct, id *string, props *CfnSpotFleetProps) {
 	_init_.Initialize()
 

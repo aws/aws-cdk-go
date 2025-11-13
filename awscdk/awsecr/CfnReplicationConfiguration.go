@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnReplicationConfiguration interface {
 	awscdk.CfnResource
-	IReplicationConfigurationRef
 	awscdk.IInspectable
+	interfacesawsecr.IReplicationConfigurationRef
 	// The account ID of the destination registry.
 	AttrRegistryId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -60,7 +62,7 @@ type CfnReplicationConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnReplicationConfiguration interface {
 	ReplicationConfiguration() interface{}
 	SetReplicationConfiguration(val interface{})
 	// A reference to a ReplicationConfiguration resource.
-	ReplicationConfigurationRef() *ReplicationConfigurationReference
+	ReplicationConfigurationRef() *interfacesawsecr.ReplicationConfigurationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -230,8 +232,8 @@ type CfnReplicationConfiguration interface {
 // The jsii proxy struct for CfnReplicationConfiguration
 type jsiiProxy_CfnReplicationConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicationConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecrIReplicationConfigurationRef
 }
 
 func (j *jsiiProxy_CfnReplicationConfiguration) AttrRegistryId() *string {
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnReplicationConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicationConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnReplicationConfiguration) ReplicationConfiguration() inter
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationConfiguration) ReplicationConfigurationRef() *ReplicationConfigurationReference {
-	var returns *ReplicationConfigurationReference
+func (j *jsiiProxy_CfnReplicationConfiguration) ReplicationConfigurationRef() *interfacesawsecr.ReplicationConfigurationReference {
+	var returns *interfacesawsecr.ReplicationConfigurationReference
 	_jsii_.Get(
 		j,
 		"replicationConfigurationRef",
@@ -375,6 +377,7 @@ func (j *jsiiProxy_CfnReplicationConfiguration) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::ECR::ReplicationConfiguration`.
 func NewCfnReplicationConfiguration(scope constructs.Construct, id *string, props *CfnReplicationConfigurationProps) CfnReplicationConfiguration {
 	_init_.Initialize()
 
@@ -392,6 +395,7 @@ func NewCfnReplicationConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::ECR::ReplicationConfiguration`.
 func NewCfnReplicationConfiguration_Override(c CfnReplicationConfiguration, scope constructs.Construct, id *string, props *CfnReplicationConfigurationProps) {
 	_init_.Initialize()
 

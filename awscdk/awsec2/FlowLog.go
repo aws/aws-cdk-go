@@ -9,6 +9,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,11 +40,11 @@ type FlowLog interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Id of the VPC Flow Log.
 	FlowLogId() *string
 	// A reference to a FlowLog resource.
-	FlowLogRef() *FlowLogReference
+	FlowLogRef() *interfacesawsec2.FlowLogReference
 	// The iam role used to publish logs to CloudWatch.
 	IamRole() awsiam.IRole
 	// S3 bucket key prefix to publish the flow logs under.
@@ -115,8 +117,8 @@ func (j *jsiiProxy_FlowLog) DeliveryStreamArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_FlowLog) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_FlowLog) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -135,8 +137,8 @@ func (j *jsiiProxy_FlowLog) FlowLogId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_FlowLog) FlowLogRef() *FlowLogReference {
-	var returns *FlowLogReference
+func (j *jsiiProxy_FlowLog) FlowLogRef() *interfacesawsec2.FlowLogReference {
+	var returns *interfacesawsec2.FlowLogReference
 	_jsii_.Get(
 		j,
 		"flowLogRef",

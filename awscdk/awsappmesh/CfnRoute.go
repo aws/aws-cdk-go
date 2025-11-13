@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -288,8 +290,8 @@ import (
 //
 type CfnRoute interface {
 	awscdk.CfnResource
-	IRouteRef
 	awscdk.IInspectable
+	interfacesawsappmesh.IRouteRef
 	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the route.
 	AttrArn() *string
@@ -319,7 +321,7 @@ type CfnRoute interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -347,7 +349,7 @@ type CfnRoute interface {
 	RouteName() *string
 	SetRouteName(val *string)
 	// A reference to a Route resource.
-	RouteRef() *RouteReference
+	RouteRef() *interfacesawsappmesh.RouteReference
 	// The route specification to apply.
 	Spec() interface{}
 	SetSpec(val interface{})
@@ -506,8 +508,8 @@ type CfnRoute interface {
 // The jsii proxy struct for CfnRoute
 type jsiiProxy_CfnRoute struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappmeshIRouteRef
 	internal.Type__awscdkITaggable
 }
 
@@ -631,8 +633,8 @@ func (j *jsiiProxy_CfnRoute) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoute) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRoute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -701,8 +703,8 @@ func (j *jsiiProxy_CfnRoute) RouteName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoute) RouteRef() *RouteReference {
-	var returns *RouteReference
+func (j *jsiiProxy_CfnRoute) RouteRef() *interfacesawsappmesh.RouteReference {
+	var returns *interfacesawsappmesh.RouteReference
 	_jsii_.Get(
 		j,
 		"routeRef",
@@ -782,6 +784,7 @@ func (j *jsiiProxy_CfnRoute) VirtualRouterName() *string {
 }
 
 
+// Create a new `AWS::AppMesh::Route`.
 func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) CfnRoute {
 	_init_.Initialize()
 
@@ -799,6 +802,7 @@ func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) C
 	return &j
 }
 
+// Create a new `AWS::AppMesh::Route`.
 func NewCfnRoute_Override(c CfnRoute, scope constructs.Construct, id *string, props *CfnRouteProps) {
 	_init_.Initialize()
 

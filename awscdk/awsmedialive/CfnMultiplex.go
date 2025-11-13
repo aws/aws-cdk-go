@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnMultiplex interface {
 	awscdk.CfnResource
-	IMultiplexRef
 	awscdk.IInspectable
+	interfacesawsmedialive.IMultiplexRef
 	awscdk.ITaggableV2
 	// The unique arn of the multiplex.
 	AttrArn() *string
@@ -80,7 +82,7 @@ type CfnMultiplex interface {
 	// A list of the multiplex output destinations.
 	Destinations() interface{}
 	SetDestinations(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -92,7 +94,7 @@ type CfnMultiplex interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a Multiplex resource.
-	MultiplexRef() *MultiplexReference
+	MultiplexRef() *interfacesawsmedialive.MultiplexReference
 	// Configuration for a multiplex event.
 	MultiplexSettings() interface{}
 	SetMultiplexSettings(val interface{})
@@ -256,8 +258,8 @@ type CfnMultiplex interface {
 // The jsii proxy struct for CfnMultiplex
 type jsiiProxy_CfnMultiplex struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMultiplexRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveIMultiplexRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnMultiplex) Destinations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiplex) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMultiplex) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnMultiplex) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiplex) MultiplexRef() *MultiplexReference {
-	var returns *MultiplexReference
+func (j *jsiiProxy_CfnMultiplex) MultiplexRef() *interfacesawsmedialive.MultiplexReference {
+	var returns *interfacesawsmedialive.MultiplexReference
 	_jsii_.Get(
 		j,
 		"multiplexRef",
@@ -492,6 +494,7 @@ func (j *jsiiProxy_CfnMultiplex) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaLive::Multiplex`.
 func NewCfnMultiplex(scope constructs.Construct, id *string, props *CfnMultiplexProps) CfnMultiplex {
 	_init_.Initialize()
 
@@ -509,6 +512,7 @@ func NewCfnMultiplex(scope constructs.Construct, id *string, props *CfnMultiplex
 	return &j
 }
 
+// Create a new `AWS::MediaLive::Multiplex`.
 func NewCfnMultiplex_Override(c CfnMultiplex, scope constructs.Construct, id *string, props *CfnMultiplexProps) {
 	_init_.Initialize()
 
@@ -575,13 +579,13 @@ func (j *jsiiProxy_CfnMultiplex)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMultiplexRef from an ARN.
-func CfnMultiplex_FromMultiplexArn(scope constructs.Construct, id *string, arn *string) IMultiplexRef {
+func CfnMultiplex_FromMultiplexArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IMultiplexRef {
 	_init_.Initialize()
 
 	if err := validateCfnMultiplex_FromMultiplexArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IMultiplexRef
+	var returns interfacesawsmedialive.IMultiplexRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnMultiplex",
@@ -594,13 +598,13 @@ func CfnMultiplex_FromMultiplexArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IMultiplexRef from a multiplexId.
-func CfnMultiplex_FromMultiplexId(scope constructs.Construct, id *string, multiplexId *string) IMultiplexRef {
+func CfnMultiplex_FromMultiplexId(scope constructs.Construct, id *string, multiplexId *string) interfacesawsmedialive.IMultiplexRef {
 	_init_.Initialize()
 
 	if err := validateCfnMultiplex_FromMultiplexIdParameters(scope, id, multiplexId); err != nil {
 		panic(err)
 	}
-	var returns IMultiplexRef
+	var returns interfacesawsmedialive.IMultiplexRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnMultiplex",

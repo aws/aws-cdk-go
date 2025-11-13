@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnOutpostResolver interface {
 	awscdk.CfnResource
-	IOutpostResolverRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IOutpostResolverRef
 	awscdk.ITaggableV2
 	// The ARN (Amazon Resource Name) for the Resolver on an Outpost.
 	AttrArn() *string
@@ -67,7 +69,7 @@ type CfnOutpostResolver interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Amazon EC2 instance count for the Resolver on the Outpost.
 	InstanceCount() *float64
 	SetInstanceCount(val *float64)
@@ -90,7 +92,7 @@ type CfnOutpostResolver interface {
 	OutpostArn() *string
 	SetOutpostArn(val *string)
 	// A reference to a OutpostResolver resource.
-	OutpostResolverRef() *OutpostResolverReference
+	OutpostResolverRef() *interfacesawsroute53resolver.OutpostResolverReference
 	// The Amazon EC2 instance type.
 	PreferredInstanceType() *string
 	SetPreferredInstanceType(val *string)
@@ -249,8 +251,8 @@ type CfnOutpostResolver interface {
 // The jsii proxy struct for CfnOutpostResolver
 type jsiiProxy_CfnOutpostResolver struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOutpostResolverRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIOutpostResolverRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnOutpostResolver) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOutpostResolver) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOutpostResolver) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnOutpostResolver) OutpostArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOutpostResolver) OutpostResolverRef() *OutpostResolverReference {
-	var returns *OutpostResolverReference
+func (j *jsiiProxy_CfnOutpostResolver) OutpostResolverRef() *interfacesawsroute53resolver.OutpostResolverReference {
+	var returns *interfacesawsroute53resolver.OutpostResolverReference
 	_jsii_.Get(
 		j,
 		"outpostResolverRef",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnOutpostResolver) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Route53Resolver::OutpostResolver`.
 func NewCfnOutpostResolver(scope constructs.Construct, id *string, props *CfnOutpostResolverProps) CfnOutpostResolver {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnOutpostResolver(scope constructs.Construct, id *string, props *CfnOut
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::OutpostResolver`.
 func NewCfnOutpostResolver_Override(c CfnOutpostResolver, scope constructs.Construct, id *string, props *CfnOutpostResolverProps) {
 	_init_.Initialize()
 

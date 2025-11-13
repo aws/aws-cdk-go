@@ -53,8 +53,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConnector{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnectorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawspcaconnectoradIConnectorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -111,8 +111,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDirectoryRegistration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDirectoryRegistrationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawspcaconnectoradIDirectoryRegistrationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -163,8 +163,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnServicePrincipalName{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IServicePrincipalNameRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawspcaconnectoradIServicePrincipalNameRef)
 			return &j
 		},
 	)
@@ -219,8 +219,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTemplate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawspcaconnectoradITemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -389,8 +389,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTemplateGroupAccessControlEntry{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITemplateGroupAccessControlEntryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawspcaconnectoradITemplateGroupAccessControlEntryRef)
 			return &j
 		},
 	)
@@ -405,100 +405,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pcaconnectorad.CfnTemplateProps",
 		reflect.TypeOf((*CfnTemplateProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pcaconnectorad.ConnectorReference",
-		reflect.TypeOf((*ConnectorReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pcaconnectorad.DirectoryRegistrationReference",
-		reflect.TypeOf((*DirectoryRegistrationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_pcaconnectorad.IConnectorRef",
-		reflect.TypeOf((*IConnectorRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectorRef", GoGetter: "ConnectorRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConnectorRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_pcaconnectorad.IDirectoryRegistrationRef",
-		reflect.TypeOf((*IDirectoryRegistrationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "directoryRegistrationRef", GoGetter: "DirectoryRegistrationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDirectoryRegistrationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_pcaconnectorad.IServicePrincipalNameRef",
-		reflect.TypeOf((*IServicePrincipalNameRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "servicePrincipalNameRef", GoGetter: "ServicePrincipalNameRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IServicePrincipalNameRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_pcaconnectorad.ITemplateGroupAccessControlEntryRef",
-		reflect.TypeOf((*ITemplateGroupAccessControlEntryRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "templateGroupAccessControlEntryRef", GoGetter: "TemplateGroupAccessControlEntryRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITemplateGroupAccessControlEntryRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_pcaconnectorad.ITemplateRef",
-		reflect.TypeOf((*ITemplateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "templateRef", GoGetter: "TemplateRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITemplateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pcaconnectorad.ServicePrincipalNameReference",
-		reflect.TypeOf((*ServicePrincipalNameReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pcaconnectorad.TemplateGroupAccessControlEntryReference",
-		reflect.TypeOf((*TemplateGroupAccessControlEntryReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pcaconnectorad.TemplateReference",
-		reflect.TypeOf((*TemplateReference)(nil)).Elem(),
 	)
 }

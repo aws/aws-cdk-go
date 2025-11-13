@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,7 +40,7 @@ func validateS3Code_FromAssetParameters(assetPath *string, options *awss3assets.
 	return nil
 }
 
-func validateS3Code_FromBucketParameters(bucket awss3.IBucketRef, key *string) error {
+func validateS3Code_FromBucketParameters(bucket interfacesawss3.IBucketRef, key *string) error {
 	if bucket == nil {
 		return fmt.Errorf("parameter bucket is required, but nil was provided")
 	}
@@ -60,7 +60,7 @@ func validateS3Code_FromInlineParameters(code *string) error {
 	return nil
 }
 
-func validateNewS3CodeParameters(bucket awss3.IBucketRef, key *string) error {
+func validateNewS3CodeParameters(bucket interfacesawss3.IBucketRef, key *string) error {
 	if bucket == nil {
 		return fmt.Errorf("parameter bucket is required, but nil was provided")
 	}

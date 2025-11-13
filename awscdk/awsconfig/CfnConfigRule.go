@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -85,8 +87,8 @@ import (
 //
 type CfnConfigRule interface {
 	awscdk.CfnResource
-	IConfigRuleRef
 	awscdk.IInspectable
+	interfacesawsconfig.IConfigRuleRef
 	// The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
 	AttrArn() *string
 	// Compliance type determined by the Config rule.
@@ -105,7 +107,7 @@ type CfnConfigRule interface {
 	ConfigRuleName() *string
 	SetConfigRuleName(val *string)
 	// A reference to a ConfigRule resource.
-	ConfigRuleRef() *ConfigRuleReference
+	ConfigRuleRef() *interfacesawsconfig.ConfigRuleReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -113,7 +115,7 @@ type CfnConfigRule interface {
 	// The description that you provide for the AWS Config rule.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The modes the AWS Config rule can be evaluated in.
 	EvaluationModes() interface{}
 	SetEvaluationModes(val interface{})
@@ -293,8 +295,8 @@ type CfnConfigRule interface {
 // The jsii proxy struct for CfnConfigRule
 type jsiiProxy_CfnConfigRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIConfigRuleRef
 }
 
 func (j *jsiiProxy_CfnConfigRule) AttrArn() *string {
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnConfigRule) ConfigRuleName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigRule) ConfigRuleRef() *ConfigRuleReference {
-	var returns *ConfigRuleReference
+func (j *jsiiProxy_CfnConfigRule) ConfigRuleRef() *interfacesawsconfig.ConfigRuleReference {
+	var returns *interfacesawsconfig.ConfigRuleReference
 	_jsii_.Get(
 		j,
 		"configRuleRef",
@@ -407,8 +409,8 @@ func (j *jsiiProxy_CfnConfigRule) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -528,6 +530,7 @@ func (j *jsiiProxy_CfnConfigRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Config::ConfigRule`.
 func NewCfnConfigRule(scope constructs.Construct, id *string, props *CfnConfigRuleProps) CfnConfigRule {
 	_init_.Initialize()
 
@@ -545,6 +548,7 @@ func NewCfnConfigRule(scope constructs.Construct, id *string, props *CfnConfigRu
 	return &j
 }
 
+// Create a new `AWS::Config::ConfigRule`.
 func NewCfnConfigRule_Override(c CfnConfigRule, scope constructs.Construct, id *string, props *CfnConfigRuleProps) {
 	_init_.Initialize()
 

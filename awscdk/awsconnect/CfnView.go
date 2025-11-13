@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnView interface {
 	awscdk.CfnResource
-	IViewRef
 	awscdk.IInspectable
+	interfacesawsconnect.IViewRef
 	awscdk.ITaggableV2
 	// A list of actions possible from the view.
 	Actions() *[]*string
@@ -70,7 +72,7 @@ type CfnView interface {
 	// The description of the view.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -118,7 +120,7 @@ type CfnView interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a View resource.
-	ViewRef() *ViewReference
+	ViewRef() *interfacesawsconnect.ViewReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -249,8 +251,8 @@ type CfnView interface {
 // The jsii proxy struct for CfnView
 type jsiiProxy_CfnView struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IViewRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIViewRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnView) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnView) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnView) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -464,8 +466,8 @@ func (j *jsiiProxy_CfnView) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnView) ViewRef() *ViewReference {
-	var returns *ViewReference
+func (j *jsiiProxy_CfnView) ViewRef() *interfacesawsconnect.ViewReference {
+	var returns *interfacesawsconnect.ViewReference
 	_jsii_.Get(
 		j,
 		"viewRef",
@@ -475,6 +477,7 @@ func (j *jsiiProxy_CfnView) ViewRef() *ViewReference {
 }
 
 
+// Create a new `AWS::Connect::View`.
 func NewCfnView(scope constructs.Construct, id *string, props *CfnViewProps) CfnView {
 	_init_.Initialize()
 
@@ -492,6 +495,7 @@ func NewCfnView(scope constructs.Construct, id *string, props *CfnViewProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Connect::View`.
 func NewCfnView_Override(c CfnView, scope constructs.Construct, id *string, props *CfnViewProps) {
 	_init_.Initialize()
 

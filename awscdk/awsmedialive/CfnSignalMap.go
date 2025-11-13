@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnSignalMap interface {
 	awscdk.CfnResource
-	ISignalMapRef
 	awscdk.IInspectable
+	interfacesawsmedialive.ISignalMapRef
 	awscdk.ITaggableV2
 	// A signal map's ARN (Amazon Resource Name).
 	AttrArn() *string
@@ -90,7 +92,7 @@ type CfnSignalMap interface {
 	// A top-level supported Amazon Web Services resource ARN to discover a signal map from.
 	DiscoveryEntryPointArn() *string
 	SetDiscoveryEntryPointArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An eventbridge rule template group's identifier.
 	EventBridgeRuleTemplateGroupIdentifiers() *[]*string
 	SetEventBridgeRuleTemplateGroupIdentifiers(val *[]*string)
@@ -118,7 +120,7 @@ type CfnSignalMap interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SignalMap resource.
-	SignalMapRef() *SignalMapReference
+	SignalMapRef() *interfacesawsmedialive.SignalMapReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -269,8 +271,8 @@ type CfnSignalMap interface {
 // The jsii proxy struct for CfnSignalMap
 type jsiiProxy_CfnSignalMap struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISignalMapRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveISignalMapRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -504,8 +506,8 @@ func (j *jsiiProxy_CfnSignalMap) DiscoveryEntryPointArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSignalMap) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSignalMap) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -574,8 +576,8 @@ func (j *jsiiProxy_CfnSignalMap) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSignalMap) SignalMapRef() *SignalMapReference {
-	var returns *SignalMapReference
+func (j *jsiiProxy_CfnSignalMap) SignalMapRef() *interfacesawsmedialive.SignalMapReference {
+	var returns *interfacesawsmedialive.SignalMapReference
 	_jsii_.Get(
 		j,
 		"signalMapRef",
@@ -625,6 +627,7 @@ func (j *jsiiProxy_CfnSignalMap) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaLive::SignalMap`.
 func NewCfnSignalMap(scope constructs.Construct, id *string, props *CfnSignalMapProps) CfnSignalMap {
 	_init_.Initialize()
 
@@ -642,6 +645,7 @@ func NewCfnSignalMap(scope constructs.Construct, id *string, props *CfnSignalMap
 	return &j
 }
 
+// Create a new `AWS::MediaLive::SignalMap`.
 func NewCfnSignalMap_Override(c CfnSignalMap, scope constructs.Construct, id *string, props *CfnSignalMapProps) {
 	_init_.Initialize()
 

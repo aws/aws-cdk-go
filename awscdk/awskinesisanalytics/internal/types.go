@@ -1,10 +1,16 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisanalytics"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisanalyticsv2"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawskinesisanalyticsIApplicationRef = interfacesawskinesisanalytics.IApplicationRef
+type Type__interfacesawskinesisanalyticsv2IApplicationCloudWatchLoggingOptionRef = interfacesawskinesisanalyticsv2.IApplicationCloudWatchLoggingOptionRef
+type Type__interfacesawskinesisanalyticsIApplicationOutputRef = interfacesawskinesisanalytics.IApplicationOutputRef
+type Type__interfacesawskinesisanalyticsv2IApplicationOutputRef = interfacesawskinesisanalyticsv2.IApplicationOutputRef
+type Type__interfacesawskinesisanalyticsIApplicationReferenceDataSourceRef = interfacesawskinesisanalytics.IApplicationReferenceDataSourceRef
+type Type__interfacesawskinesisanalyticsv2IApplicationReferenceDataSourceRef = interfacesawskinesisanalyticsv2.IApplicationReferenceDataSourceRef
+type Type__interfacesawskinesisanalyticsv2IApplicationRef = interfacesawskinesisanalyticsv2.IApplicationRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

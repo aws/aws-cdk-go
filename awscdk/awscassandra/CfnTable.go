@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscassandra/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscassandra"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -143,8 +145,8 @@ import (
 //
 type CfnTable interface {
 	awscdk.CfnResource
-	ITableRef
 	awscdk.IInspectable
+	interfacesawscassandra.ITableRef
 	awscdk.ITaggable
 	// The optional auto scaling capacity settings for a table in provisioned capacity mode.
 	AutoScalingSpecifications() interface{}
@@ -176,7 +178,7 @@ type CfnTable interface {
 	// The encryption at rest options for the table.
 	EncryptionSpecification() interface{}
 	SetEncryptionSpecification(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the keyspace to create the table in.
 	KeyspaceName() *string
 	SetKeyspaceName(val *string)
@@ -217,7 +219,7 @@ type CfnTable interface {
 	TableName() *string
 	SetTableName(val *string)
 	// A reference to a Table resource.
-	TableRef() *TableReference
+	TableRef() *interfacesawscassandra.TableReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An array of key-value pairs to apply to this resource.
@@ -366,8 +368,8 @@ type CfnTable interface {
 // The jsii proxy struct for CfnTable
 type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscassandraITableRef
 	internal.Type__awscdkITaggable
 }
 
@@ -481,8 +483,8 @@ func (j *jsiiProxy_CfnTable) EncryptionSpecification() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -591,8 +593,8 @@ func (j *jsiiProxy_CfnTable) TableName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) TableRef() *TableReference {
-	var returns *TableReference
+func (j *jsiiProxy_CfnTable) TableRef() *interfacesawscassandra.TableReference {
+	var returns *interfacesawscassandra.TableReference
 	_jsii_.Get(
 		j,
 		"tableRef",
@@ -642,6 +644,7 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Cassandra::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
@@ -659,6 +662,7 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 	return &j
 }
 
+// Create a new `AWS::Cassandra::Table`.
 func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 

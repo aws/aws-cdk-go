@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnEventStream interface {
 	awscdk.CfnResource
-	IEventStreamRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IEventStreamRef
 	// The unique identifier for the Amazon Pinpoint application that you want to export data from.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -44,9 +46,9 @@ type CfnEventStream interface {
 	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Stream or Amazon Data Firehose delivery stream that you want to publish event data to.
 	DestinationStreamArn() *string
 	SetDestinationStreamArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EventStream resource.
-	EventStreamRef() *EventStreamReference
+	EventStreamRef() *interfacesawspinpoint.EventStreamReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -214,8 +216,8 @@ type CfnEventStream interface {
 // The jsii proxy struct for CfnEventStream
 type jsiiProxy_CfnEventStream struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventStreamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIEventStreamRef
 }
 
 func (j *jsiiProxy_CfnEventStream) ApplicationId() *string {
@@ -288,8 +290,8 @@ func (j *jsiiProxy_CfnEventStream) DestinationStreamArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventStream) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnEventStream) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventStream) EventStreamRef() *EventStreamReference {
-	var returns *EventStreamReference
+func (j *jsiiProxy_CfnEventStream) EventStreamRef() *interfacesawspinpoint.EventStreamReference {
+	var returns *interfacesawspinpoint.EventStreamReference
 	_jsii_.Get(
 		j,
 		"eventStreamRef",
@@ -379,6 +381,7 @@ func (j *jsiiProxy_CfnEventStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::EventStream`.
 func NewCfnEventStream(scope constructs.Construct, id *string, props *CfnEventStreamProps) CfnEventStream {
 	_init_.Initialize()
 
@@ -396,6 +399,7 @@ func NewCfnEventStream(scope constructs.Construct, id *string, props *CfnEventSt
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::EventStream`.
 func NewCfnEventStream_Override(c CfnEventStream, scope constructs.Construct, id *string, props *CfnEventStreamProps) {
 	_init_.Initialize()
 

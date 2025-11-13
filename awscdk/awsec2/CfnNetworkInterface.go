@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,8 +72,8 @@ import (
 //
 type CfnNetworkInterface interface {
 	awscdk.CfnResource
-	INetworkInterfaceRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkInterfaceRef
 	awscdk.ITaggable
 	// The ID of the network interface.
 	AttrId() *string
@@ -105,7 +107,7 @@ type CfnNetworkInterface interface {
 	// If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address.
 	EnablePrimaryIpv6() interface{}
 	SetEnablePrimaryIpv6(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IDs of the security groups associated with this network interface.
 	GroupSet() *[]*string
 	SetGroupSet(val *[]*string)
@@ -141,7 +143,7 @@ type CfnNetworkInterface interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a NetworkInterface resource.
-	NetworkInterfaceRef() *NetworkInterfaceReference
+	NetworkInterfaceRef() *interfacesawsec2.NetworkInterfaceReference
 	// The tree node.
 	Node() constructs.Node
 	// The private IPv4 address to assign to the network interface as the primary private IP address.
@@ -316,8 +318,8 @@ type CfnNetworkInterface interface {
 // The jsii proxy struct for CfnNetworkInterface
 type jsiiProxy_CfnNetworkInterface struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkInterfaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkInterfaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -441,8 +443,8 @@ func (j *jsiiProxy_CfnNetworkInterface) EnablePrimaryIpv6() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInterface) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkInterface) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -541,8 +543,8 @@ func (j *jsiiProxy_CfnNetworkInterface) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInterface) NetworkInterfaceRef() *NetworkInterfaceReference {
-	var returns *NetworkInterfaceReference
+func (j *jsiiProxy_CfnNetworkInterface) NetworkInterfaceRef() *interfacesawsec2.NetworkInterfaceReference {
+	var returns *interfacesawsec2.NetworkInterfaceReference
 	_jsii_.Get(
 		j,
 		"networkInterfaceRef",
@@ -672,6 +674,7 @@ func (j *jsiiProxy_CfnNetworkInterface) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::EC2::NetworkInterface`.
 func NewCfnNetworkInterface(scope constructs.Construct, id *string, props *CfnNetworkInterfaceProps) CfnNetworkInterface {
 	_init_.Initialize()
 
@@ -689,6 +692,7 @@ func NewCfnNetworkInterface(scope constructs.Construct, id *string, props *CfnNe
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkInterface`.
 func NewCfnNetworkInterface_Override(c CfnNetworkInterface, scope constructs.Construct, id *string, props *CfnNetworkInterfaceProps) {
 	_init_.Initialize()
 
@@ -863,13 +867,13 @@ func (j *jsiiProxy_CfnNetworkInterface)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new INetworkInterfaceRef from a networkInterfaceId.
-func CfnNetworkInterface_FromNetworkInterfaceId(scope constructs.Construct, id *string, networkInterfaceId *string) INetworkInterfaceRef {
+func CfnNetworkInterface_FromNetworkInterfaceId(scope constructs.Construct, id *string, networkInterfaceId *string) interfacesawsec2.INetworkInterfaceRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkInterface_FromNetworkInterfaceIdParameters(scope, id, networkInterfaceId); err != nil {
 		panic(err)
 	}
-	var returns INetworkInterfaceRef
+	var returns interfacesawsec2.INetworkInterfaceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInterface",

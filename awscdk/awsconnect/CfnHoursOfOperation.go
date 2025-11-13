@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -72,8 +74,8 @@ import (
 //
 type CfnHoursOfOperation interface {
 	awscdk.CfnResource
-	IHoursOfOperationRef
 	awscdk.IInspectable
+	interfacesawsconnect.IHoursOfOperationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the hours of operation.
 	AttrHoursOfOperationArn() *string
@@ -92,12 +94,12 @@ type CfnHoursOfOperation interface {
 	// The description for the hours of operation.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// One or more hours of operation overrides assigned to an hour of operation.
 	HoursOfOperationOverrides() interface{}
 	SetHoursOfOperationOverrides(val interface{})
 	// A reference to a HoursOfOperation resource.
-	HoursOfOperationRef() *HoursOfOperationReference
+	HoursOfOperationRef() *interfacesawsconnect.HoursOfOperationReference
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -276,8 +278,8 @@ type CfnHoursOfOperation interface {
 // The jsii proxy struct for CfnHoursOfOperation
 type jsiiProxy_CfnHoursOfOperation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHoursOfOperationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIHoursOfOperationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnHoursOfOperation) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHoursOfOperation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHoursOfOperation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnHoursOfOperation) HoursOfOperationOverrides() interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnHoursOfOperation) HoursOfOperationRef() *HoursOfOperationReference {
-	var returns *HoursOfOperationReference
+func (j *jsiiProxy_CfnHoursOfOperation) HoursOfOperationRef() *interfacesawsconnect.HoursOfOperationReference {
+	var returns *interfacesawsconnect.HoursOfOperationReference
 	_jsii_.Get(
 		j,
 		"hoursOfOperationRef",
@@ -492,6 +494,7 @@ func (j *jsiiProxy_CfnHoursOfOperation) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Connect::HoursOfOperation`.
 func NewCfnHoursOfOperation(scope constructs.Construct, id *string, props *CfnHoursOfOperationProps) CfnHoursOfOperation {
 	_init_.Initialize()
 
@@ -509,6 +512,7 @@ func NewCfnHoursOfOperation(scope constructs.Construct, id *string, props *CfnHo
 	return &j
 }
 
+// Create a new `AWS::Connect::HoursOfOperation`.
 func NewCfnHoursOfOperation_Override(c CfnHoursOfOperation, scope constructs.Construct, id *string, props *CfnHoursOfOperationProps) {
 	_init_.Initialize()
 

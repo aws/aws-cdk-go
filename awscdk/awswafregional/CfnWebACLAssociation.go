@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnWebACLAssociation interface {
 	awscdk.CfnResource
-	IWebACLAssociationRef
 	awscdk.IInspectable
+	interfacesawswafregional.IWebACLAssociationRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,7 +45,7 @@ type CfnWebACLAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnWebACLAssociation interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WebACLAssociation resource.
-	WebAclAssociationRef() *WebACLAssociationReference
+	WebAclAssociationRef() *interfacesawswafregional.WebACLAssociationReference
 	// A unique identifier (ID) for the web ACL.
 	WebAclId() *string
 	SetWebAclId(val *string)
@@ -216,8 +218,8 @@ type CfnWebACLAssociation interface {
 // The jsii proxy struct for CfnWebACLAssociation
 type jsiiProxy_CfnWebACLAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWebACLAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalIWebACLAssociationRef
 }
 
 func (j *jsiiProxy_CfnWebACLAssociation) AttrId() *string {
@@ -270,8 +272,8 @@ func (j *jsiiProxy_CfnWebACLAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACLAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWebACLAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnWebACLAssociation) UpdatedProperties() *map[string]interfa
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACLAssociation) WebAclAssociationRef() *WebACLAssociationReference {
-	var returns *WebACLAssociationReference
+func (j *jsiiProxy_CfnWebACLAssociation) WebAclAssociationRef() *interfacesawswafregional.WebACLAssociationReference {
+	var returns *interfacesawswafregional.WebACLAssociationReference
 	_jsii_.Get(
 		j,
 		"webAclAssociationRef",
@@ -371,6 +373,7 @@ func (j *jsiiProxy_CfnWebACLAssociation) WebAclId() *string {
 }
 
 
+// Create a new `AWS::WAFRegional::WebACLAssociation`.
 func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
 	_init_.Initialize()
 
@@ -388,6 +391,7 @@ func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnW
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::WebACLAssociation`.
 func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnTransitGatewayMulticastDomain interface {
 	awscdk.CfnResource
-	ITransitGatewayMulticastDomainRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayMulticastDomainRef
 	awscdk.ITaggable
 	// The time the multicast domain was created.
 	AttrCreationTime() *string
@@ -57,7 +59,7 @@ type CfnTransitGatewayMulticastDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -91,7 +93,7 @@ type CfnTransitGatewayMulticastDomain interface {
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
 	// A reference to a TransitGatewayMulticastDomain resource.
-	TransitGatewayMulticastDomainRef() *TransitGatewayMulticastDomainReference
+	TransitGatewayMulticastDomainRef() *interfacesawsec2.TransitGatewayMulticastDomainReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -235,8 +237,8 @@ type CfnTransitGatewayMulticastDomain interface {
 // The jsii proxy struct for CfnTransitGatewayMulticastDomain
 type jsiiProxy_CfnTransitGatewayMulticastDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayMulticastDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayMulticastDomainRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -410,8 +412,8 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) TransitGatewayId() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) TransitGatewayMulticastDomainRef() *TransitGatewayMulticastDomainReference {
-	var returns *TransitGatewayMulticastDomainReference
+func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) TransitGatewayMulticastDomainRef() *interfacesawsec2.TransitGatewayMulticastDomainReference {
+	var returns *interfacesawsec2.TransitGatewayMulticastDomainReference
 	_jsii_.Get(
 		j,
 		"transitGatewayMulticastDomainRef",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayMulticastDomain`.
 func NewCfnTransitGatewayMulticastDomain(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainProps) CfnTransitGatewayMulticastDomain {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnTransitGatewayMulticastDomain(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayMulticastDomain`.
 func NewCfnTransitGatewayMulticastDomain_Override(c CfnTransitGatewayMulticastDomain, scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainProps) {
 	_init_.Initialize()
 
@@ -499,13 +503,13 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain)SetTransitGatewayId(val *str
 }
 
 // Creates a new ITransitGatewayMulticastDomainRef from an ARN.
-func CfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArn(scope constructs.Construct, id *string, arn *string) ITransitGatewayMulticastDomainRef {
+func CfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.ITransitGatewayMulticastDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ITransitGatewayMulticastDomainRef
+	var returns interfacesawsec2.ITransitGatewayMulticastDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomain",
@@ -518,13 +522,13 @@ func CfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArn(scope
 }
 
 // Creates a new ITransitGatewayMulticastDomainRef from a transitGatewayMulticastDomainId.
-func CfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainId(scope constructs.Construct, id *string, transitGatewayMulticastDomainId *string) ITransitGatewayMulticastDomainRef {
+func CfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainId(scope constructs.Construct, id *string, transitGatewayMulticastDomainId *string) interfacesawsec2.ITransitGatewayMulticastDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainIdParameters(scope, id, transitGatewayMulticastDomainId); err != nil {
 		panic(err)
 	}
-	var returns ITransitGatewayMulticastDomainRef
+	var returns interfacesawsec2.ITransitGatewayMulticastDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomain",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnTrafficDistributionGroup interface {
 	awscdk.CfnResource
-	ITrafficDistributionGroupRef
 	awscdk.IInspectable
+	interfacesawsconnect.ITrafficDistributionGroupRef
 	awscdk.ITaggableV2
 	// Describes whether this is the default traffic distribution group.
 	AttrIsDefault() awscdk.IResolvable
@@ -57,7 +59,7 @@ type CfnTrafficDistributionGroup interface {
 	// The description of the traffic distribution group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN).
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -89,7 +91,7 @@ type CfnTrafficDistributionGroup interface {
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// A reference to a TrafficDistributionGroup resource.
-	TrafficDistributionGroupRef() *TrafficDistributionGroupReference
+	TrafficDistributionGroupRef() *interfacesawsconnect.TrafficDistributionGroupReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -233,8 +235,8 @@ type CfnTrafficDistributionGroup interface {
 // The jsii proxy struct for CfnTrafficDistributionGroup
 type jsiiProxy_CfnTrafficDistributionGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrafficDistributionGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectITrafficDistributionGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnTrafficDistributionGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficDistributionGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrafficDistributionGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -408,8 +410,8 @@ func (j *jsiiProxy_CfnTrafficDistributionGroup) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficDistributionGroup) TrafficDistributionGroupRef() *TrafficDistributionGroupReference {
-	var returns *TrafficDistributionGroupReference
+func (j *jsiiProxy_CfnTrafficDistributionGroup) TrafficDistributionGroupRef() *interfacesawsconnect.TrafficDistributionGroupReference {
+	var returns *interfacesawsconnect.TrafficDistributionGroupReference
 	_jsii_.Get(
 		j,
 		"trafficDistributionGroupRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnTrafficDistributionGroup) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::Connect::TrafficDistributionGroup`.
 func NewCfnTrafficDistributionGroup(scope constructs.Construct, id *string, props *CfnTrafficDistributionGroupProps) CfnTrafficDistributionGroup {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnTrafficDistributionGroup(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::Connect::TrafficDistributionGroup`.
 func NewCfnTrafficDistributionGroup_Override(c CfnTrafficDistributionGroup, scope constructs.Construct, id *string, props *CfnTrafficDistributionGroupProps) {
 	_init_.Initialize()
 

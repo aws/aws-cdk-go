@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +64,8 @@ import (
 //
 type CfnVpcAttachment interface {
 	awscdk.CfnResource
-	IVpcAttachmentRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.IVpcAttachmentRef
 	awscdk.ITaggable
 	// The ID of the VPC attachment.
 	AttrAttachmentId() *string
@@ -107,7 +109,7 @@ type CfnVpcAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -163,7 +165,7 @@ type CfnVpcAttachment interface {
 	VpcArn() *string
 	SetVpcArn(val *string)
 	// A reference to a VpcAttachment resource.
-	VpcAttachmentRef() *VpcAttachmentReference
+	VpcAttachmentRef() *interfacesawsnetworkmanager.VpcAttachmentReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -294,8 +296,8 @@ type CfnVpcAttachment interface {
 // The jsii proxy struct for CfnVpcAttachment
 type jsiiProxy_CfnVpcAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVpcAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerIVpcAttachmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -479,8 +481,8 @@ func (j *jsiiProxy_CfnVpcAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVpcAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -619,8 +621,8 @@ func (j *jsiiProxy_CfnVpcAttachment) VpcArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcAttachment) VpcAttachmentRef() *VpcAttachmentReference {
-	var returns *VpcAttachmentReference
+func (j *jsiiProxy_CfnVpcAttachment) VpcAttachmentRef() *interfacesawsnetworkmanager.VpcAttachmentReference {
+	var returns *interfacesawsnetworkmanager.VpcAttachmentReference
 	_jsii_.Get(
 		j,
 		"vpcAttachmentRef",
@@ -630,6 +632,7 @@ func (j *jsiiProxy_CfnVpcAttachment) VpcAttachmentRef() *VpcAttachmentReference 
 }
 
 
+// Create a new `AWS::NetworkManager::VpcAttachment`.
 func NewCfnVpcAttachment(scope constructs.Construct, id *string, props *CfnVpcAttachmentProps) CfnVpcAttachment {
 	_init_.Initialize()
 
@@ -647,6 +650,7 @@ func NewCfnVpcAttachment(scope constructs.Construct, id *string, props *CfnVpcAt
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::VpcAttachment`.
 func NewCfnVpcAttachment_Override(c CfnVpcAttachment, scope constructs.Construct, id *string, props *CfnVpcAttachmentProps) {
 	_init_.Initialize()
 
@@ -735,13 +739,13 @@ func (j *jsiiProxy_CfnVpcAttachment)SetVpcArn(val *string) {
 }
 
 // Creates a new IVpcAttachmentRef from a attachmentId.
-func CfnVpcAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) IVpcAttachmentRef {
+func CfnVpcAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) interfacesawsnetworkmanager.IVpcAttachmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnVpcAttachment_FromAttachmentIdParameters(scope, id, attachmentId); err != nil {
 		panic(err)
 	}
-	var returns IVpcAttachmentRef
+	var returns interfacesawsnetworkmanager.IVpcAttachmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_networkmanager.CfnVpcAttachment",

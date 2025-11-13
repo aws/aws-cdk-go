@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnPredefinedAttribute interface {
 	awscdk.CfnResource
-	IPredefinedAttributeRef
 	awscdk.IInspectable
+	interfacesawsconnect.IPredefinedAttributeRef
 	// Custom metadata that is associated to predefined attributes to control behavior in upstream services, such as controlling how a predefined attribute should be displayed in the Amazon Connect admin website.
 	AttributeConfiguration() interface{}
 	SetAttributeConfiguration(val interface{})
@@ -57,7 +59,7 @@ type CfnPredefinedAttribute interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -77,7 +79,7 @@ type CfnPredefinedAttribute interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PredefinedAttribute resource.
-	PredefinedAttributeRef() *PredefinedAttributeReference
+	PredefinedAttributeRef() *interfacesawsconnect.PredefinedAttributeReference
 	// Values that enable you to categorize your predefined attributes.
 	Purposes() *[]*string
 	SetPurposes(val *[]*string)
@@ -236,8 +238,8 @@ type CfnPredefinedAttribute interface {
 // The jsii proxy struct for CfnPredefinedAttribute
 type jsiiProxy_CfnPredefinedAttribute struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPredefinedAttributeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIPredefinedAttributeRef
 }
 
 func (j *jsiiProxy_CfnPredefinedAttribute) AttributeConfiguration() interface{} {
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnPredefinedAttribute) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPredefinedAttribute) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPredefinedAttribute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnPredefinedAttribute) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPredefinedAttribute) PredefinedAttributeRef() *PredefinedAttributeReference {
-	var returns *PredefinedAttributeReference
+func (j *jsiiProxy_CfnPredefinedAttribute) PredefinedAttributeRef() *interfacesawsconnect.PredefinedAttributeReference {
+	var returns *interfacesawsconnect.PredefinedAttributeReference
 	_jsii_.Get(
 		j,
 		"predefinedAttributeRef",
@@ -431,6 +433,7 @@ func (j *jsiiProxy_CfnPredefinedAttribute) Values() interface{} {
 }
 
 
+// Create a new `AWS::Connect::PredefinedAttribute`.
 func NewCfnPredefinedAttribute(scope constructs.Construct, id *string, props *CfnPredefinedAttributeProps) CfnPredefinedAttribute {
 	_init_.Initialize()
 
@@ -448,6 +451,7 @@ func NewCfnPredefinedAttribute(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::Connect::PredefinedAttribute`.
 func NewCfnPredefinedAttribute_Override(c CfnPredefinedAttribute, scope constructs.Construct, id *string, props *CfnPredefinedAttributeProps) {
 	_init_.Initialize()
 

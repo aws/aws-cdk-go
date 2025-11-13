@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,8 +73,8 @@ import (
 //
 type CfnStateMachine interface {
 	awscdk.CfnResource
-	IStateMachineRef
 	awscdk.IInspectable
+	interfacesawsstepfunctions.IStateMachineRef
 	awscdk.ITaggable
 	// Returns the ARN of the resource.
 	AttrArn() *string
@@ -116,7 +118,7 @@ type CfnStateMachine interface {
 	// Encryption configuration for the state machine.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Defines what execution history events are logged and where they are logged.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
@@ -148,7 +150,7 @@ type CfnStateMachine interface {
 	StateMachineName() *string
 	SetStateMachineName(val *string)
 	// A reference to a StateMachine resource.
-	StateMachineRef() *StateMachineReference
+	StateMachineRef() *interfacesawsstepfunctions.StateMachineReference
 	// Determines whether a `STANDARD` or `EXPRESS` state machine is created.
 	StateMachineType() *string
 	SetStateMachineType(val *string)
@@ -303,8 +305,8 @@ type CfnStateMachine interface {
 // The jsii proxy struct for CfnStateMachine
 type jsiiProxy_CfnStateMachine struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStateMachineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsstepfunctionsIStateMachineRef
 	internal.Type__awscdkITaggable
 }
 
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnStateMachine) EncryptionConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachine) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStateMachine) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -508,8 +510,8 @@ func (j *jsiiProxy_CfnStateMachine) StateMachineName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachine) StateMachineRef() *StateMachineReference {
-	var returns *StateMachineReference
+func (j *jsiiProxy_CfnStateMachine) StateMachineRef() *interfacesawsstepfunctions.StateMachineReference {
+	var returns *interfacesawsstepfunctions.StateMachineReference
 	_jsii_.Get(
 		j,
 		"stateMachineRef",
@@ -579,6 +581,7 @@ func (j *jsiiProxy_CfnStateMachine) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::StepFunctions::StateMachine`.
 func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateMachineProps) CfnStateMachine {
 	_init_.Initialize()
 
@@ -596,6 +599,7 @@ func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateM
 	return &j
 }
 
+// Create a new `AWS::StepFunctions::StateMachine`.
 func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, id *string, props *CfnStateMachineProps) {
 	_init_.Initialize()
 

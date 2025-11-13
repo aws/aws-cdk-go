@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnPlacementGroup interface {
 	awscdk.CfnResource
-	IPlacementGroupRef
 	awscdk.IInspectable
+	interfacesawsec2.IPlacementGroupRef
 	awscdk.ITaggable
 	// The name of the placement group.
 	AttrGroupName() *string
@@ -52,7 +54,7 @@ type CfnPlacementGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnPlacementGroup interface {
 	PartitionCount() *float64
 	SetPartitionCount(val *float64)
 	// A reference to a PlacementGroup resource.
-	PlacementGroupRef() *PlacementGroupReference
+	PlacementGroupRef() *interfacesawsec2.PlacementGroupReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -233,8 +235,8 @@ type CfnPlacementGroup interface {
 // The jsii proxy struct for CfnPlacementGroup
 type jsiiProxy_CfnPlacementGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPlacementGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IPlacementGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -288,8 +290,8 @@ func (j *jsiiProxy_CfnPlacementGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlacementGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPlacementGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnPlacementGroup) PartitionCount() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlacementGroup) PlacementGroupRef() *PlacementGroupReference {
-	var returns *PlacementGroupReference
+func (j *jsiiProxy_CfnPlacementGroup) PlacementGroupRef() *interfacesawsec2.PlacementGroupReference {
+	var returns *interfacesawsec2.PlacementGroupReference
 	_jsii_.Get(
 		j,
 		"placementGroupRef",
@@ -419,6 +421,7 @@ func (j *jsiiProxy_CfnPlacementGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::EC2::PlacementGroup`.
 func NewCfnPlacementGroup(scope constructs.Construct, id *string, props *CfnPlacementGroupProps) CfnPlacementGroup {
 	_init_.Initialize()
 
@@ -436,6 +439,7 @@ func NewCfnPlacementGroup(scope constructs.Construct, id *string, props *CfnPlac
 	return &j
 }
 
+// Create a new `AWS::EC2::PlacementGroup`.
 func NewCfnPlacementGroup_Override(c CfnPlacementGroup, scope constructs.Construct, id *string, props *CfnPlacementGroupProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,14 +46,14 @@ import (
 //
 type CfnApp interface {
 	awscdk.CfnResource
-	IAppRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IAppRef
 	awscdk.ITaggable
 	// The name of the app.
 	AppName() *string
 	SetAppName(val *string)
 	// A reference to a App resource.
-	AppRef() *AppReference
+	AppRef() *interfacesawssagemaker.AppReference
 	// The type of app.
 	AppType() *string
 	SetAppType(val *string)
@@ -73,7 +75,7 @@ type CfnApp interface {
 	// The domain ID.
 	DomainId() *string
 	SetDomainId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -252,8 +254,8 @@ type CfnApp interface {
 // The jsii proxy struct for CfnApp
 type jsiiProxy_CfnApp struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAppRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIAppRef
 	internal.Type__awscdkITaggable
 }
 
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnApp) AppName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApp) AppRef() *AppReference {
-	var returns *AppReference
+func (j *jsiiProxy_CfnApp) AppRef() *interfacesawssagemaker.AppReference {
+	var returns *interfacesawssagemaker.AppReference
 	_jsii_.Get(
 		j,
 		"appRef",
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnApp) DomainId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApp) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApp) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -478,6 +480,7 @@ func (j *jsiiProxy_CfnApp) UserProfileName() *string {
 }
 
 
+// Create a new `AWS::SageMaker::App`.
 func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnApp {
 	_init_.Initialize()
 
@@ -495,6 +498,7 @@ func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnAp
 	return &j
 }
 
+// Create a new `AWS::SageMaker::App`.
 func NewCfnApp_Override(c CfnApp, scope constructs.Construct, id *string, props *CfnAppProps) {
 	_init_.Initialize()
 

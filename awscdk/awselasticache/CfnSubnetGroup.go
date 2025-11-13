@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnSubnetGroup interface {
 	awscdk.CfnResource
-	ISubnetGroupRef
 	awscdk.IInspectable
+	interfacesawselasticache.ISubnetGroupRef
 	awscdk.ITaggable
 	// The name for the cache subnet group.
 	//
@@ -58,7 +60,7 @@ type CfnSubnetGroup interface {
 	// The description for the cache subnet group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,7 +83,7 @@ type CfnSubnetGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a SubnetGroup resource.
-	SubnetGroupRef() *SubnetGroupReference
+	SubnetGroupRef() *interfacesawselasticache.SubnetGroupReference
 	// The EC2 subnet IDs for the cache subnet group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
@@ -233,8 +235,8 @@ type CfnSubnetGroup interface {
 // The jsii proxy struct for CfnSubnetGroup
 type jsiiProxy_CfnSubnetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubnetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheISubnetGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnSubnetGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubnetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnSubnetGroup) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetGroup) SubnetGroupRef() *SubnetGroupReference {
-	var returns *SubnetGroupReference
+func (j *jsiiProxy_CfnSubnetGroup) SubnetGroupRef() *interfacesawselasticache.SubnetGroupReference {
+	var returns *interfacesawselasticache.SubnetGroupReference
 	_jsii_.Get(
 		j,
 		"subnetGroupRef",
@@ -409,6 +411,7 @@ func (j *jsiiProxy_CfnSubnetGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ElastiCache::SubnetGroup`.
 func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetGroupProps) CfnSubnetGroup {
 	_init_.Initialize()
 
@@ -426,6 +429,7 @@ func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetG
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::SubnetGroup`.
 func NewCfnSubnetGroup_Override(c CfnSubnetGroup, scope constructs.Construct, id *string, props *CfnSubnetGroupProps) {
 	_init_.Initialize()
 
@@ -478,13 +482,13 @@ func (j *jsiiProxy_CfnSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ISubnetGroupRef from a cacheSubnetGroupName.
-func CfnSubnetGroup_FromCacheSubnetGroupName(scope constructs.Construct, id *string, cacheSubnetGroupName *string) ISubnetGroupRef {
+func CfnSubnetGroup_FromCacheSubnetGroupName(scope constructs.Construct, id *string, cacheSubnetGroupName *string) interfacesawselasticache.ISubnetGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnSubnetGroup_FromCacheSubnetGroupNameParameters(scope, id, cacheSubnetGroupName); err != nil {
 		panic(err)
 	}
-	var returns ISubnetGroupRef
+	var returns interfacesawselasticache.ISubnetGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnFleet interface {
 	awscdk.CfnResource
-	IFleetRef
 	awscdk.IInspectable
+	interfacesawsappstream.IFleetRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -59,9 +61,9 @@ type CfnFleet interface {
 	// Enables or disables default internet access for the fleet.
 	EnableDefaultInternetAccess() interface{}
 	SetEnableDefaultInternetAccess(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Fleet resource.
-	FleetRef() *FleetReference
+	FleetRef() *interfacesawsappstream.FleetReference
 	// The fleet type.
 	FleetType() *string
 	SetFleetType(val *string)
@@ -121,7 +123,7 @@ type CfnFleet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+	// The WorkSpaces Applications view that is displayed to your users when they stream from the fleet.
 	StreamView() *string
 	SetStreamView(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -278,8 +280,8 @@ type CfnFleet interface {
 // The jsii proxy struct for CfnFleet
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIFleetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnFleet) EnableDefaultInternetAccess() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) FleetRef() *FleetReference {
-	var returns *FleetReference
+func (j *jsiiProxy_CfnFleet) FleetRef() *interfacesawsappstream.FleetReference {
+	var returns *interfacesawsappstream.FleetReference
 	_jsii_.Get(
 		j,
 		"fleetRef",
@@ -644,6 +646,7 @@ func (j *jsiiProxy_CfnFleet) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::AppStream::Fleet`.
 func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) CfnFleet {
 	_init_.Initialize()
 
@@ -661,6 +664,7 @@ func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) C
 	return &j
 }
 
+// Create a new `AWS::AppStream::Fleet`.
 func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, props *CfnFleetProps) {
 	_init_.Initialize()
 

@@ -1,0 +1,56 @@
+package interfacesawsroute53
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a DNSSEC.
+// Experimental.
+type IDNSSECRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a DNSSEC resource.
+	// Experimental.
+	DnssecRef() *DNSSECReference
+}
+
+// The jsii proxy for IDNSSECRef
+type jsiiProxy_IDNSSECRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IDNSSECRef) DnssecRef() *DNSSECReference {
+	var returns *DNSSECReference
+	_jsii_.Get(
+		j,
+		"dnssecRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDNSSECRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDNSSECRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

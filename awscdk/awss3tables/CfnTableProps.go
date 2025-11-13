@@ -1,5 +1,8 @@
 package awss3tables
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnTable`.
 //
@@ -37,6 +40,12 @@ package awss3tables
 //   		MinSnapshotsToKeep: jsii.Number(123),
 //   		Status: jsii.String("status"),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	WithoutMetadata: jsii.String("withoutMetadata"),
 //   }
 //
@@ -71,6 +80,10 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-snapshotmanagement
 	//
 	SnapshotManagement interface{} `field:"optional" json:"snapshotManagement" yaml:"snapshotManagement"`
+	// User tags (key-value pairs) to associate with the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Indicates that you don't want to specify a schema for the table.
 	//
 	// This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .

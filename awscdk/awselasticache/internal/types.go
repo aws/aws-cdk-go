@@ -1,11 +1,19 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawselasticacheICacheClusterRef = interfacesawselasticache.ICacheClusterRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawselasticacheIGlobalReplicationGroupRef = interfacesawselasticache.IGlobalReplicationGroupRef
+type Type__interfacesawselasticacheIParameterGroupRef = interfacesawselasticache.IParameterGroupRef
+type Type__interfacesawselasticacheIReplicationGroupRef = interfacesawselasticache.IReplicationGroupRef
+type Type__interfacesawselasticacheISecurityGroupRef = interfacesawselasticache.ISecurityGroupRef
+type Type__interfacesawselasticacheISecurityGroupIngressRef = interfacesawselasticache.ISecurityGroupIngressRef
+type Type__interfacesawselasticacheIServerlessCacheRef = interfacesawselasticache.IServerlessCacheRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawselasticacheISubnetGroupRef = interfacesawselasticache.ISubnetGroupRef
+type Type__interfacesawselasticacheIUserRef = interfacesawselasticache.IUserRef
+type Type__interfacesawselasticacheIUserGroupRef = interfacesawselasticache.IUserGroupRef

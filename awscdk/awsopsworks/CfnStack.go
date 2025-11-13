@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -87,8 +89,8 @@ import (
 //
 type CfnStack interface {
 	awscdk.CfnResource
-	IStackRef
 	awscdk.IInspectable
+	interfacesawsopsworks.IStackRef
 	awscdk.ITaggable
 	// The default OpsWorks Stacks agent version.
 	//
@@ -150,7 +152,7 @@ type CfnStack interface {
 	// A list of Elastic IP addresses to register with the OpsWorks stack.
 	ElasticIps() interface{}
 	SetElasticIps(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The stack's host name theme, with spaces replaced by underscores.
 	HostnameTheme() *string
 	SetHostnameTheme(val *string)
@@ -188,7 +190,7 @@ type CfnStack interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Stack resource.
-	StackRef() *StackReference
+	StackRef() *interfacesawsopsworks.StackReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// A map that contains tag keys and tag values that are attached to a stack or layer.
@@ -346,8 +348,8 @@ type CfnStack interface {
 // The jsii proxy struct for CfnStack
 type jsiiProxy_CfnStack struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStackRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopsworksIStackRef
 	internal.Type__awscdkITaggable
 }
 
@@ -561,8 +563,8 @@ func (j *jsiiProxy_CfnStack) ElasticIps() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStack) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -661,8 +663,8 @@ func (j *jsiiProxy_CfnStack) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStack) StackRef() *StackReference {
-	var returns *StackReference
+func (j *jsiiProxy_CfnStack) StackRef() *interfacesawsopsworks.StackReference {
+	var returns *interfacesawsopsworks.StackReference
 	_jsii_.Get(
 		j,
 		"stackRef",
@@ -742,6 +744,7 @@ func (j *jsiiProxy_CfnStack) VpcId() *string {
 }
 
 
+// Create a new `AWS::OpsWorks::Stack`.
 func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) CfnStack {
 	_init_.Initialize()
 
@@ -759,6 +762,7 @@ func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) C
 	return &j
 }
 
+// Create a new `AWS::OpsWorks::Stack`.
 func NewCfnStack_Override(c CfnStack, scope constructs.Construct, id *string, props *CfnStackProps) {
 	_init_.Initialize()
 
@@ -1009,13 +1013,13 @@ func (j *jsiiProxy_CfnStack)SetVpcId(val *string) {
 }
 
 // Creates a new IStackRef from a stackId.
-func CfnStack_FromStackId(scope constructs.Construct, id *string, stackId *string) IStackRef {
+func CfnStack_FromStackId(scope constructs.Construct, id *string, stackId *string) interfacesawsopsworks.IStackRef {
 	_init_.Initialize()
 
 	if err := validateCfnStack_FromStackIdParameters(scope, id, stackId); err != nil {
 		panic(err)
 	}
-	var returns IStackRef
+	var returns interfacesawsopsworks.IStackRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_opsworks.CfnStack",

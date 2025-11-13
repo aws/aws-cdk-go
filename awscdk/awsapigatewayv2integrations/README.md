@@ -53,6 +53,46 @@ httpApi.AddRoutes(&AddRoutesOptions{
 })
 ```
 
+#### Lambda Integration Permissions
+
+By default, creating a `HttpLambdaIntegration` will add a permission for API Gateway to invoke your AWS Lambda function, scoped to the specific route which uses the integration.
+
+If you reuse the same AWS Lambda function for many integrations, the AWS Lambda permission policy size can be exceeded by adding a separate policy statement for each route which invokes the AWS Lambda function. To avoid this, you can opt to scope permissions to any route on the API by setting `scopePermissionToRoute` to `false`, and this will ensure only a single policy statement is added to the AWS Lambda permission policy.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var booksDefaultFn Function
+
+
+httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
+
+getBooksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("GetBooksIntegration"), booksDefaultFn, &HttpLambdaIntegrationProps{
+	ScopePermissionToRoute: jsii.Boolean(false),
+})
+createBookIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("CreateBookIntegration"), booksDefaultFn, &HttpLambdaIntegrationProps{
+	ScopePermissionToRoute: jsii.Boolean(false),
+})
+
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/books"),
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_GET,
+	},
+	Integration: getBooksIntegration,
+})
+
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/books"),
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
+	},
+	Integration: createBookIntegration,
+})
+```
+
+In the above example, a single permission is added, shared by both `getBookIntegration` and `createBookIntegration`.
+
 ### HTTP Proxy
 
 HTTP Proxy integrations enables connecting an HTTP API route to a publicly routable HTTP endpoint. When a client

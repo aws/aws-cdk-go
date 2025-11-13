@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -95,8 +97,8 @@ import (
 //
 type CfnInAppTemplate interface {
 	awscdk.CfnResource
-	IInAppTemplateRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IInAppTemplateRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the message template.
 	AttrArn() *string
@@ -115,9 +117,9 @@ type CfnInAppTemplate interface {
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
 	CustomConfig() interface{}
 	SetCustomConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InAppTemplate resource.
-	InAppTemplateRef() *InAppTemplateReference
+	InAppTemplateRef() *interfacesawspinpoint.InAppTemplateReference
 	// A string that determines the appearance of the in-app message.
 	//
 	// You can specify one of the following:.
@@ -298,8 +300,8 @@ type CfnInAppTemplate interface {
 // The jsii proxy struct for CfnInAppTemplate
 type jsiiProxy_CfnInAppTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInAppTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIInAppTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnInAppTemplate) CustomConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInAppTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInAppTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnInAppTemplate) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInAppTemplate) InAppTemplateRef() *InAppTemplateReference {
-	var returns *InAppTemplateReference
+func (j *jsiiProxy_CfnInAppTemplate) InAppTemplateRef() *interfacesawspinpoint.InAppTemplateReference {
+	var returns *interfacesawspinpoint.InAppTemplateReference
 	_jsii_.Get(
 		j,
 		"inAppTemplateRef",
@@ -504,6 +506,7 @@ func (j *jsiiProxy_CfnInAppTemplate) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Pinpoint::InAppTemplate`.
 func NewCfnInAppTemplate(scope constructs.Construct, id *string, props *CfnInAppTemplateProps) CfnInAppTemplate {
 	_init_.Initialize()
 
@@ -521,6 +524,7 @@ func NewCfnInAppTemplate(scope constructs.Construct, id *string, props *CfnInApp
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::InAppTemplate`.
 func NewCfnInAppTemplate_Override(c CfnInAppTemplate, scope constructs.Construct, id *string, props *CfnInAppTemplateProps) {
 	_init_.Initialize()
 
@@ -586,13 +590,13 @@ func (j *jsiiProxy_CfnInAppTemplate)SetTemplateName(val *string) {
 }
 
 // Creates a new IInAppTemplateRef from an ARN.
-func CfnInAppTemplate_FromInAppTemplateArn(scope constructs.Construct, id *string, arn *string) IInAppTemplateRef {
+func CfnInAppTemplate_FromInAppTemplateArn(scope constructs.Construct, id *string, arn *string) interfacesawspinpoint.IInAppTemplateRef {
 	_init_.Initialize()
 
 	if err := validateCfnInAppTemplate_FromInAppTemplateArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IInAppTemplateRef
+	var returns interfacesawspinpoint.IInAppTemplateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_pinpoint.CfnInAppTemplate",
@@ -605,13 +609,13 @@ func CfnInAppTemplate_FromInAppTemplateArn(scope constructs.Construct, id *strin
 }
 
 // Creates a new IInAppTemplateRef from a templateName.
-func CfnInAppTemplate_FromTemplateName(scope constructs.Construct, id *string, templateName *string) IInAppTemplateRef {
+func CfnInAppTemplate_FromTemplateName(scope constructs.Construct, id *string, templateName *string) interfacesawspinpoint.IInAppTemplateRef {
 	_init_.Initialize()
 
 	if err := validateCfnInAppTemplate_FromTemplateNameParameters(scope, id, templateName); err != nil {
 		panic(err)
 	}
-	var returns IInAppTemplateRef
+	var returns interfacesawspinpoint.IInAppTemplateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_pinpoint.CfnInAppTemplate",

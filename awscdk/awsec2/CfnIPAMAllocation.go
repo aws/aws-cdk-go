@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnIPAMAllocation interface {
 	awscdk.CfnResource
-	IIPAMAllocationRef
 	awscdk.IInspectable
+	interfacesawsec2.IIPAMAllocationRef
 	// The ID of an allocation.
 	AttrIpamPoolAllocationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -50,9 +52,9 @@ type CfnIPAMAllocation interface {
 	// A description for the allocation.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IPAMAllocation resource.
-	IpamAllocationRef() *IPAMAllocationReference
+	IpamAllocationRef() *interfacesawsec2.IPAMAllocationReference
 	// The ID of the IPAM pool from which you would like to allocate a CIDR.
 	IpamPoolId() *string
 	SetIpamPoolId(val *string)
@@ -225,8 +227,8 @@ type CfnIPAMAllocation interface {
 // The jsii proxy struct for CfnIPAMAllocation
 type jsiiProxy_CfnIPAMAllocation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIPAMAllocationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IIPAMAllocationRef
 }
 
 func (j *jsiiProxy_CfnIPAMAllocation) AttrIpamPoolAllocationId() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnIPAMAllocation) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMAllocation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIPAMAllocation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnIPAMAllocation) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMAllocation) IpamAllocationRef() *IPAMAllocationReference {
-	var returns *IPAMAllocationReference
+func (j *jsiiProxy_CfnIPAMAllocation) IpamAllocationRef() *interfacesawsec2.IPAMAllocationReference {
+	var returns *interfacesawsec2.IPAMAllocationReference
 	_jsii_.Get(
 		j,
 		"ipamAllocationRef",
@@ -400,6 +402,7 @@ func (j *jsiiProxy_CfnIPAMAllocation) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::EC2::IPAMAllocation`.
 func NewCfnIPAMAllocation(scope constructs.Construct, id *string, props *CfnIPAMAllocationProps) CfnIPAMAllocation {
 	_init_.Initialize()
 
@@ -417,6 +420,7 @@ func NewCfnIPAMAllocation(scope constructs.Construct, id *string, props *CfnIPAM
 	return &j
 }
 
+// Create a new `AWS::EC2::IPAMAllocation`.
 func NewCfnIPAMAllocation_Override(c CfnIPAMAllocation, scope constructs.Construct, id *string, props *CfnIPAMAllocationProps) {
 	_init_.Initialize()
 

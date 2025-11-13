@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiottwinmaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiottwinmaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -120,8 +122,8 @@ import (
 //
 type CfnComponentType interface {
 	awscdk.CfnResource
-	IComponentTypeRef
 	awscdk.IInspectable
+	interfacesawsiottwinmaker.IComponentTypeRef
 	awscdk.ITaggable
 	// The ARN of the component type.
 	AttrArn() *string
@@ -147,7 +149,7 @@ type CfnComponentType interface {
 	ComponentTypeId() *string
 	SetComponentTypeId(val *string)
 	// A reference to a ComponentType resource.
-	ComponentTypeRef() *ComponentTypeReference
+	ComponentTypeRef() *interfacesawsiottwinmaker.ComponentTypeReference
 	// Maps strings to `compositeComponentTypes` of the `componentType` .
 	CompositeComponentTypes() interface{}
 	SetCompositeComponentTypes(val interface{})
@@ -158,7 +160,7 @@ type CfnComponentType interface {
 	// The description of the component type.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the parent component type that this component type extends.
 	ExtendsFrom() *[]*string
 	SetExtendsFrom(val *[]*string)
@@ -346,8 +348,8 @@ type CfnComponentType interface {
 // The jsii proxy struct for CfnComponentType
 type jsiiProxy_CfnComponentType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IComponentTypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiottwinmakerIComponentTypeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -491,8 +493,8 @@ func (j *jsiiProxy_CfnComponentType) ComponentTypeId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponentType) ComponentTypeRef() *ComponentTypeReference {
-	var returns *ComponentTypeReference
+func (j *jsiiProxy_CfnComponentType) ComponentTypeRef() *interfacesawsiottwinmaker.ComponentTypeReference {
+	var returns *interfacesawsiottwinmaker.ComponentTypeReference
 	_jsii_.Get(
 		j,
 		"componentTypeRef",
@@ -531,8 +533,8 @@ func (j *jsiiProxy_CfnComponentType) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponentType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnComponentType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -682,6 +684,7 @@ func (j *jsiiProxy_CfnComponentType) WorkspaceId() *string {
 }
 
 
+// Create a new `AWS::IoTTwinMaker::ComponentType`.
 func NewCfnComponentType(scope constructs.Construct, id *string, props *CfnComponentTypeProps) CfnComponentType {
 	_init_.Initialize()
 
@@ -699,6 +702,7 @@ func NewCfnComponentType(scope constructs.Construct, id *string, props *CfnCompo
 	return &j
 }
 
+// Create a new `AWS::IoTTwinMaker::ComponentType`.
 func NewCfnComponentType_Override(c CfnComponentType, scope constructs.Construct, id *string, props *CfnComponentTypeProps) {
 	_init_.Initialize()
 

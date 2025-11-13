@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnUserHierarchyGroup interface {
 	awscdk.CfnResource
-	IUserHierarchyGroupRef
 	awscdk.IInspectable
+	interfacesawsconnect.IUserHierarchyGroupRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the user hierarchy group.
 	AttrUserHierarchyGroupArn() *string
@@ -50,7 +52,7 @@ type CfnUserHierarchyGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the user hierarchy group.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -98,7 +100,7 @@ type CfnUserHierarchyGroup interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a UserHierarchyGroup resource.
-	UserHierarchyGroupRef() *UserHierarchyGroupReference
+	UserHierarchyGroupRef() *interfacesawsconnect.UserHierarchyGroupReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -229,8 +231,8 @@ type CfnUserHierarchyGroup interface {
 // The jsii proxy struct for CfnUserHierarchyGroup
 type jsiiProxy_CfnUserHierarchyGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserHierarchyGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIUserHierarchyGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnUserHierarchyGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserHierarchyGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserHierarchyGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -404,8 +406,8 @@ func (j *jsiiProxy_CfnUserHierarchyGroup) UpdatedProperties() *map[string]interf
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserHierarchyGroup) UserHierarchyGroupRef() *UserHierarchyGroupReference {
-	var returns *UserHierarchyGroupReference
+func (j *jsiiProxy_CfnUserHierarchyGroup) UserHierarchyGroupRef() *interfacesawsconnect.UserHierarchyGroupReference {
+	var returns *interfacesawsconnect.UserHierarchyGroupReference
 	_jsii_.Get(
 		j,
 		"userHierarchyGroupRef",
@@ -415,6 +417,7 @@ func (j *jsiiProxy_CfnUserHierarchyGroup) UserHierarchyGroupRef() *UserHierarchy
 }
 
 
+// Create a new `AWS::Connect::UserHierarchyGroup`.
 func NewCfnUserHierarchyGroup(scope constructs.Construct, id *string, props *CfnUserHierarchyGroupProps) CfnUserHierarchyGroup {
 	_init_.Initialize()
 
@@ -432,6 +435,7 @@ func NewCfnUserHierarchyGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Connect::UserHierarchyGroup`.
 func NewCfnUserHierarchyGroup_Override(c CfnUserHierarchyGroup, scope constructs.Construct, id *string, props *CfnUserHierarchyGroupProps) {
 	_init_.Initialize()
 

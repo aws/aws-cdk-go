@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsacmpca"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -145,8 +147,8 @@ import (
 //
 type CfnCertificate interface {
 	awscdk.CfnResource
-	ICertificateRef
 	awscdk.IInspectable
+	interfacesawsacmpca.ICertificateRef
 	// Specifies X.509 certificate information to be included in the issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.
 	ApiPassthrough() interface{}
 	SetApiPassthrough(val interface{})
@@ -158,7 +160,7 @@ type CfnCertificate interface {
 	CertificateAuthorityArn() *string
 	SetCertificateAuthorityArn(val *string)
 	// A reference to a Certificate resource.
-	CertificateRef() *CertificateReference
+	CertificateRef() *interfacesawsacmpca.CertificateReference
 	// The certificate signing request (CSR) for the certificate.
 	CertificateSigningRequest() *string
 	SetCertificateSigningRequest(val *string)
@@ -171,7 +173,7 @@ type CfnCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -348,8 +350,8 @@ type CfnCertificate interface {
 // The jsii proxy struct for CfnCertificate
 type jsiiProxy_CfnCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsacmpcaICertificateRef
 }
 
 func (j *jsiiProxy_CfnCertificate) ApiPassthrough() interface{} {
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnCertificate) CertificateAuthorityArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) CertificateRef() *CertificateReference {
-	var returns *CertificateReference
+func (j *jsiiProxy_CfnCertificate) CertificateRef() *interfacesawsacmpca.CertificateReference {
+	var returns *interfacesawsacmpca.CertificateReference
 	_jsii_.Get(
 		j,
 		"certificateRef",
@@ -452,8 +454,8 @@ func (j *jsiiProxy_CfnCertificate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -563,6 +565,7 @@ func (j *jsiiProxy_CfnCertificate) ValidityNotBefore() interface{} {
 }
 
 
+// Create a new `AWS::ACMPCA::Certificate`.
 func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
@@ -580,6 +583,7 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 	return &j
 }
 
+// Create a new `AWS::ACMPCA::Certificate`.
 func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 

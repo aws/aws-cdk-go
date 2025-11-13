@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -129,8 +131,8 @@ import (
 //
 type CfnStorageLens interface {
 	awscdk.CfnResource
-	IStorageLensRef
 	awscdk.IInspectable
+	interfacesawss3.IStorageLensRef
 	awscdk.ITaggable
 	// This property contains the details of the ARN of the S3 Storage Lens configuration.
 	//
@@ -145,7 +147,7 @@ type CfnStorageLens interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -171,7 +173,7 @@ type CfnStorageLens interface {
 	StorageLensConfiguration() interface{}
 	SetStorageLensConfiguration(val interface{})
 	// A reference to a StorageLens resource.
-	StorageLensRef() *StorageLensReference
+	StorageLensRef() *interfacesawss3.StorageLensReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// A set of tags (key–value pairs) to associate with the Storage Lens configuration.
@@ -320,8 +322,8 @@ type CfnStorageLens interface {
 // The jsii proxy struct for CfnStorageLens
 type jsiiProxy_CfnStorageLens struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStorageLensRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IStorageLensRef
 	internal.Type__awscdkITaggable
 }
 
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnStorageLens) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageLens) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStorageLens) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -435,8 +437,8 @@ func (j *jsiiProxy_CfnStorageLens) StorageLensConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageLens) StorageLensRef() *StorageLensReference {
-	var returns *StorageLensReference
+func (j *jsiiProxy_CfnStorageLens) StorageLensRef() *interfacesawss3.StorageLensReference {
+	var returns *interfacesawss3.StorageLensReference
 	_jsii_.Get(
 		j,
 		"storageLensRef",
@@ -486,6 +488,7 @@ func (j *jsiiProxy_CfnStorageLens) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::S3::StorageLens`.
 func NewCfnStorageLens(scope constructs.Construct, id *string, props *CfnStorageLensProps) CfnStorageLens {
 	_init_.Initialize()
 
@@ -503,6 +506,7 @@ func NewCfnStorageLens(scope constructs.Construct, id *string, props *CfnStorage
 	return &j
 }
 
+// Create a new `AWS::S3::StorageLens`.
 func NewCfnStorageLens_Override(c CfnStorageLens, scope constructs.Construct, id *string, props *CfnStorageLensProps) {
 	_init_.Initialize()
 

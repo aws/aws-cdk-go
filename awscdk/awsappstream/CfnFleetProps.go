@@ -47,16 +47,12 @@ type CfnFleetProps struct {
 	// - stream.graphics-design.xlarge
 	// - stream.graphics-design.2xlarge
 	// - stream.graphics-design.4xlarge
-	// - stream.graphics-desktop.2xlarge
 	// - stream.graphics.g4dn.xlarge
 	// - stream.graphics.g4dn.2xlarge
 	// - stream.graphics.g4dn.4xlarge
 	// - stream.graphics.g4dn.8xlarge
 	// - stream.graphics.g4dn.12xlarge
 	// - stream.graphics.g4dn.16xlarge
-	// - stream.graphics-pro.4xlarge
-	// - stream.graphics-pro.8xlarge
-	// - stream.graphics-pro.16xlarge
 	// - stream.graphics.g5.xlarge
 	// - stream.graphics.g5.2xlarge
 	// - stream.graphics.g5.4xlarge
@@ -190,7 +186,9 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-sessionscripts3location
 	//
 	SessionScriptS3Location interface{} `field:"optional" json:"sessionScriptS3Location" yaml:"sessionScriptS3Location"`
-	// The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+	// The WorkSpaces Applications view that is displayed to your users when they stream from the fleet.
+	//
+	// When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
 	//
 	// The default value is `APP` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-streamview

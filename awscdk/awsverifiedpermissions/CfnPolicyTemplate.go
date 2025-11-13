@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsverifiedpermissions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsverifiedpermissions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnPolicyTemplate interface {
 	awscdk.CfnResource
-	IPolicyTemplateRef
 	awscdk.IInspectable
+	interfacesawsverifiedpermissions.IPolicyTemplateRef
 	// The unique identifier of the new or modified policy template.
 	AttrPolicyTemplateId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -46,7 +48,7 @@ type CfnPolicyTemplate interface {
 	// The description to attach to the new or updated policy template.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -63,7 +65,7 @@ type CfnPolicyTemplate interface {
 	PolicyStoreId() *string
 	SetPolicyStoreId(val *string)
 	// A reference to a PolicyTemplate resource.
-	PolicyTemplateRef() *PolicyTemplateReference
+	PolicyTemplateRef() *interfacesawsverifiedpermissions.PolicyTemplateReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -219,8 +221,8 @@ type CfnPolicyTemplate interface {
 // The jsii proxy struct for CfnPolicyTemplate
 type jsiiProxy_CfnPolicyTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPolicyTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsverifiedpermissionsIPolicyTemplateRef
 }
 
 func (j *jsiiProxy_CfnPolicyTemplate) AttrPolicyTemplateId() *string {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnPolicyTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPolicyTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnPolicyTemplate) PolicyStoreId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyTemplate) PolicyTemplateRef() *PolicyTemplateReference {
-	var returns *PolicyTemplateReference
+func (j *jsiiProxy_CfnPolicyTemplate) PolicyTemplateRef() *interfacesawsverifiedpermissions.PolicyTemplateReference {
+	var returns *interfacesawsverifiedpermissions.PolicyTemplateReference
 	_jsii_.Get(
 		j,
 		"policyTemplateRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnPolicyTemplate) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::VerifiedPermissions::PolicyTemplate`.
 func NewCfnPolicyTemplate(scope constructs.Construct, id *string, props *CfnPolicyTemplateProps) CfnPolicyTemplate {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnPolicyTemplate(scope constructs.Construct, id *string, props *CfnPoli
 	return &j
 }
 
+// Create a new `AWS::VerifiedPermissions::PolicyTemplate`.
 func NewCfnPolicyTemplate_Override(c CfnPolicyTemplate, scope constructs.Construct, id *string, props *CfnPolicyTemplateProps) {
 	_init_.Initialize()
 

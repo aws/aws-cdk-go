@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnStoredQuery interface {
 	awscdk.CfnResource
-	IStoredQueryRef
 	awscdk.IInspectable
+	interfacesawsconfig.IStoredQueryRef
 	awscdk.ITaggable
 	// Amazon Resource Name (ARN) of the query.
 	//
@@ -52,7 +54,7 @@ type CfnStoredQuery interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnStoredQuery interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StoredQuery resource.
-	StoredQueryRef() *StoredQueryReference
+	StoredQueryRef() *interfacesawsconfig.StoredQueryReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An array of key-value pairs to apply to this resource.
@@ -233,8 +235,8 @@ type CfnStoredQuery interface {
 // The jsii proxy struct for CfnStoredQuery
 type jsiiProxy_CfnStoredQuery struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStoredQueryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIStoredQueryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnStoredQuery) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStoredQuery) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStoredQuery) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -378,8 +380,8 @@ func (j *jsiiProxy_CfnStoredQuery) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStoredQuery) StoredQueryRef() *StoredQueryReference {
-	var returns *StoredQueryReference
+func (j *jsiiProxy_CfnStoredQuery) StoredQueryRef() *interfacesawsconfig.StoredQueryReference {
+	var returns *interfacesawsconfig.StoredQueryReference
 	_jsii_.Get(
 		j,
 		"storedQueryRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnStoredQuery) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Config::StoredQuery`.
 func NewCfnStoredQuery(scope constructs.Construct, id *string, props *CfnStoredQueryProps) CfnStoredQuery {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnStoredQuery(scope constructs.Construct, id *string, props *CfnStoredQ
 	return &j
 }
 
+// Create a new `AWS::Config::StoredQuery`.
 func NewCfnStoredQuery_Override(c CfnStoredQuery, scope constructs.Construct, id *string, props *CfnStoredQueryProps) {
 	_init_.Initialize()
 

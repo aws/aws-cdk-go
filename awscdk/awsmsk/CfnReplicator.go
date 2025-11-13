@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmsk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmsk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -89,8 +91,8 @@ import (
 //
 type CfnReplicator interface {
 	awscdk.CfnResource
-	IReplicatorRef
 	awscdk.IInspectable
+	interfacesawsmsk.IReplicatorRef
 	awscdk.ITaggableV2
 	// The current version number of the replicator.
 	AttrCurrentVersion() *string
@@ -110,7 +112,7 @@ type CfnReplicator interface {
 	// A summary description of the replicator.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Kafka Clusters to use in setting up sources / targets for replication.
 	KafkaClusters() interface{}
 	SetKafkaClusters(val interface{})
@@ -138,7 +140,7 @@ type CfnReplicator interface {
 	ReplicatorName() *string
 	SetReplicatorName(val *string)
 	// A reference to a Replicator resource.
-	ReplicatorRef() *ReplicatorReference
+	ReplicatorRef() *interfacesawsmsk.ReplicatorReference
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn() *string
 	SetServiceExecutionRoleArn(val *string)
@@ -292,8 +294,8 @@ type CfnReplicator interface {
 // The jsii proxy struct for CfnReplicator
 type jsiiProxy_CfnReplicator struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicatorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmskIReplicatorRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnReplicator) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicator) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicator) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -447,8 +449,8 @@ func (j *jsiiProxy_CfnReplicator) ReplicatorName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicator) ReplicatorRef() *ReplicatorReference {
-	var returns *ReplicatorReference
+func (j *jsiiProxy_CfnReplicator) ReplicatorRef() *interfacesawsmsk.ReplicatorReference {
+	var returns *interfacesawsmsk.ReplicatorReference
 	_jsii_.Get(
 		j,
 		"replicatorRef",
@@ -508,6 +510,7 @@ func (j *jsiiProxy_CfnReplicator) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MSK::Replicator`.
 func NewCfnReplicator(scope constructs.Construct, id *string, props *CfnReplicatorProps) CfnReplicator {
 	_init_.Initialize()
 
@@ -525,6 +528,7 @@ func NewCfnReplicator(scope constructs.Construct, id *string, props *CfnReplicat
 	return &j
 }
 
+// Create a new `AWS::MSK::Replicator`.
 func NewCfnReplicator_Override(c CfnReplicator, scope constructs.Construct, id *string, props *CfnReplicatorProps) {
 	_init_.Initialize()
 

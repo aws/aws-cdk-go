@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnotifications"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnManagedNotificationAdditionalChannelAssociation interface {
 	awscdk.CfnResource
-	IManagedNotificationAdditionalChannelAssociationRef
 	awscdk.IInspectable
+	interfacesawsnotifications.IManagedNotificationAdditionalChannelAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -41,7 +43,7 @@ type CfnManagedNotificationAdditionalChannelAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -53,7 +55,7 @@ type CfnManagedNotificationAdditionalChannelAssociation interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a ManagedNotificationAdditionalChannelAssociation resource.
-	ManagedNotificationAdditionalChannelAssociationRef() *ManagedNotificationAdditionalChannelAssociationReference
+	ManagedNotificationAdditionalChannelAssociationRef() *interfacesawsnotifications.ManagedNotificationAdditionalChannelAssociationReference
 	// The ARN of the `ManagedNotificationAdditionalChannelAssociation` associated with the `Channel` .
 	ManagedNotificationConfigurationArn() *string
 	SetManagedNotificationConfigurationArn(val *string)
@@ -211,8 +213,8 @@ type CfnManagedNotificationAdditionalChannelAssociation interface {
 // The jsii proxy struct for CfnManagedNotificationAdditionalChannelAssociation
 type jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IManagedNotificationAdditionalChannelAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnotificationsIManagedNotificationAdditionalChannelAssociationRef
 }
 
 func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) CreationS
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) LogicalId
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) ManagedNotificationAdditionalChannelAssociationRef() *ManagedNotificationAdditionalChannelAssociationReference {
-	var returns *ManagedNotificationAdditionalChannelAssociationReference
+func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) ManagedNotificationAdditionalChannelAssociationRef() *interfacesawsnotifications.ManagedNotificationAdditionalChannelAssociationReference {
+	var returns *interfacesawsnotifications.ManagedNotificationAdditionalChannelAssociationReference
 	_jsii_.Get(
 		j,
 		"managedNotificationAdditionalChannelAssociationRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) UpdatedPr
 }
 
 
+// Create a new `AWS::Notifications::ManagedNotificationAdditionalChannelAssociation`.
 func NewCfnManagedNotificationAdditionalChannelAssociation(scope constructs.Construct, id *string, props *CfnManagedNotificationAdditionalChannelAssociationProps) CfnManagedNotificationAdditionalChannelAssociation {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnManagedNotificationAdditionalChannelAssociation(scope constructs.Cons
 	return &j
 }
 
+// Create a new `AWS::Notifications::ManagedNotificationAdditionalChannelAssociation`.
 func NewCfnManagedNotificationAdditionalChannelAssociation_Override(c CfnManagedNotificationAdditionalChannelAssociation, scope constructs.Construct, id *string, props *CfnManagedNotificationAdditionalChannelAssociationProps) {
 	_init_.Initialize()
 

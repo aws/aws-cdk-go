@@ -1,0 +1,19 @@
+package interfacesawssecurityhub
+
+
+// A reference to a OrganizationConfiguration resource.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   organizationConfigurationReference := &OrganizationConfigurationReference{
+//   	OrganizationConfigurationIdentifier: jsii.String("organizationConfigurationIdentifier"),
+//   }
+//
+type OrganizationConfigurationReference struct {
+	// The OrganizationConfigurationIdentifier of the OrganizationConfiguration resource.
+	OrganizationConfigurationIdentifier *string `field:"required" json:"organizationConfigurationIdentifier" yaml:"organizationConfigurationIdentifier"`
+}
+

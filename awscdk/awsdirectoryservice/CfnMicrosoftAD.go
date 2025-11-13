@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdirectoryservice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdirectoryservice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnMicrosoftAD interface {
 	awscdk.CfnResource
-	IMicrosoftADRef
 	awscdk.IInspectable
+	interfacesawsdirectoryservice.IMicrosoftADRef
 	// The alias for a directory.
 	//
 	// For example: `alias4-mydirectory-12345abcgmzsk` (if you have the `CreateAlias` property set to true).
@@ -69,7 +71,7 @@ type CfnMicrosoftAD interface {
 	// Whether to enable single sign-on for a Microsoft Active Directory in AWS .
 	EnableSso() interface{}
 	SetEnableSso(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,7 +83,7 @@ type CfnMicrosoftAD interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MicrosoftAD resource.
-	MicrosoftAdRef() *MicrosoftADReference
+	MicrosoftAdRef() *interfacesawsdirectoryservice.MicrosoftADReference
 	// The fully qualified domain name for the AWS Managed Microsoft AD directory, such as `corp.example.com` . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
 	Name() *string
 	SetName(val *string)
@@ -248,8 +250,8 @@ type CfnMicrosoftAD interface {
 // The jsii proxy struct for CfnMicrosoftAD
 type jsiiProxy_CfnMicrosoftAD struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMicrosoftADRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdirectoryserviceIMicrosoftADRef
 }
 
 func (j *jsiiProxy_CfnMicrosoftAD) AttrAlias() *string {
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnMicrosoftAD) EnableSso() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMicrosoftAD) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMicrosoftAD) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnMicrosoftAD) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMicrosoftAD) MicrosoftAdRef() *MicrosoftADReference {
-	var returns *MicrosoftADReference
+func (j *jsiiProxy_CfnMicrosoftAD) MicrosoftAdRef() *interfacesawsdirectoryservice.MicrosoftADReference {
+	var returns *interfacesawsdirectoryservice.MicrosoftADReference
 	_jsii_.Get(
 		j,
 		"microsoftAdRef",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnMicrosoftAD) VpcSettings() interface{} {
 }
 
 
+// Create a new `AWS::DirectoryService::MicrosoftAD`.
 func NewCfnMicrosoftAD(scope constructs.Construct, id *string, props *CfnMicrosoftADProps) CfnMicrosoftAD {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnMicrosoftAD(scope constructs.Construct, id *string, props *CfnMicroso
 	return &j
 }
 
+// Create a new `AWS::DirectoryService::MicrosoftAD`.
 func NewCfnMicrosoftAD_Override(c CfnMicrosoftAD, scope constructs.Construct, id *string, props *CfnMicrosoftADProps) {
 	_init_.Initialize()
 

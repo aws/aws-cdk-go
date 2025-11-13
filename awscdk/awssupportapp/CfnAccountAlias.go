@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssupportapp/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssupportapp"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,13 +30,13 @@ import (
 //
 type CfnAccountAlias interface {
 	awscdk.CfnResource
-	IAccountAliasRef
 	awscdk.IInspectable
+	interfacesawssupportapp.IAccountAliasRef
 	// An alias or short name for an AWS account .
 	AccountAlias() *string
 	SetAccountAlias(val *string)
 	// A reference to a AccountAlias resource.
-	AccountAliasRef() *AccountAliasReference
+	AccountAliasRef() *interfacesawssupportapp.AccountAliasReference
 	// The `AccountAlias` resource type has an attribute `AccountAliasResourceId` . You can use this attribute to identify the resource.
 	//
 	// The `AccountAliasResourceId` will be `AccountAlias_for_accountId` . In this example, `AccountAlias_for_` is the prefix and `accountId` is your AWS account number, such as `AccountAlias_for_123456789012` .
@@ -48,7 +50,7 @@ type CfnAccountAlias interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,8 +215,8 @@ type CfnAccountAlias interface {
 // The jsii proxy struct for CfnAccountAlias
 type jsiiProxy_CfnAccountAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccountAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssupportappIAccountAliasRef
 }
 
 func (j *jsiiProxy_CfnAccountAlias) AccountAlias() *string {
@@ -227,8 +229,8 @@ func (j *jsiiProxy_CfnAccountAlias) AccountAlias() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccountAlias) AccountAliasRef() *AccountAliasReference {
-	var returns *AccountAliasReference
+func (j *jsiiProxy_CfnAccountAlias) AccountAliasRef() *interfacesawssupportapp.AccountAliasReference {
+	var returns *interfacesawssupportapp.AccountAliasReference
 	_jsii_.Get(
 		j,
 		"accountAliasRef",
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnAccountAlias) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccountAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccountAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,6 +360,7 @@ func (j *jsiiProxy_CfnAccountAlias) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::SupportApp::AccountAlias`.
 func NewCfnAccountAlias(scope constructs.Construct, id *string, props *CfnAccountAliasProps) CfnAccountAlias {
 	_init_.Initialize()
 
@@ -375,6 +378,7 @@ func NewCfnAccountAlias(scope constructs.Construct, id *string, props *CfnAccoun
 	return &j
 }
 
+// Create a new `AWS::SupportApp::AccountAlias`.
 func NewCfnAccountAlias_Override(c CfnAccountAlias, scope constructs.Construct, id *string, props *CfnAccountAliasProps) {
 	_init_.Initialize()
 

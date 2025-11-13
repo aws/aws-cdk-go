@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnAssociation interface {
 	awscdk.CfnResource
-	IAssociationRef
 	awscdk.IInspectable
+	interfacesawsssm.IAssociationRef
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified.
 	ApplyOnlyAtCronInterval() interface{}
 	SetApplyOnlyAtCronInterval(val interface{})
@@ -70,7 +72,7 @@ type CfnAssociation interface {
 	AssociationName() *string
 	SetAssociationName(val *string)
 	// A reference to a Association resource.
-	AssociationRef() *AssociationReference
+	AssociationRef() *interfacesawsssm.AssociationReference
 	// The association ID.
 	AttrAssociationId() *string
 	// Choose the parameter that will define how your automation will branch out.
@@ -94,7 +96,7 @@ type CfnAssociation interface {
 	// The version of the SSM document to associate with the target.
 	DocumentVersion() *string
 	SetDocumentVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// > `InstanceId` has been deprecated.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -292,8 +294,8 @@ type CfnAssociation interface {
 // The jsii proxy struct for CfnAssociation
 type jsiiProxy_CfnAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmIAssociationRef
 }
 
 func (j *jsiiProxy_CfnAssociation) ApplyOnlyAtCronInterval() interface{} {
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnAssociation) AssociationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssociation) AssociationRef() *AssociationReference {
-	var returns *AssociationReference
+func (j *jsiiProxy_CfnAssociation) AssociationRef() *interfacesawsssm.AssociationReference {
+	var returns *interfacesawsssm.AssociationReference
 	_jsii_.Get(
 		j,
 		"associationRef",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnAssociation) DocumentVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -597,6 +599,7 @@ func (j *jsiiProxy_CfnAssociation) WaitForSuccessTimeoutSeconds() *float64 {
 }
 
 
+// Create a new `AWS::SSM::Association`.
 func NewCfnAssociation(scope constructs.Construct, id *string, props *CfnAssociationProps) CfnAssociation {
 	_init_.Initialize()
 
@@ -614,6 +617,7 @@ func NewCfnAssociation(scope constructs.Construct, id *string, props *CfnAssocia
 	return &j
 }
 
+// Create a new `AWS::SSM::Association`.
 func NewCfnAssociation_Override(c CfnAssociation, scope constructs.Construct, id *string, props *CfnAssociationProps) {
 	_init_.Initialize()
 
@@ -773,13 +777,13 @@ func (j *jsiiProxy_CfnAssociation)SetWaitForSuccessTimeoutSeconds(val *float64) 
 }
 
 // Creates a new IAssociationRef from a associationId.
-func CfnAssociation_FromAssociationId(scope constructs.Construct, id *string, associationId *string) IAssociationRef {
+func CfnAssociation_FromAssociationId(scope constructs.Construct, id *string, associationId *string) interfacesawsssm.IAssociationRef {
 	_init_.Initialize()
 
 	if err := validateCfnAssociation_FromAssociationIdParameters(scope, id, associationId); err != nil {
 		panic(err)
 	}
-	var returns IAssociationRef
+	var returns interfacesawsssm.IAssociationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ssm.CfnAssociation",

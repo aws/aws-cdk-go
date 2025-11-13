@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -23,7 +25,7 @@ type StageBase interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -48,7 +50,7 @@ type StageBase interface {
 	// Name of this stage.
 	StageName() *string
 	// A reference to a Stage resource.
-	StageRef() *StageReference
+	StageRef() *interfacesawsapigateway.StageReference
 	// Add an ApiKey to this stage.
 	AddApiKey(id *string, options *ApiKeyOptions) IApiKey
 	// Apply the given removal policy to this resource.
@@ -119,8 +121,8 @@ type jsiiProxy_StageBase struct {
 	jsiiProxy_IStage
 }
 
-func (j *jsiiProxy_StageBase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_StageBase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -189,8 +191,8 @@ func (j *jsiiProxy_StageBase) StageName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_StageBase) StageRef() *StageReference {
-	var returns *StageReference
+func (j *jsiiProxy_StageBase) StageRef() *interfacesawsapigateway.StageReference {
+	var returns *interfacesawsapigateway.StageReference
 	_jsii_.Get(
 		j,
 		"stageRef",

@@ -53,8 +53,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSignalingChannel{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISignalingChannelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisvideoISignalingChannelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -111,8 +111,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStream{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStreamRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisvideoIStreamRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -120,43 +120,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisvideo.CfnStreamProps",
 		reflect.TypeOf((*CfnStreamProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisvideo.ISignalingChannelRef",
-		reflect.TypeOf((*ISignalingChannelRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "signalingChannelRef", GoGetter: "SignalingChannelRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISignalingChannelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesisvideo.IStreamRef",
-		reflect.TypeOf((*IStreamRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamRef", GoGetter: "StreamRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStreamRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisvideo.SignalingChannelReference",
-		reflect.TypeOf((*SignalingChannelReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesisvideo.StreamReference",
-		reflect.TypeOf((*StreamReference)(nil)).Elem(),
 	)
 }

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -178,8 +180,8 @@ import (
 //
 type CfnFlow interface {
 	awscdk.CfnResource
-	IFlowRef
 	awscdk.IInspectable
+	interfacesawsmediaconnect.IFlowRef
 	// The IP address from which video will be sent to output destinations.
 	AttrEgressIp() *string
 	// The Amazon Resource Name (ARN) of the flow.
@@ -212,9 +214,9 @@ type CfnFlow interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Flow resource.
-	FlowRef() *FlowReference
+	FlowRef() *interfacesawsmediaconnect.FlowReference
 	// Determines the processing capacity and feature set of the flow.
 	FlowSize() *string
 	SetFlowSize(val *string)
@@ -406,8 +408,8 @@ type CfnFlow interface {
 // The jsii proxy struct for CfnFlow
 type jsiiProxy_CfnFlow struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconnectIFlowRef
 }
 
 func (j *jsiiProxy_CfnFlow) AttrEgressIp() *string {
@@ -530,8 +532,8 @@ func (j *jsiiProxy_CfnFlow) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlow) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -540,8 +542,8 @@ func (j *jsiiProxy_CfnFlow) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) FlowRef() *FlowReference {
-	var returns *FlowReference
+func (j *jsiiProxy_CfnFlow) FlowRef() *interfacesawsmediaconnect.FlowReference {
+	var returns *interfacesawsmediaconnect.FlowReference
 	_jsii_.Get(
 		j,
 		"flowRef",
@@ -701,6 +703,7 @@ func (j *jsiiProxy_CfnFlow) VpcInterfaces() interface{} {
 }
 
 
+// Create a new `AWS::MediaConnect::Flow`.
 func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) CfnFlow {
 	_init_.Initialize()
 
@@ -718,6 +721,7 @@ func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::MediaConnect::Flow`.
 func NewCfnFlow_Override(c CfnFlow, scope constructs.Construct, id *string, props *CfnFlowProps) {
 	_init_.Initialize()
 

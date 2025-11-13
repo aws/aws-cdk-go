@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnSMSChannel interface {
 	awscdk.CfnResource
-	ISMSChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.ISMSChannelRef
 	// The unique identifier for the Amazon Pinpoint application that the SMS channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -54,7 +56,7 @@ type CfnSMSChannel interface {
 	// Specifies whether to enable the SMS channel for the application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -79,7 +81,7 @@ type CfnSMSChannel interface {
 	ShortCode() *string
 	SetShortCode(val *string)
 	// A reference to a SMSChannel resource.
-	SmsChannelRef() *SMSChannelReference
+	SmsChannelRef() *interfacesawspinpoint.SMSChannelReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -227,8 +229,8 @@ type CfnSMSChannel interface {
 // The jsii proxy struct for CfnSMSChannel
 type jsiiProxy_CfnSMSChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISMSChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointISMSChannelRef
 }
 
 func (j *jsiiProxy_CfnSMSChannel) ApplicationId() *string {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnSMSChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSMSChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSMSChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnSMSChannel) ShortCode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSMSChannel) SmsChannelRef() *SMSChannelReference {
-	var returns *SMSChannelReference
+func (j *jsiiProxy_CfnSMSChannel) SmsChannelRef() *interfacesawspinpoint.SMSChannelReference {
+	var returns *interfacesawspinpoint.SMSChannelReference
 	_jsii_.Get(
 		j,
 		"smsChannelRef",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnSMSChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::SMSChannel`.
 func NewCfnSMSChannel(scope constructs.Construct, id *string, props *CfnSMSChannelProps) CfnSMSChannel {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnSMSChannel(scope constructs.Construct, id *string, props *CfnSMSChann
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::SMSChannel`.
 func NewCfnSMSChannel_Override(c CfnSMSChannel, scope constructs.Construct, id *string, props *CfnSMSChannelProps) {
 	_init_.Initialize()
 

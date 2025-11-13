@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnGroupProfile interface {
 	awscdk.CfnResource
-	IGroupProfileRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IGroupProfileRef
 	// The identifier of the Amazon DataZone domain in which a group profile exists.
 	AttrDomainId() *string
 	// The name of a group profile.
@@ -48,12 +50,12 @@ type CfnGroupProfile interface {
 	// The identifier of the Amazon DataZone domain in which a group profile exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the group of a project member.
 	GroupIdentifier() *string
 	SetGroupIdentifier(val *string)
 	// A reference to a GroupProfile resource.
-	GroupProfileRef() *GroupProfileReference
+	GroupProfileRef() *interfacesawsdatazone.GroupProfileReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +223,8 @@ type CfnGroupProfile interface {
 // The jsii proxy struct for CfnGroupProfile
 type jsiiProxy_CfnGroupProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGroupProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIGroupProfileRef
 }
 
 func (j *jsiiProxy_CfnGroupProfile) AttrDomainId() *string {
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnGroupProfile) DomainIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGroupProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnGroupProfile) GroupIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupProfile) GroupProfileRef() *GroupProfileReference {
-	var returns *GroupProfileReference
+func (j *jsiiProxy_CfnGroupProfile) GroupProfileRef() *interfacesawsdatazone.GroupProfileReference {
+	var returns *interfacesawsdatazone.GroupProfileReference
 	_jsii_.Get(
 		j,
 		"groupProfileRef",
@@ -406,6 +408,7 @@ func (j *jsiiProxy_CfnGroupProfile) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::DataZone::GroupProfile`.
 func NewCfnGroupProfile(scope constructs.Construct, id *string, props *CfnGroupProfileProps) CfnGroupProfile {
 	_init_.Initialize()
 
@@ -423,6 +426,7 @@ func NewCfnGroupProfile(scope constructs.Construct, id *string, props *CfnGroupP
 	return &j
 }
 
+// Create a new `AWS::DataZone::GroupProfile`.
 func NewCfnGroupProfile_Override(c CfnGroupProfile, scope constructs.Construct, id *string, props *CfnGroupProfileProps) {
 	_init_.Initialize()
 

@@ -5,15 +5,17 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A UsagePlan, either managed by this CDK app, or imported.
 type IUsagePlan interface {
 	awscdk.IResource
-	IUsagePlanRef
+	interfacesawsapigateway.IUsagePlanRef
 	// Adds an ApiKey.
-	AddApiKey(apiKey IApiKeyRef, options *AddApiKeyOptions)
+	AddApiKey(apiKey interfacesawsapigateway.IApiKeyRef, options *AddApiKeyOptions)
 	// Id of the usage plan.
 	UsagePlanId() *string
 }
@@ -21,10 +23,10 @@ type IUsagePlan interface {
 // The jsii proxy for IUsagePlan
 type jsiiProxy_IUsagePlan struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IUsagePlanRef
+	internal.Type__interfacesawsapigatewayIUsagePlanRef
 }
 
-func (i *jsiiProxy_IUsagePlan) AddApiKey(apiKey IApiKeyRef, options *AddApiKeyOptions) {
+func (i *jsiiProxy_IUsagePlan) AddApiKey(apiKey interfacesawsapigateway.IApiKeyRef, options *AddApiKeyOptions) {
 	if err := i.validateAddApiKeyParameters(apiKey, options); err != nil {
 		panic(err)
 	}
@@ -56,8 +58,8 @@ func (j *jsiiProxy_IUsagePlan) UsagePlanId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IUsagePlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IUsagePlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -86,8 +88,8 @@ func (j *jsiiProxy_IUsagePlan) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IUsagePlan) UsagePlanRef() *UsagePlanReference {
-	var returns *UsagePlanReference
+func (j *jsiiProxy_IUsagePlan) UsagePlanRef() *interfacesawsapigateway.UsagePlanReference {
+	var returns *interfacesawsapigateway.UsagePlanReference
 	_jsii_.Get(
 		j,
 		"usagePlanRef",

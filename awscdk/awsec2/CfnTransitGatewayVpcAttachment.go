@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnTransitGatewayVpcAttachment interface {
 	awscdk.CfnResource
-	ITransitGatewayVpcAttachmentRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayVpcAttachmentRef
 	awscdk.ITaggable
 	// The IDs of one or more subnets to add.
 	AddSubnetIds() *[]*string
@@ -62,7 +64,7 @@ type CfnTransitGatewayVpcAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -102,7 +104,7 @@ type CfnTransitGatewayVpcAttachment interface {
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
 	// A reference to a TransitGatewayVpcAttachment resource.
-	TransitGatewayVpcAttachmentRef() *TransitGatewayVpcAttachmentReference
+	TransitGatewayVpcAttachmentRef() *interfacesawsec2.TransitGatewayVpcAttachmentReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -249,8 +251,8 @@ type CfnTransitGatewayVpcAttachment interface {
 // The jsii proxy struct for CfnTransitGatewayVpcAttachment
 type jsiiProxy_CfnTransitGatewayVpcAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayVpcAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayVpcAttachmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -424,8 +426,8 @@ func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) TransitGatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) TransitGatewayVpcAttachmentRef() *TransitGatewayVpcAttachmentReference {
-	var returns *TransitGatewayVpcAttachmentReference
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) TransitGatewayVpcAttachmentRef() *interfacesawsec2.TransitGatewayVpcAttachmentReference {
+	var returns *interfacesawsec2.TransitGatewayVpcAttachmentReference
 	_jsii_.Get(
 		j,
 		"transitGatewayVpcAttachmentRef",
@@ -465,6 +467,7 @@ func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayVpcAttachment`.
 func NewCfnTransitGatewayVpcAttachment(scope constructs.Construct, id *string, props *CfnTransitGatewayVpcAttachmentProps) CfnTransitGatewayVpcAttachment {
 	_init_.Initialize()
 
@@ -482,6 +485,7 @@ func NewCfnTransitGatewayVpcAttachment(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayVpcAttachment`.
 func NewCfnTransitGatewayVpcAttachment_Override(c CfnTransitGatewayVpcAttachment, scope constructs.Construct, id *string, props *CfnTransitGatewayVpcAttachmentProps) {
 	_init_.Initialize()
 

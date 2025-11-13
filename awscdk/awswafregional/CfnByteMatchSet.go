@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,11 +50,11 @@ import (
 //
 type CfnByteMatchSet interface {
 	awscdk.CfnResource
-	IByteMatchSetRef
 	awscdk.IInspectable
+	interfacesawswafregional.IByteMatchSetRef
 	AttrId() *string
 	// A reference to a ByteMatchSet resource.
-	ByteMatchSetRef() *ByteMatchSetReference
+	ByteMatchSetRef() *interfacesawswafregional.ByteMatchSetReference
 	// Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
 	ByteMatchTuples() interface{}
 	SetByteMatchTuples(val interface{})
@@ -65,7 +67,7 @@ type CfnByteMatchSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -233,8 +235,8 @@ type CfnByteMatchSet interface {
 // The jsii proxy struct for CfnByteMatchSet
 type jsiiProxy_CfnByteMatchSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IByteMatchSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalIByteMatchSetRef
 }
 
 func (j *jsiiProxy_CfnByteMatchSet) AttrId() *string {
@@ -247,8 +249,8 @@ func (j *jsiiProxy_CfnByteMatchSet) AttrId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnByteMatchSet) ByteMatchSetRef() *ByteMatchSetReference {
-	var returns *ByteMatchSetReference
+func (j *jsiiProxy_CfnByteMatchSet) ByteMatchSetRef() *interfacesawswafregional.ByteMatchSetReference {
+	var returns *interfacesawswafregional.ByteMatchSetReference
 	_jsii_.Get(
 		j,
 		"byteMatchSetRef",
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnByteMatchSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnByteMatchSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnByteMatchSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnByteMatchSet) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::WAFRegional::ByteMatchSet`.
 func NewCfnByteMatchSet(scope constructs.Construct, id *string, props *CfnByteMatchSetProps) CfnByteMatchSet {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnByteMatchSet(scope constructs.Construct, id *string, props *CfnByteMa
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::ByteMatchSet`.
 func NewCfnByteMatchSet_Override(c CfnByteMatchSet, scope constructs.Construct, id *string, props *CfnByteMatchSetProps) {
 	_init_.Initialize()
 

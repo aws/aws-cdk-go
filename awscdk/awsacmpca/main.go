@@ -15,18 +15,6 @@ func init() {
 			return &jsiiProxy_CertificateAuthority{}
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CertificateAuthorityActivationReference",
-		reflect.TypeOf((*CertificateAuthorityActivationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CertificateAuthorityReference",
-		reflect.TypeOf((*CertificateAuthorityReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CertificateReference",
-		reflect.TypeOf((*CertificateReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_acmpca.CfnCertificate",
 		reflect.TypeOf((*CfnCertificate)(nil)).Elem(),
@@ -76,8 +64,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCertificate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICertificateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsacmpcaICertificateRef)
 			return &j
 		},
 	)
@@ -189,8 +177,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCertificateAuthority{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICertificateAuthorityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsacmpcaICertificateAuthorityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -292,8 +280,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCertificateAuthorityActivation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICertificateAuthorityActivationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsacmpcaICertificateAuthorityActivationRef)
 			return &j
 		},
 	)
@@ -353,8 +341,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPermission{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPermissionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsacmpcaIPermissionRef)
 			return &j
 		},
 	)
@@ -377,69 +365,5 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_acmpca.ICertificateAuthorityActivationRef",
-		reflect.TypeOf((*ICertificateAuthorityActivationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "certificateAuthorityActivationRef", GoGetter: "CertificateAuthorityActivationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICertificateAuthorityActivationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_acmpca.ICertificateAuthorityRef",
-		reflect.TypeOf((*ICertificateAuthorityRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "certificateAuthorityRef", GoGetter: "CertificateAuthorityRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICertificateAuthorityRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_acmpca.ICertificateRef",
-		reflect.TypeOf((*ICertificateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICertificateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_acmpca.IPermissionRef",
-		reflect.TypeOf((*IPermissionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "permissionRef", GoGetter: "PermissionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPermissionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.PermissionReference",
-		reflect.TypeOf((*PermissionReference)(nil)).Elem(),
 	)
 }

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnAgent interface {
 	awscdk.CfnResource
-	IAgentRef
 	awscdk.IInspectable
+	interfacesawsdatasync.IAgentRef
 	awscdk.ITaggable
 	// Specifies your DataSync agent's activation key.
 	ActivationKey() *string
@@ -56,7 +58,7 @@ type CfnAgent interface {
 	AgentName() *string
 	SetAgentName(val *string)
 	// A reference to a Agent resource.
-	AgentRef() *AgentReference
+	AgentRef() *interfacesawsdatasync.AgentReference
 	// The Amazon Resource Name (ARN) of the agent.
 	//
 	// Use the `ListAgents` operation to return a list of agents for your account and AWS Region .
@@ -74,7 +76,7 @@ type CfnAgent interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnAgent interface {
 // The jsii proxy struct for CfnAgent
 type jsiiProxy_CfnAgent struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAgentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncIAgentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnAgent) AgentName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgent) AgentRef() *AgentReference {
-	var returns *AgentReference
+func (j *jsiiProxy_CfnAgent) AgentRef() *interfacesawsdatasync.AgentReference {
+	var returns *interfacesawsdatasync.AgentReference
 	_jsii_.Get(
 		j,
 		"agentRef",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnAgent) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgent) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAgent) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -469,6 +471,7 @@ func (j *jsiiProxy_CfnAgent) VpcEndpointId() *string {
 }
 
 
+// Create a new `AWS::DataSync::Agent`.
 func NewCfnAgent(scope constructs.Construct, id *string, props *CfnAgentProps) CfnAgent {
 	_init_.Initialize()
 
@@ -486,6 +489,7 @@ func NewCfnAgent(scope constructs.Construct, id *string, props *CfnAgentProps) C
 	return &j
 }
 
+// Create a new `AWS::DataSync::Agent`.
 func NewCfnAgent_Override(c CfnAgent, scope constructs.Construct, id *string, props *CfnAgentProps) {
 	_init_.Initialize()
 

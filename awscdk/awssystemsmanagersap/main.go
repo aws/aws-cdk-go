@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_systemsmanagersap.ApplicationReference",
-		reflect.TypeOf((*ApplicationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_systemsmanagersap.CfnApplication",
 		reflect.TypeOf((*CfnApplication)(nil)).Elem(),
@@ -62,8 +58,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApplication{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssystemsmanagersapIApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -79,20 +75,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_systemsmanagersap.CfnApplicationProps",
 		reflect.TypeOf((*CfnApplicationProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_systemsmanagersap.IApplicationRef",
-		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApplicationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

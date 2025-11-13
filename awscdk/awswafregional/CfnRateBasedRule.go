@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnRateBasedRule interface {
 	awscdk.CfnResource
-	IRateBasedRuleRef
 	awscdk.IInspectable
+	interfacesawswafregional.IRateBasedRuleRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -63,7 +65,7 @@ type CfnRateBasedRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -86,7 +88,7 @@ type CfnRateBasedRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a RateBasedRule resource.
-	RateBasedRuleRef() *RateBasedRuleReference
+	RateBasedRuleRef() *interfacesawswafregional.RateBasedRuleReference
 	// The field that AWS WAF uses to determine if requests are likely arriving from single source and thus subject to rate monitoring.
 	RateKey() *string
 	SetRateKey(val *string)
@@ -245,8 +247,8 @@ type CfnRateBasedRule interface {
 // The jsii proxy struct for CfnRateBasedRule
 type jsiiProxy_CfnRateBasedRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRateBasedRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalIRateBasedRuleRef
 }
 
 func (j *jsiiProxy_CfnRateBasedRule) AttrId() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnRateBasedRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRateBasedRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRateBasedRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnRateBasedRule) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRateBasedRule) RateBasedRuleRef() *RateBasedRuleReference {
-	var returns *RateBasedRuleReference
+func (j *jsiiProxy_CfnRateBasedRule) RateBasedRuleRef() *interfacesawswafregional.RateBasedRuleReference {
+	var returns *interfacesawswafregional.RateBasedRuleReference
 	_jsii_.Get(
 		j,
 		"rateBasedRuleRef",
@@ -430,6 +432,7 @@ func (j *jsiiProxy_CfnRateBasedRule) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::WAFRegional::RateBasedRule`.
 func NewCfnRateBasedRule(scope constructs.Construct, id *string, props *CfnRateBasedRuleProps) CfnRateBasedRule {
 	_init_.Initialize()
 
@@ -447,6 +450,7 @@ func NewCfnRateBasedRule(scope constructs.Construct, id *string, props *CfnRateB
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::RateBasedRule`.
 func NewCfnRateBasedRule_Override(c CfnRateBasedRule, scope constructs.Construct, id *string, props *CfnRateBasedRuleProps) {
 	_init_.Initialize()
 

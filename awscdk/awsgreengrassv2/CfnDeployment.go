@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrassv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrassv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,8 +101,8 @@ import (
 //
 type CfnDeployment interface {
 	awscdk.CfnResource
-	IDeploymentRef
 	awscdk.IInspectable
+	interfacesawsgreengrassv2.IDeploymentRef
 	awscdk.ITaggable
 	// The ID of the deployment.
 	AttrDeploymentId() *string
@@ -123,8 +125,8 @@ type CfnDeployment interface {
 	DeploymentPolicies() interface{}
 	SetDeploymentPolicies(val interface{})
 	// A reference to a Deployment resource.
-	DeploymentRef() *DeploymentReference
-	Env() *awscdk.ResourceEnvironment
+	DeploymentRef() *interfacesawsgreengrassv2.DeploymentReference
+	Env() *interfaces.ResourceEnvironment
 	// The job configuration for the deployment configuration.
 	IotJobConfiguration() interface{}
 	SetIotJobConfiguration(val interface{})
@@ -303,8 +305,8 @@ type CfnDeployment interface {
 // The jsii proxy struct for CfnDeployment
 type jsiiProxy_CfnDeployment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeploymentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassv2IDeploymentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnDeployment) DeploymentPolicies() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) DeploymentRef() *DeploymentReference {
-	var returns *DeploymentReference
+func (j *jsiiProxy_CfnDeployment) DeploymentRef() *interfacesawsgreengrassv2.DeploymentReference {
+	var returns *interfacesawsgreengrassv2.DeploymentReference
 	_jsii_.Get(
 		j,
 		"deploymentRef",
@@ -398,8 +400,8 @@ func (j *jsiiProxy_CfnDeployment) DeploymentRef() *DeploymentReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeployment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -519,6 +521,7 @@ func (j *jsiiProxy_CfnDeployment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GreengrassV2::Deployment`.
 func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeploymentProps) CfnDeployment {
 	_init_.Initialize()
 
@@ -536,6 +539,7 @@ func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeployme
 	return &j
 }
 
+// Create a new `AWS::GreengrassV2::Deployment`.
 func NewCfnDeployment_Override(c CfnDeployment, scope constructs.Construct, id *string, props *CfnDeploymentProps) {
 	_init_.Initialize()
 
@@ -615,13 +619,13 @@ func (j *jsiiProxy_CfnDeployment)SetTargetArn(val *string) {
 }
 
 // Creates a new IDeploymentRef from a deploymentId.
-func CfnDeployment_FromDeploymentId(scope constructs.Construct, id *string, deploymentId *string) IDeploymentRef {
+func CfnDeployment_FromDeploymentId(scope constructs.Construct, id *string, deploymentId *string) interfacesawsgreengrassv2.IDeploymentRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeployment_FromDeploymentIdParameters(scope, id, deploymentId); err != nil {
 		panic(err)
 	}
-	var returns IDeploymentRef
+	var returns interfacesawsgreengrassv2.IDeploymentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrassv2.CfnDeployment",

@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,7 +41,7 @@ type CfnResource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -245,8 +246,8 @@ func (j *jsiiProxy_CfnResource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResource) Env() *ResourceEnvironment {
-	var returns *ResourceEnvironment
+func (j *jsiiProxy_CfnResource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

@@ -5,11 +5,13 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IDomainName interface {
-	IDomainNameRef
+	interfacesawsapigateway.IDomainNameRef
 	awscdk.IResource
 	// The domain name (e.g. `example.com`).
 	DomainName() *string
@@ -21,7 +23,7 @@ type IDomainName interface {
 
 // The jsii proxy for IDomainName
 type jsiiProxy_IDomainName struct {
-	jsiiProxy_IDomainNameRef
+	internal.Type__interfacesawsapigatewayIDomainNameRef
 	internal.Type__awscdkIResource
 }
 
@@ -66,8 +68,8 @@ func (j *jsiiProxy_IDomainName) DomainNameAliasHostedZoneId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IDomainName) DomainNameRef() *DomainNameReference {
-	var returns *DomainNameReference
+func (j *jsiiProxy_IDomainName) DomainNameRef() *interfacesawsapigateway.DomainNameReference {
+	var returns *interfacesawsapigateway.DomainNameReference
 	_jsii_.Get(
 		j,
 		"domainNameRef",
@@ -76,8 +78,8 @@ func (j *jsiiProxy_IDomainName) DomainNameRef() *DomainNameReference {
 	return returns
 }
 
-func (j *jsiiProxy_IDomainName) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IDomainName) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

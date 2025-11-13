@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsshield/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsshield"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnDRTAccess interface {
 	awscdk.CfnResource
-	IDRTAccessRef
 	awscdk.IInspectable
+	interfacesawsshield.IDRTAccessRef
 	// The ID of the account that submitted the template.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -55,8 +57,8 @@ type CfnDRTAccess interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DRTAccess resource.
-	DrtAccessRef() *DRTAccessReference
-	Env() *awscdk.ResourceEnvironment
+	DrtAccessRef() *interfacesawsshield.DRTAccessReference
+	Env() *interfaces.ResourceEnvironment
 	// Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources.
 	LogBucketList() *[]*string
 	SetLogBucketList(val *[]*string)
@@ -227,8 +229,8 @@ type CfnDRTAccess interface {
 // The jsii proxy struct for CfnDRTAccess
 type jsiiProxy_CfnDRTAccess struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDRTAccessRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsshieldIDRTAccessRef
 }
 
 func (j *jsiiProxy_CfnDRTAccess) AttrAccountId() *string {
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnDRTAccess) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDRTAccess) DrtAccessRef() *DRTAccessReference {
-	var returns *DRTAccessReference
+func (j *jsiiProxy_CfnDRTAccess) DrtAccessRef() *interfacesawsshield.DRTAccessReference {
+	var returns *interfacesawsshield.DRTAccessReference
 	_jsii_.Get(
 		j,
 		"drtAccessRef",
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnDRTAccess) DrtAccessRef() *DRTAccessReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDRTAccess) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDRTAccess) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnDRTAccess) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Shield::DRTAccess`.
 func NewCfnDRTAccess(scope constructs.Construct, id *string, props *CfnDRTAccessProps) CfnDRTAccess {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnDRTAccess(scope constructs.Construct, id *string, props *CfnDRTAccess
 	return &j
 }
 
+// Create a new `AWS::Shield::DRTAccess`.
 func NewCfnDRTAccess_Override(c CfnDRTAccess, scope constructs.Construct, id *string, props *CfnDRTAccessProps) {
 	_init_.Initialize()
 

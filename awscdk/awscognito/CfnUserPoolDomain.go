@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnUserPoolDomain interface {
 	awscdk.CfnResource
-	IUserPoolDomainRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolDomainRef
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	AttrCloudFrontDistribution() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -50,7 +52,7 @@ type CfnUserPoolDomain interface {
 	// The name of the domain that you want to update.
 	Domain() *string
 	SetDomain(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -89,7 +91,7 @@ type CfnUserPoolDomain interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a UserPoolDomain resource.
-	UserPoolDomainRef() *UserPoolDomainReference
+	UserPoolDomainRef() *interfacesawscognito.UserPoolDomainReference
 	// The ID of the user pool that is associated with the domain you're updating.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
@@ -223,8 +225,8 @@ type CfnUserPoolDomain interface {
 // The jsii proxy struct for CfnUserPoolDomain
 type jsiiProxy_CfnUserPoolDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolDomainRef
 }
 
 func (j *jsiiProxy_CfnUserPoolDomain) AttrCloudFrontDistribution() *string {
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnUserPoolDomain) Domain() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnUserPoolDomain) UpdatedProperties() *map[string]interface{
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolDomain) UserPoolDomainRef() *UserPoolDomainReference {
-	var returns *UserPoolDomainReference
+func (j *jsiiProxy_CfnUserPoolDomain) UserPoolDomainRef() *interfacesawscognito.UserPoolDomainReference {
+	var returns *interfacesawscognito.UserPoolDomainReference
 	_jsii_.Get(
 		j,
 		"userPoolDomainRef",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnUserPoolDomain) UserPoolId() *string {
 }
 
 
+// Create a new `AWS::Cognito::UserPoolDomain`.
 func NewCfnUserPoolDomain(scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) CfnUserPoolDomain {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnUserPoolDomain(scope constructs.Construct, id *string, props *CfnUser
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolDomain`.
 func NewCfnUserPoolDomain_Override(c CfnUserPoolDomain, scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) {
 	_init_.Initialize()
 

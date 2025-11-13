@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnStage interface {
 	awscdk.CfnResource
-	IStageRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IStageRef
 	awscdk.ITaggable
 	// Settings for logging access in this stage.
 	AccessLogSettings() interface{}
@@ -90,7 +92,7 @@ type CfnStage interface {
 	// The description for the API stage.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -119,7 +121,7 @@ type CfnStage interface {
 	StageName() *string
 	SetStageName(val *string)
 	// A reference to a Stage resource.
-	StageRef() *StageReference
+	StageRef() *interfacesawsapigatewayv2.StageReference
 	// A map that defines the stage variables for a `Stage` .
 	StageVariables() interface{}
 	SetStageVariables(val interface{})
@@ -271,8 +273,8 @@ type CfnStage interface {
 // The jsii proxy struct for CfnStage
 type jsiiProxy_CfnStage struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStageRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IStageRef
 	internal.Type__awscdkITaggable
 }
 
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnStage) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStage) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -476,8 +478,8 @@ func (j *jsiiProxy_CfnStage) StageName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStage) StageRef() *StageReference {
-	var returns *StageReference
+func (j *jsiiProxy_CfnStage) StageRef() *interfacesawsapigatewayv2.StageReference {
+	var returns *interfacesawsapigatewayv2.StageReference
 	_jsii_.Get(
 		j,
 		"stageRef",
@@ -537,6 +539,7 @@ func (j *jsiiProxy_CfnStage) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGatewayV2::Stage`.
 func NewCfnStage(scope constructs.Construct, id *string, props *CfnStageProps) CfnStage {
 	_init_.Initialize()
 
@@ -554,6 +557,7 @@ func NewCfnStage(scope constructs.Construct, id *string, props *CfnStageProps) C
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::Stage`.
 func NewCfnStage_Override(c CfnStage, scope constructs.Construct, id *string, props *CfnStageProps) {
 	_init_.Initialize()
 

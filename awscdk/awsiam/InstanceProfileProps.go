@@ -4,14 +4,24 @@ package awsiam
 // Properties of an Instance Profile.
 //
 // Example:
+//   var vpc Vpc
+//
+//
 //   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 //   	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
 //   })
-//
 //   instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), &InstanceProfileProps{
 //   	Role: Role,
-//   	InstanceProfileName: jsii.String("MyInstanceProfile"),
-//   	Path: jsii.String("/sample/path/"),
+//   })
+//
+//   template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   	LaunchTemplateName: jsii.String("MyTemplateV1"),
+//   	VersionDescription: jsii.String("This is my v1 template"),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+//   	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
+//   		Vpc: vpc,
+//   	}),
+//   	InstanceProfile: InstanceProfile,
 //   })
 //
 type InstanceProfileProps struct {

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalogappregistry/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalogappregistry"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnResourceAssociation interface {
 	awscdk.CfnResource
-	IResourceAssociationRef
 	awscdk.IInspectable
+	interfacesawsservicecatalogappregistry.IResourceAssociationRef
 	// The name or ID of the application.
 	Application() *string
 	SetApplication(val *string)
@@ -47,7 +49,7 @@ type CfnResourceAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnResourceAssociation interface {
 	Resource() *string
 	SetResource(val *string)
 	// A reference to a ResourceAssociation resource.
-	ResourceAssociationRef() *ResourceAssociationReference
+	ResourceAssociationRef() *interfacesawsservicecatalogappregistry.ResourceAssociationReference
 	// The type of resource of which the application will be associated.
 	ResourceType() *string
 	SetResourceType(val *string)
@@ -220,8 +222,8 @@ type CfnResourceAssociation interface {
 // The jsii proxy struct for CfnResourceAssociation
 type jsiiProxy_CfnResourceAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogappregistryIResourceAssociationRef
 }
 
 func (j *jsiiProxy_CfnResourceAssociation) Application() *string {
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnResourceAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnResourceAssociation) Resource() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceAssociation) ResourceAssociationRef() *ResourceAssociationReference {
-	var returns *ResourceAssociationReference
+func (j *jsiiProxy_CfnResourceAssociation) ResourceAssociationRef() *interfacesawsservicecatalogappregistry.ResourceAssociationReference {
+	var returns *interfacesawsservicecatalogappregistry.ResourceAssociationReference
 	_jsii_.Get(
 		j,
 		"resourceAssociationRef",
@@ -405,6 +407,7 @@ func (j *jsiiProxy_CfnResourceAssociation) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
 func NewCfnResourceAssociation(scope constructs.Construct, id *string, props *CfnResourceAssociationProps) CfnResourceAssociation {
 	_init_.Initialize()
 
@@ -422,6 +425,7 @@ func NewCfnResourceAssociation(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
 func NewCfnResourceAssociation_Override(c CfnResourceAssociation, scope constructs.Construct, id *string, props *CfnResourceAssociationProps) {
 	_init_.Initialize()
 

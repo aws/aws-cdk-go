@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecuritylake/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecuritylake"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,13 +37,13 @@ import (
 //
 type CfnAwsLogSource interface {
 	awscdk.CfnResource
-	IAwsLogSourceRef
 	awscdk.IInspectable
+	interfacesawssecuritylake.IAwsLogSourceRef
 	// Specify the AWS account information where you want to enable Security Lake.
 	Accounts() *[]*string
 	SetAccounts(val *[]*string)
 	// A reference to a AwsLogSource resource.
-	AwsLogSourceRef() *AwsLogSourceReference
+	AwsLogSourceRef() *interfacesawssecuritylake.AwsLogSourceReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -54,7 +56,7 @@ type CfnAwsLogSource interface {
 	// The Amazon Resource Name (ARN) used to create the data lake.
 	DataLakeArn() *string
 	SetDataLakeArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,8 +227,8 @@ type CfnAwsLogSource interface {
 // The jsii proxy struct for CfnAwsLogSource
 type jsiiProxy_CfnAwsLogSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAwsLogSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecuritylakeIAwsLogSourceRef
 }
 
 func (j *jsiiProxy_CfnAwsLogSource) Accounts() *[]*string {
@@ -239,8 +241,8 @@ func (j *jsiiProxy_CfnAwsLogSource) Accounts() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAwsLogSource) AwsLogSourceRef() *AwsLogSourceReference {
-	var returns *AwsLogSourceReference
+func (j *jsiiProxy_CfnAwsLogSource) AwsLogSourceRef() *interfacesawssecuritylake.AwsLogSourceReference {
+	var returns *interfacesawssecuritylake.AwsLogSourceReference
 	_jsii_.Get(
 		j,
 		"awsLogSourceRef",
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnAwsLogSource) DataLakeArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAwsLogSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAwsLogSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -390,6 +392,7 @@ func (j *jsiiProxy_CfnAwsLogSource) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::SecurityLake::AwsLogSource`.
 func NewCfnAwsLogSource(scope constructs.Construct, id *string, props *CfnAwsLogSourceProps) CfnAwsLogSource {
 	_init_.Initialize()
 
@@ -407,6 +410,7 @@ func NewCfnAwsLogSource(scope constructs.Construct, id *string, props *CfnAwsLog
 	return &j
 }
 
+// Create a new `AWS::SecurityLake::AwsLogSource`.
 func NewCfnAwsLogSource_Override(c CfnAwsLogSource, scope constructs.Construct, id *string, props *CfnAwsLogSourceProps) {
 	_init_.Initialize()
 

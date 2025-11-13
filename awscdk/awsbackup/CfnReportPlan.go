@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnReportPlan interface {
 	awscdk.CfnResource
-	IReportPlanRef
 	awscdk.IInspectable
+	interfacesawsbackup.IReportPlanRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of your report plan.
 	AttrReportPlanArn() *string
@@ -60,7 +62,7 @@ type CfnReportPlan interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -88,7 +90,7 @@ type CfnReportPlan interface {
 	ReportPlanName() *string
 	SetReportPlanName(val *string)
 	// A reference to a ReportPlan resource.
-	ReportPlanRef() *ReportPlanReference
+	ReportPlanRef() *interfacesawsbackup.ReportPlanReference
 	// The tags to assign to your report plan.
 	ReportPlanTags() *[]*awscdk.CfnTag
 	SetReportPlanTags(val *[]*awscdk.CfnTag)
@@ -244,8 +246,8 @@ type CfnReportPlan interface {
 // The jsii proxy struct for CfnReportPlan
 type jsiiProxy_CfnReportPlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReportPlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupIReportPlanRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnReportPlan) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReportPlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReportPlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnReportPlan) ReportPlanName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReportPlan) ReportPlanRef() *ReportPlanReference {
-	var returns *ReportPlanReference
+func (j *jsiiProxy_CfnReportPlan) ReportPlanRef() *interfacesawsbackup.ReportPlanReference {
+	var returns *interfacesawsbackup.ReportPlanReference
 	_jsii_.Get(
 		j,
 		"reportPlanRef",
@@ -440,6 +442,7 @@ func (j *jsiiProxy_CfnReportPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Backup::ReportPlan`.
 func NewCfnReportPlan(scope constructs.Construct, id *string, props *CfnReportPlanProps) CfnReportPlan {
 	_init_.Initialize()
 
@@ -457,6 +460,7 @@ func NewCfnReportPlan(scope constructs.Construct, id *string, props *CfnReportPl
 	return &j
 }
 
+// Create a new `AWS::Backup::ReportPlan`.
 func NewCfnReportPlan_Override(c CfnReportPlan, scope constructs.Construct, id *string, props *CfnReportPlanProps) {
 	_init_.Initialize()
 

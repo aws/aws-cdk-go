@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsneptune/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsneptune"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
-	IDBClusterParameterGroupRef
 	awscdk.IInspectable
+	interfacesawsneptune.IDBClusterParameterGroupRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -52,11 +54,11 @@ type CfnDBClusterParameterGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DBClusterParameterGroup resource.
-	DbClusterParameterGroupRef() *DBClusterParameterGroupReference
+	DbClusterParameterGroupRef() *interfacesawsneptune.DBClusterParameterGroupReference
 	// Provides the customer-specified description for this DB cluster parameter group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Must be `neptune1` for engine versions prior to [1.2.0.0](https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.2.0.0.html) , or `neptune1.2` for engine version `1.2.0.0` and higher.
 	Family() *string
 	SetFamily(val *string)
@@ -235,8 +237,8 @@ type CfnDBClusterParameterGroup interface {
 // The jsii proxy struct for CfnDBClusterParameterGroup
 type jsiiProxy_CfnDBClusterParameterGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBClusterParameterGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsneptuneIDBClusterParameterGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBClusterParameterGroup) DbClusterParameterGroupRef() *DBClusterParameterGroupReference {
-	var returns *DBClusterParameterGroupReference
+func (j *jsiiProxy_CfnDBClusterParameterGroup) DbClusterParameterGroupRef() *interfacesawsneptune.DBClusterParameterGroupReference {
+	var returns *interfacesawsneptune.DBClusterParameterGroupReference
 	_jsii_.Get(
 		j,
 		"dbClusterParameterGroupRef",
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBClusterParameterGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBClusterParameterGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,6 +423,7 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::Neptune::DBClusterParameterGroup`.
 func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) CfnDBClusterParameterGroup {
 	_init_.Initialize()
 
@@ -438,6 +441,7 @@ func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::Neptune::DBClusterParameterGroup`.
 func NewCfnDBClusterParameterGroup_Override(c CfnDBClusterParameterGroup, scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) {
 	_init_.Initialize()
 

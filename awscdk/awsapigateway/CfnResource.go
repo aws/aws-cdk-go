@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnResource interface {
 	awscdk.CfnResource
-	IResourceRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IResourceRef
 	// The ID for the resource.
 	//
 	// For example: `abc123` .
@@ -41,7 +43,7 @@ type CfnResource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -66,7 +68,7 @@ type CfnResource interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Resource resource.
-	ResourceRef() *ResourceReference
+	ResourceRef() *interfacesawsapigateway.ResourceReference
 	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
@@ -217,8 +219,8 @@ type CfnResource interface {
 // The jsii proxy struct for CfnResource
 type jsiiProxy_CfnResource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIResourceRef
 }
 
 func (j *jsiiProxy_CfnResource) AttrResourceId() *string {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnResource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnResource) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResource) ResourceRef() *ResourceReference {
-	var returns *ResourceReference
+func (j *jsiiProxy_CfnResource) ResourceRef() *interfacesawsapigateway.ResourceReference {
+	var returns *interfacesawsapigateway.ResourceReference
 	_jsii_.Get(
 		j,
 		"resourceRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnResource) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGateway::Resource`.
 func NewCfnResource(scope constructs.Construct, id *string, props *CfnResourceProps) CfnResource {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnResource(scope constructs.Construct, id *string, props *CfnResourcePr
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::Resource`.
 func NewCfnResource_Override(c CfnResource, scope constructs.Construct, id *string, props *CfnResourceProps) {
 	_init_.Initialize()
 

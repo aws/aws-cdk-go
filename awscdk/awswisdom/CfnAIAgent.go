@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -189,11 +191,11 @@ import (
 //
 type CfnAIAgent interface {
 	awscdk.CfnResource
-	IAIAgentRef
 	awscdk.IInspectable
+	interfacesawswisdom.IAIAgentRef
 	awscdk.ITaggableV2
 	// A reference to a AIAgent resource.
-	AiAgentRef() *AIAgentReference
+	AiAgentRef() *interfacesawswisdom.AIAgentReference
 	// The identifier of the Amazon Q in Connect assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
@@ -221,7 +223,7 @@ type CfnAIAgent interface {
 	// The description of the AI Agent.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -395,13 +397,13 @@ type CfnAIAgent interface {
 // The jsii proxy struct for CfnAIAgent
 type jsiiProxy_CfnAIAgent struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAIAgentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIAIAgentRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAIAgent) AiAgentRef() *AIAgentReference {
-	var returns *AIAgentReference
+func (j *jsiiProxy_CfnAIAgent) AiAgentRef() *interfacesawswisdom.AIAgentReference {
+	var returns *interfacesawswisdom.AIAgentReference
 	_jsii_.Get(
 		j,
 		"aiAgentRef",
@@ -530,8 +532,8 @@ func (j *jsiiProxy_CfnAIAgent) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIAgent) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAIAgent) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -631,6 +633,7 @@ func (j *jsiiProxy_CfnAIAgent) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Wisdom::AIAgent`.
 func NewCfnAIAgent(scope constructs.Construct, id *string, props *CfnAIAgentProps) CfnAIAgent {
 	_init_.Initialize()
 
@@ -648,6 +651,7 @@ func NewCfnAIAgent(scope constructs.Construct, id *string, props *CfnAIAgentProp
 	return &j
 }
 
+// Create a new `AWS::Wisdom::AIAgent`.
 func NewCfnAIAgent_Override(c CfnAIAgent, scope constructs.Construct, id *string, props *CfnAIAgentProps) {
 	_init_.Initialize()
 

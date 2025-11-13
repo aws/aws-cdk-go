@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssigner/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssigner"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnProfilePermission interface {
 	awscdk.CfnResource
-	IProfilePermissionRef
 	awscdk.IInspectable
+	interfacesawssigner.IProfilePermissionRef
 	// The AWS Signer action permitted as part of cross-account permissions.
 	Action() *string
 	SetAction(val *string)
@@ -44,7 +46,7 @@ type CfnProfilePermission interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -64,7 +66,7 @@ type CfnProfilePermission interface {
 	ProfileName() *string
 	SetProfileName(val *string)
 	// A reference to a ProfilePermission resource.
-	ProfilePermissionRef() *ProfilePermissionReference
+	ProfilePermissionRef() *interfacesawssigner.ProfilePermissionReference
 	// The version of the signing profile.
 	ProfileVersion() *string
 	SetProfileVersion(val *string)
@@ -223,8 +225,8 @@ type CfnProfilePermission interface {
 // The jsii proxy struct for CfnProfilePermission
 type jsiiProxy_CfnProfilePermission struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProfilePermissionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssignerIProfilePermissionRef
 }
 
 func (j *jsiiProxy_CfnProfilePermission) Action() *string {
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnProfilePermission) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfilePermission) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProfilePermission) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnProfilePermission) ProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfilePermission) ProfilePermissionRef() *ProfilePermissionReference {
-	var returns *ProfilePermissionReference
+func (j *jsiiProxy_CfnProfilePermission) ProfilePermissionRef() *interfacesawssigner.ProfilePermissionReference {
+	var returns *interfacesawssigner.ProfilePermissionReference
 	_jsii_.Get(
 		j,
 		"profilePermissionRef",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnProfilePermission) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::Signer::ProfilePermission`.
 func NewCfnProfilePermission(scope constructs.Construct, id *string, props *CfnProfilePermissionProps) CfnProfilePermission {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnProfilePermission(scope constructs.Construct, id *string, props *CfnP
 	return &j
 }
 
+// Create a new `AWS::Signer::ProfilePermission`.
 func NewCfnProfilePermission_Override(c CfnProfilePermission, scope constructs.Construct, id *string, props *CfnProfilePermissionProps) {
 	_init_.Initialize()
 

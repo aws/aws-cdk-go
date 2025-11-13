@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmpa/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmpa"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnIdentitySource interface {
 	awscdk.CfnResource
-	IIdentitySourceRef
 	awscdk.IInspectable
+	interfacesawsmpa.IIdentitySourceRef
 	awscdk.ITaggableV2
 	// Timestamp when the identity source was created.
 	AttrCreationTime() *string
@@ -74,12 +76,12 @@ type CfnIdentitySource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A `IdentitySourceParameters` object.
 	IdentitySourceParameters() interface{}
 	SetIdentitySourceParameters(val interface{})
 	// A reference to a IdentitySource resource.
-	IdentitySourceRef() *IdentitySourceReference
+	IdentitySourceRef() *interfacesawsmpa.IdentitySourceReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,8 +249,8 @@ type CfnIdentitySource interface {
 // The jsii proxy struct for CfnIdentitySource
 type jsiiProxy_CfnIdentitySource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdentitySourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmpaIIdentitySourceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnIdentitySource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentitySource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdentitySource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnIdentitySource) IdentitySourceParameters() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentitySource) IdentitySourceRef() *IdentitySourceReference {
-	var returns *IdentitySourceReference
+func (j *jsiiProxy_CfnIdentitySource) IdentitySourceRef() *interfacesawsmpa.IdentitySourceReference {
+	var returns *interfacesawsmpa.IdentitySourceReference
 	_jsii_.Get(
 		j,
 		"identitySourceRef",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnIdentitySource) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::MPA::IdentitySource`.
 func NewCfnIdentitySource(scope constructs.Construct, id *string, props *CfnIdentitySourceProps) CfnIdentitySource {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnIdentitySource(scope constructs.Construct, id *string, props *CfnIden
 	return &j
 }
 
+// Create a new `AWS::MPA::IdentitySource`.
 func NewCfnIdentitySource_Override(c CfnIdentitySource, scope constructs.Construct, id *string, props *CfnIdentitySourceProps) {
 	_init_.Initialize()
 

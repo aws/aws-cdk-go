@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,6 +34,7 @@ import (
 //   	DefaultRouteTablePropagation: jsii.String("defaultRouteTablePropagation"),
 //   	Description: jsii.String("description"),
 //   	DnsSupport: jsii.String("dnsSupport"),
+//   	EncryptionSupport: jsii.String("encryptionSupport"),
 //   	MulticastSupport: jsii.String("multicastSupport"),
 //   	PropagationDefaultRouteTableId: jsii.String("propagationDefaultRouteTableId"),
 //   	SecurityGroupReferencingSupport: jsii.String("securityGroupReferencingSupport"),
@@ -51,8 +54,8 @@ import (
 //
 type CfnTransitGateway interface {
 	awscdk.CfnResource
-	ITransitGatewayRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayRef
 	awscdk.ITaggable
 	// A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	AmazonSideAsn() *float64
@@ -60,6 +63,7 @@ type CfnTransitGateway interface {
 	// The ID of the default association route table.
 	AssociationDefaultRouteTableId() *string
 	SetAssociationDefaultRouteTableId(val *string)
+	AttrEncryptionSupportState() *string
 	// The ID of the transit gateway.
 	AttrId() *string
 	AttrTransitGatewayArn() *string
@@ -87,7 +91,9 @@ type CfnTransitGateway interface {
 	// Enable or disable DNS support.
 	DnsSupport() *string
 	SetDnsSupport(val *string)
-	Env() *awscdk.ResourceEnvironment
+	EncryptionSupport() *string
+	SetEncryptionSupport(val *string)
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -127,7 +133,7 @@ type CfnTransitGateway interface {
 	TransitGatewayCidrBlocks() *[]*string
 	SetTransitGatewayCidrBlocks(val *[]*string)
 	// A reference to a TransitGateway resource.
-	TransitGatewayRef() *TransitGatewayReference
+	TransitGatewayRef() *interfacesawsec2.TransitGatewayReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -274,8 +280,8 @@ type CfnTransitGateway interface {
 // The jsii proxy struct for CfnTransitGateway
 type jsiiProxy_CfnTransitGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -294,6 +300,16 @@ func (j *jsiiProxy_CfnTransitGateway) AssociationDefaultRouteTableId() *string {
 	_jsii_.Get(
 		j,
 		"associationDefaultRouteTableId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGateway) AttrEncryptionSupportState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEncryptionSupportState",
 		&returns,
 	)
 	return returns
@@ -409,8 +425,18 @@ func (j *jsiiProxy_CfnTransitGateway) DnsSupport() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGateway) EncryptionSupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"encryptionSupport",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -519,8 +545,8 @@ func (j *jsiiProxy_CfnTransitGateway) TransitGatewayCidrBlocks() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGateway) TransitGatewayRef() *TransitGatewayReference {
-	var returns *TransitGatewayReference
+func (j *jsiiProxy_CfnTransitGateway) TransitGatewayRef() *interfacesawsec2.TransitGatewayReference {
+	var returns *interfacesawsec2.TransitGatewayReference
 	_jsii_.Get(
 		j,
 		"transitGatewayRef",
@@ -560,6 +586,7 @@ func (j *jsiiProxy_CfnTransitGateway) VpnEcmpSupport() *string {
 }
 
 
+// Create a new `AWS::EC2::TransitGateway`.
 func NewCfnTransitGateway(scope constructs.Construct, id *string, props *CfnTransitGatewayProps) CfnTransitGateway {
 	_init_.Initialize()
 
@@ -577,6 +604,7 @@ func NewCfnTransitGateway(scope constructs.Construct, id *string, props *CfnTran
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGateway`.
 func NewCfnTransitGateway_Override(c CfnTransitGateway, scope constructs.Construct, id *string, props *CfnTransitGatewayProps) {
 	_init_.Initialize()
 
@@ -643,6 +671,14 @@ func (j *jsiiProxy_CfnTransitGateway)SetDnsSupport(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnTransitGateway)SetEncryptionSupport(val *string) {
+	_jsii_.Set(
+		j,
+		"encryptionSupport",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTransitGateway)SetMulticastSupport(val *string) {
 	_jsii_.Set(
 		j,
@@ -695,13 +731,13 @@ func (j *jsiiProxy_CfnTransitGateway)SetVpnEcmpSupport(val *string) {
 }
 
 // Creates a new ITransitGatewayRef from an ARN.
-func CfnTransitGateway_FromTransitGatewayArn(scope constructs.Construct, id *string, arn *string) ITransitGatewayRef {
+func CfnTransitGateway_FromTransitGatewayArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.ITransitGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnTransitGateway_FromTransitGatewayArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ITransitGatewayRef
+	var returns interfacesawsec2.ITransitGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGateway",
@@ -714,13 +750,13 @@ func CfnTransitGateway_FromTransitGatewayArn(scope constructs.Construct, id *str
 }
 
 // Creates a new ITransitGatewayRef from a transitGatewayId.
-func CfnTransitGateway_FromTransitGatewayId(scope constructs.Construct, id *string, transitGatewayId *string) ITransitGatewayRef {
+func CfnTransitGateway_FromTransitGatewayId(scope constructs.Construct, id *string, transitGatewayId *string) interfacesawsec2.ITransitGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnTransitGateway_FromTransitGatewayIdParameters(scope, id, transitGatewayId); err != nil {
 		panic(err)
 	}
-	var returns ITransitGatewayRef
+	var returns interfacesawsec2.ITransitGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGateway",

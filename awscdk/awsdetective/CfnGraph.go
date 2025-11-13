@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdetective/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdetective"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnGraph interface {
 	awscdk.CfnResource
-	IGraphRef
 	awscdk.IInspectable
+	interfacesawsdetective.IGraphRef
 	awscdk.ITaggable
 	// The ARN of the new behavior graph.
 	AttrArn() *string
@@ -49,9 +51,9 @@ type CfnGraph interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Graph resource.
-	GraphRef() *GraphReference
+	GraphRef() *interfacesawsdetective.GraphReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +223,8 @@ type CfnGraph interface {
 // The jsii proxy struct for CfnGraph
 type jsiiProxy_CfnGraph struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGraphRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdetectiveIGraphRef
 	internal.Type__awscdkITaggable
 }
 
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnGraph) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGraph) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGraph) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnGraph) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGraph) GraphRef() *GraphReference {
-	var returns *GraphReference
+func (j *jsiiProxy_CfnGraph) GraphRef() *interfacesawsdetective.GraphReference {
+	var returns *interfacesawsdetective.GraphReference
 	_jsii_.Get(
 		j,
 		"graphRef",
@@ -387,6 +389,7 @@ func (j *jsiiProxy_CfnGraph) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Detective::Graph`.
 func NewCfnGraph(scope constructs.Construct, id *string, props *CfnGraphProps) CfnGraph {
 	_init_.Initialize()
 
@@ -404,6 +407,7 @@ func NewCfnGraph(scope constructs.Construct, id *string, props *CfnGraphProps) C
 	return &j
 }
 
+// Create a new `AWS::Detective::Graph`.
 func NewCfnGraph_Override(c CfnGraph, scope constructs.Construct, id *string, props *CfnGraphProps) {
 	_init_.Initialize()
 

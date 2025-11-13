@@ -3,7 +3,7 @@ package awsfsx
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for the FSx file system.
@@ -53,7 +53,7 @@ type FileSystemProps struct {
 	// The KMS key used for encryption to protect your data at rest.
 	// Default: - the aws/fsx default KMS key for the AWS account being deployed into.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
 	// Default: RemovalPolicy.RETAIN
 	//

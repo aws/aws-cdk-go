@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -85,10 +87,10 @@ import (
 //
 type CfnAccountPolicy interface {
 	awscdk.CfnResource
-	IAccountPolicyRef
 	awscdk.IInspectable
+	interfacesawslogs.IAccountPolicyRef
 	// A reference to a AccountPolicy resource.
-	AccountPolicyRef() *AccountPolicyReference
+	AccountPolicyRef() *interfacesawslogs.AccountPolicyReference
 	// The account ID of the account where this policy was created.
 	//
 	// For example, `123456789012` .
@@ -102,7 +104,7 @@ type CfnAccountPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -282,12 +284,12 @@ type CfnAccountPolicy interface {
 // The jsii proxy struct for CfnAccountPolicy
 type jsiiProxy_CfnAccountPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccountPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsIAccountPolicyRef
 }
 
-func (j *jsiiProxy_CfnAccountPolicy) AccountPolicyRef() *AccountPolicyReference {
-	var returns *AccountPolicyReference
+func (j *jsiiProxy_CfnAccountPolicy) AccountPolicyRef() *interfacesawslogs.AccountPolicyReference {
+	var returns *interfacesawslogs.AccountPolicyReference
 	_jsii_.Get(
 		j,
 		"accountPolicyRef",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnAccountPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccountPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccountPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -467,6 +469,7 @@ func (j *jsiiProxy_CfnAccountPolicy) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Logs::AccountPolicy`.
 func NewCfnAccountPolicy(scope constructs.Construct, id *string, props *CfnAccountPolicyProps) CfnAccountPolicy {
 	_init_.Initialize()
 
@@ -484,6 +487,7 @@ func NewCfnAccountPolicy(scope constructs.Construct, id *string, props *CfnAccou
 	return &j
 }
 
+// Create a new `AWS::Logs::AccountPolicy`.
 func NewCfnAccountPolicy_Override(c CfnAccountPolicy, scope constructs.Construct, id *string, props *CfnAccountPolicyProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappintegrations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappintegrations"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnEventIntegration interface {
 	awscdk.CfnResource
-	IEventIntegrationRef
 	awscdk.IInspectable
+	interfacesawsappintegrations.IEventIntegrationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the event integration.
 	AttrEventIntegrationArn() *string
@@ -56,7 +58,7 @@ type CfnEventIntegration interface {
 	// The event integration description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon EventBridge bus for the event integration.
 	EventBridgeBus() *string
 	SetEventBridgeBus(val *string)
@@ -64,7 +66,7 @@ type CfnEventIntegration interface {
 	EventFilter() interface{}
 	SetEventFilter(val interface{})
 	// A reference to a EventIntegration resource.
-	EventIntegrationRef() *EventIntegrationReference
+	EventIntegrationRef() *interfacesawsappintegrations.EventIntegrationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,8 +239,8 @@ type CfnEventIntegration interface {
 // The jsii proxy struct for CfnEventIntegration
 type jsiiProxy_CfnEventIntegration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventIntegrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappintegrationsIEventIntegrationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnEventIntegration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventIntegration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventIntegration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnEventIntegration) EventFilter() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventIntegration) EventIntegrationRef() *EventIntegrationReference {
-	var returns *EventIntegrationReference
+func (j *jsiiProxy_CfnEventIntegration) EventIntegrationRef() *interfacesawsappintegrations.EventIntegrationReference {
+	var returns *interfacesawsappintegrations.EventIntegrationReference
 	_jsii_.Get(
 		j,
 		"eventIntegrationRef",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnEventIntegration) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::AppIntegrations::EventIntegration`.
 func NewCfnEventIntegration(scope constructs.Construct, id *string, props *CfnEventIntegrationProps) CfnEventIntegration {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnEventIntegration(scope constructs.Construct, id *string, props *CfnEv
 	return &j
 }
 
+// Create a new `AWS::AppIntegrations::EventIntegration`.
 func NewCfnEventIntegration_Override(c CfnEventIntegration, scope constructs.Construct, id *string, props *CfnEventIntegrationProps) {
 	_init_.Initialize()
 
@@ -513,13 +517,13 @@ func (j *jsiiProxy_CfnEventIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IEventIntegrationRef from an ARN.
-func CfnEventIntegration_FromEventIntegrationArn(scope constructs.Construct, id *string, arn *string) IEventIntegrationRef {
+func CfnEventIntegration_FromEventIntegrationArn(scope constructs.Construct, id *string, arn *string) interfacesawsappintegrations.IEventIntegrationRef {
 	_init_.Initialize()
 
 	if err := validateCfnEventIntegration_FromEventIntegrationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IEventIntegrationRef
+	var returns interfacesawsappintegrations.IEventIntegrationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appintegrations.CfnEventIntegration",
@@ -532,13 +536,13 @@ func CfnEventIntegration_FromEventIntegrationArn(scope constructs.Construct, id 
 }
 
 // Creates a new IEventIntegrationRef from a eventIntegrationName.
-func CfnEventIntegration_FromEventIntegrationName(scope constructs.Construct, id *string, eventIntegrationName *string) IEventIntegrationRef {
+func CfnEventIntegration_FromEventIntegrationName(scope constructs.Construct, id *string, eventIntegrationName *string) interfacesawsappintegrations.IEventIntegrationRef {
 	_init_.Initialize()
 
 	if err := validateCfnEventIntegration_FromEventIntegrationNameParameters(scope, id, eventIntegrationName); err != nil {
 		panic(err)
 	}
-	var returns IEventIntegrationRef
+	var returns interfacesawsappintegrations.IEventIntegrationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appintegrations.CfnEventIntegration",

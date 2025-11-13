@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -138,8 +140,8 @@ import (
 //
 type CfnFunction interface {
 	awscdk.CfnResource
-	IFunctionRef
 	awscdk.IInspectable
+	interfacesawssam.IFunctionRef
 	awscdk.ITaggable
 	Architectures() *[]*string
 	SetArchitectures(val *[]*string)
@@ -168,7 +170,7 @@ type CfnFunction interface {
 	SetDeploymentPreference(val interface{})
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	Environment() interface{}
 	SetEnvironment(val interface{})
 	EphemeralStorage() interface{}
@@ -182,7 +184,7 @@ type CfnFunction interface {
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// A reference to a Function resource.
-	FunctionRef() *FunctionReference
+	FunctionRef() *interfacesawssam.FunctionReference
 	FunctionUrlConfig() interface{}
 	SetFunctionUrlConfig(val interface{})
 	Handler() *string
@@ -389,8 +391,8 @@ type CfnFunction interface {
 // The jsii proxy struct for CfnFunction
 type jsiiProxy_CfnFunction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFunctionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssamIFunctionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -524,8 +526,8 @@ func (j *jsiiProxy_CfnFunction) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFunction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -594,8 +596,8 @@ func (j *jsiiProxy_CfnFunction) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunction) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_CfnFunction) FunctionRef() *interfacesawssam.FunctionReference {
+	var returns *interfacesawssam.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",
@@ -875,6 +877,7 @@ func (j *jsiiProxy_CfnFunction) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::Serverless::Function`.
 func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionProps) CfnFunction {
 	_init_.Initialize()
 
@@ -892,6 +895,7 @@ func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionPr
 	return &j
 }
 
+// Create a new `AWS::Serverless::Function`.
 func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *string, props *CfnFunctionProps) {
 	_init_.Initialize()
 

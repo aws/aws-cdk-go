@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnCertificate interface {
 	awscdk.CfnResource
-	ICertificateRef
 	awscdk.IInspectable
+	interfacesawsiot.ICertificateRef
 	// Returns the Amazon Resource Name (ARN) for the certificate. For example:.
 	//
 	// `{ "Fn::GetAtt": ["MyCertificate", "Arn"] }`
@@ -52,7 +54,7 @@ type CfnCertificate interface {
 	CertificatePem() *string
 	SetCertificatePem(val *string)
 	// A reference to a Certificate resource.
-	CertificateRef() *CertificateReference
+	CertificateRef() *interfacesawsiot.CertificateReference
 	// The certificate signing request (CSR).
 	CertificateSigningRequest() *string
 	SetCertificateSigningRequest(val *string)
@@ -65,7 +67,7 @@ type CfnCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -233,8 +235,8 @@ type CfnCertificate interface {
 // The jsii proxy struct for CfnCertificate
 type jsiiProxy_CfnCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotICertificateRef
 }
 
 func (j *jsiiProxy_CfnCertificate) AttrArn() *string {
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnCertificate) CertificatePem() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) CertificateRef() *CertificateReference {
-	var returns *CertificateReference
+func (j *jsiiProxy_CfnCertificate) CertificateRef() *interfacesawsiot.CertificateReference {
+	var returns *interfacesawsiot.CertificateReference
 	_jsii_.Get(
 		j,
 		"certificateRef",
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnCertificate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,6 +430,7 @@ func (j *jsiiProxy_CfnCertificate) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::Certificate`.
 func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
@@ -445,6 +448,7 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 	return &j
 }
 
+// Create a new `AWS::IoT::Certificate`.
 func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 
@@ -499,13 +503,13 @@ func (j *jsiiProxy_CfnCertificate)SetStatus(val *string) {
 }
 
 // Creates a new ICertificateRef from an ARN.
-func CfnCertificate_FromCertificateArn(scope constructs.Construct, id *string, arn *string) ICertificateRef {
+func CfnCertificate_FromCertificateArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.ICertificateRef {
 	_init_.Initialize()
 
 	if err := validateCfnCertificate_FromCertificateArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ICertificateRef
+	var returns interfacesawsiot.ICertificateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnCertificate",
@@ -518,13 +522,13 @@ func CfnCertificate_FromCertificateArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new ICertificateRef from a certificateId.
-func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) ICertificateRef {
+func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) interfacesawsiot.ICertificateRef {
 	_init_.Initialize()
 
 	if err := validateCfnCertificate_FromCertificateIdParameters(scope, id, certificateId); err != nil {
 		panic(err)
 	}
-	var returns ICertificateRef
+	var returns interfacesawsiot.ICertificateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnCertificate",

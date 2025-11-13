@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnSoftwarePackageVersion interface {
 	awscdk.CfnResource
-	ISoftwarePackageVersionRef
 	awscdk.IInspectable
+	interfacesawsiot.ISoftwarePackageVersionRef
 	awscdk.ITaggableV2
 	// The artifact location of the package version.
 	Artifact() interface{}
@@ -91,7 +93,7 @@ type CfnSoftwarePackageVersion interface {
 	// A summary of the package version being created.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -119,7 +121,7 @@ type CfnSoftwarePackageVersion interface {
 	Sbom() interface{}
 	SetSbom(val interface{})
 	// A reference to a SoftwarePackageVersion resource.
-	SoftwarePackageVersionRef() *SoftwarePackageVersionReference
+	SoftwarePackageVersionRef() *interfacesawsiot.SoftwarePackageVersionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -273,8 +275,8 @@ type CfnSoftwarePackageVersion interface {
 // The jsii proxy struct for CfnSoftwarePackageVersion
 type jsiiProxy_CfnSoftwarePackageVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISoftwarePackageVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotISoftwarePackageVersionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -398,8 +400,8 @@ func (j *jsiiProxy_CfnSoftwarePackageVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSoftwarePackageVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSoftwarePackageVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -468,8 +470,8 @@ func (j *jsiiProxy_CfnSoftwarePackageVersion) Sbom() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSoftwarePackageVersion) SoftwarePackageVersionRef() *SoftwarePackageVersionReference {
-	var returns *SoftwarePackageVersionReference
+func (j *jsiiProxy_CfnSoftwarePackageVersion) SoftwarePackageVersionRef() *interfacesawsiot.SoftwarePackageVersionReference {
+	var returns *interfacesawsiot.SoftwarePackageVersionReference
 	_jsii_.Get(
 		j,
 		"softwarePackageVersionRef",
@@ -529,6 +531,7 @@ func (j *jsiiProxy_CfnSoftwarePackageVersion) VersionName() *string {
 }
 
 
+// Create a new `AWS::IoT::SoftwarePackageVersion`.
 func NewCfnSoftwarePackageVersion(scope constructs.Construct, id *string, props *CfnSoftwarePackageVersionProps) CfnSoftwarePackageVersion {
 	_init_.Initialize()
 
@@ -546,6 +549,7 @@ func NewCfnSoftwarePackageVersion(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::IoT::SoftwarePackageVersion`.
 func NewCfnSoftwarePackageVersion_Override(c CfnSoftwarePackageVersion, scope constructs.Construct, id *string, props *CfnSoftwarePackageVersionProps) {
 	_init_.Initialize()
 

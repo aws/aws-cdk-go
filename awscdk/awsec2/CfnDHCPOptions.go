@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnDHCPOptions interface {
 	awscdk.CfnResource
-	IDHCPOptionsRef
 	awscdk.IInspectable
+	interfacesawsec2.IDHCPOptionsRef
 	awscdk.ITaggable
 	// The ID of the DHCP options set.
 	AttrDhcpOptionsId() *string
@@ -58,14 +60,14 @@ type CfnDHCPOptions interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DHCPOptions resource.
-	DhcpOptionsRef() *DHCPOptionsReference
+	DhcpOptionsRef() *interfacesawsec2.DHCPOptionsReference
 	// This value is used to complete unqualified DNS hostnames.
 	DomainName() *string
 	SetDomainName(val *string)
 	// The IPv4 addresses of up to four domain name servers, or `AmazonProvidedDNS` .
 	DomainNameServers() *[]*string
 	SetDomainNameServers(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A value (in seconds, minutes, hours, or years) for how frequently a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
 	Ipv6AddressPreferredLeaseTime() *float64
 	SetIpv6AddressPreferredLeaseTime(val *float64)
@@ -247,8 +249,8 @@ type CfnDHCPOptions interface {
 // The jsii proxy struct for CfnDHCPOptions
 type jsiiProxy_CfnDHCPOptions struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDHCPOptionsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IDHCPOptionsRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnDHCPOptions) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDHCPOptions) DhcpOptionsRef() *DHCPOptionsReference {
-	var returns *DHCPOptionsReference
+func (j *jsiiProxy_CfnDHCPOptions) DhcpOptionsRef() *interfacesawsec2.DHCPOptionsReference {
+	var returns *interfacesawsec2.DHCPOptionsReference
 	_jsii_.Get(
 		j,
 		"dhcpOptionsRef",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnDHCPOptions) DomainNameServers() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDHCPOptions) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDHCPOptions) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -463,6 +465,7 @@ func (j *jsiiProxy_CfnDHCPOptions) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::DHCPOptions`.
 func NewCfnDHCPOptions(scope constructs.Construct, id *string, props *CfnDHCPOptionsProps) CfnDHCPOptions {
 	_init_.Initialize()
 
@@ -480,6 +483,7 @@ func NewCfnDHCPOptions(scope constructs.Construct, id *string, props *CfnDHCPOpt
 	return &j
 }
 
+// Create a new `AWS::EC2::DHCPOptions`.
 func NewCfnDHCPOptions_Override(c CfnDHCPOptions, scope constructs.Construct, id *string, props *CfnDHCPOptionsProps) {
 	_init_.Initialize()
 
@@ -550,13 +554,13 @@ func (j *jsiiProxy_CfnDHCPOptions)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDHCPOptionsRef from a dhcpOptionsId.
-func CfnDHCPOptions_FromDhcpOptionsId(scope constructs.Construct, id *string, dhcpOptionsId *string) IDHCPOptionsRef {
+func CfnDHCPOptions_FromDhcpOptionsId(scope constructs.Construct, id *string, dhcpOptionsId *string) interfacesawsec2.IDHCPOptionsRef {
 	_init_.Initialize()
 
 	if err := validateCfnDHCPOptions_FromDhcpOptionsIdParameters(scope, id, dhcpOptionsId); err != nil {
 		panic(err)
 	}
-	var returns IDHCPOptionsRef
+	var returns interfacesawsec2.IDHCPOptionsRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnDHCPOptions",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnDeviceDefinitionVersion interface {
 	awscdk.CfnResource
-	IDeviceDefinitionVersionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IDeviceDefinitionVersionRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -56,11 +58,11 @@ type CfnDeviceDefinitionVersion interface {
 	DeviceDefinitionId() *string
 	SetDeviceDefinitionId(val *string)
 	// A reference to a DeviceDefinitionVersion resource.
-	DeviceDefinitionVersionRef() *DeviceDefinitionVersionReference
+	DeviceDefinitionVersionRef() *interfacesawsgreengrass.DeviceDefinitionVersionReference
 	// The devices in this version.
 	Devices() interface{}
 	SetDevices(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,8 +227,8 @@ type CfnDeviceDefinitionVersion interface {
 // The jsii proxy struct for CfnDeviceDefinitionVersion
 type jsiiProxy_CfnDeviceDefinitionVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeviceDefinitionVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIDeviceDefinitionVersionRef
 }
 
 func (j *jsiiProxy_CfnDeviceDefinitionVersion) AttrId() *string {
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) DeviceDefinitionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceDefinitionVersion) DeviceDefinitionVersionRef() *DeviceDefinitionVersionReference {
-	var returns *DeviceDefinitionVersionReference
+func (j *jsiiProxy_CfnDeviceDefinitionVersion) DeviceDefinitionVersionRef() *interfacesawsgreengrass.DeviceDefinitionVersionReference {
+	var returns *interfacesawsgreengrass.DeviceDefinitionVersionReference
 	_jsii_.Get(
 		j,
 		"deviceDefinitionVersionRef",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) Devices() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceDefinitionVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeviceDefinitionVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,6 +382,7 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::Greengrass::DeviceDefinitionVersion`.
 func NewCfnDeviceDefinitionVersion(scope constructs.Construct, id *string, props *CfnDeviceDefinitionVersionProps) CfnDeviceDefinitionVersion {
 	_init_.Initialize()
 
@@ -397,6 +400,7 @@ func NewCfnDeviceDefinitionVersion(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::Greengrass::DeviceDefinitionVersion`.
 func NewCfnDeviceDefinitionVersion_Override(c CfnDeviceDefinitionVersion, scope constructs.Construct, id *string, props *CfnDeviceDefinitionVersionProps) {
 	_init_.Initialize()
 

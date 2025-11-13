@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnDomainName interface {
 	awscdk.CfnResource
-	IDomainNameRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IDomainNameRef
 	awscdk.ITaggable
 	// Represents an Amazon Resource Name (ARN).
 	AttrDomainNameArn() *string
@@ -73,8 +75,8 @@ type CfnDomainName interface {
 	DomainNameConfigurations() interface{}
 	SetDomainNameConfigurations(val interface{})
 	// A reference to a DomainName resource.
-	DomainNameRef() *DomainNameReference
-	Env() *awscdk.ResourceEnvironment
+	DomainNameRef() *interfacesawsapigatewayv2.DomainNameReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -250,8 +252,8 @@ type CfnDomainName interface {
 // The jsii proxy struct for CfnDomainName
 type jsiiProxy_CfnDomainName struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainNameRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IDomainNameRef
 	internal.Type__awscdkITaggable
 }
 
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnDomainName) DomainNameConfigurations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainName) DomainNameRef() *DomainNameReference {
-	var returns *DomainNameReference
+func (j *jsiiProxy_CfnDomainName) DomainNameRef() *interfacesawsapigatewayv2.DomainNameReference {
+	var returns *interfacesawsapigatewayv2.DomainNameReference
 	_jsii_.Get(
 		j,
 		"domainNameRef",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnDomainName) DomainNameRef() *DomainNameReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainName) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomainName) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -466,6 +468,7 @@ func (j *jsiiProxy_CfnDomainName) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGatewayV2::DomainName`.
 func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNameProps) CfnDomainName {
 	_init_.Initialize()
 
@@ -483,6 +486,7 @@ func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNa
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::DomainName`.
 func NewCfnDomainName_Override(c CfnDomainName, scope constructs.Construct, id *string, props *CfnDomainNameProps) {
 	_init_.Initialize()
 

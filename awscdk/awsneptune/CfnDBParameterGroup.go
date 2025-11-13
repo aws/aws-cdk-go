@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsneptune/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsneptune"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnDBParameterGroup interface {
 	awscdk.CfnResource
-	IDBParameterGroupRef
 	awscdk.IInspectable
+	interfacesawsneptune.IDBParameterGroupRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -58,11 +60,11 @@ type CfnDBParameterGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DBParameterGroup resource.
-	DbParameterGroupRef() *DBParameterGroupReference
+	DbParameterGroupRef() *interfacesawsneptune.DBParameterGroupReference
 	// Provides the customer-specified description for this DB parameter group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Must be `neptune1` for engine versions prior to [1.2.0.0](https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.2.0.0.html) , or `neptune1.2` for engine version `1.2.0.0` and higher.
 	Family() *string
 	SetFamily(val *string)
@@ -241,8 +243,8 @@ type CfnDBParameterGroup interface {
 // The jsii proxy struct for CfnDBParameterGroup
 type jsiiProxy_CfnDBParameterGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBParameterGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsneptuneIDBParameterGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnDBParameterGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBParameterGroup) DbParameterGroupRef() *DBParameterGroupReference {
-	var returns *DBParameterGroupReference
+func (j *jsiiProxy_CfnDBParameterGroup) DbParameterGroupRef() *interfacesawsneptune.DBParameterGroupReference {
+	var returns *interfacesawsneptune.DBParameterGroupReference
 	_jsii_.Get(
 		j,
 		"dbParameterGroupRef",
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnDBParameterGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBParameterGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBParameterGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,6 +429,7 @@ func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Neptune::DBParameterGroup`.
 func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) CfnDBParameterGroup {
 	_init_.Initialize()
 
@@ -444,6 +447,7 @@ func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDB
 	return &j
 }
 
+// Create a new `AWS::Neptune::DBParameterGroup`.
 func NewCfnDBParameterGroup_Override(c CfnDBParameterGroup, scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) {
 	_init_.Initialize()
 

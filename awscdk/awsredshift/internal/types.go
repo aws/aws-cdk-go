@@ -1,11 +1,19 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsredshiftIClusterRef = interfacesawsredshift.IClusterRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsredshiftIClusterParameterGroupRef = interfacesawsredshift.IClusterParameterGroupRef
+type Type__interfacesawsredshiftIClusterSecurityGroupRef = interfacesawsredshift.IClusterSecurityGroupRef
+type Type__interfacesawsredshiftIClusterSecurityGroupIngressRef = interfacesawsredshift.IClusterSecurityGroupIngressRef
+type Type__interfacesawsredshiftIClusterSubnetGroupRef = interfacesawsredshift.IClusterSubnetGroupRef
+type Type__interfacesawsredshiftIEndpointAccessRef = interfacesawsredshift.IEndpointAccessRef
+type Type__interfacesawsredshiftIEndpointAuthorizationRef = interfacesawsredshift.IEndpointAuthorizationRef
+type Type__interfacesawsredshiftIEventSubscriptionRef = interfacesawsredshift.IEventSubscriptionRef
+type Type__interfacesawsredshiftIIntegrationRef = interfacesawsredshift.IIntegrationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsredshiftIScheduledActionRef = interfacesawsredshift.IScheduledActionRef

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsverifiedpermissions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsverifiedpermissions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -66,8 +68,8 @@ import (
 //
 type CfnPolicy interface {
 	awscdk.CfnResource
-	IPolicyRef
 	awscdk.IInspectable
+	interfacesawsverifiedpermissions.IPolicyRef
 	// The unique ID of the new or updated policy.
 	AttrPolicyId() *string
 	// The type of the policy. This is one of the following values:.
@@ -87,7 +89,7 @@ type CfnPolicy interface {
 	// Specifies the policy type and content to use for the new or updated policy.
 	Definition() interface{}
 	SetDefinition(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnPolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Policy resource.
-	PolicyRef() *PolicyReference
+	PolicyRef() *interfacesawsverifiedpermissions.PolicyReference
 	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId() *string
 	SetPolicyStoreId(val *string)
@@ -257,8 +259,8 @@ type CfnPolicy interface {
 // The jsii proxy struct for CfnPolicy
 type jsiiProxy_CfnPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsverifiedpermissionsIPolicyRef
 }
 
 func (j *jsiiProxy_CfnPolicy) AttrPolicyId() *string {
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnPolicy) Definition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnPolicy) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicy) PolicyRef() *PolicyReference {
-	var returns *PolicyReference
+func (j *jsiiProxy_CfnPolicy) PolicyRef() *interfacesawsverifiedpermissions.PolicyReference {
+	var returns *interfacesawsverifiedpermissions.PolicyReference
 	_jsii_.Get(
 		j,
 		"policyRef",
@@ -422,6 +424,7 @@ func (j *jsiiProxy_CfnPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::VerifiedPermissions::Policy`.
 func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
 	_init_.Initialize()
 
@@ -439,6 +442,7 @@ func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps)
 	return &j
 }
 
+// Create a new `AWS::VerifiedPermissions::Policy`.
 func NewCfnPolicy_Override(c CfnPolicy, scope constructs.Construct, id *string, props *CfnPolicyProps) {
 	_init_.Initialize()
 

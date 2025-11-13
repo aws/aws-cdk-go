@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,7 +49,7 @@ type VpcLink interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -63,7 +65,7 @@ type VpcLink interface {
 	// Physical ID of the VpcLink resource.
 	VpcLinkId() *string
 	// A reference to a VpcLink resource.
-	VpcLinkRef() *VpcLinkReference
+	VpcLinkRef() *interfacesawsapigateway.VpcLinkReference
 	AddTargets(targets ...awselasticloadbalancingv2.INetworkLoadBalancer)
 	// Apply the given removal policy to this resource.
 	//
@@ -99,8 +101,8 @@ type jsiiProxy_VpcLink struct {
 	jsiiProxy_IVpcLink
 }
 
-func (j *jsiiProxy_VpcLink) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_VpcLink) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -149,8 +151,8 @@ func (j *jsiiProxy_VpcLink) VpcLinkId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_VpcLink) VpcLinkRef() *VpcLinkReference {
-	var returns *VpcLinkReference
+func (j *jsiiProxy_VpcLink) VpcLinkRef() *interfacesawsapigateway.VpcLinkReference {
+	var returns *interfacesawsapigateway.VpcLinkReference
 	_jsii_.Get(
 		j,
 		"vpcLinkRef",

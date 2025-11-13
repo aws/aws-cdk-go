@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,8 +78,8 @@ import (
 //
 type CfnAutomatedReasoningPolicy interface {
 	awscdk.CfnResource
-	IAutomatedReasoningPolicyRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IAutomatedReasoningPolicyRef
 	awscdk.ITaggableV2
 	// The timestamp when the policy was created.
 	AttrCreatedAt() *string
@@ -94,7 +96,7 @@ type CfnAutomatedReasoningPolicy interface {
 	// The version of the policy.
 	AttrVersion() *string
 	// A reference to a AutomatedReasoningPolicy resource.
-	AutomatedReasoningPolicyRef() *AutomatedReasoningPolicyReference
+	AutomatedReasoningPolicyRef() *interfacesawsbedrock.AutomatedReasoningPolicyReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -109,7 +111,7 @@ type CfnAutomatedReasoningPolicy interface {
 	// The description of the policy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies whether to force delete the automated reasoning policy even if it has active resources.
 	ForceDelete() interface{}
 	SetForceDelete(val interface{})
@@ -289,8 +291,8 @@ type CfnAutomatedReasoningPolicy interface {
 // The jsii proxy struct for CfnAutomatedReasoningPolicy
 type jsiiProxy_CfnAutomatedReasoningPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAutomatedReasoningPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIAutomatedReasoningPolicyRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicy) AttrVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomatedReasoningPolicy) AutomatedReasoningPolicyRef() *AutomatedReasoningPolicyReference {
-	var returns *AutomatedReasoningPolicyReference
+func (j *jsiiProxy_CfnAutomatedReasoningPolicy) AutomatedReasoningPolicyRef() *interfacesawsbedrock.AutomatedReasoningPolicyReference {
+	var returns *interfacesawsbedrock.AutomatedReasoningPolicyReference
 	_jsii_.Get(
 		j,
 		"automatedReasoningPolicyRef",
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomatedReasoningPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAutomatedReasoningPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -555,6 +557,7 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicy) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::Bedrock::AutomatedReasoningPolicy`.
 func NewCfnAutomatedReasoningPolicy(scope constructs.Construct, id *string, props *CfnAutomatedReasoningPolicyProps) CfnAutomatedReasoningPolicy {
 	_init_.Initialize()
 
@@ -572,6 +575,7 @@ func NewCfnAutomatedReasoningPolicy(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::Bedrock::AutomatedReasoningPolicy`.
 func NewCfnAutomatedReasoningPolicy_Override(c CfnAutomatedReasoningPolicy, scope constructs.Construct, id *string, props *CfnAutomatedReasoningPolicyProps) {
 	_init_.Initialize()
 

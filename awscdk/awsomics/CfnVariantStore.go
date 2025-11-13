@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsomics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnVariantStore interface {
 	awscdk.CfnResource
-	IVariantStoreRef
 	awscdk.IInspectable
+	interfacesawsomics.IVariantStoreRef
 	awscdk.ITaggable
 	// When the store was created.
 	AttrCreationTime() *string
@@ -68,7 +70,7 @@ type CfnVariantStore interface {
 	// A description for the store.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -118,7 +120,7 @@ type CfnVariantStore interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VariantStore resource.
-	VariantStoreRef() *VariantStoreReference
+	VariantStoreRef() *interfacesawsomics.VariantStoreReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -249,8 +251,8 @@ type CfnVariantStore interface {
 // The jsii proxy struct for CfnVariantStore
 type jsiiProxy_CfnVariantStore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVariantStoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsomicsIVariantStoreRef
 	internal.Type__awscdkITaggable
 }
 
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnVariantStore) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVariantStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVariantStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -494,8 +496,8 @@ func (j *jsiiProxy_CfnVariantStore) UpdatedProperties() *map[string]interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnVariantStore) VariantStoreRef() *VariantStoreReference {
-	var returns *VariantStoreReference
+func (j *jsiiProxy_CfnVariantStore) VariantStoreRef() *interfacesawsomics.VariantStoreReference {
+	var returns *interfacesawsomics.VariantStoreReference
 	_jsii_.Get(
 		j,
 		"variantStoreRef",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnVariantStore) VariantStoreRef() *VariantStoreReference {
 }
 
 
+// Create a new `AWS::Omics::VariantStore`.
 func NewCfnVariantStore(scope constructs.Construct, id *string, props *CfnVariantStoreProps) CfnVariantStore {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnVariantStore(scope constructs.Construct, id *string, props *CfnVarian
 	return &j
 }
 
+// Create a new `AWS::Omics::VariantStore`.
 func NewCfnVariantStore_Override(c CfnVariantStore, scope constructs.Construct, id *string, props *CfnVariantStoreProps) {
 	_init_.Initialize()
 
@@ -582,13 +586,13 @@ func (j *jsiiProxy_CfnVariantStore)SetTagsRaw(val *map[string]*string) {
 }
 
 // Creates a new IVariantStoreRef from a variantStoreName.
-func CfnVariantStore_FromVariantStoreName(scope constructs.Construct, id *string, variantStoreName *string) IVariantStoreRef {
+func CfnVariantStore_FromVariantStoreName(scope constructs.Construct, id *string, variantStoreName *string) interfacesawsomics.IVariantStoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnVariantStore_FromVariantStoreNameParameters(scope, id, variantStoreName); err != nil {
 		panic(err)
 	}
-	var returns IVariantStoreRef
+	var returns interfacesawsomics.IVariantStoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_omics.CfnVariantStore",

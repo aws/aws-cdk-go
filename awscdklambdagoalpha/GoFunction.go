@@ -12,6 +12,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/aws-cdk-go/awscdklambdagoalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -67,7 +69,7 @@ type GoFunction interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// ARN of this function.
 	// Experimental.
 	FunctionArn() *string
@@ -76,7 +78,7 @@ type GoFunction interface {
 	FunctionName() *string
 	// A reference to a Function resource.
 	// Experimental.
-	FunctionRef() *awslambda.FunctionReference
+	FunctionRef() *interfacesawslambda.FunctionReference
 	// The principal this Lambda Function is running as.
 	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
@@ -354,8 +356,8 @@ func (j *jsiiProxy_GoFunction) DeadLetterTopic() awssns.ITopic {
 	return returns
 }
 
-func (j *jsiiProxy_GoFunction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_GoFunction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -384,8 +386,8 @@ func (j *jsiiProxy_GoFunction) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_GoFunction) FunctionRef() *awslambda.FunctionReference {
-	var returns *awslambda.FunctionReference
+func (j *jsiiProxy_GoFunction) FunctionRef() *interfacesawslambda.FunctionReference {
+	var returns *interfacesawslambda.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3tables/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3tables"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,6 +58,12 @@ import (
 //   		MinSnapshotsToKeep: jsii.Number(123),
 //   		Status: jsii.String("status"),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	WithoutMetadata: jsii.String("withoutMetadata"),
 //   })
 //
@@ -63,14 +71,17 @@ import (
 //
 type CfnTable interface {
 	awscdk.CfnResource
-	ITableRef
 	awscdk.IInspectable
+	interfacesawss3tables.ITableRef
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the table.
 	AttrTableArn() *string
 	// The version token of the table.
 	AttrVersionToken() *string
 	// The warehouse location of the table.
 	AttrWarehouseLocation() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -83,7 +94,7 @@ type CfnTable interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Contains details about the metadata for an Iceberg table.
 	IcebergMetadata() interface{}
 	SetIcebergMetadata(val interface{})
@@ -124,7 +135,10 @@ type CfnTable interface {
 	TableName() *string
 	SetTableName(val *string)
 	// A reference to a Table resource.
-	TableRef() *TableReference
+	TableRef() *interfacesawss3tables.TableReference
+	// User tags (key-value pairs) to associate with the table.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -271,8 +285,9 @@ type CfnTable interface {
 // The jsii proxy struct for CfnTable
 type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3tablesITableRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTable) AttrTableArn() *string {
@@ -300,6 +315,16 @@ func (j *jsiiProxy_CfnTable) AttrWarehouseLocation() *string {
 	_jsii_.Get(
 		j,
 		"attrWarehouseLocation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTable) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -355,8 +380,8 @@ func (j *jsiiProxy_CfnTable) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -465,11 +490,21 @@ func (j *jsiiProxy_CfnTable) TableName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) TableRef() *TableReference {
-	var returns *TableReference
+func (j *jsiiProxy_CfnTable) TableRef() *interfacesawss3tables.TableReference {
+	var returns *interfacesawss3tables.TableReference
 	_jsii_.Get(
 		j,
 		"tableRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTable) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -506,6 +541,7 @@ func (j *jsiiProxy_CfnTable) WithoutMetadata() *string {
 }
 
 
+// Create a new `AWS::S3Tables::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
@@ -523,6 +559,7 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 	return &j
 }
 
+// Create a new `AWS::S3Tables::Table`.
 func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
@@ -606,6 +643,17 @@ func (j *jsiiProxy_CfnTable)SetTableName(val *string) {
 	_jsii_.Set(
 		j,
 		"tableName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

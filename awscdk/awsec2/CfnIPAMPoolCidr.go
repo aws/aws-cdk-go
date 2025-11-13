@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnIPAMPoolCidr interface {
 	awscdk.CfnResource
-	IIPAMPoolCidrRef
 	awscdk.IInspectable
+	interfacesawsec2.IIPAMPoolCidrRef
 	// The IPAM pool CIDR ID.
 	AttrIpamPoolCidrId() *string
 	// The state of the CIDR.
@@ -46,9 +48,9 @@ type CfnIPAMPoolCidr interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IPAMPoolCidr resource.
-	IpamPoolCidrRef() *IPAMPoolCidrReference
+	IpamPoolCidrRef() *interfacesawsec2.IPAMPoolCidrReference
 	// The ID of the IPAM pool.
 	IpamPoolId() *string
 	SetIpamPoolId(val *string)
@@ -219,8 +221,8 @@ type CfnIPAMPoolCidr interface {
 // The jsii proxy struct for CfnIPAMPoolCidr
 type jsiiProxy_CfnIPAMPoolCidr struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIPAMPoolCidrRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IIPAMPoolCidrRef
 }
 
 func (j *jsiiProxy_CfnIPAMPoolCidr) AttrIpamPoolCidrId() *string {
@@ -293,8 +295,8 @@ func (j *jsiiProxy_CfnIPAMPoolCidr) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMPoolCidr) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIPAMPoolCidr) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnIPAMPoolCidr) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMPoolCidr) IpamPoolCidrRef() *IPAMPoolCidrReference {
-	var returns *IPAMPoolCidrReference
+func (j *jsiiProxy_CfnIPAMPoolCidr) IpamPoolCidrRef() *interfacesawsec2.IPAMPoolCidrReference {
+	var returns *interfacesawsec2.IPAMPoolCidrReference
 	_jsii_.Get(
 		j,
 		"ipamPoolCidrRef",
@@ -394,6 +396,7 @@ func (j *jsiiProxy_CfnIPAMPoolCidr) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::EC2::IPAMPoolCidr`.
 func NewCfnIPAMPoolCidr(scope constructs.Construct, id *string, props *CfnIPAMPoolCidrProps) CfnIPAMPoolCidr {
 	_init_.Initialize()
 
@@ -411,6 +414,7 @@ func NewCfnIPAMPoolCidr(scope constructs.Construct, id *string, props *CfnIPAMPo
 	return &j
 }
 
+// Create a new `AWS::EC2::IPAMPoolCidr`.
 func NewCfnIPAMPoolCidr_Override(c CfnIPAMPoolCidr, scope constructs.Construct, id *string, props *CfnIPAMPoolCidrProps) {
 	_init_.Initialize()
 

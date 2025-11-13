@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,11 +40,11 @@ import (
 //
 type CfnAssistantAssociation interface {
 	awscdk.CfnResource
-	IAssistantAssociationRef
 	awscdk.IInspectable
+	interfacesawswisdom.IAssistantAssociationRef
 	awscdk.ITaggable
 	// A reference to a AssistantAssociation resource.
-	AssistantAssociationRef() *AssistantAssociationReference
+	AssistantAssociationRef() *interfacesawswisdom.AssistantAssociationReference
 	// The identifier of the Wisdom assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
@@ -67,7 +69,7 @@ type CfnAssistantAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,13 +239,13 @@ type CfnAssistantAssociation interface {
 // The jsii proxy struct for CfnAssistantAssociation
 type jsiiProxy_CfnAssistantAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssistantAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIAssistantAssociationRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAssistantAssociation) AssistantAssociationRef() *AssistantAssociationReference {
-	var returns *AssistantAssociationReference
+func (j *jsiiProxy_CfnAssistantAssociation) AssistantAssociationRef() *interfacesawswisdom.AssistantAssociationReference {
+	var returns *interfacesawswisdom.AssistantAssociationReference
 	_jsii_.Get(
 		j,
 		"assistantAssociationRef",
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnAssistantAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssistantAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAssistantAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnAssistantAssociation) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::Wisdom::AssistantAssociation`.
 func NewCfnAssistantAssociation(scope constructs.Construct, id *string, props *CfnAssistantAssociationProps) CfnAssistantAssociation {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnAssistantAssociation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::Wisdom::AssistantAssociation`.
 func NewCfnAssistantAssociation_Override(c CfnAssistantAssociation, scope constructs.Construct, id *string, props *CfnAssistantAssociationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstransfer/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstransfer"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -91,8 +93,8 @@ import (
 //
 type CfnServer interface {
 	awscdk.CfnResource
-	IServerRef
 	awscdk.IInspectable
+	interfacesawstransfer.IServerRef
 	awscdk.ITaggable
 	// Specifies the unique Amazon Resource Name (ARN) of the server.
 	AttrArn() *string
@@ -133,7 +135,7 @@ type CfnServer interface {
 	// The type of endpoint that you want your server to use.
 	EndpointType() *string
 	SetEndpointType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` .
 	IdentityProviderDetails() interface{}
 	SetIdentityProviderDetails(val interface{})
@@ -184,7 +186,7 @@ type CfnServer interface {
 	SecurityPolicyName() *string
 	SetSecurityPolicyName(val *string)
 	// A reference to a Server resource.
-	ServerRef() *ServerReference
+	ServerRef() *interfacesawstransfer.ServerReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -343,8 +345,8 @@ type CfnServer interface {
 // The jsii proxy struct for CfnServer
 type jsiiProxy_CfnServer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstransferIServerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -468,8 +470,8 @@ func (j *jsiiProxy_CfnServer) EndpointType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -608,8 +610,8 @@ func (j *jsiiProxy_CfnServer) SecurityPolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServer) ServerRef() *ServerReference {
-	var returns *ServerReference
+func (j *jsiiProxy_CfnServer) ServerRef() *interfacesawstransfer.ServerReference {
+	var returns *interfacesawstransfer.ServerReference
 	_jsii_.Get(
 		j,
 		"serverRef",
@@ -689,6 +691,7 @@ func (j *jsiiProxy_CfnServer) WorkflowDetails() interface{} {
 }
 
 
+// Create a new `AWS::Transfer::Server`.
 func NewCfnServer(scope constructs.Construct, id *string, props *CfnServerProps) CfnServer {
 	_init_.Initialize()
 
@@ -706,6 +709,7 @@ func NewCfnServer(scope constructs.Construct, id *string, props *CfnServerProps)
 	return &j
 }
 
+// Create a new `AWS::Transfer::Server`.
 func NewCfnServer_Override(c CfnServer, scope constructs.Construct, id *string, props *CfnServerProps) {
 	_init_.Initialize()
 

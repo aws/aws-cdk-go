@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslakeformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslakeformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,8 +101,8 @@ import (
 //
 type CfnTagAssociation interface {
 	awscdk.CfnResource
-	ITagAssociationRef
 	awscdk.IInspectable
+	interfacesawslakeformation.ITagAssociationRef
 	// Json encoding of the input resource.
 	//
 	// **Examples** - Database: `{"Catalog":null,"Database":{"CatalogId":"123456789012","Name":"ExampleDbName"},"Table":null,"TableWithColumns":null}`
@@ -120,7 +122,7 @@ type CfnTagAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A structure containing an LF-tag key-value pair.
 	LfTags() interface{}
 	SetLfTags(val interface{})
@@ -149,7 +151,7 @@ type CfnTagAssociation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a TagAssociation resource.
-	TagAssociationRef() *TagAssociationReference
+	TagAssociationRef() *interfacesawslakeformation.TagAssociationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -293,8 +295,8 @@ type CfnTagAssociation interface {
 // The jsii proxy struct for CfnTagAssociation
 type jsiiProxy_CfnTagAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITagAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslakeformationITagAssociationRef
 }
 
 func (j *jsiiProxy_CfnTagAssociation) AttrResourceIdentifier() *string {
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnTagAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTagAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTagAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnTagAssociation) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTagAssociation) TagAssociationRef() *TagAssociationReference {
-	var returns *TagAssociationReference
+func (j *jsiiProxy_CfnTagAssociation) TagAssociationRef() *interfacesawslakeformation.TagAssociationReference {
+	var returns *interfacesawslakeformation.TagAssociationReference
 	_jsii_.Get(
 		j,
 		"tagAssociationRef",
@@ -458,6 +460,7 @@ func (j *jsiiProxy_CfnTagAssociation) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::LakeFormation::TagAssociation`.
 func NewCfnTagAssociation(scope constructs.Construct, id *string, props *CfnTagAssociationProps) CfnTagAssociation {
 	_init_.Initialize()
 
@@ -475,6 +478,7 @@ func NewCfnTagAssociation(scope constructs.Construct, id *string, props *CfnTagA
 	return &j
 }
 
+// Create a new `AWS::LakeFormation::TagAssociation`.
 func NewCfnTagAssociation_Override(c CfnTagAssociation, scope constructs.Construct, id *string, props *CfnTagAssociationProps) {
 	_init_.Initialize()
 

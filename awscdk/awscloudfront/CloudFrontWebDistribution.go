@@ -8,6 +8,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -79,7 +81,7 @@ type CloudFrontWebDistribution interface {
 	DistributionId() *string
 	// A reference to a Distribution resource.
 	// Deprecated: Use `Distribution` instead.
-	DistributionRef() *DistributionReference
+	DistributionRef() *interfacesawscloudfront.DistributionReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -90,7 +92,7 @@ type CloudFrontWebDistribution interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Deprecated: Use `Distribution` instead.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logging bucket for this CloudFront distribution.
 	//
 	// If logging is not enabled for this distribution - this property will be undefined.
@@ -186,8 +188,8 @@ func (j *jsiiProxy_CloudFrontWebDistribution) DistributionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CloudFrontWebDistribution) DistributionRef() *DistributionReference {
-	var returns *DistributionReference
+func (j *jsiiProxy_CloudFrontWebDistribution) DistributionRef() *interfacesawscloudfront.DistributionReference {
+	var returns *interfacesawscloudfront.DistributionReference
 	_jsii_.Get(
 		j,
 		"distributionRef",
@@ -196,8 +198,8 @@ func (j *jsiiProxy_CloudFrontWebDistribution) DistributionRef() *DistributionRef
 	return returns
 }
 
-func (j *jsiiProxy_CloudFrontWebDistribution) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CloudFrontWebDistribution) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

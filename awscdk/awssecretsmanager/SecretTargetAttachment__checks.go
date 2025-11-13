@@ -51,6 +51,14 @@ func (s *jsiiProxy_SecretTargetAttachment) validateAttachParameters(target ISecr
 	return nil
 }
 
+func (s *jsiiProxy_SecretTargetAttachment) validateCfnDynamicReferenceKeyParameters(options *awscdk.SecretsManagerSecretOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_SecretTargetAttachment) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

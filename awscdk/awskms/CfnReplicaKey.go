@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnReplicaKey interface {
 	awscdk.CfnResource
-	IReplicaKeyRef
 	awscdk.IInspectable
+	interfacesawskms.IReplicaKeyRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
 	//
@@ -80,7 +82,7 @@ type CfnReplicaKey interface {
 	// Disabled KMS keys cannot be used in cryptographic operations.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The key policy that authorizes use of the replica key.
 	KeyPolicy() interface{}
 	SetKeyPolicy(val interface{})
@@ -108,7 +110,7 @@ type CfnReplicaKey interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ReplicaKey resource.
-	ReplicaKeyRef() *ReplicaKeyReference
+	ReplicaKeyRef() *interfacesawskms.ReplicaKeyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -261,8 +263,8 @@ type CfnReplicaKey interface {
 // The jsii proxy struct for CfnReplicaKey
 type jsiiProxy_CfnReplicaKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicaKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskmsIReplicaKeyRef
 	internal.Type__awscdkITaggable
 }
 
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnReplicaKey) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicaKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicaKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnReplicaKey) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicaKey) ReplicaKeyRef() *ReplicaKeyReference {
-	var returns *ReplicaKeyReference
+func (j *jsiiProxy_CfnReplicaKey) ReplicaKeyRef() *interfacesawskms.ReplicaKeyReference {
+	var returns *interfacesawskms.ReplicaKeyReference
 	_jsii_.Get(
 		j,
 		"replicaKeyRef",
@@ -477,6 +479,7 @@ func (j *jsiiProxy_CfnReplicaKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::KMS::ReplicaKey`.
 func NewCfnReplicaKey(scope constructs.Construct, id *string, props *CfnReplicaKeyProps) CfnReplicaKey {
 	_init_.Initialize()
 
@@ -494,6 +497,7 @@ func NewCfnReplicaKey(scope constructs.Construct, id *string, props *CfnReplicaK
 	return &j
 }
 
+// Create a new `AWS::KMS::ReplicaKey`.
 func NewCfnReplicaKey_Override(c CfnReplicaKey, scope constructs.Construct, id *string, props *CfnReplicaKeyProps) {
 	_init_.Initialize()
 

@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an IAM Instance Profile.
 type IInstanceProfile interface {
-	IInstanceProfileRef
+	interfacesawsiam.IInstanceProfileRef
 	awscdk.IResource
 	// The InstanceProfile's ARN.
 	InstanceProfileArn() *string
@@ -22,7 +24,7 @@ type IInstanceProfile interface {
 
 // The jsii proxy for IInstanceProfile
 type jsiiProxy_IInstanceProfile struct {
-	jsiiProxy_IInstanceProfileRef
+	internal.Type__interfacesawsiamIInstanceProfileRef
 	internal.Type__awscdkIResource
 }
 
@@ -67,8 +69,8 @@ func (j *jsiiProxy_IInstanceProfile) Role() IRole {
 	return returns
 }
 
-func (j *jsiiProxy_IInstanceProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IInstanceProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -77,8 +79,8 @@ func (j *jsiiProxy_IInstanceProfile) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IInstanceProfile) InstanceProfileRef() *InstanceProfileReference {
-	var returns *InstanceProfileReference
+func (j *jsiiProxy_IInstanceProfile) InstanceProfileRef() *interfacesawsiam.InstanceProfileReference {
+	var returns *interfacesawsiam.InstanceProfileReference
 	_jsii_.Get(
 		j,
 		"instanceProfileRef",

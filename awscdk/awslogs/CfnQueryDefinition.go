@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnQueryDefinition interface {
 	awscdk.CfnResource
-	IQueryDefinitionRef
 	awscdk.IInspectable
+	interfacesawslogs.IQueryDefinitionRef
 	// The ID of the query definition.
 	AttrQueryDefinitionId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -46,7 +48,7 @@ type CfnQueryDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Use this parameter if you want the query to query only certain log groups.
 	LogGroupNames() *[]*string
 	SetLogGroupNames(val *[]*string)
@@ -66,7 +68,7 @@ type CfnQueryDefinition interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a QueryDefinition resource.
-	QueryDefinitionRef() *QueryDefinitionReference
+	QueryDefinitionRef() *interfacesawslogs.QueryDefinitionReference
 	// The query language used for this query.
 	QueryLanguage() *string
 	SetQueryLanguage(val *string)
@@ -225,8 +227,8 @@ type CfnQueryDefinition interface {
 // The jsii proxy struct for CfnQueryDefinition
 type jsiiProxy_CfnQueryDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueryDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsIQueryDefinitionRef
 }
 
 func (j *jsiiProxy_CfnQueryDefinition) AttrQueryDefinitionId() *string {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnQueryDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueryDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueryDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnQueryDefinition) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueryDefinition) QueryDefinitionRef() *QueryDefinitionReference {
-	var returns *QueryDefinitionReference
+func (j *jsiiProxy_CfnQueryDefinition) QueryDefinitionRef() *interfacesawslogs.QueryDefinitionReference {
+	var returns *interfacesawslogs.QueryDefinitionReference
 	_jsii_.Get(
 		j,
 		"queryDefinitionRef",
@@ -400,6 +402,7 @@ func (j *jsiiProxy_CfnQueryDefinition) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Logs::QueryDefinition`.
 func NewCfnQueryDefinition(scope constructs.Construct, id *string, props *CfnQueryDefinitionProps) CfnQueryDefinition {
 	_init_.Initialize()
 
@@ -417,6 +420,7 @@ func NewCfnQueryDefinition(scope constructs.Construct, id *string, props *CfnQue
 	return &j
 }
 
+// Create a new `AWS::Logs::QueryDefinition`.
 func NewCfnQueryDefinition_Override(c CfnQueryDefinition, scope constructs.Construct, id *string, props *CfnQueryDefinitionProps) {
 	_init_.Initialize()
 

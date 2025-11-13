@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,6 +41,21 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	GranularAccessControlConfiguration: &GranularAccessControlConfigurationProperty{
+//   		DataTableAccessControlConfiguration: &DataTableAccessControlConfigurationProperty{
+//   			PrimaryAttributeAccessControlConfiguration: &PrimaryAttributeAccessControlConfigurationItemProperty{
+//   				PrimaryAttributeValues: []interface{}{
+//   					&PrimaryAttributeValueProperty{
+//   						AccessType: jsii.String("accessType"),
+//   						AttributeName: jsii.String("attributeName"),
+//   						Values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	HierarchyRestrictedResources: []*string{
 //   		jsii.String("hierarchyRestrictedResources"),
 //   	},
@@ -60,8 +77,8 @@ import (
 //
 type CfnSecurityProfile interface {
 	awscdk.CfnResource
-	ISecurityProfileRef
 	awscdk.IInspectable
+	interfacesawsconnect.ISecurityProfileRef
 	awscdk.ITaggableV2
 	// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlHierarchyGroupId() *string
@@ -92,7 +109,9 @@ type CfnSecurityProfile interface {
 	// The description of the security profile.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
+	GranularAccessControlConfiguration() interface{}
+	SetGranularAccessControlConfiguration(val interface{})
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
 	HierarchyRestrictedResources() *[]*string
 	SetHierarchyRestrictedResources(val *[]*string)
@@ -123,7 +142,7 @@ type CfnSecurityProfile interface {
 	SecurityProfileName() *string
 	SetSecurityProfileName(val *string)
 	// A reference to a SecurityProfile resource.
-	SecurityProfileRef() *SecurityProfileReference
+	SecurityProfileRef() *interfacesawsconnect.SecurityProfileReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -277,8 +296,8 @@ type CfnSecurityProfile interface {
 // The jsii proxy struct for CfnSecurityProfile
 type jsiiProxy_CfnSecurityProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectISecurityProfileRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -402,11 +421,21 @@ func (j *jsiiProxy_CfnSecurityProfile) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityProfile) GranularAccessControlConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"granularAccessControlConfiguration",
 		&returns,
 	)
 	return returns
@@ -482,8 +511,8 @@ func (j *jsiiProxy_CfnSecurityProfile) SecurityProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityProfile) SecurityProfileRef() *SecurityProfileReference {
-	var returns *SecurityProfileReference
+func (j *jsiiProxy_CfnSecurityProfile) SecurityProfileRef() *interfacesawsconnect.SecurityProfileReference {
+	var returns *interfacesawsconnect.SecurityProfileReference
 	_jsii_.Get(
 		j,
 		"securityProfileRef",
@@ -543,6 +572,7 @@ func (j *jsiiProxy_CfnSecurityProfile) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Connect::SecurityProfile`.
 func NewCfnSecurityProfile(scope constructs.Construct, id *string, props *CfnSecurityProfileProps) CfnSecurityProfile {
 	_init_.Initialize()
 
@@ -560,6 +590,7 @@ func NewCfnSecurityProfile(scope constructs.Construct, id *string, props *CfnSec
 	return &j
 }
 
+// Create a new `AWS::Connect::SecurityProfile`.
 func NewCfnSecurityProfile_Override(c CfnSecurityProfile, scope constructs.Construct, id *string, props *CfnSecurityProfileProps) {
 	_init_.Initialize()
 
@@ -604,6 +635,17 @@ func (j *jsiiProxy_CfnSecurityProfile)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecurityProfile)SetGranularAccessControlConfiguration(val interface{}) {
+	if err := j.validateSetGranularAccessControlConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"granularAccessControlConfiguration",
 		val,
 	)
 }

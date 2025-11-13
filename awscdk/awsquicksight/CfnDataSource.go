@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -523,8 +525,8 @@ import (
 //
 type CfnDataSource interface {
 	awscdk.CfnResource
-	IDataSourceRef
 	awscdk.IInspectable
+	interfacesawsquicksight.IDataSourceRef
 	awscdk.ITaggable
 	// A set of alternate data source parameters that you want to share for the credentials stored with this data source.
 	AlternateDataSourceParameters() interface{}
@@ -559,8 +561,8 @@ type CfnDataSource interface {
 	DataSourceParameters() interface{}
 	SetDataSourceParameters(val interface{})
 	// A reference to a DataSource resource.
-	DataSourceRef() *DataSourceReference
-	Env() *awscdk.ResourceEnvironment
+	DataSourceRef() *interfacesawsquicksight.DataSourceReference
+	Env() *interfaces.ResourceEnvironment
 	// Error information from the last update or the creation of the data source.
 	ErrorInfo() interface{}
 	SetErrorInfo(val interface{})
@@ -752,8 +754,8 @@ type CfnDataSource interface {
 // The jsii proxy struct for CfnDataSource
 type jsiiProxy_CfnDataSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightIDataSourceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -887,8 +889,8 @@ func (j *jsiiProxy_CfnDataSource) DataSourceParameters() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) DataSourceRef() *DataSourceReference {
-	var returns *DataSourceReference
+func (j *jsiiProxy_CfnDataSource) DataSourceRef() *interfacesawsquicksight.DataSourceReference {
+	var returns *interfacesawsquicksight.DataSourceReference
 	_jsii_.Get(
 		j,
 		"dataSourceRef",
@@ -897,8 +899,8 @@ func (j *jsiiProxy_CfnDataSource) DataSourceRef() *DataSourceReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -1058,6 +1060,7 @@ func (j *jsiiProxy_CfnDataSource) VpcConnectionProperties() interface{} {
 }
 
 
+// Create a new `AWS::QuickSight::DataSource`.
 func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
@@ -1075,6 +1078,7 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 	return &j
 }
 
+// Create a new `AWS::QuickSight::DataSource`.
 func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 

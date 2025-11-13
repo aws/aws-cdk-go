@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -184,8 +186,8 @@ import (
 //
 type CfnDeploymentGroup interface {
 	awscdk.CfnResource
-	IDeploymentGroupRef
 	awscdk.IInspectable
+	interfacesawscodedeploy.IDeploymentGroupRef
 	awscdk.ITaggable
 	// Information about the Amazon CloudWatch alarms that are associated with the deployment group.
 	AlarmConfiguration() interface{}
@@ -222,7 +224,7 @@ type CfnDeploymentGroup interface {
 	DeploymentGroupName() *string
 	SetDeploymentGroupName(val *string)
 	// A reference to a DeploymentGroup resource.
-	DeploymentGroupRef() *DeploymentGroupReference
+	DeploymentGroupRef() *interfacesawscodedeploy.DeploymentGroupReference
 	// Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer.
 	DeploymentStyle() interface{}
 	SetDeploymentStyle(val interface{})
@@ -235,7 +237,7 @@ type CfnDeploymentGroup interface {
 	// The target Amazon ECS services in the deployment group.
 	EcsServices() interface{}
 	SetEcsServices(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Information about the load balancer to use in a deployment.
 	LoadBalancerInfo() interface{}
 	SetLoadBalancerInfo(val interface{})
@@ -426,8 +428,8 @@ type CfnDeploymentGroup interface {
 // The jsii proxy struct for CfnDeploymentGroup
 type jsiiProxy_CfnDeploymentGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeploymentGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodedeployIDeploymentGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -561,8 +563,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) DeploymentGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentGroup) DeploymentGroupRef() *DeploymentGroupReference {
-	var returns *DeploymentGroupReference
+func (j *jsiiProxy_CfnDeploymentGroup) DeploymentGroupRef() *interfacesawscodedeploy.DeploymentGroupReference {
+	var returns *interfacesawscodedeploy.DeploymentGroupReference
 	_jsii_.Get(
 		j,
 		"deploymentGroupRef",
@@ -611,8 +613,8 @@ func (j *jsiiProxy_CfnDeploymentGroup) EcsServices() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeploymentGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -772,6 +774,7 @@ func (j *jsiiProxy_CfnDeploymentGroup) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::CodeDeploy::DeploymentGroup`.
 func NewCfnDeploymentGroup(scope constructs.Construct, id *string, props *CfnDeploymentGroupProps) CfnDeploymentGroup {
 	_init_.Initialize()
 
@@ -789,6 +792,7 @@ func NewCfnDeploymentGroup(scope constructs.Construct, id *string, props *CfnDep
 	return &j
 }
 
+// Create a new `AWS::CodeDeploy::DeploymentGroup`.
 func NewCfnDeploymentGroup_Override(c CfnDeploymentGroup, scope constructs.Construct, id *string, props *CfnDeploymentGroupProps) {
 	_init_.Initialize()
 

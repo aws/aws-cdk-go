@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -18,14 +20,14 @@ import (
 //
 type CfnAnalysis interface {
 	awscdk.CfnResource
-	IAnalysisRef
 	awscdk.IInspectable
+	interfacesawsquicksight.IAnalysisRef
 	awscdk.ITaggable
 	// The ID for the analysis that you're creating.
 	AnalysisId() *string
 	SetAnalysisId(val *string)
 	// A reference to a Analysis resource.
-	AnalysisRef() *AnalysisReference
+	AnalysisRef() *interfacesawsquicksight.AnalysisReference
 	// The Amazon Resource Name (ARN) of the analysis.
 	AttrArn() *string
 	// The time that the analysis was created.
@@ -50,7 +52,7 @@ type CfnAnalysis interface {
 	CreationStack() *[]*string
 	Definition() interface{}
 	SetDefinition(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Errors associated with the analysis.
 	Errors() interface{}
 	SetErrors(val interface{})
@@ -249,8 +251,8 @@ type CfnAnalysis interface {
 // The jsii proxy struct for CfnAnalysis
 type jsiiProxy_CfnAnalysis struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnalysisRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightIAnalysisRef
 	internal.Type__awscdkITaggable
 }
 
@@ -264,8 +266,8 @@ func (j *jsiiProxy_CfnAnalysis) AnalysisId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalysis) AnalysisRef() *AnalysisReference {
-	var returns *AnalysisReference
+func (j *jsiiProxy_CfnAnalysis) AnalysisRef() *interfacesawsquicksight.AnalysisReference {
+	var returns *interfacesawsquicksight.AnalysisReference
 	_jsii_.Get(
 		j,
 		"analysisRef",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnAnalysis) Definition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalysis) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnalysis) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -585,6 +587,7 @@ func (j *jsiiProxy_CfnAnalysis) ValidationStrategy() interface{} {
 }
 
 
+// Create a new `AWS::QuickSight::Analysis`.
 func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
 	_init_.Initialize()
 
@@ -602,6 +605,7 @@ func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisPr
 	return &j
 }
 
+// Create a new `AWS::QuickSight::Analysis`.
 func NewCfnAnalysis_Override(c CfnAnalysis, scope constructs.Construct, id *string, props *CfnAnalysisProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalytics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisanalyticsv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,8 +66,8 @@ import (
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 type CfnApplicationReferenceDataSourceV2 interface {
 	awscdk.CfnResource
-	IApplicationReferenceDataSourceV2Ref
 	awscdk.IInspectable
+	interfacesawskinesisanalyticsv2.IApplicationReferenceDataSourceRef
 	// The name of the application.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationName() *string
@@ -73,7 +75,7 @@ type CfnApplicationReferenceDataSourceV2 interface {
 	SetApplicationName(val *string)
 	// A reference to a ApplicationReferenceDataSource resource.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
-	ApplicationReferenceDataSourceRef() *ApplicationReferenceDataSourceV2Reference
+	ApplicationReferenceDataSourceRef() *interfacesawskinesisanalyticsv2.ApplicationReferenceDataSourceReference
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -90,7 +92,7 @@ type CfnApplicationReferenceDataSourceV2 interface {
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CreationStack() *[]*string
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -284,8 +286,8 @@ type CfnApplicationReferenceDataSourceV2 interface {
 // The jsii proxy struct for CfnApplicationReferenceDataSourceV2
 type jsiiProxy_CfnApplicationReferenceDataSourceV2 struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationReferenceDataSourceV2Ref
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisanalyticsv2IApplicationReferenceDataSourceRef
 }
 
 func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) ApplicationName() *string {
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) ApplicationName() *strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) ApplicationReferenceDataSourceRef() *ApplicationReferenceDataSourceV2Reference {
-	var returns *ApplicationReferenceDataSourceV2Reference
+func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) ApplicationReferenceDataSourceRef() *interfacesawskinesisanalyticsv2.ApplicationReferenceDataSourceReference {
+	var returns *interfacesawskinesisanalyticsv2.ApplicationReferenceDataSourceReference
 	_jsii_.Get(
 		j,
 		"applicationReferenceDataSourceRef",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) CreationStack() *[]*stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) UpdatedProperties() *map
 }
 
 
+// Create a new `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 func NewCfnApplicationReferenceDataSourceV2(scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceV2Props) CfnApplicationReferenceDataSourceV2 {
 	_init_.Initialize()
@@ -457,6 +460,7 @@ func NewCfnApplicationReferenceDataSourceV2(scope constructs.Construct, id *stri
 	return &j
 }
 
+// Create a new `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 func NewCfnApplicationReferenceDataSourceV2_Override(c CfnApplicationReferenceDataSourceV2, scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceV2Props) {
 	_init_.Initialize()

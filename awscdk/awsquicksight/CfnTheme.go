@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -100,8 +102,8 @@ import (
 //
 type CfnTheme interface {
 	awscdk.CfnResource
-	IThemeRef
 	awscdk.IInspectable
+	interfacesawsquicksight.IThemeRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the theme.
 	AttrArn() *string
@@ -143,7 +145,7 @@ type CfnTheme interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -180,7 +182,7 @@ type CfnTheme interface {
 	ThemeId() *string
 	SetThemeId(val *string)
 	// A reference to a Theme resource.
-	ThemeRef() *ThemeReference
+	ThemeRef() *interfacesawsquicksight.ThemeReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -327,8 +329,8 @@ type CfnTheme interface {
 // The jsii proxy struct for CfnTheme
 type jsiiProxy_CfnTheme struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IThemeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightIThemeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -572,8 +574,8 @@ func (j *jsiiProxy_CfnTheme) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTheme) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -672,8 +674,8 @@ func (j *jsiiProxy_CfnTheme) ThemeId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) ThemeRef() *ThemeReference {
-	var returns *ThemeReference
+func (j *jsiiProxy_CfnTheme) ThemeRef() *interfacesawsquicksight.ThemeReference {
+	var returns *interfacesawsquicksight.ThemeReference
 	_jsii_.Get(
 		j,
 		"themeRef",
@@ -713,6 +715,7 @@ func (j *jsiiProxy_CfnTheme) VersionDescription() *string {
 }
 
 
+// Create a new `AWS::QuickSight::Theme`.
 func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
@@ -730,6 +733,7 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 	return &j
 }
 
+// Create a new `AWS::QuickSight::Theme`.
 func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 

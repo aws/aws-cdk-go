@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,14 +31,14 @@ import (
 //
 type CfnAuthPolicy interface {
 	awscdk.CfnResource
-	IAuthPolicyRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.IAuthPolicyRef
 	// The state of the auth policy.
 	//
 	// The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
 	AttrState() *string
 	// A reference to a AuthPolicy resource.
-	AuthPolicyRef() *AuthPolicyReference
+	AuthPolicyRef() *interfacesawsvpclattice.AuthPolicyReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -46,7 +48,7 @@ type CfnAuthPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -217,8 +219,8 @@ type CfnAuthPolicy interface {
 // The jsii proxy struct for CfnAuthPolicy
 type jsiiProxy_CfnAuthPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAuthPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeIAuthPolicyRef
 }
 
 func (j *jsiiProxy_CfnAuthPolicy) AttrState() *string {
@@ -231,8 +233,8 @@ func (j *jsiiProxy_CfnAuthPolicy) AttrState() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAuthPolicy) AuthPolicyRef() *AuthPolicyReference {
-	var returns *AuthPolicyReference
+func (j *jsiiProxy_CfnAuthPolicy) AuthPolicyRef() *interfacesawsvpclattice.AuthPolicyReference {
+	var returns *interfacesawsvpclattice.AuthPolicyReference
 	_jsii_.Get(
 		j,
 		"authPolicyRef",
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnAuthPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAuthPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAuthPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -372,6 +374,7 @@ func (j *jsiiProxy_CfnAuthPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::VpcLattice::AuthPolicy`.
 func NewCfnAuthPolicy(scope constructs.Construct, id *string, props *CfnAuthPolicyProps) CfnAuthPolicy {
 	_init_.Initialize()
 
@@ -389,6 +392,7 @@ func NewCfnAuthPolicy(scope constructs.Construct, id *string, props *CfnAuthPoli
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::AuthPolicy`.
 func NewCfnAuthPolicy_Override(c CfnAuthPolicy, scope constructs.Construct, id *string, props *CfnAuthPolicyProps) {
 	_init_.Initialize()
 

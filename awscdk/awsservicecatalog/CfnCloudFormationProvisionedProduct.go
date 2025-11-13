@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnCloudFormationProvisionedProduct interface {
 	awscdk.CfnResource
-	ICloudFormationProvisionedProductRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.ICloudFormationProvisionedProductRef
 	awscdk.ITaggable
 	// The language code.
 	AcceptLanguage() *string
@@ -82,12 +84,12 @@ type CfnCloudFormationProvisionedProduct interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CloudFormationProvisionedProduct resource.
-	CloudFormationProvisionedProductRef() *CloudFormationProvisionedProductReference
+	CloudFormationProvisionedProductRef() *interfacesawsservicecatalog.CloudFormationProvisionedProductReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -287,8 +289,8 @@ type CfnCloudFormationProvisionedProduct interface {
 // The jsii proxy struct for CfnCloudFormationProvisionedProduct
 type jsiiProxy_CfnCloudFormationProvisionedProduct struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICloudFormationProvisionedProductRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogICloudFormationProvisionedProductRef
 	internal.Type__awscdkITaggable
 }
 
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) CfnResourceType() *strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) CloudFormationProvisionedProductRef() *CloudFormationProvisionedProductReference {
-	var returns *CloudFormationProvisionedProductReference
+func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) CloudFormationProvisionedProductRef() *interfacesawsservicecatalog.CloudFormationProvisionedProductReference {
+	var returns *interfacesawsservicecatalog.CloudFormationProvisionedProductReference
 	_jsii_.Get(
 		j,
 		"cloudFormationProvisionedProductRef",
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) CreationStack() *[]*stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -583,6 +585,7 @@ func (j *jsiiProxy_CfnCloudFormationProvisionedProduct) UpdatedProperties() *map
 }
 
 
+// Create a new `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
 func NewCfnCloudFormationProvisionedProduct(scope constructs.Construct, id *string, props *CfnCloudFormationProvisionedProductProps) CfnCloudFormationProvisionedProduct {
 	_init_.Initialize()
 
@@ -600,6 +603,7 @@ func NewCfnCloudFormationProvisionedProduct(scope constructs.Construct, id *stri
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
 func NewCfnCloudFormationProvisionedProduct_Override(c CfnCloudFormationProvisionedProduct, scope constructs.Construct, id *string, props *CfnCloudFormationProvisionedProductProps) {
 	_init_.Initialize()
 

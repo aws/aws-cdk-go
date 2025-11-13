@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotfleetwise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotfleetwise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -108,8 +110,8 @@ import (
 //
 type CfnDecoderManifest interface {
 	awscdk.CfnResource
-	IDecoderManifestRef
 	awscdk.IInspectable
+	interfacesawsiotfleetwise.IDecoderManifestRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the decoder manifest.
 	AttrArn() *string
@@ -127,14 +129,14 @@ type CfnDecoderManifest interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DecoderManifest resource.
-	DecoderManifestRef() *DecoderManifestReference
+	DecoderManifestRef() *interfacesawsiotfleetwise.DecoderManifestReference
 	// Use default decoders for all unmapped signals in the model.
 	DefaultForUnmappedSignals() *string
 	SetDefaultForUnmappedSignals(val *string)
 	// A brief description of the decoder manifest.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -319,8 +321,8 @@ type CfnDecoderManifest interface {
 // The jsii proxy struct for CfnDecoderManifest
 type jsiiProxy_CfnDecoderManifest struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDecoderManifestRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotfleetwiseIDecoderManifestRef
 	internal.Type__awscdkITaggable
 }
 
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnDecoderManifest) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDecoderManifest) DecoderManifestRef() *DecoderManifestReference {
-	var returns *DecoderManifestReference
+func (j *jsiiProxy_CfnDecoderManifest) DecoderManifestRef() *interfacesawsiotfleetwise.DecoderManifestReference {
+	var returns *interfacesawsiotfleetwise.DecoderManifestReference
 	_jsii_.Get(
 		j,
 		"decoderManifestRef",
@@ -424,8 +426,8 @@ func (j *jsiiProxy_CfnDecoderManifest) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDecoderManifest) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDecoderManifest) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -565,6 +567,7 @@ func (j *jsiiProxy_CfnDecoderManifest) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::IoTFleetWise::DecoderManifest`.
 func NewCfnDecoderManifest(scope constructs.Construct, id *string, props *CfnDecoderManifestProps) CfnDecoderManifest {
 	_init_.Initialize()
 
@@ -582,6 +585,7 @@ func NewCfnDecoderManifest(scope constructs.Construct, id *string, props *CfnDec
 	return &j
 }
 
+// Create a new `AWS::IoTFleetWise::DecoderManifest`.
 func NewCfnDecoderManifest_Override(c CfnDecoderManifest, scope constructs.Construct, id *string, props *CfnDecoderManifestProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnDirectoryConfig interface {
 	awscdk.CfnResource
-	IDirectoryConfigRef
 	awscdk.IInspectable
+	interfacesawsappstream.IDirectoryConfigRef
 	// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
 	CertificateBasedAuthProperties() interface{}
 	SetCertificateBasedAuthProperties(val interface{})
@@ -52,11 +54,11 @@ type CfnDirectoryConfig interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DirectoryConfig resource.
-	DirectoryConfigRef() *DirectoryConfigReference
+	DirectoryConfigRef() *interfacesawsappstream.DirectoryConfigReference
 	// The fully qualified name of the directory (for example, corp.example.com).
 	DirectoryName() *string
 	SetDirectoryName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,8 +229,8 @@ type CfnDirectoryConfig interface {
 // The jsii proxy struct for CfnDirectoryConfig
 type jsiiProxy_CfnDirectoryConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDirectoryConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIDirectoryConfigRef
 }
 
 func (j *jsiiProxy_CfnDirectoryConfig) CertificateBasedAuthProperties() interface{} {
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnDirectoryConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectoryConfig) DirectoryConfigRef() *DirectoryConfigReference {
-	var returns *DirectoryConfigReference
+func (j *jsiiProxy_CfnDirectoryConfig) DirectoryConfigRef() *interfacesawsappstream.DirectoryConfigReference {
+	var returns *interfacesawsappstream.DirectoryConfigReference
 	_jsii_.Get(
 		j,
 		"directoryConfigRef",
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnDirectoryConfig) DirectoryName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectoryConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDirectoryConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -392,6 +394,7 @@ func (j *jsiiProxy_CfnDirectoryConfig) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::AppStream::DirectoryConfig`.
 func NewCfnDirectoryConfig(scope constructs.Construct, id *string, props *CfnDirectoryConfigProps) CfnDirectoryConfig {
 	_init_.Initialize()
 
@@ -409,6 +412,7 @@ func NewCfnDirectoryConfig(scope constructs.Construct, id *string, props *CfnDir
 	return &j
 }
 
+// Create a new `AWS::AppStream::DirectoryConfig`.
 func NewCfnDirectoryConfig_Override(c CfnDirectoryConfig, scope constructs.Construct, id *string, props *CfnDirectoryConfigProps) {
 	_init_.Initialize()
 

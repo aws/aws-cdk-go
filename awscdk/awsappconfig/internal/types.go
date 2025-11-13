@@ -1,14 +1,22 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsappconfigIApplicationRef = interfacesawsappconfig.IApplicationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsappconfigIConfigurationProfileRef = interfacesawsappconfig.IConfigurationProfileRef
+type Type__interfacesawsappconfigIDeploymentRef = interfacesawsappconfig.IDeploymentRef
+type Type__interfacesawsappconfigIDeploymentStrategyRef = interfacesawsappconfig.IDeploymentStrategyRef
+type Type__interfacesawsappconfigIEnvironmentRef = interfacesawsappconfig.IEnvironmentRef
+type Type__interfacesawsappconfigIExtensionRef = interfacesawsappconfig.IExtensionRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsappconfigIExtensionAssociationRef = interfacesawsappconfig.IExtensionAssociationRef
+type Type__interfacesawsappconfigIHostedConfigurationVersionRef = interfacesawsappconfig.IHostedConfigurationVersionRef
 type Type__constructsConstruct = constructs.Construct
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

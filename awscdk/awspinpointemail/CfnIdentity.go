@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpointemail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpointemail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnIdentity interface {
 	awscdk.CfnResource
-	IIdentityRef
 	awscdk.IInspectable
+	interfacesawspinpointemail.IIdentityRef
 	awscdk.ITaggableV2
 	AttrId() *string
 	// The host name for the first token that you have to add to the DNS configuration for your domain.
@@ -78,12 +80,12 @@ type CfnIdentity interface {
 	// For domain identities, this attribute is used to enable or disable DomainKeys Identified Mail (DKIM) signing for the domain.
 	DkimSigningEnabled() interface{}
 	SetDkimSigningEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackForwardingEnabled() interface{}
 	SetFeedbackForwardingEnabled(val interface{})
 	// A reference to a Identity resource.
-	IdentityRef() *IdentityReference
+	IdentityRef() *interfacesawspinpointemail.IdentityReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -257,8 +259,8 @@ type CfnIdentity interface {
 // The jsii proxy struct for CfnIdentity
 type jsiiProxy_CfnIdentity struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdentityRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointemailIIdentityRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnIdentity) DkimSigningEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentity) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdentity) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnIdentity) FeedbackForwardingEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentity) IdentityRef() *IdentityReference {
-	var returns *IdentityReference
+func (j *jsiiProxy_CfnIdentity) IdentityRef() *interfacesawspinpointemail.IdentityReference {
+	var returns *interfacesawspinpointemail.IdentityReference
 	_jsii_.Get(
 		j,
 		"identityRef",
@@ -513,6 +515,7 @@ func (j *jsiiProxy_CfnIdentity) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::PinpointEmail::Identity`.
 func NewCfnIdentity(scope constructs.Construct, id *string, props *CfnIdentityProps) CfnIdentity {
 	_init_.Initialize()
 
@@ -530,6 +533,7 @@ func NewCfnIdentity(scope constructs.Construct, id *string, props *CfnIdentityPr
 	return &j
 }
 
+// Create a new `AWS::PinpointEmail::Identity`.
 func NewCfnIdentity_Override(c CfnIdentity, scope constructs.Construct, id *string, props *CfnIdentityProps) {
 	_init_.Initialize()
 

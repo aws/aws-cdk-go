@@ -1,9 +1,14 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslakeformation"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawslakeformationIDataCellsFilterRef = interfacesawslakeformation.IDataCellsFilterRef
+type Type__interfacesawslakeformationIDataLakeSettingsRef = interfacesawslakeformation.IDataLakeSettingsRef
+type Type__interfacesawslakeformationIPermissionsRef = interfacesawslakeformation.IPermissionsRef
+type Type__interfacesawslakeformationIPrincipalPermissionsRef = interfacesawslakeformation.IPrincipalPermissionsRef
+type Type__interfacesawslakeformationIResourceRef = interfacesawslakeformation.IResourceRef
+type Type__interfacesawslakeformationITagRef = interfacesawslakeformation.ITagRef
+type Type__interfacesawslakeformationITagAssociationRef = interfacesawslakeformation.ITagAssociationRef

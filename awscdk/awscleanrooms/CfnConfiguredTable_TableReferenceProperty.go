@@ -16,10 +16,14 @@ package awscleanrooms
 //
 //   		// the properties below are optional
 //   		OutputLocation: jsii.String("outputLocation"),
+//   		Region: jsii.String("region"),
 //   	},
 //   	Glue: &GlueTableReferenceProperty{
 //   		DatabaseName: jsii.String("databaseName"),
 //   		TableName: jsii.String("tableName"),
+//
+//   		// the properties below are optional
+//   		Region: jsii.String("region"),
 //   	},
 //   	Snowflake: &SnowflakeTableReferenceProperty{
 //   		AccountIdentifier: jsii.String("accountIdentifier"),

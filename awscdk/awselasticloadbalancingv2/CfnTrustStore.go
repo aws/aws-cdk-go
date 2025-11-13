@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnTrustStore interface {
 	awscdk.CfnResource
-	ITrustStoreRef
 	awscdk.IInspectable
+	interfacesawselasticloadbalancingv2.ITrustStoreRef
 	awscdk.ITaggableV2
 	// The number of ca certificates in the trust store.
 	AttrNumberOfCaCertificates() *float64
@@ -66,7 +68,7 @@ type CfnTrustStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -95,7 +97,7 @@ type CfnTrustStore interface {
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// A reference to a TrustStore resource.
-	TrustStoreRef() *TrustStoreReference
+	TrustStoreRef() *interfacesawselasticloadbalancingv2.TrustStoreReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -239,8 +241,8 @@ type CfnTrustStore interface {
 // The jsii proxy struct for CfnTrustStore
 type jsiiProxy_CfnTrustStore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrustStoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticloadbalancingv2ITrustStoreRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnTrustStore) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrustStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrustStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -424,8 +426,8 @@ func (j *jsiiProxy_CfnTrustStore) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrustStore) TrustStoreRef() *TrustStoreReference {
-	var returns *TrustStoreReference
+func (j *jsiiProxy_CfnTrustStore) TrustStoreRef() *interfacesawselasticloadbalancingv2.TrustStoreReference {
+	var returns *interfacesawselasticloadbalancingv2.TrustStoreReference
 	_jsii_.Get(
 		j,
 		"trustStoreRef",
@@ -455,6 +457,7 @@ func (j *jsiiProxy_CfnTrustStore) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ElasticLoadBalancingV2::TrustStore`.
 func NewCfnTrustStore(scope constructs.Construct, id *string, props *CfnTrustStoreProps) CfnTrustStore {
 	_init_.Initialize()
 
@@ -472,6 +475,7 @@ func NewCfnTrustStore(scope constructs.Construct, id *string, props *CfnTrustSto
 	return &j
 }
 
+// Create a new `AWS::ElasticLoadBalancingV2::TrustStore`.
 func NewCfnTrustStore_Override(c CfnTrustStore, scope constructs.Construct, id *string, props *CfnTrustStoreProps) {
 	_init_.Initialize()
 

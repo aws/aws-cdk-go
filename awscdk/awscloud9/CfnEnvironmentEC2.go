@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloud9/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloud9"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnEnvironmentEC2 interface {
 	awscdk.CfnResource
-	IEnvironmentEC2Ref
 	awscdk.IInspectable
+	interfacesawscloud9.IEnvironmentEC2Ref
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the development environment, such as `arn:aws:cloud9:us-east-2:123456789012:environment:2bc3642873c342e485f7e0c561234567` .
 	AttrArn() *string
@@ -73,9 +75,9 @@ type CfnEnvironmentEC2 interface {
 	// The description of the environment to create.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EnvironmentEC2 resource.
-	EnvironmentEc2Ref() *EnvironmentEC2Reference
+	EnvironmentEc2Ref() *interfacesawscloud9.EnvironmentEC2Reference
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
 	ImageId() *string
 	SetImageId(val *string)
@@ -263,8 +265,8 @@ type CfnEnvironmentEC2 interface {
 // The jsii proxy struct for CfnEnvironmentEC2
 type jsiiProxy_CfnEnvironmentEC2 struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentEC2Ref
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloud9IEnvironmentEC2Ref
 	internal.Type__awscdkITaggable
 }
 
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnEnvironmentEC2) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentEC2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironmentEC2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -378,8 +380,8 @@ func (j *jsiiProxy_CfnEnvironmentEC2) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentEC2) EnvironmentEc2Ref() *EnvironmentEC2Reference {
-	var returns *EnvironmentEC2Reference
+func (j *jsiiProxy_CfnEnvironmentEC2) EnvironmentEc2Ref() *interfacesawscloud9.EnvironmentEC2Reference {
+	var returns *interfacesawscloud9.EnvironmentEC2Reference
 	_jsii_.Get(
 		j,
 		"environmentEc2Ref",
@@ -529,6 +531,7 @@ func (j *jsiiProxy_CfnEnvironmentEC2) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Cloud9::EnvironmentEC2`.
 func NewCfnEnvironmentEC2(scope constructs.Construct, id *string, props *CfnEnvironmentEC2Props) CfnEnvironmentEC2 {
 	_init_.Initialize()
 
@@ -546,6 +549,7 @@ func NewCfnEnvironmentEC2(scope constructs.Construct, id *string, props *CfnEnvi
 	return &j
 }
 
+// Create a new `AWS::Cloud9::EnvironmentEC2`.
 func NewCfnEnvironmentEC2_Override(c CfnEnvironmentEC2, scope constructs.Construct, id *string, props *CfnEnvironmentEC2Props) {
 	_init_.Initialize()
 

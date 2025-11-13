@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,8 +59,8 @@ import (
 //
 type CfnProject interface {
 	awscdk.CfnResource
-	IProjectRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IProjectRef
 	awscdk.ITaggable
 	// The time that the project was created.
 	AttrCreationTime() *string
@@ -79,7 +81,7 @@ type CfnProject interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -99,7 +101,7 @@ type CfnProject interface {
 	ProjectName() *string
 	SetProjectName(val *string)
 	// A reference to a Project resource.
-	ProjectRef() *ProjectReference
+	ProjectRef() *interfacesawssagemaker.ProjectReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -266,8 +268,8 @@ type CfnProject interface {
 // The jsii proxy struct for CfnProject
 type jsiiProxy_CfnProject struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProjectRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIProjectRef
 	internal.Type__awscdkITaggable
 }
 
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnProject) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProject) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnProject) ProjectName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) ProjectRef() *ProjectReference {
-	var returns *ProjectReference
+func (j *jsiiProxy_CfnProject) ProjectRef() *interfacesawssagemaker.ProjectReference {
+	var returns *interfacesawssagemaker.ProjectReference
 	_jsii_.Get(
 		j,
 		"projectRef",
@@ -502,6 +504,7 @@ func (j *jsiiProxy_CfnProject) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::Project`.
 func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
@@ -519,6 +522,7 @@ func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProp
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Project`.
 func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 

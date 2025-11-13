@@ -7,15 +7,28 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An EC2 Key Pair.
 //
 // Example:
-//   keyPair := ec2.KeyPair_FromKeyPairAttributes(this, jsii.String("KeyPair"), &KeyPairAttributes{
-//   	KeyPairName: jsii.String("the-keypair-name"),
-//   	Type: ec2.KeyPairType_RSA,
+//   var vpc Vpc
+//   var instanceType InstanceType
+//
+//
+//   keyPair := ec2.NewKeyPair(this, jsii.String("KeyPair"), &KeyPairProps{
+//   	Type: ec2.KeyPairType_ED25519,
+//   	Format: ec2.KeyPairFormat_PEM,
+//   })
+//   instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+//   	Vpc: Vpc,
+//   	InstanceType: InstanceType,
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+//   	// Use the custom key pair
+//   	KeyPair: KeyPair,
 //   })
 //
 type KeyPair interface {
@@ -30,7 +43,7 @@ type KeyPair interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The format of the key pair.
 	Format() KeyPairFormat
 	// Whether the key material was imported.
@@ -45,7 +58,7 @@ type KeyPair interface {
 	// The unique name of the key pair.
 	KeyPairName() *string
 	// A reference to a KeyPair resource.
-	KeyPairRef() *KeyPairReference
+	KeyPairRef() *interfacesawsec2.KeyPairReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -96,8 +109,8 @@ type jsiiProxy_KeyPair struct {
 	jsiiProxy_IKeyPair
 }
 
-func (j *jsiiProxy_KeyPair) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_KeyPair) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -156,8 +169,8 @@ func (j *jsiiProxy_KeyPair) KeyPairName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_KeyPair) KeyPairRef() *KeyPairReference {
-	var returns *KeyPairReference
+func (j *jsiiProxy_KeyPair) KeyPairRef() *interfacesawsec2.KeyPairReference {
+	var returns *interfacesawsec2.KeyPairReference
 	_jsii_.Get(
 		j,
 		"keyPairRef",

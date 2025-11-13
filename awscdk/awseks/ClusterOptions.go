@@ -4,8 +4,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Options for EKS clusters.
@@ -296,7 +296,7 @@ type ClusterOptions struct {
 	//   all etcd volumes used by Amazon EKS are encrypted at the disk-level
 	//   using AWS-Managed encryption keys.
 	//
-	SecretsEncryptionKey awskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
+	SecretsEncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//

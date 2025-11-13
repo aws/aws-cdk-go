@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnMulticastGroup interface {
 	awscdk.CfnResource
-	IMulticastGroupRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.IMulticastGroupRef
 	awscdk.ITaggable
 	// The ID of the wireless device to associate with a multicast group.
 	AssociateWirelessDevice() *string
@@ -74,7 +76,7 @@ type CfnMulticastGroup interface {
 	// The ID of the wireless device to disassociate from a multicast group.
 	DisassociateWirelessDevice() *string
 	SetDisassociateWirelessDevice(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -89,7 +91,7 @@ type CfnMulticastGroup interface {
 	LoRaWan() interface{}
 	SetLoRaWan(val interface{})
 	// A reference to a MulticastGroup resource.
-	MulticastGroupRef() *MulticastGroupReference
+	MulticastGroupRef() *interfacesawsiotwireless.MulticastGroupReference
 	// The name of the multicast group.
 	Name() *string
 	SetName(val *string)
@@ -252,8 +254,8 @@ type CfnMulticastGroup interface {
 // The jsii proxy struct for CfnMulticastGroup
 type jsiiProxy_CfnMulticastGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMulticastGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessIMulticastGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnMulticastGroup) DisassociateWirelessDevice() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMulticastGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMulticastGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -407,8 +409,8 @@ func (j *jsiiProxy_CfnMulticastGroup) LoRaWan() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMulticastGroup) MulticastGroupRef() *MulticastGroupReference {
-	var returns *MulticastGroupReference
+func (j *jsiiProxy_CfnMulticastGroup) MulticastGroupRef() *interfacesawsiotwireless.MulticastGroupReference {
+	var returns *interfacesawsiotwireless.MulticastGroupReference
 	_jsii_.Get(
 		j,
 		"multicastGroupRef",
@@ -498,6 +500,7 @@ func (j *jsiiProxy_CfnMulticastGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::IoTWireless::MulticastGroup`.
 func NewCfnMulticastGroup(scope constructs.Construct, id *string, props *CfnMulticastGroupProps) CfnMulticastGroup {
 	_init_.Initialize()
 
@@ -515,6 +518,7 @@ func NewCfnMulticastGroup(scope constructs.Construct, id *string, props *CfnMult
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::MulticastGroup`.
 func NewCfnMulticastGroup_Override(c CfnMulticastGroup, scope constructs.Construct, id *string, props *CfnMulticastGroupProps) {
 	_init_.Initialize()
 
@@ -580,13 +584,13 @@ func (j *jsiiProxy_CfnMulticastGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMulticastGroupRef from an ARN.
-func CfnMulticastGroup_FromMulticastGroupArn(scope constructs.Construct, id *string, arn *string) IMulticastGroupRef {
+func CfnMulticastGroup_FromMulticastGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IMulticastGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnMulticastGroup_FromMulticastGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IMulticastGroupRef
+	var returns interfacesawsiotwireless.IMulticastGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
@@ -599,13 +603,13 @@ func CfnMulticastGroup_FromMulticastGroupArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IMulticastGroupRef from a multicastGroupId.
-func CfnMulticastGroup_FromMulticastGroupId(scope constructs.Construct, id *string, multicastGroupId *string) IMulticastGroupRef {
+func CfnMulticastGroup_FromMulticastGroupId(scope constructs.Construct, id *string, multicastGroupId *string) interfacesawsiotwireless.IMulticastGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnMulticastGroup_FromMulticastGroupIdParameters(scope, id, multicastGroupId); err != nil {
 		panic(err)
 	}
-	var returns IMulticastGroupRef
+	var returns interfacesawsiotwireless.IMulticastGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",

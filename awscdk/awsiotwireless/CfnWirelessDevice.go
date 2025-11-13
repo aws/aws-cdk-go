@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -77,8 +79,8 @@ import (
 //
 type CfnWirelessDevice interface {
 	awscdk.CfnResource
-	IWirelessDeviceRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.IWirelessDeviceRef
 	awscdk.ITaggable
 	// The ARN of the wireless device created.
 	AttrArn() *string
@@ -103,7 +105,7 @@ type CfnWirelessDevice interface {
 	// The name of the destination to assign to the new wireless device.
 	DestinationName() *string
 	SetDestinationName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt() *string
 	SetLastUplinkReceivedAt(val *string)
@@ -162,7 +164,7 @@ type CfnWirelessDevice interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WirelessDevice resource.
-	WirelessDeviceRef() *WirelessDeviceReference
+	WirelessDeviceRef() *interfacesawsiotwireless.WirelessDeviceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -293,8 +295,8 @@ type CfnWirelessDevice interface {
 // The jsii proxy struct for CfnWirelessDevice
 type jsiiProxy_CfnWirelessDevice struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWirelessDeviceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessIWirelessDeviceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnWirelessDevice) DestinationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWirelessDevice) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWirelessDevice) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -538,8 +540,8 @@ func (j *jsiiProxy_CfnWirelessDevice) UpdatedProperties() *map[string]interface{
 	return returns
 }
 
-func (j *jsiiProxy_CfnWirelessDevice) WirelessDeviceRef() *WirelessDeviceReference {
-	var returns *WirelessDeviceReference
+func (j *jsiiProxy_CfnWirelessDevice) WirelessDeviceRef() *interfacesawsiotwireless.WirelessDeviceReference {
+	var returns *interfacesawsiotwireless.WirelessDeviceReference
 	_jsii_.Get(
 		j,
 		"wirelessDeviceRef",
@@ -549,6 +551,7 @@ func (j *jsiiProxy_CfnWirelessDevice) WirelessDeviceRef() *WirelessDeviceReferen
 }
 
 
+// Create a new `AWS::IoTWireless::WirelessDevice`.
 func NewCfnWirelessDevice(scope constructs.Construct, id *string, props *CfnWirelessDeviceProps) CfnWirelessDevice {
 	_init_.Initialize()
 
@@ -566,6 +569,7 @@ func NewCfnWirelessDevice(scope constructs.Construct, id *string, props *CfnWire
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::WirelessDevice`.
 func NewCfnWirelessDevice_Override(c CfnWirelessDevice, scope constructs.Construct, id *string, props *CfnWirelessDeviceProps) {
 	_init_.Initialize()
 
@@ -661,13 +665,13 @@ func (j *jsiiProxy_CfnWirelessDevice)SetType(val *string) {
 }
 
 // Creates a new IWirelessDeviceRef from an ARN.
-func CfnWirelessDevice_FromWirelessDeviceArn(scope constructs.Construct, id *string, arn *string) IWirelessDeviceRef {
+func CfnWirelessDevice_FromWirelessDeviceArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IWirelessDeviceRef {
 	_init_.Initialize()
 
 	if err := validateCfnWirelessDevice_FromWirelessDeviceArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IWirelessDeviceRef
+	var returns interfacesawsiotwireless.IWirelessDeviceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
@@ -680,13 +684,13 @@ func CfnWirelessDevice_FromWirelessDeviceArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IWirelessDeviceRef from a wirelessDeviceId.
-func CfnWirelessDevice_FromWirelessDeviceId(scope constructs.Construct, id *string, wirelessDeviceId *string) IWirelessDeviceRef {
+func CfnWirelessDevice_FromWirelessDeviceId(scope constructs.Construct, id *string, wirelessDeviceId *string) interfacesawsiotwireless.IWirelessDeviceRef {
 	_init_.Initialize()
 
 	if err := validateCfnWirelessDevice_FromWirelessDeviceIdParameters(scope, id, wirelessDeviceId); err != nil {
 		panic(err)
 	}
-	var returns IWirelessDeviceRef
+	var returns interfacesawsiotwireless.IWirelessDeviceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",

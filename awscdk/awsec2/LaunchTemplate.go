@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,7 +52,7 @@ type LaunchTemplate interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal
 	// The AMI ID of the image to use.
@@ -68,7 +70,7 @@ type LaunchTemplate interface {
 	// Exactly one of `launchTemplateId` and `launchTemplateName` will be set.
 	LaunchTemplateName() *string
 	// A reference to a LaunchTemplate resource.
-	LaunchTemplateRef() *LaunchTemplateReference
+	LaunchTemplateRef() *interfacesawsec2.LaunchTemplateReference
 	// The tree node.
 	Node() constructs.Node
 	// The type of OS the instance is running.
@@ -149,8 +151,8 @@ func (j *jsiiProxy_LaunchTemplate) DefaultVersionNumber() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LaunchTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_LaunchTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -219,8 +221,8 @@ func (j *jsiiProxy_LaunchTemplate) LaunchTemplateName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LaunchTemplate) LaunchTemplateRef() *LaunchTemplateReference {
-	var returns *LaunchTemplateReference
+func (j *jsiiProxy_LaunchTemplate) LaunchTemplateRef() *interfacesawsec2.LaunchTemplateReference {
+	var returns *interfacesawsec2.LaunchTemplateReference
 	_jsii_.Get(
 		j,
 		"launchTemplateRef",

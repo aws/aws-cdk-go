@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnIntelligentPromptRouter interface {
 	awscdk.CfnResource
-	IIntelligentPromptRouterRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IIntelligentPromptRouterRef
 	awscdk.ITaggableV2
 	// Indicates the time that the prompt router was created.
 	AttrCreatedAt() *string
@@ -71,12 +73,12 @@ type CfnIntelligentPromptRouter interface {
 	// An optional description of the prompt router to help identify its purpose.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The default model to use when the routing criteria is not met.
 	FallbackModel() interface{}
 	SetFallbackModel(val interface{})
 	// A reference to a IntelligentPromptRouter resource.
-	IntelligentPromptRouterRef() *IntelligentPromptRouterReference
+	IntelligentPromptRouterRef() *interfacesawsbedrock.IntelligentPromptRouterReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnIntelligentPromptRouter interface {
 // The jsii proxy struct for CfnIntelligentPromptRouter
 type jsiiProxy_CfnIntelligentPromptRouter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIntelligentPromptRouterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIIntelligentPromptRouterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnIntelligentPromptRouter) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntelligentPromptRouter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIntelligentPromptRouter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnIntelligentPromptRouter) FallbackModel() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntelligentPromptRouter) IntelligentPromptRouterRef() *IntelligentPromptRouterReference {
-	var returns *IntelligentPromptRouterReference
+func (j *jsiiProxy_CfnIntelligentPromptRouter) IntelligentPromptRouterRef() *interfacesawsbedrock.IntelligentPromptRouterReference {
+	var returns *interfacesawsbedrock.IntelligentPromptRouterReference
 	_jsii_.Get(
 		j,
 		"intelligentPromptRouterRef",
@@ -499,6 +501,7 @@ func (j *jsiiProxy_CfnIntelligentPromptRouter) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::Bedrock::IntelligentPromptRouter`.
 func NewCfnIntelligentPromptRouter(scope constructs.Construct, id *string, props *CfnIntelligentPromptRouterProps) CfnIntelligentPromptRouter {
 	_init_.Initialize()
 
@@ -516,6 +519,7 @@ func NewCfnIntelligentPromptRouter(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::Bedrock::IntelligentPromptRouter`.
 func NewCfnIntelligentPromptRouter_Override(c CfnIntelligentPromptRouter, scope constructs.Construct, id *string, props *CfnIntelligentPromptRouterProps) {
 	_init_.Initialize()
 

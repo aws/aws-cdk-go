@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,15 +101,15 @@ import (
 //
 type CfnApi interface {
 	awscdk.CfnResource
-	IApiRef
 	awscdk.IInspectable
+	interfacesawssam.IApiRef
 	awscdk.ITaggable
 	AccessLogSetting() interface{}
 	SetAccessLogSetting(val interface{})
 	AlwaysDeploy() interface{}
 	SetAlwaysDeploy(val interface{})
 	// A reference to a Api resource.
-	ApiRef() *ApiReference
+	ApiRef() *interfacesawssam.ApiReference
 	Auth() interface{}
 	SetAuth(val interface{})
 	BinaryMediaTypes() *[]*string
@@ -141,7 +143,7 @@ type CfnApi interface {
 	SetDomain(val interface{})
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	GatewayResponses() interface{}
 	SetGatewayResponses(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -328,8 +330,8 @@ type CfnApi interface {
 // The jsii proxy struct for CfnApi
 type jsiiProxy_CfnApi struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApiRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssamIApiRef
 	internal.Type__awscdkITaggable
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnApi) AlwaysDeploy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApi) ApiRef() *ApiReference {
-	var returns *ApiReference
+func (j *jsiiProxy_CfnApi) ApiRef() *interfacesawssam.ApiReference {
+	var returns *interfacesawssam.ApiReference
 	_jsii_.Get(
 		j,
 		"apiRef",
@@ -523,8 +525,8 @@ func (j *jsiiProxy_CfnApi) EndpointConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApi) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -704,6 +706,7 @@ func (j *jsiiProxy_CfnApi) Variables() interface{} {
 }
 
 
+// Create a new `AWS::Serverless::Api`.
 func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnApi {
 	_init_.Initialize()
 
@@ -721,6 +724,7 @@ func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnAp
 	return &j
 }
 
+// Create a new `AWS::Serverless::Api`.
 func NewCfnApi_Override(c CfnApi, scope constructs.Construct, id *string, props *CfnApiProps) {
 	_init_.Initialize()
 

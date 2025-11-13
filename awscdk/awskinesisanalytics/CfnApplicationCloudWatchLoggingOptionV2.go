@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalytics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisanalyticsv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,11 +32,11 @@ import (
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 type CfnApplicationCloudWatchLoggingOptionV2 interface {
 	awscdk.CfnResource
-	IApplicationCloudWatchLoggingOptionV2Ref
 	awscdk.IInspectable
+	interfacesawskinesisanalyticsv2.IApplicationCloudWatchLoggingOptionRef
 	// A reference to a ApplicationCloudWatchLoggingOption resource.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
-	ApplicationCloudWatchLoggingOptionRef() *ApplicationCloudWatchLoggingOptionV2Reference
+	ApplicationCloudWatchLoggingOptionRef() *interfacesawskinesisanalyticsv2.ApplicationCloudWatchLoggingOptionReference
 	// The name of the application.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationName() *string
@@ -61,7 +63,7 @@ type CfnApplicationCloudWatchLoggingOptionV2 interface {
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CreationStack() *[]*string
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -250,12 +252,12 @@ type CfnApplicationCloudWatchLoggingOptionV2 interface {
 // The jsii proxy struct for CfnApplicationCloudWatchLoggingOptionV2
 type jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2 struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationCloudWatchLoggingOptionV2Ref
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisanalyticsv2IApplicationCloudWatchLoggingOptionRef
 }
 
-func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) ApplicationCloudWatchLoggingOptionRef() *ApplicationCloudWatchLoggingOptionV2Reference {
-	var returns *ApplicationCloudWatchLoggingOptionV2Reference
+func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) ApplicationCloudWatchLoggingOptionRef() *interfacesawskinesisanalyticsv2.ApplicationCloudWatchLoggingOptionReference {
+	var returns *interfacesawskinesisanalyticsv2.ApplicationCloudWatchLoggingOptionReference
 	_jsii_.Get(
 		j,
 		"applicationCloudWatchLoggingOptionRef",
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) CreationStack() *[]*
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -405,6 +407,7 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) UpdatedProperties() 
 }
 
 
+// Create a new `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 func NewCfnApplicationCloudWatchLoggingOptionV2(scope constructs.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionV2Props) CfnApplicationCloudWatchLoggingOptionV2 {
 	_init_.Initialize()
@@ -423,6 +426,7 @@ func NewCfnApplicationCloudWatchLoggingOptionV2(scope constructs.Construct, id *
 	return &j
 }
 
+// Create a new `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 func NewCfnApplicationCloudWatchLoggingOptionV2_Override(c CfnApplicationCloudWatchLoggingOptionV2, scope constructs.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionV2Props) {
 	_init_.Initialize()

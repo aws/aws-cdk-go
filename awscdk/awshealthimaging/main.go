@@ -56,8 +56,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDatastore{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDatastoreRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawshealthimagingIDatastoreRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -65,24 +65,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_healthimaging.CfnDatastoreProps",
 		reflect.TypeOf((*CfnDatastoreProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_healthimaging.DatastoreReference",
-		reflect.TypeOf((*DatastoreReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_healthimaging.IDatastoreRef",
-		reflect.TypeOf((*IDatastoreRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "datastoreRef", GoGetter: "DatastoreRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDatastoreRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

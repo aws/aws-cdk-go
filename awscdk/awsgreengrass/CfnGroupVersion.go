@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnGroupVersion interface {
 	awscdk.CfnResource
-	IGroupVersionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IGroupVersionRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -58,7 +60,7 @@ type CfnGroupVersion interface {
 	// The ARN of the device definition version that contains the devices you want to deploy with the group version.
 	DeviceDefinitionVersionArn() *string
 	SetDeviceDefinitionVersionArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the function definition version that contains the functions you want to deploy with the group version.
 	FunctionDefinitionVersionArn() *string
 	SetFunctionDefinitionVersionArn(val *string)
@@ -66,7 +68,7 @@ type CfnGroupVersion interface {
 	GroupId() *string
 	SetGroupId(val *string)
 	// A reference to a GroupVersion resource.
-	GroupVersionRef() *GroupVersionReference
+	GroupVersionRef() *interfacesawsgreengrass.GroupVersionReference
 	// The ARN of the logger definition version that contains the loggers you want to deploy with the group version.
 	LoggerDefinitionVersionArn() *string
 	SetLoggerDefinitionVersionArn(val *string)
@@ -240,8 +242,8 @@ type CfnGroupVersion interface {
 // The jsii proxy struct for CfnGroupVersion
 type jsiiProxy_CfnGroupVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGroupVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIGroupVersionRef
 }
 
 func (j *jsiiProxy_CfnGroupVersion) AttrId() *string {
@@ -324,8 +326,8 @@ func (j *jsiiProxy_CfnGroupVersion) DeviceDefinitionVersionArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGroupVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnGroupVersion) GroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupVersion) GroupVersionRef() *GroupVersionReference {
-	var returns *GroupVersionReference
+func (j *jsiiProxy_CfnGroupVersion) GroupVersionRef() *interfacesawsgreengrass.GroupVersionReference {
+	var returns *interfacesawsgreengrass.GroupVersionReference
 	_jsii_.Get(
 		j,
 		"groupVersionRef",
@@ -455,6 +457,7 @@ func (j *jsiiProxy_CfnGroupVersion) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Greengrass::GroupVersion`.
 func NewCfnGroupVersion(scope constructs.Construct, id *string, props *CfnGroupVersionProps) CfnGroupVersion {
 	_init_.Initialize()
 
@@ -472,6 +475,7 @@ func NewCfnGroupVersion(scope constructs.Construct, id *string, props *CfnGroupV
 	return &j
 }
 
+// Create a new `AWS::Greengrass::GroupVersion`.
 func NewCfnGroupVersion_Override(c CfnGroupVersion, scope constructs.Construct, id *string, props *CfnGroupVersionProps) {
 	_init_.Initialize()
 

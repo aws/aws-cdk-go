@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnStudioLifecycleConfig interface {
 	awscdk.CfnResource
-	IStudioLifecycleConfigRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IStudioLifecycleConfigRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration.
 	AttrStudioLifecycleConfigArn() *string
@@ -50,7 +52,7 @@ type CfnStudioLifecycleConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnStudioLifecycleConfig interface {
 	StudioLifecycleConfigName() *string
 	SetStudioLifecycleConfigName(val *string)
 	// A reference to a StudioLifecycleConfig resource.
-	StudioLifecycleConfigRef() *StudioLifecycleConfigReference
+	StudioLifecycleConfigRef() *interfacesawssagemaker.StudioLifecycleConfigReference
 	// Tags to be associated with the Lifecycle Configuration.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -229,8 +231,8 @@ type CfnStudioLifecycleConfig interface {
 // The jsii proxy struct for CfnStudioLifecycleConfig
 type jsiiProxy_CfnStudioLifecycleConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStudioLifecycleConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIStudioLifecycleConfigRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnStudioLifecycleConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudioLifecycleConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStudioLifecycleConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnStudioLifecycleConfig) StudioLifecycleConfigName() *string
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudioLifecycleConfig) StudioLifecycleConfigRef() *StudioLifecycleConfigReference {
-	var returns *StudioLifecycleConfigReference
+func (j *jsiiProxy_CfnStudioLifecycleConfig) StudioLifecycleConfigRef() *interfacesawssagemaker.StudioLifecycleConfigReference {
+	var returns *interfacesawssagemaker.StudioLifecycleConfigReference
 	_jsii_.Get(
 		j,
 		"studioLifecycleConfigRef",
@@ -415,6 +417,7 @@ func (j *jsiiProxy_CfnStudioLifecycleConfig) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::SageMaker::StudioLifecycleConfig`.
 func NewCfnStudioLifecycleConfig(scope constructs.Construct, id *string, props *CfnStudioLifecycleConfigProps) CfnStudioLifecycleConfig {
 	_init_.Initialize()
 
@@ -432,6 +435,7 @@ func NewCfnStudioLifecycleConfig(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::SageMaker::StudioLifecycleConfig`.
 func NewCfnStudioLifecycleConfig_Override(c CfnStudioLifecycleConfig, scope constructs.Construct, id *string, props *CfnStudioLifecycleConfigProps) {
 	_init_.Initialize()
 
@@ -487,13 +491,13 @@ func (j *jsiiProxy_CfnStudioLifecycleConfig)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IStudioLifecycleConfigRef from an ARN.
-func CfnStudioLifecycleConfig_FromStudioLifecycleConfigArn(scope constructs.Construct, id *string, arn *string) IStudioLifecycleConfigRef {
+func CfnStudioLifecycleConfig_FromStudioLifecycleConfigArn(scope constructs.Construct, id *string, arn *string) interfacesawssagemaker.IStudioLifecycleConfigRef {
 	_init_.Initialize()
 
 	if err := validateCfnStudioLifecycleConfig_FromStudioLifecycleConfigArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IStudioLifecycleConfigRef
+	var returns interfacesawssagemaker.IStudioLifecycleConfigRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnStudioLifecycleConfig",
@@ -506,13 +510,13 @@ func CfnStudioLifecycleConfig_FromStudioLifecycleConfigArn(scope constructs.Cons
 }
 
 // Creates a new IStudioLifecycleConfigRef from a studioLifecycleConfigName.
-func CfnStudioLifecycleConfig_FromStudioLifecycleConfigName(scope constructs.Construct, id *string, studioLifecycleConfigName *string) IStudioLifecycleConfigRef {
+func CfnStudioLifecycleConfig_FromStudioLifecycleConfigName(scope constructs.Construct, id *string, studioLifecycleConfigName *string) interfacesawssagemaker.IStudioLifecycleConfigRef {
 	_init_.Initialize()
 
 	if err := validateCfnStudioLifecycleConfig_FromStudioLifecycleConfigNameParameters(scope, id, studioLifecycleConfigName); err != nil {
 		panic(err)
 	}
-	var returns IStudioLifecycleConfigRef
+	var returns interfacesawssagemaker.IStudioLifecycleConfigRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnStudioLifecycleConfig",

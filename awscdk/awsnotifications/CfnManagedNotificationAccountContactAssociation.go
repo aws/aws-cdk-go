@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnotifications"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnManagedNotificationAccountContactAssociation interface {
 	awscdk.CfnResource
-	IManagedNotificationAccountContactAssociationRef
 	awscdk.IInspectable
+	interfacesawsnotifications.IManagedNotificationAccountContactAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -41,7 +43,7 @@ type CfnManagedNotificationAccountContactAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -53,7 +55,7 @@ type CfnManagedNotificationAccountContactAssociation interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a ManagedNotificationAccountContactAssociation resource.
-	ManagedNotificationAccountContactAssociationRef() *ManagedNotificationAccountContactAssociationReference
+	ManagedNotificationAccountContactAssociationRef() *interfacesawsnotifications.ManagedNotificationAccountContactAssociationReference
 	// The ARN of the `ManagedNotificationConfiguration` to be associated with the `Channel` .
 	ManagedNotificationConfigurationArn() *string
 	SetManagedNotificationConfigurationArn(val *string)
@@ -211,8 +213,8 @@ type CfnManagedNotificationAccountContactAssociation interface {
 // The jsii proxy struct for CfnManagedNotificationAccountContactAssociation
 type jsiiProxy_CfnManagedNotificationAccountContactAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IManagedNotificationAccountContactAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnotificationsIManagedNotificationAccountContactAssociationRef
 }
 
 func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) CreationStac
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) LogicalId() 
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) ManagedNotificationAccountContactAssociationRef() *ManagedNotificationAccountContactAssociationReference {
-	var returns *ManagedNotificationAccountContactAssociationReference
+func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) ManagedNotificationAccountContactAssociationRef() *interfacesawsnotifications.ManagedNotificationAccountContactAssociationReference {
+	var returns *interfacesawsnotifications.ManagedNotificationAccountContactAssociationReference
 	_jsii_.Get(
 		j,
 		"managedNotificationAccountContactAssociationRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) UpdatedPrope
 }
 
 
+// Create a new `AWS::Notifications::ManagedNotificationAccountContactAssociation`.
 func NewCfnManagedNotificationAccountContactAssociation(scope constructs.Construct, id *string, props *CfnManagedNotificationAccountContactAssociationProps) CfnManagedNotificationAccountContactAssociation {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnManagedNotificationAccountContactAssociation(scope constructs.Constru
 	return &j
 }
 
+// Create a new `AWS::Notifications::ManagedNotificationAccountContactAssociation`.
 func NewCfnManagedNotificationAccountContactAssociation_Override(c CfnManagedNotificationAccountContactAssociation, scope constructs.Construct, id *string, props *CfnManagedNotificationAccountContactAssociationProps) {
 	_init_.Initialize()
 

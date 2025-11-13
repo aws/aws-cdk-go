@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnProjectMembership interface {
 	awscdk.CfnResource
-	IProjectMembershipRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IProjectMembershipRef
 	AttrMemberIdentifier() *string
 	AttrMemberIdentifierType() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -51,7 +53,7 @@ type CfnProjectMembership interface {
 	// The ID of the Amazon DataZone domain in which project membership is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,7 +73,7 @@ type CfnProjectMembership interface {
 	ProjectIdentifier() *string
 	SetProjectIdentifier(val *string)
 	// A reference to a ProjectMembership resource.
-	ProjectMembershipRef() *ProjectMembershipReference
+	ProjectMembershipRef() *interfacesawsdatazone.ProjectMembershipReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -224,8 +226,8 @@ type CfnProjectMembership interface {
 // The jsii proxy struct for CfnProjectMembership
 type jsiiProxy_CfnProjectMembership struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProjectMembershipRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIProjectMembershipRef
 }
 
 func (j *jsiiProxy_CfnProjectMembership) AttrMemberIdentifier() *string {
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnProjectMembership) DomainIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProjectMembership) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProjectMembership) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnProjectMembership) ProjectIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProjectMembership) ProjectMembershipRef() *ProjectMembershipReference {
-	var returns *ProjectMembershipReference
+func (j *jsiiProxy_CfnProjectMembership) ProjectMembershipRef() *interfacesawsdatazone.ProjectMembershipReference {
+	var returns *interfacesawsdatazone.ProjectMembershipReference
 	_jsii_.Get(
 		j,
 		"projectMembershipRef",
@@ -409,6 +411,7 @@ func (j *jsiiProxy_CfnProjectMembership) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::DataZone::ProjectMembership`.
 func NewCfnProjectMembership(scope constructs.Construct, id *string, props *CfnProjectMembershipProps) CfnProjectMembership {
 	_init_.Initialize()
 
@@ -426,6 +429,7 @@ func NewCfnProjectMembership(scope constructs.Construct, id *string, props *CfnP
 	return &j
 }
 
+// Create a new `AWS::DataZone::ProjectMembership`.
 func NewCfnProjectMembership_Override(c CfnProjectMembership, scope constructs.Construct, id *string, props *CfnProjectMembershipProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdax/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdax"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnCluster interface {
 	awscdk.CfnResource
-	IClusterRef
 	awscdk.IInspectable
+	interfacesawsdax.IClusterRef
 	awscdk.ITaggable
 	// Returns the ARN of the DAX cluster. For example:.
 	//
@@ -89,7 +91,7 @@ type CfnCluster interface {
 	ClusterName() *string
 	SetClusterName(val *string)
 	// A reference to a Cluster resource.
-	ClusterRef() *ClusterReference
+	ClusterRef() *interfacesawsdax.ClusterReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -97,7 +99,7 @@ type CfnCluster interface {
 	// The description of the cluster.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A valid Amazon Resource Name (ARN) that identifies an IAM role.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
@@ -299,8 +301,8 @@ type CfnCluster interface {
 // The jsii proxy struct for CfnCluster
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdaxIClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -404,8 +406,8 @@ func (j *jsiiProxy_CfnCluster) ClusterName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) ClusterRef() *ClusterReference {
-	var returns *ClusterReference
+func (j *jsiiProxy_CfnCluster) ClusterRef() *interfacesawsdax.ClusterReference {
+	var returns *interfacesawsdax.ClusterReference
 	_jsii_.Get(
 		j,
 		"clusterRef",
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnCluster) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -625,6 +627,7 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DAX::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -642,6 +645,7 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
+// Create a new `AWS::DAX::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 

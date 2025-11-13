@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnOwner interface {
 	awscdk.CfnResource
-	IOwnerRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IOwnerRef
 	// The ID of the entity to which you want to add an owner.
 	AttrOwnerIdentifier() *string
 	// The owner that you want to add to the entity.
@@ -58,7 +60,7 @@ type CfnOwner interface {
 	// The type of an entity.
 	EntityType() *string
 	SetEntityType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -75,7 +77,7 @@ type CfnOwner interface {
 	Owner() interface{}
 	SetOwner(val interface{})
 	// A reference to a Owner resource.
-	OwnerRef() *OwnerReference
+	OwnerRef() *interfacesawsdatazone.OwnerReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -228,8 +230,8 @@ type CfnOwner interface {
 // The jsii proxy struct for CfnOwner
 type jsiiProxy_CfnOwner struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOwnerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIOwnerRef
 }
 
 func (j *jsiiProxy_CfnOwner) AttrOwnerIdentifier() *string {
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnOwner) EntityType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOwner) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOwner) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnOwner) Owner() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOwner) OwnerRef() *OwnerReference {
-	var returns *OwnerReference
+func (j *jsiiProxy_CfnOwner) OwnerRef() *interfacesawsdatazone.OwnerReference {
+	var returns *interfacesawsdatazone.OwnerReference
 	_jsii_.Get(
 		j,
 		"ownerRef",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnOwner) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataZone::Owner`.
 func NewCfnOwner(scope constructs.Construct, id *string, props *CfnOwnerProps) CfnOwner {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnOwner(scope constructs.Construct, id *string, props *CfnOwnerProps) C
 	return &j
 }
 
+// Create a new `AWS::DataZone::Owner`.
 func NewCfnOwner_Override(c CfnOwner, scope constructs.Construct, id *string, props *CfnOwnerProps) {
 	_init_.Initialize()
 

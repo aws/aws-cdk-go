@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisvideo/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisvideo"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnStream interface {
 	awscdk.CfnResource
-	IStreamRef
 	awscdk.IInspectable
+	interfacesawskinesisvideo.IStreamRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the stream.
 	AttrArn() *string
@@ -62,7 +64,7 @@ type CfnStream interface {
 	// The name of the device that is associated with the stream.
 	DeviceName() *string
 	SetDeviceName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the AWS Key Management Service ( AWS KMS ) key that Kinesis Video Streams uses to encrypt data on the stream.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -94,7 +96,7 @@ type CfnStream interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Stream resource.
-	StreamRef() *StreamReference
+	StreamRef() *interfacesawskinesisvideo.StreamReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An array of key-value pairs to apply to this resource.
@@ -243,8 +245,8 @@ type CfnStream interface {
 // The jsii proxy struct for CfnStream
 type jsiiProxy_CfnStream struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisvideoIStreamRef
 	internal.Type__awscdkITaggable
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnStream) DeviceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStream) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -398,8 +400,8 @@ func (j *jsiiProxy_CfnStream) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStream) StreamRef() *StreamReference {
-	var returns *StreamReference
+func (j *jsiiProxy_CfnStream) StreamRef() *interfacesawskinesisvideo.StreamReference {
+	var returns *interfacesawskinesisvideo.StreamReference
 	_jsii_.Get(
 		j,
 		"streamRef",
@@ -449,6 +451,7 @@ func (j *jsiiProxy_CfnStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::KinesisVideo::Stream`.
 func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps) CfnStream {
 	_init_.Initialize()
 
@@ -466,6 +469,7 @@ func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps)
 	return &j
 }
 
+// Create a new `AWS::KinesisVideo::Stream`.
 func NewCfnStream_Override(c CfnStream, scope constructs.Construct, id *string, props *CfnStreamProps) {
 	_init_.Initialize()
 

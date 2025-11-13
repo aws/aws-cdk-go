@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnEndpointAccess interface {
 	awscdk.CfnResource
-	IEndpointAccessRef
 	awscdk.IInspectable
+	interfacesawsredshift.IEndpointAccessRef
 	// The DNS address of the endpoint.
 	AttrAddress() *string
 	// The time (UTC) that the endpoint was created.
@@ -64,11 +66,11 @@ type CfnEndpointAccess interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EndpointAccess resource.
-	EndpointAccessRef() *EndpointAccessReference
+	EndpointAccessRef() *interfacesawsredshift.EndpointAccessReference
 	// The name of the endpoint.
 	EndpointName() *string
 	SetEndpointName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -242,8 +244,8 @@ type CfnEndpointAccess interface {
 // The jsii proxy struct for CfnEndpointAccess
 type jsiiProxy_CfnEndpointAccess struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEndpointAccessRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIEndpointAccessRef
 }
 
 func (j *jsiiProxy_CfnEndpointAccess) AttrAddress() *string {
@@ -386,8 +388,8 @@ func (j *jsiiProxy_CfnEndpointAccess) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointAccess) EndpointAccessRef() *EndpointAccessReference {
-	var returns *EndpointAccessReference
+func (j *jsiiProxy_CfnEndpointAccess) EndpointAccessRef() *interfacesawsredshift.EndpointAccessReference {
+	var returns *interfacesawsredshift.EndpointAccessReference
 	_jsii_.Get(
 		j,
 		"endpointAccessRef",
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnEndpointAccess) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointAccess) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEndpointAccess) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -507,6 +509,7 @@ func (j *jsiiProxy_CfnEndpointAccess) VpcSecurityGroupIds() *[]*string {
 }
 
 
+// Create a new `AWS::Redshift::EndpointAccess`.
 func NewCfnEndpointAccess(scope constructs.Construct, id *string, props *CfnEndpointAccessProps) CfnEndpointAccess {
 	_init_.Initialize()
 
@@ -524,6 +527,7 @@ func NewCfnEndpointAccess(scope constructs.Construct, id *string, props *CfnEndp
 	return &j
 }
 
+// Create a new `AWS::Redshift::EndpointAccess`.
 func NewCfnEndpointAccess_Override(c CfnEndpointAccess, scope constructs.Construct, id *string, props *CfnEndpointAccessProps) {
 	_init_.Initialize()
 

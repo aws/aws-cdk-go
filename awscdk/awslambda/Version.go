@@ -8,6 +8,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,13 +73,13 @@ type Version interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN fo the function.
 	FunctionArn() *string
 	// The name of the function.
 	FunctionName() *string
 	// A reference to a Function resource.
-	FunctionRef() *FunctionReference
+	FunctionRef() *interfacesawslambda.FunctionReference
 	// The principal this Lambda Function is running as.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
@@ -122,7 +124,7 @@ type Version interface {
 	// The most recently deployed version of this function.
 	Version() *string
 	// A reference to a Version resource.
-	VersionRef() *VersionReference
+	VersionRef() *interfacesawslambda.VersionReference
 	// Defines an alias for this version.
 	// Deprecated: Calling `addAlias` on a `Version` object will cause the Alias to be replaced on every function update. Call `function.addAlias()` or `new Alias()` instead.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
@@ -258,8 +260,8 @@ func (j *jsiiProxy_Version) EdgeArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Version) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Version) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -288,8 +290,8 @@ func (j *jsiiProxy_Version) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Version) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_Version) FunctionRef() *interfacesawslambda.FunctionReference {
+	var returns *interfacesawslambda.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_Version) Version() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Version) VersionRef() *VersionReference {
-	var returns *VersionReference
+func (j *jsiiProxy_Version) VersionRef() *interfacesawslambda.VersionReference {
+	var returns *interfacesawslambda.VersionReference
 	_jsii_.Get(
 		j,
 		"versionRef",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,11 +44,11 @@ import (
 //
 type CfnAlias interface {
 	awscdk.CfnResource
-	IAliasRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IAliasRef
 	awscdk.ITaggableV2
 	// A reference to a Alias resource.
-	AliasRef() *AliasReference
+	AliasRef() *interfacesawsgamelift.AliasReference
 	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to a Amazon GameLift Servers alias resource and uniquely identifies it. ARNs are unique across all Regions. Format is `arn:aws:gamelift:<region>::alias/alias-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` . In a GameLift alias ARN, the resource ID matches the alias ID value.
 	AttrAliasArn() *string
 	// A unique identifier for the alias. For example, `arn:aws:gamelift:us-west-1::alias/alias-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912`.
@@ -67,7 +69,7 @@ type CfnAlias interface {
 	// A human-readable description of the alias.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,13 +243,13 @@ type CfnAlias interface {
 // The jsii proxy struct for CfnAlias
 type jsiiProxy_CfnAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIAliasRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAlias) AliasRef() *AliasReference {
-	var returns *AliasReference
+func (j *jsiiProxy_CfnAlias) AliasRef() *interfacesawsgamelift.AliasReference {
+	var returns *interfacesawsgamelift.AliasReference
 	_jsii_.Get(
 		j,
 		"aliasRef",
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnAlias) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -437,6 +439,7 @@ func (j *jsiiProxy_CfnAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GameLift::Alias`.
 func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) CfnAlias {
 	_init_.Initialize()
 
@@ -454,6 +457,7 @@ func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) C
 	return &j
 }
 
+// Create a new `AWS::GameLift::Alias`.
 func NewCfnAlias_Override(c CfnAlias, scope constructs.Construct, id *string, props *CfnAliasProps) {
 	_init_.Initialize()
 
@@ -506,13 +510,13 @@ func (j *jsiiProxy_CfnAlias)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IAliasRef from an ARN.
-func CfnAlias_FromAliasArn(scope constructs.Construct, id *string, arn *string) IAliasRef {
+func CfnAlias_FromAliasArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IAliasRef {
 	_init_.Initialize()
 
 	if err := validateCfnAlias_FromAliasArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAliasRef
+	var returns interfacesawsgamelift.IAliasRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnAlias",
@@ -525,13 +529,13 @@ func CfnAlias_FromAliasArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IAliasRef from a aliasId.
-func CfnAlias_FromAliasId(scope constructs.Construct, id *string, aliasId *string) IAliasRef {
+func CfnAlias_FromAliasId(scope constructs.Construct, id *string, aliasId *string) interfacesawsgamelift.IAliasRef {
 	_init_.Initialize()
 
 	if err := validateCfnAlias_FromAliasIdParameters(scope, id, aliasId); err != nil {
 		panic(err)
 	}
-	var returns IAliasRef
+	var returns interfacesawsgamelift.IAliasRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnAlias",

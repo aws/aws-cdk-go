@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnLocationObjectStorage interface {
 	awscdk.CfnResource
-	ILocationObjectStorageRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationObjectStorageRef
 	awscdk.ITaggable
 	// Specifies the access key (for example, a user name) if credentials are required to authenticate with the object storage server.
 	AccessKey() *string
@@ -89,9 +91,9 @@ type CfnLocationObjectStorage interface {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text.
 	CustomSecretConfig() interface{}
 	SetCustomSecretConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LocationObjectStorage resource.
-	LocationObjectStorageRef() *LocationObjectStorageReference
+	LocationObjectStorageRef() *interfacesawsdatasync.LocationObjectStorageReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -279,8 +281,8 @@ type CfnLocationObjectStorage interface {
 // The jsii proxy struct for CfnLocationObjectStorage
 type jsiiProxy_CfnLocationObjectStorage struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationObjectStorageRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationObjectStorageRef
 	internal.Type__awscdkITaggable
 }
 
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnLocationObjectStorage) CustomSecretConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationObjectStorage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -424,8 +426,8 @@ func (j *jsiiProxy_CfnLocationObjectStorage) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) LocationObjectStorageRef() *LocationObjectStorageReference {
-	var returns *LocationObjectStorageReference
+func (j *jsiiProxy_CfnLocationObjectStorage) LocationObjectStorageRef() *interfacesawsdatasync.LocationObjectStorageReference {
+	var returns *interfacesawsdatasync.LocationObjectStorageReference
 	_jsii_.Get(
 		j,
 		"locationObjectStorageRef",
@@ -575,6 +577,7 @@ func (j *jsiiProxy_CfnLocationObjectStorage) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::DataSync::LocationObjectStorage`.
 func NewCfnLocationObjectStorage(scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) CfnLocationObjectStorage {
 	_init_.Initialize()
 
@@ -592,6 +595,7 @@ func NewCfnLocationObjectStorage(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationObjectStorage`.
 func NewCfnLocationObjectStorage_Override(c CfnLocationObjectStorage, scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) {
 	_init_.Initialize()
 

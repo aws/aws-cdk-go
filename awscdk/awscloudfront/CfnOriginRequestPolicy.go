@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnOriginRequestPolicy interface {
 	awscdk.CfnResource
-	IOriginRequestPolicyRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IOriginRequestPolicyRef
 	// The unique identifier for the origin request policy.
 	//
 	// For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
@@ -78,7 +80,7 @@ type CfnOriginRequestPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -95,7 +97,7 @@ type CfnOriginRequestPolicy interface {
 	OriginRequestPolicyConfig() interface{}
 	SetOriginRequestPolicyConfig(val interface{})
 	// A reference to a OriginRequestPolicy resource.
-	OriginRequestPolicyRef() *OriginRequestPolicyReference
+	OriginRequestPolicyRef() *interfacesawscloudfront.OriginRequestPolicyReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -248,8 +250,8 @@ type CfnOriginRequestPolicy interface {
 // The jsii proxy struct for CfnOriginRequestPolicy
 type jsiiProxy_CfnOriginRequestPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOriginRequestPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIOriginRequestPolicyRef
 }
 
 func (j *jsiiProxy_CfnOriginRequestPolicy) AttrId() *string {
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnOriginRequestPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginRequestPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOriginRequestPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnOriginRequestPolicy) OriginRequestPolicyConfig() interface
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginRequestPolicy) OriginRequestPolicyRef() *OriginRequestPolicyReference {
-	var returns *OriginRequestPolicyReference
+func (j *jsiiProxy_CfnOriginRequestPolicy) OriginRequestPolicyRef() *interfacesawscloudfront.OriginRequestPolicyReference {
+	var returns *interfacesawscloudfront.OriginRequestPolicyReference
 	_jsii_.Get(
 		j,
 		"originRequestPolicyRef",
@@ -403,6 +405,7 @@ func (j *jsiiProxy_CfnOriginRequestPolicy) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::CloudFront::OriginRequestPolicy`.
 func NewCfnOriginRequestPolicy(scope constructs.Construct, id *string, props *CfnOriginRequestPolicyProps) CfnOriginRequestPolicy {
 	_init_.Initialize()
 
@@ -420,6 +423,7 @@ func NewCfnOriginRequestPolicy(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::CloudFront::OriginRequestPolicy`.
 func NewCfnOriginRequestPolicy_Override(c CfnOriginRequestPolicy, scope constructs.Construct, id *string, props *CfnOriginRequestPolicyProps) {
 	_init_.Initialize()
 

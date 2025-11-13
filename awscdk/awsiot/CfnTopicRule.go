@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -524,8 +526,8 @@ import (
 //
 type CfnTopicRule interface {
 	awscdk.CfnResource
-	ITopicRuleRef
 	awscdk.IInspectable
+	interfacesawsiot.ITopicRuleRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
 	AttrArn() *string
@@ -538,7 +540,7 @@ type CfnTopicRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -572,7 +574,7 @@ type CfnTopicRule interface {
 	TopicRulePayload() interface{}
 	SetTopicRulePayload(val interface{})
 	// A reference to a TopicRule resource.
-	TopicRuleRef() *TopicRuleReference
+	TopicRuleRef() *interfacesawsiot.TopicRuleReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -716,8 +718,8 @@ type CfnTopicRule interface {
 // The jsii proxy struct for CfnTopicRule
 type jsiiProxy_CfnTopicRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITopicRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotITopicRuleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -771,8 +773,8 @@ func (j *jsiiProxy_CfnTopicRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTopicRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -861,8 +863,8 @@ func (j *jsiiProxy_CfnTopicRule) TopicRulePayload() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicRule) TopicRuleRef() *TopicRuleReference {
-	var returns *TopicRuleReference
+func (j *jsiiProxy_CfnTopicRule) TopicRuleRef() *interfacesawsiot.TopicRuleReference {
+	var returns *interfacesawsiot.TopicRuleReference
 	_jsii_.Get(
 		j,
 		"topicRuleRef",
@@ -892,6 +894,7 @@ func (j *jsiiProxy_CfnTopicRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::TopicRule`.
 func NewCfnTopicRule(scope constructs.Construct, id *string, props *CfnTopicRuleProps) CfnTopicRule {
 	_init_.Initialize()
 
@@ -909,6 +912,7 @@ func NewCfnTopicRule(scope constructs.Construct, id *string, props *CfnTopicRule
 	return &j
 }
 
+// Create a new `AWS::IoT::TopicRule`.
 func NewCfnTopicRule_Override(c CfnTopicRule, scope constructs.Construct, id *string, props *CfnTopicRuleProps) {
 	_init_.Initialize()
 
@@ -950,13 +954,13 @@ func (j *jsiiProxy_CfnTopicRule)SetTopicRulePayload(val interface{}) {
 }
 
 // Creates a new ITopicRuleRef from a ruleName.
-func CfnTopicRule_FromRuleName(scope constructs.Construct, id *string, ruleName *string) ITopicRuleRef {
+func CfnTopicRule_FromRuleName(scope constructs.Construct, id *string, ruleName *string) interfacesawsiot.ITopicRuleRef {
 	_init_.Initialize()
 
 	if err := validateCfnTopicRule_FromRuleNameParameters(scope, id, ruleName); err != nil {
 		panic(err)
 	}
-	var returns ITopicRuleRef
+	var returns interfacesawsiot.ITopicRuleRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnTopicRule",
@@ -969,13 +973,13 @@ func CfnTopicRule_FromRuleName(scope constructs.Construct, id *string, ruleName 
 }
 
 // Creates a new ITopicRuleRef from an ARN.
-func CfnTopicRule_FromTopicRuleArn(scope constructs.Construct, id *string, arn *string) ITopicRuleRef {
+func CfnTopicRule_FromTopicRuleArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.ITopicRuleRef {
 	_init_.Initialize()
 
 	if err := validateCfnTopicRule_FromTopicRuleArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ITopicRuleRef
+	var returns interfacesawsiot.ITopicRuleRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnTopicRule",

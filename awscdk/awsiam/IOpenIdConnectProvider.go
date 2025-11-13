@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an IAM OpenID Connect provider.
 type IOpenIdConnectProvider interface {
-	IOIDCProviderRef
+	interfacesawsiam.IOIDCProviderRef
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
 	OpenIdConnectProviderArn() *string
@@ -20,7 +22,7 @@ type IOpenIdConnectProvider interface {
 
 // The jsii proxy for IOpenIdConnectProvider
 type jsiiProxy_IOpenIdConnectProvider struct {
-	jsiiProxy_IOIDCProviderRef
+	internal.Type__interfacesawsiamIOIDCProviderRef
 	internal.Type__awscdkIResource
 }
 
@@ -55,8 +57,8 @@ func (j *jsiiProxy_IOpenIdConnectProvider) OpenIdConnectProviderIssuer() *string
 	return returns
 }
 
-func (j *jsiiProxy_IOpenIdConnectProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IOpenIdConnectProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -75,8 +77,8 @@ func (j *jsiiProxy_IOpenIdConnectProvider) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IOpenIdConnectProvider) OidcProviderRef() *OIDCProviderReference {
-	var returns *OIDCProviderReference
+func (j *jsiiProxy_IOpenIdConnectProvider) OidcProviderRef() *interfacesawsiam.OIDCProviderReference {
+	var returns *interfacesawsiam.OIDCProviderReference
 	_jsii_.Get(
 		j,
 		"oidcProviderRef",

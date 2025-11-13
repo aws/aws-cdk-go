@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnRoutingProfile interface {
 	awscdk.CfnResource
-	IRoutingProfileRef
 	awscdk.IInspectable
+	interfacesawsconnect.IRoutingProfileRef
 	awscdk.ITaggableV2
 	// Whether agents with this routing profile will have their routing order calculated based on *time since their last inbound contact* or *longest idle time* .
 	AgentAvailabilityTimer() *string
@@ -90,7 +92,7 @@ type CfnRoutingProfile interface {
 	// The description of the routing profile.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -124,7 +126,7 @@ type CfnRoutingProfile interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RoutingProfile resource.
-	RoutingProfileRef() *RoutingProfileReference
+	RoutingProfileRef() *interfacesawsconnect.RoutingProfileReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -275,8 +277,8 @@ type CfnRoutingProfile interface {
 // The jsii proxy struct for CfnRoutingProfile
 type jsiiProxy_CfnRoutingProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRoutingProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIRoutingProfileRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnRoutingProfile) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoutingProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRoutingProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -460,8 +462,8 @@ func (j *jsiiProxy_CfnRoutingProfile) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoutingProfile) RoutingProfileRef() *RoutingProfileReference {
-	var returns *RoutingProfileReference
+func (j *jsiiProxy_CfnRoutingProfile) RoutingProfileRef() *interfacesawsconnect.RoutingProfileReference {
+	var returns *interfacesawsconnect.RoutingProfileReference
 	_jsii_.Get(
 		j,
 		"routingProfileRef",
@@ -511,6 +513,7 @@ func (j *jsiiProxy_CfnRoutingProfile) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Connect::RoutingProfile`.
 func NewCfnRoutingProfile(scope constructs.Construct, id *string, props *CfnRoutingProfileProps) CfnRoutingProfile {
 	_init_.Initialize()
 
@@ -528,6 +531,7 @@ func NewCfnRoutingProfile(scope constructs.Construct, id *string, props *CfnRout
 	return &j
 }
 
+// Create a new `AWS::Connect::RoutingProfile`.
 func NewCfnRoutingProfile_Override(c CfnRoutingProfile, scope constructs.Construct, id *string, props *CfnRoutingProfileProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscur/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscur"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnReportDefinition interface {
 	awscdk.CfnResource
-	IReportDefinitionRef
 	awscdk.IInspectable
+	interfacesawscur.IReportDefinitionRef
 	awscdk.ITaggableV2
 	// A list of manifests that you want AWS to create for this report.
 	AdditionalArtifacts() *[]*string
@@ -75,7 +77,7 @@ type CfnReportDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The format that Amazon Web Services saves the report in.
 	Format() *string
 	SetFormat(val *string)
@@ -100,7 +102,7 @@ type CfnReportDefinition interface {
 	RefreshClosedReports() interface{}
 	SetRefreshClosedReports(val interface{})
 	// A reference to a ReportDefinition resource.
-	ReportDefinitionRef() *ReportDefinitionReference
+	ReportDefinitionRef() *interfacesawscur.ReportDefinitionReference
 	// The name of the report that you want to create.
 	ReportName() *string
 	SetReportName(val *string)
@@ -269,8 +271,8 @@ type CfnReportDefinition interface {
 // The jsii proxy struct for CfnReportDefinition
 type jsiiProxy_CfnReportDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReportDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscurIReportDefinitionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnReportDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReportDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReportDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -424,8 +426,8 @@ func (j *jsiiProxy_CfnReportDefinition) RefreshClosedReports() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReportDefinition) ReportDefinitionRef() *ReportDefinitionReference {
-	var returns *ReportDefinitionReference
+func (j *jsiiProxy_CfnReportDefinition) ReportDefinitionRef() *interfacesawscur.ReportDefinitionReference {
+	var returns *interfacesawscur.ReportDefinitionReference
 	_jsii_.Get(
 		j,
 		"reportDefinitionRef",
@@ -535,6 +537,7 @@ func (j *jsiiProxy_CfnReportDefinition) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::CUR::ReportDefinition`.
 func NewCfnReportDefinition(scope constructs.Construct, id *string, props *CfnReportDefinitionProps) CfnReportDefinition {
 	_init_.Initialize()
 
@@ -552,6 +555,7 @@ func NewCfnReportDefinition(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
+// Create a new `AWS::CUR::ReportDefinition`.
 func NewCfnReportDefinition_Override(c CfnReportDefinition, scope constructs.Construct, id *string, props *CfnReportDefinitionProps) {
 	_init_.Initialize()
 
@@ -697,13 +701,13 @@ func (j *jsiiProxy_CfnReportDefinition)SetTimeUnit(val *string) {
 }
 
 // Creates a new IReportDefinitionRef from a reportName.
-func CfnReportDefinition_FromReportName(scope constructs.Construct, id *string, reportName *string) IReportDefinitionRef {
+func CfnReportDefinition_FromReportName(scope constructs.Construct, id *string, reportName *string) interfacesawscur.IReportDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnReportDefinition_FromReportNameParameters(scope, id, reportName); err != nil {
 		panic(err)
 	}
-	var returns IReportDefinitionRef
+	var returns interfacesawscur.IReportDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cur.CfnReportDefinition",

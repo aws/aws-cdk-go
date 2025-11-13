@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -69,7 +70,7 @@ type Ipam interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Access to Ipam resource id that can be used later to add a custom private scope to this IPAM.
 	// Experimental.
 	IpamId() *string
@@ -154,8 +155,8 @@ type jsiiProxy_Ipam struct {
 	internal.Type__awscdkResource
 }
 
-func (j *jsiiProxy_Ipam) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Ipam) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

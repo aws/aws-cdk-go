@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationsignals/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationsignals"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -254,8 +256,8 @@ import (
 //
 type CfnServiceLevelObjective interface {
 	awscdk.CfnResource
-	IServiceLevelObjectiveRef
 	awscdk.IInspectable
+	interfacesawsapplicationsignals.IServiceLevelObjectiveRef
 	awscdk.ITaggableV2
 	// The ARN of this SLO.
 	AttrArn() *string
@@ -282,7 +284,7 @@ type CfnServiceLevelObjective interface {
 	// An optional description for this SLO.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The time window to be excluded from the SLO performance metrics.
 	ExclusionWindows() interface{}
 	SetExclusionWindows(val interface{})
@@ -313,7 +315,7 @@ type CfnServiceLevelObjective interface {
 	RequestBasedSli() interface{}
 	SetRequestBasedSli(val interface{})
 	// A reference to a ServiceLevelObjective resource.
-	ServiceLevelObjectiveRef() *ServiceLevelObjectiveReference
+	ServiceLevelObjectiveRef() *interfacesawsapplicationsignals.ServiceLevelObjectiveReference
 	// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
 	Sli() interface{}
 	SetSli(val interface{})
@@ -467,8 +469,8 @@ type CfnServiceLevelObjective interface {
 // The jsii proxy struct for CfnServiceLevelObjective
 type jsiiProxy_CfnServiceLevelObjective struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceLevelObjectiveRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapplicationsignalsIServiceLevelObjectiveRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -582,8 +584,8 @@ func (j *jsiiProxy_CfnServiceLevelObjective) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceLevelObjective) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceLevelObjective) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -662,8 +664,8 @@ func (j *jsiiProxy_CfnServiceLevelObjective) RequestBasedSli() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceLevelObjective) ServiceLevelObjectiveRef() *ServiceLevelObjectiveReference {
-	var returns *ServiceLevelObjectiveReference
+func (j *jsiiProxy_CfnServiceLevelObjective) ServiceLevelObjectiveRef() *interfacesawsapplicationsignals.ServiceLevelObjectiveReference {
+	var returns *interfacesawsapplicationsignals.ServiceLevelObjectiveReference
 	_jsii_.Get(
 		j,
 		"serviceLevelObjectiveRef",
@@ -723,6 +725,7 @@ func (j *jsiiProxy_CfnServiceLevelObjective) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::ApplicationSignals::ServiceLevelObjective`.
 func NewCfnServiceLevelObjective(scope constructs.Construct, id *string, props *CfnServiceLevelObjectiveProps) CfnServiceLevelObjective {
 	_init_.Initialize()
 
@@ -740,6 +743,7 @@ func NewCfnServiceLevelObjective(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::ApplicationSignals::ServiceLevelObjective`.
 func NewCfnServiceLevelObjective_Override(c CfnServiceLevelObjective, scope constructs.Construct, id *string, props *CfnServiceLevelObjectiveProps) {
 	_init_.Initialize()
 

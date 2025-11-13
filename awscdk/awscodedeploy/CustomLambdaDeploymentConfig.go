@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,7 +47,7 @@ type CustomLambdaDeploymentConfig interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Deprecated: CloudFormation now supports Lambda deployment configurations without custom resources. Use `LambdaDeploymentConfig`.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	// Deprecated: CloudFormation now supports Lambda deployment configurations without custom resources. Use `LambdaDeploymentConfig`.
 	Node() constructs.Node
@@ -121,8 +122,8 @@ func (j *jsiiProxy_CustomLambdaDeploymentConfig) DeploymentConfigName() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CustomLambdaDeploymentConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CustomLambdaDeploymentConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnIdentityProvider interface {
 	awscdk.CfnResource
-	IIdentityProviderRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.IIdentityProviderRef
 	awscdk.ITaggableV2
 	// The ARN of the identity provider.
 	AttrIdentityProviderArn() *string
@@ -55,7 +57,7 @@ type CfnIdentityProvider interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identity provider details.
 	//
 	// The following list describes the provider detail keys for each identity provider type.
@@ -65,7 +67,7 @@ type CfnIdentityProvider interface {
 	IdentityProviderName() *string
 	SetIdentityProviderName(val *string)
 	// A reference to a IdentityProvider resource.
-	IdentityProviderRef() *IdentityProviderReference
+	IdentityProviderRef() *interfacesawsworkspacesweb.IdentityProviderReference
 	// The identity provider type.
 	IdentityProviderType() *string
 	SetIdentityProviderType(val *string)
@@ -238,8 +240,8 @@ type CfnIdentityProvider interface {
 // The jsii proxy struct for CfnIdentityProvider
 type jsiiProxy_CfnIdentityProvider struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdentityProviderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebIIdentityProviderRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnIdentityProvider) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdentityProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnIdentityProvider) IdentityProviderName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityProvider) IdentityProviderRef() *IdentityProviderReference {
-	var returns *IdentityProviderReference
+func (j *jsiiProxy_CfnIdentityProvider) IdentityProviderRef() *interfacesawsworkspacesweb.IdentityProviderReference {
+	var returns *interfacesawsworkspacesweb.IdentityProviderReference
 	_jsii_.Get(
 		j,
 		"identityProviderRef",
@@ -434,6 +436,7 @@ func (j *jsiiProxy_CfnIdentityProvider) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::IdentityProvider`.
 func NewCfnIdentityProvider(scope constructs.Construct, id *string, props *CfnIdentityProviderProps) CfnIdentityProvider {
 	_init_.Initialize()
 
@@ -451,6 +454,7 @@ func NewCfnIdentityProvider(scope constructs.Construct, id *string, props *CfnId
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::IdentityProvider`.
 func NewCfnIdentityProvider_Override(c CfnIdentityProvider, scope constructs.Construct, id *string, props *CfnIdentityProviderProps) {
 	_init_.Initialize()
 

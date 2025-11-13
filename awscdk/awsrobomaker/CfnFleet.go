@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrobomaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrobomaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnFleet interface {
 	awscdk.CfnResource
-	IFleetRef
 	awscdk.IInspectable
+	interfacesawsrobomaker.IFleetRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
 	AttrArn() *string
@@ -47,9 +49,9 @@ type CfnFleet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Fleet resource.
-	FleetRef() *FleetReference
+	FleetRef() *interfacesawsrobomaker.FleetReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -222,8 +224,8 @@ type CfnFleet interface {
 // The jsii proxy struct for CfnFleet
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrobomakerIFleetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnFleet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) FleetRef() *FleetReference {
-	var returns *FleetReference
+func (j *jsiiProxy_CfnFleet) FleetRef() *interfacesawsrobomaker.FleetReference {
+	var returns *interfacesawsrobomaker.FleetReference
 	_jsii_.Get(
 		j,
 		"fleetRef",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RoboMaker::Fleet`.
 func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) CfnFleet {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) C
 	return &j
 }
 
+// Create a new `AWS::RoboMaker::Fleet`.
 func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, props *CfnFleetProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -100,8 +102,8 @@ import (
 //
 type CfnStorageLensGroup interface {
 	awscdk.CfnResource
-	IStorageLensGroupRef
 	awscdk.IInspectable
+	interfacesawss3.IStorageLensGroupRef
 	awscdk.ITaggableV2
 	// The ARN for the Amazon S3 Storage Lens Group.
 	AttrStorageLensGroupArn() *string
@@ -116,7 +118,7 @@ type CfnStorageLensGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// This property contains the criteria for the Storage Lens group data that is displayed.
 	Filter() interface{}
 	SetFilter(val interface{})
@@ -145,7 +147,7 @@ type CfnStorageLensGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StorageLensGroup resource.
-	StorageLensGroupRef() *StorageLensGroupReference
+	StorageLensGroupRef() *interfacesawss3.StorageLensGroupReference
 	// This property contains the AWS resource tags that you're adding to your Storage Lens group.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -292,8 +294,8 @@ type CfnStorageLensGroup interface {
 // The jsii proxy struct for CfnStorageLensGroup
 type jsiiProxy_CfnStorageLensGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStorageLensGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IStorageLensGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnStorageLensGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageLensGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStorageLensGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnStorageLensGroup) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageLensGroup) StorageLensGroupRef() *StorageLensGroupReference {
-	var returns *StorageLensGroupReference
+func (j *jsiiProxy_CfnStorageLensGroup) StorageLensGroupRef() *interfacesawss3.StorageLensGroupReference {
+	var returns *interfacesawss3.StorageLensGroupReference
 	_jsii_.Get(
 		j,
 		"storageLensGroupRef",
@@ -468,6 +470,7 @@ func (j *jsiiProxy_CfnStorageLensGroup) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::S3::StorageLensGroup`.
 func NewCfnStorageLensGroup(scope constructs.Construct, id *string, props *CfnStorageLensGroupProps) CfnStorageLensGroup {
 	_init_.Initialize()
 
@@ -485,6 +488,7 @@ func NewCfnStorageLensGroup(scope constructs.Construct, id *string, props *CfnSt
 	return &j
 }
 
+// Create a new `AWS::S3::StorageLensGroup`.
 func NewCfnStorageLensGroup_Override(c CfnStorageLensGroup, scope constructs.Construct, id *string, props *CfnStorageLensGroupProps) {
 	_init_.Initialize()
 

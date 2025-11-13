@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrockagentcore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,6 +26,21 @@ import (
 //
 //   cfnRuntime := awscdk.Aws_bedrockagentcore.NewCfnRuntime(this, jsii.String("MyCfnRuntime"), &CfnRuntimeProps{
 //   	AgentRuntimeArtifact: &AgentRuntimeArtifactProperty{
+//   		CodeConfiguration: &CodeConfigurationProperty{
+//   			Code: &CodeProperty{
+//   				S3: &S3LocationProperty{
+//   					Bucket: jsii.String("bucket"),
+//   					Prefix: jsii.String("prefix"),
+//
+//   					// the properties below are optional
+//   					VersionId: jsii.String("versionId"),
+//   				},
+//   			},
+//   			EntryPoint: []*string{
+//   				jsii.String("entryPoint"),
+//   			},
+//   			Runtime: jsii.String("runtime"),
+//   		},
 //   		ContainerConfiguration: &ContainerConfigurationProperty{
 //   			ContainerUri: jsii.String("containerUri"),
 //   		},
@@ -62,7 +79,16 @@ import (
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
+//   	LifecycleConfiguration: &LifecycleConfigurationProperty{
+//   		IdleRuntimeSessionTimeout: jsii.Number(123),
+//   		MaxLifetime: jsii.Number(123),
+//   	},
 //   	ProtocolConfiguration: jsii.String("protocolConfiguration"),
+//   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
+//   		RequestHeaderAllowlist: []*string{
+//   			jsii.String("requestHeaderAllowlist"),
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -72,8 +98,8 @@ import (
 //
 type CfnRuntime interface {
 	awscdk.CfnResource
-	IRuntimeRef
 	awscdk.IInspectable
+	interfacesawsbedrockagentcore.IRuntimeRef
 	awscdk.ITaggableV2
 	// The artifact of the agent.
 	AgentRuntimeArtifact() interface{}
@@ -112,10 +138,13 @@ type CfnRuntime interface {
 	// The agent runtime description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The environment variables for the agent.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
+	// Configuration for managing the lifecycle of runtime sessions and resources.
+	LifecycleConfiguration() interface{}
+	SetLifecycleConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -139,11 +168,14 @@ type CfnRuntime interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Configuration for HTTP request headers.
+	RequestHeaderConfiguration() interface{}
+	SetRequestHeaderConfiguration(val interface{})
 	// The Amazon Resource Name (ARN) for for the role.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// A reference to a Runtime resource.
-	RuntimeRef() *RuntimeReference
+	RuntimeRef() *interfacesawsbedrockagentcore.RuntimeReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -294,8 +326,8 @@ type CfnRuntime interface {
 // The jsii proxy struct for CfnRuntime
 type jsiiProxy_CfnRuntime struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRuntimeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockagentcoreIRuntimeRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -459,8 +491,8 @@ func (j *jsiiProxy_CfnRuntime) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuntime) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRuntime) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -474,6 +506,16 @@ func (j *jsiiProxy_CfnRuntime) EnvironmentVariables() interface{} {
 	_jsii_.Get(
 		j,
 		"environmentVariables",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRuntime) LifecycleConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"lifecycleConfiguration",
 		&returns,
 	)
 	return returns
@@ -529,6 +571,16 @@ func (j *jsiiProxy_CfnRuntime) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuntime) RequestHeaderConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"requestHeaderConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuntime) RoleArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -539,8 +591,8 @@ func (j *jsiiProxy_CfnRuntime) RoleArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuntime) RuntimeRef() *RuntimeReference {
-	var returns *RuntimeReference
+func (j *jsiiProxy_CfnRuntime) RuntimeRef() *interfacesawsbedrockagentcore.RuntimeReference {
+	var returns *interfacesawsbedrockagentcore.RuntimeReference
 	_jsii_.Get(
 		j,
 		"runtimeRef",
@@ -590,6 +642,7 @@ func (j *jsiiProxy_CfnRuntime) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::BedrockAgentCore::Runtime`.
 func NewCfnRuntime(scope constructs.Construct, id *string, props *CfnRuntimeProps) CfnRuntime {
 	_init_.Initialize()
 
@@ -607,6 +660,7 @@ func NewCfnRuntime(scope constructs.Construct, id *string, props *CfnRuntimeProp
 	return &j
 }
 
+// Create a new `AWS::BedrockAgentCore::Runtime`.
 func NewCfnRuntime_Override(c CfnRuntime, scope constructs.Construct, id *string, props *CfnRuntimeProps) {
 	_init_.Initialize()
 
@@ -669,6 +723,17 @@ func (j *jsiiProxy_CfnRuntime)SetEnvironmentVariables(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnRuntime)SetLifecycleConfiguration(val interface{}) {
+	if err := j.validateSetLifecycleConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"lifecycleConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnRuntime)SetNetworkConfiguration(val interface{}) {
 	if err := j.validateSetNetworkConfigurationParameters(val); err != nil {
 		panic(err)
@@ -684,6 +749,17 @@ func (j *jsiiProxy_CfnRuntime)SetProtocolConfiguration(val *string) {
 	_jsii_.Set(
 		j,
 		"protocolConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuntime)SetRequestHeaderConfiguration(val interface{}) {
+	if err := j.validateSetRequestHeaderConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"requestHeaderConfiguration",
 		val,
 	)
 }

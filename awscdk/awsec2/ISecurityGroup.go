@@ -5,6 +5,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -12,7 +14,7 @@ import (
 type ISecurityGroup interface {
 	IPeer
 	awscdk.IResource
-	ISecurityGroupRef
+	interfacesawsec2.ISecurityGroupRef
 	// Add an egress rule for the current security group.
 	//
 	// `remoteRule` controls where the Rule object is created if the peer is also a
@@ -39,7 +41,7 @@ type ISecurityGroup interface {
 type jsiiProxy_ISecurityGroup struct {
 	jsiiProxy_IPeer
 	internal.Type__awscdkIResource
-	jsiiProxy_ISecurityGroupRef
+	internal.Type__interfacesawsec2ISecurityGroupRef
 }
 
 func (i *jsiiProxy_ISecurityGroup) AddEgressRule(peer IPeer, connection Port, description *string, remoteRule *bool) {
@@ -141,8 +143,8 @@ func (j *jsiiProxy_ISecurityGroup) Connections() Connections {
 	return returns
 }
 
-func (j *jsiiProxy_ISecurityGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ISecurityGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -161,8 +163,8 @@ func (j *jsiiProxy_ISecurityGroup) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_ISecurityGroup) SecurityGroupRef() *SecurityGroupReference {
-	var returns *SecurityGroupReference
+func (j *jsiiProxy_ISecurityGroup) SecurityGroupRef() *interfacesawsec2.SecurityGroupReference {
+	var returns *interfacesawsec2.SecurityGroupReference
 	_jsii_.Get(
 		j,
 		"securityGroupRef",

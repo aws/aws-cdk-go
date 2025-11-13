@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarconnections/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodestarconnections"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnSyncConfiguration interface {
 	awscdk.CfnResource
-	ISyncConfigurationRef
 	awscdk.IInspectable
+	interfacesawscodestarconnections.ISyncConfigurationRef
 	// The owner ID for the repository associated with a specific sync configuration, such as the owner ID in GitHub.
 	AttrOwnerId() *string
 	// The name of the external provider where your third-party code repository is configured.
@@ -56,7 +58,7 @@ type CfnSyncConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -91,7 +93,7 @@ type CfnSyncConfiguration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a SyncConfiguration resource.
-	SyncConfigurationRef() *SyncConfigurationReference
+	SyncConfigurationRef() *interfacesawscodestarconnections.SyncConfigurationReference
 	// The type of sync for a specific sync configuration.
 	SyncType() *string
 	SetSyncType(val *string)
@@ -241,8 +243,8 @@ type CfnSyncConfiguration interface {
 // The jsii proxy struct for CfnSyncConfiguration
 type jsiiProxy_CfnSyncConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISyncConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodestarconnectionsISyncConfigurationRef
 }
 
 func (j *jsiiProxy_CfnSyncConfiguration) AttrOwnerId() *string {
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnSyncConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSyncConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSyncConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnSyncConfiguration) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSyncConfiguration) SyncConfigurationRef() *SyncConfigurationReference {
-	var returns *SyncConfigurationReference
+func (j *jsiiProxy_CfnSyncConfiguration) SyncConfigurationRef() *interfacesawscodestarconnections.SyncConfigurationReference {
+	var returns *interfacesawscodestarconnections.SyncConfigurationReference
 	_jsii_.Get(
 		j,
 		"syncConfigurationRef",
@@ -476,6 +478,7 @@ func (j *jsiiProxy_CfnSyncConfiguration) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::CodeStarConnections::SyncConfiguration`.
 func NewCfnSyncConfiguration(scope constructs.Construct, id *string, props *CfnSyncConfigurationProps) CfnSyncConfiguration {
 	_init_.Initialize()
 
@@ -493,6 +496,7 @@ func NewCfnSyncConfiguration(scope constructs.Construct, id *string, props *CfnS
 	return &j
 }
 
+// Create a new `AWS::CodeStarConnections::SyncConfiguration`.
 func NewCfnSyncConfiguration_Override(c CfnSyncConfiguration, scope constructs.Construct, id *string, props *CfnSyncConfigurationProps) {
 	_init_.Initialize()
 

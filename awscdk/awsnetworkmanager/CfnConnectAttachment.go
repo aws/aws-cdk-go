@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnConnectAttachment interface {
 	awscdk.CfnResource
-	IConnectAttachmentRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.IConnectAttachmentRef
 	awscdk.ITaggable
 	// The ID of the Connect attachment.
 	AttrAttachmentId() *string
@@ -95,7 +97,7 @@ type CfnConnectAttachment interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConnectAttachment resource.
-	ConnectAttachmentRef() *ConnectAttachmentReference
+	ConnectAttachmentRef() *interfacesawsnetworkmanager.ConnectAttachmentReference
 	// The ID of the core network where the Connect attachment is located.
 	CoreNetworkId() *string
 	SetCoreNetworkId(val *string)
@@ -106,7 +108,7 @@ type CfnConnectAttachment interface {
 	// The Region where the edge is located.
 	EdgeLocation() *string
 	SetEdgeLocation(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -291,8 +293,8 @@ type CfnConnectAttachment interface {
 // The jsii proxy struct for CfnConnectAttachment
 type jsiiProxy_CfnConnectAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerIConnectAttachmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -436,8 +438,8 @@ func (j *jsiiProxy_CfnConnectAttachment) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectAttachment) ConnectAttachmentRef() *ConnectAttachmentReference {
-	var returns *ConnectAttachmentReference
+func (j *jsiiProxy_CfnConnectAttachment) ConnectAttachmentRef() *interfacesawsnetworkmanager.ConnectAttachmentReference {
+	var returns *interfacesawsnetworkmanager.ConnectAttachmentReference
 	_jsii_.Get(
 		j,
 		"connectAttachmentRef",
@@ -476,8 +478,8 @@ func (j *jsiiProxy_CfnConnectAttachment) EdgeLocation() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnectAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -617,6 +619,7 @@ func (j *jsiiProxy_CfnConnectAttachment) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::NetworkManager::ConnectAttachment`.
 func NewCfnConnectAttachment(scope constructs.Construct, id *string, props *CfnConnectAttachmentProps) CfnConnectAttachment {
 	_init_.Initialize()
 
@@ -634,6 +637,7 @@ func NewCfnConnectAttachment(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::ConnectAttachment`.
 func NewCfnConnectAttachment_Override(c CfnConnectAttachment, scope constructs.Construct, id *string, props *CfnConnectAttachmentProps) {
 	_init_.Initialize()
 
@@ -730,13 +734,13 @@ func (j *jsiiProxy_CfnConnectAttachment)SetTransportAttachmentId(val *string) {
 }
 
 // Creates a new IConnectAttachmentRef from a attachmentId.
-func CfnConnectAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) IConnectAttachmentRef {
+func CfnConnectAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) interfacesawsnetworkmanager.IConnectAttachmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnectAttachment_FromAttachmentIdParameters(scope, id, attachmentId); err != nil {
 		panic(err)
 	}
-	var returns IConnectAttachmentRef
+	var returns interfacesawsnetworkmanager.IConnectAttachmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment",

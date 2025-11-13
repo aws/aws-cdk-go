@@ -1,11 +1,16 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscustomerprofiles"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawscustomerprofilesICalculatedAttributeDefinitionRef = interfacesawscustomerprofiles.ICalculatedAttributeDefinitionRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawscustomerprofilesIDomainRef = interfacesawscustomerprofiles.IDomainRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawscustomerprofilesIEventStreamRef = interfacesawscustomerprofiles.IEventStreamRef
+type Type__interfacesawscustomerprofilesIEventTriggerRef = interfacesawscustomerprofiles.IEventTriggerRef
+type Type__interfacesawscustomerprofilesIIntegrationRef = interfacesawscustomerprofiles.IIntegrationRef
+type Type__interfacesawscustomerprofilesIObjectTypeRef = interfacesawscustomerprofiles.IObjectTypeRef
+type Type__interfacesawscustomerprofilesISegmentDefinitionRef = interfacesawscustomerprofiles.ISegmentDefinitionRef

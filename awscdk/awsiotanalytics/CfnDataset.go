@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotanalytics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotanalytics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -133,8 +135,8 @@ import (
 //
 type CfnDataset interface {
 	awscdk.CfnResource
-	IDatasetRef
 	awscdk.IInspectable
+	interfacesawsiotanalytics.IDatasetRef
 	awscdk.ITaggable
 	// The `DatasetAction` objects that automatically create the dataset contents.
 	Actions() interface{}
@@ -156,8 +158,8 @@ type CfnDataset interface {
 	DatasetName() *string
 	SetDatasetName(val *string)
 	// A reference to a Dataset resource.
-	DatasetRef() *DatasetReference
-	Env() *awscdk.ResourceEnvironment
+	DatasetRef() *interfacesawsiotanalytics.DatasetReference
+	Env() *interfaces.ResourceEnvironment
 	// A list of data rules that send notifications to CloudWatch, when data arrives late.
 	LateDataRules() interface{}
 	SetLateDataRules(val interface{})
@@ -339,8 +341,8 @@ type CfnDataset interface {
 // The jsii proxy struct for CfnDataset
 type jsiiProxy_CfnDataset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatasetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotanalyticsIDatasetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -424,8 +426,8 @@ func (j *jsiiProxy_CfnDataset) DatasetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) DatasetRef() *DatasetReference {
-	var returns *DatasetReference
+func (j *jsiiProxy_CfnDataset) DatasetRef() *interfacesawsiotanalytics.DatasetReference {
+	var returns *interfacesawsiotanalytics.DatasetReference
 	_jsii_.Get(
 		j,
 		"datasetRef",
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnDataset) DatasetRef() *DatasetReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -565,6 +567,7 @@ func (j *jsiiProxy_CfnDataset) VersioningConfiguration() interface{} {
 }
 
 
+// Create a new `AWS::IoTAnalytics::Dataset`.
 func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
 	_init_.Initialize()
 
@@ -582,6 +585,7 @@ func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProp
 	return &j
 }
 
+// Create a new `AWS::IoTAnalytics::Dataset`.
 func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string, props *CfnDatasetProps) {
 	_init_.Initialize()
 
@@ -678,13 +682,13 @@ func (j *jsiiProxy_CfnDataset)SetVersioningConfiguration(val interface{}) {
 }
 
 // Creates a new IDatasetRef from a datasetName.
-func CfnDataset_FromDatasetName(scope constructs.Construct, id *string, datasetName *string) IDatasetRef {
+func CfnDataset_FromDatasetName(scope constructs.Construct, id *string, datasetName *string) interfacesawsiotanalytics.IDatasetRef {
 	_init_.Initialize()
 
 	if err := validateCfnDataset_FromDatasetNameParameters(scope, id, datasetName); err != nil {
 		panic(err)
 	}
-	var returns IDatasetRef
+	var returns interfacesawsiotanalytics.IDatasetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotanalytics.CfnDataset",

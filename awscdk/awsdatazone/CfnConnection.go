@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,6 +34,11 @@ import (
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
 //   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //   	Props: &ConnectionPropertiesInputProperty{
+//   		AmazonQProperties: &AmazonQPropertiesInputProperty{
+//   			AuthMode: jsii.String("authMode"),
+//   			IsEnabled: jsii.Boolean(false),
+//   			ProfileArn: jsii.String("profileArn"),
+//   		},
 //   		AthenaProperties: &AthenaPropertiesInputProperty{
 //   			WorkgroupName: jsii.String("workgroupName"),
 //   		},
@@ -158,14 +165,15 @@ import (
 //   			WorkerType: jsii.String("workerType"),
 //   		},
 //   	},
+//   	Scope: jsii.String("scope"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html
 //
 type CfnConnection interface {
 	awscdk.CfnResource
-	IConnectionRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IConnectionRef
 	// The ID of the connection.
 	AttrConnectionId() *string
 	// The domain ID of the connection.
@@ -189,7 +197,7 @@ type CfnConnection interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Connection resource.
-	ConnectionRef() *ConnectionReference
+	ConnectionRef() *interfacesawsdatazone.ConnectionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -203,7 +211,7 @@ type CfnConnection interface {
 	// Specifies whether the trusted identity propagation is enabled.
 	EnableTrustedIdentityPropagation() interface{}
 	SetEnableTrustedIdentityPropagation(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the environment where the connection is created.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -233,6 +241,9 @@ type CfnConnection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The scope of the connection.
+	Scope() *string
+	SetScope(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -380,8 +391,8 @@ type CfnConnection interface {
 // The jsii proxy struct for CfnConnection
 type jsiiProxy_CfnConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIConnectionRef
 }
 
 func (j *jsiiProxy_CfnConnection) AttrConnectionId() *string {
@@ -494,8 +505,8 @@ func (j *jsiiProxy_CfnConnection) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnection) ConnectionRef() *ConnectionReference {
-	var returns *ConnectionReference
+func (j *jsiiProxy_CfnConnection) ConnectionRef() *interfacesawsdatazone.ConnectionReference {
+	var returns *interfacesawsdatazone.ConnectionReference
 	_jsii_.Get(
 		j,
 		"connectionRef",
@@ -544,8 +555,8 @@ func (j *jsiiProxy_CfnConnection) EnableTrustedIdentityPropagation() interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -624,6 +635,16 @@ func (j *jsiiProxy_CfnConnection) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnection) Scope() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scope",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnection) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -655,6 +676,7 @@ func (j *jsiiProxy_CfnConnection) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataZone::Connection`.
 func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnectionProps) CfnConnection {
 	_init_.Initialize()
 
@@ -672,6 +694,7 @@ func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnecti
 	return &j
 }
 
+// Create a new `AWS::DataZone::Connection`.
 func NewCfnConnection_Override(c CfnConnection, scope constructs.Construct, id *string, props *CfnConnectionProps) {
 	_init_.Initialize()
 
@@ -757,6 +780,14 @@ func (j *jsiiProxy_CfnConnection)SetProps(val interface{}) {
 	_jsii_.Set(
 		j,
 		"props",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetScope(val *string) {
+	_jsii_.Set(
+		j,
+		"scope",
 		val,
 	)
 }

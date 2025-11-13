@@ -78,8 +78,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnComputeEnvironment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IComputeEnvironmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbatchIComputeEnvironmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -161,8 +161,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConsumableResource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConsumableResourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbatchIConsumableResourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -228,8 +228,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnJobDefinition{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IJobDefinitionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbatchIJobDefinitionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -489,8 +489,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnJobQueue{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IJobQueueRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbatchIJobQueueRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -556,8 +556,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSchedulingPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISchedulingPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbatchISchedulingPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -621,8 +621,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnServiceEnvironment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IServiceEnvironmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbatchIServiceEnvironmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -638,14 +638,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.ComputeEnvironmentProps",
 		reflect.TypeOf((*ComputeEnvironmentProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.ComputeEnvironmentReference",
-		reflect.TypeOf((*ComputeEnvironmentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.ConsumableResourceReference",
-		reflect.TypeOf((*ConsumableResourceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CustomReason",
@@ -1112,36 +1104,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IComputeEnvironmentRef",
-		reflect.TypeOf((*IComputeEnvironmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "computeEnvironmentRef", GoGetter: "ComputeEnvironmentRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IComputeEnvironmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IConsumableResourceRef",
-		reflect.TypeOf((*IConsumableResourceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "consumableResourceRef", GoGetter: "ConsumableResourceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConsumableResourceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_batch.IEcsContainerDefinition",
 		reflect.TypeOf((*IEcsContainerDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1362,21 +1324,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IJobDefinitionRef",
-		reflect.TypeOf((*IJobDefinitionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "jobDefinitionRef", GoGetter: "JobDefinitionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IJobDefinitionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_batch.IJobQueue",
 		reflect.TypeOf((*IJobQueue)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1395,21 +1342,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IJobQueue{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IJobQueueRef",
-		reflect.TypeOf((*IJobQueueRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "jobQueueRef", GoGetter: "JobQueueRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IJobQueueRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1504,36 +1436,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.ISchedulingPolicyRef",
-		reflect.TypeOf((*ISchedulingPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "schedulingPolicyRef", GoGetter: "SchedulingPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISchedulingPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IServiceEnvironmentRef",
-		reflect.TypeOf((*IServiceEnvironmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceEnvironmentRef", GoGetter: "ServiceEnvironmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IServiceEnvironmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_batch.IUnmanagedComputeEnvironment",
 		reflect.TypeOf((*IUnmanagedComputeEnvironment)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1566,10 +1468,6 @@ func init() {
 		"aws-cdk-lib.aws_batch.JobDefinitionProps",
 		reflect.TypeOf((*JobDefinitionProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.JobDefinitionReference",
-		reflect.TypeOf((*JobDefinitionReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_batch.JobQueue",
 		reflect.TypeOf((*JobQueue)(nil)).Elem(),
@@ -1601,10 +1499,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.JobQueueProps",
 		reflect.TypeOf((*JobQueueProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.JobQueueReference",
-		reflect.TypeOf((*JobQueueReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.JobStateTimeLimitAction",
@@ -1848,10 +1742,6 @@ func init() {
 			return &jsiiProxy_RetryStrategy{}
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.SchedulingPolicyReference",
-		reflect.TypeOf((*SchedulingPolicyReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_batch.Secret",
 		reflect.TypeOf((*Secret)(nil)).Elem(),
@@ -1887,10 +1777,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.SecretVersionInfo",
 		reflect.TypeOf((*SecretVersionInfo)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.ServiceEnvironmentReference",
-		reflect.TypeOf((*ServiceEnvironmentReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.Share",

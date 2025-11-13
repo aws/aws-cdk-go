@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,8 +72,8 @@ import (
 //
 type CfnConfigurationRecorder interface {
 	awscdk.CfnResource
-	IConfigurationRecorderRef
 	awscdk.IInspectable
+	interfacesawsconfig.IConfigurationRecorderRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -79,12 +81,12 @@ type CfnConfigurationRecorder interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConfigurationRecorder resource.
-	ConfigurationRecorderRef() *ConfigurationRecorderReference
+	ConfigurationRecorderRef() *interfacesawsconfig.ConfigurationRecorderReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -265,8 +267,8 @@ type CfnConfigurationRecorder interface {
 // The jsii proxy struct for CfnConfigurationRecorder
 type jsiiProxy_CfnConfigurationRecorder struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationRecorderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIConfigurationRecorderRef
 }
 
 func (j *jsiiProxy_CfnConfigurationRecorder) AttrId() *string {
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnConfigurationRecorder) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationRecorder) ConfigurationRecorderRef() *ConfigurationRecorderReference {
-	var returns *ConfigurationRecorderReference
+func (j *jsiiProxy_CfnConfigurationRecorder) ConfigurationRecorderRef() *interfacesawsconfig.ConfigurationRecorderReference {
+	var returns *interfacesawsconfig.ConfigurationRecorderReference
 	_jsii_.Get(
 		j,
 		"configurationRecorderRef",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnConfigurationRecorder) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationRecorder) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationRecorder) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -440,6 +442,7 @@ func (j *jsiiProxy_CfnConfigurationRecorder) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::Config::ConfigurationRecorder`.
 func NewCfnConfigurationRecorder(scope constructs.Construct, id *string, props *CfnConfigurationRecorderProps) CfnConfigurationRecorder {
 	_init_.Initialize()
 
@@ -457,6 +460,7 @@ func NewCfnConfigurationRecorder(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Config::ConfigurationRecorder`.
 func NewCfnConfigurationRecorder_Override(c CfnConfigurationRecorder, scope constructs.Construct, id *string, props *CfnConfigurationRecorderProps) {
 	_init_.Initialize()
 

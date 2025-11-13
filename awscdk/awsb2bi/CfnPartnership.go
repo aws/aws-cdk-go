@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsb2bi/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsb2bi"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -87,8 +89,8 @@ import (
 //
 type CfnPartnership interface {
 	awscdk.CfnResource
-	IPartnershipRef
 	awscdk.IInspectable
+	interfacesawsb2bi.IPartnershipRef
 	awscdk.ITaggableV2
 	// Returns a timestamp for creation date and time of the partnership.
 	AttrCreatedAt() *string
@@ -120,7 +122,7 @@ type CfnPartnership interface {
 	// Specifies the email address associated with this trading partner.
 	Email() *string
 	SetEmail(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -137,7 +139,7 @@ type CfnPartnership interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Partnership resource.
-	PartnershipRef() *PartnershipReference
+	PartnershipRef() *interfacesawsb2bi.PartnershipReference
 	// Specifies the phone number associated with the partnership.
 	Phone() *string
 	SetPhone(val *string)
@@ -299,8 +301,8 @@ type CfnPartnership interface {
 // The jsii proxy struct for CfnPartnership
 type jsiiProxy_CfnPartnership struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPartnershipRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsb2biIPartnershipRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnPartnership) Email() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartnership) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPartnership) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -474,8 +476,8 @@ func (j *jsiiProxy_CfnPartnership) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartnership) PartnershipRef() *PartnershipReference {
-	var returns *PartnershipReference
+func (j *jsiiProxy_CfnPartnership) PartnershipRef() *interfacesawsb2bi.PartnershipReference {
+	var returns *interfacesawsb2bi.PartnershipReference
 	_jsii_.Get(
 		j,
 		"partnershipRef",
@@ -555,6 +557,7 @@ func (j *jsiiProxy_CfnPartnership) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::B2BI::Partnership`.
 func NewCfnPartnership(scope constructs.Construct, id *string, props *CfnPartnershipProps) CfnPartnership {
 	_init_.Initialize()
 
@@ -572,6 +575,7 @@ func NewCfnPartnership(scope constructs.Construct, id *string, props *CfnPartner
 	return &j
 }
 
+// Create a new `AWS::B2BI::Partnership`.
 func NewCfnPartnership_Override(c CfnPartnership, scope constructs.Construct, id *string, props *CfnPartnershipProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnLocationNFS interface {
 	awscdk.CfnResource
-	ILocationNFSRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationNFSRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the NFS location that you created.
 	AttrLocationArn() *string
@@ -57,9 +59,9 @@ type CfnLocationNFS interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LocationNFS resource.
-	LocationNfsRef() *LocationNFSReference
+	LocationNfsRef() *interfacesawsdatasync.LocationNFSReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,8 +243,8 @@ type CfnLocationNFS interface {
 // The jsii proxy struct for CfnLocationNFS
 type jsiiProxy_CfnLocationNFS struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationNFSRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationNFSRef
 	internal.Type__awscdkITaggable
 }
 
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnLocationNFS) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationNFS) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationNFS) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnLocationNFS) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationNFS) LocationNfsRef() *LocationNFSReference {
-	var returns *LocationNFSReference
+func (j *jsiiProxy_CfnLocationNFS) LocationNfsRef() *interfacesawsdatasync.LocationNFSReference {
+	var returns *interfacesawsdatasync.LocationNFSReference
 	_jsii_.Get(
 		j,
 		"locationNfsRef",
@@ -447,6 +449,7 @@ func (j *jsiiProxy_CfnLocationNFS) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataSync::LocationNFS`.
 func NewCfnLocationNFS(scope constructs.Construct, id *string, props *CfnLocationNFSProps) CfnLocationNFS {
 	_init_.Initialize()
 
@@ -464,6 +467,7 @@ func NewCfnLocationNFS(scope constructs.Construct, id *string, props *CfnLocatio
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationNFS`.
 func NewCfnLocationNFS_Override(c CfnLocationNFS, scope constructs.Construct, id *string, props *CfnLocationNFSProps) {
 	_init_.Initialize()
 

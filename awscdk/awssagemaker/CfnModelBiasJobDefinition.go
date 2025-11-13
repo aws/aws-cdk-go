@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -134,8 +136,8 @@ import (
 //
 type CfnModelBiasJobDefinition interface {
 	awscdk.CfnResource
-	IModelBiasJobDefinitionRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IModelBiasJobDefinitionRef
 	awscdk.ITaggable
 	// The time when the job definition was created.
 	AttrCreationTime() *string
@@ -153,7 +155,7 @@ type CfnModelBiasJobDefinition interface {
 	// The name of the endpoint used to run the monitoring job.
 	EndpointName() *string
 	SetEndpointName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the bias job definition.
 	JobDefinitionName() *string
 	SetJobDefinitionName(val *string)
@@ -177,7 +179,7 @@ type CfnModelBiasJobDefinition interface {
 	ModelBiasBaselineConfig() interface{}
 	SetModelBiasBaselineConfig(val interface{})
 	// A reference to a ModelBiasJobDefinition resource.
-	ModelBiasJobDefinitionRef() *ModelBiasJobDefinitionReference
+	ModelBiasJobDefinitionRef() *interfacesawssagemaker.ModelBiasJobDefinitionReference
 	// Inputs for the model bias job.
 	ModelBiasJobInput() interface{}
 	SetModelBiasJobInput(val interface{})
@@ -352,8 +354,8 @@ type CfnModelBiasJobDefinition interface {
 // The jsii proxy struct for CfnModelBiasJobDefinition
 type jsiiProxy_CfnModelBiasJobDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelBiasJobDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIModelBiasJobDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelBiasJobDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModelBiasJobDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -487,8 +489,8 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) ModelBiasBaselineConfig() interfac
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelBiasJobDefinition) ModelBiasJobDefinitionRef() *ModelBiasJobDefinitionReference {
-	var returns *ModelBiasJobDefinitionReference
+func (j *jsiiProxy_CfnModelBiasJobDefinition) ModelBiasJobDefinitionRef() *interfacesawssagemaker.ModelBiasJobDefinitionReference {
+	var returns *interfacesawssagemaker.ModelBiasJobDefinitionReference
 	_jsii_.Get(
 		j,
 		"modelBiasJobDefinitionRef",
@@ -618,6 +620,7 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::SageMaker::ModelBiasJobDefinition`.
 func NewCfnModelBiasJobDefinition(scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) CfnModelBiasJobDefinition {
 	_init_.Initialize()
 
@@ -635,6 +638,7 @@ func NewCfnModelBiasJobDefinition(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::SageMaker::ModelBiasJobDefinition`.
 func NewCfnModelBiasJobDefinition_Override(c CfnModelBiasJobDefinition, scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnNotebookInstanceLifecycleConfig interface {
 	awscdk.CfnResource
-	INotebookInstanceLifecycleConfigRef
 	awscdk.IInspectable
+	interfacesawssagemaker.INotebookInstanceLifecycleConfigRef
 	AttrId() *string
 	// The name of the lifecycle configuration, such as `MyLifecycleConfig` .
 	AttrNotebookInstanceLifecycleConfigName() *string
@@ -50,7 +52,7 @@ type CfnNotebookInstanceLifecycleConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnNotebookInstanceLifecycleConfig interface {
 	NotebookInstanceLifecycleConfigName() *string
 	SetNotebookInstanceLifecycleConfigName(val *string)
 	// A reference to a NotebookInstanceLifecycleConfig resource.
-	NotebookInstanceLifecycleConfigRef() *NotebookInstanceLifecycleConfigReference
+	NotebookInstanceLifecycleConfigRef() *interfacesawssagemaker.NotebookInstanceLifecycleConfigReference
 	// A shell script that runs only once, when you create a notebook instance.
 	OnCreate() interface{}
 	SetOnCreate(val interface{})
@@ -226,8 +228,8 @@ type CfnNotebookInstanceLifecycleConfig interface {
 // The jsii proxy struct for CfnNotebookInstanceLifecycleConfig
 type jsiiProxy_CfnNotebookInstanceLifecycleConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INotebookInstanceLifecycleConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerINotebookInstanceLifecycleConfigRef
 }
 
 func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) AttrId() *string {
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) CreationStack() *[]*strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) NotebookInstanceLifecycle
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) NotebookInstanceLifecycleConfigRef() *NotebookInstanceLifecycleConfigReference {
-	var returns *NotebookInstanceLifecycleConfigReference
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) NotebookInstanceLifecycleConfigRef() *interfacesawssagemaker.NotebookInstanceLifecycleConfigReference {
+	var returns *interfacesawssagemaker.NotebookInstanceLifecycleConfigReference
 	_jsii_.Get(
 		j,
 		"notebookInstanceLifecycleConfigRef",
@@ -401,6 +403,7 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) UpdatedProperties() *map[
 }
 
 
+// Create a new `AWS::SageMaker::NotebookInstanceLifecycleConfig`.
 func NewCfnNotebookInstanceLifecycleConfig(scope constructs.Construct, id *string, props *CfnNotebookInstanceLifecycleConfigProps) CfnNotebookInstanceLifecycleConfig {
 	_init_.Initialize()
 
@@ -418,6 +421,7 @@ func NewCfnNotebookInstanceLifecycleConfig(scope constructs.Construct, id *strin
 	return &j
 }
 
+// Create a new `AWS::SageMaker::NotebookInstanceLifecycleConfig`.
 func NewCfnNotebookInstanceLifecycleConfig_Override(c CfnNotebookInstanceLifecycleConfig, scope constructs.Construct, id *string, props *CfnNotebookInstanceLifecycleConfigProps) {
 	_init_.Initialize()
 

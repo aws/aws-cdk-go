@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesthinclient/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesthinclient"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,8 +59,8 @@ import (
 //
 type CfnEnvironment interface {
 	awscdk.CfnResource
-	IEnvironmentRef
 	awscdk.IInspectable
+	interfacesawsworkspacesthinclient.IEnvironmentRef
 	awscdk.ITaggableV2
 	// The activation code to register a device to the environment.
 	AttrActivationCode() *string
@@ -94,18 +96,18 @@ type CfnEnvironment interface {
 	// The ID of the software set to apply.
 	DesiredSoftwareSetId() *string
 	SetDesiredSoftwareSetId(val *string)
-	// The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Secure Browser, or AppStream 2.0.
+	// The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Secure Browser, or WorkSpaces Applications.
 	DesktopArn() *string
 	SetDesktopArn(val *string)
-	// The URL for the identity provider login (only for environments that use AppStream 2.0).
+	// The URL for the identity provider login (only for environments that use WorkSpaces Applications).
 	DesktopEndpoint() *string
 	SetDesktopEndpoint(val *string)
 	// An array of key-value pairs to apply to the newly created devices for this environment.
 	DeviceCreationTags() interface{}
 	SetDeviceCreationTags(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Environment resource.
-	EnvironmentRef() *EnvironmentReference
+	EnvironmentRef() *interfacesawsworkspacesthinclient.EnvironmentReference
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -288,8 +290,8 @@ type CfnEnvironment interface {
 // The jsii proxy struct for CfnEnvironment
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspacesthinclientIEnvironmentRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -483,8 +485,8 @@ func (j *jsiiProxy_CfnEnvironment) DeviceCreationTags() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -493,8 +495,8 @@ func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *EnvironmentReference {
-	var returns *EnvironmentReference
+func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *interfacesawsworkspacesthinclient.EnvironmentReference {
+	var returns *interfacesawsworkspacesthinclient.EnvironmentReference
 	_jsii_.Get(
 		j,
 		"environmentRef",
@@ -624,6 +626,7 @@ func (j *jsiiProxy_CfnEnvironment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::WorkSpacesThinClient::Environment`.
 func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
@@ -641,6 +644,7 @@ func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnviron
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesThinClient::Environment`.
 func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 
@@ -744,13 +748,13 @@ func (j *jsiiProxy_CfnEnvironment)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IEnvironmentRef from an ARN.
-func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) IEnvironmentRef {
+func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) interfacesawsworkspacesthinclient.IEnvironmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnEnvironment_FromEnvironmentArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IEnvironmentRef
+	var returns interfacesawsworkspacesthinclient.IEnvironmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_workspacesthinclient.CfnEnvironment",
@@ -763,13 +767,13 @@ func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IEnvironmentRef from a environmentId.
-func CfnEnvironment_FromEnvironmentId(scope constructs.Construct, id *string, environmentId *string) IEnvironmentRef {
+func CfnEnvironment_FromEnvironmentId(scope constructs.Construct, id *string, environmentId *string) interfacesawsworkspacesthinclient.IEnvironmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnEnvironment_FromEnvironmentIdParameters(scope, id, environmentId); err != nil {
 		panic(err)
 	}
-	var returns IEnvironmentRef
+	var returns interfacesawsworkspacesthinclient.IEnvironmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_workspacesthinclient.CfnEnvironment",

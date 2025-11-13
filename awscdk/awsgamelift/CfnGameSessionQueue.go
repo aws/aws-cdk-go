@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnGameSessionQueue interface {
 	awscdk.CfnResource
-	IGameSessionQueueRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IGameSessionQueueRef
 	awscdk.ITaggable
 	// The unique Amazon Resource Name (ARN) for the `GameSessionQueue` .
 	AttrArn() *string
@@ -85,12 +87,12 @@ type CfnGameSessionQueue interface {
 	// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
 	Destinations() interface{}
 	SetDestinations(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of locations where a queue is allowed to place new game sessions.
 	FilterConfiguration() interface{}
 	SetFilterConfiguration(val interface{})
 	// A reference to a GameSessionQueue resource.
-	GameSessionQueueRef() *GameSessionQueueReference
+	GameSessionQueueRef() *interfacesawsgamelift.GameSessionQueueReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -275,8 +277,8 @@ type CfnGameSessionQueue interface {
 // The jsii proxy struct for CfnGameSessionQueue
 type jsiiProxy_CfnGameSessionQueue struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGameSessionQueueRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIGameSessionQueueRef
 	internal.Type__awscdkITaggable
 }
 
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnGameSessionQueue) Destinations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGameSessionQueue) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnGameSessionQueue) FilterConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) GameSessionQueueRef() *GameSessionQueueReference {
-	var returns *GameSessionQueueReference
+func (j *jsiiProxy_CfnGameSessionQueue) GameSessionQueueRef() *interfacesawsgamelift.GameSessionQueueReference {
+	var returns *interfacesawsgamelift.GameSessionQueueReference
 	_jsii_.Get(
 		j,
 		"gameSessionQueueRef",
@@ -521,6 +523,7 @@ func (j *jsiiProxy_CfnGameSessionQueue) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::GameLift::GameSessionQueue`.
 func NewCfnGameSessionQueue(scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) CfnGameSessionQueue {
 	_init_.Initialize()
 
@@ -538,6 +541,7 @@ func NewCfnGameSessionQueue(scope constructs.Construct, id *string, props *CfnGa
 	return &j
 }
 
+// Create a new `AWS::GameLift::GameSessionQueue`.
 func NewCfnGameSessionQueue_Override(c CfnGameSessionQueue, scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) {
 	_init_.Initialize()
 
@@ -639,13 +643,13 @@ func (j *jsiiProxy_CfnGameSessionQueue)SetTimeoutInSeconds(val *float64) {
 }
 
 // Creates a new IGameSessionQueueRef from an ARN.
-func CfnGameSessionQueue_FromGameSessionQueueArn(scope constructs.Construct, id *string, arn *string) IGameSessionQueueRef {
+func CfnGameSessionQueue_FromGameSessionQueueArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IGameSessionQueueRef {
 	_init_.Initialize()
 
 	if err := validateCfnGameSessionQueue_FromGameSessionQueueArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IGameSessionQueueRef
+	var returns interfacesawsgamelift.IGameSessionQueueRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
@@ -658,13 +662,13 @@ func CfnGameSessionQueue_FromGameSessionQueueArn(scope constructs.Construct, id 
 }
 
 // Creates a new IGameSessionQueueRef from a gameSessionQueueName.
-func CfnGameSessionQueue_FromGameSessionQueueName(scope constructs.Construct, id *string, gameSessionQueueName *string) IGameSessionQueueRef {
+func CfnGameSessionQueue_FromGameSessionQueueName(scope constructs.Construct, id *string, gameSessionQueueName *string) interfacesawsgamelift.IGameSessionQueueRef {
 	_init_.Initialize()
 
 	if err := validateCfnGameSessionQueue_FromGameSessionQueueNameParameters(scope, id, gameSessionQueueName); err != nil {
 		panic(err)
 	}
-	var returns IGameSessionQueueRef
+	var returns interfacesawsgamelift.IGameSessionQueueRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",

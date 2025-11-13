@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -83,8 +85,8 @@ import (
 //
 type CfnUserPoolClient interface {
 	awscdk.CfnResource
-	IUserPoolClientRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolClientRef
 	// The access token time limit.
 	AccessTokenValidity() *float64
 	SetAccessTokenValidity(val *float64)
@@ -131,7 +133,7 @@ type CfnUserPoolClient interface {
 	// Activates or deactivates token revocation.
 	EnableTokenRevocation() interface{}
 	SetEnableTokenRevocation(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
 	ExplicitAuthFlows() *[]*string
 	SetExplicitAuthFlows(val *[]*string)
@@ -197,7 +199,7 @@ type CfnUserPoolClient interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a UserPoolClient resource.
-	UserPoolClientRef() *UserPoolClientReference
+	UserPoolClientRef() *interfacesawscognito.UserPoolClientReference
 	// The ID of the user pool where you want to create an app client.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
@@ -334,8 +336,8 @@ type CfnUserPoolClient interface {
 // The jsii proxy struct for CfnUserPoolClient
 type jsiiProxy_CfnUserPoolClient struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolClientRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolClientRef
 }
 
 func (j *jsiiProxy_CfnUserPoolClient) AccessTokenValidity() *float64 {
@@ -518,8 +520,8 @@ func (j *jsiiProxy_CfnUserPoolClient) EnableTokenRevocation() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolClient) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolClient) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -688,8 +690,8 @@ func (j *jsiiProxy_CfnUserPoolClient) UpdatedProperties() *map[string]interface{
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolClient) UserPoolClientRef() *UserPoolClientReference {
-	var returns *UserPoolClientReference
+func (j *jsiiProxy_CfnUserPoolClient) UserPoolClientRef() *interfacesawscognito.UserPoolClientReference {
+	var returns *interfacesawscognito.UserPoolClientReference
 	_jsii_.Get(
 		j,
 		"userPoolClientRef",
@@ -719,6 +721,7 @@ func (j *jsiiProxy_CfnUserPoolClient) WriteAttributes() *[]*string {
 }
 
 
+// Create a new `AWS::Cognito::UserPoolClient`.
 func NewCfnUserPoolClient(scope constructs.Construct, id *string, props *CfnUserPoolClientProps) CfnUserPoolClient {
 	_init_.Initialize()
 
@@ -736,6 +739,7 @@ func NewCfnUserPoolClient(scope constructs.Construct, id *string, props *CfnUser
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolClient`.
 func NewCfnUserPoolClient_Override(c CfnUserPoolClient, scope constructs.Construct, id *string, props *CfnUserPoolClientProps) {
 	_init_.Initialize()
 

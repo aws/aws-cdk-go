@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,8 +73,8 @@ import (
 //
 type CfnRecordSetGroup interface {
 	awscdk.CfnResource
-	IRecordSetGroupRef
 	awscdk.IInspectable
+	interfacesawsroute53.IRecordSetGroupRef
 	// This element contains an ID that you use when performing a `GetChange` action to get detailed information about the change.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -87,7 +89,7 @@ type CfnRecordSetGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the hosted zone that you want to create records in.
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
@@ -107,7 +109,7 @@ type CfnRecordSetGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a RecordSetGroup resource.
-	RecordSetGroupRef() *RecordSetGroupReference
+	RecordSetGroupRef() *interfacesawsroute53.RecordSetGroupReference
 	// A complex type that contains one `RecordSet` element for each record that you want to create.
 	RecordSets() interface{}
 	SetRecordSets(val interface{})
@@ -263,8 +265,8 @@ type CfnRecordSetGroup interface {
 // The jsii proxy struct for CfnRecordSetGroup
 type jsiiProxy_CfnRecordSetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRecordSetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53IRecordSetGroupRef
 }
 
 func (j *jsiiProxy_CfnRecordSetGroup) AttrId() *string {
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnRecordSetGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordSetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRecordSetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnRecordSetGroup) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordSetGroup) RecordSetGroupRef() *RecordSetGroupReference {
-	var returns *RecordSetGroupReference
+func (j *jsiiProxy_CfnRecordSetGroup) RecordSetGroupRef() *interfacesawsroute53.RecordSetGroupReference {
+	var returns *interfacesawsroute53.RecordSetGroupReference
 	_jsii_.Get(
 		j,
 		"recordSetGroupRef",
@@ -438,6 +440,7 @@ func (j *jsiiProxy_CfnRecordSetGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Route53::RecordSetGroup`.
 func NewCfnRecordSetGroup(scope constructs.Construct, id *string, props *CfnRecordSetGroupProps) CfnRecordSetGroup {
 	_init_.Initialize()
 
@@ -455,6 +458,7 @@ func NewCfnRecordSetGroup(scope constructs.Construct, id *string, props *CfnReco
 	return &j
 }
 
+// Create a new `AWS::Route53::RecordSetGroup`.
 func NewCfnRecordSetGroup_Override(c CfnRecordSetGroup, scope constructs.Construct, id *string, props *CfnRecordSetGroupProps) {
 	_init_.Initialize()
 

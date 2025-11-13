@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnUrl interface {
 	awscdk.CfnResource
-	IUrlRef
 	awscdk.IInspectable
+	interfacesawslambda.IUrlRef
 	// The Amazon Resource Name (ARN) of the function.
 	AttrFunctionArn() *string
 	// The HTTP URL endpoint for your function.
@@ -68,7 +70,7 @@ type CfnUrl interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Use one of the following options:.
 	InvokeMode() *string
 	SetInvokeMode(val *string)
@@ -113,7 +115,7 @@ type CfnUrl interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a Url resource.
-	UrlRef() *UrlReference
+	UrlRef() *interfacesawslambda.UrlReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -244,8 +246,8 @@ type CfnUrl interface {
 // The jsii proxy struct for CfnUrl
 type jsiiProxy_CfnUrl struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUrlRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslambdaIUrlRef
 }
 
 func (j *jsiiProxy_CfnUrl) AttrFunctionArn() *string {
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnUrl) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUrl) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUrl) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnUrl) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUrl) UrlRef() *UrlReference {
-	var returns *UrlReference
+func (j *jsiiProxy_CfnUrl) UrlRef() *interfacesawslambda.UrlReference {
+	var returns *interfacesawslambda.UrlReference
 	_jsii_.Get(
 		j,
 		"urlRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnUrl) UrlRef() *UrlReference {
 }
 
 
+// Create a new `AWS::Lambda::Url`.
 func NewCfnUrl(scope constructs.Construct, id *string, props *CfnUrlProps) CfnUrl {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnUrl(scope constructs.Construct, id *string, props *CfnUrlProps) CfnUr
 	return &j
 }
 
+// Create a new `AWS::Lambda::Url`.
 func NewCfnUrl_Override(c CfnUrl, scope constructs.Construct, id *string, props *CfnUrlProps) {
 	_init_.Initialize()
 

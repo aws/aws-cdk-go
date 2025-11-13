@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnLogAnomalyDetector interface {
 	awscdk.CfnResource
-	ILogAnomalyDetectorRef
 	awscdk.IInspectable
+	interfacesawslogs.ILogAnomalyDetectorRef
 	// The ID of the account to create the anomaly detector in.
 	AccountId() *string
 	SetAccountId(val *string)
@@ -68,7 +70,7 @@ type CfnLogAnomalyDetector interface {
 	// A name for this anomaly detector.
 	DetectorName() *string
 	SetDetectorName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies how often the anomaly detector is to run and look for anomalies.
 	EvaluationFrequency() *string
 	SetEvaluationFrequency(val *string)
@@ -79,7 +81,7 @@ type CfnLogAnomalyDetector interface {
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// A reference to a LogAnomalyDetector resource.
-	LogAnomalyDetectorRef() *LogAnomalyDetectorReference
+	LogAnomalyDetectorRef() *interfacesawslogs.LogAnomalyDetectorReference
 	// The ARN of the log group that is associated with this anomaly detector.
 	LogGroupArnList() *[]*string
 	SetLogGroupArnList(val *[]*string)
@@ -247,8 +249,8 @@ type CfnLogAnomalyDetector interface {
 // The jsii proxy struct for CfnLogAnomalyDetector
 type jsiiProxy_CfnLogAnomalyDetector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILogAnomalyDetectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsILogAnomalyDetectorRef
 }
 
 func (j *jsiiProxy_CfnLogAnomalyDetector) AccountId() *string {
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnLogAnomalyDetector) DetectorName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogAnomalyDetector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLogAnomalyDetector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnLogAnomalyDetector) KmsKeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogAnomalyDetector) LogAnomalyDetectorRef() *LogAnomalyDetectorReference {
-	var returns *LogAnomalyDetectorReference
+func (j *jsiiProxy_CfnLogAnomalyDetector) LogAnomalyDetectorRef() *interfacesawslogs.LogAnomalyDetectorReference {
+	var returns *interfacesawslogs.LogAnomalyDetectorReference
 	_jsii_.Get(
 		j,
 		"logAnomalyDetectorRef",
@@ -482,6 +484,7 @@ func (j *jsiiProxy_CfnLogAnomalyDetector) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Logs::LogAnomalyDetector`.
 func NewCfnLogAnomalyDetector(scope constructs.Construct, id *string, props *CfnLogAnomalyDetectorProps) CfnLogAnomalyDetector {
 	_init_.Initialize()
 
@@ -499,6 +502,7 @@ func NewCfnLogAnomalyDetector(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Logs::LogAnomalyDetector`.
 func NewCfnLogAnomalyDetector_Override(c CfnLogAnomalyDetector, scope constructs.Construct, id *string, props *CfnLogAnomalyDetectorProps) {
 	_init_.Initialize()
 

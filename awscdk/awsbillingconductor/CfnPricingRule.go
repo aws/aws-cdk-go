@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbillingconductor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbillingconductor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnPricingRule interface {
 	awscdk.CfnResource
-	IPricingRuleRef
 	awscdk.IInspectable
+	interfacesawsbillingconductor.IPricingRuleRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) used to uniquely identify a pricing rule.
 	AttrArn() *string
@@ -71,7 +73,7 @@ type CfnPricingRule interface {
 	// The pricing rule description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -94,7 +96,7 @@ type CfnPricingRule interface {
 	Operation() *string
 	SetOperation(val *string)
 	// A reference to a PricingRule resource.
-	PricingRuleRef() *PricingRuleReference
+	PricingRuleRef() *interfacesawsbillingconductor.PricingRuleReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -267,8 +269,8 @@ type CfnPricingRule interface {
 // The jsii proxy struct for CfnPricingRule
 type jsiiProxy_CfnPricingRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPricingRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbillingconductorIPricingRuleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnPricingRule) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPricingRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPricingRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -432,8 +434,8 @@ func (j *jsiiProxy_CfnPricingRule) Operation() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPricingRule) PricingRuleRef() *PricingRuleReference {
-	var returns *PricingRuleReference
+func (j *jsiiProxy_CfnPricingRule) PricingRuleRef() *interfacesawsbillingconductor.PricingRuleReference {
+	var returns *interfacesawsbillingconductor.PricingRuleReference
 	_jsii_.Get(
 		j,
 		"pricingRuleRef",
@@ -553,6 +555,7 @@ func (j *jsiiProxy_CfnPricingRule) UsageType() *string {
 }
 
 
+// Create a new `AWS::BillingConductor::PricingRule`.
 func NewCfnPricingRule(scope constructs.Construct, id *string, props *CfnPricingRuleProps) CfnPricingRule {
 	_init_.Initialize()
 
@@ -570,6 +573,7 @@ func NewCfnPricingRule(scope constructs.Construct, id *string, props *CfnPricing
 	return &j
 }
 
+// Create a new `AWS::BillingConductor::PricingRule`.
 func NewCfnPricingRule_Override(c CfnPricingRule, scope constructs.Construct, id *string, props *CfnPricingRuleProps) {
 	_init_.Initialize()
 

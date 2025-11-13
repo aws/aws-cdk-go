@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,7 +29,7 @@ type AccessKey interface {
 	// The Access Key ID.
 	AccessKeyId() *string
 	// A reference to a AccessKey resource.
-	AccessKeyRef() *AccessKeyReference
+	AccessKeyRef() *interfacesawsiam.AccessKeyReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -37,7 +39,7 @@ type AccessKey interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -96,8 +98,8 @@ func (j *jsiiProxy_AccessKey) AccessKeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_AccessKey) AccessKeyRef() *AccessKeyReference {
-	var returns *AccessKeyReference
+func (j *jsiiProxy_AccessKey) AccessKeyRef() *interfacesawsiam.AccessKeyReference {
+	var returns *interfacesawsiam.AccessKeyReference
 	_jsii_.Get(
 		j,
 		"accessKeyRef",
@@ -106,8 +108,8 @@ func (j *jsiiProxy_AccessKey) AccessKeyRef() *AccessKeyReference {
 	return returns
 }
 
-func (j *jsiiProxy_AccessKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_AccessKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

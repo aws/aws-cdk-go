@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediatailor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediatailor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnSourceLocation interface {
 	awscdk.CfnResource
-	ISourceLocationRef
 	awscdk.IInspectable
+	interfacesawsmediatailor.ISourceLocationRef
 	awscdk.ITaggableV2
 	// The access configuration for the source location.
 	AccessConfiguration() interface{}
@@ -76,7 +78,7 @@ type CfnSourceLocation interface {
 	// The default segment delivery configuration.
 	DefaultSegmentDeliveryConfiguration() interface{}
 	SetDefaultSegmentDeliveryConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The HTTP configuration for the source location.
 	HttpConfiguration() interface{}
 	SetHttpConfiguration(val interface{})
@@ -104,7 +106,7 @@ type CfnSourceLocation interface {
 	SourceLocationName() *string
 	SetSourceLocationName(val *string)
 	// A reference to a SourceLocation resource.
-	SourceLocationRef() *SourceLocationReference
+	SourceLocationRef() *interfacesawsmediatailor.SourceLocationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -255,8 +257,8 @@ type CfnSourceLocation interface {
 // The jsii proxy struct for CfnSourceLocation
 type jsiiProxy_CfnSourceLocation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISourceLocationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediatailorISourceLocationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnSourceLocation) DefaultSegmentDeliveryConfiguration() inte
 	return returns
 }
 
-func (j *jsiiProxy_CfnSourceLocation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSourceLocation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -410,8 +412,8 @@ func (j *jsiiProxy_CfnSourceLocation) SourceLocationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSourceLocation) SourceLocationRef() *SourceLocationReference {
-	var returns *SourceLocationReference
+func (j *jsiiProxy_CfnSourceLocation) SourceLocationRef() *interfacesawsmediatailor.SourceLocationReference {
+	var returns *interfacesawsmediatailor.SourceLocationReference
 	_jsii_.Get(
 		j,
 		"sourceLocationRef",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnSourceLocation) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::MediaTailor::SourceLocation`.
 func NewCfnSourceLocation(scope constructs.Construct, id *string, props *CfnSourceLocationProps) CfnSourceLocation {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnSourceLocation(scope constructs.Construct, id *string, props *CfnSour
 	return &j
 }
 
+// Create a new `AWS::MediaTailor::SourceLocation`.
 func NewCfnSourceLocation_Override(c CfnSourceLocation, scope constructs.Construct, id *string, props *CfnSourceLocationProps) {
 	_init_.Initialize()
 
@@ -555,13 +559,13 @@ func (j *jsiiProxy_CfnSourceLocation)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ISourceLocationRef from an ARN.
-func CfnSourceLocation_FromSourceLocationArn(scope constructs.Construct, id *string, arn *string) ISourceLocationRef {
+func CfnSourceLocation_FromSourceLocationArn(scope constructs.Construct, id *string, arn *string) interfacesawsmediatailor.ISourceLocationRef {
 	_init_.Initialize()
 
 	if err := validateCfnSourceLocation_FromSourceLocationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ISourceLocationRef
+	var returns interfacesawsmediatailor.ISourceLocationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_mediatailor.CfnSourceLocation",
@@ -574,13 +578,13 @@ func CfnSourceLocation_FromSourceLocationArn(scope constructs.Construct, id *str
 }
 
 // Creates a new ISourceLocationRef from a sourceLocationName.
-func CfnSourceLocation_FromSourceLocationName(scope constructs.Construct, id *string, sourceLocationName *string) ISourceLocationRef {
+func CfnSourceLocation_FromSourceLocationName(scope constructs.Construct, id *string, sourceLocationName *string) interfacesawsmediatailor.ISourceLocationRef {
 	_init_.Initialize()
 
 	if err := validateCfnSourceLocation_FromSourceLocationNameParameters(scope, id, sourceLocationName); err != nil {
 		panic(err)
 	}
-	var returns ISourceLocationRef
+	var returns interfacesawsmediatailor.ISourceLocationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_mediatailor.CfnSourceLocation",

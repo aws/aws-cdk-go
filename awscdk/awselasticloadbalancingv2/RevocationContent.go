@@ -1,7 +1,7 @@
 package awselasticloadbalancingv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Information about a revocation file.
@@ -25,7 +25,7 @@ import (
 //
 type RevocationContent struct {
 	// The Amazon S3 bucket for the revocation file.
-	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket interfacesawss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
 	// The Amazon S3 path for the revocation file.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The type of revocation file.

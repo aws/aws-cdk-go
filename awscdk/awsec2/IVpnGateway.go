@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The virtual private gateway interface.
 type IVpnGateway interface {
 	awscdk.IResource
-	IVPNGatewayRef
+	interfacesawsec2.IVPNGatewayRef
 	// The virtual private gateway Id.
 	GatewayId() *string
 }
@@ -19,7 +21,7 @@ type IVpnGateway interface {
 // The jsii proxy for IVpnGateway
 type jsiiProxy_IVpnGateway struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IVPNGatewayRef
+	internal.Type__interfacesawsec2IVPNGatewayRef
 }
 
 func (i *jsiiProxy_IVpnGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -43,8 +45,8 @@ func (j *jsiiProxy_IVpnGateway) GatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVpnGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IVpnGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -73,8 +75,8 @@ func (j *jsiiProxy_IVpnGateway) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVpnGateway) VpnGatewayRef() *VPNGatewayReference {
-	var returns *VPNGatewayReference
+func (j *jsiiProxy_IVpnGateway) VpnGatewayRef() *interfacesawsec2.VPNGatewayReference {
+	var returns *interfacesawsec2.VPNGatewayReference
 	_jsii_.Get(
 		j,
 		"vpnGatewayRef",

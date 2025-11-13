@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The `AWS::SecurityHub::FindingAggregator` resource enables cross-Region aggregation.
 //
-// When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *AWS Security Hub User Guide*
+// When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *Security Hub User Guide*
 //
 // This resource must be created in the Region that you want to designate as your aggregation Region.
 //
@@ -35,8 +37,8 @@ import (
 //
 type CfnFindingAggregator interface {
 	awscdk.CfnResource
-	IFindingAggregatorRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IFindingAggregatorRef
 	// The home Region.
 	//
 	// Findings generated in linked Regions are replicated and sent to the home Region.
@@ -54,9 +56,9 @@ type CfnFindingAggregator interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FindingAggregator resource.
-	FindingAggregatorRef() *FindingAggregatorReference
+	FindingAggregatorRef() *interfacesawssecurityhub.FindingAggregatorReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,8 +229,8 @@ type CfnFindingAggregator interface {
 // The jsii proxy struct for CfnFindingAggregator
 type jsiiProxy_CfnFindingAggregator struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFindingAggregatorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIFindingAggregatorRef
 }
 
 func (j *jsiiProxy_CfnFindingAggregator) AttrFindingAggregationRegion() *string {
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnFindingAggregator) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFindingAggregator) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFindingAggregator) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnFindingAggregator) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFindingAggregator) FindingAggregatorRef() *FindingAggregatorReference {
-	var returns *FindingAggregatorReference
+func (j *jsiiProxy_CfnFindingAggregator) FindingAggregatorRef() *interfacesawssecurityhub.FindingAggregatorReference {
+	var returns *interfacesawssecurityhub.FindingAggregatorReference
 	_jsii_.Get(
 		j,
 		"findingAggregatorRef",
@@ -392,6 +394,7 @@ func (j *jsiiProxy_CfnFindingAggregator) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::SecurityHub::FindingAggregator`.
 func NewCfnFindingAggregator(scope constructs.Construct, id *string, props *CfnFindingAggregatorProps) CfnFindingAggregator {
 	_init_.Initialize()
 
@@ -409,6 +412,7 @@ func NewCfnFindingAggregator(scope constructs.Construct, id *string, props *CfnF
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::FindingAggregator`.
 func NewCfnFindingAggregator_Override(c CfnFindingAggregator, scope constructs.Construct, id *string, props *CfnFindingAggregatorProps) {
 	_init_.Initialize()
 

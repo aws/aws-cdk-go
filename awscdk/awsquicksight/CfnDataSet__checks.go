@@ -299,6 +299,30 @@ func (j *jsiiProxy_CfnDataSet) validateSetColumnLevelPermissionRulesParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSet) validateSetDataPrepConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDataSet_DataPrepConfigurationProperty:
+		val := val.(*CfnDataSet_DataPrepConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDataSet_DataPrepConfigurationProperty:
+		val_ := val.(CfnDataSet_DataPrepConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSet_DataPrepConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSet) validateSetDatasetParametersParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -737,6 +761,30 @@ func (j *jsiiProxy_CfnDataSet) validateSetRowLevelPermissionTagConfigurationPara
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSet_RowLevelPermissionTagConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataSet) validateSetSemanticModelConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDataSet_SemanticModelConfigurationProperty:
+		val := val.(*CfnDataSet_SemanticModelConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDataSet_SemanticModelConfigurationProperty:
+		val_ := val.(CfnDataSet_SemanticModelConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSet_SemanticModelConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

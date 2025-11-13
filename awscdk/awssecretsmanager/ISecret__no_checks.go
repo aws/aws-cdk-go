@@ -16,6 +16,10 @@ func (i *jsiiProxy_ISecret) validateAttachParameters(target ISecretAttachmentTar
 	return nil
 }
 
+func (i *jsiiProxy_ISecret) validateCfnDynamicReferenceKeyParameters(options *awscdk.SecretsManagerSecretOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_ISecret) validateGrantReadParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

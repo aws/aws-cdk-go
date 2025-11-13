@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskafkaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskafkaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -111,8 +113,8 @@ import (
 //
 type CfnConnector interface {
 	awscdk.CfnResource
-	IConnectorRef
 	awscdk.IInspectable
+	interfacesawskafkaconnect.IConnectorRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the newly created connector.
 	AttrConnectorArn() *string
@@ -136,12 +138,12 @@ type CfnConnector interface {
 	ConnectorName() *string
 	SetConnectorName(val *string)
 	// A reference to a Connector resource.
-	ConnectorRef() *ConnectorReference
+	ConnectorRef() *interfacesawskafkaconnect.ConnectorReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The details of the Apache Kafka cluster to which the connector is connected.
 	KafkaCluster() interface{}
 	SetKafkaCluster(val interface{})
@@ -333,8 +335,8 @@ type CfnConnector interface {
 // The jsii proxy struct for CfnConnector
 type jsiiProxy_CfnConnector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskafkaconnectIConnectorRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnConnector) ConnectorName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) ConnectorRef() *ConnectorReference {
-	var returns *ConnectorReference
+func (j *jsiiProxy_CfnConnector) ConnectorRef() *interfacesawskafkaconnect.ConnectorReference {
+	var returns *interfacesawskafkaconnect.ConnectorReference
 	_jsii_.Get(
 		j,
 		"connectorRef",
@@ -448,8 +450,8 @@ func (j *jsiiProxy_CfnConnector) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -609,6 +611,7 @@ func (j *jsiiProxy_CfnConnector) WorkerConfiguration() interface{} {
 }
 
 
+// Create a new `AWS::KafkaConnect::Connector`.
 func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
 	_init_.Initialize()
 
@@ -626,6 +629,7 @@ func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnector
 	return &j
 }
 
+// Create a new `AWS::KafkaConnect::Connector`.
 func NewCfnConnector_Override(c CfnConnector, scope constructs.Construct, id *string, props *CfnConnectorProps) {
 	_init_.Initialize()
 

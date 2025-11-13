@@ -96,10 +96,6 @@ func init() {
 		"aws-cdk-lib.aws_autoscaling.AutoScalingGroupProps",
 		reflect.TypeOf((*AutoScalingGroupProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling.AutoScalingGroupReference",
-		reflect.TypeOf((*AutoScalingGroupReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_autoscaling.AutoScalingGroupRequireImdsv2Aspect",
 		reflect.TypeOf((*AutoScalingGroupRequireImdsv2Aspect)(nil)).Elem(),
@@ -237,8 +233,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAutoScalingGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAutoScalingGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsautoscalingIAutoScalingGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -418,8 +414,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLaunchConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILaunchConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsautoscalingILaunchConfigurationRef)
 			return &j
 		},
 	)
@@ -487,8 +483,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLifecycleHook{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILifecycleHookRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsautoscalingILifecycleHookRef)
 			return &j
 		},
 	)
@@ -549,8 +545,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnScalingPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IScalingPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsautoscalingIScalingPolicyRef)
 			return &j
 		},
 	)
@@ -679,8 +675,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnScheduledAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IScheduledActionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsautoscalingIScheduledActionRef)
 			return &j
 		},
 	)
@@ -733,8 +729,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnWarmPool{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWarmPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsautoscalingIWarmPoolRef)
 			return &j
 		},
 	)
@@ -876,36 +872,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_autoscaling.IAutoScalingGroupRef",
-		reflect.TypeOf((*IAutoScalingGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroupRef", GoGetter: "AutoScalingGroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAutoScalingGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_autoscaling.ILaunchConfigurationRef",
-		reflect.TypeOf((*ILaunchConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "launchConfigurationRef", GoGetter: "LaunchConfigurationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILaunchConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_autoscaling.ILifecycleHook",
 		reflect.TypeOf((*ILifecycleHook)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -922,21 +888,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_autoscaling.ILifecycleHookRef",
-		reflect.TypeOf((*ILifecycleHookRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "lifecycleHookRef", GoGetter: "LifecycleHookRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILifecycleHookRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_autoscaling.ILifecycleHookTarget",
 		reflect.TypeOf((*ILifecycleHookTarget)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -946,58 +897,9 @@ func init() {
 			return &jsiiProxy_ILifecycleHookTarget{}
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_autoscaling.IScalingPolicyRef",
-		reflect.TypeOf((*IScalingPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scalingPolicyRef", GoGetter: "ScalingPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IScalingPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_autoscaling.IScheduledActionRef",
-		reflect.TypeOf((*IScheduledActionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scheduledActionRef", GoGetter: "ScheduledActionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IScheduledActionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_autoscaling.IWarmPoolRef",
-		reflect.TypeOf((*IWarmPoolRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "warmPoolRef", GoGetter: "WarmPoolRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IWarmPoolRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.InstancesDistribution",
 		reflect.TypeOf((*InstancesDistribution)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling.LaunchConfigurationReference",
-		reflect.TypeOf((*LaunchConfigurationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.LaunchTemplateOverrides",
@@ -1029,10 +931,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.LifecycleHookProps",
 		reflect.TypeOf((*LifecycleHookProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling.LifecycleHookReference",
-		reflect.TypeOf((*LifecycleHookReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.LifecycleHookTargetConfig",
@@ -1141,10 +1039,6 @@ func init() {
 		"aws-cdk-lib.aws_autoscaling.ScalingInterval",
 		reflect.TypeOf((*ScalingInterval)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling.ScalingPolicyReference",
-		reflect.TypeOf((*ScalingPolicyReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_autoscaling.ScalingProcess",
 		reflect.TypeOf((*ScalingProcess)(nil)).Elem(),
@@ -1194,10 +1088,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.ScheduledActionProps",
 		reflect.TypeOf((*ScheduledActionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling.ScheduledActionReference",
-		reflect.TypeOf((*ScheduledActionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_autoscaling.Signals",
@@ -1331,9 +1221,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.WarmPoolProps",
 		reflect.TypeOf((*WarmPoolProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling.WarmPoolReference",
-		reflect.TypeOf((*WarmPoolReference)(nil)).Elem(),
 	)
 }

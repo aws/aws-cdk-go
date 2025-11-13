@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnTransitGatewayRouteTableAttachment interface {
 	awscdk.CfnResource
-	ITransitGatewayRouteTableAttachmentRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.ITransitGatewayRouteTableAttachmentRef
 	awscdk.ITaggable
 	// The ID of the transit gateway route table attachment.
 	AttrAttachmentId() *string
@@ -96,7 +98,7 @@ type CfnTransitGatewayRouteTableAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -139,7 +141,7 @@ type CfnTransitGatewayRouteTableAttachment interface {
 	TransitGatewayRouteTableArn() *string
 	SetTransitGatewayRouteTableArn(val *string)
 	// A reference to a TransitGatewayRouteTableAttachment resource.
-	TransitGatewayRouteTableAttachmentRef() *TransitGatewayRouteTableAttachmentReference
+	TransitGatewayRouteTableAttachmentRef() *interfacesawsnetworkmanager.TransitGatewayRouteTableAttachmentReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -283,8 +285,8 @@ type CfnTransitGatewayRouteTableAttachment interface {
 // The jsii proxy struct for CfnTransitGatewayRouteTableAttachment
 type jsiiProxy_CfnTransitGatewayRouteTableAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayRouteTableAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerITransitGatewayRouteTableAttachmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -458,8 +460,8 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) CreationStack() *[]*st
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -578,8 +580,8 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) TransitGatewayRouteTab
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) TransitGatewayRouteTableAttachmentRef() *TransitGatewayRouteTableAttachmentReference {
-	var returns *TransitGatewayRouteTableAttachmentReference
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) TransitGatewayRouteTableAttachmentRef() *interfacesawsnetworkmanager.TransitGatewayRouteTableAttachmentReference {
+	var returns *interfacesawsnetworkmanager.TransitGatewayRouteTableAttachmentReference
 	_jsii_.Get(
 		j,
 		"transitGatewayRouteTableAttachmentRef",
@@ -609,6 +611,7 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) UpdatedProperties() *m
 }
 
 
+// Create a new `AWS::NetworkManager::TransitGatewayRouteTableAttachment`.
 func NewCfnTransitGatewayRouteTableAttachment(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableAttachmentProps) CfnTransitGatewayRouteTableAttachment {
 	_init_.Initialize()
 
@@ -626,6 +629,7 @@ func NewCfnTransitGatewayRouteTableAttachment(scope constructs.Construct, id *st
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::TransitGatewayRouteTableAttachment`.
 func NewCfnTransitGatewayRouteTableAttachment_Override(c CfnTransitGatewayRouteTableAttachment, scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableAttachmentProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnPartnerAccount interface {
 	awscdk.CfnResource
-	IPartnerAccountRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.IPartnerAccountRef
 	awscdk.ITaggable
 	// Whether the partner account is linked to the AWS account.
 	AccountLinked() interface{}
@@ -64,7 +66,7 @@ type CfnPartnerAccount interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,7 +83,7 @@ type CfnPartnerAccount interface {
 	PartnerAccountId() *string
 	SetPartnerAccountId(val *string)
 	// A reference to a PartnerAccount resource.
-	PartnerAccountRef() *PartnerAccountReference
+	PartnerAccountRef() *interfacesawsiotwireless.PartnerAccountReference
 	// The partner type.
 	PartnerType() *string
 	SetPartnerType(val *string)
@@ -251,8 +253,8 @@ type CfnPartnerAccount interface {
 // The jsii proxy struct for CfnPartnerAccount
 type jsiiProxy_CfnPartnerAccount struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPartnerAccountRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessIPartnerAccountRef
 	internal.Type__awscdkITaggable
 }
 
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnPartnerAccount) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartnerAccount) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPartnerAccount) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnPartnerAccount) PartnerAccountId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartnerAccount) PartnerAccountRef() *PartnerAccountReference {
-	var returns *PartnerAccountReference
+func (j *jsiiProxy_CfnPartnerAccount) PartnerAccountRef() *interfacesawsiotwireless.PartnerAccountReference {
+	var returns *interfacesawsiotwireless.PartnerAccountReference
 	_jsii_.Get(
 		j,
 		"partnerAccountRef",
@@ -477,6 +479,7 @@ func (j *jsiiProxy_CfnPartnerAccount) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::IoTWireless::PartnerAccount`.
 func NewCfnPartnerAccount(scope constructs.Construct, id *string, props *CfnPartnerAccountProps) CfnPartnerAccount {
 	_init_.Initialize()
 
@@ -494,6 +497,7 @@ func NewCfnPartnerAccount(scope constructs.Construct, id *string, props *CfnPart
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::PartnerAccount`.
 func NewCfnPartnerAccount_Override(c CfnPartnerAccount, scope constructs.Construct, id *string, props *CfnPartnerAccountProps) {
 	_init_.Initialize()
 

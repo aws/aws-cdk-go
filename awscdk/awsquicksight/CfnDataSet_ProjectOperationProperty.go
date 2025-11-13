@@ -11,17 +11,37 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   projectOperationProperty := &ProjectOperationProperty{
+//   	Alias: jsii.String("alias"),
 //   	ProjectedColumns: []*string{
 //   		jsii.String("projectedColumns"),
+//   	},
+//   	Source: &TransformOperationSourceProperty{
+//   		TransformOperationId: jsii.String("transformOperationId"),
+//
+//   		// the properties below are optional
+//   		ColumnIdMappings: []interface{}{
+//   			&DataSetColumnIdMappingProperty{
+//   				SourceColumnId: jsii.String("sourceColumnId"),
+//   				TargetColumnId: jsii.String("targetColumnId"),
+//   			},
+//   		},
 //   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html
 //
 type CfnDataSet_ProjectOperationProperty struct {
+	// Alias for this operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-alias
+	//
+	Alias *string `field:"optional" json:"alias" yaml:"alias"`
 	// Projected columns.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
 	//
 	ProjectedColumns *[]*string `field:"optional" json:"projectedColumns" yaml:"projectedColumns"`
+	// The source transform operation that provides input data for column projection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-source
+	//
+	Source interface{} `field:"optional" json:"source" yaml:"source"`
 }
 

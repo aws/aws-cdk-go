@@ -1,10 +1,12 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoveryreadiness"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsroute53recoveryreadinessICellRef = interfacesawsroute53recoveryreadiness.ICellRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsroute53recoveryreadinessIReadinessCheckRef = interfacesawsroute53recoveryreadiness.IReadinessCheckRef
+type Type__interfacesawsroute53recoveryreadinessIRecoveryGroupRef = interfacesawsroute53recoveryreadiness.IRecoveryGroupRef
+type Type__interfacesawsroute53recoveryreadinessIResourceSetRef = interfacesawsroute53recoveryreadiness.IResourceSetRef

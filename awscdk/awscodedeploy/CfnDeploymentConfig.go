@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnDeploymentConfig interface {
 	awscdk.CfnResource
-	IDeploymentConfigRef
 	awscdk.IInspectable
+	interfacesawscodedeploy.IDeploymentConfigRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -70,8 +72,8 @@ type CfnDeploymentConfig interface {
 	DeploymentConfigName() *string
 	SetDeploymentConfigName(val *string)
 	// A reference to a DeploymentConfig resource.
-	DeploymentConfigRef() *DeploymentConfigReference
-	Env() *awscdk.ResourceEnvironment
+	DeploymentConfigRef() *interfacesawscodedeploy.DeploymentConfigReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -245,8 +247,8 @@ type CfnDeploymentConfig interface {
 // The jsii proxy struct for CfnDeploymentConfig
 type jsiiProxy_CfnDeploymentConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeploymentConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodedeployIDeploymentConfigRef
 }
 
 func (j *jsiiProxy_CfnDeploymentConfig) CfnOptions() awscdk.ICfnResourceOptions {
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnDeploymentConfig) DeploymentConfigName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentConfig) DeploymentConfigRef() *DeploymentConfigReference {
-	var returns *DeploymentConfigReference
+func (j *jsiiProxy_CfnDeploymentConfig) DeploymentConfigRef() *interfacesawscodedeploy.DeploymentConfigReference {
+	var returns *interfacesawscodedeploy.DeploymentConfigReference
 	_jsii_.Get(
 		j,
 		"deploymentConfigRef",
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnDeploymentConfig) DeploymentConfigRef() *DeploymentConfigR
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeploymentConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -420,6 +422,7 @@ func (j *jsiiProxy_CfnDeploymentConfig) ZonalConfig() interface{} {
 }
 
 
+// Create a new `AWS::CodeDeploy::DeploymentConfig`.
 func NewCfnDeploymentConfig(scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) CfnDeploymentConfig {
 	_init_.Initialize()
 
@@ -437,6 +440,7 @@ func NewCfnDeploymentConfig(scope constructs.Construct, id *string, props *CfnDe
 	return &j
 }
 
+// Create a new `AWS::CodeDeploy::DeploymentConfig`.
 func NewCfnDeploymentConfig_Override(c CfnDeploymentConfig, scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) {
 	_init_.Initialize()
 

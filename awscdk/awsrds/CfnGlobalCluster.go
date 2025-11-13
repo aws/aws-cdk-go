@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnGlobalCluster interface {
 	awscdk.CfnResource
-	IGlobalClusterRef
 	awscdk.IInspectable
+	interfacesawsrds.IGlobalClusterRef
 	awscdk.ITaggableV2
 	AttrGlobalEndpoint() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
@@ -69,12 +71,12 @@ type CfnGlobalCluster interface {
 	// The engine version to use for this global database cluster.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The cluster identifier for this global database cluster.
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
 	// A reference to a GlobalCluster resource.
-	GlobalClusterRef() *GlobalClusterReference
+	GlobalClusterRef() *interfacesawsrds.GlobalClusterReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -248,8 +250,8 @@ type CfnGlobalCluster interface {
 // The jsii proxy struct for CfnGlobalCluster
 type jsiiProxy_CfnGlobalCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGlobalClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIGlobalClusterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnGlobalCluster) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGlobalCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnGlobalCluster) GlobalClusterIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalCluster) GlobalClusterRef() *GlobalClusterReference {
-	var returns *GlobalClusterReference
+func (j *jsiiProxy_CfnGlobalCluster) GlobalClusterRef() *interfacesawsrds.GlobalClusterReference {
+	var returns *interfacesawsrds.GlobalClusterReference
 	_jsii_.Get(
 		j,
 		"globalClusterRef",
@@ -474,6 +476,7 @@ func (j *jsiiProxy_CfnGlobalCluster) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::RDS::GlobalCluster`.
 func NewCfnGlobalCluster(scope constructs.Construct, id *string, props *CfnGlobalClusterProps) CfnGlobalCluster {
 	_init_.Initialize()
 
@@ -491,6 +494,7 @@ func NewCfnGlobalCluster(scope constructs.Construct, id *string, props *CfnGloba
 	return &j
 }
 
+// Create a new `AWS::RDS::GlobalCluster`.
 func NewCfnGlobalCluster_Override(c CfnGlobalCluster, scope constructs.Construct, id *string, props *CfnGlobalClusterProps) {
 	_init_.Initialize()
 

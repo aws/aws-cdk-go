@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnContactFlow interface {
 	awscdk.CfnResource
-	IContactFlowRef
 	awscdk.IInspectable
+	interfacesawsconnect.IContactFlowRef
 	awscdk.ITaggable
 	// `Ref` returns the Amazon Resource Name (ARN) of the flow.
 	AttrContactFlowArn() *string
@@ -48,7 +50,7 @@ type CfnContactFlow interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ContactFlow resource.
-	ContactFlowRef() *ContactFlowReference
+	ContactFlowRef() *interfacesawsconnect.ContactFlowReference
 	// The content of the flow.
 	Content() *string
 	SetContent(val *string)
@@ -59,7 +61,7 @@ type CfnContactFlow interface {
 	// The description of the flow.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -241,8 +243,8 @@ type CfnContactFlow interface {
 // The jsii proxy struct for CfnContactFlow
 type jsiiProxy_CfnContactFlow struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContactFlowRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIContactFlowRef
 	internal.Type__awscdkITaggable
 }
 
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnContactFlow) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactFlow) ContactFlowRef() *ContactFlowReference {
-	var returns *ContactFlowReference
+func (j *jsiiProxy_CfnContactFlow) ContactFlowRef() *interfacesawsconnect.ContactFlowReference {
+	var returns *interfacesawsconnect.ContactFlowReference
 	_jsii_.Get(
 		j,
 		"contactFlowRef",
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnContactFlow) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactFlow) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContactFlow) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -457,6 +459,7 @@ func (j *jsiiProxy_CfnContactFlow) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Connect::ContactFlow`.
 func NewCfnContactFlow(scope constructs.Construct, id *string, props *CfnContactFlowProps) CfnContactFlow {
 	_init_.Initialize()
 
@@ -474,6 +477,7 @@ func NewCfnContactFlow(scope constructs.Construct, id *string, props *CfnContact
 	return &j
 }
 
+// Create a new `AWS::Connect::ContactFlow`.
 func NewCfnContactFlow_Override(c CfnContactFlow, scope constructs.Construct, id *string, props *CfnContactFlowProps) {
 	_init_.Initialize()
 

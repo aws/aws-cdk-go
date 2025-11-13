@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanrooms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanrooms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,8 +73,8 @@ import (
 //
 type CfnConfiguredTableAssociation interface {
 	awscdk.CfnResource
-	IConfiguredTableAssociationRef
 	awscdk.IInspectable
+	interfacesawscleanrooms.IConfiguredTableAssociationRef
 	awscdk.ITaggableV2
 	// Returns the Amazon Resource Name (ARN) of the specified configured table association.
 	//
@@ -93,7 +95,7 @@ type CfnConfiguredTableAssociation interface {
 	ConfiguredTableAssociationAnalysisRules() interface{}
 	SetConfiguredTableAssociationAnalysisRules(val interface{})
 	// A reference to a ConfiguredTableAssociation resource.
-	ConfiguredTableAssociationRef() *ConfiguredTableAssociationReference
+	ConfiguredTableAssociationRef() *interfacesawscleanrooms.ConfiguredTableAssociationReference
 	// A unique identifier for the configured table to be associated to.
 	ConfiguredTableIdentifier() *string
 	SetConfiguredTableIdentifier(val *string)
@@ -104,7 +106,7 @@ type CfnConfiguredTableAssociation interface {
 	// A description of the configured table association.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -281,8 +283,8 @@ type CfnConfiguredTableAssociation interface {
 // The jsii proxy struct for CfnConfiguredTableAssociation
 type jsiiProxy_CfnConfiguredTableAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfiguredTableAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsIConfiguredTableAssociationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation) ConfiguredTableAssociationAnal
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguredTableAssociation) ConfiguredTableAssociationRef() *ConfiguredTableAssociationReference {
-	var returns *ConfiguredTableAssociationReference
+func (j *jsiiProxy_CfnConfiguredTableAssociation) ConfiguredTableAssociationRef() *interfacesawscleanrooms.ConfiguredTableAssociationReference {
+	var returns *interfacesawscleanrooms.ConfiguredTableAssociationReference
 	_jsii_.Get(
 		j,
 		"configuredTableAssociationRef",
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguredTableAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfiguredTableAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -507,6 +509,7 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::CleanRooms::ConfiguredTableAssociation`.
 func NewCfnConfiguredTableAssociation(scope constructs.Construct, id *string, props *CfnConfiguredTableAssociationProps) CfnConfiguredTableAssociation {
 	_init_.Initialize()
 
@@ -524,6 +527,7 @@ func NewCfnConfiguredTableAssociation(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::CleanRooms::ConfiguredTableAssociation`.
 func NewCfnConfiguredTableAssociation_Override(c CfnConfiguredTableAssociation, scope constructs.Construct, id *string, props *CfnConfiguredTableAssociationProps) {
 	_init_.Initialize()
 

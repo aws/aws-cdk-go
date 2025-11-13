@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -95,8 +97,8 @@ import (
 //
 type CfnClientVpnEndpoint interface {
 	awscdk.CfnResource
-	IClientVpnEndpointRef
 	awscdk.IInspectable
+	interfacesawsec2.IClientVpnEndpointRef
 	AttrId() *string
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions() interface{}
@@ -119,7 +121,7 @@ type CfnClientVpnEndpoint interface {
 	ClientRouteEnforcementOptions() interface{}
 	SetClientRouteEnforcementOptions(val interface{})
 	// A reference to a ClientVpnEndpoint resource.
-	ClientVpnEndpointRef() *ClientVpnEndpointReference
+	ClientVpnEndpointRef() *interfacesawsec2.ClientVpnEndpointReference
 	// Information about the client connection logging options.
 	ConnectionLogOptions() interface{}
 	SetConnectionLogOptions(val interface{})
@@ -136,7 +138,7 @@ type CfnClientVpnEndpoint interface {
 	// Information about the DNS servers to be used for DNS resolution.
 	DnsServers() *[]*string
 	SetDnsServers(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -328,8 +330,8 @@ type CfnClientVpnEndpoint interface {
 // The jsii proxy struct for CfnClientVpnEndpoint
 type jsiiProxy_CfnClientVpnEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClientVpnEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IClientVpnEndpointRef
 }
 
 func (j *jsiiProxy_CfnClientVpnEndpoint) AttrId() *string {
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) ClientRouteEnforcementOptions() interfa
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) ClientVpnEndpointRef() *ClientVpnEndpointReference {
-	var returns *ClientVpnEndpointReference
+func (j *jsiiProxy_CfnClientVpnEndpoint) ClientVpnEndpointRef() *interfacesawsec2.ClientVpnEndpointReference {
+	var returns *interfacesawsec2.ClientVpnEndpointReference
 	_jsii_.Get(
 		j,
 		"clientVpnEndpointRef",
@@ -482,8 +484,8 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) DnsServers() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClientVpnEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -643,6 +645,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) VpnPort() *float64 {
 }
 
 
+// Create a new `AWS::EC2::ClientVpnEndpoint`.
 func NewCfnClientVpnEndpoint(scope constructs.Construct, id *string, props *CfnClientVpnEndpointProps) CfnClientVpnEndpoint {
 	_init_.Initialize()
 
@@ -660,6 +663,7 @@ func NewCfnClientVpnEndpoint(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
+// Create a new `AWS::EC2::ClientVpnEndpoint`.
 func NewCfnClientVpnEndpoint_Override(c CfnClientVpnEndpoint, scope constructs.Construct, id *string, props *CfnClientVpnEndpointProps) {
 	_init_.Initialize()
 
@@ -842,13 +846,13 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetVpnPort(val *float64) {
 }
 
 // Creates a new IClientVpnEndpointRef from a clientVpnEndpointId.
-func CfnClientVpnEndpoint_FromClientVpnEndpointId(scope constructs.Construct, id *string, clientVpnEndpointId *string) IClientVpnEndpointRef {
+func CfnClientVpnEndpoint_FromClientVpnEndpointId(scope constructs.Construct, id *string, clientVpnEndpointId *string) interfacesawsec2.IClientVpnEndpointRef {
 	_init_.Initialize()
 
 	if err := validateCfnClientVpnEndpoint_FromClientVpnEndpointIdParameters(scope, id, clientVpnEndpointId); err != nil {
 		panic(err)
 	}
-	var returns IClientVpnEndpointRef
+	var returns interfacesawsec2.IClientVpnEndpointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint",

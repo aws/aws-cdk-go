@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnLocalGatewayVirtualInterface interface {
 	awscdk.CfnResource
-	ILocalGatewayVirtualInterfaceRef
 	awscdk.IInspectable
+	interfacesawsec2.ILocalGatewayVirtualInterfaceRef
 	awscdk.ITaggableV2
 	// The current state of the local gateway virtual interface.
 	AttrConfigurationState() *string
@@ -62,7 +64,7 @@ type CfnLocalGatewayVirtualInterface interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The local address.
 	LocalAddress() *string
 	SetLocalAddress(val *string)
@@ -70,7 +72,7 @@ type CfnLocalGatewayVirtualInterface interface {
 	LocalGatewayVirtualInterfaceGroupId() *string
 	SetLocalGatewayVirtualInterfaceGroupId(val *string)
 	// A reference to a LocalGatewayVirtualInterface resource.
-	LocalGatewayVirtualInterfaceRef() *LocalGatewayVirtualInterfaceReference
+	LocalGatewayVirtualInterfaceRef() *interfacesawsec2.LocalGatewayVirtualInterfaceReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnLocalGatewayVirtualInterface interface {
 // The jsii proxy struct for CfnLocalGatewayVirtualInterface
 type jsiiProxy_CfnLocalGatewayVirtualInterface struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocalGatewayVirtualInterfaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ILocalGatewayVirtualInterfaceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterface) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocalGatewayVirtualInterface) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocalGatewayVirtualInterface) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterface) LocalGatewayVirtualInterface
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocalGatewayVirtualInterface) LocalGatewayVirtualInterfaceRef() *LocalGatewayVirtualInterfaceReference {
-	var returns *LocalGatewayVirtualInterfaceReference
+func (j *jsiiProxy_CfnLocalGatewayVirtualInterface) LocalGatewayVirtualInterfaceRef() *interfacesawsec2.LocalGatewayVirtualInterfaceReference {
+	var returns *interfacesawsec2.LocalGatewayVirtualInterfaceReference
 	_jsii_.Get(
 		j,
 		"localGatewayVirtualInterfaceRef",
@@ -519,6 +521,7 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterface) Vlan() *float64 {
 }
 
 
+// Create a new `AWS::EC2::LocalGatewayVirtualInterface`.
 func NewCfnLocalGatewayVirtualInterface(scope constructs.Construct, id *string, props *CfnLocalGatewayVirtualInterfaceProps) CfnLocalGatewayVirtualInterface {
 	_init_.Initialize()
 
@@ -536,6 +539,7 @@ func NewCfnLocalGatewayVirtualInterface(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::EC2::LocalGatewayVirtualInterface`.
 func NewCfnLocalGatewayVirtualInterface_Override(c CfnLocalGatewayVirtualInterface, scope constructs.Construct, id *string, props *CfnLocalGatewayVirtualInterfaceProps) {
 	_init_.Initialize()
 
@@ -629,13 +633,13 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterface)SetVlan(val *float64) {
 }
 
 // Creates a new ILocalGatewayVirtualInterfaceRef from a localGatewayVirtualInterfaceId.
-func CfnLocalGatewayVirtualInterface_FromLocalGatewayVirtualInterfaceId(scope constructs.Construct, id *string, localGatewayVirtualInterfaceId *string) ILocalGatewayVirtualInterfaceRef {
+func CfnLocalGatewayVirtualInterface_FromLocalGatewayVirtualInterfaceId(scope constructs.Construct, id *string, localGatewayVirtualInterfaceId *string) interfacesawsec2.ILocalGatewayVirtualInterfaceRef {
 	_init_.Initialize()
 
 	if err := validateCfnLocalGatewayVirtualInterface_FromLocalGatewayVirtualInterfaceIdParameters(scope, id, localGatewayVirtualInterfaceId); err != nil {
 		panic(err)
 	}
-	var returns ILocalGatewayVirtualInterfaceRef
+	var returns interfacesawsec2.ILocalGatewayVirtualInterfaceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterface",

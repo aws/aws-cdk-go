@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnKeyPair interface {
 	awscdk.CfnResource
-	IKeyPairRef
 	awscdk.IInspectable
+	interfacesawsec2.IKeyPairRef
 	awscdk.ITaggable
 	// If you created the key pair using Amazon EC2:.
 	//
@@ -68,7 +70,7 @@ type CfnKeyPair interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The format of the key pair.
 	KeyFormat() *string
 	SetKeyFormat(val *string)
@@ -76,7 +78,7 @@ type CfnKeyPair interface {
 	KeyName() *string
 	SetKeyName(val *string)
 	// A reference to a KeyPair resource.
-	KeyPairRef() *KeyPairReference
+	KeyPairRef() *interfacesawsec2.KeyPairReference
 	// The type of key pair.
 	//
 	// Note that ED25519 keys are not supported for Windows instances.
@@ -254,8 +256,8 @@ type CfnKeyPair interface {
 // The jsii proxy struct for CfnKeyPair
 type jsiiProxy_CfnKeyPair struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKeyPairRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IKeyPairRef
 	internal.Type__awscdkITaggable
 }
 
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnKeyPair) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyPair) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKeyPair) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnKeyPair) KeyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyPair) KeyPairRef() *KeyPairReference {
-	var returns *KeyPairReference
+func (j *jsiiProxy_CfnKeyPair) KeyPairRef() *interfacesawsec2.KeyPairReference {
+	var returns *interfacesawsec2.KeyPairReference
 	_jsii_.Get(
 		j,
 		"keyPairRef",
@@ -460,6 +462,7 @@ func (j *jsiiProxy_CfnKeyPair) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::KeyPair`.
 func NewCfnKeyPair(scope constructs.Construct, id *string, props *CfnKeyPairProps) CfnKeyPair {
 	_init_.Initialize()
 
@@ -477,6 +480,7 @@ func NewCfnKeyPair(scope constructs.Construct, id *string, props *CfnKeyPairProp
 	return &j
 }
 
+// Create a new `AWS::EC2::KeyPair`.
 func NewCfnKeyPair_Override(c CfnKeyPair, scope constructs.Construct, id *string, props *CfnKeyPairProps) {
 	_init_.Initialize()
 

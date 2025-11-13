@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,13 +48,13 @@ import (
 //
 type CfnBridgeSource interface {
 	awscdk.CfnResource
-	IBridgeSourceRef
 	awscdk.IInspectable
+	interfacesawsmediaconnect.IBridgeSourceRef
 	// The ARN of the bridge feeding this flow.
 	BridgeArn() *string
 	SetBridgeArn(val *string)
 	// A reference to a BridgeSource resource.
-	BridgeSourceRef() *BridgeSourceReference
+	BridgeSourceRef() *interfacesawsmediaconnect.BridgeSourceReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -62,7 +64,7 @@ type CfnBridgeSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The source of the flow.
 	FlowSource() interface{}
 	SetFlowSource(val interface{})
@@ -236,8 +238,8 @@ type CfnBridgeSource interface {
 // The jsii proxy struct for CfnBridgeSource
 type jsiiProxy_CfnBridgeSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBridgeSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconnectIBridgeSourceRef
 }
 
 func (j *jsiiProxy_CfnBridgeSource) BridgeArn() *string {
@@ -250,8 +252,8 @@ func (j *jsiiProxy_CfnBridgeSource) BridgeArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBridgeSource) BridgeSourceRef() *BridgeSourceReference {
-	var returns *BridgeSourceReference
+func (j *jsiiProxy_CfnBridgeSource) BridgeSourceRef() *interfacesawsmediaconnect.BridgeSourceReference {
+	var returns *interfacesawsmediaconnect.BridgeSourceReference
 	_jsii_.Get(
 		j,
 		"bridgeSourceRef",
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnBridgeSource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBridgeSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBridgeSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,6 +403,7 @@ func (j *jsiiProxy_CfnBridgeSource) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::MediaConnect::BridgeSource`.
 func NewCfnBridgeSource(scope constructs.Construct, id *string, props *CfnBridgeSourceProps) CfnBridgeSource {
 	_init_.Initialize()
 
@@ -418,6 +421,7 @@ func NewCfnBridgeSource(scope constructs.Construct, id *string, props *CfnBridge
 	return &j
 }
 
+// Create a new `AWS::MediaConnect::BridgeSource`.
 func NewCfnBridgeSource_Override(c CfnBridgeSource, scope constructs.Construct, id *string, props *CfnBridgeSourceProps) {
 	_init_.Initialize()
 

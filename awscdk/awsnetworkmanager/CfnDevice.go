@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnDevice interface {
 	awscdk.CfnResource
-	IDeviceRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.IDeviceRef
 	awscdk.ITaggable
 	// The time that the device was created.
 	AttrCreatedAt() *string
@@ -78,8 +80,8 @@ type CfnDevice interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a Device resource.
-	DeviceRef() *DeviceReference
-	Env() *awscdk.ResourceEnvironment
+	DeviceRef() *interfacesawsnetworkmanager.DeviceReference
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the global network.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
@@ -270,8 +272,8 @@ type CfnDevice interface {
 // The jsii proxy struct for CfnDevice
 type jsiiProxy_CfnDevice struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeviceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerIDeviceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnDevice) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevice) DeviceRef() *DeviceReference {
-	var returns *DeviceReference
+func (j *jsiiProxy_CfnDevice) DeviceRef() *interfacesawsnetworkmanager.DeviceReference {
+	var returns *interfacesawsnetworkmanager.DeviceReference
 	_jsii_.Get(
 		j,
 		"deviceRef",
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnDevice) DeviceRef() *DeviceReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevice) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDevice) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -546,6 +548,7 @@ func (j *jsiiProxy_CfnDevice) Vendor() *string {
 }
 
 
+// Create a new `AWS::NetworkManager::Device`.
 func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps) CfnDevice {
 	_init_.Initialize()
 
@@ -563,6 +566,7 @@ func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps)
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::Device`.
 func NewCfnDevice_Override(c CfnDevice, scope constructs.Construct, id *string, props *CfnDeviceProps) {
 	_init_.Initialize()
 

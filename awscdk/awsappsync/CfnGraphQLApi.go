@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -96,8 +98,8 @@ import (
 //
 type CfnGraphQLApi interface {
 	awscdk.CfnResource
-	IGraphQLApiRef
 	awscdk.IInspectable
+	interfacesawsappsync.IGraphQLApiRef
 	awscdk.ITaggable
 	// A list of additional authentication providers for the `GraphqlApi` API.
 	AdditionalAuthenticationProviders() interface{}
@@ -136,12 +138,12 @@ type CfnGraphQLApi interface {
 	// Enables and controls the enhanced metrics feature.
 	EnhancedMetricsConfig() interface{}
 	SetEnhancedMetricsConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A map containing the list of resources with their properties and environment variables.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
 	// A reference to a GraphQLApi resource.
-	GraphQlApiRef() *GraphQLApiReference
+	GraphQlApiRef() *interfacesawsappsync.GraphQLApiReference
 	// Sets the value of the GraphQL API to enable ( `ENABLED` ) or disable ( `DISABLED` ) introspection.
 	IntrospectionConfig() *string
 	SetIntrospectionConfig(val *string)
@@ -347,8 +349,8 @@ type CfnGraphQLApi interface {
 // The jsii proxy struct for CfnGraphQLApi
 type jsiiProxy_CfnGraphQLApi struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGraphQLApiRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIGraphQLApiRef
 	internal.Type__awscdkITaggable
 }
 
@@ -502,8 +504,8 @@ func (j *jsiiProxy_CfnGraphQLApi) EnhancedMetricsConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGraphQLApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -522,8 +524,8 @@ func (j *jsiiProxy_CfnGraphQLApi) EnvironmentVariables() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) GraphQlApiRef() *GraphQLApiReference {
-	var returns *GraphQLApiReference
+func (j *jsiiProxy_CfnGraphQLApi) GraphQlApiRef() *interfacesawsappsync.GraphQLApiReference {
+	var returns *interfacesawsappsync.GraphQLApiReference
 	_jsii_.Get(
 		j,
 		"graphQlApiRef",
@@ -733,6 +735,7 @@ func (j *jsiiProxy_CfnGraphQLApi) XrayEnabled() interface{} {
 }
 
 
+// Create a new `AWS::AppSync::GraphQLApi`.
 func NewCfnGraphQLApi(scope constructs.Construct, id *string, props *CfnGraphQLApiProps) CfnGraphQLApi {
 	_init_.Initialize()
 
@@ -750,6 +753,7 @@ func NewCfnGraphQLApi(scope constructs.Construct, id *string, props *CfnGraphQLA
 	return &j
 }
 
+// Create a new `AWS::AppSync::GraphQLApi`.
 func NewCfnGraphQLApi_Override(c CfnGraphQLApi, scope constructs.Construct, id *string, props *CfnGraphQLApiProps) {
 	_init_.Initialize()
 

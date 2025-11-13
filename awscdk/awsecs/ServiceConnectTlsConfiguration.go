@@ -2,7 +2,7 @@ package awsecs
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // TLS configuration for Service Connect service.
@@ -40,7 +40,7 @@ type ServiceConnectTlsConfiguration struct {
 	// The KMS key used for encryption and decryption.
 	// Default: - none.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The IAM role that's associated with the Service Connect TLS.
 	// Default: - none.
 	//

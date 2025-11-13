@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnConnectorDefinition interface {
 	awscdk.CfnResource
-	IConnectorDefinitionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IConnectorDefinitionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `ConnectorDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/connectors/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
@@ -66,12 +68,12 @@ type CfnConnectorDefinition interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConnectorDefinition resource.
-	ConnectorDefinitionRef() *ConnectorDefinitionReference
+	ConnectorDefinitionRef() *interfacesawsgreengrass.ConnectorDefinitionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The connector definition version to include when the connector definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -247,8 +249,8 @@ type CfnConnectorDefinition interface {
 // The jsii proxy struct for CfnConnectorDefinition
 type jsiiProxy_CfnConnectorDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectorDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIConnectorDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnConnectorDefinition) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorDefinition) ConnectorDefinitionRef() *ConnectorDefinitionReference {
-	var returns *ConnectorDefinitionReference
+func (j *jsiiProxy_CfnConnectorDefinition) ConnectorDefinitionRef() *interfacesawsgreengrass.ConnectorDefinitionReference {
+	var returns *interfacesawsgreengrass.ConnectorDefinitionReference
 	_jsii_.Get(
 		j,
 		"connectorDefinitionRef",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnConnectorDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnectorDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnConnectorDefinition) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::Greengrass::ConnectorDefinition`.
 func NewCfnConnectorDefinition(scope constructs.Construct, id *string, props *CfnConnectorDefinitionProps) CfnConnectorDefinition {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnConnectorDefinition(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::Greengrass::ConnectorDefinition`.
 func NewCfnConnectorDefinition_Override(c CfnConnectorDefinition, scope constructs.Construct, id *string, props *CfnConnectorDefinitionProps) {
 	_init_.Initialize()
 
@@ -511,13 +515,13 @@ func (j *jsiiProxy_CfnConnectorDefinition)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new IConnectorDefinitionRef from an ARN.
-func CfnConnectorDefinition_FromConnectorDefinitionArn(scope constructs.Construct, id *string, arn *string) IConnectorDefinitionRef {
+func CfnConnectorDefinition_FromConnectorDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.IConnectorDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnectorDefinition_FromConnectorDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IConnectorDefinitionRef
+	var returns interfacesawsgreengrass.IConnectorDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
@@ -530,13 +534,13 @@ func CfnConnectorDefinition_FromConnectorDefinitionArn(scope constructs.Construc
 }
 
 // Creates a new IConnectorDefinitionRef from a connectorDefinitionId.
-func CfnConnectorDefinition_FromConnectorDefinitionId(scope constructs.Construct, id *string, connectorDefinitionId *string) IConnectorDefinitionRef {
+func CfnConnectorDefinition_FromConnectorDefinitionId(scope constructs.Construct, id *string, connectorDefinitionId *string) interfacesawsgreengrass.IConnectorDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnectorDefinition_FromConnectorDefinitionIdParameters(scope, id, connectorDefinitionId); err != nil {
 		panic(err)
 	}
-	var returns IConnectorDefinitionRef
+	var returns interfacesawsgreengrass.IConnectorDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",

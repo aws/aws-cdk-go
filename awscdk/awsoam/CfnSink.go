@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsoam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsoam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnSink interface {
 	awscdk.CfnResource
-	ISinkRef
 	awscdk.IInspectable
+	interfacesawsoam.ISinkRef
 	awscdk.ITaggable
 	// The ARN of the sink.
 	//
@@ -54,7 +56,7 @@ type CfnSink interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -79,7 +81,7 @@ type CfnSink interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Sink resource.
-	SinkRef() *SinkReference
+	SinkRef() *interfacesawsoam.SinkReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -232,8 +234,8 @@ type CfnSink interface {
 // The jsii proxy struct for CfnSink
 type jsiiProxy_CfnSink struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISinkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsoamISinkRef
 	internal.Type__awscdkITaggable
 }
 
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnSink) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSink) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSink) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnSink) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSink) SinkRef() *SinkReference {
-	var returns *SinkReference
+func (j *jsiiProxy_CfnSink) SinkRef() *interfacesawsoam.SinkReference {
+	var returns *interfacesawsoam.SinkReference
 	_jsii_.Get(
 		j,
 		"sinkRef",
@@ -408,6 +410,7 @@ func (j *jsiiProxy_CfnSink) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Oam::Sink`.
 func NewCfnSink(scope constructs.Construct, id *string, props *CfnSinkProps) CfnSink {
 	_init_.Initialize()
 
@@ -425,6 +428,7 @@ func NewCfnSink(scope constructs.Construct, id *string, props *CfnSinkProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Oam::Sink`.
 func NewCfnSink_Override(c CfnSink, scope constructs.Construct, id *string, props *CfnSinkProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -101,8 +103,8 @@ import (
 //
 type CfnPolicyGrant interface {
 	awscdk.CfnResource
-	IPolicyGrantRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IPolicyGrantRef
 	// Specifies the timestamp at which policy grant member was created.
 	AttrCreatedAt() *string
 	// Specifies the user who created the policy grant member.
@@ -130,7 +132,7 @@ type CfnPolicyGrant interface {
 	// The type of entity (resource) to which the grant is added.
 	EntityType() *string
 	SetEntityType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -144,7 +146,7 @@ type CfnPolicyGrant interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PolicyGrant resource.
-	PolicyGrantRef() *PolicyGrantReference
+	PolicyGrantRef() *interfacesawsdatazone.PolicyGrantReference
 	// The type of policy that you want to grant.
 	PolicyType() *string
 	SetPolicyType(val *string)
@@ -303,8 +305,8 @@ type CfnPolicyGrant interface {
 // The jsii proxy struct for CfnPolicyGrant
 type jsiiProxy_CfnPolicyGrant struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPolicyGrantRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIPolicyGrantRef
 }
 
 func (j *jsiiProxy_CfnPolicyGrant) AttrCreatedAt() *string {
@@ -417,8 +419,8 @@ func (j *jsiiProxy_CfnPolicyGrant) EntityType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyGrant) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPolicyGrant) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -447,8 +449,8 @@ func (j *jsiiProxy_CfnPolicyGrant) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyGrant) PolicyGrantRef() *PolicyGrantReference {
-	var returns *PolicyGrantReference
+func (j *jsiiProxy_CfnPolicyGrant) PolicyGrantRef() *interfacesawsdatazone.PolicyGrantReference {
+	var returns *interfacesawsdatazone.PolicyGrantReference
 	_jsii_.Get(
 		j,
 		"policyGrantRef",
@@ -518,6 +520,7 @@ func (j *jsiiProxy_CfnPolicyGrant) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataZone::PolicyGrant`.
 func NewCfnPolicyGrant(scope constructs.Construct, id *string, props *CfnPolicyGrantProps) CfnPolicyGrant {
 	_init_.Initialize()
 
@@ -535,6 +538,7 @@ func NewCfnPolicyGrant(scope constructs.Construct, id *string, props *CfnPolicyG
 	return &j
 }
 
+// Create a new `AWS::DataZone::PolicyGrant`.
 func NewCfnPolicyGrant_Override(c CfnPolicyGrant, scope constructs.Construct, id *string, props *CfnPolicyGrantProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnDBShardGroup interface {
 	awscdk.CfnResource
-	IDBShardGroupRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBShardGroupRef
 	awscdk.ITaggableV2
 	// The AWS Region -unique, immutable identifier for the DB shard group.
 	AttrDbShardGroupResourceId() *string
@@ -77,8 +79,8 @@ type CfnDBShardGroup interface {
 	DbShardGroupIdentifier() *string
 	SetDbShardGroupIdentifier(val *string)
 	// A reference to a DBShardGroup resource.
-	DbShardGroupRef() *DBShardGroupReference
-	Env() *awscdk.ResourceEnvironment
+	DbShardGroupRef() *interfacesawsrds.DBShardGroupReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -255,8 +257,8 @@ type CfnDBShardGroup interface {
 // The jsii proxy struct for CfnDBShardGroup
 type jsiiProxy_CfnDBShardGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBShardGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBShardGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnDBShardGroup) DbShardGroupIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBShardGroup) DbShardGroupRef() *DBShardGroupReference {
-	var returns *DBShardGroupReference
+func (j *jsiiProxy_CfnDBShardGroup) DbShardGroupRef() *interfacesawsrds.DBShardGroupReference {
+	var returns *interfacesawsrds.DBShardGroupReference
 	_jsii_.Get(
 		j,
 		"dbShardGroupRef",
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnDBShardGroup) DbShardGroupRef() *DBShardGroupReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBShardGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBShardGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -481,6 +483,7 @@ func (j *jsiiProxy_CfnDBShardGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::RDS::DBShardGroup`.
 func NewCfnDBShardGroup(scope constructs.Construct, id *string, props *CfnDBShardGroupProps) CfnDBShardGroup {
 	_init_.Initialize()
 
@@ -498,6 +501,7 @@ func NewCfnDBShardGroup(scope constructs.Construct, id *string, props *CfnDBShar
 	return &j
 }
 
+// Create a new `AWS::RDS::DBShardGroup`.
 func NewCfnDBShardGroup_Override(c CfnDBShardGroup, scope constructs.Construct, id *string, props *CfnDBShardGroupProps) {
 	_init_.Initialize()
 

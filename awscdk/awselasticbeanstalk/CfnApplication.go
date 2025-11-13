@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticbeanstalk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticbeanstalk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,13 +44,13 @@ import (
 //
 type CfnApplication interface {
 	awscdk.CfnResource
-	IApplicationRef
 	awscdk.IInspectable
+	interfacesawselasticbeanstalk.IApplicationRef
 	// A name for the Elastic Beanstalk application.
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// A reference to a Application resource.
-	ApplicationRef() *ApplicationReference
+	ApplicationRef() *interfacesawselasticbeanstalk.ApplicationReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -61,7 +63,7 @@ type CfnApplication interface {
 	// Your description of the application.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -229,8 +231,8 @@ type CfnApplication interface {
 // The jsii proxy struct for CfnApplication
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticbeanstalkIApplicationRef
 }
 
 func (j *jsiiProxy_CfnApplication) ApplicationName() *string {
@@ -243,8 +245,8 @@ func (j *jsiiProxy_CfnApplication) ApplicationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) ApplicationRef() *ApplicationReference {
-	var returns *ApplicationReference
+func (j *jsiiProxy_CfnApplication) ApplicationRef() *interfacesawselasticbeanstalk.ApplicationReference {
+	var returns *interfacesawselasticbeanstalk.ApplicationReference
 	_jsii_.Get(
 		j,
 		"applicationRef",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnApplication) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ElasticBeanstalk::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
+// Create a new `AWS::ElasticBeanstalk::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
@@ -439,13 +443,13 @@ func (j *jsiiProxy_CfnApplication)SetResourceLifecycleConfig(val interface{}) {
 }
 
 // Creates a new IApplicationRef from a applicationName.
-func CfnApplication_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) IApplicationRef {
+func CfnApplication_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) interfacesawselasticbeanstalk.IApplicationRef {
 	_init_.Initialize()
 
 	if err := validateCfnApplication_FromApplicationNameParameters(scope, id, applicationName); err != nil {
 		panic(err)
 	}
-	var returns IApplicationRef
+	var returns interfacesawselasticbeanstalk.IApplicationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplication",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnVerifiedAccessGroup interface {
 	awscdk.CfnResource
-	IVerifiedAccessGroupRef
 	awscdk.IInspectable
+	interfacesawsec2.IVerifiedAccessGroupRef
 	awscdk.ITaggable
 	// The creation time.
 	AttrCreationTime() *string
@@ -66,7 +68,7 @@ type CfnVerifiedAccessGroup interface {
 	// A description for the AWS Verified Access group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -116,7 +118,7 @@ type CfnVerifiedAccessGroup interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VerifiedAccessGroup resource.
-	VerifiedAccessGroupRef() *VerifiedAccessGroupReference
+	VerifiedAccessGroupRef() *interfacesawsec2.VerifiedAccessGroupReference
 	// The ID of the AWS Verified Access instance.
 	VerifiedAccessInstanceId() *string
 	SetVerifiedAccessInstanceId(val *string)
@@ -250,8 +252,8 @@ type CfnVerifiedAccessGroup interface {
 // The jsii proxy struct for CfnVerifiedAccessGroup
 type jsiiProxy_CfnVerifiedAccessGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVerifiedAccessGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVerifiedAccessGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVerifiedAccessGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -475,8 +477,8 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup) UpdatedProperties() *map[string]inter
 	return returns
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessGroup) VerifiedAccessGroupRef() *VerifiedAccessGroupReference {
-	var returns *VerifiedAccessGroupReference
+func (j *jsiiProxy_CfnVerifiedAccessGroup) VerifiedAccessGroupRef() *interfacesawsec2.VerifiedAccessGroupReference {
+	var returns *interfacesawsec2.VerifiedAccessGroupReference
 	_jsii_.Get(
 		j,
 		"verifiedAccessGroupRef",
@@ -496,6 +498,7 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup) VerifiedAccessInstanceId() *string {
 }
 
 
+// Create a new `AWS::EC2::VerifiedAccessGroup`.
 func NewCfnVerifiedAccessGroup(scope constructs.Construct, id *string, props *CfnVerifiedAccessGroupProps) CfnVerifiedAccessGroup {
 	_init_.Initialize()
 
@@ -513,6 +516,7 @@ func NewCfnVerifiedAccessGroup(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::EC2::VerifiedAccessGroup`.
 func NewCfnVerifiedAccessGroup_Override(c CfnVerifiedAccessGroup, scope constructs.Construct, id *string, props *CfnVerifiedAccessGroupProps) {
 	_init_.Initialize()
 
@@ -584,13 +588,13 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup)SetVerifiedAccessInstanceId(val *strin
 }
 
 // Creates a new IVerifiedAccessGroupRef from an ARN.
-func CfnVerifiedAccessGroup_FromVerifiedAccessGroupArn(scope constructs.Construct, id *string, arn *string) IVerifiedAccessGroupRef {
+func CfnVerifiedAccessGroup_FromVerifiedAccessGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IVerifiedAccessGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnVerifiedAccessGroup_FromVerifiedAccessGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IVerifiedAccessGroupRef
+	var returns interfacesawsec2.IVerifiedAccessGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessGroup",
@@ -603,13 +607,13 @@ func CfnVerifiedAccessGroup_FromVerifiedAccessGroupArn(scope constructs.Construc
 }
 
 // Creates a new IVerifiedAccessGroupRef from a verifiedAccessGroupId.
-func CfnVerifiedAccessGroup_FromVerifiedAccessGroupId(scope constructs.Construct, id *string, verifiedAccessGroupId *string) IVerifiedAccessGroupRef {
+func CfnVerifiedAccessGroup_FromVerifiedAccessGroupId(scope constructs.Construct, id *string, verifiedAccessGroupId *string) interfacesawsec2.IVerifiedAccessGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnVerifiedAccessGroup_FromVerifiedAccessGroupIdParameters(scope, id, verifiedAccessGroupId); err != nil {
 		panic(err)
 	}
-	var returns IVerifiedAccessGroupRef
+	var returns interfacesawsec2.IVerifiedAccessGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessGroup",

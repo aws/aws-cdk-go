@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdocdb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdocdb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -69,8 +71,8 @@ import (
 //
 type CfnDBCluster interface {
 	awscdk.CfnResource
-	IDBClusterRef
 	awscdk.IInspectable
+	interfacesawsdocdb.IDBClusterRef
 	awscdk.ITaggable
 	// The resource id for the cluster;
 	//
@@ -116,7 +118,7 @@ type CfnDBCluster interface {
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
 	// A reference to a DBCluster resource.
-	DbClusterRef() *DBClusterReference
+	DbClusterRef() *interfacesawsdocdb.DBClusterReference
 	// A subnet group to associate with this cluster.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
@@ -129,7 +131,7 @@ type CfnDBCluster interface {
 	// The version number of the database engine to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The cluster identifier of the new global cluster.
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
@@ -361,8 +363,8 @@ type CfnDBCluster interface {
 // The jsii proxy struct for CfnDBCluster
 type jsiiProxy_CfnDBCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdocdbIDBClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -506,8 +508,8 @@ func (j *jsiiProxy_CfnDBCluster) DbClusterParameterGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) DbClusterRef() *DBClusterReference {
-	var returns *DBClusterReference
+func (j *jsiiProxy_CfnDBCluster) DbClusterRef() *interfacesawsdocdb.DBClusterReference {
+	var returns *interfacesawsdocdb.DBClusterReference
 	_jsii_.Get(
 		j,
 		"dbClusterRef",
@@ -556,8 +558,8 @@ func (j *jsiiProxy_CfnDBCluster) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -847,6 +849,7 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
+// Create a new `AWS::DocDB::DBCluster`.
 func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
 	_init_.Initialize()
 
@@ -864,6 +867,7 @@ func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBCluster
 	return &j
 }
 
+// Create a new `AWS::DocDB::DBCluster`.
 func NewCfnDBCluster_Override(c CfnDBCluster, scope constructs.Construct, id *string, props *CfnDBClusterProps) {
 	_init_.Initialize()
 

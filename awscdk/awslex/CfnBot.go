@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslex/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslex"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -22,8 +24,8 @@ import (
 //
 type CfnBot interface {
 	awscdk.CfnResource
-	IBotRef
 	awscdk.IInspectable
+	interfacesawslex.IBotRef
 	// The Amazon Resource Name (ARN) of the bot.
 	AttrArn() *string
 	// The unique identifier of the bot.
@@ -38,7 +40,7 @@ type CfnBot interface {
 	BotLocales() interface{}
 	SetBotLocales(val interface{})
 	// A reference to a Bot resource.
-	BotRef() *BotReference
+	BotRef() *interfacesawslex.BotReference
 	// A list of tags to add to the bot.
 	BotTags() interface{}
 	SetBotTags(val interface{})
@@ -57,7 +59,7 @@ type CfnBot interface {
 	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	ErrorLogSettings() interface{}
 	SetErrorLogSettings(val interface{})
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
@@ -241,8 +243,8 @@ type CfnBot interface {
 // The jsii proxy struct for CfnBot
 type jsiiProxy_CfnBot struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBotRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslexIBotRef
 }
 
 func (j *jsiiProxy_CfnBot) AttrArn() *string {
@@ -295,8 +297,8 @@ func (j *jsiiProxy_CfnBot) BotLocales() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBot) BotRef() *BotReference {
-	var returns *BotReference
+func (j *jsiiProxy_CfnBot) BotRef() *interfacesawslex.BotReference {
+	var returns *interfacesawslex.BotReference
 	_jsii_.Get(
 		j,
 		"botRef",
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnBot) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBot) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBot) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -516,6 +518,7 @@ func (j *jsiiProxy_CfnBot) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lex::Bot`.
 func NewCfnBot(scope constructs.Construct, id *string, props *CfnBotProps) CfnBot {
 	_init_.Initialize()
 
@@ -533,6 +536,7 @@ func NewCfnBot(scope constructs.Construct, id *string, props *CfnBotProps) CfnBo
 	return &j
 }
 
+// Create a new `AWS::Lex::Bot`.
 func NewCfnBot_Override(c CfnBot, scope constructs.Construct, id *string, props *CfnBotProps) {
 	_init_.Initialize()
 

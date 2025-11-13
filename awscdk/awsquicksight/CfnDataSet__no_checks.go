@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDataSet) validateSetColumnLevelPermissionRulesParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSet) validateSetDataPrepConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSet) validateSetDatasetParametersParameters(val interface{}) error {
 	return nil
 }
@@ -129,6 +133,10 @@ func (j *jsiiProxy_CfnDataSet) validateSetRowLevelPermissionDataSetParameters(va
 }
 
 func (j *jsiiProxy_CfnDataSet) validateSetRowLevelPermissionTagConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataSet) validateSetSemanticModelConfigurationParameters(val interface{}) error {
 	return nil
 }
 

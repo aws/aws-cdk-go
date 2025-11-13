@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticsearch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -110,8 +112,8 @@ import (
 //
 type CfnDomain interface {
 	awscdk.CfnResource
-	IDomainRef
 	awscdk.IInspectable
+	interfacesawselasticsearch.IDomainRef
 	awscdk.ITaggable
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions.
 	AccessPolicies() interface{}
@@ -150,7 +152,7 @@ type CfnDomain interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// A reference to a Domain resource.
-	DomainRef() *DomainReference
+	DomainRef() *interfacesawselasticsearch.DomainReference
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
 	EbsOptions() interface{}
 	SetEbsOptions(val interface{})
@@ -163,7 +165,7 @@ type CfnDomain interface {
 	// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
 	EncryptionAtRestOptions() interface{}
 	SetEncryptionAtRestOptions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -345,8 +347,8 @@ type CfnDomain interface {
 // The jsii proxy struct for CfnDomain
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticsearchIDomainRef
 	internal.Type__awscdkITaggable
 }
 
@@ -490,8 +492,8 @@ func (j *jsiiProxy_CfnDomain) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) DomainRef() *DomainReference {
-	var returns *DomainReference
+func (j *jsiiProxy_CfnDomain) DomainRef() *interfacesawselasticsearch.DomainReference {
+	var returns *interfacesawselasticsearch.DomainReference
 	_jsii_.Get(
 		j,
 		"domainRef",
@@ -540,8 +542,8 @@ func (j *jsiiProxy_CfnDomain) EncryptionAtRestOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -671,6 +673,7 @@ func (j *jsiiProxy_CfnDomain) VpcOptions() interface{} {
 }
 
 
+// Create a new `AWS::Elasticsearch::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -688,6 +691,7 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
+// Create a new `AWS::Elasticsearch::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 

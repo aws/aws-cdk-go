@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a Public Key.
 type IPublicKey interface {
-	IPublicKeyRef
+	interfacesawscloudfront.IPublicKeyRef
 	awscdk.IResource
 	// The ID of the key group.
 	PublicKeyId() *string
@@ -18,7 +20,7 @@ type IPublicKey interface {
 
 // The jsii proxy for IPublicKey
 type jsiiProxy_IPublicKey struct {
-	jsiiProxy_IPublicKeyRef
+	internal.Type__interfacesawscloudfrontIPublicKeyRef
 	internal.Type__awscdkIResource
 }
 
@@ -43,8 +45,8 @@ func (j *jsiiProxy_IPublicKey) PublicKeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IPublicKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IPublicKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -63,8 +65,8 @@ func (j *jsiiProxy_IPublicKey) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IPublicKey) PublicKeyRef() *PublicKeyReference {
-	var returns *PublicKeyReference
+func (j *jsiiProxy_IPublicKey) PublicKeyRef() *interfacesawscloudfront.PublicKeyReference {
+	var returns *interfacesawscloudfront.PublicKeyReference
 	_jsii_.Get(
 		j,
 		"publicKeyRef",

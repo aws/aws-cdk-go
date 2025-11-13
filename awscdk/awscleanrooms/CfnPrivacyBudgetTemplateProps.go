@@ -15,7 +15,17 @@ import (
 //   	AutoRefresh: jsii.String("autoRefresh"),
 //   	MembershipIdentifier: jsii.String("membershipIdentifier"),
 //   	Parameters: &ParametersProperty{
+//   		BudgetParameters: []interface{}{
+//   			&BudgetParameterProperty{
+//   				Budget: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				AutoRefresh: jsii.String("autoRefresh"),
+//   			},
+//   		},
 //   		Epsilon: jsii.Number(123),
+//   		ResourceArn: jsii.String("resourceArn"),
 //   		UsersNoisePerQuery: jsii.Number(123),
 //   	},
 //   	PrivacyBudgetType: jsii.String("privacyBudgetType"),

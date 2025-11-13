@@ -94,8 +94,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGatewayRoute{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGatewayRouteRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIGatewayRouteRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -246,8 +246,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMesh{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMeshRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIMeshRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -323,8 +323,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRoute{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRouteRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIRouteRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -486,8 +486,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVirtualGateway{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVirtualGatewayRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIVirtualGatewayRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -673,8 +673,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVirtualNode{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVirtualNodeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIVirtualNodeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -912,8 +912,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVirtualRouter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVirtualRouterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIVirtualRouterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -987,8 +987,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVirtualService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVirtualServiceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIVirtualServiceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1074,10 +1074,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appmesh.GatewayRouteProps",
 		reflect.TypeOf((*GatewayRouteProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteReference",
-		reflect.TypeOf((*GatewayRouteReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.GatewayRouteSpec",
@@ -1308,21 +1304,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IGatewayRouteRef",
-		reflect.TypeOf((*IGatewayRouteRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteRef", GoGetter: "GatewayRouteRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGatewayRouteRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_appmesh.IMesh",
 		reflect.TypeOf((*IMesh)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1343,21 +1324,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IMeshRef",
-		reflect.TypeOf((*IMeshRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "meshRef", GoGetter: "MeshRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMeshRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_appmesh.IRoute",
 		reflect.TypeOf((*IRoute)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1372,21 +1338,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IRoute{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IRouteRef",
-		reflect.TypeOf((*IRouteRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRouteRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1411,21 +1362,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IVirtualGatewayRef",
-		reflect.TypeOf((*IVirtualGatewayRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayRef", GoGetter: "VirtualGatewayRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVirtualGatewayRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_appmesh.IVirtualNode",
 		reflect.TypeOf((*IVirtualNode)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1441,21 +1377,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IVirtualNode{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IVirtualNodeRef",
-		reflect.TypeOf((*IVirtualNodeRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualNodeRef", GoGetter: "VirtualNodeRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVirtualNodeRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1479,21 +1400,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IVirtualRouterRef",
-		reflect.TypeOf((*IVirtualRouterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualRouterRef", GoGetter: "VirtualRouterRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVirtualRouterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_appmesh.IVirtualService",
 		reflect.TypeOf((*IVirtualService)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1508,21 +1414,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IVirtualService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_appmesh.IVirtualServiceRef",
-		reflect.TypeOf((*IVirtualServiceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualServiceRef", GoGetter: "VirtualServiceRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVirtualServiceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1591,10 +1482,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appmesh.MeshProps",
 		reflect.TypeOf((*MeshProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.MeshReference",
-		reflect.TypeOf((*MeshReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appmesh.MeshServiceDiscovery",
@@ -1683,10 +1570,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appmesh.RouteProps",
 		reflect.TypeOf((*RouteProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.RouteReference",
-		reflect.TypeOf((*RouteReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.RouteSpec",
@@ -1859,10 +1742,6 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.VirtualGatewayProps",
 		reflect.TypeOf((*VirtualGatewayProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualGatewayReference",
-		reflect.TypeOf((*VirtualGatewayReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.VirtualNode",
 		reflect.TypeOf((*VirtualNode)(nil)).Elem(),
@@ -1916,10 +1795,6 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.VirtualNodeProps",
 		reflect.TypeOf((*VirtualNodeProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualNodeReference",
-		reflect.TypeOf((*VirtualNodeReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.VirtualRouter",
 		reflect.TypeOf((*VirtualRouter)(nil)).Elem(),
@@ -1971,10 +1846,6 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.VirtualRouterProps",
 		reflect.TypeOf((*VirtualRouterProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualRouterReference",
-		reflect.TypeOf((*VirtualRouterReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.VirtualService",
 		reflect.TypeOf((*VirtualService)(nil)).Elem(),
@@ -2024,10 +1895,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appmesh.VirtualServiceProviderConfig",
 		reflect.TypeOf((*VirtualServiceProviderConfig)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appmesh.VirtualServiceReference",
-		reflect.TypeOf((*VirtualServiceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appmesh.WeightedTarget",

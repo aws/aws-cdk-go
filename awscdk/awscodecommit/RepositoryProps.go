@@ -1,7 +1,7 @@
 package awscodecommit
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Example:
@@ -67,6 +67,6 @@ type RepositoryProps struct {
 	// The customer managed key used to encrypt and decrypt the data in repository.
 	// Default: - Use an AWS managed key.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,7 +52,7 @@ type Policy interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() IPrincipal
 	// The tree node.
@@ -66,7 +68,7 @@ type Policy interface {
 	// The name of this policy.
 	PolicyName() *string
 	// A reference to a Policy resource.
-	PolicyRef() *PolicyReference
+	PolicyRef() *interfacesawsiam.PolicyReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds a statement to the policy document.
@@ -122,8 +124,8 @@ func (j *jsiiProxy_Policy) Document() PolicyDocument {
 	return returns
 }
 
-func (j *jsiiProxy_Policy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Policy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -172,8 +174,8 @@ func (j *jsiiProxy_Policy) PolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Policy) PolicyRef() *PolicyReference {
-	var returns *PolicyReference
+func (j *jsiiProxy_Policy) PolicyRef() *interfacesawsiam.PolicyReference {
+	var returns *interfacesawsiam.PolicyReference
 	_jsii_.Get(
 		j,
 		"policyRef",

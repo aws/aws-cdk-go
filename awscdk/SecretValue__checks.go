@@ -32,6 +32,18 @@ func validateSecretValue_CfnDynamicReferenceParameters(ref CfnDynamicReference) 
 	return nil
 }
 
+func validateSecretValue_CfnDynamicReferenceKeyParameters(secretId *string, options *SecretsManagerSecretOptions) error {
+	if secretId == nil {
+		return fmt.Errorf("parameter secretId is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateSecretValue_CfnParameterParameters(param CfnParameter) error {
 	if param == nil {
 		return fmt.Errorf("parameter param is required, but nil was provided")

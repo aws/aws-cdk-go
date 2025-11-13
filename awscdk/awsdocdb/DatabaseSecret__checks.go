@@ -60,6 +60,14 @@ func (d *jsiiProxy_DatabaseSecret) validateAttachParameters(target awssecretsman
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseSecret) validateCfnDynamicReferenceKeyParameters(options *awscdk.SecretsManagerSecretOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseSecret) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

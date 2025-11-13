@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiottwinmaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiottwinmaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -118,8 +120,8 @@ import (
 //
 type CfnEntity interface {
 	awscdk.CfnResource
-	IEntityRef
 	awscdk.IInspectable
+	interfacesawsiottwinmaker.IEntityRef
 	awscdk.ITaggable
 	// The entity ARN.
 	AttrArn() *string
@@ -159,8 +161,8 @@ type CfnEntity interface {
 	EntityName() *string
 	SetEntityName(val *string)
 	// A reference to a Entity resource.
-	EntityRef() *EntityReference
-	Env() *awscdk.ResourceEnvironment
+	EntityRef() *interfacesawsiottwinmaker.EntityReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -336,8 +338,8 @@ type CfnEntity interface {
 // The jsii proxy struct for CfnEntity
 type jsiiProxy_CfnEntity struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEntityRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiottwinmakerIEntityRef
 	internal.Type__awscdkITaggable
 }
 
@@ -521,8 +523,8 @@ func (j *jsiiProxy_CfnEntity) EntityName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntity) EntityRef() *EntityReference {
-	var returns *EntityReference
+func (j *jsiiProxy_CfnEntity) EntityRef() *interfacesawsiottwinmaker.EntityReference {
+	var returns *interfacesawsiottwinmaker.EntityReference
 	_jsii_.Get(
 		j,
 		"entityRef",
@@ -531,8 +533,8 @@ func (j *jsiiProxy_CfnEntity) EntityRef() *EntityReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntity) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEntity) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -642,6 +644,7 @@ func (j *jsiiProxy_CfnEntity) WorkspaceId() *string {
 }
 
 
+// Create a new `AWS::IoTTwinMaker::Entity`.
 func NewCfnEntity(scope constructs.Construct, id *string, props *CfnEntityProps) CfnEntity {
 	_init_.Initialize()
 
@@ -659,6 +662,7 @@ func NewCfnEntity(scope constructs.Construct, id *string, props *CfnEntityProps)
 	return &j
 }
 
+// Create a new `AWS::IoTTwinMaker::Entity`.
 func NewCfnEntity_Override(c CfnEntity, scope constructs.Construct, id *string, props *CfnEntityProps) {
 	_init_.Initialize()
 

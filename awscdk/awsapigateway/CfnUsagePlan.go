@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnUsagePlan interface {
 	awscdk.CfnResource
-	IUsagePlanRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IUsagePlanRef
 	awscdk.ITaggable
 	// The associated API stages of a usage plan.
 	ApiStages() interface{}
@@ -78,7 +80,7 @@ type CfnUsagePlan interface {
 	// The description of a usage plan.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -128,7 +130,7 @@ type CfnUsagePlan interface {
 	UsagePlanName() *string
 	SetUsagePlanName(val *string)
 	// A reference to a UsagePlan resource.
-	UsagePlanRef() *UsagePlanReference
+	UsagePlanRef() *interfacesawsapigateway.UsagePlanReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -259,8 +261,8 @@ type CfnUsagePlan interface {
 // The jsii proxy struct for CfnUsagePlan
 type jsiiProxy_CfnUsagePlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUsagePlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIUsagePlanRef
 	internal.Type__awscdkITaggable
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnUsagePlan) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUsagePlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUsagePlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -454,8 +456,8 @@ func (j *jsiiProxy_CfnUsagePlan) UsagePlanName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUsagePlan) UsagePlanRef() *UsagePlanReference {
-	var returns *UsagePlanReference
+func (j *jsiiProxy_CfnUsagePlan) UsagePlanRef() *interfacesawsapigateway.UsagePlanReference {
+	var returns *interfacesawsapigateway.UsagePlanReference
 	_jsii_.Get(
 		j,
 		"usagePlanRef",
@@ -465,6 +467,7 @@ func (j *jsiiProxy_CfnUsagePlan) UsagePlanRef() *UsagePlanReference {
 }
 
 
+// Create a new `AWS::ApiGateway::UsagePlan`.
 func NewCfnUsagePlan(scope constructs.Construct, id *string, props *CfnUsagePlanProps) CfnUsagePlan {
 	_init_.Initialize()
 
@@ -482,6 +485,7 @@ func NewCfnUsagePlan(scope constructs.Construct, id *string, props *CfnUsagePlan
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::UsagePlan`.
 func NewCfnUsagePlan_Override(c CfnUsagePlan, scope constructs.Construct, id *string, props *CfnUsagePlanProps) {
 	_init_.Initialize()
 
@@ -553,13 +557,13 @@ func (j *jsiiProxy_CfnUsagePlan)SetUsagePlanName(val *string) {
 }
 
 // Creates a new IUsagePlanRef from a usagePlanId.
-func CfnUsagePlan_FromUsagePlanId(scope constructs.Construct, id *string, usagePlanId *string) IUsagePlanRef {
+func CfnUsagePlan_FromUsagePlanId(scope constructs.Construct, id *string, usagePlanId *string) interfacesawsapigateway.IUsagePlanRef {
 	_init_.Initialize()
 
 	if err := validateCfnUsagePlan_FromUsagePlanIdParameters(scope, id, usagePlanId); err != nil {
 		panic(err)
 	}
-	var returns IUsagePlanRef
+	var returns interfacesawsapigateway.IUsagePlanRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigateway.CfnUsagePlan",

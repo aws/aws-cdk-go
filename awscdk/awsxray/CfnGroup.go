@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsxray/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsxray"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnGroup interface {
 	awscdk.CfnResource
-	IGroupRef
 	awscdk.IInspectable
+	interfacesawsxray.IGroupRef
 	awscdk.ITaggableV2
 	// The group ARN that was created or updated.
 	AttrGroupArn() *string
@@ -55,7 +57,7 @@ type CfnGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The filter expression defining the parameters to include traces.
 	FilterExpression() *string
 	SetFilterExpression(val *string)
@@ -63,7 +65,7 @@ type CfnGroup interface {
 	GroupName() *string
 	SetGroupName(val *string)
 	// A reference to a Group resource.
-	GroupRef() *GroupReference
+	GroupRef() *interfacesawsxray.GroupReference
 	// The structure containing configurations related to insights.
 	InsightsConfiguration() interface{}
 	SetInsightsConfiguration(val interface{})
@@ -234,8 +236,8 @@ type CfnGroup interface {
 // The jsii proxy struct for CfnGroup
 type jsiiProxy_CfnGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsxrayIGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnGroup) GroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) GroupRef() *GroupReference {
-	var returns *GroupReference
+func (j *jsiiProxy_CfnGroup) GroupRef() *interfacesawsxray.GroupReference {
+	var returns *interfacesawsxray.GroupReference
 	_jsii_.Get(
 		j,
 		"groupRef",
@@ -420,6 +422,7 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::XRay::Group`.
 func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
@@ -437,6 +440,7 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 	return &j
 }
 
+// Create a new `AWS::XRay::Group`.
 func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 

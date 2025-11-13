@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnJob interface {
 	awscdk.CfnResource
-	IJobRef
 	awscdk.IInspectable
+	interfacesawsglue.IJobRef
 	awscdk.ITaggable
 	// This parameter is no longer supported.
 	//
@@ -96,7 +98,7 @@ type CfnJob interface {
 	// A description of the job.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether the job is run with a standard or flexible execution class.
 	ExecutionClass() *string
 	SetExecutionClass(val *string)
@@ -112,7 +114,7 @@ type CfnJob interface {
 	JobMode() *string
 	SetJobMode(val *string)
 	// A reference to a Job resource.
-	JobRef() *JobReference
+	JobRef() *interfacesawsglue.JobReference
 	// Specifies whether job run queuing is enabled for the job runs for this job.
 	JobRunQueuingEnabled() interface{}
 	SetJobRunQueuingEnabled(val interface{})
@@ -321,8 +323,8 @@ type CfnJob interface {
 // The jsii proxy struct for CfnJob
 type jsiiProxy_CfnJob struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IJobRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIJobRef
 	internal.Type__awscdkITaggable
 }
 
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnJob) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJob) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnJob) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -466,8 +468,8 @@ func (j *jsiiProxy_CfnJob) JobMode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJob) JobRef() *JobReference {
-	var returns *JobReference
+func (j *jsiiProxy_CfnJob) JobRef() *interfacesawsglue.JobReference {
+	var returns *interfacesawsglue.JobReference
 	_jsii_.Get(
 		j,
 		"jobRef",
@@ -687,6 +689,7 @@ func (j *jsiiProxy_CfnJob) WorkerType() *string {
 }
 
 
+// Create a new `AWS::Glue::Job`.
 func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJob {
 	_init_.Initialize()
 
@@ -704,6 +707,7 @@ func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJo
 	return &j
 }
 
+// Create a new `AWS::Glue::Job`.
 func NewCfnJob_Override(c CfnJob, scope constructs.Construct, id *string, props *CfnJobProps) {
 	_init_.Initialize()
 
@@ -917,13 +921,13 @@ func (j *jsiiProxy_CfnJob)SetWorkerType(val *string) {
 }
 
 // Creates a new IJobRef from a jobName.
-func CfnJob_FromJobName(scope constructs.Construct, id *string, jobName *string) IJobRef {
+func CfnJob_FromJobName(scope constructs.Construct, id *string, jobName *string) interfacesawsglue.IJobRef {
 	_init_.Initialize()
 
 	if err := validateCfnJob_FromJobNameParameters(scope, id, jobName); err != nil {
 		panic(err)
 	}
-	var returns IJobRef
+	var returns interfacesawsglue.IJobRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_glue.CfnJob",

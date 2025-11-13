@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnRoute interface {
 	awscdk.CfnResource
-	IRouteRef
 	awscdk.IInspectable
+	interfacesawsec2.IRouteRef
 	// The IPv4 CIDR block.
 	AttrCidrBlock() *string
 	// The ID of the carrier gateway.
@@ -75,7 +77,7 @@ type CfnRoute interface {
 	// [IPv6 traffic only] The ID of an egress-only internet gateway.
 	EgressOnlyInternetGatewayId() *string
 	SetEgressOnlyInternetGatewayId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of an internet gateway or virtual private gateway attached to your VPC.
 	GatewayId() *string
 	SetGatewayId(val *string)
@@ -109,7 +111,7 @@ type CfnRoute interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Route resource.
-	RouteRef() *RouteReference
+	RouteRef() *interfacesawsec2.RouteReference
 	// The ID of the route table for the route.
 	RouteTableId() *string
 	SetRouteTableId(val *string)
@@ -269,8 +271,8 @@ type CfnRoute interface {
 // The jsii proxy struct for CfnRoute
 type jsiiProxy_CfnRoute struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IRouteRef
 }
 
 func (j *jsiiProxy_CfnRoute) AttrCidrBlock() *string {
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnRoute) EgressOnlyInternetGatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoute) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRoute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -473,8 +475,8 @@ func (j *jsiiProxy_CfnRoute) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoute) RouteRef() *RouteReference {
-	var returns *RouteReference
+func (j *jsiiProxy_CfnRoute) RouteRef() *interfacesawsec2.RouteReference {
+	var returns *interfacesawsec2.RouteReference
 	_jsii_.Get(
 		j,
 		"routeRef",
@@ -554,6 +556,7 @@ func (j *jsiiProxy_CfnRoute) VpcPeeringConnectionId() *string {
 }
 
 
+// Create a new `AWS::EC2::Route`.
 func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) CfnRoute {
 	_init_.Initialize()
 
@@ -571,6 +574,7 @@ func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) C
 	return &j
 }
 
+// Create a new `AWS::EC2::Route`.
 func NewCfnRoute_Override(c CfnRoute, scope constructs.Construct, id *string, props *CfnRouteProps) {
 	_init_.Initialize()
 

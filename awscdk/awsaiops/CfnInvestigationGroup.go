@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsaiops/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsaiops"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -72,8 +74,8 @@ import (
 //
 type CfnInvestigationGroup interface {
 	awscdk.CfnResource
-	IInvestigationGroupRef
 	awscdk.IInspectable
+	interfacesawsaiops.IInvestigationGroupRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the investigation group.
 	AttrArn() *string
@@ -105,12 +107,12 @@ type CfnInvestigationGroup interface {
 	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Returns the JSON of the IAM resource policy associated with the specified investigation group in a string.
 	InvestigationGroupPolicy() *string
 	SetInvestigationGroupPolicy(val *string)
 	// A reference to a InvestigationGroup resource.
-	InvestigationGroupRef() *InvestigationGroupReference
+	InvestigationGroupRef() *interfacesawsaiops.InvestigationGroupReference
 	// Specify `true` to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail.
 	IsCloudTrailEventHistoryEnabled() interface{}
 	SetIsCloudTrailEventHistoryEnabled(val interface{})
@@ -293,8 +295,8 @@ type CfnInvestigationGroup interface {
 // The jsii proxy struct for CfnInvestigationGroup
 type jsiiProxy_CfnInvestigationGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInvestigationGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsaiopsIInvestigationGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnInvestigationGroup) EncryptionConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInvestigationGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInvestigationGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -448,8 +450,8 @@ func (j *jsiiProxy_CfnInvestigationGroup) InvestigationGroupPolicy() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInvestigationGroup) InvestigationGroupRef() *InvestigationGroupReference {
-	var returns *InvestigationGroupReference
+func (j *jsiiProxy_CfnInvestigationGroup) InvestigationGroupRef() *interfacesawsaiops.InvestigationGroupReference {
+	var returns *interfacesawsaiops.InvestigationGroupReference
 	_jsii_.Get(
 		j,
 		"investigationGroupRef",
@@ -579,6 +581,7 @@ func (j *jsiiProxy_CfnInvestigationGroup) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::AIOps::InvestigationGroup`.
 func NewCfnInvestigationGroup(scope constructs.Construct, id *string, props *CfnInvestigationGroupProps) CfnInvestigationGroup {
 	_init_.Initialize()
 
@@ -596,6 +599,7 @@ func NewCfnInvestigationGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::AIOps::InvestigationGroup`.
 func NewCfnInvestigationGroup_Override(c CfnInvestigationGroup, scope constructs.Construct, id *string, props *CfnInvestigationGroupProps) {
 	_init_.Initialize()
 

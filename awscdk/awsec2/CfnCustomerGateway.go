@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnCustomerGateway interface {
 	awscdk.CfnResource
-	ICustomerGatewayRef
 	awscdk.IInspectable
+	interfacesawsec2.ICustomerGatewayRef
 	awscdk.ITaggable
 	// The ID of the customer gateway.
 	AttrCustomerGatewayId() *string
@@ -61,11 +63,11 @@ type CfnCustomerGateway interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomerGateway resource.
-	CustomerGatewayRef() *CustomerGatewayReference
+	CustomerGatewayRef() *interfacesawsec2.CustomerGatewayReference
 	// The name of customer gateway device.
 	DeviceName() *string
 	SetDeviceName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IP address for the customer gateway device's outside interface.
 	IpAddress() *string
 	SetIpAddress(val *string)
@@ -241,8 +243,8 @@ type CfnCustomerGateway interface {
 // The jsii proxy struct for CfnCustomerGateway
 type jsiiProxy_CfnCustomerGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomerGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ICustomerGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnCustomerGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomerGateway) CustomerGatewayRef() *CustomerGatewayReference {
-	var returns *CustomerGatewayReference
+func (j *jsiiProxy_CfnCustomerGateway) CustomerGatewayRef() *interfacesawsec2.CustomerGatewayReference {
+	var returns *interfacesawsec2.CustomerGatewayReference
 	_jsii_.Get(
 		j,
 		"customerGatewayRef",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnCustomerGateway) DeviceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomerGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomerGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -457,6 +459,7 @@ func (j *jsiiProxy_CfnCustomerGateway) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::EC2::CustomerGateway`.
 func NewCfnCustomerGateway(scope constructs.Construct, id *string, props *CfnCustomerGatewayProps) CfnCustomerGateway {
 	_init_.Initialize()
 
@@ -474,6 +477,7 @@ func NewCfnCustomerGateway(scope constructs.Construct, id *string, props *CfnCus
 	return &j
 }
 
+// Create a new `AWS::EC2::CustomerGateway`.
 func NewCfnCustomerGateway_Override(c CfnCustomerGateway, scope constructs.Construct, id *string, props *CfnCustomerGatewayProps) {
 	_init_.Initialize()
 
@@ -550,13 +554,13 @@ func (j *jsiiProxy_CfnCustomerGateway)SetType(val *string) {
 }
 
 // Creates a new ICustomerGatewayRef from a customerGatewayId.
-func CfnCustomerGateway_FromCustomerGatewayId(scope constructs.Construct, id *string, customerGatewayId *string) ICustomerGatewayRef {
+func CfnCustomerGateway_FromCustomerGatewayId(scope constructs.Construct, id *string, customerGatewayId *string) interfacesawsec2.ICustomerGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnCustomerGateway_FromCustomerGatewayIdParameters(scope, id, customerGatewayId); err != nil {
 		panic(err)
 	}
-	var returns ICustomerGatewayRef
+	var returns interfacesawsec2.ICustomerGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnCustomerGateway",

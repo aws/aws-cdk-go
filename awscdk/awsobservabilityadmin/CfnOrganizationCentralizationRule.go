@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsobservabilityadmin/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsobservabilityadmin"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnOrganizationCentralizationRule interface {
 	awscdk.CfnResource
-	IOrganizationCentralizationRuleRef
 	awscdk.IInspectable
+	interfacesawsobservabilityadmin.IOrganizationCentralizationRuleRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the organization centralization rule.
 	AttrRuleArn() *string
@@ -83,7 +85,7 @@ type CfnOrganizationCentralizationRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -97,7 +99,7 @@ type CfnOrganizationCentralizationRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a OrganizationCentralizationRule resource.
-	OrganizationCentralizationRuleRef() *OrganizationCentralizationRuleReference
+	OrganizationCentralizationRuleRef() *interfacesawsobservabilityadmin.OrganizationCentralizationRuleReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -258,8 +260,8 @@ type CfnOrganizationCentralizationRule interface {
 // The jsii proxy struct for CfnOrganizationCentralizationRule
 type jsiiProxy_CfnOrganizationCentralizationRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOrganizationCentralizationRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsobservabilityadminIOrganizationCentralizationRuleRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnOrganizationCentralizationRule) CreationStack() *[]*string
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationCentralizationRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOrganizationCentralizationRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnOrganizationCentralizationRule) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationCentralizationRule) OrganizationCentralizationRuleRef() *OrganizationCentralizationRuleReference {
-	var returns *OrganizationCentralizationRuleReference
+func (j *jsiiProxy_CfnOrganizationCentralizationRule) OrganizationCentralizationRuleRef() *interfacesawsobservabilityadmin.OrganizationCentralizationRuleReference {
+	var returns *interfacesawsobservabilityadmin.OrganizationCentralizationRuleReference
 	_jsii_.Get(
 		j,
 		"organizationCentralizationRuleRef",
@@ -434,6 +436,7 @@ func (j *jsiiProxy_CfnOrganizationCentralizationRule) UpdatedProperties() *map[s
 }
 
 
+// Create a new `AWS::ObservabilityAdmin::OrganizationCentralizationRule`.
 func NewCfnOrganizationCentralizationRule(scope constructs.Construct, id *string, props *CfnOrganizationCentralizationRuleProps) CfnOrganizationCentralizationRule {
 	_init_.Initialize()
 
@@ -451,6 +454,7 @@ func NewCfnOrganizationCentralizationRule(scope constructs.Construct, id *string
 	return &j
 }
 
+// Create a new `AWS::ObservabilityAdmin::OrganizationCentralizationRule`.
 func NewCfnOrganizationCentralizationRule_Override(c CfnOrganizationCentralizationRule, scope constructs.Construct, id *string, props *CfnOrganizationCentralizationRuleProps) {
 	_init_.Initialize()
 

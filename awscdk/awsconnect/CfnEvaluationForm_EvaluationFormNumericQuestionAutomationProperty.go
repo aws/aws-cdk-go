@@ -20,6 +20,7 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html
 //
 type CfnEvaluationForm_EvaluationFormNumericQuestionAutomationProperty struct {
+	// A source of automation answer for numeric question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html#cfn-connect-evaluationform-evaluationformnumericquestionautomation-answersource
 	//
 	AnswerSource interface{} `field:"optional" json:"answerSource" yaml:"answerSource"`

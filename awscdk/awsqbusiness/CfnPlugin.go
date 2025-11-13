@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsqbusiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsqbusiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,8 +66,8 @@ import (
 //
 type CfnPlugin interface {
 	awscdk.CfnResource
-	IPluginRef
 	awscdk.IInspectable
+	interfacesawsqbusiness.IPluginRef
 	awscdk.ITaggableV2
 	// The identifier of the application that will contain the plugin.
 	ApplicationId() *string
@@ -102,7 +104,7 @@ type CfnPlugin interface {
 	// The name of the plugin.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -116,7 +118,7 @@ type CfnPlugin interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Plugin resource.
-	PluginRef() *PluginReference
+	PluginRef() *interfacesawsqbusiness.PluginReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -281,8 +283,8 @@ type CfnPlugin interface {
 // The jsii proxy struct for CfnPlugin
 type jsiiProxy_CfnPlugin struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPluginRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsqbusinessIPluginRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -426,8 +428,8 @@ func (j *jsiiProxy_CfnPlugin) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlugin) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPlugin) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -456,8 +458,8 @@ func (j *jsiiProxy_CfnPlugin) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlugin) PluginRef() *PluginReference {
-	var returns *PluginReference
+func (j *jsiiProxy_CfnPlugin) PluginRef() *interfacesawsqbusiness.PluginReference {
+	var returns *interfacesawsqbusiness.PluginReference
 	_jsii_.Get(
 		j,
 		"pluginRef",
@@ -547,6 +549,7 @@ func (j *jsiiProxy_CfnPlugin) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::QBusiness::Plugin`.
 func NewCfnPlugin(scope constructs.Construct, id *string, props *CfnPluginProps) CfnPlugin {
 	_init_.Initialize()
 
@@ -564,6 +567,7 @@ func NewCfnPlugin(scope constructs.Construct, id *string, props *CfnPluginProps)
 	return &j
 }
 
+// Create a new `AWS::QBusiness::Plugin`.
 func NewCfnPlugin_Override(c CfnPlugin, scope constructs.Construct, id *string, props *CfnPluginProps) {
 	_init_.Initialize()
 

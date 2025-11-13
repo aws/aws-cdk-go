@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnOdbNetwork interface {
 	awscdk.CfnResource
-	IOdbNetworkRef
 	awscdk.IInspectable
+	interfacesawsodb.IOdbNetworkRef
 	awscdk.ITaggableV2
 	// The managed services configuration for the ODB network.
 	AttrManagedServices() awscdk.IResolvable
@@ -92,7 +94,7 @@ type CfnOdbNetwork interface {
 	// The user-friendly name of the ODB network.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -106,7 +108,7 @@ type CfnOdbNetwork interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a OdbNetwork resource.
-	OdbNetworkRef() *OdbNetworkReference
+	OdbNetworkRef() *interfacesawsodb.OdbNetworkReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -271,8 +273,8 @@ type CfnOdbNetwork interface {
 // The jsii proxy struct for CfnOdbNetwork
 type jsiiProxy_CfnOdbNetwork struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOdbNetworkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsodbIOdbNetworkRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -466,8 +468,8 @@ func (j *jsiiProxy_CfnOdbNetwork) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOdbNetwork) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOdbNetwork) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -496,8 +498,8 @@ func (j *jsiiProxy_CfnOdbNetwork) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOdbNetwork) OdbNetworkRef() *OdbNetworkReference {
-	var returns *OdbNetworkReference
+func (j *jsiiProxy_CfnOdbNetwork) OdbNetworkRef() *interfacesawsodb.OdbNetworkReference {
+	var returns *interfacesawsodb.OdbNetworkReference
 	_jsii_.Get(
 		j,
 		"odbNetworkRef",
@@ -587,6 +589,7 @@ func (j *jsiiProxy_CfnOdbNetwork) ZeroEtlAccess() *string {
 }
 
 
+// Create a new `AWS::ODB::OdbNetwork`.
 func NewCfnOdbNetwork(scope constructs.Construct, id *string, props *CfnOdbNetworkProps) CfnOdbNetwork {
 	_init_.Initialize()
 
@@ -604,6 +607,7 @@ func NewCfnOdbNetwork(scope constructs.Construct, id *string, props *CfnOdbNetwo
 	return &j
 }
 
+// Create a new `AWS::ODB::OdbNetwork`.
 func NewCfnOdbNetwork_Override(c CfnOdbNetwork, scope constructs.Construct, id *string, props *CfnOdbNetworkProps) {
 	_init_.Initialize()
 

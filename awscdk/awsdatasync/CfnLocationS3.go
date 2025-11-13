@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnLocationS3 interface {
 	awscdk.CfnResource
-	ILocationS3Ref
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationS3Ref
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the specified Amazon S3 location.
 	AttrLocationArn() *string
@@ -55,9 +57,9 @@ type CfnLocationS3 interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LocationS3 resource.
-	LocationS3Ref() *LocationS3Reference
+	LocationS3Ref() *interfacesawsdatasync.LocationS3Reference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -239,8 +241,8 @@ type CfnLocationS3 interface {
 // The jsii proxy struct for CfnLocationS3
 type jsiiProxy_CfnLocationS3 struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationS3Ref
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationS3Ref
 	internal.Type__awscdkITaggable
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnLocationS3) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationS3) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationS3) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnLocationS3) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationS3) LocationS3Ref() *LocationS3Reference {
-	var returns *LocationS3Reference
+func (j *jsiiProxy_CfnLocationS3) LocationS3Ref() *interfacesawsdatasync.LocationS3Reference {
+	var returns *interfacesawsdatasync.LocationS3Reference
 	_jsii_.Get(
 		j,
 		"locationS3Ref",
@@ -445,6 +447,7 @@ func (j *jsiiProxy_CfnLocationS3) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataSync::LocationS3`.
 func NewCfnLocationS3(scope constructs.Construct, id *string, props *CfnLocationS3Props) CfnLocationS3 {
 	_init_.Initialize()
 
@@ -462,6 +465,7 @@ func NewCfnLocationS3(scope constructs.Construct, id *string, props *CfnLocation
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationS3`.
 func NewCfnLocationS3_Override(c CfnLocationS3, scope constructs.Construct, id *string, props *CfnLocationS3Props) {
 	_init_.Initialize()
 

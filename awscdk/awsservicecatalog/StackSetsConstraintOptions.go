@@ -1,7 +1,7 @@
 package awsservicecatalog
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Properties for deploying with Stackset, which creates a StackSet constraint.
@@ -47,7 +47,7 @@ type StackSetsConstraintOptions struct {
 	// List of accounts to deploy stacks to.
 	Accounts *[]*string `field:"required" json:"accounts" yaml:"accounts"`
 	// IAM role used to administer the StackSets configuration.
-	AdminRole awsiam.IRoleRef `field:"required" json:"adminRole" yaml:"adminRole"`
+	AdminRole interfacesawsiam.IRoleRef `field:"required" json:"adminRole" yaml:"adminRole"`
 	// IAM role used to provision the products in the Stacks.
 	ExecutionRoleName *string `field:"required" json:"executionRoleName" yaml:"executionRoleName"`
 	// List of regions to deploy stacks to.

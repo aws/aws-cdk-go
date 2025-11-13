@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssns"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnTopicInlinePolicy interface {
 	awscdk.CfnResource
-	ITopicInlinePolicyRef
 	awscdk.IInspectable
+	interfacesawssns.ITopicInlinePolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnTopicInlinePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnTopicInlinePolicy interface {
 	TopicArn() *string
 	SetTopicArn(val *string)
 	// A reference to a TopicInlinePolicy resource.
-	TopicInlinePolicyRef() *TopicInlinePolicyReference
+	TopicInlinePolicyRef() *interfacesawssns.TopicInlinePolicyReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -211,8 +213,8 @@ type CfnTopicInlinePolicy interface {
 // The jsii proxy struct for CfnTopicInlinePolicy
 type jsiiProxy_CfnTopicInlinePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITopicInlinePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssnsITopicInlinePolicyRef
 }
 
 func (j *jsiiProxy_CfnTopicInlinePolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -255,8 +257,8 @@ func (j *jsiiProxy_CfnTopicInlinePolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicInlinePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTopicInlinePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnTopicInlinePolicy) TopicArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicInlinePolicy) TopicInlinePolicyRef() *TopicInlinePolicyReference {
-	var returns *TopicInlinePolicyReference
+func (j *jsiiProxy_CfnTopicInlinePolicy) TopicInlinePolicyRef() *interfacesawssns.TopicInlinePolicyReference {
+	var returns *interfacesawssns.TopicInlinePolicyReference
 	_jsii_.Get(
 		j,
 		"topicInlinePolicyRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnTopicInlinePolicy) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::SNS::TopicInlinePolicy`.
 func NewCfnTopicInlinePolicy(scope constructs.Construct, id *string, props *CfnTopicInlinePolicyProps) CfnTopicInlinePolicy {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnTopicInlinePolicy(scope constructs.Construct, id *string, props *CfnT
 	return &j
 }
 
+// Create a new `AWS::SNS::TopicInlinePolicy`.
 func NewCfnTopicInlinePolicy_Override(c CfnTopicInlinePolicy, scope constructs.Construct, id *string, props *CfnTopicInlinePolicyProps) {
 	_init_.Initialize()
 

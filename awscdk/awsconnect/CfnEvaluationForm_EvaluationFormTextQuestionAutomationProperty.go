@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about the automation configuration in text questions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,6 +17,7 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionautomation.html
 //
 type CfnEvaluationForm_EvaluationFormTextQuestionAutomationProperty struct {
+	// Automation answer source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionautomation.html#cfn-connect-evaluationform-evaluationformtextquestionautomation-answersource
 	//
 	AnswerSource interface{} `field:"optional" json:"answerSource" yaml:"answerSource"`

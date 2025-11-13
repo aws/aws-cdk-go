@@ -49,8 +49,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourcePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourcePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisIResourcePolicyRef)
 			return &j
 		},
 	)
@@ -81,6 +81,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "maxRecordSizeInKiB", GoGetter: "MaxRecordSizeInKiB"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -107,8 +108,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStream{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStreamRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisIStreamRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -170,8 +171,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStreamConsumer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStreamConsumerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisIStreamConsumerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -183,21 +184,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesis.CfnStreamProps",
 		reflect.TypeOf((*CfnStreamProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesis.IResourcePolicyRef",
-		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourcePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_kinesis.IStream",
@@ -263,36 +249,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesis.IStreamConsumerRef",
-		reflect.TypeOf((*IStreamConsumerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamConsumerRef", GoGetter: "StreamConsumerRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStreamConsumerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kinesis.IStreamRef",
-		reflect.TypeOf((*IStreamRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamRef", GoGetter: "StreamRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStreamRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesis.ResourcePolicy",
 		reflect.TypeOf((*ResourcePolicy)(nil)).Elem(),
@@ -317,10 +273,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesis.ResourcePolicyProps",
 		reflect.TypeOf((*ResourcePolicyProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesis.ResourcePolicyReference",
-		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_kinesis.ShardLevelMetrics",
@@ -426,10 +378,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesis.StreamConsumerProps",
 		reflect.TypeOf((*StreamConsumerProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesis.StreamConsumerReference",
-		reflect.TypeOf((*StreamConsumerReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_kinesis.StreamEncryption",
 		reflect.TypeOf((*StreamEncryption)(nil)).Elem(),
@@ -450,9 +398,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesis.StreamProps",
 		reflect.TypeOf((*StreamProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kinesis.StreamReference",
-		reflect.TypeOf((*StreamReference)(nil)).Elem(),
 	)
 }

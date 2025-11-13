@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationsignals/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationsignals"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnGroupingConfiguration interface {
 	awscdk.CfnResource
-	IGroupingConfigurationRef
 	awscdk.IInspectable
+	interfacesawsapplicationsignals.IGroupingConfigurationRef
 	// The 12 digit AWS Account ID for the account.
 	AttrAccountId() *string
 	// The timestamp when this grouping configuration was last updated.
@@ -51,12 +53,12 @@ type CfnGroupingConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
 	GroupingAttributeDefinitions() interface{}
 	SetGroupingAttributeDefinitions(val interface{})
 	// A reference to a GroupingConfiguration resource.
-	GroupingConfigurationRef() *GroupingConfigurationReference
+	GroupingConfigurationRef() *interfacesawsapplicationsignals.GroupingConfigurationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +223,8 @@ type CfnGroupingConfiguration interface {
 // The jsii proxy struct for CfnGroupingConfiguration
 type jsiiProxy_CfnGroupingConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGroupingConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapplicationsignalsIGroupingConfigurationRef
 }
 
 func (j *jsiiProxy_CfnGroupingConfiguration) AttrAccountId() *string {
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnGroupingConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupingConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGroupingConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnGroupingConfiguration) GroupingAttributeDefinitions() inte
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupingConfiguration) GroupingConfigurationRef() *GroupingConfigurationReference {
-	var returns *GroupingConfigurationReference
+func (j *jsiiProxy_CfnGroupingConfiguration) GroupingConfigurationRef() *interfacesawsapplicationsignals.GroupingConfigurationReference {
+	var returns *interfacesawsapplicationsignals.GroupingConfigurationReference
 	_jsii_.Get(
 		j,
 		"groupingConfigurationRef",
@@ -376,6 +378,7 @@ func (j *jsiiProxy_CfnGroupingConfiguration) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::ApplicationSignals::GroupingConfiguration`.
 func NewCfnGroupingConfiguration(scope constructs.Construct, id *string, props *CfnGroupingConfigurationProps) CfnGroupingConfiguration {
 	_init_.Initialize()
 
@@ -393,6 +396,7 @@ func NewCfnGroupingConfiguration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::ApplicationSignals::GroupingConfiguration`.
 func NewCfnGroupingConfiguration_Override(c CfnGroupingConfiguration, scope constructs.Construct, id *string, props *CfnGroupingConfigurationProps) {
 	_init_.Initialize()
 

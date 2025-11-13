@@ -102,8 +102,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnScalableTarget{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IScalableTargetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapplicationautoscalingIScalableTargetRef)
 			return &j
 		},
 	)
@@ -173,8 +173,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnScalingPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IScalingPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapplicationautoscalingIScalingPolicyRef)
 			return &j
 		},
 	)
@@ -294,36 +294,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_applicationautoscaling.IScalableTargetRef",
-		reflect.TypeOf((*IScalableTargetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scalableTargetRef", GoGetter: "ScalableTargetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IScalableTargetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_applicationautoscaling.IScalingPolicyRef",
-		reflect.TypeOf((*IScalingPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scalingPolicyRef", GoGetter: "ScalingPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IScalingPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_applicationautoscaling.MetricAggregationType",
 		reflect.TypeOf((*MetricAggregationType)(nil)).Elem(),
@@ -399,16 +369,8 @@ func init() {
 		reflect.TypeOf((*ScalableTargetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationautoscaling.ScalableTargetReference",
-		reflect.TypeOf((*ScalableTargetReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationautoscaling.ScalingInterval",
 		reflect.TypeOf((*ScalingInterval)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationautoscaling.ScalingPolicyReference",
-		reflect.TypeOf((*ScalingPolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationautoscaling.ScalingSchedule",

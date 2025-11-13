@@ -1,7 +1,7 @@
 package awsaps
 
 
-// A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+// The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,15 +16,11 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-label.html
 //
 type CfnAnomalyDetector_LabelProperty struct {
-	// The key name of the tag.
-	//
-	// You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key of the label.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-label.html#cfn-aps-anomalydetector-label-key
 	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// The value for the tag.
-	//
-	// You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The value for this label.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-label.html#cfn-aps-anomalydetector-label-value
 	//
 	Value *string `field:"required" json:"value" yaml:"value"`

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnVersion interface {
 	awscdk.CfnResource
-	IVersionRef
 	awscdk.IInspectable
+	interfacesawslambda.IVersionRef
 	// The ARN of the function.
 	AttrFunctionArn() *string
 	// The version number.
@@ -58,7 +60,7 @@ type CfnVersion interface {
 	// A description for the version to override the description in the function configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name or ARN of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
@@ -103,7 +105,7 @@ type CfnVersion interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a Version resource.
-	VersionRef() *VersionReference
+	VersionRef() *interfacesawslambda.VersionReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -234,8 +236,8 @@ type CfnVersion interface {
 // The jsii proxy struct for CfnVersion
 type jsiiProxy_CfnVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslambdaIVersionRef
 }
 
 func (j *jsiiProxy_CfnVersion) AttrFunctionArn() *string {
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnVersion) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVersion) VersionRef() *VersionReference {
-	var returns *VersionReference
+func (j *jsiiProxy_CfnVersion) VersionRef() *interfacesawslambda.VersionReference {
+	var returns *interfacesawslambda.VersionReference
 	_jsii_.Get(
 		j,
 		"versionRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnVersion) VersionRef() *VersionReference {
 }
 
 
+// Create a new `AWS::Lambda::Version`.
 func NewCfnVersion(scope constructs.Construct, id *string, props *CfnVersionProps) CfnVersion {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnVersion(scope constructs.Construct, id *string, props *CfnVersionProp
 	return &j
 }
 
+// Create a new `AWS::Lambda::Version`.
 func NewCfnVersion_Override(c CfnVersion, scope constructs.Construct, id *string, props *CfnVersionProps) {
 	_init_.Initialize()
 

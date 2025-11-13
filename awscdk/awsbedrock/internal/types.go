@@ -1,10 +1,25 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsbedrockIAgentRef = interfacesawsbedrock.IAgentRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsbedrockIAgentAliasRef = interfacesawsbedrock.IAgentAliasRef
+type Type__interfacesawsbedrockIApplicationInferenceProfileRef = interfacesawsbedrock.IApplicationInferenceProfileRef
+type Type__interfacesawsbedrockIAutomatedReasoningPolicyRef = interfacesawsbedrock.IAutomatedReasoningPolicyRef
+type Type__interfacesawsbedrockIAutomatedReasoningPolicyVersionRef = interfacesawsbedrock.IAutomatedReasoningPolicyVersionRef
+type Type__interfacesawsbedrockIBlueprintRef = interfacesawsbedrock.IBlueprintRef
+type Type__interfacesawsbedrockIDataAutomationProjectRef = interfacesawsbedrock.IDataAutomationProjectRef
+type Type__interfacesawsbedrockIDataSourceRef = interfacesawsbedrock.IDataSourceRef
+type Type__interfacesawsbedrockIFlowRef = interfacesawsbedrock.IFlowRef
+type Type__interfacesawsbedrockIFlowAliasRef = interfacesawsbedrock.IFlowAliasRef
+type Type__interfacesawsbedrockIFlowVersionRef = interfacesawsbedrock.IFlowVersionRef
+type Type__interfacesawsbedrockIGuardrailRef = interfacesawsbedrock.IGuardrailRef
+type Type__interfacesawsbedrockIGuardrailVersionRef = interfacesawsbedrock.IGuardrailVersionRef
+type Type__interfacesawsbedrockIIntelligentPromptRouterRef = interfacesawsbedrock.IIntelligentPromptRouterRef
+type Type__interfacesawsbedrockIKnowledgeBaseRef = interfacesawsbedrock.IKnowledgeBaseRef
+type Type__interfacesawsbedrockIPromptRef = interfacesawsbedrock.IPromptRef
+type Type__interfacesawsbedrockIPromptVersionRef = interfacesawsbedrock.IPromptVersionRef

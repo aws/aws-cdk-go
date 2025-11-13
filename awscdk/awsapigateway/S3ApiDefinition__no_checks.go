@@ -8,7 +8,7 @@ func (s *jsiiProxy_S3ApiDefinition) validateBindParameters(scope constructs.Cons
 	return nil
 }
 
-func (s *jsiiProxy_S3ApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi IRestApiRef) error {
+func (s *jsiiProxy_S3ApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi interfacesawsapigateway.IRestApiRef) error {
 	return nil
 }
 
@@ -24,7 +24,7 @@ func validateS3ApiDefinition_FromInlineParameters(definition interface{}) error 
 	return nil
 }
 
-func validateNewS3ApiDefinitionParameters(bucket awss3.IBucketRef, key *string) error {
+func validateNewS3ApiDefinitionParameters(bucket interfacesawss3.IBucketRef, key *string) error {
 	return nil
 }
 

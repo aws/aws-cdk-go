@@ -1,0 +1,56 @@
+package interfacesawscodedeploy
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a DeploymentConfig.
+// Experimental.
+type IDeploymentConfigRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a DeploymentConfig resource.
+	// Experimental.
+	DeploymentConfigRef() *DeploymentConfigReference
+}
+
+// The jsii proxy for IDeploymentConfigRef
+type jsiiProxy_IDeploymentConfigRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IDeploymentConfigRef) DeploymentConfigRef() *DeploymentConfigReference {
+	var returns *DeploymentConfigReference
+	_jsii_.Get(
+		j,
+		"deploymentConfigRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeploymentConfigRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeploymentConfigRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

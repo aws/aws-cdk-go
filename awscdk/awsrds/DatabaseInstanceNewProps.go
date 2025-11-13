@@ -4,9 +4,10 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Construction properties for a DatabaseInstanceNew.
@@ -14,6 +15,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -192,7 +194,7 @@ type DatabaseInstanceNewProps struct {
 	// AmazonRDSDirectoryServiceAccess or equivalent.
 	// Default: - The role will be created for you if `DatabaseInstanceNewProps#domain` is specified.
 	//
-	DomainRole awsiam.IRoleRef `field:"optional" json:"domainRole" yaml:"domainRole"`
+	DomainRole interfacesawsiam.IRoleRef `field:"optional" json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
 	// Default: - false, unless ``performanceInsightRetention`` or ``performanceInsightEncryptionKey`` is set.
 	//
@@ -238,7 +240,7 @@ type DatabaseInstanceNewProps struct {
 	// Role that will be used to manage DB instance monitoring.
 	// Default: - A role is automatically created for you.
 	//
-	MonitoringRole awsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
+	MonitoringRole interfacesawsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
 	// Default: false.
 	//
@@ -258,7 +260,7 @@ type DatabaseInstanceNewProps struct {
 	// The AWS KMS key for encryption of Performance Insights data.
 	// Default: - default master key.
 	//
-	PerformanceInsightEncryptionKey awskms.IKeyRef `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
 	//
 	// If you set `databaseInsightsMode` to `DatabaseInsightsMode.ADVANCED`, you must set this property to `PerformanceInsightRetention.MONTHS_15`.

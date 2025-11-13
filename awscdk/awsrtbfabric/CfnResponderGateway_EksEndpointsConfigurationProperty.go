@@ -1,6 +1,8 @@
 package awsrtbfabric
 
 
+// Describes the configuration of an Amazon Elastic Kubernetes Service endpoint.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,21 +20,27 @@ package awsrtbfabric
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-eksendpointsconfiguration.html
 //
 type CfnResponderGateway_EksEndpointsConfigurationProperty struct {
+	// The CA certificate chain of the cluster API server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-eksendpointsconfiguration.html#cfn-rtbfabric-respondergateway-eksendpointsconfiguration-clusterapiservercacertificatechain
 	//
 	ClusterApiServerCaCertificateChain *string `field:"required" json:"clusterApiServerCaCertificateChain" yaml:"clusterApiServerCaCertificateChain"`
+	// The URI of the cluster API server endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-eksendpointsconfiguration.html#cfn-rtbfabric-respondergateway-eksendpointsconfiguration-clusterapiserverendpointuri
 	//
 	ClusterApiServerEndpointUri *string `field:"required" json:"clusterApiServerEndpointUri" yaml:"clusterApiServerEndpointUri"`
+	// The name of the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-eksendpointsconfiguration.html#cfn-rtbfabric-respondergateway-eksendpointsconfiguration-clustername
 	//
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
+	// The name of the endpoint resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-eksendpointsconfiguration.html#cfn-rtbfabric-respondergateway-eksendpointsconfiguration-endpointsresourcename
 	//
 	EndpointsResourceName *string `field:"required" json:"endpointsResourceName" yaml:"endpointsResourceName"`
+	// The namespace of the endpoint resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-eksendpointsconfiguration.html#cfn-rtbfabric-respondergateway-eksendpointsconfiguration-endpointsresourcenamespace
 	//
 	EndpointsResourceNamespace *string `field:"required" json:"endpointsResourceNamespace" yaml:"endpointsResourceNamespace"`
+	// The role ARN for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-eksendpointsconfiguration.html#cfn-rtbfabric-respondergateway-eksendpointsconfiguration-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`

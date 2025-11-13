@@ -42,10 +42,6 @@ func init() {
 		"aws-cdk-lib.aws_backup.BackupPlanProps",
 		reflect.TypeOf((*BackupPlanProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupPlanReference",
-		reflect.TypeOf((*BackupPlanReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_backup.BackupPlanRule",
 		reflect.TypeOf((*BackupPlanRule)(nil)).Elem(),
@@ -104,10 +100,6 @@ func init() {
 		"aws-cdk-lib.aws_backup.BackupSelectionProps",
 		reflect.TypeOf((*BackupSelectionProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupSelectionReference",
-		reflect.TypeOf((*BackupSelectionReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_backup.BackupVault",
 		reflect.TypeOf((*BackupVault)(nil)).Elem(),
@@ -161,10 +153,6 @@ func init() {
 		"aws-cdk-lib.aws_backup.BackupVaultProps",
 		reflect.TypeOf((*BackupVaultProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupVaultReference",
-		reflect.TypeOf((*BackupVaultReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_backup.CfnBackupPlan",
 		reflect.TypeOf((*CfnBackupPlan)(nil)).Elem(),
@@ -211,8 +199,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnBackupPlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBackupPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIBackupPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -290,8 +278,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnBackupSelection{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBackupSelectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIBackupSelectionRef)
 			return &j
 		},
 	)
@@ -364,8 +352,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnBackupVault{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBackupVaultRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIBackupVaultRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -431,8 +419,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFramework{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFrameworkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIFrameworkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -485,6 +473,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicallyAirGappedBackupVaultRef", GoGetter: "LogicallyAirGappedBackupVaultRef"},
 			_jsii_.MemberProperty{JsiiProperty: "maxRetentionDays", GoGetter: "MaxRetentionDays"},
 			_jsii_.MemberProperty{JsiiProperty: "minRetentionDays", GoGetter: "MinRetentionDays"},
+			_jsii_.MemberProperty{JsiiProperty: "mpaApprovalTeamArn", GoGetter: "MpaApprovalTeamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notifications", GoGetter: "Notifications"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -504,8 +493,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLogicallyAirGappedBackupVault{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogicallyAirGappedBackupVaultRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupILogicallyAirGappedBackupVaultRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -565,8 +554,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReportPlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReportPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIReportPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -631,8 +620,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRestoreTestingPlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRestoreTestingPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIRestoreTestingPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -693,8 +682,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRestoreTestingSelection{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRestoreTestingSelectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIRestoreTestingSelectionRef)
 			return &j
 		},
 	)
@@ -710,10 +699,6 @@ func init() {
 		"aws-cdk-lib.aws_backup.CfnRestoreTestingSelectionProps",
 		reflect.TypeOf((*CfnRestoreTestingSelectionProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.FrameworkReference",
-		reflect.TypeOf((*FrameworkReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_backup.IBackupPlan",
 		reflect.TypeOf((*IBackupPlan)(nil)).Elem(),
@@ -727,36 +712,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IBackupPlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IBackupPlanRef",
-		reflect.TypeOf((*IBackupPlanRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "backupPlanRef", GoGetter: "BackupPlanRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IBackupPlanRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IBackupSelectionRef",
-		reflect.TypeOf((*IBackupSelectionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "backupSelectionRef", GoGetter: "BackupSelectionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IBackupSelectionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -778,115 +733,9 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IBackupVaultRef",
-		reflect.TypeOf((*IBackupVaultRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "backupVaultRef", GoGetter: "BackupVaultRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IBackupVaultRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IFrameworkRef",
-		reflect.TypeOf((*IFrameworkRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "frameworkRef", GoGetter: "FrameworkRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFrameworkRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.ILogicallyAirGappedBackupVaultRef",
-		reflect.TypeOf((*ILogicallyAirGappedBackupVaultRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "logicallyAirGappedBackupVaultRef", GoGetter: "LogicallyAirGappedBackupVaultRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILogicallyAirGappedBackupVaultRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IReportPlanRef",
-		reflect.TypeOf((*IReportPlanRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "reportPlanRef", GoGetter: "ReportPlanRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReportPlanRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IRestoreTestingPlanRef",
-		reflect.TypeOf((*IRestoreTestingPlanRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "restoreTestingPlanRef", GoGetter: "RestoreTestingPlanRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRestoreTestingPlanRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IRestoreTestingSelectionRef",
-		reflect.TypeOf((*IRestoreTestingSelectionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "restoreTestingSelectionRef", GoGetter: "RestoreTestingSelectionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRestoreTestingSelectionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_backup.LockConfiguration",
 		reflect.TypeOf((*LockConfiguration)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.LogicallyAirGappedBackupVaultReference",
-		reflect.TypeOf((*LogicallyAirGappedBackupVaultReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.ReportPlanReference",
-		reflect.TypeOf((*ReportPlanReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.RestoreTestingPlanReference",
-		reflect.TypeOf((*RestoreTestingPlanReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.RestoreTestingSelectionReference",
-		reflect.TypeOf((*RestoreTestingSelectionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_backup.TagCondition",

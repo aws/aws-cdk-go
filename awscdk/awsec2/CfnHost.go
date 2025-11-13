@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnHost interface {
 	awscdk.CfnResource
-	IHostRef
 	awscdk.IInspectable
+	interfacesawsec2.IHostRef
 	awscdk.ITaggableV2
 	// The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
 	AssetId() *string
@@ -66,7 +68,7 @@ type CfnHost interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether host maintenance is enabled or disabled for the Dedicated Host.
 	HostMaintenance() *string
 	SetHostMaintenance(val *string)
@@ -74,7 +76,7 @@ type CfnHost interface {
 	HostRecovery() *string
 	SetHostRecovery(val *string)
 	// A reference to a Host resource.
-	HostRef() *HostReference
+	HostRef() *interfacesawsec2.HostReference
 	// The instance family supported by the Dedicated Host.
 	InstanceFamily() *string
 	SetInstanceFamily(val *string)
@@ -251,8 +253,8 @@ type CfnHost interface {
 // The jsii proxy struct for CfnHost
 type jsiiProxy_CfnHost struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHostRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IHostRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnHost) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHost) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHost) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnHost) HostRecovery() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHost) HostRef() *HostReference {
-	var returns *HostReference
+func (j *jsiiProxy_CfnHost) HostRef() *interfacesawsec2.HostReference {
+	var returns *interfacesawsec2.HostReference
 	_jsii_.Get(
 		j,
 		"hostRef",
@@ -487,6 +489,7 @@ func (j *jsiiProxy_CfnHost) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::Host`.
 func NewCfnHost(scope constructs.Construct, id *string, props *CfnHostProps) CfnHost {
 	_init_.Initialize()
 
@@ -504,6 +507,7 @@ func NewCfnHost(scope constructs.Construct, id *string, props *CfnHostProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::EC2::Host`.
 func NewCfnHost_Override(c CfnHost, scope constructs.Construct, id *string, props *CfnHostProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanrooms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanrooms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -78,8 +80,8 @@ import (
 //
 type CfnMembership interface {
 	awscdk.CfnResource
-	IMembershipRef
 	awscdk.IInspectable
+	interfacesawscleanrooms.IMembershipRef
 	awscdk.ITaggableV2
 	// Returns the Amazon Resource Name (ARN) of the specified membership.
 	//
@@ -117,7 +119,7 @@ type CfnMembership interface {
 	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration() interface{}
 	SetDefaultResultConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	JobLogStatus() *string
 	SetJobLogStatus(val *string)
@@ -132,7 +134,7 @@ type CfnMembership interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a Membership resource.
-	MembershipRef() *MembershipReference
+	MembershipRef() *interfacesawscleanrooms.MembershipReference
 	// The tree node.
 	Node() constructs.Node
 	// The payment responsibilities accepted by the collaboration member.
@@ -296,8 +298,8 @@ type CfnMembership interface {
 // The jsii proxy struct for CfnMembership
 type jsiiProxy_CfnMembership struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMembershipRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsIMembershipRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -421,8 +423,8 @@ func (j *jsiiProxy_CfnMembership) DefaultResultConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMembership) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMembership) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -451,8 +453,8 @@ func (j *jsiiProxy_CfnMembership) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMembership) MembershipRef() *MembershipReference {
-	var returns *MembershipReference
+func (j *jsiiProxy_CfnMembership) MembershipRef() *interfacesawscleanrooms.MembershipReference {
+	var returns *interfacesawscleanrooms.MembershipReference
 	_jsii_.Get(
 		j,
 		"membershipRef",
@@ -542,6 +544,7 @@ func (j *jsiiProxy_CfnMembership) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CleanRooms::Membership`.
 func NewCfnMembership(scope constructs.Construct, id *string, props *CfnMembershipProps) CfnMembership {
 	_init_.Initialize()
 
@@ -559,6 +562,7 @@ func NewCfnMembership(scope constructs.Construct, id *string, props *CfnMembersh
 	return &j
 }
 
+// Create a new `AWS::CleanRooms::Membership`.
 func NewCfnMembership_Override(c CfnMembership, scope constructs.Construct, id *string, props *CfnMembershipProps) {
 	_init_.Initialize()
 

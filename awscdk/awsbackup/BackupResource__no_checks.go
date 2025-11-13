@@ -16,7 +16,7 @@ func validateBackupResource_FromDynamoDbTableParameters(table awsdynamodb.ITable
 	return nil
 }
 
-func validateBackupResource_FromEc2InstanceParameters(instance awsec2.IInstanceRef) error {
+func validateBackupResource_FromEc2InstanceParameters(instance interfacesawsec2.IInstanceRef) error {
 	return nil
 }
 

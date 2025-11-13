@@ -41,6 +41,7 @@ type CfnEvaluationForm_EvaluationFormSingleSelectQuestionOptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfail
 	//
 	AutomaticFail interface{} `field:"optional" json:"automaticFail" yaml:"automaticFail"`
+	// Whether automatic fail is configured on a single select question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfailconfiguration
 	//
 	AutomaticFailConfiguration interface{} `field:"optional" json:"automaticFailConfiguration" yaml:"automaticFailConfiguration"`

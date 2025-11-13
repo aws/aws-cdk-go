@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslocation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslocation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnTracker interface {
 	awscdk.CfnResource
-	ITrackerRef
 	awscdk.IInspectable
+	interfacesawslocation.ITrackerRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the tracker resource.
 	//
@@ -72,7 +74,7 @@ type CfnTracker interface {
 	// An optional description for the tracker resource.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	EventBridgeEnabled() interface{}
 	SetEventBridgeEnabled(val interface{})
 	KmsKeyEnableGeospatialQueries() interface{}
@@ -120,7 +122,7 @@ type CfnTracker interface {
 	TrackerName() *string
 	SetTrackerName(val *string)
 	// A reference to a Tracker resource.
-	TrackerRef() *TrackerReference
+	TrackerRef() *interfacesawslocation.TrackerReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -264,8 +266,8 @@ type CfnTracker interface {
 // The jsii proxy struct for CfnTracker
 type jsiiProxy_CfnTracker struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrackerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslocationITrackerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnTracker) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTracker) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTracker) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -499,8 +501,8 @@ func (j *jsiiProxy_CfnTracker) TrackerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTracker) TrackerRef() *TrackerReference {
-	var returns *TrackerReference
+func (j *jsiiProxy_CfnTracker) TrackerRef() *interfacesawslocation.TrackerReference {
+	var returns *interfacesawslocation.TrackerReference
 	_jsii_.Get(
 		j,
 		"trackerRef",
@@ -530,6 +532,7 @@ func (j *jsiiProxy_CfnTracker) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Location::Tracker`.
 func NewCfnTracker(scope constructs.Construct, id *string, props *CfnTrackerProps) CfnTracker {
 	_init_.Initialize()
 
@@ -547,6 +550,7 @@ func NewCfnTracker(scope constructs.Construct, id *string, props *CfnTrackerProp
 	return &j
 }
 
+// Create a new `AWS::Location::Tracker`.
 func NewCfnTracker_Override(c CfnTracker, scope constructs.Construct, id *string, props *CfnTrackerProps) {
 	_init_.Initialize()
 
@@ -642,13 +646,13 @@ func (j *jsiiProxy_CfnTracker)SetTrackerName(val *string) {
 }
 
 // Creates a new ITrackerRef from an ARN.
-func CfnTracker_FromTrackerArn(scope constructs.Construct, id *string, arn *string) ITrackerRef {
+func CfnTracker_FromTrackerArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.ITrackerRef {
 	_init_.Initialize()
 
 	if err := validateCfnTracker_FromTrackerArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ITrackerRef
+	var returns interfacesawslocation.ITrackerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnTracker",
@@ -661,13 +665,13 @@ func CfnTracker_FromTrackerArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new ITrackerRef from a trackerName.
-func CfnTracker_FromTrackerName(scope constructs.Construct, id *string, trackerName *string) ITrackerRef {
+func CfnTracker_FromTrackerName(scope constructs.Construct, id *string, trackerName *string) interfacesawslocation.ITrackerRef {
 	_init_.Initialize()
 
 	if err := validateCfnTracker_FromTrackerNameParameters(scope, id, trackerName); err != nil {
 		panic(err)
 	}
-	var returns ITrackerRef
+	var returns interfacesawslocation.ITrackerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnTracker",

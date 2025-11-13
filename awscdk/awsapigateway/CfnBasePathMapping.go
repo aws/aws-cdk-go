@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,13 +34,13 @@ import (
 //
 type CfnBasePathMapping interface {
 	awscdk.CfnResource
-	IBasePathMappingRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IBasePathMappingRef
 	// The base path name that callers of the API must provide as part of the URL after the domain name.
 	BasePath() *string
 	SetBasePath(val *string)
 	// A reference to a BasePathMapping resource.
-	BasePathMappingRef() *BasePathMappingReference
+	BasePathMappingRef() *interfacesawsapigateway.BasePathMappingReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -51,7 +53,7 @@ type CfnBasePathMapping interface {
 	// The domain name of the BasePathMapping resource to be described.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	Id() *string
 	SetId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -224,8 +226,8 @@ type CfnBasePathMapping interface {
 // The jsii proxy struct for CfnBasePathMapping
 type jsiiProxy_CfnBasePathMapping struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBasePathMappingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIBasePathMappingRef
 }
 
 func (j *jsiiProxy_CfnBasePathMapping) BasePath() *string {
@@ -238,8 +240,8 @@ func (j *jsiiProxy_CfnBasePathMapping) BasePath() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBasePathMapping) BasePathMappingRef() *BasePathMappingReference {
-	var returns *BasePathMappingReference
+func (j *jsiiProxy_CfnBasePathMapping) BasePathMappingRef() *interfacesawsapigateway.BasePathMappingReference {
+	var returns *interfacesawsapigateway.BasePathMappingReference
 	_jsii_.Get(
 		j,
 		"basePathMappingRef",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnBasePathMapping) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBasePathMapping) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBasePathMapping) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -399,6 +401,7 @@ func (j *jsiiProxy_CfnBasePathMapping) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::ApiGateway::BasePathMapping`.
 func NewCfnBasePathMapping(scope constructs.Construct, id *string, props *CfnBasePathMappingProps) CfnBasePathMapping {
 	_init_.Initialize()
 
@@ -416,6 +419,7 @@ func NewCfnBasePathMapping(scope constructs.Construct, id *string, props *CfnBas
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::BasePathMapping`.
 func NewCfnBasePathMapping_Override(c CfnBasePathMapping, scope constructs.Construct, id *string, props *CfnBasePathMappingProps) {
 	_init_.Initialize()
 

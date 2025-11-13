@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnServiceActionAssociation interface {
 	awscdk.CfnResource
-	IServiceActionAssociationRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.IServiceActionAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -37,7 +39,7 @@ type CfnServiceActionAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -62,7 +64,7 @@ type CfnServiceActionAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ServiceActionAssociation resource.
-	ServiceActionAssociationRef() *ServiceActionAssociationReference
+	ServiceActionAssociationRef() *interfacesawsservicecatalog.ServiceActionAssociationReference
 	// The self-service action identifier.
 	ServiceActionId() *string
 	SetServiceActionId(val *string)
@@ -213,8 +215,8 @@ type CfnServiceActionAssociation interface {
 // The jsii proxy struct for CfnServiceActionAssociation
 type jsiiProxy_CfnServiceActionAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceActionAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogIServiceActionAssociationRef
 }
 
 func (j *jsiiProxy_CfnServiceActionAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -257,8 +259,8 @@ func (j *jsiiProxy_CfnServiceActionAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceActionAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceActionAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnServiceActionAssociation) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceActionAssociation) ServiceActionAssociationRef() *ServiceActionAssociationReference {
-	var returns *ServiceActionAssociationReference
+func (j *jsiiProxy_CfnServiceActionAssociation) ServiceActionAssociationRef() *interfacesawsservicecatalog.ServiceActionAssociationReference {
+	var returns *interfacesawsservicecatalog.ServiceActionAssociationReference
 	_jsii_.Get(
 		j,
 		"serviceActionAssociationRef",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnServiceActionAssociation) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::ServiceCatalog::ServiceActionAssociation`.
 func NewCfnServiceActionAssociation(scope constructs.Construct, id *string, props *CfnServiceActionAssociationProps) CfnServiceActionAssociation {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnServiceActionAssociation(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::ServiceActionAssociation`.
 func NewCfnServiceActionAssociation_Override(c CfnServiceActionAssociation, scope constructs.Construct, id *string, props *CfnServiceActionAssociationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnTargetGroup interface {
 	awscdk.CfnResource
-	ITargetGroupRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.ITargetGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the target group.
 	AttrArn() *string
@@ -94,7 +96,7 @@ type CfnTargetGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -125,7 +127,7 @@ type CfnTargetGroup interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TargetGroup resource.
-	TargetGroupRef() *TargetGroupReference
+	TargetGroupRef() *interfacesawsvpclattice.TargetGroupReference
 	// Describes a target.
 	Targets() interface{}
 	SetTargets(val interface{})
@@ -275,8 +277,8 @@ type CfnTargetGroup interface {
 // The jsii proxy struct for CfnTargetGroup
 type jsiiProxy_CfnTargetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITargetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeITargetGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnTargetGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTargetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTargetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -460,8 +462,8 @@ func (j *jsiiProxy_CfnTargetGroup) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTargetGroup) TargetGroupRef() *TargetGroupReference {
-	var returns *TargetGroupReference
+func (j *jsiiProxy_CfnTargetGroup) TargetGroupRef() *interfacesawsvpclattice.TargetGroupReference {
+	var returns *interfacesawsvpclattice.TargetGroupReference
 	_jsii_.Get(
 		j,
 		"targetGroupRef",
@@ -511,6 +513,7 @@ func (j *jsiiProxy_CfnTargetGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::VpcLattice::TargetGroup`.
 func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetGroupProps) CfnTargetGroup {
 	_init_.Initialize()
 
@@ -528,6 +531,7 @@ func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetG
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::TargetGroup`.
 func NewCfnTargetGroup_Override(c CfnTargetGroup, scope constructs.Construct, id *string, props *CfnTargetGroupProps) {
 	_init_.Initialize()
 

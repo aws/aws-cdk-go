@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnClusterSecurityGroup interface {
 	awscdk.CfnResource
-	IClusterSecurityGroupRef
 	awscdk.IInspectable
+	interfacesawsredshift.IClusterSecurityGroupRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -44,7 +46,7 @@ type CfnClusterSecurityGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ClusterSecurityGroup resource.
-	ClusterSecurityGroupRef() *ClusterSecurityGroupReference
+	ClusterSecurityGroupRef() *interfacesawsredshift.ClusterSecurityGroupReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -52,7 +54,7 @@ type CfnClusterSecurityGroup interface {
 	// A description for the security group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -222,8 +224,8 @@ type CfnClusterSecurityGroup interface {
 // The jsii proxy struct for CfnClusterSecurityGroup
 type jsiiProxy_CfnClusterSecurityGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterSecurityGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIClusterSecurityGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnClusterSecurityGroup) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterSecurityGroup) ClusterSecurityGroupRef() *ClusterSecurityGroupReference {
-	var returns *ClusterSecurityGroupReference
+func (j *jsiiProxy_CfnClusterSecurityGroup) ClusterSecurityGroupRef() *interfacesawsredshift.ClusterSecurityGroupReference {
+	var returns *interfacesawsredshift.ClusterSecurityGroupReference
 	_jsii_.Get(
 		j,
 		"clusterSecurityGroupRef",
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnClusterSecurityGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterSecurityGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClusterSecurityGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnClusterSecurityGroup) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::Redshift::ClusterSecurityGroup`.
 func NewCfnClusterSecurityGroup(scope constructs.Construct, id *string, props *CfnClusterSecurityGroupProps) CfnClusterSecurityGroup {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnClusterSecurityGroup(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::Redshift::ClusterSecurityGroup`.
 func NewCfnClusterSecurityGroup_Override(c CfnClusterSecurityGroup, scope constructs.Construct, id *string, props *CfnClusterSecurityGroupProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshiftserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshiftserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnSnapshot interface {
 	awscdk.CfnResource
-	ISnapshotRef
 	awscdk.IInspectable
+	interfacesawsredshiftserverless.ISnapshotRef
 	awscdk.ITaggableV2
 	// The owner AWS ;
 	//
@@ -75,7 +77,7 @@ type CfnSnapshot interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -103,7 +105,7 @@ type CfnSnapshot interface {
 	SnapshotName() *string
 	SetSnapshotName(val *string)
 	// A reference to a Snapshot resource.
-	SnapshotRef() *SnapshotReference
+	SnapshotRef() *interfacesawsredshiftserverless.SnapshotReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -254,8 +256,8 @@ type CfnSnapshot interface {
 // The jsii proxy struct for CfnSnapshot
 type jsiiProxy_CfnSnapshot struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISnapshotRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftserverlessISnapshotRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -429,8 +431,8 @@ func (j *jsiiProxy_CfnSnapshot) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSnapshot) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSnapshot) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -499,8 +501,8 @@ func (j *jsiiProxy_CfnSnapshot) SnapshotName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSnapshot) SnapshotRef() *SnapshotReference {
-	var returns *SnapshotReference
+func (j *jsiiProxy_CfnSnapshot) SnapshotRef() *interfacesawsredshiftserverless.SnapshotReference {
+	var returns *interfacesawsredshiftserverless.SnapshotReference
 	_jsii_.Get(
 		j,
 		"snapshotRef",
@@ -550,6 +552,7 @@ func (j *jsiiProxy_CfnSnapshot) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RedshiftServerless::Snapshot`.
 func NewCfnSnapshot(scope constructs.Construct, id *string, props *CfnSnapshotProps) CfnSnapshot {
 	_init_.Initialize()
 
@@ -567,6 +570,7 @@ func NewCfnSnapshot(scope constructs.Construct, id *string, props *CfnSnapshotPr
 	return &j
 }
 
+// Create a new `AWS::RedshiftServerless::Snapshot`.
 func NewCfnSnapshot_Override(c CfnSnapshot, scope constructs.Construct, id *string, props *CfnSnapshotProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnVPCEndpointConnectionNotification interface {
 	awscdk.CfnResource
-	IVPCEndpointConnectionNotificationRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCEndpointConnectionNotificationRef
 	// The ID of the notification.
 	AttrVpcEndpointConnectionNotificationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -54,7 +56,7 @@ type CfnVPCEndpointConnectionNotification interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -93,7 +95,7 @@ type CfnVPCEndpointConnectionNotification interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPCEndpointConnectionNotification resource.
-	VpcEndpointConnectionNotificationRef() *VPCEndpointConnectionNotificationReference
+	VpcEndpointConnectionNotificationRef() *interfacesawsec2.VPCEndpointConnectionNotificationReference
 	// The ID of the endpoint.
 	VpcEndpointId() *string
 	SetVpcEndpointId(val *string)
@@ -227,8 +229,8 @@ type CfnVPCEndpointConnectionNotification interface {
 // The jsii proxy struct for CfnVPCEndpointConnectionNotification
 type jsiiProxy_CfnVPCEndpointConnectionNotification struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCEndpointConnectionNotificationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCEndpointConnectionNotificationRef
 }
 
 func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) AttrVpcEndpointConnectionNotificationId() *string {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) CreationStack() *[]*str
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) UpdatedProperties() *ma
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) VpcEndpointConnectionNotificationRef() *VPCEndpointConnectionNotificationReference {
-	var returns *VPCEndpointConnectionNotificationReference
+func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) VpcEndpointConnectionNotificationRef() *interfacesawsec2.VPCEndpointConnectionNotificationReference {
+	var returns *interfacesawsec2.VPCEndpointConnectionNotificationReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointConnectionNotificationRef",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) VpcEndpointId() *string
 }
 
 
+// Create a new `AWS::EC2::VPCEndpointConnectionNotification`.
 func NewCfnVPCEndpointConnectionNotification(scope constructs.Construct, id *string, props *CfnVPCEndpointConnectionNotificationProps) CfnVPCEndpointConnectionNotification {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnVPCEndpointConnectionNotification(scope constructs.Construct, id *str
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCEndpointConnectionNotification`.
 func NewCfnVPCEndpointConnectionNotification_Override(c CfnVPCEndpointConnectionNotification, scope constructs.Construct, id *string, props *CfnVPCEndpointConnectionNotificationProps) {
 	_init_.Initialize()
 

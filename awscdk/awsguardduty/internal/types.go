@@ -1,11 +1,19 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsguarddutyIDetectorRef = interfacesawsguardduty.IDetectorRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsguarddutyIFilterRef = interfacesawsguardduty.IFilterRef
+type Type__interfacesawsguarddutyIIPSetRef = interfacesawsguardduty.IIPSetRef
+type Type__interfacesawsguarddutyIMalwareProtectionPlanRef = interfacesawsguardduty.IMalwareProtectionPlanRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsguarddutyIMasterRef = interfacesawsguardduty.IMasterRef
+type Type__interfacesawsguarddutyIMemberRef = interfacesawsguardduty.IMemberRef
+type Type__interfacesawsguarddutyIPublishingDestinationRef = interfacesawsguardduty.IPublishingDestinationRef
+type Type__interfacesawsguarddutyIThreatEntitySetRef = interfacesawsguardduty.IThreatEntitySetRef
+type Type__interfacesawsguarddutyIThreatIntelSetRef = interfacesawsguardduty.IThreatIntelSetRef
+type Type__interfacesawsguarddutyITrustedEntitySetRef = interfacesawsguardduty.ITrustedEntitySetRef

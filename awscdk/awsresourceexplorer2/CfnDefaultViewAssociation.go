@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsresourceexplorer2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsresourceexplorer2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnDefaultViewAssociation interface {
 	awscdk.CfnResource
-	IDefaultViewAssociationRef
 	awscdk.IInspectable
+	interfacesawsresourceexplorer2.IDefaultViewAssociationRef
 	// The unique identifier of the principal for which the specified view was made the default for the AWS Region that contains the view.
 	//
 	// For example:
@@ -44,8 +46,8 @@ type CfnDefaultViewAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DefaultViewAssociation resource.
-	DefaultViewAssociationRef() *DefaultViewAssociationReference
-	Env() *awscdk.ResourceEnvironment
+	DefaultViewAssociationRef() *interfacesawsresourceexplorer2.DefaultViewAssociationReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,8 +215,8 @@ type CfnDefaultViewAssociation interface {
 // The jsii proxy struct for CfnDefaultViewAssociation
 type jsiiProxy_CfnDefaultViewAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDefaultViewAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsresourceexplorer2IDefaultViewAssociationRef
 }
 
 func (j *jsiiProxy_CfnDefaultViewAssociation) AttrAssociatedAwsPrincipal() *string {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnDefaultViewAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDefaultViewAssociation) DefaultViewAssociationRef() *DefaultViewAssociationReference {
-	var returns *DefaultViewAssociationReference
+func (j *jsiiProxy_CfnDefaultViewAssociation) DefaultViewAssociationRef() *interfacesawsresourceexplorer2.DefaultViewAssociationReference {
+	var returns *interfacesawsresourceexplorer2.DefaultViewAssociationReference
 	_jsii_.Get(
 		j,
 		"defaultViewAssociationRef",
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnDefaultViewAssociation) DefaultViewAssociationRef() *Defau
 	return returns
 }
 
-func (j *jsiiProxy_CfnDefaultViewAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDefaultViewAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,6 +360,7 @@ func (j *jsiiProxy_CfnDefaultViewAssociation) ViewArn() *string {
 }
 
 
+// Create a new `AWS::ResourceExplorer2::DefaultViewAssociation`.
 func NewCfnDefaultViewAssociation(scope constructs.Construct, id *string, props *CfnDefaultViewAssociationProps) CfnDefaultViewAssociation {
 	_init_.Initialize()
 
@@ -375,6 +378,7 @@ func NewCfnDefaultViewAssociation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::ResourceExplorer2::DefaultViewAssociation`.
 func NewCfnDefaultViewAssociation_Override(c CfnDefaultViewAssociation, scope constructs.Construct, id *string, props *CfnDefaultViewAssociationProps) {
 	_init_.Initialize()
 

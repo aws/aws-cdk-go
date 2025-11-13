@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnContinuousDeploymentPolicy interface {
 	awscdk.CfnResource
-	IContinuousDeploymentPolicyRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IContinuousDeploymentPolicyRef
 	// The identifier of the cotinuous deployment policy.
 	AttrId() *string
 	// The date and time when the continuous deployment policy was last modified.
@@ -82,12 +84,12 @@ type CfnContinuousDeploymentPolicy interface {
 	ContinuousDeploymentPolicyConfig() interface{}
 	SetContinuousDeploymentPolicyConfig(val interface{})
 	// A reference to a ContinuousDeploymentPolicy resource.
-	ContinuousDeploymentPolicyRef() *ContinuousDeploymentPolicyReference
+	ContinuousDeploymentPolicyRef() *interfacesawscloudfront.ContinuousDeploymentPolicyReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -252,8 +254,8 @@ type CfnContinuousDeploymentPolicy interface {
 // The jsii proxy struct for CfnContinuousDeploymentPolicy
 type jsiiProxy_CfnContinuousDeploymentPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContinuousDeploymentPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIContinuousDeploymentPolicyRef
 }
 
 func (j *jsiiProxy_CfnContinuousDeploymentPolicy) AttrId() *string {
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnContinuousDeploymentPolicy) ContinuousDeploymentPolicyConf
 	return returns
 }
 
-func (j *jsiiProxy_CfnContinuousDeploymentPolicy) ContinuousDeploymentPolicyRef() *ContinuousDeploymentPolicyReference {
-	var returns *ContinuousDeploymentPolicyReference
+func (j *jsiiProxy_CfnContinuousDeploymentPolicy) ContinuousDeploymentPolicyRef() *interfacesawscloudfront.ContinuousDeploymentPolicyReference {
+	var returns *interfacesawscloudfront.ContinuousDeploymentPolicyReference
 	_jsii_.Get(
 		j,
 		"continuousDeploymentPolicyRef",
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnContinuousDeploymentPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContinuousDeploymentPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContinuousDeploymentPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnContinuousDeploymentPolicy) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::CloudFront::ContinuousDeploymentPolicy`.
 func NewCfnContinuousDeploymentPolicy(scope constructs.Construct, id *string, props *CfnContinuousDeploymentPolicyProps) CfnContinuousDeploymentPolicy {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnContinuousDeploymentPolicy(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::CloudFront::ContinuousDeploymentPolicy`.
 func NewCfnContinuousDeploymentPolicy_Override(c CfnContinuousDeploymentPolicy, scope constructs.Construct, id *string, props *CfnContinuousDeploymentPolicyProps) {
 	_init_.Initialize()
 

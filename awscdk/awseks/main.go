@@ -39,10 +39,6 @@ func init() {
 		"aws-cdk-lib.aws_eks.AccessEntryProps",
 		reflect.TypeOf((*AccessEntryProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_eks.AccessEntryReference",
-		reflect.TypeOf((*AccessEntryReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_eks.AccessEntryType",
 		reflect.TypeOf((*AccessEntryType)(nil)).Elem(),
@@ -127,10 +123,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.AddonProps",
 		reflect.TypeOf((*AddonProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_eks.AddonReference",
-		reflect.TypeOf((*AddonReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_eks.AlbController",
@@ -281,8 +273,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccessEntry{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessEntryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIAccessEntryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -351,8 +343,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAddon{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAddonRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIAddonRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -436,8 +428,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCluster{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -570,8 +562,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFargateProfile{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFargateProfileRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIFargateProfileRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -635,8 +627,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIdentityProviderConfig{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIdentityProviderConfigRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIIdentityProviderConfigRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -717,8 +709,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnNodegroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_INodegroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksINodegroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -806,8 +798,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPodIdentityAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPodIdentityAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIPodIdentityAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -902,10 +894,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.ClusterProps",
 		reflect.TypeOf((*ClusterProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_eks.ClusterReference",
-		reflect.TypeOf((*ClusterReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CommonClusterOptions",
@@ -1055,10 +1043,6 @@ func init() {
 		"aws-cdk-lib.aws_eks.FargateProfileProps",
 		reflect.TypeOf((*FargateProfileProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_eks.FargateProfileReference",
-		reflect.TypeOf((*FargateProfileReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_eks.HelmChart",
 		reflect.TypeOf((*HelmChart)(nil)).Elem(),
@@ -1103,21 +1087,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_eks.IAccessEntryRef",
-		reflect.TypeOf((*IAccessEntryRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessEntryRef", GoGetter: "AccessEntryRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccessEntryRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_eks.IAccessPolicy",
 		reflect.TypeOf((*IAccessPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1142,21 +1111,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IAddon{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_eks.IAddonRef",
-		reflect.TypeOf((*IAddonRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "addonRef", GoGetter: "AddonRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAddonRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1207,51 +1161,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_eks.IClusterRef",
-		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IClusterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_eks.IFargateProfileRef",
-		reflect.TypeOf((*IFargateProfileRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "fargateProfileRef", GoGetter: "FargateProfileRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFargateProfileRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_eks.IIdentityProviderConfigRef",
-		reflect.TypeOf((*IIdentityProviderConfigRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "identityProviderConfigRef", GoGetter: "IdentityProviderConfigRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIdentityProviderConfigRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_eks.IKubectlProvider",
 		reflect.TypeOf((*IKubectlProvider)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1281,40 +1190,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_eks.INodegroupRef",
-		reflect.TypeOf((*INodegroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "nodegroupRef", GoGetter: "NodegroupRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_INodegroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_eks.IPodIdentityAssociationRef",
-		reflect.TypeOf((*IPodIdentityAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "podIdentityAssociationRef", GoGetter: "PodIdentityAssociationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPodIdentityAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_eks.IdentityProviderConfigReference",
-		reflect.TypeOf((*IdentityProviderConfigReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_eks.IdentityType",
@@ -1545,10 +1420,6 @@ func init() {
 		reflect.TypeOf((*NodegroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_eks.NodegroupReference",
-		reflect.TypeOf((*NodegroupReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.NodegroupRemoteAccess",
 		reflect.TypeOf((*NodegroupRemoteAccess)(nil)).Elem(),
 	)
@@ -1588,10 +1459,6 @@ func init() {
 			"MERGE": PatchType_MERGE,
 			"STRATEGIC": PatchType_STRATEGIC,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_eks.PodIdentityAssociationReference",
-		reflect.TypeOf((*PodIdentityAssociationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.RemoteNodeNetwork",

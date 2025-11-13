@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3outposts/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3outposts"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnEndpoint interface {
 	awscdk.CfnResource
-	IEndpointRef
 	awscdk.IInspectable
+	interfacesawss3outposts.IEndpointRef
 	// The container for the type of connectivity used to access the Amazon S3 on Outposts endpoint.
 	AccessType() *string
 	SetAccessType(val *string)
@@ -68,8 +70,8 @@ type CfnEndpoint interface {
 	CustomerOwnedIpv4Pool() *string
 	SetCustomerOwnedIpv4Pool(val *string)
 	// A reference to a Endpoint resource.
-	EndpointRef() *EndpointReference
-	Env() *awscdk.ResourceEnvironment
+	EndpointRef() *interfacesawss3outposts.EndpointReference
+	Env() *interfaces.ResourceEnvironment
 	// The failure reason, if any, for a create or delete endpoint operation.
 	FailedReason() interface{}
 	SetFailedReason(val interface{})
@@ -246,8 +248,8 @@ type CfnEndpoint interface {
 // The jsii proxy struct for CfnEndpoint
 type jsiiProxy_CfnEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3outpostsIEndpointRef
 }
 
 func (j *jsiiProxy_CfnEndpoint) AccessType() *string {
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnEndpoint) CustomerOwnedIpv4Pool() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
-	var returns *EndpointReference
+func (j *jsiiProxy_CfnEndpoint) EndpointRef() *interfacesawss3outposts.EndpointReference {
+	var returns *interfacesawss3outposts.EndpointReference
 	_jsii_.Get(
 		j,
 		"endpointRef",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -491,6 +493,7 @@ func (j *jsiiProxy_CfnEndpoint) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::S3Outposts::Endpoint`.
 func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
@@ -508,6 +511,7 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 	return &j
 }
 
+// Create a new `AWS::S3Outposts::Endpoint`.
 func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 

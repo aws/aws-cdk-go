@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,13 +30,13 @@ import (
 //
 type CfnAIAgentVersion interface {
 	awscdk.CfnResource
-	IAIAgentVersionRef
 	awscdk.IInspectable
+	interfacesawswisdom.IAIAgentVersionRef
 	// The identifier of the AI Agent.
 	AiAgentId() *string
 	SetAiAgentId(val *string)
 	// A reference to a AIAgentVersion resource.
-	AiAgentVersionRef() *AIAgentVersionReference
+	AiAgentVersionRef() *interfacesawswisdom.AIAgentVersionReference
 	AssistantId() *string
 	SetAssistantId(val *string)
 	AttrAiAgentArn() *string
@@ -51,7 +53,7 @@ type CfnAIAgentVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -219,8 +221,8 @@ type CfnAIAgentVersion interface {
 // The jsii proxy struct for CfnAIAgentVersion
 type jsiiProxy_CfnAIAgentVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAIAgentVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIAIAgentVersionRef
 }
 
 func (j *jsiiProxy_CfnAIAgentVersion) AiAgentId() *string {
@@ -233,8 +235,8 @@ func (j *jsiiProxy_CfnAIAgentVersion) AiAgentId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIAgentVersion) AiAgentVersionRef() *AIAgentVersionReference {
-	var returns *AIAgentVersionReference
+func (j *jsiiProxy_CfnAIAgentVersion) AiAgentVersionRef() *interfacesawswisdom.AIAgentVersionReference {
+	var returns *interfacesawswisdom.AIAgentVersionReference
 	_jsii_.Get(
 		j,
 		"aiAgentVersionRef",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnAIAgentVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIAgentVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAIAgentVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -414,6 +416,7 @@ func (j *jsiiProxy_CfnAIAgentVersion) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Wisdom::AIAgentVersion`.
 func NewCfnAIAgentVersion(scope constructs.Construct, id *string, props *CfnAIAgentVersionProps) CfnAIAgentVersion {
 	_init_.Initialize()
 
@@ -431,6 +434,7 @@ func NewCfnAIAgentVersion(scope constructs.Construct, id *string, props *CfnAIAg
 	return &j
 }
 
+// Create a new `AWS::Wisdom::AIAgentVersion`.
 func NewCfnAIAgentVersion_Override(c CfnAIAgentVersion, scope constructs.Construct, id *string, props *CfnAIAgentVersionProps) {
 	_init_.Initialize()
 

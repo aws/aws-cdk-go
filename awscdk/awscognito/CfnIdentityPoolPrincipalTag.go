@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnIdentityPoolPrincipalTag interface {
 	awscdk.CfnResource
-	IIdentityPoolPrincipalTagRef
 	awscdk.IInspectable
+	interfacesawscognito.IIdentityPoolPrincipalTagRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -42,12 +44,12 @@ type CfnIdentityPoolPrincipalTag interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identity pool that you want to associate with this principal tag map.
 	IdentityPoolId() *string
 	SetIdentityPoolId(val *string)
 	// A reference to a IdentityPoolPrincipalTag resource.
-	IdentityPoolPrincipalTagRef() *IdentityPoolPrincipalTagReference
+	IdentityPoolPrincipalTagRef() *interfacesawscognito.IdentityPoolPrincipalTagReference
 	// The identity pool identity provider (IdP) that you want to associate with this principal tag map.
 	IdentityProviderName() *string
 	SetIdentityProviderName(val *string)
@@ -221,8 +223,8 @@ type CfnIdentityPoolPrincipalTag interface {
 // The jsii proxy struct for CfnIdentityPoolPrincipalTag
 type jsiiProxy_CfnIdentityPoolPrincipalTag struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdentityPoolPrincipalTagRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIIdentityPoolPrincipalTagRef
 }
 
 func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) CfnOptions() awscdk.ICfnResourceOptions {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) IdentityPoolId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) IdentityPoolPrincipalTagRef() *IdentityPoolPrincipalTagReference {
-	var returns *IdentityPoolPrincipalTagReference
+func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) IdentityPoolPrincipalTagRef() *interfacesawscognito.IdentityPoolPrincipalTagReference {
+	var returns *interfacesawscognito.IdentityPoolPrincipalTagReference
 	_jsii_.Get(
 		j,
 		"identityPoolPrincipalTagRef",
@@ -386,6 +388,7 @@ func (j *jsiiProxy_CfnIdentityPoolPrincipalTag) UseDefaults() interface{} {
 }
 
 
+// Create a new `AWS::Cognito::IdentityPoolPrincipalTag`.
 func NewCfnIdentityPoolPrincipalTag(scope constructs.Construct, id *string, props *CfnIdentityPoolPrincipalTagProps) CfnIdentityPoolPrincipalTag {
 	_init_.Initialize()
 
@@ -403,6 +406,7 @@ func NewCfnIdentityPoolPrincipalTag(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::Cognito::IdentityPoolPrincipalTag`.
 func NewCfnIdentityPoolPrincipalTag_Override(c CfnIdentityPoolPrincipalTag, scope constructs.Construct, id *string, props *CfnIdentityPoolPrincipalTagProps) {
 	_init_.Initialize()
 

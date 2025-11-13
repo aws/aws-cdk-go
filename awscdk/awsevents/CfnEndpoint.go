@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnEndpoint interface {
 	awscdk.CfnResource
-	IEndpointRef
 	awscdk.IInspectable
+	interfacesawsevents.IEndpointRef
 	// The ARN of the endpoint.
 	AttrArn() *string
 	// The ID of the endpoint.
@@ -73,8 +75,8 @@ type CfnEndpoint interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a Endpoint resource.
-	EndpointRef() *EndpointReference
-	Env() *awscdk.ResourceEnvironment
+	EndpointRef() *interfacesawsevents.EndpointReference
+	Env() *interfaces.ResourceEnvironment
 	// The event buses being used by the endpoint.
 	EventBuses() interface{}
 	SetEventBuses(val interface{})
@@ -254,8 +256,8 @@ type CfnEndpoint interface {
 // The jsii proxy struct for CfnEndpoint
 type jsiiProxy_CfnEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventsIEndpointRef
 }
 
 func (j *jsiiProxy_CfnEndpoint) AttrArn() *string {
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnEndpoint) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
-	var returns *EndpointReference
+func (j *jsiiProxy_CfnEndpoint) EndpointRef() *interfacesawsevents.EndpointReference {
+	var returns *interfacesawsevents.EndpointReference
 	_jsii_.Get(
 		j,
 		"endpointRef",
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -489,6 +491,7 @@ func (j *jsiiProxy_CfnEndpoint) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Events::Endpoint`.
 func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
@@ -506,6 +509,7 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 	return &j
 }
 
+// Create a new `AWS::Events::Endpoint`.
 func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 
@@ -574,13 +578,13 @@ func (j *jsiiProxy_CfnEndpoint)SetRoutingConfig(val interface{}) {
 }
 
 // Creates a new IEndpointRef from an ARN.
-func CfnEndpoint_FromEndpointArn(scope constructs.Construct, id *string, arn *string) IEndpointRef {
+func CfnEndpoint_FromEndpointArn(scope constructs.Construct, id *string, arn *string) interfacesawsevents.IEndpointRef {
 	_init_.Initialize()
 
 	if err := validateCfnEndpoint_FromEndpointArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IEndpointRef
+	var returns interfacesawsevents.IEndpointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnEndpoint",
@@ -593,13 +597,13 @@ func CfnEndpoint_FromEndpointArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new IEndpointRef from a endpointName.
-func CfnEndpoint_FromEndpointName(scope constructs.Construct, id *string, endpointName *string) IEndpointRef {
+func CfnEndpoint_FromEndpointName(scope constructs.Construct, id *string, endpointName *string) interfacesawsevents.IEndpointRef {
 	_init_.Initialize()
 
 	if err := validateCfnEndpoint_FromEndpointNameParameters(scope, id, endpointName); err != nil {
 		panic(err)
 	}
-	var returns IEndpointRef
+	var returns interfacesawsevents.IEndpointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnEndpoint",

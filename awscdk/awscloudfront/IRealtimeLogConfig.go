@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents Realtime Log Configuration.
 type IRealtimeLogConfig interface {
-	IRealtimeLogConfigRef
+	interfacesawscloudfront.IRealtimeLogConfigRef
 	awscdk.IResource
 	// The arn of the realtime log config.
 	RealtimeLogConfigArn() *string
@@ -20,7 +22,7 @@ type IRealtimeLogConfig interface {
 
 // The jsii proxy for IRealtimeLogConfig
 type jsiiProxy_IRealtimeLogConfig struct {
-	jsiiProxy_IRealtimeLogConfigRef
+	internal.Type__interfacesawscloudfrontIRealtimeLogConfigRef
 	internal.Type__awscdkIResource
 }
 
@@ -55,8 +57,8 @@ func (j *jsiiProxy_IRealtimeLogConfig) RealtimeLogConfigName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IRealtimeLogConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IRealtimeLogConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -75,8 +77,8 @@ func (j *jsiiProxy_IRealtimeLogConfig) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IRealtimeLogConfig) RealtimeLogConfigRef() *RealtimeLogConfigReference {
-	var returns *RealtimeLogConfigReference
+func (j *jsiiProxy_IRealtimeLogConfig) RealtimeLogConfigRef() *interfacesawscloudfront.RealtimeLogConfigReference {
+	var returns *interfacesawscloudfront.RealtimeLogConfigReference
 	_jsii_.Get(
 		j,
 		"realtimeLogConfigRef",

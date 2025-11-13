@@ -58,8 +58,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGraph{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGraphRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsneptunegraphIGraphRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -118,51 +118,13 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPrivateGraphEndpoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrivateGraphEndpointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsneptunegraphIPrivateGraphEndpointRef)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_neptunegraph.CfnPrivateGraphEndpointProps",
 		reflect.TypeOf((*CfnPrivateGraphEndpointProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_neptunegraph.GraphReference",
-		reflect.TypeOf((*GraphReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_neptunegraph.IGraphRef",
-		reflect.TypeOf((*IGraphRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "graphRef", GoGetter: "GraphRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGraphRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_neptunegraph.IPrivateGraphEndpointRef",
-		reflect.TypeOf((*IPrivateGraphEndpointRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "privateGraphEndpointRef", GoGetter: "PrivateGraphEndpointRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPrivateGraphEndpointRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_neptunegraph.PrivateGraphEndpointReference",
-		reflect.TypeOf((*PrivateGraphEndpointReference)(nil)).Elem(),
 	)
 }

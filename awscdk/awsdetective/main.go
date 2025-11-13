@@ -51,8 +51,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGraph{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGraphRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdetectiveIGraphRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -106,8 +106,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMemberInvitation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMemberInvitationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdetectiveIMemberInvitationRef)
 			return &j
 		},
 	)
@@ -157,70 +157,13 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnOrganizationAdmin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOrganizationAdminRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdetectiveIOrganizationAdminRef)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_detective.CfnOrganizationAdminProps",
 		reflect.TypeOf((*CfnOrganizationAdminProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_detective.GraphReference",
-		reflect.TypeOf((*GraphReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_detective.IGraphRef",
-		reflect.TypeOf((*IGraphRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "graphRef", GoGetter: "GraphRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGraphRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_detective.IMemberInvitationRef",
-		reflect.TypeOf((*IMemberInvitationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "memberInvitationRef", GoGetter: "MemberInvitationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMemberInvitationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_detective.IOrganizationAdminRef",
-		reflect.TypeOf((*IOrganizationAdminRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "organizationAdminRef", GoGetter: "OrganizationAdminRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IOrganizationAdminRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_detective.MemberInvitationReference",
-		reflect.TypeOf((*MemberInvitationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_detective.OrganizationAdminReference",
-		reflect.TypeOf((*OrganizationAdminReference)(nil)).Elem(),
 	)
 }

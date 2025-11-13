@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -69,11 +71,11 @@ import (
 //
 type CfnAppBlock interface {
 	awscdk.CfnResource
-	IAppBlockRef
 	awscdk.IInspectable
+	interfacesawsappstream.IAppBlockRef
 	awscdk.ITaggable
 	// A reference to a AppBlock resource.
-	AppBlockRef() *AppBlockReference
+	AppBlockRef() *interfacesawsappstream.AppBlockReference
 	// The ARN of the app block.
 	AttrArn() *string
 	// The time when the app block was created.
@@ -93,7 +95,7 @@ type CfnAppBlock interface {
 	// The display name of the app block.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -278,13 +280,13 @@ type CfnAppBlock interface {
 // The jsii proxy struct for CfnAppBlock
 type jsiiProxy_CfnAppBlock struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAppBlockRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIAppBlockRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAppBlock) AppBlockRef() *AppBlockReference {
-	var returns *AppBlockReference
+func (j *jsiiProxy_CfnAppBlock) AppBlockRef() *interfacesawsappstream.AppBlockReference {
+	var returns *interfacesawsappstream.AppBlockReference
 	_jsii_.Get(
 		j,
 		"appBlockRef",
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnAppBlock) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppBlock) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAppBlock) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -514,6 +516,7 @@ func (j *jsiiProxy_CfnAppBlock) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppStream::AppBlock`.
 func NewCfnAppBlock(scope constructs.Construct, id *string, props *CfnAppBlockProps) CfnAppBlock {
 	_init_.Initialize()
 
@@ -531,6 +534,7 @@ func NewCfnAppBlock(scope constructs.Construct, id *string, props *CfnAppBlockPr
 	return &j
 }
 
+// Create a new `AWS::AppStream::AppBlock`.
 func NewCfnAppBlock_Override(c CfnAppBlock, scope constructs.Construct, id *string, props *CfnAppBlockProps) {
 	_init_.Initialize()
 

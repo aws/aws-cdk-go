@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodeguruprofiler"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnProfilingGroup interface {
 	awscdk.CfnResource
-	IProfilingGroupRef
 	awscdk.IInspectable
+	interfacesawscodeguruprofiler.IProfilingGroupRef
 	awscdk.ITaggable
 	// The agent permissions attached to this profiling group.
 	AgentPermissions() interface{}
@@ -67,7 +69,7 @@ type CfnProfilingGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnProfilingGroup interface {
 	ProfilingGroupName() *string
 	SetProfilingGroupName(val *string)
 	// A reference to a ProfilingGroup resource.
-	ProfilingGroupRef() *ProfilingGroupReference
+	ProfilingGroupRef() *interfacesawscodeguruprofiler.ProfilingGroupReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -242,8 +244,8 @@ type CfnProfilingGroup interface {
 // The jsii proxy struct for CfnProfilingGroup
 type jsiiProxy_CfnProfilingGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProfilingGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodeguruprofilerIProfilingGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnProfilingGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfilingGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProfilingGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnProfilingGroup) ProfilingGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfilingGroup) ProfilingGroupRef() *ProfilingGroupReference {
-	var returns *ProfilingGroupReference
+func (j *jsiiProxy_CfnProfilingGroup) ProfilingGroupRef() *interfacesawscodeguruprofiler.ProfilingGroupReference {
+	var returns *interfacesawscodeguruprofiler.ProfilingGroupReference
 	_jsii_.Get(
 		j,
 		"profilingGroupRef",
@@ -438,6 +440,7 @@ func (j *jsiiProxy_CfnProfilingGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::CodeGuruProfiler::ProfilingGroup`.
 func NewCfnProfilingGroup(scope constructs.Construct, id *string, props *CfnProfilingGroupProps) CfnProfilingGroup {
 	_init_.Initialize()
 
@@ -455,6 +458,7 @@ func NewCfnProfilingGroup(scope constructs.Construct, id *string, props *CfnProf
 	return &j
 }
 
+// Create a new `AWS::CodeGuruProfiler::ProfilingGroup`.
 func NewCfnProfilingGroup_Override(c CfnProfilingGroup, scope constructs.Construct, id *string, props *CfnProfilingGroupProps) {
 	_init_.Initialize()
 
@@ -515,13 +519,13 @@ func (j *jsiiProxy_CfnProfilingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IProfilingGroupRef from an ARN.
-func CfnProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string, arn *string) IProfilingGroupRef {
+func CfnProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawscodeguruprofiler.IProfilingGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnProfilingGroup_FromProfilingGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IProfilingGroupRef
+	var returns interfacesawscodeguruprofiler.IProfilingGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
@@ -534,13 +538,13 @@ func CfnProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IProfilingGroupRef from a profilingGroupName.
-func CfnProfilingGroup_FromProfilingGroupName(scope constructs.Construct, id *string, profilingGroupName *string) IProfilingGroupRef {
+func CfnProfilingGroup_FromProfilingGroupName(scope constructs.Construct, id *string, profilingGroupName *string) interfacesawscodeguruprofiler.IProfilingGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnProfilingGroup_FromProfilingGroupNameParameters(scope, id, profilingGroupName); err != nil {
 		panic(err)
 	}
-	var returns IProfilingGroupRef
+	var returns interfacesawscodeguruprofiler.IProfilingGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",

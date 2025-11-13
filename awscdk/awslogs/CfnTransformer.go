@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -203,8 +205,8 @@ import (
 //
 type CfnTransformer interface {
 	awscdk.CfnResource
-	ITransformerRef
 	awscdk.IInspectable
+	interfacesawslogs.ITransformerRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -214,7 +216,7 @@ type CfnTransformer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specify either the name or ARN of the log group to create the transformer for.
 	LogGroupIdentifier() *string
 	SetLogGroupIdentifier(val *string)
@@ -243,7 +245,7 @@ type CfnTransformer interface {
 	TransformerConfig() interface{}
 	SetTransformerConfig(val interface{})
 	// A reference to a Transformer resource.
-	TransformerRef() *TransformerReference
+	TransformerRef() *interfacesawslogs.TransformerReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -387,8 +389,8 @@ type CfnTransformer interface {
 // The jsii proxy struct for CfnTransformer
 type jsiiProxy_CfnTransformer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransformerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsITransformerRef
 }
 
 func (j *jsiiProxy_CfnTransformer) CfnOptions() awscdk.ICfnResourceOptions {
@@ -431,8 +433,8 @@ func (j *jsiiProxy_CfnTransformer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransformer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransformer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -501,8 +503,8 @@ func (j *jsiiProxy_CfnTransformer) TransformerConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransformer) TransformerRef() *TransformerReference {
-	var returns *TransformerReference
+func (j *jsiiProxy_CfnTransformer) TransformerRef() *interfacesawslogs.TransformerReference {
+	var returns *interfacesawslogs.TransformerReference
 	_jsii_.Get(
 		j,
 		"transformerRef",
@@ -532,6 +534,7 @@ func (j *jsiiProxy_CfnTransformer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Logs::Transformer`.
 func NewCfnTransformer(scope constructs.Construct, id *string, props *CfnTransformerProps) CfnTransformer {
 	_init_.Initialize()
 
@@ -549,6 +552,7 @@ func NewCfnTransformer(scope constructs.Construct, id *string, props *CfnTransfo
 	return &j
 }
 
+// Create a new `AWS::Logs::Transformer`.
 func NewCfnTransformer_Override(c CfnTransformer, scope constructs.Construct, id *string, props *CfnTransformerProps) {
 	_init_.Initialize()
 

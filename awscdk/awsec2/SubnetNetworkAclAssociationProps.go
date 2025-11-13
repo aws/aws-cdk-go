@@ -1,11 +1,15 @@
 package awsec2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
+)
 
 // Properties to create a SubnetNetworkAclAssociation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkAclRef INetworkAclRef
@@ -21,7 +25,7 @@ package awsec2
 //
 type SubnetNetworkAclAssociationProps struct {
 	// The Network ACL this association is defined for.
-	NetworkAcl INetworkAclRef `field:"required" json:"networkAcl" yaml:"networkAcl"`
+	NetworkAcl interfacesawsec2.INetworkAclRef `field:"required" json:"networkAcl" yaml:"networkAcl"`
 	// ID of the Subnet.
 	Subnet ISubnet `field:"required" json:"subnet" yaml:"subnet"`
 	// The name of the SubnetNetworkAclAssociation.

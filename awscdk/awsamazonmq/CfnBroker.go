@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamazonmq/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamazonmq"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -118,8 +120,8 @@ import (
 //
 type CfnBroker interface {
 	awscdk.CfnResource
-	IBrokerRef
 	awscdk.IInspectable
+	interfacesawsamazonmq.IBrokerRef
 	awscdk.ITaggable
 	// The AMQP endpoints of each broker instance as a list of strings.
 	//
@@ -173,7 +175,7 @@ type CfnBroker interface {
 	BrokerName() *string
 	SetBrokerName(val *string)
 	// A reference to a Broker resource.
-	BrokerRef() *BrokerReference
+	BrokerRef() *interfacesawsamazonmq.BrokerReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -204,7 +206,7 @@ type CfnBroker interface {
 	// The broker engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Required.
 	HostInstanceType() *string
 	SetHostInstanceType(val *string)
@@ -401,8 +403,8 @@ type CfnBroker interface {
 // The jsii proxy struct for CfnBroker
 type jsiiProxy_CfnBroker struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBrokerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamazonmqIBrokerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -556,8 +558,8 @@ func (j *jsiiProxy_CfnBroker) BrokerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBroker) BrokerRef() *BrokerReference {
-	var returns *BrokerReference
+func (j *jsiiProxy_CfnBroker) BrokerRef() *interfacesawsamazonmq.BrokerReference {
+	var returns *interfacesawsamazonmq.BrokerReference
 	_jsii_.Get(
 		j,
 		"brokerRef",
@@ -676,8 +678,8 @@ func (j *jsiiProxy_CfnBroker) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBroker) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBroker) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -857,6 +859,7 @@ func (j *jsiiProxy_CfnBroker) Users() interface{} {
 }
 
 
+// Create a new `AWS::AmazonMQ::Broker`.
 func NewCfnBroker(scope constructs.Construct, id *string, props *CfnBrokerProps) CfnBroker {
 	_init_.Initialize()
 
@@ -874,6 +877,7 @@ func NewCfnBroker(scope constructs.Construct, id *string, props *CfnBrokerProps)
 	return &j
 }
 
+// Create a new `AWS::AmazonMQ::Broker`.
 func NewCfnBroker_Override(c CfnBroker, scope constructs.Construct, id *string, props *CfnBrokerProps) {
 	_init_.Initialize()
 

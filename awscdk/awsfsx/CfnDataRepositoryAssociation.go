@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfsx/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfsx"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnDataRepositoryAssociation interface {
 	awscdk.CfnResource
-	IDataRepositoryAssociationRef
 	awscdk.IInspectable
+	interfacesawsfsx.IDataRepositoryAssociationRef
 	awscdk.ITaggable
 	// Returns the data repository association's system generated Association ID.
 	//
@@ -76,11 +78,11 @@ type CfnDataRepositoryAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataRepositoryAssociation resource.
-	DataRepositoryAssociationRef() *DataRepositoryAssociationReference
+	DataRepositoryAssociationRef() *interfacesawsfsx.DataRepositoryAssociationReference
 	// The path to the Amazon S3 data repository that will be linked to the file system.
 	DataRepositoryPath() *string
 	SetDataRepositoryPath(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the file system on which the data repository association is configured.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
@@ -262,8 +264,8 @@ type CfnDataRepositoryAssociation interface {
 // The jsii proxy struct for CfnDataRepositoryAssociation
 type jsiiProxy_CfnDataRepositoryAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataRepositoryAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfsxIDataRepositoryAssociationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnDataRepositoryAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataRepositoryAssociation) DataRepositoryAssociationRef() *DataRepositoryAssociationReference {
-	var returns *DataRepositoryAssociationReference
+func (j *jsiiProxy_CfnDataRepositoryAssociation) DataRepositoryAssociationRef() *interfacesawsfsx.DataRepositoryAssociationReference {
+	var returns *interfacesawsfsx.DataRepositoryAssociationReference
 	_jsii_.Get(
 		j,
 		"dataRepositoryAssociationRef",
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnDataRepositoryAssociation) DataRepositoryPath() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataRepositoryAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataRepositoryAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -488,6 +490,7 @@ func (j *jsiiProxy_CfnDataRepositoryAssociation) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::FSx::DataRepositoryAssociation`.
 func NewCfnDataRepositoryAssociation(scope constructs.Construct, id *string, props *CfnDataRepositoryAssociationProps) CfnDataRepositoryAssociation {
 	_init_.Initialize()
 
@@ -505,6 +508,7 @@ func NewCfnDataRepositoryAssociation(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::FSx::DataRepositoryAssociation`.
 func NewCfnDataRepositoryAssociation_Override(c CfnDataRepositoryAssociation, scope constructs.Construct, id *string, props *CfnDataRepositoryAssociationProps) {
 	_init_.Initialize()
 

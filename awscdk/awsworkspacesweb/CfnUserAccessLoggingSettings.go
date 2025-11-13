@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnUserAccessLoggingSettings interface {
 	awscdk.CfnResource
-	IUserAccessLoggingSettingsRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.IUserAccessLoggingSettingsRef
 	awscdk.ITaggableV2
 	// A list of web portal ARNs that this user access logging settings is associated with.
 	AttrAssociatedPortalArns() *[]*string
@@ -56,7 +58,7 @@ type CfnUserAccessLoggingSettings interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the Kinesis stream.
 	KinesisStreamArn() *string
 	SetKinesisStreamArn(val *string)
@@ -98,7 +100,7 @@ type CfnUserAccessLoggingSettings interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a UserAccessLoggingSettings resource.
-	UserAccessLoggingSettingsRef() *UserAccessLoggingSettingsReference
+	UserAccessLoggingSettingsRef() *interfacesawsworkspacesweb.UserAccessLoggingSettingsReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -229,8 +231,8 @@ type CfnUserAccessLoggingSettings interface {
 // The jsii proxy struct for CfnUserAccessLoggingSettings
 type jsiiProxy_CfnUserAccessLoggingSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserAccessLoggingSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebIUserAccessLoggingSettingsRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnUserAccessLoggingSettings) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserAccessLoggingSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserAccessLoggingSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnUserAccessLoggingSettings) UpdatedProperties() *map[string
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserAccessLoggingSettings) UserAccessLoggingSettingsRef() *UserAccessLoggingSettingsReference {
-	var returns *UserAccessLoggingSettingsReference
+func (j *jsiiProxy_CfnUserAccessLoggingSettings) UserAccessLoggingSettingsRef() *interfacesawsworkspacesweb.UserAccessLoggingSettingsReference {
+	var returns *interfacesawsworkspacesweb.UserAccessLoggingSettingsReference
 	_jsii_.Get(
 		j,
 		"userAccessLoggingSettingsRef",
@@ -405,6 +407,7 @@ func (j *jsiiProxy_CfnUserAccessLoggingSettings) UserAccessLoggingSettingsRef() 
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::UserAccessLoggingSettings`.
 func NewCfnUserAccessLoggingSettings(scope constructs.Construct, id *string, props *CfnUserAccessLoggingSettingsProps) CfnUserAccessLoggingSettings {
 	_init_.Initialize()
 
@@ -422,6 +425,7 @@ func NewCfnUserAccessLoggingSettings(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::UserAccessLoggingSettings`.
 func NewCfnUserAccessLoggingSettings_Override(c CfnUserAccessLoggingSettings, scope constructs.Construct, id *string, props *CfnUserAccessLoggingSettingsProps) {
 	_init_.Initialize()
 

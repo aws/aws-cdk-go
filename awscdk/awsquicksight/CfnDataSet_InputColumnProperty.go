@@ -13,6 +13,7 @@ package awsquicksight
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	Id: jsii.String("id"),
 //   	SubType: jsii.String("subType"),
 //   }
 //
@@ -27,6 +28,10 @@ type CfnDataSet_InputColumnProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// A unique identifier for the input column.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-id
+	//
+	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The sub data type of the column.
 	//
 	// Sub types are only available for decimal columns that are part of a SPICE dataset.

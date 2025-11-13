@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnSecurityProfile) validateSetApplicationsParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnSecurityProfile) validateSetGranularAccessControlConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSecurityProfile) validateSetInstanceArnParameters(val *string) error {
 	return nil
 }

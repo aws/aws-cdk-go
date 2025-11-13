@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskendra/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskendra"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -583,8 +585,8 @@ import (
 //
 type CfnDataSource interface {
 	awscdk.CfnResource
-	IDataSourceRef
 	awscdk.IInspectable
+	interfacesawskendra.IDataSourceRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the data source. For example:.
 	//
@@ -610,11 +612,11 @@ type CfnDataSource interface {
 	DataSourceConfiguration() interface{}
 	SetDataSourceConfiguration(val interface{})
 	// A reference to a DataSource resource.
-	DataSourceRef() *DataSourceReference
+	DataSourceRef() *interfacesawskendra.DataSourceReference
 	// A description for the data source connector.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the index you want to use with the data source connector.
 	IndexId() *string
 	SetIndexId(val *string)
@@ -802,8 +804,8 @@ type CfnDataSource interface {
 // The jsii proxy struct for CfnDataSource
 type jsiiProxy_CfnDataSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskendraIDataSourceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -887,8 +889,8 @@ func (j *jsiiProxy_CfnDataSource) DataSourceConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) DataSourceRef() *DataSourceReference {
-	var returns *DataSourceReference
+func (j *jsiiProxy_CfnDataSource) DataSourceRef() *interfacesawskendra.DataSourceReference {
+	var returns *interfacesawskendra.DataSourceReference
 	_jsii_.Get(
 		j,
 		"dataSourceRef",
@@ -907,8 +909,8 @@ func (j *jsiiProxy_CfnDataSource) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -1058,6 +1060,7 @@ func (j *jsiiProxy_CfnDataSource) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Kendra::DataSource`.
 func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
@@ -1075,6 +1078,7 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 	return &j
 }
 
+// Create a new `AWS::Kendra::DataSource`.
 func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 

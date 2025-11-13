@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnScheduledAction interface {
 	awscdk.CfnResource
-	IScheduledActionRef
 	awscdk.IInspectable
+	interfacesawsautoscaling.IScheduledActionRef
 	// Returns the name of a scheduled action.
 	AttrScheduledActionName() *string
 	// The name of the Auto Scaling group.
@@ -59,7 +61,7 @@ type CfnScheduledAction interface {
 	// The date and time for the recurring schedule to end, in UTC.
 	EndTime() *string
 	SetEndTime(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -87,7 +89,7 @@ type CfnScheduledAction interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ScheduledAction resource.
-	ScheduledActionRef() *ScheduledActionReference
+	ScheduledActionRef() *interfacesawsautoscaling.ScheduledActionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -241,8 +243,8 @@ type CfnScheduledAction interface {
 // The jsii proxy struct for CfnScheduledAction
 type jsiiProxy_CfnScheduledAction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScheduledActionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsautoscalingIScheduledActionRef
 }
 
 func (j *jsiiProxy_CfnScheduledAction) AttrScheduledActionName() *string {
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnScheduledAction) EndTime() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledAction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScheduledAction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -395,8 +397,8 @@ func (j *jsiiProxy_CfnScheduledAction) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledAction) ScheduledActionRef() *ScheduledActionReference {
-	var returns *ScheduledActionReference
+func (j *jsiiProxy_CfnScheduledAction) ScheduledActionRef() *interfacesawsautoscaling.ScheduledActionReference {
+	var returns *interfacesawsautoscaling.ScheduledActionReference
 	_jsii_.Get(
 		j,
 		"scheduledActionRef",
@@ -456,6 +458,7 @@ func (j *jsiiProxy_CfnScheduledAction) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::AutoScaling::ScheduledAction`.
 func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnScheduledActionProps) CfnScheduledAction {
 	_init_.Initialize()
 
@@ -473,6 +476,7 @@ func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnSch
 	return &j
 }
 
+// Create a new `AWS::AutoScaling::ScheduledAction`.
 func NewCfnScheduledAction_Override(c CfnScheduledAction, scope constructs.Construct, id *string, props *CfnScheduledActionProps) {
 	_init_.Initialize()
 

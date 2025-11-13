@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnMaintenanceWindowTarget interface {
 	awscdk.CfnResource
-	IMaintenanceWindowTargetRef
 	awscdk.IInspectable
+	interfacesawsssm.IMaintenanceWindowTargetRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -55,7 +57,7 @@ type CfnMaintenanceWindowTarget interface {
 	// A description for the target.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnMaintenanceWindowTarget interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MaintenanceWindowTarget resource.
-	MaintenanceWindowTargetRef() *MaintenanceWindowTargetReference
+	MaintenanceWindowTargetRef() *interfacesawsssm.MaintenanceWindowTargetReference
 	// The name for the maintenance window target.
 	Name() *string
 	SetName(val *string)
@@ -237,8 +239,8 @@ type CfnMaintenanceWindowTarget interface {
 // The jsii proxy struct for CfnMaintenanceWindowTarget
 type jsiiProxy_CfnMaintenanceWindowTarget struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMaintenanceWindowTargetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmIMaintenanceWindowTargetRef
 }
 
 func (j *jsiiProxy_CfnMaintenanceWindowTarget) AttrId() *string {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnMaintenanceWindowTarget) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTarget) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMaintenanceWindowTarget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnMaintenanceWindowTarget) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTarget) MaintenanceWindowTargetRef() *MaintenanceWindowTargetReference {
-	var returns *MaintenanceWindowTargetReference
+func (j *jsiiProxy_CfnMaintenanceWindowTarget) MaintenanceWindowTargetRef() *interfacesawsssm.MaintenanceWindowTargetReference {
+	var returns *interfacesawsssm.MaintenanceWindowTargetReference
 	_jsii_.Get(
 		j,
 		"maintenanceWindowTargetRef",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTarget) WindowId() *string {
 }
 
 
+// Create a new `AWS::SSM::MaintenanceWindowTarget`.
 func NewCfnMaintenanceWindowTarget(scope constructs.Construct, id *string, props *CfnMaintenanceWindowTargetProps) CfnMaintenanceWindowTarget {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnMaintenanceWindowTarget(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::SSM::MaintenanceWindowTarget`.
 func NewCfnMaintenanceWindowTarget_Override(c CfnMaintenanceWindowTarget, scope constructs.Construct, id *string, props *CfnMaintenanceWindowTargetProps) {
 	_init_.Initialize()
 

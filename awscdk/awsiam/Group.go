@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,7 +37,7 @@ type Group interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() IPrincipal
 	// Returns the IAM Group ARN.
@@ -43,7 +45,7 @@ type Group interface {
 	// Returns the IAM Group Name.
 	GroupName() *string
 	// A reference to a Group resource.
-	GroupRef() *GroupReference
+	GroupRef() *interfacesawsiam.GroupReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -123,8 +125,8 @@ func (j *jsiiProxy_Group) AssumeRoleAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Group) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Group) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -163,8 +165,8 @@ func (j *jsiiProxy_Group) GroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Group) GroupRef() *GroupReference {
-	var returns *GroupReference
+func (j *jsiiProxy_Group) GroupRef() *interfacesawsiam.GroupReference {
+	var returns *interfacesawsiam.GroupReference
 	_jsii_.Get(
 		j,
 		"groupRef",

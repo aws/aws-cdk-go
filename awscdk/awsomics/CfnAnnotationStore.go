@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsomics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting November 7, 2025.
+// > AWS HealthOmics variant stores and annotation stores are no longer open to new customers.
 //
-// If you would like to use variant stores or annotation stores, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html) .
+// Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html) .
 //
 // Creates an annotation store.
 //
@@ -55,11 +57,11 @@ import (
 //
 type CfnAnnotationStore interface {
 	awscdk.CfnResource
-	IAnnotationStoreRef
 	awscdk.IInspectable
+	interfacesawsomics.IAnnotationStoreRef
 	awscdk.ITaggable
 	// A reference to a AnnotationStore resource.
-	AnnotationStoreRef() *AnnotationStoreReference
+	AnnotationStoreRef() *interfacesawsomics.AnnotationStoreReference
 	// When the store was created.
 	AttrCreationTime() *string
 	// The store's ID.
@@ -86,7 +88,7 @@ type CfnAnnotationStore interface {
 	// A description for the store.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -271,13 +273,13 @@ type CfnAnnotationStore interface {
 // The jsii proxy struct for CfnAnnotationStore
 type jsiiProxy_CfnAnnotationStore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnnotationStoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsomicsIAnnotationStoreRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAnnotationStore) AnnotationStoreRef() *AnnotationStoreReference {
-	var returns *AnnotationStoreReference
+func (j *jsiiProxy_CfnAnnotationStore) AnnotationStoreRef() *interfacesawsomics.AnnotationStoreReference {
+	var returns *interfacesawsomics.AnnotationStoreReference
 	_jsii_.Get(
 		j,
 		"annotationStoreRef",
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnAnnotationStore) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnnotationStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnnotationStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -547,6 +549,7 @@ func (j *jsiiProxy_CfnAnnotationStore) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Omics::AnnotationStore`.
 func NewCfnAnnotationStore(scope constructs.Construct, id *string, props *CfnAnnotationStoreProps) CfnAnnotationStore {
 	_init_.Initialize()
 
@@ -564,6 +567,7 @@ func NewCfnAnnotationStore(scope constructs.Construct, id *string, props *CfnAnn
 	return &j
 }
 
+// Create a new `AWS::Omics::AnnotationStore`.
 func NewCfnAnnotationStore_Override(c CfnAnnotationStore, scope constructs.Construct, id *string, props *CfnAnnotationStoreProps) {
 	_init_.Initialize()
 
@@ -646,13 +650,13 @@ func (j *jsiiProxy_CfnAnnotationStore)SetTagsRaw(val *map[string]*string) {
 }
 
 // Creates a new IAnnotationStoreRef from a annotationStoreName.
-func CfnAnnotationStore_FromAnnotationStoreName(scope constructs.Construct, id *string, annotationStoreName *string) IAnnotationStoreRef {
+func CfnAnnotationStore_FromAnnotationStoreName(scope constructs.Construct, id *string, annotationStoreName *string) interfacesawsomics.IAnnotationStoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnAnnotationStore_FromAnnotationStoreNameParameters(scope, id, annotationStoreName); err != nil {
 		panic(err)
 	}
-	var returns IAnnotationStoreRef
+	var returns interfacesawsomics.IAnnotationStoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_omics.CfnAnnotationStore",

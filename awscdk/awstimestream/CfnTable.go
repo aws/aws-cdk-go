@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstimestream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstimestream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnTable interface {
 	awscdk.CfnResource
-	ITableRef
 	awscdk.IInspectable
+	interfacesawstimestream.ITableRef
 	awscdk.ITaggable
 	// The `arn` of the table.
 	AttrArn() *string
@@ -70,7 +72,7 @@ type CfnTable interface {
 	// The name of the Timestream database that contains this table.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -107,7 +109,7 @@ type CfnTable interface {
 	TableName() *string
 	SetTableName(val *string)
 	// A reference to a Table resource.
-	TableRef() *TableReference
+	TableRef() *interfacesawstimestream.TableReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// The tags to add to the table.
@@ -256,8 +258,8 @@ type CfnTable interface {
 // The jsii proxy struct for CfnTable
 type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstimestreamITableRef
 	internal.Type__awscdkITaggable
 }
 
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnTable) DatabaseName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,8 +423,8 @@ func (j *jsiiProxy_CfnTable) TableName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) TableRef() *TableReference {
-	var returns *TableReference
+func (j *jsiiProxy_CfnTable) TableRef() *interfacesawstimestream.TableReference {
+	var returns *interfacesawstimestream.TableReference
 	_jsii_.Get(
 		j,
 		"tableRef",
@@ -472,6 +474,7 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Timestream::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
@@ -489,6 +492,7 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 	return &j
 }
 
+// Create a new `AWS::Timestream::Table`.
 func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 

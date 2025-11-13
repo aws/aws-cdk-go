@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsneptune/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsneptune"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -75,8 +77,8 @@ import (
 //
 type CfnDBCluster interface {
 	awscdk.CfnResource
-	IDBClusterRef
 	awscdk.IInspectable
+	interfacesawsneptune.IDBClusterRef
 	awscdk.ITaggable
 	// Provides a list of the Amazon Identity and Access Management (IAM) roles that are associated with the DB cluster.
 	AssociatedRoles() interface{}
@@ -120,7 +122,7 @@ type CfnDBCluster interface {
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
 	// A reference to a DBCluster resource.
-	DbClusterRef() *DBClusterReference
+	DbClusterRef() *interfacesawsneptune.DBClusterReference
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
 	DbInstanceParameterGroupName() *string
 	SetDbInstanceParameterGroupName(val *string)
@@ -139,7 +141,7 @@ type CfnDBCluster interface {
 	// Indicates the database engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled() interface{}
 	SetIamAuthEnabled(val interface{})
@@ -347,8 +349,8 @@ type CfnDBCluster interface {
 // The jsii proxy struct for CfnDBCluster
 type jsiiProxy_CfnDBCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsneptuneIDBClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -492,8 +494,8 @@ func (j *jsiiProxy_CfnDBCluster) DbClusterParameterGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) DbClusterRef() *DBClusterReference {
-	var returns *DBClusterReference
+func (j *jsiiProxy_CfnDBCluster) DbClusterRef() *interfacesawsneptune.DBClusterReference {
+	var returns *interfacesawsneptune.DBClusterReference
 	_jsii_.Get(
 		j,
 		"dbClusterRef",
@@ -562,8 +564,8 @@ func (j *jsiiProxy_CfnDBCluster) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -773,6 +775,7 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
+// Create a new `AWS::Neptune::DBCluster`.
 func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
 	_init_.Initialize()
 
@@ -790,6 +793,7 @@ func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBCluster
 	return &j
 }
 
+// Create a new `AWS::Neptune::DBCluster`.
 func NewCfnDBCluster_Override(c CfnDBCluster, scope constructs.Construct, id *string, props *CfnDBClusterProps) {
 	_init_.Initialize()
 

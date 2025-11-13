@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfrauddetector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfrauddetector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnList interface {
 	awscdk.CfnResource
-	IListRef
 	awscdk.IInspectable
+	interfacesawsfrauddetector.IListRef
 	awscdk.ITaggable
 	// The event type ARN.
 	AttrArn() *string
@@ -63,9 +65,9 @@ type CfnList interface {
 	// The elements in the list.
 	Elements() *[]*string
 	SetElements(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a List resource.
-	ListRef() *ListReference
+	ListRef() *interfacesawsfrauddetector.ListReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,8 +243,8 @@ type CfnList interface {
 // The jsii proxy struct for CfnList
 type jsiiProxy_CfnList struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IListRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfrauddetectorIListRef
 	internal.Type__awscdkITaggable
 }
 
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnList) Elements() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnList) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnList) ListRef() *ListReference {
-	var returns *ListReference
+func (j *jsiiProxy_CfnList) ListRef() *interfacesawsfrauddetector.ListReference {
+	var returns *interfacesawsfrauddetector.ListReference
 	_jsii_.Get(
 		j,
 		"listRef",
@@ -457,6 +459,7 @@ func (j *jsiiProxy_CfnList) VariableType() *string {
 }
 
 
+// Create a new `AWS::FraudDetector::List`.
 func NewCfnList(scope constructs.Construct, id *string, props *CfnListProps) CfnList {
 	_init_.Initialize()
 
@@ -474,6 +477,7 @@ func NewCfnList(scope constructs.Construct, id *string, props *CfnListProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::FraudDetector::List`.
 func NewCfnList_Override(c CfnList, scope constructs.Construct, id *string, props *CfnListProps) {
 	_init_.Initialize()
 

@@ -2,8 +2,8 @@ package awsstepfunctionstasks
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for creating an Amazon SageMaker endpoint configuration using JSONPath.
@@ -176,7 +176,7 @@ type SageMakerCreateEndpointConfigJsonPathProps struct {
 	// AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	// Default: - None.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Tags to be applied to the endpoint configuration.
 	// Default: - No tags.
 	//

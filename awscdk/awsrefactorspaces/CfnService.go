@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrefactorspaces/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrefactorspaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > AWS Migration Hub will no longer be open to new customers starting November 7, 2025.
+// > AWS Migration Hub is no longer open to new customers as of November 7, 2025.
 //
-// To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub , explore [AWS Migration Hub](https://docs.aws.amazon.com/https://aws.amazon.com/transform) .
+// For capabilities similar to AWS Migration Hub , explore [AWS Migration Hub](https://docs.aws.amazon.com/https://aws.amazon.com/transform) .
 //
 // Creates an AWS Migration Hub Refactor Spaces service. The account owner of the service is always the environment owner, regardless of which account in the environment creates the service. Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda function endpoint.
 //
@@ -52,8 +54,8 @@ import (
 //
 type CfnService interface {
 	awscdk.CfnResource
-	IServiceRef
 	awscdk.IInspectable
+	interfacesawsrefactorspaces.IServiceRef
 	awscdk.ITaggable
 	// The unique identifier of the application.
 	ApplicationIdentifier() *string
@@ -77,7 +79,7 @@ type CfnService interface {
 	// The endpoint type of the service.
 	EndpointType() *string
 	SetEndpointType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the environment.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -105,7 +107,7 @@ type CfnService interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Service resource.
-	ServiceRef() *ServiceReference
+	ServiceRef() *interfacesawsrefactorspaces.ServiceReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -264,8 +266,8 @@ type CfnService interface {
 // The jsii proxy struct for CfnService
 type jsiiProxy_CfnService struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrefactorspacesIServiceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnService) EndpointType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnService) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -429,8 +431,8 @@ func (j *jsiiProxy_CfnService) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) ServiceRef() *ServiceReference {
-	var returns *ServiceReference
+func (j *jsiiProxy_CfnService) ServiceRef() *interfacesawsrefactorspaces.ServiceReference {
+	var returns *interfacesawsrefactorspaces.ServiceReference
 	_jsii_.Get(
 		j,
 		"serviceRef",
@@ -510,6 +512,7 @@ func (j *jsiiProxy_CfnService) VpcId() *string {
 }
 
 
+// Create a new `AWS::RefactorSpaces::Service`.
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
@@ -527,6 +530,7 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 	return &j
 }
 
+// Create a new `AWS::RefactorSpaces::Service`.
 func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 

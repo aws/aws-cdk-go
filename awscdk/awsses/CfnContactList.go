@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnContactList interface {
 	awscdk.CfnResource
-	IContactListRef
 	awscdk.IInspectable
+	interfacesawsses.IContactListRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,7 +55,7 @@ type CfnContactList interface {
 	ContactListName() *string
 	SetContactListName(val *string)
 	// A reference to a ContactList resource.
-	ContactListRef() *ContactListReference
+	ContactListRef() *interfacesawsses.ContactListReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -61,7 +63,7 @@ type CfnContactList interface {
 	// A description of what the contact list is about.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -234,8 +236,8 @@ type CfnContactList interface {
 // The jsii proxy struct for CfnContactList
 type jsiiProxy_CfnContactList struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContactListRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIContactListRef
 	internal.Type__awscdkITaggable
 }
 
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnContactList) ContactListName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactList) ContactListRef() *ContactListReference {
-	var returns *ContactListReference
+func (j *jsiiProxy_CfnContactList) ContactListRef() *interfacesawsses.ContactListReference {
+	var returns *interfacesawsses.ContactListReference
 	_jsii_.Get(
 		j,
 		"contactListRef",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnContactList) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContactList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -410,6 +412,7 @@ func (j *jsiiProxy_CfnContactList) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SES::ContactList`.
 func NewCfnContactList(scope constructs.Construct, id *string, props *CfnContactListProps) CfnContactList {
 	_init_.Initialize()
 
@@ -427,6 +430,7 @@ func NewCfnContactList(scope constructs.Construct, id *string, props *CfnContact
 	return &j
 }
 
+// Create a new `AWS::SES::ContactList`.
 func NewCfnContactList_Override(c CfnContactList, scope constructs.Construct, id *string, props *CfnContactListProps) {
 	_init_.Initialize()
 
@@ -476,13 +480,13 @@ func (j *jsiiProxy_CfnContactList)SetTopics(val interface{}) {
 }
 
 // Creates a new IContactListRef from a contactListName.
-func CfnContactList_FromContactListName(scope constructs.Construct, id *string, contactListName *string) IContactListRef {
+func CfnContactList_FromContactListName(scope constructs.Construct, id *string, contactListName *string) interfacesawsses.IContactListRef {
 	_init_.Initialize()
 
 	if err := validateCfnContactList_FromContactListNameParameters(scope, id, contactListName); err != nil {
 		panic(err)
 	}
-	var returns IContactListRef
+	var returns interfacesawsses.IContactListRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnContactList",

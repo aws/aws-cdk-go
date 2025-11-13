@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnRemediationConfiguration interface {
 	awscdk.CfnResource
-	IRemediationConfigurationRef
 	awscdk.IInspectable
+	interfacesawsconfig.IRemediationConfigurationRef
 	AttrId() *string
 	// The remediation is triggered automatically.
 	Automatic() interface{}
@@ -60,7 +62,7 @@ type CfnRemediationConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An ExecutionControls object.
 	ExecutionControls() interface{}
 	SetExecutionControls(val interface{})
@@ -92,7 +94,7 @@ type CfnRemediationConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RemediationConfiguration resource.
-	RemediationConfigurationRef() *RemediationConfigurationReference
+	RemediationConfigurationRef() *interfacesawsconfig.RemediationConfigurationReference
 	// The type of a resource.
 	ResourceType() *string
 	SetResourceType(val *string)
@@ -257,8 +259,8 @@ type CfnRemediationConfiguration interface {
 // The jsii proxy struct for CfnRemediationConfiguration
 type jsiiProxy_CfnRemediationConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRemediationConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIRemediationConfigurationRef
 }
 
 func (j *jsiiProxy_CfnRemediationConfiguration) AttrId() *string {
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnRemediationConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRemediationConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRemediationConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnRemediationConfiguration) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRemediationConfiguration) RemediationConfigurationRef() *RemediationConfigurationReference {
-	var returns *RemediationConfigurationReference
+func (j *jsiiProxy_CfnRemediationConfiguration) RemediationConfigurationRef() *interfacesawsconfig.RemediationConfigurationReference {
+	var returns *interfacesawsconfig.RemediationConfigurationReference
 	_jsii_.Get(
 		j,
 		"remediationConfigurationRef",
@@ -492,6 +494,7 @@ func (j *jsiiProxy_CfnRemediationConfiguration) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::Config::RemediationConfiguration`.
 func NewCfnRemediationConfiguration(scope constructs.Construct, id *string, props *CfnRemediationConfigurationProps) CfnRemediationConfiguration {
 	_init_.Initialize()
 
@@ -509,6 +512,7 @@ func NewCfnRemediationConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::Config::RemediationConfiguration`.
 func NewCfnRemediationConfiguration_Override(c CfnRemediationConfiguration, scope constructs.Construct, id *string, props *CfnRemediationConfigurationProps) {
 	_init_.Initialize()
 
@@ -615,13 +619,13 @@ func (j *jsiiProxy_CfnRemediationConfiguration)SetTargetVersion(val *string) {
 }
 
 // Creates a new IRemediationConfigurationRef from a remediationConfigurationId.
-func CfnRemediationConfiguration_FromRemediationConfigurationId(scope constructs.Construct, id *string, remediationConfigurationId *string) IRemediationConfigurationRef {
+func CfnRemediationConfiguration_FromRemediationConfigurationId(scope constructs.Construct, id *string, remediationConfigurationId *string) interfacesawsconfig.IRemediationConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnRemediationConfiguration_FromRemediationConfigurationIdParameters(scope, id, remediationConfigurationId); err != nil {
 		panic(err)
 	}
-	var returns IRemediationConfigurationRef
+	var returns interfacesawsconfig.IRemediationConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",

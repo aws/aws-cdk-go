@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsobservabilityadmin/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsobservabilityadmin"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnOrganizationTelemetryRule interface {
 	awscdk.CfnResource
-	IOrganizationTelemetryRuleRef
 	awscdk.IInspectable
+	interfacesawsobservabilityadmin.IOrganizationTelemetryRuleRef
 	awscdk.ITaggableV2
 	// The arn of the organization telemetry rule.
 	AttrRuleArn() *string
@@ -68,7 +70,7 @@ type CfnOrganizationTelemetryRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnOrganizationTelemetryRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a OrganizationTelemetryRule resource.
-	OrganizationTelemetryRuleRef() *OrganizationTelemetryRuleReference
+	OrganizationTelemetryRuleRef() *interfacesawsobservabilityadmin.OrganizationTelemetryRuleReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -244,8 +246,8 @@ type CfnOrganizationTelemetryRule interface {
 // The jsii proxy struct for CfnOrganizationTelemetryRule
 type jsiiProxy_CfnOrganizationTelemetryRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOrganizationTelemetryRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsobservabilityadminIOrganizationTelemetryRuleRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnOrganizationTelemetryRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationTelemetryRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOrganizationTelemetryRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnOrganizationTelemetryRule) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationTelemetryRule) OrganizationTelemetryRuleRef() *OrganizationTelemetryRuleReference {
-	var returns *OrganizationTelemetryRuleReference
+func (j *jsiiProxy_CfnOrganizationTelemetryRule) OrganizationTelemetryRuleRef() *interfacesawsobservabilityadmin.OrganizationTelemetryRuleReference {
+	var returns *interfacesawsobservabilityadmin.OrganizationTelemetryRuleReference
 	_jsii_.Get(
 		j,
 		"organizationTelemetryRuleRef",
@@ -420,6 +422,7 @@ func (j *jsiiProxy_CfnOrganizationTelemetryRule) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::ObservabilityAdmin::OrganizationTelemetryRule`.
 func NewCfnOrganizationTelemetryRule(scope constructs.Construct, id *string, props *CfnOrganizationTelemetryRuleProps) CfnOrganizationTelemetryRule {
 	_init_.Initialize()
 
@@ -437,6 +440,7 @@ func NewCfnOrganizationTelemetryRule(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::ObservabilityAdmin::OrganizationTelemetryRule`.
 func NewCfnOrganizationTelemetryRule_Override(c CfnOrganizationTelemetryRule, scope constructs.Construct, id *string, props *CfnOrganizationTelemetryRuleProps) {
 	_init_.Initialize()
 

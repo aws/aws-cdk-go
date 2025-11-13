@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnPolicy interface {
 	awscdk.CfnResource
-	IPolicyRef
 	awscdk.IInspectable
+	interfacesawsiot.IPolicyRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
 	AttrArn() *string
@@ -55,7 +57,7 @@ type CfnPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -75,7 +77,7 @@ type CfnPolicy interface {
 	PolicyName() *string
 	SetPolicyName(val *string)
 	// A reference to a Policy resource.
-	PolicyRef() *PolicyReference
+	PolicyRef() *interfacesawsiot.PolicyReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -230,8 +232,8 @@ type CfnPolicy interface {
 // The jsii proxy struct for CfnPolicy
 type jsiiProxy_CfnPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIPolicyRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnPolicy) PolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicy) PolicyRef() *PolicyReference {
-	var returns *PolicyReference
+func (j *jsiiProxy_CfnPolicy) PolicyRef() *interfacesawsiot.PolicyReference {
+	var returns *interfacesawsiot.PolicyReference
 	_jsii_.Get(
 		j,
 		"policyRef",
@@ -416,6 +418,7 @@ func (j *jsiiProxy_CfnPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::Policy`.
 func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
 	_init_.Initialize()
 
@@ -433,6 +436,7 @@ func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps)
 	return &j
 }
 
+// Create a new `AWS::IoT::Policy`.
 func NewCfnPolicy_Override(c CfnPolicy, scope constructs.Construct, id *string, props *CfnPolicyProps) {
 	_init_.Initialize()
 

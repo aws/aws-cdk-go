@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotfleetwise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotfleetwise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnFleet interface {
 	awscdk.CfnResource
-	IFleetRef
 	awscdk.IInspectable
+	interfacesawsiotfleetwise.IFleetRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the created fleet.
 	AttrArn() *string
@@ -59,9 +61,9 @@ type CfnFleet interface {
 	// A brief description of the fleet.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Fleet resource.
-	FleetRef() *FleetReference
+	FleetRef() *interfacesawsiotfleetwise.FleetReference
 	// The unique ID of the fleet.
 	Id() *string
 	SetId(val *string)
@@ -237,8 +239,8 @@ type CfnFleet interface {
 // The jsii proxy struct for CfnFleet
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotfleetwiseIFleetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnFleet) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) FleetRef() *FleetReference {
-	var returns *FleetReference
+func (j *jsiiProxy_CfnFleet) FleetRef() *interfacesawsiotfleetwise.FleetReference {
+	var returns *interfacesawsiotfleetwise.FleetReference
 	_jsii_.Get(
 		j,
 		"fleetRef",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTFleetWise::Fleet`.
 func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) CfnFleet {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) C
 	return &j
 }
 
+// Create a new `AWS::IoTFleetWise::Fleet`.
 func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, props *CfnFleetProps) {
 	_init_.Initialize()
 
@@ -512,13 +516,13 @@ func (j *jsiiProxy_CfnFleet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IFleetRef from an ARN.
-func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) IFleetRef {
+func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotfleetwise.IFleetRef {
 	_init_.Initialize()
 
 	if err := validateCfnFleet_FromFleetArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IFleetRef
+	var returns interfacesawsiotfleetwise.IFleetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotfleetwise.CfnFleet",
@@ -531,13 +535,13 @@ func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IFleetRef from a fleetId.
-func CfnFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IFleetRef {
+func CfnFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) interfacesawsiotfleetwise.IFleetRef {
 	_init_.Initialize()
 
 	if err := validateCfnFleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
 		panic(err)
 	}
-	var returns IFleetRef
+	var returns interfacesawsiotfleetwise.IFleetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotfleetwise.CfnFleet",

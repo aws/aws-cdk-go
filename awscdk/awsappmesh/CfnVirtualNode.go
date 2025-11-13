@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -307,8 +309,8 @@ import (
 //
 type CfnVirtualNode interface {
 	awscdk.CfnResource
-	IVirtualNodeRef
 	awscdk.IInspectable
+	interfacesawsappmesh.IVirtualNodeRef
 	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the virtual node.
 	AttrArn() *string
@@ -336,7 +338,7 @@ type CfnVirtualNode interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -389,7 +391,7 @@ type CfnVirtualNode interface {
 	VirtualNodeName() *string
 	SetVirtualNodeName(val *string)
 	// A reference to a VirtualNode resource.
-	VirtualNodeRef() *VirtualNodeReference
+	VirtualNodeRef() *interfacesawsappmesh.VirtualNodeReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -520,8 +522,8 @@ type CfnVirtualNode interface {
 // The jsii proxy struct for CfnVirtualNode
 type jsiiProxy_CfnVirtualNode struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVirtualNodeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappmeshIVirtualNodeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -635,8 +637,8 @@ func (j *jsiiProxy_CfnVirtualNode) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualNode) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVirtualNode) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -765,8 +767,8 @@ func (j *jsiiProxy_CfnVirtualNode) VirtualNodeName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualNode) VirtualNodeRef() *VirtualNodeReference {
-	var returns *VirtualNodeReference
+func (j *jsiiProxy_CfnVirtualNode) VirtualNodeRef() *interfacesawsappmesh.VirtualNodeReference {
+	var returns *interfacesawsappmesh.VirtualNodeReference
 	_jsii_.Get(
 		j,
 		"virtualNodeRef",
@@ -776,6 +778,7 @@ func (j *jsiiProxy_CfnVirtualNode) VirtualNodeRef() *VirtualNodeReference {
 }
 
 
+// Create a new `AWS::AppMesh::VirtualNode`.
 func NewCfnVirtualNode(scope constructs.Construct, id *string, props *CfnVirtualNodeProps) CfnVirtualNode {
 	_init_.Initialize()
 
@@ -793,6 +796,7 @@ func NewCfnVirtualNode(scope constructs.Construct, id *string, props *CfnVirtual
 	return &j
 }
 
+// Create a new `AWS::AppMesh::VirtualNode`.
 func NewCfnVirtualNode_Override(c CfnVirtualNode, scope constructs.Construct, id *string, props *CfnVirtualNodeProps) {
 	_init_.Initialize()
 

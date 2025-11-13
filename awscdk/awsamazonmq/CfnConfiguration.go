@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamazonmq/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamazonmq"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnConfiguration interface {
 	awscdk.CfnResource
-	IConfigurationRef
 	awscdk.IInspectable
+	interfacesawsamazonmq.IConfigurationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the Amazon MQ configuration.
 	//
@@ -63,7 +65,7 @@ type CfnConfiguration interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Configuration resource.
-	ConfigurationRef() *ConfigurationReference
+	ConfigurationRef() *interfacesawsamazonmq.ConfigurationReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -80,7 +82,7 @@ type CfnConfiguration interface {
 	// The broker engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnConfiguration interface {
 // The jsii proxy struct for CfnConfiguration
 type jsiiProxy_CfnConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamazonmqIConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnConfiguration) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguration) ConfigurationRef() *ConfigurationReference {
-	var returns *ConfigurationReference
+func (j *jsiiProxy_CfnConfiguration) ConfigurationRef() *interfacesawsamazonmq.ConfigurationReference {
+	var returns *interfacesawsamazonmq.ConfigurationReference
 	_jsii_.Get(
 		j,
 		"configurationRef",
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnConfiguration) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -489,6 +491,7 @@ func (j *jsiiProxy_CfnConfiguration) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::AmazonMQ::Configuration`.
 func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfigurationProps) CfnConfiguration {
 	_init_.Initialize()
 
@@ -506,6 +509,7 @@ func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfi
 	return &j
 }
 
+// Create a new `AWS::AmazonMQ::Configuration`.
 func NewCfnConfiguration_Override(c CfnConfiguration, scope constructs.Construct, id *string, props *CfnConfigurationProps) {
 	_init_.Initialize()
 
@@ -582,13 +586,13 @@ func (j *jsiiProxy_CfnConfiguration)SetTagsRaw(val *[]*CfnConfiguration_TagsEntr
 }
 
 // Creates a new IConfigurationRef from an ARN.
-func CfnConfiguration_FromConfigurationArn(scope constructs.Construct, id *string, arn *string) IConfigurationRef {
+func CfnConfiguration_FromConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawsamazonmq.IConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnConfiguration_FromConfigurationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IConfigurationRef
+	var returns interfacesawsamazonmq.IConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
@@ -601,13 +605,13 @@ func CfnConfiguration_FromConfigurationArn(scope constructs.Construct, id *strin
 }
 
 // Creates a new IConfigurationRef from a configurationId.
-func CfnConfiguration_FromConfigurationId(scope constructs.Construct, id *string, configurationId *string) IConfigurationRef {
+func CfnConfiguration_FromConfigurationId(scope constructs.Construct, id *string, configurationId *string) interfacesawsamazonmq.IConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnConfiguration_FromConfigurationIdParameters(scope, id, configurationId); err != nil {
 		panic(err)
 	}
-	var returns IConfigurationRef
+	var returns interfacesawsamazonmq.IConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",

@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A prefix list.
 type IPrefixList interface {
 	IPeer
-	IPrefixListRef
+	interfacesawsec2.IPrefixListRef
 	awscdk.IResource
 	// The ID of the prefix list.
 	PrefixListId() *string
@@ -20,7 +22,7 @@ type IPrefixList interface {
 // The jsii proxy for IPrefixList
 type jsiiProxy_IPrefixList struct {
 	jsiiProxy_IPeer
-	jsiiProxy_IPrefixListRef
+	internal.Type__interfacesawsec2IPrefixListRef
 	internal.Type__awscdkIResource
 }
 
@@ -91,8 +93,8 @@ func (j *jsiiProxy_IPrefixList) Connections() Connections {
 	return returns
 }
 
-func (j *jsiiProxy_IPrefixList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IPrefixList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -111,8 +113,8 @@ func (j *jsiiProxy_IPrefixList) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IPrefixList) PrefixListRef() *PrefixListReference {
-	var returns *PrefixListReference
+func (j *jsiiProxy_IPrefixList) PrefixListRef() *interfacesawsec2.PrefixListReference {
+	var returns *interfacesawsec2.PrefixListReference
 	_jsii_.Get(
 		j,
 		"prefixListRef",

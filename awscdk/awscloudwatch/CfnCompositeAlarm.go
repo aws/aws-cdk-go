@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,8 +59,8 @@ import (
 //
 type CfnCompositeAlarm interface {
 	awscdk.CfnResource
-	ICompositeAlarmRef
 	awscdk.IInspectable
+	interfacesawscloudwatch.ICompositeAlarmRef
 	awscdk.ITaggableV2
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm.
 	ActionsEnabled() interface{}
@@ -94,12 +96,12 @@ type CfnCompositeAlarm interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CompositeAlarm resource.
-	CompositeAlarmRef() *CompositeAlarmReference
+	CompositeAlarmRef() *interfacesawscloudwatch.CompositeAlarmReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
 	InsufficientDataActions() *[]*string
 	SetInsufficientDataActions(val *[]*string)
@@ -273,8 +275,8 @@ type CfnCompositeAlarm interface {
 // The jsii proxy struct for CfnCompositeAlarm
 type jsiiProxy_CfnCompositeAlarm struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICompositeAlarmRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudwatchICompositeAlarmRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -408,8 +410,8 @@ func (j *jsiiProxy_CfnCompositeAlarm) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) CompositeAlarmRef() *CompositeAlarmReference {
-	var returns *CompositeAlarmReference
+func (j *jsiiProxy_CfnCompositeAlarm) CompositeAlarmRef() *interfacesawscloudwatch.CompositeAlarmReference {
+	var returns *interfacesawscloudwatch.CompositeAlarmReference
 	_jsii_.Get(
 		j,
 		"compositeAlarmRef",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnCompositeAlarm) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCompositeAlarm) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -529,6 +531,7 @@ func (j *jsiiProxy_CfnCompositeAlarm) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::CloudWatch::CompositeAlarm`.
 func NewCfnCompositeAlarm(scope constructs.Construct, id *string, props *CfnCompositeAlarmProps) CfnCompositeAlarm {
 	_init_.Initialize()
 
@@ -546,6 +549,7 @@ func NewCfnCompositeAlarm(scope constructs.Construct, id *string, props *CfnComp
 	return &j
 }
 
+// Create a new `AWS::CloudWatch::CompositeAlarm`.
 func NewCfnCompositeAlarm_Override(c CfnCompositeAlarm, scope constructs.Construct, id *string, props *CfnCompositeAlarmProps) {
 	_init_.Initialize()
 

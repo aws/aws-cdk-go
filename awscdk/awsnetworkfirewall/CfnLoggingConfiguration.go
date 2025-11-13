@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkfirewall/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkfirewall"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
-	ILoggingConfigurationRef
 	awscdk.IInspectable
+	interfacesawsnetworkfirewall.ILoggingConfigurationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -62,7 +64,7 @@ type CfnLoggingConfiguration interface {
 	CreationStack() *[]*string
 	EnableMonitoringDashboard() interface{}
 	SetEnableMonitoringDashboard(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with.
 	FirewallArn() *string
 	SetFirewallArn(val *string)
@@ -73,7 +75,7 @@ type CfnLoggingConfiguration interface {
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	// A reference to a LoggingConfiguration resource.
-	LoggingConfigurationRef() *LoggingConfigurationReference
+	LoggingConfigurationRef() *interfacesawsnetworkfirewall.LoggingConfigurationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -238,8 +240,8 @@ type CfnLoggingConfiguration interface {
 // The jsii proxy struct for CfnLoggingConfiguration
 type jsiiProxy_CfnLoggingConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoggingConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkfirewallILoggingConfigurationRef
 }
 
 func (j *jsiiProxy_CfnLoggingConfiguration) CfnOptions() awscdk.ICfnResourceOptions {
@@ -292,8 +294,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) EnableMonitoringDashboard() interfac
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLoggingConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) LoggingConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) LoggingConfigurationRef() *LoggingConfigurationReference {
-	var returns *LoggingConfigurationReference
+func (j *jsiiProxy_CfnLoggingConfiguration) LoggingConfigurationRef() *interfacesawsnetworkfirewall.LoggingConfigurationReference {
+	var returns *interfacesawsnetworkfirewall.LoggingConfigurationReference
 	_jsii_.Get(
 		j,
 		"loggingConfigurationRef",
@@ -403,6 +405,7 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::NetworkFirewall::LoggingConfiguration`.
 func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
@@ -420,6 +423,7 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::NetworkFirewall::LoggingConfiguration`.
 func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 

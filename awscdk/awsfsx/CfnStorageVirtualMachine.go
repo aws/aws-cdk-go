@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfsx/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfsx"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnStorageVirtualMachine interface {
 	awscdk.CfnResource
-	IStorageVirtualMachineRef
 	awscdk.IInspectable
+	interfacesawsfsx.IStorageVirtualMachineRef
 	awscdk.ITaggable
 	// Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.
 	ActiveDirectoryConfiguration() interface{}
@@ -75,7 +77,7 @@ type CfnStorageVirtualMachine interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the FSx for ONTAP file system on which to create the SVM.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
@@ -109,7 +111,7 @@ type CfnStorageVirtualMachine interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StorageVirtualMachine resource.
-	StorageVirtualMachineRef() *StorageVirtualMachineReference
+	StorageVirtualMachineRef() *interfacesawsfsx.StorageVirtualMachineReference
 	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint.
 	SvmAdminPassword() *string
 	SetSvmAdminPassword(val *string)
@@ -261,8 +263,8 @@ type CfnStorageVirtualMachine interface {
 // The jsii proxy struct for CfnStorageVirtualMachine
 type jsiiProxy_CfnStorageVirtualMachine struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStorageVirtualMachineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfsxIStorageVirtualMachineRef
 	internal.Type__awscdkITaggable
 }
 
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageVirtualMachine) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStorageVirtualMachine) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -426,8 +428,8 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageVirtualMachine) StorageVirtualMachineRef() *StorageVirtualMachineReference {
-	var returns *StorageVirtualMachineReference
+func (j *jsiiProxy_CfnStorageVirtualMachine) StorageVirtualMachineRef() *interfacesawsfsx.StorageVirtualMachineReference {
+	var returns *interfacesawsfsx.StorageVirtualMachineReference
 	_jsii_.Get(
 		j,
 		"storageVirtualMachineRef",
@@ -487,6 +489,7 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::FSx::StorageVirtualMachine`.
 func NewCfnStorageVirtualMachine(scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) CfnStorageVirtualMachine {
 	_init_.Initialize()
 
@@ -504,6 +507,7 @@ func NewCfnStorageVirtualMachine(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::FSx::StorageVirtualMachine`.
 func NewCfnStorageVirtualMachine_Override(c CfnStorageVirtualMachine, scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) {
 	_init_.Initialize()
 

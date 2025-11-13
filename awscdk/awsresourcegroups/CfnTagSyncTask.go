@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsresourcegroups/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsresourcegroups"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnTagSyncTask interface {
 	awscdk.CfnResource
-	ITagSyncTaskRef
 	awscdk.IInspectable
+	interfacesawsresourcegroups.ITagSyncTaskRef
 	// The Amazon resource name (ARN) of the application group.
 	AttrGroupArn() *string
 	// The name of the application group.
@@ -59,7 +61,7 @@ type CfnTagSyncTask interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task.
 	Group() *string
 	SetGroup(val *string)
@@ -91,7 +93,7 @@ type CfnTagSyncTask interface {
 	TagKey() *string
 	SetTagKey(val *string)
 	// A reference to a TagSyncTask resource.
-	TagSyncTaskRef() *TagSyncTaskReference
+	TagSyncTaskRef() *interfacesawsresourcegroups.TagSyncTaskReference
 	// The tag value.
 	TagValue() *string
 	SetTagValue(val *string)
@@ -238,8 +240,8 @@ type CfnTagSyncTask interface {
 // The jsii proxy struct for CfnTagSyncTask
 type jsiiProxy_CfnTagSyncTask struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITagSyncTaskRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsresourcegroupsITagSyncTaskRef
 }
 
 func (j *jsiiProxy_CfnTagSyncTask) AttrGroupArn() *string {
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnTagSyncTask) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTagSyncTask) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTagSyncTask) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,8 +404,8 @@ func (j *jsiiProxy_CfnTagSyncTask) TagKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTagSyncTask) TagSyncTaskRef() *TagSyncTaskReference {
-	var returns *TagSyncTaskReference
+func (j *jsiiProxy_CfnTagSyncTask) TagSyncTaskRef() *interfacesawsresourcegroups.TagSyncTaskReference {
+	var returns *interfacesawsresourcegroups.TagSyncTaskReference
 	_jsii_.Get(
 		j,
 		"tagSyncTaskRef",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnTagSyncTask) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ResourceGroups::TagSyncTask`.
 func NewCfnTagSyncTask(scope constructs.Construct, id *string, props *CfnTagSyncTaskProps) CfnTagSyncTask {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnTagSyncTask(scope constructs.Construct, id *string, props *CfnTagSync
 	return &j
 }
 
+// Create a new `AWS::ResourceGroups::TagSyncTask`.
 func NewCfnTagSyncTask_Override(c CfnTagSyncTask, scope constructs.Construct, id *string, props *CfnTagSyncTaskProps) {
 	_init_.Initialize()
 

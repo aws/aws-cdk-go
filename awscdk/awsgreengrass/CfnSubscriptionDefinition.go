@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnSubscriptionDefinition interface {
 	awscdk.CfnResource
-	ISubscriptionDefinitionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.ISubscriptionDefinitionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `SubscriptionDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/subscriptions/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
@@ -67,7 +69,7 @@ type CfnSubscriptionDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The subscription definition version to include when the subscription definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -96,7 +98,7 @@ type CfnSubscriptionDefinition interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a SubscriptionDefinition resource.
-	SubscriptionDefinitionRef() *SubscriptionDefinitionReference
+	SubscriptionDefinitionRef() *interfacesawsgreengrass.SubscriptionDefinitionReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Application-specific metadata to attach to the subscription definition.
@@ -245,8 +247,8 @@ type CfnSubscriptionDefinition interface {
 // The jsii proxy struct for CfnSubscriptionDefinition
 type jsiiProxy_CfnSubscriptionDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubscriptionDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassISubscriptionDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnSubscriptionDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubscriptionDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnSubscriptionDefinition) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionDefinition) SubscriptionDefinitionRef() *SubscriptionDefinitionReference {
-	var returns *SubscriptionDefinitionReference
+func (j *jsiiProxy_CfnSubscriptionDefinition) SubscriptionDefinitionRef() *interfacesawsgreengrass.SubscriptionDefinitionReference {
+	var returns *interfacesawsgreengrass.SubscriptionDefinitionReference
 	_jsii_.Get(
 		j,
 		"subscriptionDefinitionRef",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnSubscriptionDefinition) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::Greengrass::SubscriptionDefinition`.
 func NewCfnSubscriptionDefinition(scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionProps) CfnSubscriptionDefinition {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnSubscriptionDefinition(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::Greengrass::SubscriptionDefinition`.
 func NewCfnSubscriptionDefinition_Override(c CfnSubscriptionDefinition, scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionProps) {
 	_init_.Initialize()
 
@@ -509,13 +513,13 @@ func (j *jsiiProxy_CfnSubscriptionDefinition)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new ISubscriptionDefinitionRef from an ARN.
-func CfnSubscriptionDefinition_FromSubscriptionDefinitionArn(scope constructs.Construct, id *string, arn *string) ISubscriptionDefinitionRef {
+func CfnSubscriptionDefinition_FromSubscriptionDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.ISubscriptionDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnSubscriptionDefinition_FromSubscriptionDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ISubscriptionDefinitionRef
+	var returns interfacesawsgreengrass.ISubscriptionDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
@@ -528,13 +532,13 @@ func CfnSubscriptionDefinition_FromSubscriptionDefinitionArn(scope constructs.Co
 }
 
 // Creates a new ISubscriptionDefinitionRef from a subscriptionDefinitionId.
-func CfnSubscriptionDefinition_FromSubscriptionDefinitionId(scope constructs.Construct, id *string, subscriptionDefinitionId *string) ISubscriptionDefinitionRef {
+func CfnSubscriptionDefinition_FromSubscriptionDefinitionId(scope constructs.Construct, id *string, subscriptionDefinitionId *string) interfacesawsgreengrass.ISubscriptionDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnSubscriptionDefinition_FromSubscriptionDefinitionIdParameters(scope, id, subscriptionDefinitionId); err != nil {
 		panic(err)
 	}
-	var returns ISubscriptionDefinitionRef
+	var returns interfacesawsgreengrass.ISubscriptionDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",

@@ -85,8 +85,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConfigurationSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigurationSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIConfigurationSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -166,8 +166,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConfigurationSetEventDestination{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigurationSetEventDestinationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIConfigurationSetEventDestinationRef)
 			return &j
 		},
 	)
@@ -248,8 +248,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnContactList{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IContactListRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIContactListRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -306,8 +306,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDedicatedIpPool{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDedicatedIpPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIDedicatedIpPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -370,8 +370,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEmailIdentity{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEmailIdentityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIEmailIdentityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -446,8 +446,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMailManagerAddonInstance{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMailManagerAddonInstanceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMailManagerAddonInstanceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -501,8 +501,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMailManagerAddonSubscription{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMailManagerAddonSubscriptionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMailManagerAddonSubscriptionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -556,8 +556,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMailManagerAddressList{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMailManagerAddressListRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMailManagerAddressListRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -614,8 +614,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMailManagerArchive{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMailManagerArchiveRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMailManagerArchiveRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -681,8 +681,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMailManagerIngressPoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMailManagerIngressPointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMailManagerIngressPointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -755,8 +755,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMailManagerRelay{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMailManagerRelayRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMailManagerRelayRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -815,8 +815,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMailManagerRuleSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMailManagerRuleSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMailManagerRuleSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -973,8 +973,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMailManagerTrafficPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMailManagerTrafficPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMailManagerTrafficPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -1040,6 +1040,68 @@ func init() {
 		reflect.TypeOf((*CfnMailManagerTrafficPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.CfnMultiRegionEndpoint",
+		reflect.TypeOf((*CfnMultiRegionEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "details", GoGetter: "Details"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointName", GoGetter: "EndpointName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "multiRegionEndpointRef", GoGetter: "MultiRegionEndpointRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMultiRegionEndpoint{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIMultiRegionEndpointRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMultiRegionEndpoint.DetailsProperty",
+		reflect.TypeOf((*CfnMultiRegionEndpoint_DetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMultiRegionEndpoint.RouteDetailsItemsProperty",
+		reflect.TypeOf((*CfnMultiRegionEndpoint_RouteDetailsItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMultiRegionEndpointProps",
+		reflect.TypeOf((*CfnMultiRegionEndpointProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
 		reflect.TypeOf((*CfnReceiptFilter)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1081,8 +1143,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReceiptFilter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReceiptFilterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIReceiptFilterRef)
 			return &j
 		},
 	)
@@ -1142,8 +1204,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReceiptRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReceiptRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIReceiptRuleRef)
 			return &j
 		},
 	)
@@ -1233,8 +1295,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReceiptRuleSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReceiptRuleSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIReceiptRuleSetRef)
 			return &j
 		},
 	)
@@ -1284,8 +1346,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTemplate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesITemplateRef)
 			return &j
 		},
 	)
@@ -1340,8 +1402,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVdmAttributes{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVdmAttributesRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssesIVdmAttributesRef)
 			return &j
 		},
 	)
@@ -1424,16 +1486,8 @@ func init() {
 		reflect.TypeOf((*ConfigurationSetEventDestinationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.ConfigurationSetEventDestinationReference",
-		reflect.TypeOf((*ConfigurationSetEventDestinationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.ConfigurationSetProps",
 		reflect.TypeOf((*ConfigurationSetProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.ConfigurationSetReference",
-		reflect.TypeOf((*ConfigurationSetReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ses.ConfigurationSetTlsPolicy",
@@ -1442,10 +1496,6 @@ func init() {
 			"REQUIRE": ConfigurationSetTlsPolicy_REQUIRE,
 			"OPTIONAL": ConfigurationSetTlsPolicy_OPTIONAL,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.ContactListReference",
-		reflect.TypeOf((*ContactListReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.DedicatedIpPool",
@@ -1472,10 +1522,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.DedicatedIpPoolProps",
 		reflect.TypeOf((*DedicatedIpPoolProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.DedicatedIpPoolReference",
-		reflect.TypeOf((*DedicatedIpPoolReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.DkimIdentity",
@@ -1557,10 +1603,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.EmailIdentityProps",
 		reflect.TypeOf((*EmailIdentityProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.EmailIdentityReference",
-		reflect.TypeOf((*EmailIdentityReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ses.EmailSendingEvent",
 		reflect.TypeOf((*EmailSendingEvent)(nil)).Elem(),
@@ -1636,51 +1678,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IConfigurationSetEventDestinationRef",
-		reflect.TypeOf((*IConfigurationSetEventDestinationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationSetEventDestinationRef", GoGetter: "ConfigurationSetEventDestinationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConfigurationSetEventDestinationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IConfigurationSetRef",
-		reflect.TypeOf((*IConfigurationSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationSetRef", GoGetter: "ConfigurationSetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConfigurationSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IContactListRef",
-		reflect.TypeOf((*IContactListRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "contactListRef", GoGetter: "ContactListRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IContactListRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ses.IDedicatedIpPool",
 		reflect.TypeOf((*IDedicatedIpPool)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1693,21 +1690,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IDedicatedIpPool{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IDedicatedIpPoolRef",
-		reflect.TypeOf((*IDedicatedIpPoolRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dedicatedIpPoolRef", GoGetter: "DedicatedIpPoolRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDedicatedIpPoolRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1727,156 +1709,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IEmailIdentity{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IEmailIdentityRef",
-		reflect.TypeOf((*IEmailIdentityRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "emailIdentityRef", GoGetter: "EmailIdentityRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEmailIdentityRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IMailManagerAddonInstanceRef",
-		reflect.TypeOf((*IMailManagerAddonInstanceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerAddonInstanceRef", GoGetter: "MailManagerAddonInstanceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMailManagerAddonInstanceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IMailManagerAddonSubscriptionRef",
-		reflect.TypeOf((*IMailManagerAddonSubscriptionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerAddonSubscriptionRef", GoGetter: "MailManagerAddonSubscriptionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMailManagerAddonSubscriptionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IMailManagerAddressListRef",
-		reflect.TypeOf((*IMailManagerAddressListRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerAddressListRef", GoGetter: "MailManagerAddressListRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMailManagerAddressListRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IMailManagerArchiveRef",
-		reflect.TypeOf((*IMailManagerArchiveRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerArchiveRef", GoGetter: "MailManagerArchiveRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMailManagerArchiveRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IMailManagerIngressPointRef",
-		reflect.TypeOf((*IMailManagerIngressPointRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerIngressPointRef", GoGetter: "MailManagerIngressPointRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMailManagerIngressPointRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IMailManagerRelayRef",
-		reflect.TypeOf((*IMailManagerRelayRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerRelayRef", GoGetter: "MailManagerRelayRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMailManagerRelayRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IMailManagerRuleSetRef",
-		reflect.TypeOf((*IMailManagerRuleSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerRuleSetRef", GoGetter: "MailManagerRuleSetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMailManagerRuleSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IMailManagerTrafficPolicyRef",
-		reflect.TypeOf((*IMailManagerTrafficPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerTrafficPolicyRef", GoGetter: "MailManagerTrafficPolicyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMailManagerTrafficPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IReceiptFilterRef",
-		reflect.TypeOf((*IReceiptFilterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "receiptFilterRef", GoGetter: "ReceiptFilterRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReceiptFilterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1907,21 +1739,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IReceiptRuleRef",
-		reflect.TypeOf((*IReceiptRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "receiptRuleRef", GoGetter: "ReceiptRuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReceiptRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ses.IReceiptRuleSet",
 		reflect.TypeOf((*IReceiptRuleSet)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1939,36 +1756,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IReceiptRuleSetRef",
-		reflect.TypeOf((*IReceiptRuleSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "receiptRuleSetRef", GoGetter: "ReceiptRuleSetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReceiptRuleSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.ITemplateRef",
-		reflect.TypeOf((*ITemplateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "templateRef", GoGetter: "TemplateRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITemplateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ses.IVdmAttributes",
 		reflect.TypeOf((*IVdmAttributes)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1981,21 +1768,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IVdmAttributes{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ses.IVdmAttributesRef",
-		reflect.TypeOf((*IVdmAttributesRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vdmAttributesRef", GoGetter: "VdmAttributesRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVdmAttributesRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2021,38 +1793,6 @@ func init() {
 			"USE_DEFAULT_VALUE": MailFromBehaviorOnMxFailure_USE_DEFAULT_VALUE,
 			"REJECT_MESSAGE": MailFromBehaviorOnMxFailure_REJECT_MESSAGE,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.MailManagerAddonInstanceReference",
-		reflect.TypeOf((*MailManagerAddonInstanceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.MailManagerAddonSubscriptionReference",
-		reflect.TypeOf((*MailManagerAddonSubscriptionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.MailManagerAddressListReference",
-		reflect.TypeOf((*MailManagerAddressListReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.MailManagerArchiveReference",
-		reflect.TypeOf((*MailManagerArchiveReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.MailManagerIngressPointReference",
-		reflect.TypeOf((*MailManagerIngressPointReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.MailManagerRelayReference",
-		reflect.TypeOf((*MailManagerRelayReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.MailManagerRuleSetReference",
-		reflect.TypeOf((*MailManagerRuleSetReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.MailManagerTrafficPolicyReference",
-		reflect.TypeOf((*MailManagerTrafficPolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.ReceiptFilter",
@@ -2085,10 +1825,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.ReceiptFilterProps",
 		reflect.TypeOf((*ReceiptFilterProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.ReceiptFilterReference",
-		reflect.TypeOf((*ReceiptFilterReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.ReceiptRule",
@@ -2125,10 +1861,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.ReceiptRuleProps",
 		reflect.TypeOf((*ReceiptRuleProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.ReceiptRuleReference",
-		reflect.TypeOf((*ReceiptRuleReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.ReceiptRuleSet",
 		reflect.TypeOf((*ReceiptRuleSet)(nil)).Elem(),
@@ -2158,10 +1890,6 @@ func init() {
 		reflect.TypeOf((*ReceiptRuleSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.ReceiptRuleSetReference",
-		reflect.TypeOf((*ReceiptRuleSetReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.S3ActionConfig",
 		reflect.TypeOf((*S3ActionConfig)(nil)).Elem(),
 	)
@@ -2189,10 +1917,6 @@ func init() {
 			"BOUNCES_ONLY": SuppressionReasons_BOUNCES_ONLY,
 			"COMPLAINTS_ONLY": SuppressionReasons_COMPLAINTS_ONLY,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.TemplateReference",
-		reflect.TypeOf((*TemplateReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ses.TlsPolicy",
@@ -2228,10 +1952,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.VdmAttributesProps",
 		reflect.TypeOf((*VdmAttributesProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.VdmAttributesReference",
-		reflect.TypeOf((*VdmAttributesReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.VdmOptions",

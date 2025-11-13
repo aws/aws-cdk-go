@@ -8,14 +8,14 @@ import (
 // Endpoint access characteristics.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 //   	 // No access outside of your VPC.
-//   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 //   })
 //
 type EndpointAccess interface {

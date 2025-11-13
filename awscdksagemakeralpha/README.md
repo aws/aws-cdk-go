@@ -231,6 +231,39 @@ endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"
 })
 ```
 
+### Serverless Inference
+
+Amazon SageMaker Serverless Inference is a purpose-built inference option that makes it easy for you to deploy and scale ML models. Serverless endpoints automatically launch compute resources and scale them in and out depending on traffic, eliminating the need to choose instance types or manage scaling policies. For more information, see [SageMaker Serverless Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html).
+
+To create a serverless endpoint configuration, use the `serverlessProductionVariant` property:
+
+```go
+import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
+
+var model Model
+
+
+endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("ServerlessEndpointConfig"), &EndpointConfigProps{
+	ServerlessProductionVariant: &ServerlessProductionVariantProps{
+		Model: model,
+		VariantName: jsii.String("serverlessVariant"),
+		MaxConcurrency: jsii.Number(10),
+		MemorySizeInMB: jsii.Number(2048),
+		ProvisionedConcurrency: jsii.Number(5),
+	},
+})
+```
+
+Serverless inference is ideal for workloads with intermittent or unpredictable traffic patterns. You can configure:
+
+* `maxConcurrency`: Maximum concurrent invocations (1-200)
+* `memorySizeInMB`: Memory allocation in 1GB increments (1024, 2048, 3072, 4096, 5120, or 6144 MB)
+* `provisionedConcurrency`: Optional pre-warmed capacity to reduce cold starts
+
+**Note**: Provisioned concurrency incurs charges even when the endpoint is not processing requests. Use it only when you need to minimize cold start latency.
+
+You cannot mix serverless and instance-based variants in the same endpoint configuration.
+
 ### Endpoint
 
 When you create an endpoint from an `EndpointConfig`, Amazon SageMaker launches the ML compute

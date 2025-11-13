@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnVolume interface {
 	awscdk.CfnResource
-	IVolumeRef
 	awscdk.IInspectable
+	interfacesawsopsworks.IVolumeRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -44,7 +46,7 @@ type CfnVolume interface {
 	// The Amazon EC2 volume ID.
 	Ec2VolumeId() *string
 	SetEc2VolumeId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -89,7 +91,7 @@ type CfnVolume interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a Volume resource.
-	VolumeRef() *VolumeReference
+	VolumeRef() *interfacesawsopsworks.VolumeReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -220,8 +222,8 @@ type CfnVolume interface {
 // The jsii proxy struct for CfnVolume
 type jsiiProxy_CfnVolume struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVolumeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopsworksIVolumeRef
 }
 
 func (j *jsiiProxy_CfnVolume) AttrId() *string {
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnVolume) Ec2VolumeId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVolume) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnVolume) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) VolumeRef() *VolumeReference {
-	var returns *VolumeReference
+func (j *jsiiProxy_CfnVolume) VolumeRef() *interfacesawsopsworks.VolumeReference {
+	var returns *interfacesawsopsworks.VolumeReference
 	_jsii_.Get(
 		j,
 		"volumeRef",
@@ -395,6 +397,7 @@ func (j *jsiiProxy_CfnVolume) VolumeRef() *VolumeReference {
 }
 
 
+// Create a new `AWS::OpsWorks::Volume`.
 func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
@@ -412,6 +415,7 @@ func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps)
 	return &j
 }
 
+// Create a new `AWS::OpsWorks::Volume`.
 func NewCfnVolume_Override(c CfnVolume, scope constructs.Construct, id *string, props *CfnVolumeProps) {
 	_init_.Initialize()
 

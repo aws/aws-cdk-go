@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnSubscriptionTarget interface {
 	awscdk.CfnResource
-	ISubscriptionTargetRef
 	awscdk.IInspectable
+	interfacesawsdatazone.ISubscriptionTargetRef
 	// The asset types included in the subscription target.
 	ApplicableAssetTypes() *[]*string
 	SetApplicableAssetTypes(val *[]*string)
@@ -81,7 +83,7 @@ type CfnSubscriptionTarget interface {
 	// The ID of the Amazon DataZone domain in which subscription target is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the environment in which subscription target is created.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -119,7 +121,7 @@ type CfnSubscriptionTarget interface {
 	SubscriptionTargetConfig() interface{}
 	SetSubscriptionTargetConfig(val interface{})
 	// A reference to a SubscriptionTarget resource.
-	SubscriptionTargetRef() *SubscriptionTargetReference
+	SubscriptionTargetRef() *interfacesawsdatazone.SubscriptionTargetReference
 	// The type of the subscription target.
 	Type() *string
 	SetType(val *string)
@@ -266,8 +268,8 @@ type CfnSubscriptionTarget interface {
 // The jsii proxy struct for CfnSubscriptionTarget
 type jsiiProxy_CfnSubscriptionTarget struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubscriptionTargetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneISubscriptionTargetRef
 }
 
 func (j *jsiiProxy_CfnSubscriptionTarget) ApplicableAssetTypes() *[]*string {
@@ -420,8 +422,8 @@ func (j *jsiiProxy_CfnSubscriptionTarget) DomainIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionTarget) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubscriptionTarget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -520,8 +522,8 @@ func (j *jsiiProxy_CfnSubscriptionTarget) SubscriptionTargetConfig() interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionTarget) SubscriptionTargetRef() *SubscriptionTargetReference {
-	var returns *SubscriptionTargetReference
+func (j *jsiiProxy_CfnSubscriptionTarget) SubscriptionTargetRef() *interfacesawsdatazone.SubscriptionTargetReference {
+	var returns *interfacesawsdatazone.SubscriptionTargetReference
 	_jsii_.Get(
 		j,
 		"subscriptionTargetRef",
@@ -561,6 +563,7 @@ func (j *jsiiProxy_CfnSubscriptionTarget) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::DataZone::SubscriptionTarget`.
 func NewCfnSubscriptionTarget(scope constructs.Construct, id *string, props *CfnSubscriptionTargetProps) CfnSubscriptionTarget {
 	_init_.Initialize()
 
@@ -578,6 +581,7 @@ func NewCfnSubscriptionTarget(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::DataZone::SubscriptionTarget`.
 func NewCfnSubscriptionTarget_Override(c CfnSubscriptionTarget, scope constructs.Construct, id *string, props *CfnSubscriptionTargetProps) {
 	_init_.Initialize()
 

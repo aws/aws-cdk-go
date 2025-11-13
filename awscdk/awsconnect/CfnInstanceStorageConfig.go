@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnInstanceStorageConfig interface {
 	awscdk.CfnResource
-	IInstanceStorageConfigRef
 	awscdk.IInspectable
+	interfacesawsconnect.IInstanceStorageConfigRef
 	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -65,12 +67,12 @@ type CfnInstanceStorageConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// A reference to a InstanceStorageConfig resource.
-	InstanceStorageConfigRef() *InstanceStorageConfigReference
+	InstanceStorageConfigRef() *interfacesawsconnect.InstanceStorageConfigReference
 	// The configuration of the Kinesis Firehose delivery stream.
 	KinesisFirehoseConfig() interface{}
 	SetKinesisFirehoseConfig(val interface{})
@@ -253,8 +255,8 @@ type CfnInstanceStorageConfig interface {
 // The jsii proxy struct for CfnInstanceStorageConfig
 type jsiiProxy_CfnInstanceStorageConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceStorageConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIInstanceStorageConfigRef
 }
 
 func (j *jsiiProxy_CfnInstanceStorageConfig) AttrAssociationId() *string {
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceStorageConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceStorageConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) InstanceArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceStorageConfig) InstanceStorageConfigRef() *InstanceStorageConfigReference {
-	var returns *InstanceStorageConfigReference
+func (j *jsiiProxy_CfnInstanceStorageConfig) InstanceStorageConfigRef() *interfacesawsconnect.InstanceStorageConfigReference {
+	var returns *interfacesawsconnect.InstanceStorageConfigReference
 	_jsii_.Get(
 		j,
 		"instanceStorageConfigRef",
@@ -458,6 +460,7 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::Connect::InstanceStorageConfig`.
 func NewCfnInstanceStorageConfig(scope constructs.Construct, id *string, props *CfnInstanceStorageConfigProps) CfnInstanceStorageConfig {
 	_init_.Initialize()
 
@@ -475,6 +478,7 @@ func NewCfnInstanceStorageConfig(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Connect::InstanceStorageConfig`.
 func NewCfnInstanceStorageConfig_Override(c CfnInstanceStorageConfig, scope constructs.Construct, id *string, props *CfnInstanceStorageConfigProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,7 +63,7 @@ type LazyRole interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() IPrincipal
 	// The tree node.
@@ -90,7 +92,7 @@ type LazyRole interface {
 	// Returns the name of this role.
 	RoleName() *string
 	// A reference to a Role resource.
-	RoleRef() *RoleReference
+	RoleRef() *interfacesawsiam.RoleReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Attaches a managed policy to this role.
@@ -153,8 +155,8 @@ func (j *jsiiProxy_LazyRole) AssumeRoleAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LazyRole) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_LazyRole) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -243,8 +245,8 @@ func (j *jsiiProxy_LazyRole) RoleName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LazyRole) RoleRef() *RoleReference {
-	var returns *RoleReference
+func (j *jsiiProxy_LazyRole) RoleRef() *interfacesawsiam.RoleReference {
+	var returns *interfacesawsiam.RoleReference
 	_jsii_.Get(
 		j,
 		"roleRef",

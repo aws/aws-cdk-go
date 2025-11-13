@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshiftserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshiftserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnNamespace interface {
 	awscdk.CfnResource
-	INamespaceRef
 	awscdk.IInspectable
+	interfacesawsredshiftserverless.INamespaceRef
 	awscdk.ITaggable
 	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId() *string
@@ -114,7 +116,7 @@ type CfnNamespace interface {
 	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 	DefaultIamRoleArn() *string
 	SetDefaultIamRoleArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the snapshot to be created before the namespace is deleted.
 	FinalSnapshotName() *string
 	SetFinalSnapshotName(val *string)
@@ -147,7 +149,7 @@ type CfnNamespace interface {
 	NamespaceName() *string
 	SetNamespaceName(val *string)
 	// A reference to a Namespace resource.
-	NamespaceRef() *NamespaceReference
+	NamespaceRef() *interfacesawsredshiftserverless.NamespaceReference
 	// The resource policy that will be attached to the namespace.
 	NamespaceResourcePolicy() interface{}
 	SetNamespaceResourcePolicy(val interface{})
@@ -316,8 +318,8 @@ type CfnNamespace interface {
 // The jsii proxy struct for CfnNamespace
 type jsiiProxy_CfnNamespace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INamespaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftserverlessINamespaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -531,8 +533,8 @@ func (j *jsiiProxy_CfnNamespace) DefaultIamRoleArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNamespace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNamespace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -621,8 +623,8 @@ func (j *jsiiProxy_CfnNamespace) NamespaceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNamespace) NamespaceRef() *NamespaceReference {
-	var returns *NamespaceReference
+func (j *jsiiProxy_CfnNamespace) NamespaceRef() *interfacesawsredshiftserverless.NamespaceReference {
+	var returns *interfacesawsredshiftserverless.NamespaceReference
 	_jsii_.Get(
 		j,
 		"namespaceRef",
@@ -732,6 +734,7 @@ func (j *jsiiProxy_CfnNamespace) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RedshiftServerless::Namespace`.
 func NewCfnNamespace(scope constructs.Construct, id *string, props *CfnNamespaceProps) CfnNamespace {
 	_init_.Initialize()
 
@@ -749,6 +752,7 @@ func NewCfnNamespace(scope constructs.Construct, id *string, props *CfnNamespace
 	return &j
 }
 
+// Create a new `AWS::RedshiftServerless::Namespace`.
 func NewCfnNamespace_Override(c CfnNamespace, scope constructs.Construct, id *string, props *CfnNamespaceProps) {
 	_init_.Initialize()
 

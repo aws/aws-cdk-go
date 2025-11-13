@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfinspace/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfinspace"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnEnvironment interface {
 	awscdk.CfnResource
-	IEnvironmentRef
 	awscdk.IInspectable
+	interfacesawsfinspace.IEnvironmentRef
 	awscdk.ITaggable
 	// The ID of the AWS account in which the FinSpace environment is created.
 	AttrAwsAccountId() *string
@@ -90,9 +92,9 @@ type CfnEnvironment interface {
 	// The description of the FinSpace environment.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Environment resource.
-	EnvironmentRef() *EnvironmentReference
+	EnvironmentRef() *interfacesawsfinspace.EnvironmentReference
 	// The authentication mode for the environment.
 	FederationMode() *string
 	SetFederationMode(val *string)
@@ -277,8 +279,8 @@ type CfnEnvironment interface {
 // The jsii proxy struct for CfnEnvironment
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfinspaceIEnvironmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnEnvironment) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *EnvironmentReference {
-	var returns *EnvironmentReference
+func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *interfacesawsfinspace.EnvironmentReference {
+	var returns *interfacesawsfinspace.EnvironmentReference
 	_jsii_.Get(
 		j,
 		"environmentRef",
@@ -563,6 +565,7 @@ func (j *jsiiProxy_CfnEnvironment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::FinSpace::Environment`.
 func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
@@ -580,6 +583,7 @@ func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnviron
 	return &j
 }
 
+// Create a new `AWS::FinSpace::Environment`.
 func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 
@@ -667,13 +671,13 @@ func (j *jsiiProxy_CfnEnvironment)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IEnvironmentRef from an ARN.
-func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) IEnvironmentRef {
+func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) interfacesawsfinspace.IEnvironmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnEnvironment_FromEnvironmentArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IEnvironmentRef
+	var returns interfacesawsfinspace.IEnvironmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_finspace.CfnEnvironment",
@@ -686,13 +690,13 @@ func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IEnvironmentRef from a environmentId.
-func CfnEnvironment_FromEnvironmentId(scope constructs.Construct, id *string, environmentId *string) IEnvironmentRef {
+func CfnEnvironment_FromEnvironmentId(scope constructs.Construct, id *string, environmentId *string) interfacesawsfinspace.IEnvironmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnEnvironment_FromEnvironmentIdParameters(scope, id, environmentId); err != nil {
 		panic(err)
 	}
-	var returns IEnvironmentRef
+	var returns interfacesawsfinspace.IEnvironmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_finspace.CfnEnvironment",

@@ -1,6 +1,8 @@
 package awsrtbfabric
 
 
+// Describes the configuration of an auto scaling group.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +18,11 @@ package awsrtbfabric
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-autoscalinggroupsconfiguration.html
 //
 type CfnResponderGateway_AutoScalingGroupsConfigurationProperty struct {
+	// The names of the auto scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-autoscalinggroupsconfiguration.html#cfn-rtbfabric-respondergateway-autoscalinggroupsconfiguration-autoscalinggroupnamelist
 	//
 	AutoScalingGroupNameList *[]*string `field:"required" json:"autoScalingGroupNameList" yaml:"autoScalingGroupNameList"`
+	// The role ARN of the auto scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-autoscalinggroupsconfiguration.html#cfn-rtbfabric-respondergateway-autoscalinggroupsconfiguration-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`

@@ -30,6 +30,10 @@ type CfnWebACLProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
 	//
 	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
+	// Returns a list of `ApplicationAttribute` s.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-applicationconfig
+	//
+	ApplicationConfig interface{} `field:"optional" json:"applicationConfig" yaml:"applicationConfig"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources.
 	//
 	// Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,13 +30,13 @@ import (
 //
 type CfnApiKey interface {
 	awscdk.CfnResource
-	IApiKeyRef
 	awscdk.IInspectable
+	interfacesawsappsync.IApiKeyRef
 	// Unique AWS AppSync GraphQL API ID for this API key.
 	ApiId() *string
 	SetApiId(val *string)
 	// A reference to a ApiKey resource.
-	ApiKeyRef() *ApiKeyReference
+	ApiKeyRef() *interfacesawsappsync.ApiKeyReference
 	// The API key.
 	AttrApiKey() *string
 	// The API key ID.
@@ -53,7 +55,7 @@ type CfnApiKey interface {
 	// Unique description of your API key.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The time after which the API key expires.
 	Expires() *float64
 	SetExpires(val *float64)
@@ -221,8 +223,8 @@ type CfnApiKey interface {
 // The jsii proxy struct for CfnApiKey
 type jsiiProxy_CfnApiKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApiKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIApiKeyRef
 }
 
 func (j *jsiiProxy_CfnApiKey) ApiId() *string {
@@ -235,8 +237,8 @@ func (j *jsiiProxy_CfnApiKey) ApiId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiKey) ApiKeyRef() *ApiKeyReference {
-	var returns *ApiKeyReference
+func (j *jsiiProxy_CfnApiKey) ApiKeyRef() *interfacesawsappsync.ApiKeyReference {
+	var returns *interfacesawsappsync.ApiKeyReference
 	_jsii_.Get(
 		j,
 		"apiKeyRef",
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnApiKey) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApiKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -406,6 +408,7 @@ func (j *jsiiProxy_CfnApiKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppSync::ApiKey`.
 func NewCfnApiKey(scope constructs.Construct, id *string, props *CfnApiKeyProps) CfnApiKey {
 	_init_.Initialize()
 
@@ -423,6 +426,7 @@ func NewCfnApiKey(scope constructs.Construct, id *string, props *CfnApiKeyProps)
 	return &j
 }
 
+// Create a new `AWS::AppSync::ApiKey`.
 func NewCfnApiKey_Override(c CfnApiKey, scope constructs.Construct, id *string, props *CfnApiKeyProps) {
 	_init_.Initialize()
 

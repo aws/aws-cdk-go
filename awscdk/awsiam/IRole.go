@@ -4,13 +4,16 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Role object.
 type IRole interface {
 	IIdentity
-	IRoleRef
+	interfacesawsiam.IRoleRef
 	// Grant the actions defined in actions to the identity Principal on this resource.
 	Grant(grantee IPrincipal, actions ...*string) Grant
 	// Grant permissions to the given principal to assume this role.
@@ -26,7 +29,7 @@ type IRole interface {
 // The jsii proxy for IRole
 type jsiiProxy_IRole struct {
 	jsiiProxy_IIdentity
-	jsiiProxy_IRoleRef
+	internal.Type__interfacesawsiamIRoleRef
 }
 
 func (i *jsiiProxy_IRole) Grant(grantee IPrincipal, actions ...*string) Grant {
@@ -161,8 +164,8 @@ func (j *jsiiProxy_IRole) AssumeRoleAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IRole) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IRole) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -211,8 +214,8 @@ func (j *jsiiProxy_IRole) PrincipalAccount() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IRole) RoleRef() *RoleReference {
-	var returns *RoleReference
+func (j *jsiiProxy_IRole) RoleRef() *interfacesawsiam.RoleReference {
+	var returns *interfacesawsiam.RoleReference
 	_jsii_.Get(
 		j,
 		"roleRef",

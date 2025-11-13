@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -81,8 +83,8 @@ import (
 //
 type CfnStack interface {
 	awscdk.CfnResource
-	IStackRef
 	awscdk.IInspectable
+	interfacesawscloudformation.IStackRef
 	awscdk.ITaggable
 	// Returns the unique identifier of the change set.
 	AttrChangeSetId() *string
@@ -113,7 +115,7 @@ type CfnStack interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -142,7 +144,7 @@ type CfnStack interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Stack resource.
-	StackRef() *StackReference
+	StackRef() *interfacesawscloudformation.StackReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Key-value pairs to associate with this stack.
@@ -297,8 +299,8 @@ type CfnStack interface {
 // The jsii proxy struct for CfnStack
 type jsiiProxy_CfnStack struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStackRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationIStackRef
 	internal.Type__awscdkITaggable
 }
 
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnStack) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStack) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -492,8 +494,8 @@ func (j *jsiiProxy_CfnStack) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStack) StackRef() *StackReference {
-	var returns *StackReference
+func (j *jsiiProxy_CfnStack) StackRef() *interfacesawscloudformation.StackReference {
+	var returns *interfacesawscloudformation.StackReference
 	_jsii_.Get(
 		j,
 		"stackRef",
@@ -563,6 +565,7 @@ func (j *jsiiProxy_CfnStack) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFormation::Stack`.
 func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) CfnStack {
 	_init_.Initialize()
 
@@ -580,6 +583,7 @@ func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) C
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::Stack`.
 func NewCfnStack_Override(c CfnStack, scope constructs.Construct, id *string, props *CfnStackProps) {
 	_init_.Initialize()
 

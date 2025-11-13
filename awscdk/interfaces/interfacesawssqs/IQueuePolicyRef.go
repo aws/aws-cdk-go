@@ -1,0 +1,56 @@
+package interfacesawssqs
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssqs/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a QueuePolicy.
+// Experimental.
+type IQueuePolicyRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a QueuePolicy resource.
+	// Experimental.
+	QueuePolicyRef() *QueuePolicyReference
+}
+
+// The jsii proxy for IQueuePolicyRef
+type jsiiProxy_IQueuePolicyRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IQueuePolicyRef) QueuePolicyRef() *QueuePolicyReference {
+	var returns *QueuePolicyReference
+	_jsii_.Get(
+		j,
+		"queuePolicyRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IQueuePolicyRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IQueuePolicyRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

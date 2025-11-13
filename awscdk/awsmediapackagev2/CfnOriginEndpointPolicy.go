@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediapackagev2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackagev2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnOriginEndpointPolicy interface {
 	awscdk.CfnResource
-	IOriginEndpointPolicyRef
 	awscdk.IInspectable
+	interfacesawsmediapackagev2.IOriginEndpointPolicyRef
 	// The settings to enable CDN authorization headers in MediaPackage.
 	CdnAuthConfiguration() interface{}
 	SetCdnAuthConfiguration(val interface{})
@@ -57,7 +59,7 @@ type CfnOriginEndpointPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnOriginEndpointPolicy interface {
 	OriginEndpointName() *string
 	SetOriginEndpointName(val *string)
 	// A reference to a OriginEndpointPolicy resource.
-	OriginEndpointPolicyRef() *OriginEndpointPolicyReference
+	OriginEndpointPolicyRef() *interfacesawsmediapackagev2.OriginEndpointPolicyReference
 	// The policy associated with the origin endpoint.
 	Policy() interface{}
 	SetPolicy(val interface{})
@@ -230,8 +232,8 @@ type CfnOriginEndpointPolicy interface {
 // The jsii proxy struct for CfnOriginEndpointPolicy
 type jsiiProxy_CfnOriginEndpointPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOriginEndpointPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediapackagev2IOriginEndpointPolicyRef
 }
 
 func (j *jsiiProxy_CfnOriginEndpointPolicy) CdnAuthConfiguration() interface{} {
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnOriginEndpointPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginEndpointPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOriginEndpointPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnOriginEndpointPolicy) OriginEndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginEndpointPolicy) OriginEndpointPolicyRef() *OriginEndpointPolicyReference {
-	var returns *OriginEndpointPolicyReference
+func (j *jsiiProxy_CfnOriginEndpointPolicy) OriginEndpointPolicyRef() *interfacesawsmediapackagev2.OriginEndpointPolicyReference {
+	var returns *interfacesawsmediapackagev2.OriginEndpointPolicyReference
 	_jsii_.Get(
 		j,
 		"originEndpointPolicyRef",
@@ -405,6 +407,7 @@ func (j *jsiiProxy_CfnOriginEndpointPolicy) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::MediaPackageV2::OriginEndpointPolicy`.
 func NewCfnOriginEndpointPolicy(scope constructs.Construct, id *string, props *CfnOriginEndpointPolicyProps) CfnOriginEndpointPolicy {
 	_init_.Initialize()
 
@@ -422,6 +425,7 @@ func NewCfnOriginEndpointPolicy(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::MediaPackageV2::OriginEndpointPolicy`.
 func NewCfnOriginEndpointPolicy_Override(c CfnOriginEndpointPolicy, scope constructs.Construct, id *string, props *CfnOriginEndpointPolicyProps) {
 	_init_.Initialize()
 

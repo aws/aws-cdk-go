@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnCoreDefinition interface {
 	awscdk.CfnResource
-	ICoreDefinitionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.ICoreDefinitionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `CoreDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/cores/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
@@ -66,12 +68,12 @@ type CfnCoreDefinition interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CoreDefinition resource.
-	CoreDefinitionRef() *CoreDefinitionReference
+	CoreDefinitionRef() *interfacesawsgreengrass.CoreDefinitionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The core definition version to include when the core definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -247,8 +249,8 @@ type CfnCoreDefinition interface {
 // The jsii proxy struct for CfnCoreDefinition
 type jsiiProxy_CfnCoreDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICoreDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassICoreDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnCoreDefinition) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreDefinition) CoreDefinitionRef() *CoreDefinitionReference {
-	var returns *CoreDefinitionReference
+func (j *jsiiProxy_CfnCoreDefinition) CoreDefinitionRef() *interfacesawsgreengrass.CoreDefinitionReference {
+	var returns *interfacesawsgreengrass.CoreDefinitionReference
 	_jsii_.Get(
 		j,
 		"coreDefinitionRef",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnCoreDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCoreDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnCoreDefinition) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Greengrass::CoreDefinition`.
 func NewCfnCoreDefinition(scope constructs.Construct, id *string, props *CfnCoreDefinitionProps) CfnCoreDefinition {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnCoreDefinition(scope constructs.Construct, id *string, props *CfnCore
 	return &j
 }
 
+// Create a new `AWS::Greengrass::CoreDefinition`.
 func NewCfnCoreDefinition_Override(c CfnCoreDefinition, scope constructs.Construct, id *string, props *CfnCoreDefinitionProps) {
 	_init_.Initialize()
 
@@ -511,13 +515,13 @@ func (j *jsiiProxy_CfnCoreDefinition)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new ICoreDefinitionRef from an ARN.
-func CfnCoreDefinition_FromCoreDefinitionArn(scope constructs.Construct, id *string, arn *string) ICoreDefinitionRef {
+func CfnCoreDefinition_FromCoreDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.ICoreDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnCoreDefinition_FromCoreDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ICoreDefinitionRef
+	var returns interfacesawsgreengrass.ICoreDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
@@ -530,13 +534,13 @@ func CfnCoreDefinition_FromCoreDefinitionArn(scope constructs.Construct, id *str
 }
 
 // Creates a new ICoreDefinitionRef from a coreDefinitionId.
-func CfnCoreDefinition_FromCoreDefinitionId(scope constructs.Construct, id *string, coreDefinitionId *string) ICoreDefinitionRef {
+func CfnCoreDefinition_FromCoreDefinitionId(scope constructs.Construct, id *string, coreDefinitionId *string) interfacesawsgreengrass.ICoreDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnCoreDefinition_FromCoreDefinitionIdParameters(scope, id, coreDefinitionId); err != nil {
 		panic(err)
 	}
-	var returns ICoreDefinitionRef
+	var returns interfacesawsgreengrass.ICoreDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",

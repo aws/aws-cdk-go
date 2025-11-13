@@ -1,10 +1,19 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsiotwirelessIDestinationRef = interfacesawsiotwireless.IDestinationRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsiotwirelessIDeviceProfileRef = interfacesawsiotwireless.IDeviceProfileRef
+type Type__interfacesawsiotwirelessIFuotaTaskRef = interfacesawsiotwireless.IFuotaTaskRef
+type Type__interfacesawsiotwirelessIMulticastGroupRef = interfacesawsiotwireless.IMulticastGroupRef
+type Type__interfacesawsiotwirelessINetworkAnalyzerConfigurationRef = interfacesawsiotwireless.INetworkAnalyzerConfigurationRef
+type Type__interfacesawsiotwirelessIPartnerAccountRef = interfacesawsiotwireless.IPartnerAccountRef
+type Type__interfacesawsiotwirelessIServiceProfileRef = interfacesawsiotwireless.IServiceProfileRef
+type Type__interfacesawsiotwirelessITaskDefinitionRef = interfacesawsiotwireless.ITaskDefinitionRef
+type Type__interfacesawsiotwirelessIWirelessDeviceRef = interfacesawsiotwireless.IWirelessDeviceRef
+type Type__interfacesawsiotwirelessIWirelessDeviceImportTaskRef = interfacesawsiotwireless.IWirelessDeviceImportTaskRef
+type Type__interfacesawsiotwirelessIWirelessGatewayRef = interfacesawsiotwireless.IWirelessGatewayRef

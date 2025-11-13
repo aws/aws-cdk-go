@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvoiceid/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvoiceid"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnDomain interface {
 	awscdk.CfnResource
-	IDomainRef
 	awscdk.IInspectable
+	interfacesawsvoiceid.IDomainRef
 	awscdk.ITaggable
 	// The identifier of the domain.
 	AttrDomainId() *string
@@ -58,8 +60,8 @@ type CfnDomain interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a Domain resource.
-	DomainRef() *DomainReference
-	Env() *awscdk.ResourceEnvironment
+	DomainRef() *interfacesawsvoiceid.DomainReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnDomain interface {
 // The jsii proxy struct for CfnDomain
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvoiceidIDomainRef
 	internal.Type__awscdkITaggable
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnDomain) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) DomainRef() *DomainReference {
-	var returns *DomainReference
+func (j *jsiiProxy_CfnDomain) DomainRef() *interfacesawsvoiceid.DomainReference {
+	var returns *interfacesawsvoiceid.DomainReference
 	_jsii_.Get(
 		j,
 		"domainRef",
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnDomain) DomainRef() *DomainReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,6 +423,7 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::VoiceID::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -438,6 +441,7 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
+// Create a new `AWS::VoiceID::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
@@ -490,13 +494,13 @@ func (j *jsiiProxy_CfnDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDomainRef from a domainId.
-func CfnDomain_FromDomainId(scope constructs.Construct, id *string, domainId *string) IDomainRef {
+func CfnDomain_FromDomainId(scope constructs.Construct, id *string, domainId *string) interfacesawsvoiceid.IDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomain_FromDomainIdParameters(scope, id, domainId); err != nil {
 		panic(err)
 	}
-	var returns IDomainRef
+	var returns interfacesawsvoiceid.IDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_voiceid.CfnDomain",

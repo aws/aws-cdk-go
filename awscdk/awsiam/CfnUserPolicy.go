@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnUserPolicy interface {
 	awscdk.CfnResource
-	IUserPolicyRef
 	awscdk.IInspectable
+	interfacesawsiam.IUserPolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -45,7 +47,7 @@ type CfnUserPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -90,7 +92,7 @@ type CfnUserPolicy interface {
 	UserName() *string
 	SetUserName(val *string)
 	// A reference to a UserPolicy resource.
-	UserPolicyRef() *UserPolicyReference
+	UserPolicyRef() *interfacesawsiam.UserPolicyReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -221,8 +223,8 @@ type CfnUserPolicy interface {
 // The jsii proxy struct for CfnUserPolicy
 type jsiiProxy_CfnUserPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIUserPolicyRef
 }
 
 func (j *jsiiProxy_CfnUserPolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnUserPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -365,8 +367,8 @@ func (j *jsiiProxy_CfnUserPolicy) UserName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPolicy) UserPolicyRef() *UserPolicyReference {
-	var returns *UserPolicyReference
+func (j *jsiiProxy_CfnUserPolicy) UserPolicyRef() *interfacesawsiam.UserPolicyReference {
+	var returns *interfacesawsiam.UserPolicyReference
 	_jsii_.Get(
 		j,
 		"userPolicyRef",
@@ -376,6 +378,7 @@ func (j *jsiiProxy_CfnUserPolicy) UserPolicyRef() *UserPolicyReference {
 }
 
 
+// Create a new `AWS::IAM::UserPolicy`.
 func NewCfnUserPolicy(scope constructs.Construct, id *string, props *CfnUserPolicyProps) CfnUserPolicy {
 	_init_.Initialize()
 
@@ -393,6 +396,7 @@ func NewCfnUserPolicy(scope constructs.Construct, id *string, props *CfnUserPoli
 	return &j
 }
 
+// Create a new `AWS::IAM::UserPolicy`.
 func NewCfnUserPolicy_Override(c CfnUserPolicy, scope constructs.Construct, id *string, props *CfnUserPolicyProps) {
 	_init_.Initialize()
 

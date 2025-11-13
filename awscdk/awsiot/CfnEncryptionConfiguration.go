@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnEncryptionConfiguration interface {
 	awscdk.CfnResource
-	IEncryptionConfigurationRef
 	awscdk.IInspectable
+	interfacesawsiot.IEncryptionConfigurationRef
 	// The unique identifier (ID) of an AWS account.
 	AttrAccountId() *string
 	AttrConfigurationDetails() awscdk.IResolvable
@@ -47,11 +49,11 @@ type CfnEncryptionConfiguration interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EncryptionConfiguration resource.
-	EncryptionConfigurationRef() *EncryptionConfigurationReference
+	EncryptionConfigurationRef() *interfacesawsiot.EncryptionConfigurationReference
 	// The type of the KMS key.
 	EncryptionType() *string
 	SetEncryptionType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
 	KmsAccessRoleArn() *string
 	SetKmsAccessRoleArn(val *string)
@@ -222,8 +224,8 @@ type CfnEncryptionConfiguration interface {
 // The jsii proxy struct for CfnEncryptionConfiguration
 type jsiiProxy_CfnEncryptionConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEncryptionConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIEncryptionConfigurationRef
 }
 
 func (j *jsiiProxy_CfnEncryptionConfiguration) AttrAccountId() *string {
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnEncryptionConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEncryptionConfiguration) EncryptionConfigurationRef() *EncryptionConfigurationReference {
-	var returns *EncryptionConfigurationReference
+func (j *jsiiProxy_CfnEncryptionConfiguration) EncryptionConfigurationRef() *interfacesawsiot.EncryptionConfigurationReference {
+	var returns *interfacesawsiot.EncryptionConfigurationReference
 	_jsii_.Get(
 		j,
 		"encryptionConfigurationRef",
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnEncryptionConfiguration) EncryptionType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEncryptionConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEncryptionConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnEncryptionConfiguration) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::IoT::EncryptionConfiguration`.
 func NewCfnEncryptionConfiguration(scope constructs.Construct, id *string, props *CfnEncryptionConfigurationProps) CfnEncryptionConfiguration {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnEncryptionConfiguration(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::IoT::EncryptionConfiguration`.
 func NewCfnEncryptionConfiguration_Override(c CfnEncryptionConfiguration, scope constructs.Construct, id *string, props *CfnEncryptionConfigurationProps) {
 	_init_.Initialize()
 

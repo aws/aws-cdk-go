@@ -8,6 +8,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,7 +39,7 @@ type Volume interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -53,7 +55,7 @@ type Volume interface {
 	// The EBS Volume's ID.
 	VolumeId() *string
 	// A reference to a Volume resource.
-	VolumeRef() *VolumeReference
+	VolumeRef() *interfacesawsec2.VolumeReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -84,7 +86,7 @@ type Volume interface {
 	// an unresolvable circular reference between the instance role and the instance.
 	// Use `IVolume.grantAttachVolumeToSelf` to grant an instance permission to attach this
 	// volume to itself.
-	GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstanceRef) awsiam.Grant
+	GrantAttachVolume(grantee awsiam.IGrantable, instances *[]interfacesawsec2.IInstanceRef) awsiam.Grant
 	// Grants permission to attach the Volume by a ResourceTag condition.
 	//
 	// If you are looking to
@@ -100,7 +102,7 @@ type Volume interface {
 	//
 	// Use `IVolume.grantDetachVolumeFromSelf` to grant an instance permission to detach this
 	// volume from itself.
-	GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstanceRef) awsiam.Grant
+	GrantDetachVolume(grantee awsiam.IGrantable, instances *[]interfacesawsec2.IInstanceRef) awsiam.Grant
 	// Grants permission to detach the Volume by a ResourceTag condition.
 	//
 	// This is implemented via the same mechanism as `IVolume.grantAttachVolumeByResourceTag`,
@@ -137,8 +139,8 @@ func (j *jsiiProxy_Volume) EncryptionKey() awskms.IKey {
 	return returns
 }
 
-func (j *jsiiProxy_Volume) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Volume) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -187,8 +189,8 @@ func (j *jsiiProxy_Volume) VolumeId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Volume) VolumeRef() *VolumeReference {
-	var returns *VolumeReference
+func (j *jsiiProxy_Volume) VolumeRef() *interfacesawsec2.VolumeReference {
+	var returns *interfacesawsec2.VolumeReference
 	_jsii_.Get(
 		j,
 		"volumeRef",
@@ -384,7 +386,7 @@ func (v *jsiiProxy_Volume) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
-func (v *jsiiProxy_Volume) GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstanceRef) awsiam.Grant {
+func (v *jsiiProxy_Volume) GrantAttachVolume(grantee awsiam.IGrantable, instances *[]interfacesawsec2.IInstanceRef) awsiam.Grant {
 	if err := v.validateGrantAttachVolumeParameters(grantee); err != nil {
 		panic(err)
 	}
@@ -416,7 +418,7 @@ func (v *jsiiProxy_Volume) GrantAttachVolumeByResourceTag(grantee awsiam.IGranta
 	return returns
 }
 
-func (v *jsiiProxy_Volume) GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstanceRef) awsiam.Grant {
+func (v *jsiiProxy_Volume) GrantDetachVolume(grantee awsiam.IGrantable, instances *[]interfacesawsec2.IInstanceRef) awsiam.Grant {
 	if err := v.validateGrantDetachVolumeParameters(grantee); err != nil {
 		panic(err)
 	}

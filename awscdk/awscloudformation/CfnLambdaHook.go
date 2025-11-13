@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -78,8 +80,8 @@ import (
 //
 type CfnLambdaHook interface {
 	awscdk.CfnResource
-	ILambdaHookRef
 	awscdk.IInspectable
+	interfacesawscloudformation.ILambdaHookRef
 	// The type name alias for the Hook.
 	//
 	// This alias must be unique per account and Region.
@@ -96,7 +98,7 @@ type CfnLambdaHook interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IAM role that the Hook assumes to invoke your Lambda function.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
@@ -112,7 +114,7 @@ type CfnLambdaHook interface {
 	LambdaFunction() *string
 	SetLambdaFunction(val *string)
 	// A reference to a LambdaHook resource.
-	LambdaHookRef() *LambdaHookReference
+	LambdaHookRef() *interfacesawscloudformation.LambdaHookReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -286,8 +288,8 @@ type CfnLambdaHook interface {
 // The jsii proxy struct for CfnLambdaHook
 type jsiiProxy_CfnLambdaHook struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILambdaHookRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationILambdaHookRef
 }
 
 func (j *jsiiProxy_CfnLambdaHook) Alias() *string {
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnLambdaHook) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLambdaHook) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLambdaHook) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnLambdaHook) LambdaFunction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLambdaHook) LambdaHookRef() *LambdaHookReference {
-	var returns *LambdaHookReference
+func (j *jsiiProxy_CfnLambdaHook) LambdaHookRef() *interfacesawscloudformation.LambdaHookReference {
+	var returns *interfacesawscloudformation.LambdaHookReference
 	_jsii_.Get(
 		j,
 		"lambdaHookRef",
@@ -501,6 +503,7 @@ func (j *jsiiProxy_CfnLambdaHook) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFormation::LambdaHook`.
 func NewCfnLambdaHook(scope constructs.Construct, id *string, props *CfnLambdaHookProps) CfnLambdaHook {
 	_init_.Initialize()
 
@@ -518,6 +521,7 @@ func NewCfnLambdaHook(scope constructs.Construct, id *string, props *CfnLambdaHo
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::LambdaHook`.
 func NewCfnLambdaHook_Override(c CfnLambdaHook, scope constructs.Construct, id *string, props *CfnLambdaHookProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -119,8 +121,8 @@ import (
 //
 type CfnListener interface {
 	awscdk.CfnResource
-	IListenerRef
 	awscdk.IInspectable
+	interfacesawselasticloadbalancingv2.IListenerRef
 	// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
 	AlpnPolicy() *[]*string
 	SetAlpnPolicy(val *[]*string)
@@ -143,12 +145,12 @@ type CfnListener interface {
 	// You cannot define a condition for a default rule.
 	DefaultActions() interface{}
 	SetDefaultActions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The listener attributes.
 	ListenerAttributes() interface{}
 	SetListenerAttributes(val interface{})
 	// A reference to a Listener resource.
-	ListenerRef() *ListenerReference
+	ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn() *string
 	SetLoadBalancerArn(val *string)
@@ -328,8 +330,8 @@ type CfnListener interface {
 // The jsii proxy struct for CfnListener
 type jsiiProxy_CfnListener struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IListenerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticloadbalancingv2IListenerRef
 }
 
 func (j *jsiiProxy_CfnListener) AlpnPolicy() *[]*string {
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnListener) DefaultActions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListener) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnListener) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -432,8 +434,8 @@ func (j *jsiiProxy_CfnListener) ListenerAttributes() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListener) ListenerRef() *ListenerReference {
-	var returns *ListenerReference
+func (j *jsiiProxy_CfnListener) ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference {
+	var returns *interfacesawselasticloadbalancingv2.ListenerReference
 	_jsii_.Get(
 		j,
 		"listenerRef",
@@ -553,6 +555,7 @@ func (j *jsiiProxy_CfnListener) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ElasticLoadBalancingV2::Listener`.
 func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerProps) CfnListener {
 	_init_.Initialize()
 
@@ -570,6 +573,7 @@ func NewCfnListener(scope constructs.Construct, id *string, props *CfnListenerPr
 	return &j
 }
 
+// Create a new `AWS::ElasticLoadBalancingV2::Listener`.
 func NewCfnListener_Override(c CfnListener, scope constructs.Construct, id *string, props *CfnListenerProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsathena/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsathena"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -111,8 +113,8 @@ import (
 //
 type CfnWorkGroup interface {
 	awscdk.CfnResource
-	IWorkGroupRef
 	awscdk.IInspectable
+	interfacesawsathena.IWorkGroupRef
 	awscdk.ITaggable
 	// The date and time the workgroup was created, as a UNIX timestamp in seconds.
 	//
@@ -138,7 +140,7 @@ type CfnWorkGroup interface {
 	// The workgroup description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -196,7 +198,7 @@ type CfnWorkGroup interface {
 	// Deprecated: this property has been deprecated.
 	SetWorkGroupConfigurationUpdates(val interface{})
 	// A reference to a WorkGroup resource.
-	WorkGroupRef() *WorkGroupReference
+	WorkGroupRef() *interfacesawsathena.WorkGroupReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -327,8 +329,8 @@ type CfnWorkGroup interface {
 // The jsii proxy struct for CfnWorkGroup
 type jsiiProxy_CfnWorkGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsathenaIWorkGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnWorkGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -552,8 +554,8 @@ func (j *jsiiProxy_CfnWorkGroup) WorkGroupConfigurationUpdates() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkGroup) WorkGroupRef() *WorkGroupReference {
-	var returns *WorkGroupReference
+func (j *jsiiProxy_CfnWorkGroup) WorkGroupRef() *interfacesawsathena.WorkGroupReference {
+	var returns *interfacesawsathena.WorkGroupReference
 	_jsii_.Get(
 		j,
 		"workGroupRef",
@@ -563,6 +565,7 @@ func (j *jsiiProxy_CfnWorkGroup) WorkGroupRef() *WorkGroupReference {
 }
 
 
+// Create a new `AWS::Athena::WorkGroup`.
 func NewCfnWorkGroup(scope constructs.Construct, id *string, props *CfnWorkGroupProps) CfnWorkGroup {
 	_init_.Initialize()
 
@@ -580,6 +583,7 @@ func NewCfnWorkGroup(scope constructs.Construct, id *string, props *CfnWorkGroup
 	return &j
 }
 
+// Create a new `AWS::Athena::WorkGroup`.
 func NewCfnWorkGroup_Override(c CfnWorkGroup, scope constructs.Construct, id *string, props *CfnWorkGroupProps) {
 	_init_.Initialize()
 
@@ -662,13 +666,13 @@ func (j *jsiiProxy_CfnWorkGroup)SetWorkGroupConfigurationUpdates(val interface{}
 }
 
 // Creates a new IWorkGroupRef from a workGroupName.
-func CfnWorkGroup_FromWorkGroupName(scope constructs.Construct, id *string, workGroupName *string) IWorkGroupRef {
+func CfnWorkGroup_FromWorkGroupName(scope constructs.Construct, id *string, workGroupName *string) interfacesawsathena.IWorkGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnWorkGroup_FromWorkGroupNameParameters(scope, id, workGroupName); err != nil {
 		panic(err)
 	}
-	var returns IWorkGroupRef
+	var returns interfacesawsathena.IWorkGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_athena.CfnWorkGroup",

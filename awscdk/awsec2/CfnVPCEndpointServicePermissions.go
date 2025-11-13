@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnVPCEndpointServicePermissions interface {
 	awscdk.CfnResource
-	IVPCEndpointServicePermissionsRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCEndpointServicePermissionsRef
 	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ).
 	AllowedPrincipals() *[]*string
 	SetAllowedPrincipals(val *[]*string)
@@ -45,7 +47,7 @@ type CfnVPCEndpointServicePermissions interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnVPCEndpointServicePermissions interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPCEndpointServicePermissions resource.
-	VpcEndpointServicePermissionsRef() *VPCEndpointServicePermissionsReference
+	VpcEndpointServicePermissionsRef() *interfacesawsec2.VPCEndpointServicePermissionsReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -215,8 +217,8 @@ type CfnVPCEndpointServicePermissions interface {
 // The jsii proxy struct for CfnVPCEndpointServicePermissions
 type jsiiProxy_CfnVPCEndpointServicePermissions struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCEndpointServicePermissionsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCEndpointServicePermissionsRef
 }
 
 func (j *jsiiProxy_CfnVPCEndpointServicePermissions) AllowedPrincipals() *[]*string {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnVPCEndpointServicePermissions) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpointServicePermissions) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCEndpointServicePermissions) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnVPCEndpointServicePermissions) UpdatedProperties() *map[st
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpointServicePermissions) VpcEndpointServicePermissionsRef() *VPCEndpointServicePermissionsReference {
-	var returns *VPCEndpointServicePermissionsReference
+func (j *jsiiProxy_CfnVPCEndpointServicePermissions) VpcEndpointServicePermissionsRef() *interfacesawsec2.VPCEndpointServicePermissionsReference {
+	var returns *interfacesawsec2.VPCEndpointServicePermissionsReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointServicePermissionsRef",
@@ -360,6 +362,7 @@ func (j *jsiiProxy_CfnVPCEndpointServicePermissions) VpcEndpointServicePermissio
 }
 
 
+// Create a new `AWS::EC2::VPCEndpointServicePermissions`.
 func NewCfnVPCEndpointServicePermissions(scope constructs.Construct, id *string, props *CfnVPCEndpointServicePermissionsProps) CfnVPCEndpointServicePermissions {
 	_init_.Initialize()
 
@@ -377,6 +380,7 @@ func NewCfnVPCEndpointServicePermissions(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCEndpointServicePermissions`.
 func NewCfnVPCEndpointServicePermissions_Override(c CfnVPCEndpointServicePermissions, scope constructs.Construct, id *string, props *CfnVPCEndpointServicePermissionsProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,13 +30,13 @@ import (
 //
 type CfnAIGuardrailVersion interface {
 	awscdk.CfnResource
-	IAIGuardrailVersionRef
 	awscdk.IInspectable
+	interfacesawswisdom.IAIGuardrailVersionRef
 	// The ID of the AI guardrail version.
 	AiGuardrailId() *string
 	SetAiGuardrailId(val *string)
 	// A reference to a AIGuardrailVersion resource.
-	AiGuardrailVersionRef() *AIGuardrailVersionReference
+	AiGuardrailVersionRef() *interfacesawswisdom.AIGuardrailVersionReference
 	// The ID of the AI guardrail version assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
@@ -55,7 +57,7 @@ type CfnAIGuardrailVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnAIGuardrailVersion interface {
 // The jsii proxy struct for CfnAIGuardrailVersion
 type jsiiProxy_CfnAIGuardrailVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAIGuardrailVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIAIGuardrailVersionRef
 }
 
 func (j *jsiiProxy_CfnAIGuardrailVersion) AiGuardrailId() *string {
@@ -237,8 +239,8 @@ func (j *jsiiProxy_CfnAIGuardrailVersion) AiGuardrailId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIGuardrailVersion) AiGuardrailVersionRef() *AIGuardrailVersionReference {
-	var returns *AIGuardrailVersionReference
+func (j *jsiiProxy_CfnAIGuardrailVersion) AiGuardrailVersionRef() *interfacesawswisdom.AIGuardrailVersionReference {
+	var returns *interfacesawswisdom.AIGuardrailVersionReference
 	_jsii_.Get(
 		j,
 		"aiGuardrailVersionRef",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnAIGuardrailVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIGuardrailVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAIGuardrailVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -418,6 +420,7 @@ func (j *jsiiProxy_CfnAIGuardrailVersion) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Wisdom::AIGuardrailVersion`.
 func NewCfnAIGuardrailVersion(scope constructs.Construct, id *string, props *CfnAIGuardrailVersionProps) CfnAIGuardrailVersion {
 	_init_.Initialize()
 
@@ -435,6 +438,7 @@ func NewCfnAIGuardrailVersion(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Wisdom::AIGuardrailVersion`.
 func NewCfnAIGuardrailVersion_Override(c CfnAIGuardrailVersion, scope constructs.Construct, id *string, props *CfnAIGuardrailVersionProps) {
 	_init_.Initialize()
 

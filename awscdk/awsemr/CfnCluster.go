@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -22,8 +24,8 @@ import (
 //
 type CfnCluster interface {
 	awscdk.CfnResource
-	IClusterRef
 	awscdk.IInspectable
+	interfacesawsemr.IClusterRef
 	awscdk.ITaggable
 	// A JSON string for selecting additional features.
 	AdditionalInfo() interface{}
@@ -50,7 +52,7 @@ type CfnCluster interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Cluster resource.
-	ClusterRef() *ClusterReference
+	ClusterRef() *interfacesawsemr.ClusterReference
 	// Applies only to Amazon EMR releases 4.x and later. The list of configurations that are supplied to the Amazon EMR cluster.
 	Configurations() interface{}
 	SetConfigurations(val interface{})
@@ -70,7 +72,7 @@ type CfnCluster interface {
 	// The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
 	EbsRootVolumeThroughput() *float64
 	SetEbsRootVolumeThroughput(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A specification of the number and type of Amazon EC2 instances.
 	Instances() interface{}
 	SetInstances(val interface{})
@@ -287,8 +289,8 @@ type CfnCluster interface {
 // The jsii proxy struct for CfnCluster
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrIClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnCluster) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) ClusterRef() *ClusterReference {
-	var returns *ClusterReference
+func (j *jsiiProxy_CfnCluster) ClusterRef() *interfacesawsemr.ClusterReference {
+	var returns *interfacesawsemr.ClusterReference
 	_jsii_.Get(
 		j,
 		"clusterRef",
@@ -462,8 +464,8 @@ func (j *jsiiProxy_CfnCluster) EbsRootVolumeThroughput() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -713,6 +715,7 @@ func (j *jsiiProxy_CfnCluster) VisibleToAllUsers() interface{} {
 }
 
 
+// Create a new `AWS::EMR::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -730,6 +733,7 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
+// Create a new `AWS::EMR::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -999,13 +1003,13 @@ func (j *jsiiProxy_CfnCluster)SetVisibleToAllUsers(val interface{}) {
 }
 
 // Creates a new IClusterRef from a clusterId.
-func CfnCluster_FromClusterId(scope constructs.Construct, id *string, clusterId *string) IClusterRef {
+func CfnCluster_FromClusterId(scope constructs.Construct, id *string, clusterId *string) interfacesawsemr.IClusterRef {
 	_init_.Initialize()
 
 	if err := validateCfnCluster_FromClusterIdParameters(scope, id, clusterId); err != nil {
 		panic(err)
 	}
-	var returns IClusterRef
+	var returns interfacesawsemr.IClusterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_emr.CfnCluster",

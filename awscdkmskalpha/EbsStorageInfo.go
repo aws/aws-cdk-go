@@ -1,7 +1,7 @@
 package awscdkmskalpha
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // EBS volume information.
@@ -25,7 +25,7 @@ type EbsStorageInfo struct {
 	// Default: Uses AWS managed CMK (aws/kafka).
 	//
 	// Experimental.
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	// Default: 1000.
 	//

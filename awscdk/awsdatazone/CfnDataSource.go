@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -111,8 +113,8 @@ import (
 //
 type CfnDataSource interface {
 	awscdk.CfnResource
-	IDataSourceRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IDataSourceRef
 	// The metadata forms attached to the assets that the data source works with.
 	AssetFormsInput() interface{}
 	SetAssetFormsInput(val interface{})
@@ -154,7 +156,7 @@ type CfnDataSource interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataSource resource.
-	DataSourceRef() *DataSourceReference
+	DataSourceRef() *interfacesawsdatazone.DataSourceReference
 	// The description of the data source.
 	Description() *string
 	SetDescription(val *string)
@@ -164,7 +166,7 @@ type CfnDataSource interface {
 	// Specifies whether the data source is enabled.
 	EnableSetting() *string
 	SetEnableSetting(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -350,8 +352,8 @@ type CfnDataSource interface {
 // The jsii proxy struct for CfnDataSource
 type jsiiProxy_CfnDataSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIDataSourceRef
 }
 
 func (j *jsiiProxy_CfnDataSource) AssetFormsInput() interface{} {
@@ -534,8 +536,8 @@ func (j *jsiiProxy_CfnDataSource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) DataSourceRef() *DataSourceReference {
-	var returns *DataSourceReference
+func (j *jsiiProxy_CfnDataSource) DataSourceRef() *interfacesawsdatazone.DataSourceReference {
+	var returns *interfacesawsdatazone.DataSourceReference
 	_jsii_.Get(
 		j,
 		"dataSourceRef",
@@ -574,8 +576,8 @@ func (j *jsiiProxy_CfnDataSource) EnableSetting() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -715,6 +717,7 @@ func (j *jsiiProxy_CfnDataSource) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataZone::DataSource`.
 func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
@@ -732,6 +735,7 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 	return &j
 }
 
+// Create a new `AWS::DataZone::DataSource`.
 func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 

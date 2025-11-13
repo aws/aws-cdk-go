@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +64,8 @@ import (
 //
 type CfnIPAMPool interface {
 	awscdk.CfnResource
-	IIPAMPoolRef
 	awscdk.IInspectable
+	interfacesawsec2.IIPAMPoolRef
 	awscdk.ITaggable
 	// The address family of the pool.
 	AddressFamily() *string
@@ -116,9 +118,9 @@ type CfnIPAMPool interface {
 	// The description of the IPAM pool.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IPAMPool resource.
-	IpamPoolRef() *IPAMPoolReference
+	IpamPoolRef() *interfacesawsec2.IPAMPoolReference
 	// The ID of the scope in which you would like to create the IPAM pool.
 	IpamScopeId() *string
 	SetIpamScopeId(val *string)
@@ -309,8 +311,8 @@ type CfnIPAMPool interface {
 // The jsii proxy struct for CfnIPAMPool
 type jsiiProxy_CfnIPAMPool struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIPAMPoolRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IIPAMPoolRef
 	internal.Type__awscdkITaggable
 }
 
@@ -514,8 +516,8 @@ func (j *jsiiProxy_CfnIPAMPool) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMPool) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIPAMPool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -524,8 +526,8 @@ func (j *jsiiProxy_CfnIPAMPool) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMPool) IpamPoolRef() *IPAMPoolReference {
-	var returns *IPAMPoolReference
+func (j *jsiiProxy_CfnIPAMPool) IpamPoolRef() *interfacesawsec2.IPAMPoolReference {
+	var returns *interfacesawsec2.IPAMPoolReference
 	_jsii_.Get(
 		j,
 		"ipamPoolRef",
@@ -685,6 +687,7 @@ func (j *jsiiProxy_CfnIPAMPool) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::IPAMPool`.
 func NewCfnIPAMPool(scope constructs.Construct, id *string, props *CfnIPAMPoolProps) CfnIPAMPool {
 	_init_.Initialize()
 
@@ -702,6 +705,7 @@ func NewCfnIPAMPool(scope constructs.Construct, id *string, props *CfnIPAMPoolPr
 	return &j
 }
 
+// Create a new `AWS::EC2::IPAMPool`.
 func NewCfnIPAMPool_Override(c CfnIPAMPool, scope constructs.Construct, id *string, props *CfnIPAMPoolProps) {
 	_init_.Initialize()
 
@@ -865,13 +869,13 @@ func (j *jsiiProxy_CfnIPAMPool)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IIPAMPoolRef from an ARN.
-func CfnIPAMPool_FromIPAMPoolArn(scope constructs.Construct, id *string, arn *string) IIPAMPoolRef {
+func CfnIPAMPool_FromIPAMPoolArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IIPAMPoolRef {
 	_init_.Initialize()
 
 	if err := validateCfnIPAMPool_FromIPAMPoolArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IIPAMPoolRef
+	var returns interfacesawsec2.IIPAMPoolRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAMPool",
@@ -884,13 +888,13 @@ func CfnIPAMPool_FromIPAMPoolArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new IIPAMPoolRef from a ipamPoolId.
-func CfnIPAMPool_FromIpamPoolId(scope constructs.Construct, id *string, ipamPoolId *string) IIPAMPoolRef {
+func CfnIPAMPool_FromIpamPoolId(scope constructs.Construct, id *string, ipamPoolId *string) interfacesawsec2.IIPAMPoolRef {
 	_init_.Initialize()
 
 	if err := validateCfnIPAMPool_FromIpamPoolIdParameters(scope, id, ipamPoolId); err != nil {
 		panic(err)
 	}
-	var returns IIPAMPoolRef
+	var returns interfacesawsec2.IIPAMPoolRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAMPool",

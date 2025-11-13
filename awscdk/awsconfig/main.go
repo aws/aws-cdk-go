@@ -41,10 +41,6 @@ func init() {
 		"aws-cdk-lib.aws_config.AccessKeysRotatedProps",
 		reflect.TypeOf((*AccessKeysRotatedProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.AggregationAuthorizationReference",
-		reflect.TypeOf((*AggregationAuthorizationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_config.CfnAggregationAuthorization",
 		reflect.TypeOf((*CfnAggregationAuthorization)(nil)).Elem(),
@@ -90,8 +86,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAggregationAuthorization{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAggregationAuthorizationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIAggregationAuthorizationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -151,8 +147,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConfigRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIConfigRuleRef)
 			return &j
 		},
 	)
@@ -230,8 +226,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConfigurationAggregator{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigurationAggregatorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIConfigurationAggregatorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -293,8 +289,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConfigurationRecorder{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigurationRecorderRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIConfigurationRecorderRef)
 			return &j
 		},
 	)
@@ -369,8 +365,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnConformancePack{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConformancePackRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIConformancePackRef)
 			return &j
 		},
 	)
@@ -433,8 +429,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDeliveryChannel{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeliveryChannelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIDeliveryChannelRef)
 			return &j
 		},
 	)
@@ -492,8 +488,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnOrganizationConfigRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOrganizationConfigRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIOrganizationConfigRuleRef)
 			return &j
 		},
 	)
@@ -560,8 +556,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnOrganizationConformancePack{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOrganizationConformancePackRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIOrganizationConformancePackRef)
 			return &j
 		},
 	)
@@ -624,8 +620,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRemediationConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRemediationConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIRemediationConfigurationRef)
 			return &j
 		},
 	)
@@ -700,8 +696,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStoredQuery{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStoredQueryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIStoredQueryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -778,22 +774,6 @@ func init() {
 		"aws-cdk-lib.aws_config.CloudFormationStackNotificationCheckProps",
 		reflect.TypeOf((*CloudFormationStackNotificationCheckProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.ConfigRuleReference",
-		reflect.TypeOf((*ConfigRuleReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.ConfigurationAggregatorReference",
-		reflect.TypeOf((*ConfigurationAggregatorReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.ConfigurationRecorderReference",
-		reflect.TypeOf((*ConfigurationRecorderReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.ConformancePackReference",
-		reflect.TypeOf((*ConformancePackReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_config.CustomPolicy",
 		reflect.TypeOf((*CustomPolicy)(nil)).Elem(),
@@ -864,10 +844,6 @@ func init() {
 		"aws-cdk-lib.aws_config.CustomRuleProps",
 		reflect.TypeOf((*CustomRuleProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.DeliveryChannelReference",
-		reflect.TypeOf((*DeliveryChannelReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_config.EvaluationMode",
 		reflect.TypeOf((*EvaluationMode)(nil)).Elem(),
@@ -876,141 +852,6 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_EvaluationMode{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IAggregationAuthorizationRef",
-		reflect.TypeOf((*IAggregationAuthorizationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "aggregationAuthorizationRef", GoGetter: "AggregationAuthorizationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAggregationAuthorizationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IConfigRuleRef",
-		reflect.TypeOf((*IConfigRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConfigRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IConfigurationAggregatorRef",
-		reflect.TypeOf((*IConfigurationAggregatorRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationAggregatorRef", GoGetter: "ConfigurationAggregatorRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConfigurationAggregatorRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IConfigurationRecorderRef",
-		reflect.TypeOf((*IConfigurationRecorderRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationRecorderRef", GoGetter: "ConfigurationRecorderRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConfigurationRecorderRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IConformancePackRef",
-		reflect.TypeOf((*IConformancePackRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "conformancePackRef", GoGetter: "ConformancePackRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IConformancePackRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IDeliveryChannelRef",
-		reflect.TypeOf((*IDeliveryChannelRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deliveryChannelRef", GoGetter: "DeliveryChannelRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeliveryChannelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IOrganizationConfigRuleRef",
-		reflect.TypeOf((*IOrganizationConfigRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "organizationConfigRuleRef", GoGetter: "OrganizationConfigRuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IOrganizationConfigRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IOrganizationConformancePackRef",
-		reflect.TypeOf((*IOrganizationConformancePackRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "organizationConformancePackRef", GoGetter: "OrganizationConformancePackRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IOrganizationConformancePackRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IRemediationConfigurationRef",
-		reflect.TypeOf((*IRemediationConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "remediationConfigurationRef", GoGetter: "RemediationConfigurationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRemediationConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1029,21 +870,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_config.IStoredQueryRef",
-		reflect.TypeOf((*IStoredQueryRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "storedQueryRef", GoGetter: "StoredQueryRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStoredQueryRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1101,18 +927,6 @@ func init() {
 			"TWENTY_FOUR_HOURS": MaximumExecutionFrequency_TWENTY_FOUR_HOURS,
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.OrganizationConfigRuleReference",
-		reflect.TypeOf((*OrganizationConfigRuleReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.OrganizationConformancePackReference",
-		reflect.TypeOf((*OrganizationConformancePackReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.RemediationConfigurationReference",
-		reflect.TypeOf((*RemediationConfigurationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_config.ResourceType",
 		reflect.TypeOf((*ResourceType)(nil)).Elem(),
@@ -1139,9 +953,5 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_RuleScope{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_config.StoredQueryReference",
-		reflect.TypeOf((*StoredQueryReference)(nil)).Elem(),
 	)
 }

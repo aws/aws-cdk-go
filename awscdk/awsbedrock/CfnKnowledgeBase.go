@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -225,8 +227,8 @@ import (
 //
 type CfnKnowledgeBase interface {
 	awscdk.CfnResource
-	IKnowledgeBaseRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IKnowledgeBaseRef
 	awscdk.ITaggableV2
 	// The time the knowledge base was created.
 	AttrCreatedAt() *string
@@ -254,12 +256,12 @@ type CfnKnowledgeBase interface {
 	// The description of the knowledge base associated with the inline agent.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Contains details about the embeddings configuration of the knowledge base.
 	KnowledgeBaseConfiguration() interface{}
 	SetKnowledgeBaseConfiguration(val interface{})
 	// A reference to a KnowledgeBase resource.
-	KnowledgeBaseRef() *KnowledgeBaseReference
+	KnowledgeBaseRef() *interfacesawsbedrock.KnowledgeBaseReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -438,8 +440,8 @@ type CfnKnowledgeBase interface {
 // The jsii proxy struct for CfnKnowledgeBase
 type jsiiProxy_CfnKnowledgeBase struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKnowledgeBaseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIKnowledgeBaseRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -563,8 +565,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKnowledgeBase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKnowledgeBase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -583,8 +585,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) KnowledgeBaseConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKnowledgeBase) KnowledgeBaseRef() *KnowledgeBaseReference {
-	var returns *KnowledgeBaseReference
+func (j *jsiiProxy_CfnKnowledgeBase) KnowledgeBaseRef() *interfacesawsbedrock.KnowledgeBaseReference {
+	var returns *interfacesawsbedrock.KnowledgeBaseReference
 	_jsii_.Get(
 		j,
 		"knowledgeBaseRef",
@@ -694,6 +696,7 @@ func (j *jsiiProxy_CfnKnowledgeBase) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Bedrock::KnowledgeBase`.
 func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) CfnKnowledgeBase {
 	_init_.Initialize()
 
@@ -711,6 +714,7 @@ func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowl
 	return &j
 }
 
+// Create a new `AWS::Bedrock::KnowledgeBase`.
 func NewCfnKnowledgeBase_Override(c CfnKnowledgeBase, scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) {
 	_init_.Initialize()
 
@@ -782,13 +786,13 @@ func (j *jsiiProxy_CfnKnowledgeBase)SetTags(val *map[string]*string) {
 }
 
 // Creates a new IKnowledgeBaseRef from an ARN.
-func CfnKnowledgeBase_FromKnowledgeBaseArn(scope constructs.Construct, id *string, arn *string) IKnowledgeBaseRef {
+func CfnKnowledgeBase_FromKnowledgeBaseArn(scope constructs.Construct, id *string, arn *string) interfacesawsbedrock.IKnowledgeBaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnKnowledgeBase_FromKnowledgeBaseArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IKnowledgeBaseRef
+	var returns interfacesawsbedrock.IKnowledgeBaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase",
@@ -801,13 +805,13 @@ func CfnKnowledgeBase_FromKnowledgeBaseArn(scope constructs.Construct, id *strin
 }
 
 // Creates a new IKnowledgeBaseRef from a knowledgeBaseId.
-func CfnKnowledgeBase_FromKnowledgeBaseId(scope constructs.Construct, id *string, knowledgeBaseId *string) IKnowledgeBaseRef {
+func CfnKnowledgeBase_FromKnowledgeBaseId(scope constructs.Construct, id *string, knowledgeBaseId *string) interfacesawsbedrock.IKnowledgeBaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnKnowledgeBase_FromKnowledgeBaseIdParameters(scope, id, knowledgeBaseId); err != nil {
 		panic(err)
 	}
-	var returns IKnowledgeBaseRef
+	var returns interfacesawsbedrock.IKnowledgeBaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase",

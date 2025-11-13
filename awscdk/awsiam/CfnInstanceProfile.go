@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnInstanceProfile interface {
 	awscdk.CfnResource
-	IInstanceProfileRef
 	awscdk.IInspectable
+	interfacesawsiam.IInstanceProfileRef
 	// Returns the Amazon Resource Name (ARN) for the instance profile. For example:.
 	//
 	// `{"Fn::GetAtt" : ["MyProfile", "Arn"] }`
@@ -49,12 +51,12 @@ type CfnInstanceProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the instance profile to create.
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
 	// A reference to a InstanceProfile resource.
-	InstanceProfileRef() *InstanceProfileReference
+	InstanceProfileRef() *interfacesawsiam.InstanceProfileReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,8 +227,8 @@ type CfnInstanceProfile interface {
 // The jsii proxy struct for CfnInstanceProfile
 type jsiiProxy_CfnInstanceProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIInstanceProfileRef
 }
 
 func (j *jsiiProxy_CfnInstanceProfile) AttrArn() *string {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnInstanceProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnInstanceProfile) InstanceProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceProfile) InstanceProfileRef() *InstanceProfileReference {
-	var returns *InstanceProfileReference
+func (j *jsiiProxy_CfnInstanceProfile) InstanceProfileRef() *interfacesawsiam.InstanceProfileReference {
+	var returns *interfacesawsiam.InstanceProfileReference
 	_jsii_.Get(
 		j,
 		"instanceProfileRef",
@@ -390,6 +392,7 @@ func (j *jsiiProxy_CfnInstanceProfile) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::IAM::InstanceProfile`.
 func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnInstanceProfileProps) CfnInstanceProfile {
 	_init_.Initialize()
 
@@ -407,6 +410,7 @@ func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnIns
 	return &j
 }
 
+// Create a new `AWS::IAM::InstanceProfile`.
 func NewCfnInstanceProfile_Override(c CfnInstanceProfile, scope constructs.Construct, id *string, props *CfnInstanceProfileProps) {
 	_init_.Initialize()
 

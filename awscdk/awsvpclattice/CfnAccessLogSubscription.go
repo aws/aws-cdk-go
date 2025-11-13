@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,11 +38,11 @@ import (
 //
 type CfnAccessLogSubscription interface {
 	awscdk.CfnResource
-	IAccessLogSubscriptionRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.IAccessLogSubscriptionRef
 	awscdk.ITaggable
 	// A reference to a AccessLogSubscription resource.
-	AccessLogSubscriptionRef() *AccessLogSubscriptionReference
+	AccessLogSubscriptionRef() *interfacesawsvpclattice.AccessLogSubscriptionReference
 	// The Amazon Resource Name (ARN) of the access log subscription.
 	AttrArn() *string
 	// The ID of the access log subscription.
@@ -61,7 +63,7 @@ type CfnAccessLogSubscription interface {
 	// The Amazon Resource Name (ARN) of the destination.
 	DestinationArn() *string
 	SetDestinationArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,13 +239,13 @@ type CfnAccessLogSubscription interface {
 // The jsii proxy struct for CfnAccessLogSubscription
 type jsiiProxy_CfnAccessLogSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessLogSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeIAccessLogSubscriptionRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAccessLogSubscription) AccessLogSubscriptionRef() *AccessLogSubscriptionReference {
-	var returns *AccessLogSubscriptionReference
+func (j *jsiiProxy_CfnAccessLogSubscription) AccessLogSubscriptionRef() *interfacesawsvpclattice.AccessLogSubscriptionReference {
+	var returns *interfacesawsvpclattice.AccessLogSubscriptionReference
 	_jsii_.Get(
 		j,
 		"accessLogSubscriptionRef",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnAccessLogSubscription) DestinationArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessLogSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessLogSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnAccessLogSubscription) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::VpcLattice::AccessLogSubscription`.
 func NewCfnAccessLogSubscription(scope constructs.Construct, id *string, props *CfnAccessLogSubscriptionProps) CfnAccessLogSubscription {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnAccessLogSubscription(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::AccessLogSubscription`.
 func NewCfnAccessLogSubscription_Override(c CfnAccessLogSubscription, scope constructs.Construct, id *string, props *CfnAccessLogSubscriptionProps) {
 	_init_.Initialize()
 

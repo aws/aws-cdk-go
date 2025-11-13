@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -87,8 +89,8 @@ import (
 //
 type CfnDeployment interface {
 	awscdk.CfnResource
-	IDeploymentRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IDeploymentRef
 	// The ID for the deployment.
 	//
 	// For example: `abc123` .
@@ -106,11 +108,11 @@ type CfnDeployment interface {
 	DeploymentCanarySettings() interface{}
 	SetDeploymentCanarySettings(val interface{})
 	// A reference to a Deployment resource.
-	DeploymentRef() *DeploymentReference
+	DeploymentRef() *interfacesawsapigateway.DeploymentReference
 	// The description for the Deployment resource to create.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -284,8 +286,8 @@ type CfnDeployment interface {
 // The jsii proxy struct for CfnDeployment
 type jsiiProxy_CfnDeployment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeploymentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIDeploymentRef
 }
 
 func (j *jsiiProxy_CfnDeployment) AttrDeploymentId() *string {
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnDeployment) DeploymentCanarySettings() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) DeploymentRef() *DeploymentReference {
-	var returns *DeploymentReference
+func (j *jsiiProxy_CfnDeployment) DeploymentRef() *interfacesawsapigateway.DeploymentReference {
+	var returns *interfacesawsapigateway.DeploymentReference
 	_jsii_.Get(
 		j,
 		"deploymentRef",
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnDeployment) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeployment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -469,6 +471,7 @@ func (j *jsiiProxy_CfnDeployment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGateway::Deployment`.
 func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeploymentProps) CfnDeployment {
 	_init_.Initialize()
 
@@ -486,6 +489,7 @@ func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeployme
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::Deployment`.
 func NewCfnDeployment_Override(c CfnDeployment, scope constructs.Construct, id *string, props *CfnDeploymentProps) {
 	_init_.Initialize()
 

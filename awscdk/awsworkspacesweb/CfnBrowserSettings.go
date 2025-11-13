@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnBrowserSettings interface {
 	awscdk.CfnResource
-	IBrowserSettingsRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.IBrowserSettingsRef
 	awscdk.ITaggableV2
 	// Additional encryption context of the browser settings.
 	AdditionalEncryptionContext() interface{}
@@ -50,7 +52,7 @@ type CfnBrowserSettings interface {
 	BrowserPolicy() *string
 	SetBrowserPolicy(val *string)
 	// A reference to a BrowserSettings resource.
-	BrowserSettingsRef() *BrowserSettingsReference
+	BrowserSettingsRef() *interfacesawsworkspacesweb.BrowserSettingsReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -65,7 +67,7 @@ type CfnBrowserSettings interface {
 	// The custom managed key of the browser settings.
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -233,8 +235,8 @@ type CfnBrowserSettings interface {
 // The jsii proxy struct for CfnBrowserSettings
 type jsiiProxy_CfnBrowserSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBrowserSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebIBrowserSettingsRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnBrowserSettings) BrowserPolicy() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBrowserSettings) BrowserSettingsRef() *BrowserSettingsReference {
-	var returns *BrowserSettingsReference
+func (j *jsiiProxy_CfnBrowserSettings) BrowserSettingsRef() *interfacesawsworkspacesweb.BrowserSettingsReference {
+	var returns *interfacesawsworkspacesweb.BrowserSettingsReference
 	_jsii_.Get(
 		j,
 		"browserSettingsRef",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnBrowserSettings) CustomerManagedKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBrowserSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBrowserSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnBrowserSettings) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::BrowserSettings`.
 func NewCfnBrowserSettings(scope constructs.Construct, id *string, props *CfnBrowserSettingsProps) CfnBrowserSettings {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnBrowserSettings(scope constructs.Construct, id *string, props *CfnBro
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::BrowserSettings`.
 func NewCfnBrowserSettings_Override(c CfnBrowserSettings, scope constructs.Construct, id *string, props *CfnBrowserSettingsProps) {
 	_init_.Initialize()
 

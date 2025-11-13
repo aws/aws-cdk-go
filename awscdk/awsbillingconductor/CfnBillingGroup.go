@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbillingconductor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbillingconductor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnBillingGroup interface {
 	awscdk.CfnResource
-	IBillingGroupRef
 	awscdk.IInspectable
+	interfacesawsbillingconductor.IBillingGroupRef
 	awscdk.ITaggable
 	// The set of accounts that will be under the billing group.
 	AccountGrouping() interface{}
@@ -66,7 +68,7 @@ type CfnBillingGroup interface {
 	// The reason why the billing group is in its current status.
 	AttrStatusReason() *string
 	// A reference to a BillingGroup resource.
-	BillingGroupRef() *BillingGroupReference
+	BillingGroupRef() *interfacesawsbillingconductor.BillingGroupReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -82,7 +84,7 @@ type CfnBillingGroup interface {
 	// The description of the billing group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -258,8 +260,8 @@ type CfnBillingGroup interface {
 // The jsii proxy struct for CfnBillingGroup
 type jsiiProxy_CfnBillingGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBillingGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbillingconductorIBillingGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnBillingGroup) AttrStatusReason() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBillingGroup) BillingGroupRef() *BillingGroupReference {
-	var returns *BillingGroupReference
+func (j *jsiiProxy_CfnBillingGroup) BillingGroupRef() *interfacesawsbillingconductor.BillingGroupReference {
+	var returns *interfacesawsbillingconductor.BillingGroupReference
 	_jsii_.Get(
 		j,
 		"billingGroupRef",
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnBillingGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBillingGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBillingGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -514,6 +516,7 @@ func (j *jsiiProxy_CfnBillingGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::BillingConductor::BillingGroup`.
 func NewCfnBillingGroup(scope constructs.Construct, id *string, props *CfnBillingGroupProps) CfnBillingGroup {
 	_init_.Initialize()
 
@@ -531,6 +534,7 @@ func NewCfnBillingGroup(scope constructs.Construct, id *string, props *CfnBillin
 	return &j
 }
 
+// Create a new `AWS::BillingConductor::BillingGroup`.
 func NewCfnBillingGroup_Override(c CfnBillingGroup, scope constructs.Construct, id *string, props *CfnBillingGroupProps) {
 	_init_.Initialize()
 

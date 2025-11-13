@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnDBParameterGroup interface {
 	awscdk.CfnResource
-	IDBParameterGroupRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBParameterGroupRef
 	awscdk.ITaggable
 	// The name of the DB parameter group.
 	AttrDbParameterGroupName() *string
@@ -63,11 +65,11 @@ type CfnDBParameterGroup interface {
 	DbParameterGroupName() *string
 	SetDbParameterGroupName(val *string)
 	// A reference to a DBParameterGroup resource.
-	DbParameterGroupRef() *DBParameterGroupReference
+	DbParameterGroupRef() *interfacesawsrds.DBParameterGroupReference
 	// Provides the customer-specified description for this DB parameter group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The DB parameter group family name.
 	Family() *string
 	SetFamily(val *string)
@@ -243,8 +245,8 @@ type CfnDBParameterGroup interface {
 // The jsii proxy struct for CfnDBParameterGroup
 type jsiiProxy_CfnDBParameterGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBParameterGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBParameterGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnDBParameterGroup) DbParameterGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBParameterGroup) DbParameterGroupRef() *DBParameterGroupReference {
-	var returns *DBParameterGroupReference
+func (j *jsiiProxy_CfnDBParameterGroup) DbParameterGroupRef() *interfacesawsrds.DBParameterGroupReference {
+	var returns *interfacesawsrds.DBParameterGroupReference
 	_jsii_.Get(
 		j,
 		"dbParameterGroupRef",
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnDBParameterGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBParameterGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBParameterGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::RDS::DBParameterGroup`.
 func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) CfnDBParameterGroup {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDB
 	return &j
 }
 
+// Create a new `AWS::RDS::DBParameterGroup`.
 func NewCfnDBParameterGroup_Override(c CfnDBParameterGroup, scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) {
 	_init_.Initialize()
 

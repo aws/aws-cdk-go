@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,7 +38,7 @@ type User interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() IPrincipal
 	// The tree node.
@@ -67,7 +69,7 @@ type User interface {
 	// An attribute that represents the user name.
 	UserName() *string
 	// A reference to a User resource.
-	UserRef() *UserReference
+	UserRef() *interfacesawsiam.UserReference
 	// Attaches a managed policy to the user.
 	AddManagedPolicy(policy IManagedPolicy)
 	// Adds this user to a group.
@@ -125,8 +127,8 @@ func (j *jsiiProxy_User) AssumeRoleAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_User) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_User) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -225,8 +227,8 @@ func (j *jsiiProxy_User) UserName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_User) UserRef() *UserReference {
-	var returns *UserReference
+func (j *jsiiProxy_User) UserRef() *interfacesawsiam.UserReference {
+	var returns *interfacesawsiam.UserReference
 	_jsii_.Get(
 		j,
 		"userRef",

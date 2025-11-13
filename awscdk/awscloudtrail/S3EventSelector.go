@@ -1,7 +1,7 @@
 package awscloudtrail
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Selecting an S3 bucket and an optional prefix to be logged for data events.
@@ -23,7 +23,7 @@ import (
 //
 type S3EventSelector struct {
 	// S3 bucket.
-	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket interfacesawss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
 	// Data events for objects whose key matches this prefix will be logged.
 	// Default: - all objects.
 	//

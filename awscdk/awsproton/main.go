@@ -58,8 +58,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEnvironmentAccountConnection{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEnvironmentAccountConnectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsprotonIEnvironmentAccountConnectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -116,8 +116,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEnvironmentTemplate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEnvironmentTemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsprotonIEnvironmentTemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -174,8 +174,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnServiceTemplate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IServiceTemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsprotonIServiceTemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -183,62 +183,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_proton.CfnServiceTemplateProps",
 		reflect.TypeOf((*CfnServiceTemplateProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_proton.EnvironmentAccountConnectionReference",
-		reflect.TypeOf((*EnvironmentAccountConnectionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_proton.EnvironmentTemplateReference",
-		reflect.TypeOf((*EnvironmentTemplateReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_proton.IEnvironmentAccountConnectionRef",
-		reflect.TypeOf((*IEnvironmentAccountConnectionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "environmentAccountConnectionRef", GoGetter: "EnvironmentAccountConnectionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEnvironmentAccountConnectionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_proton.IEnvironmentTemplateRef",
-		reflect.TypeOf((*IEnvironmentTemplateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "environmentTemplateRef", GoGetter: "EnvironmentTemplateRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEnvironmentTemplateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_proton.IServiceTemplateRef",
-		reflect.TypeOf((*IServiceTemplateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceTemplateRef", GoGetter: "ServiceTemplateRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IServiceTemplateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_proton.ServiceTemplateReference",
-		reflect.TypeOf((*ServiceTemplateReference)(nil)).Elem(),
 	)
 }

@@ -5,6 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,7 +51,7 @@ type ProxyResource interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// The parent of this resource or undefined for the root resource.
@@ -67,7 +69,7 @@ type ProxyResource interface {
 	// The ID of the resource.
 	ResourceId() *string
 	// A reference to a Resource resource.
-	ResourceRef() *ResourceReference
+	ResourceRef() *interfacesawsapigateway.ResourceReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds an OPTIONS method to this resource which responds to Cross-Origin Resource Sharing (CORS) preflight requests.
@@ -175,8 +177,8 @@ func (j *jsiiProxy_ProxyResource) DefaultMethodOptions() *MethodOptions {
 	return returns
 }
 
-func (j *jsiiProxy_ProxyResource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ProxyResource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -235,8 +237,8 @@ func (j *jsiiProxy_ProxyResource) ResourceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ProxyResource) ResourceRef() *ResourceReference {
-	var returns *ResourceReference
+func (j *jsiiProxy_ProxyResource) ResourceRef() *interfacesawsapigateway.ResourceReference {
+	var returns *interfacesawsapigateway.ResourceReference
 	_jsii_.Get(
 		j,
 		"resourceRef",

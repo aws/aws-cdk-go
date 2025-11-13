@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,11 +40,11 @@ import (
 //
 type CfnApp interface {
 	awscdk.CfnResource
-	IAppRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IAppRef
 	awscdk.ITaggable
 	// A reference to a App resource.
-	AppRef() *AppReference
+	AppRef() *interfacesawspinpoint.AppReference
 	// The Amazon Resource Name (ARN) of the application.
 	AttrArn() *string
 	// The unique identifier for the application.
@@ -58,7 +60,7 @@ type CfnApp interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,13 +233,13 @@ type CfnApp interface {
 // The jsii proxy struct for CfnApp
 type jsiiProxy_CfnApp struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAppRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIAppRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnApp) AppRef() *AppReference {
-	var returns *AppReference
+func (j *jsiiProxy_CfnApp) AppRef() *interfacesawspinpoint.AppReference {
+	var returns *interfacesawspinpoint.AppReference
 	_jsii_.Get(
 		j,
 		"appRef",
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnApp) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApp) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApp) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnApp) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::App`.
 func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnApp {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnAp
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::App`.
 func NewCfnApp_Override(c CfnApp, scope constructs.Construct, id *string, props *CfnAppProps) {
 	_init_.Initialize()
 
@@ -454,13 +458,13 @@ func (j *jsiiProxy_CfnApp)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new IAppRef from an ARN.
-func CfnApp_FromAppArn(scope constructs.Construct, id *string, arn *string) IAppRef {
+func CfnApp_FromAppArn(scope constructs.Construct, id *string, arn *string) interfacesawspinpoint.IAppRef {
 	_init_.Initialize()
 
 	if err := validateCfnApp_FromAppArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAppRef
+	var returns interfacesawspinpoint.IAppRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_pinpoint.CfnApp",
@@ -473,13 +477,13 @@ func CfnApp_FromAppArn(scope constructs.Construct, id *string, arn *string) IApp
 }
 
 // Creates a new IAppRef from a appId.
-func CfnApp_FromAppId(scope constructs.Construct, id *string, appId *string) IAppRef {
+func CfnApp_FromAppId(scope constructs.Construct, id *string, appId *string) interfacesawspinpoint.IAppRef {
 	_init_.Initialize()
 
 	if err := validateCfnApp_FromAppIdParameters(scope, id, appId); err != nil {
 		panic(err)
 	}
-	var returns IAppRef
+	var returns interfacesawspinpoint.IAppRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_pinpoint.CfnApp",

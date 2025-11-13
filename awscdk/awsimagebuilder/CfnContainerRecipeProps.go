@@ -9,6 +9,16 @@ package awsimagebuilder
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnContainerRecipeProps := &CfnContainerRecipeProps{
+//   	ContainerType: jsii.String("containerType"),
+//   	Name: jsii.String("name"),
+//   	ParentImage: jsii.String("parentImage"),
+//   	TargetRepository: &TargetContainerRepositoryProperty{
+//   		RepositoryName: jsii.String("repositoryName"),
+//   		Service: jsii.String("service"),
+//   	},
+//   	Version: jsii.String("version"),
+//
+//   	// the properties below are optional
 //   	Components: []interface{}{
 //   		&ComponentConfigurationProperty{
 //   			ComponentArn: jsii.String("componentArn"),
@@ -22,16 +32,6 @@ package awsimagebuilder
 //   			},
 //   		},
 //   	},
-//   	ContainerType: jsii.String("containerType"),
-//   	Name: jsii.String("name"),
-//   	ParentImage: jsii.String("parentImage"),
-//   	TargetRepository: &TargetContainerRepositoryProperty{
-//   		RepositoryName: jsii.String("repositoryName"),
-//   		Service: jsii.String("service"),
-//   	},
-//   	Version: jsii.String("version"),
-//
-//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	DockerfileTemplateData: jsii.String("dockerfileTemplateData"),
 //   	DockerfileTemplateUri: jsii.String("dockerfileTemplateUri"),
@@ -67,12 +67,6 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html
 //
 type CfnContainerRecipeProps struct {
-	// Build and test components that are included in the container recipe.
-	//
-	// Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
-	//
-	Components interface{} `field:"required" json:"components" yaml:"components"`
 	// Specifies the type of container, such as Docker.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
 	//
@@ -103,6 +97,12 @@ type CfnContainerRecipeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
 	//
 	Version *string `field:"required" json:"version" yaml:"version"`
+	// Build and test components that are included in the container recipe.
+	//
+	// Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+	//
+	Components interface{} `field:"optional" json:"components" yaml:"components"`
 	// The description of the container recipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
 	//

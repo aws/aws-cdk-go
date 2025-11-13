@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapprunner/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapprunner"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnVpcIngressConnection interface {
 	awscdk.CfnResource
-	IVpcIngressConnectionRef
 	awscdk.IInspectable
+	interfacesawsapprunner.IVpcIngressConnectionRef
 	awscdk.ITaggable
 	// The domain name associated with the VPC Ingress Connection resource.
 	AttrDomainName() *string
@@ -61,7 +63,7 @@ type CfnVpcIngressConnection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
 	IngressVpcConfiguration() interface{}
 	SetIngressVpcConfiguration(val interface{})
@@ -111,7 +113,7 @@ type CfnVpcIngressConnection interface {
 	VpcIngressConnectionName() *string
 	SetVpcIngressConnectionName(val *string)
 	// A reference to a VpcIngressConnection resource.
-	VpcIngressConnectionRef() *VpcIngressConnectionReference
+	VpcIngressConnectionRef() *interfacesawsapprunner.VpcIngressConnectionReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -242,8 +244,8 @@ type CfnVpcIngressConnection interface {
 // The jsii proxy struct for CfnVpcIngressConnection
 type jsiiProxy_CfnVpcIngressConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVpcIngressConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapprunnerIVpcIngressConnectionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnVpcIngressConnection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcIngressConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVpcIngressConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -437,8 +439,8 @@ func (j *jsiiProxy_CfnVpcIngressConnection) VpcIngressConnectionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcIngressConnection) VpcIngressConnectionRef() *VpcIngressConnectionReference {
-	var returns *VpcIngressConnectionReference
+func (j *jsiiProxy_CfnVpcIngressConnection) VpcIngressConnectionRef() *interfacesawsapprunner.VpcIngressConnectionReference {
+	var returns *interfacesawsapprunner.VpcIngressConnectionReference
 	_jsii_.Get(
 		j,
 		"vpcIngressConnectionRef",
@@ -448,6 +450,7 @@ func (j *jsiiProxy_CfnVpcIngressConnection) VpcIngressConnectionRef() *VpcIngres
 }
 
 
+// Create a new `AWS::AppRunner::VpcIngressConnection`.
 func NewCfnVpcIngressConnection(scope constructs.Construct, id *string, props *CfnVpcIngressConnectionProps) CfnVpcIngressConnection {
 	_init_.Initialize()
 
@@ -465,6 +468,7 @@ func NewCfnVpcIngressConnection(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::AppRunner::VpcIngressConnection`.
 func NewCfnVpcIngressConnection_Override(c CfnVpcIngressConnection, scope constructs.Construct, id *string, props *CfnVpcIngressConnectionProps) {
 	_init_.Initialize()
 

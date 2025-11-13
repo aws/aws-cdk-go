@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -211,8 +213,8 @@ import (
 //
 type CfnModelCard interface {
 	awscdk.CfnResource
-	IModelCardRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IModelCardRef
 	awscdk.ITaggable
 	// The domain associated with the user.
 	AttrCreatedByDomainId() *string
@@ -255,7 +257,7 @@ type CfnModelCard interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	LastModifiedBy() interface{}
 	SetLastModifiedBy(val interface{})
@@ -273,7 +275,7 @@ type CfnModelCard interface {
 	ModelCardName() *string
 	SetModelCardName(val *string)
 	// A reference to a ModelCard resource.
-	ModelCardRef() *ModelCardReference
+	ModelCardRef() *interfacesawssagemaker.ModelCardReference
 	// The approval status of the model card within your organization.
 	ModelCardStatus() *string
 	SetModelCardStatus(val *string)
@@ -439,8 +441,8 @@ type CfnModelCard interface {
 // The jsii proxy struct for CfnModelCard
 type jsiiProxy_CfnModelCard struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelCardRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIModelCardRef
 	internal.Type__awscdkITaggable
 }
 
@@ -614,8 +616,8 @@ func (j *jsiiProxy_CfnModelCard) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelCard) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModelCard) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -654,8 +656,8 @@ func (j *jsiiProxy_CfnModelCard) ModelCardName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelCard) ModelCardRef() *ModelCardReference {
-	var returns *ModelCardReference
+func (j *jsiiProxy_CfnModelCard) ModelCardRef() *interfacesawssagemaker.ModelCardReference {
+	var returns *interfacesawssagemaker.ModelCardReference
 	_jsii_.Get(
 		j,
 		"modelCardRef",
@@ -755,6 +757,7 @@ func (j *jsiiProxy_CfnModelCard) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::ModelCard`.
 func NewCfnModelCard(scope constructs.Construct, id *string, props *CfnModelCardProps) CfnModelCard {
 	_init_.Initialize()
 
@@ -772,6 +775,7 @@ func NewCfnModelCard(scope constructs.Construct, id *string, props *CfnModelCard
 	return &j
 }
 
+// Create a new `AWS::SageMaker::ModelCard`.
 func NewCfnModelCard_Override(c CfnModelCard, scope constructs.Construct, id *string, props *CfnModelCardProps) {
 	_init_.Initialize()
 
@@ -860,13 +864,13 @@ func (j *jsiiProxy_CfnModelCard)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IModelCardRef from an ARN.
-func CfnModelCard_FromModelCardArn(scope constructs.Construct, id *string, arn *string) IModelCardRef {
+func CfnModelCard_FromModelCardArn(scope constructs.Construct, id *string, arn *string) interfacesawssagemaker.IModelCardRef {
 	_init_.Initialize()
 
 	if err := validateCfnModelCard_FromModelCardArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IModelCardRef
+	var returns interfacesawssagemaker.IModelCardRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnModelCard",
@@ -879,13 +883,13 @@ func CfnModelCard_FromModelCardArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IModelCardRef from a modelCardName.
-func CfnModelCard_FromModelCardName(scope constructs.Construct, id *string, modelCardName *string) IModelCardRef {
+func CfnModelCard_FromModelCardName(scope constructs.Construct, id *string, modelCardName *string) interfacesawssagemaker.IModelCardRef {
 	_init_.Initialize()
 
 	if err := validateCfnModelCard_FromModelCardNameParameters(scope, id, modelCardName); err != nil {
 		panic(err)
 	}
-	var returns IModelCardRef
+	var returns interfacesawssagemaker.IModelCardRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnModelCard",

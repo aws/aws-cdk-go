@@ -1,11 +1,15 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkfirewall"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsnetworkfirewallIFirewallRef = interfacesawsnetworkfirewall.IFirewallRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsnetworkfirewallIFirewallPolicyRef = interfacesawsnetworkfirewall.IFirewallPolicyRef
+type Type__interfacesawsnetworkfirewallILoggingConfigurationRef = interfacesawsnetworkfirewall.ILoggingConfigurationRef
+type Type__interfacesawsnetworkfirewallIRuleGroupRef = interfacesawsnetworkfirewall.IRuleGroupRef
+type Type__interfacesawsnetworkfirewallITLSInspectionConfigurationRef = interfacesawsnetworkfirewall.ITLSInspectionConfigurationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsnetworkfirewallIVpcEndpointAssociationRef = interfacesawsnetworkfirewall.IVpcEndpointAssociationRef

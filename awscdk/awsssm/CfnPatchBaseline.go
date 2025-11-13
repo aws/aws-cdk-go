@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -91,8 +93,8 @@ import (
 //
 type CfnPatchBaseline interface {
 	awscdk.CfnResource
-	IPatchBaselineRef
 	awscdk.IInspectable
+	interfacesawsssm.IPatchBaselineRef
 	awscdk.ITaggable
 	// A set of rules used to include patches in the baseline.
 	ApprovalRules() interface{}
@@ -126,7 +128,7 @@ type CfnPatchBaseline interface {
 	// A description of the patch baseline.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A set of global filters used to include patches in the baseline.
 	GlobalFilters() interface{}
 	SetGlobalFilters(val interface{})
@@ -149,7 +151,7 @@ type CfnPatchBaseline interface {
 	OperatingSystem() *string
 	SetOperatingSystem(val *string)
 	// A reference to a PatchBaseline resource.
-	PatchBaselineRef() *PatchBaselineReference
+	PatchBaselineRef() *interfacesawsssm.PatchBaselineReference
 	// The name of the patch group to be registered with the patch baseline.
 	PatchGroups() *[]*string
 	SetPatchGroups(val *[]*string)
@@ -319,8 +321,8 @@ type CfnPatchBaseline interface {
 // The jsii proxy struct for CfnPatchBaseline
 type jsiiProxy_CfnPatchBaseline struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPatchBaselineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmIPatchBaselineRef
 	internal.Type__awscdkITaggable
 }
 
@@ -444,8 +446,8 @@ func (j *jsiiProxy_CfnPatchBaseline) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPatchBaseline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPatchBaseline) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -504,8 +506,8 @@ func (j *jsiiProxy_CfnPatchBaseline) OperatingSystem() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPatchBaseline) PatchBaselineRef() *PatchBaselineReference {
-	var returns *PatchBaselineReference
+func (j *jsiiProxy_CfnPatchBaseline) PatchBaselineRef() *interfacesawsssm.PatchBaselineReference {
+	var returns *interfacesawsssm.PatchBaselineReference
 	_jsii_.Get(
 		j,
 		"patchBaselineRef",
@@ -615,6 +617,7 @@ func (j *jsiiProxy_CfnPatchBaseline) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::SSM::PatchBaseline`.
 func NewCfnPatchBaseline(scope constructs.Construct, id *string, props *CfnPatchBaselineProps) CfnPatchBaseline {
 	_init_.Initialize()
 
@@ -632,6 +635,7 @@ func NewCfnPatchBaseline(scope constructs.Construct, id *string, props *CfnPatch
 	return &j
 }
 
+// Create a new `AWS::SSM::PatchBaseline`.
 func NewCfnPatchBaseline_Override(c CfnPatchBaseline, scope constructs.Construct, id *string, props *CfnPatchBaselineProps) {
 	_init_.Initialize()
 

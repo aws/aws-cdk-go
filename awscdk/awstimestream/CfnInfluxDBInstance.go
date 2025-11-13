@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstimestream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstimestream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnInfluxDBInstance interface {
 	awscdk.CfnResource
-	IInfluxDBInstanceRef
 	awscdk.IInspectable
+	interfacesawstimestream.IInfluxDBInstanceRef
 	awscdk.ITaggableV2
 	// The amount of storage to allocate for your DB storage type in GiB (gibibytes).
 	AllocatedStorage() *float64
@@ -108,9 +110,9 @@ type CfnInfluxDBInstance interface {
 	// Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.
 	DeploymentType() *string
 	SetDeploymentType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InfluxDBInstance resource.
-	InfluxDbInstanceRef() *InfluxDBInstanceReference
+	InfluxDbInstanceRef() *interfacesawstimestream.InfluxDBInstanceReference
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket.
 	LogDeliveryConfiguration() interface{}
 	SetLogDeliveryConfiguration(val interface{})
@@ -308,8 +310,8 @@ type CfnInfluxDBInstance interface {
 // The jsii proxy struct for CfnInfluxDBInstance
 type jsiiProxy_CfnInfluxDBInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInfluxDBInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstimestreamIInfluxDBInstanceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -493,8 +495,8 @@ func (j *jsiiProxy_CfnInfluxDBInstance) DeploymentType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInfluxDBInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInfluxDBInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -503,8 +505,8 @@ func (j *jsiiProxy_CfnInfluxDBInstance) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInfluxDBInstance) InfluxDbInstanceRef() *InfluxDBInstanceReference {
-	var returns *InfluxDBInstanceReference
+func (j *jsiiProxy_CfnInfluxDBInstance) InfluxDbInstanceRef() *interfacesawstimestream.InfluxDBInstanceReference {
+	var returns *interfacesawstimestream.InfluxDBInstanceReference
 	_jsii_.Get(
 		j,
 		"influxDbInstanceRef",
@@ -684,6 +686,7 @@ func (j *jsiiProxy_CfnInfluxDBInstance) VpcSubnetIds() *[]*string {
 }
 
 
+// Create a new `AWS::Timestream::InfluxDBInstance`.
 func NewCfnInfluxDBInstance(scope constructs.Construct, id *string, props *CfnInfluxDBInstanceProps) CfnInfluxDBInstance {
 	_init_.Initialize()
 
@@ -701,6 +704,7 @@ func NewCfnInfluxDBInstance(scope constructs.Construct, id *string, props *CfnIn
 	return &j
 }
 
+// Create a new `AWS::Timestream::InfluxDBInstance`.
 func NewCfnInfluxDBInstance_Override(c CfnInfluxDBInstance, scope constructs.Construct, id *string, props *CfnInfluxDBInstanceProps) {
 	_init_.Initialize()
 

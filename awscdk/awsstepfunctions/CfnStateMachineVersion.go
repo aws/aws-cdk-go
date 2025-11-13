@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnStateMachineVersion interface {
 	awscdk.CfnResource
-	IStateMachineVersionRef
 	awscdk.IInspectable
+	interfacesawsstepfunctions.IStateMachineVersionRef
 	// Returns the ARN of the state machine version.
 	//
 	// For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
@@ -50,7 +52,7 @@ type CfnStateMachineVersion interface {
 	// An optional description of the state machine version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -79,7 +81,7 @@ type CfnStateMachineVersion interface {
 	StateMachineRevisionId() *string
 	SetStateMachineRevisionId(val *string)
 	// A reference to a StateMachineVersion resource.
-	StateMachineVersionRef() *StateMachineVersionReference
+	StateMachineVersionRef() *interfacesawsstepfunctions.StateMachineVersionReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -223,8 +225,8 @@ type CfnStateMachineVersion interface {
 // The jsii proxy struct for CfnStateMachineVersion
 type jsiiProxy_CfnStateMachineVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStateMachineVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsstepfunctionsIStateMachineVersionRef
 }
 
 func (j *jsiiProxy_CfnStateMachineVersion) AttrArn() *string {
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnStateMachineVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachineVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStateMachineVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnStateMachineVersion) StateMachineRevisionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachineVersion) StateMachineVersionRef() *StateMachineVersionReference {
-	var returns *StateMachineVersionReference
+func (j *jsiiProxy_CfnStateMachineVersion) StateMachineVersionRef() *interfacesawsstepfunctions.StateMachineVersionReference {
+	var returns *interfacesawsstepfunctions.StateMachineVersionReference
 	_jsii_.Get(
 		j,
 		"stateMachineVersionRef",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnStateMachineVersion) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::StepFunctions::StateMachineVersion`.
 func NewCfnStateMachineVersion(scope constructs.Construct, id *string, props *CfnStateMachineVersionProps) CfnStateMachineVersion {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnStateMachineVersion(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::StepFunctions::StateMachineVersion`.
 func NewCfnStateMachineVersion_Override(c CfnStateMachineVersion, scope constructs.Construct, id *string, props *CfnStateMachineVersionProps) {
 	_init_.Initialize()
 

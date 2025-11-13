@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,8 +72,8 @@ import (
 //
 type CfnCommand interface {
 	awscdk.CfnResource
-	ICommandRef
 	awscdk.IInspectable
+	interfacesawsiot.ICommandRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the command.
 	AttrCommandArn() *string
@@ -86,7 +88,7 @@ type CfnCommand interface {
 	CommandId() *string
 	SetCommandId(val *string)
 	// A reference to a Command resource.
-	CommandRef() *CommandReference
+	CommandRef() *interfacesawsiot.CommandReference
 	// The timestamp, when the command was created.
 	CreatedAt() *string
 	SetCreatedAt(val *string)
@@ -103,7 +105,7 @@ type CfnCommand interface {
 	// The display name of the command.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The timestamp, when the command was last updated.
 	LastUpdatedAt() *string
 	SetLastUpdatedAt(val *string)
@@ -287,8 +289,8 @@ type CfnCommand interface {
 // The jsii proxy struct for CfnCommand
 type jsiiProxy_CfnCommand struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICommandRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotICommandRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnCommand) CommandId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCommand) CommandRef() *CommandReference {
-	var returns *CommandReference
+func (j *jsiiProxy_CfnCommand) CommandRef() *interfacesawsiot.CommandReference {
+	var returns *interfacesawsiot.CommandReference
 	_jsii_.Get(
 		j,
 		"commandRef",
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnCommand) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCommand) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCommand) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -553,6 +555,7 @@ func (j *jsiiProxy_CfnCommand) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::Command`.
 func NewCfnCommand(scope constructs.Construct, id *string, props *CfnCommandProps) CfnCommand {
 	_init_.Initialize()
 
@@ -570,6 +573,7 @@ func NewCfnCommand(scope constructs.Construct, id *string, props *CfnCommandProp
 	return &j
 }
 
+// Create a new `AWS::IoT::Command`.
 func NewCfnCommand_Override(c CfnCommand, scope constructs.Construct, id *string, props *CfnCommandProps) {
 	_init_.Initialize()
 
@@ -695,13 +699,13 @@ func (j *jsiiProxy_CfnCommand)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ICommandRef from an ARN.
-func CfnCommand_FromCommandArn(scope constructs.Construct, id *string, arn *string) ICommandRef {
+func CfnCommand_FromCommandArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.ICommandRef {
 	_init_.Initialize()
 
 	if err := validateCfnCommand_FromCommandArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ICommandRef
+	var returns interfacesawsiot.ICommandRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnCommand",
@@ -714,13 +718,13 @@ func CfnCommand_FromCommandArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new ICommandRef from a commandId.
-func CfnCommand_FromCommandId(scope constructs.Construct, id *string, commandId *string) ICommandRef {
+func CfnCommand_FromCommandId(scope constructs.Construct, id *string, commandId *string) interfacesawsiot.ICommandRef {
 	_init_.Initialize()
 
 	if err := validateCfnCommand_FromCommandIdParameters(scope, id, commandId); err != nil {
 		panic(err)
 	}
-	var returns ICommandRef
+	var returns interfacesawsiot.ICommandRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnCommand",

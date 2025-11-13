@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,13 +36,13 @@ type OriginRequestPolicy interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// The ID of the origin request policy.
 	OriginRequestPolicyId() *string
 	// A reference to a OriginRequestPolicy resource.
-	OriginRequestPolicyRef() *OriginRequestPolicyReference
+	OriginRequestPolicyRef() *interfacesawscloudfront.OriginRequestPolicyReference
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -85,8 +87,8 @@ type jsiiProxy_OriginRequestPolicy struct {
 	jsiiProxy_IOriginRequestPolicy
 }
 
-func (j *jsiiProxy_OriginRequestPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_OriginRequestPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -115,8 +117,8 @@ func (j *jsiiProxy_OriginRequestPolicy) OriginRequestPolicyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_OriginRequestPolicy) OriginRequestPolicyRef() *OriginRequestPolicyReference {
-	var returns *OriginRequestPolicyReference
+func (j *jsiiProxy_OriginRequestPolicy) OriginRequestPolicyRef() *interfacesawscloudfront.OriginRequestPolicyReference {
+	var returns *interfacesawscloudfront.OriginRequestPolicyReference
 	_jsii_.Get(
 		j,
 		"originRequestPolicyRef",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,8 +27,8 @@ import (
 //
 type CfnElasticLoadBalancerAttachment interface {
 	awscdk.CfnResource
-	IElasticLoadBalancerAttachmentRef
 	awscdk.IInspectable
+	interfacesawsopsworks.IElasticLoadBalancerAttachmentRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -38,11 +40,11 @@ type CfnElasticLoadBalancerAttachment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a ElasticLoadBalancerAttachment resource.
-	ElasticLoadBalancerAttachmentRef() *ElasticLoadBalancerAttachmentReference
+	ElasticLoadBalancerAttachmentRef() *interfacesawsopsworks.ElasticLoadBalancerAttachmentReference
 	// The Elastic Load Balancing instance name.
 	ElasticLoadBalancerName() *string
 	SetElasticLoadBalancerName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The OpsWorks layer ID to which the Elastic Load Balancing load balancer is attached.
 	LayerId() *string
 	SetLayerId(val *string)
@@ -210,8 +212,8 @@ type CfnElasticLoadBalancerAttachment interface {
 // The jsii proxy struct for CfnElasticLoadBalancerAttachment
 type jsiiProxy_CfnElasticLoadBalancerAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IElasticLoadBalancerAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopsworksIElasticLoadBalancerAttachmentRef
 }
 
 func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) AttrId() *string {
@@ -264,8 +266,8 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) ElasticLoadBalancerAttachmentRef() *ElasticLoadBalancerAttachmentReference {
-	var returns *ElasticLoadBalancerAttachmentReference
+func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) ElasticLoadBalancerAttachmentRef() *interfacesawsopsworks.ElasticLoadBalancerAttachmentReference {
+	var returns *interfacesawsopsworks.ElasticLoadBalancerAttachmentReference
 	_jsii_.Get(
 		j,
 		"elasticLoadBalancerAttachmentRef",
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) ElasticLoadBalancerName() *
 	return returns
 }
 
-func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -365,6 +367,7 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::OpsWorks::ElasticLoadBalancerAttachment`.
 func NewCfnElasticLoadBalancerAttachment(scope constructs.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) CfnElasticLoadBalancerAttachment {
 	_init_.Initialize()
 
@@ -382,6 +385,7 @@ func NewCfnElasticLoadBalancerAttachment(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::OpsWorks::ElasticLoadBalancerAttachment`.
 func NewCfnElasticLoadBalancerAttachment_Override(c CfnElasticLoadBalancerAttachment, scope constructs.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) {
 	_init_.Initialize()
 

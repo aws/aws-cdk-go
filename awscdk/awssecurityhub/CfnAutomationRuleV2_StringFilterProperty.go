@@ -1,7 +1,7 @@
 package awssecurityhub
 
 
-// A string filter for filtering AWS Security Hub findings.
+// A string filter for filtering Security Hub findings.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,7 +45,7 @@ type CfnAutomationRuleV2_StringFilterProperty struct {
 	// - `ResourceType NOT_EQUALS AwsIamPolicy`
 	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-stringfilter.html#cfn-securityhub-automationrulev2-stringfilter-comparison
 	//
 	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`

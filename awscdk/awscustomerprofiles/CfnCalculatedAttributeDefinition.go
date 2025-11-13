@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscustomerprofiles/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscustomerprofiles"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,8 +66,8 @@ import (
 //
 type CfnCalculatedAttributeDefinition interface {
 	awscdk.CfnResource
-	ICalculatedAttributeDefinitionRef
 	awscdk.IInspectable
+	interfacesawscustomerprofiles.ICalculatedAttributeDefinitionRef
 	awscdk.ITaggableV2
 	// The timestamp of when the calculated attribute definition was created.
 	AttrCreatedAt() *string
@@ -79,7 +81,7 @@ type CfnCalculatedAttributeDefinition interface {
 	// Status of the Calculated Attribute creation (whether all historical data has been indexed.).
 	AttrStatus() *string
 	// A reference to a CalculatedAttributeDefinition resource.
-	CalculatedAttributeDefinitionRef() *CalculatedAttributeDefinitionReference
+	CalculatedAttributeDefinitionRef() *interfacesawscustomerprofiles.CalculatedAttributeDefinitionReference
 	// The name of an attribute defined in a profile object type.
 	CalculatedAttributeName() *string
 	SetCalculatedAttributeName(val *string)
@@ -106,7 +108,7 @@ type CfnCalculatedAttributeDefinition interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -280,8 +282,8 @@ type CfnCalculatedAttributeDefinition interface {
 // The jsii proxy struct for CfnCalculatedAttributeDefinition
 type jsiiProxy_CfnCalculatedAttributeDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICalculatedAttributeDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscustomerprofilesICalculatedAttributeDefinitionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) AttrStatus() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCalculatedAttributeDefinition) CalculatedAttributeDefinitionRef() *CalculatedAttributeDefinitionReference {
-	var returns *CalculatedAttributeDefinitionReference
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) CalculatedAttributeDefinitionRef() *interfacesawscustomerprofiles.CalculatedAttributeDefinitionReference {
+	var returns *interfacesawscustomerprofiles.CalculatedAttributeDefinitionReference
 	_jsii_.Get(
 		j,
 		"calculatedAttributeDefinitionRef",
@@ -445,8 +447,8 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCalculatedAttributeDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -546,6 +548,7 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) UseHistoricalData() interfa
 }
 
 
+// Create a new `AWS::CustomerProfiles::CalculatedAttributeDefinition`.
 func NewCfnCalculatedAttributeDefinition(scope constructs.Construct, id *string, props *CfnCalculatedAttributeDefinitionProps) CfnCalculatedAttributeDefinition {
 	_init_.Initialize()
 
@@ -563,6 +566,7 @@ func NewCfnCalculatedAttributeDefinition(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::CustomerProfiles::CalculatedAttributeDefinition`.
 func NewCfnCalculatedAttributeDefinition_Override(c CfnCalculatedAttributeDefinition, scope constructs.Construct, id *string, props *CfnCalculatedAttributeDefinitionProps) {
 	_init_.Initialize()
 

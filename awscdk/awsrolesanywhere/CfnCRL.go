@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrolesanywhere/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrolesanywhere"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnCRL interface {
 	awscdk.CfnResource
-	ICRLRef
 	awscdk.IInspectable
+	interfacesawsrolesanywhere.ICRLRef
 	awscdk.ITaggable
 	// The unique primary identifier of the Crl.
 	AttrCrlId() *string
@@ -53,11 +55,11 @@ type CfnCRL interface {
 	CrlData() *string
 	SetCrlData(val *string)
 	// A reference to a CRL resource.
-	CrlRef() *CRLReference
+	CrlRef() *interfacesawsrolesanywhere.CRLReference
 	// Specifies whether the certificate revocation list (CRL) is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -233,8 +235,8 @@ type CfnCRL interface {
 // The jsii proxy struct for CfnCRL
 type jsiiProxy_CfnCRL struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICRLRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrolesanywhereICRLRef
 	internal.Type__awscdkITaggable
 }
 
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnCRL) CrlData() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCRL) CrlRef() *CRLReference {
-	var returns *CRLReference
+func (j *jsiiProxy_CfnCRL) CrlRef() *interfacesawsrolesanywhere.CRLReference {
+	var returns *interfacesawsrolesanywhere.CRLReference
 	_jsii_.Get(
 		j,
 		"crlRef",
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnCRL) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCRL) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCRL) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnCRL) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RolesAnywhere::CRL`.
 func NewCfnCRL(scope constructs.Construct, id *string, props *CfnCRLProps) CfnCRL {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnCRL(scope constructs.Construct, id *string, props *CfnCRLProps) CfnCR
 	return &j
 }
 
+// Create a new `AWS::RolesAnywhere::CRL`.
 func NewCfnCRL_Override(c CfnCRL, scope constructs.Construct, id *string, props *CfnCRLProps) {
 	_init_.Initialize()
 
@@ -509,13 +513,13 @@ func (j *jsiiProxy_CfnCRL)SetTrustAnchorArn(val *string) {
 }
 
 // Creates a new ICRLRef from a crlId.
-func CfnCRL_FromCrlId(scope constructs.Construct, id *string, crlId *string) ICRLRef {
+func CfnCRL_FromCrlId(scope constructs.Construct, id *string, crlId *string) interfacesawsrolesanywhere.ICRLRef {
 	_init_.Initialize()
 
 	if err := validateCfnCRL_FromCrlIdParameters(scope, id, crlId); err != nil {
 		panic(err)
 	}
-	var returns ICRLRef
+	var returns interfacesawsrolesanywhere.ICRLRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rolesanywhere.CfnCRL",

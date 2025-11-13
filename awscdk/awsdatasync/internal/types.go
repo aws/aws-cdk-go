@@ -1,11 +1,22 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsdatasyncIAgentRef = interfacesawsdatasync.IAgentRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsdatasyncILocationAzureBlobRef = interfacesawsdatasync.ILocationAzureBlobRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsdatasyncILocationEFSRef = interfacesawsdatasync.ILocationEFSRef
+type Type__interfacesawsdatasyncILocationFSxLustreRef = interfacesawsdatasync.ILocationFSxLustreRef
+type Type__interfacesawsdatasyncILocationFSxONTAPRef = interfacesawsdatasync.ILocationFSxONTAPRef
+type Type__interfacesawsdatasyncILocationFSxOpenZFSRef = interfacesawsdatasync.ILocationFSxOpenZFSRef
+type Type__interfacesawsdatasyncILocationFSxWindowsRef = interfacesawsdatasync.ILocationFSxWindowsRef
+type Type__interfacesawsdatasyncILocationHDFSRef = interfacesawsdatasync.ILocationHDFSRef
+type Type__interfacesawsdatasyncILocationNFSRef = interfacesawsdatasync.ILocationNFSRef
+type Type__interfacesawsdatasyncILocationObjectStorageRef = interfacesawsdatasync.ILocationObjectStorageRef
+type Type__interfacesawsdatasyncILocationS3Ref = interfacesawsdatasync.ILocationS3Ref
+type Type__interfacesawsdatasyncILocationSMBRef = interfacesawsdatasync.ILocationSMBRef
+type Type__interfacesawsdatasyncITaskRef = interfacesawsdatasync.ITaskRef

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -200,8 +202,8 @@ import (
 //
 type CfnUserProfile interface {
 	awscdk.CfnResource
-	IUserProfileRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IUserProfileRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the user profile, such as `arn:aws:sagemaker:region:account-id:user-profile/domain-id/user-profile-name` .
 	AttrUserProfileArn() *string
@@ -217,7 +219,7 @@ type CfnUserProfile interface {
 	// The domain ID.
 	DomainId() *string
 	SetDomainId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -267,7 +269,7 @@ type CfnUserProfile interface {
 	UserProfileName() *string
 	SetUserProfileName(val *string)
 	// A reference to a UserProfile resource.
-	UserProfileRef() *UserProfileReference
+	UserProfileRef() *interfacesawssagemaker.UserProfileReference
 	// A collection of settings that apply to users of Amazon SageMaker Studio.
 	UserSettings() interface{}
 	SetUserSettings(val interface{})
@@ -401,8 +403,8 @@ type CfnUserProfile interface {
 // The jsii proxy struct for CfnUserProfile
 type jsiiProxy_CfnUserProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIUserProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -466,8 +468,8 @@ func (j *jsiiProxy_CfnUserProfile) DomainId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -586,8 +588,8 @@ func (j *jsiiProxy_CfnUserProfile) UserProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserProfile) UserProfileRef() *UserProfileReference {
-	var returns *UserProfileReference
+func (j *jsiiProxy_CfnUserProfile) UserProfileRef() *interfacesawssagemaker.UserProfileReference {
+	var returns *interfacesawssagemaker.UserProfileReference
 	_jsii_.Get(
 		j,
 		"userProfileRef",
@@ -607,6 +609,7 @@ func (j *jsiiProxy_CfnUserProfile) UserSettings() interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::UserProfile`.
 func NewCfnUserProfile(scope constructs.Construct, id *string, props *CfnUserProfileProps) CfnUserProfile {
 	_init_.Initialize()
 
@@ -624,6 +627,7 @@ func NewCfnUserProfile(scope constructs.Construct, id *string, props *CfnUserPro
 	return &j
 }
 
+// Create a new `AWS::SageMaker::UserProfile`.
 func NewCfnUserProfile_Override(c CfnUserProfile, scope constructs.Construct, id *string, props *CfnUserProfileProps) {
 	_init_.Initialize()
 

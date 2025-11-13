@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnSubnetRouteTableAssociation interface {
 	awscdk.CfnResource
-	ISubnetRouteTableAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.ISubnetRouteTableAssociationRef
 	// The ID of the subnet route table association.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -40,7 +42,7 @@ type CfnSubnetRouteTableAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnSubnetRouteTableAssociation interface {
 	SubnetId() *string
 	SetSubnetId(val *string)
 	// A reference to a SubnetRouteTableAssociation resource.
-	SubnetRouteTableAssociationRef() *SubnetRouteTableAssociationReference
+	SubnetRouteTableAssociationRef() *interfacesawsec2.SubnetRouteTableAssociationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -213,8 +215,8 @@ type CfnSubnetRouteTableAssociation interface {
 // The jsii proxy struct for CfnSubnetRouteTableAssociation
 type jsiiProxy_CfnSubnetRouteTableAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubnetRouteTableAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISubnetRouteTableAssociationRef
 }
 
 func (j *jsiiProxy_CfnSubnetRouteTableAssociation) AttrId() *string {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnSubnetRouteTableAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetRouteTableAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubnetRouteTableAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnSubnetRouteTableAssociation) SubnetId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetRouteTableAssociation) SubnetRouteTableAssociationRef() *SubnetRouteTableAssociationReference {
-	var returns *SubnetRouteTableAssociationReference
+func (j *jsiiProxy_CfnSubnetRouteTableAssociation) SubnetRouteTableAssociationRef() *interfacesawsec2.SubnetRouteTableAssociationReference {
+	var returns *interfacesawsec2.SubnetRouteTableAssociationReference
 	_jsii_.Get(
 		j,
 		"subnetRouteTableAssociationRef",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnSubnetRouteTableAssociation) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::EC2::SubnetRouteTableAssociation`.
 func NewCfnSubnetRouteTableAssociation(scope constructs.Construct, id *string, props *CfnSubnetRouteTableAssociationProps) CfnSubnetRouteTableAssociation {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnSubnetRouteTableAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::EC2::SubnetRouteTableAssociation`.
 func NewCfnSubnetRouteTableAssociation_Override(c CfnSubnetRouteTableAssociation, scope constructs.Construct, id *string, props *CfnSubnetRouteTableAssociationProps) {
 	_init_.Initialize()
 

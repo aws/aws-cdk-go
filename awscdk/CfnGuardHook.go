@@ -4,6 +4,9 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
+	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -90,8 +93,8 @@ import (
 //
 type CfnGuardHook interface {
 	CfnResource
-	IGuardHookRef
 	IInspectable
+	interfacesawscloudformation.IGuardHookRef
 	// The type name alias for the Hook.
 	//
 	// This alias must be unique per account and Region.
@@ -108,7 +111,7 @@ type CfnGuardHook interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IAM role that the Hook assumes to retrieve your Guard rules from S3 and optionally write a detailed Guard output report back.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
@@ -116,7 +119,7 @@ type CfnGuardHook interface {
 	FailureMode() *string
 	SetFailureMode(val *string)
 	// A reference to a GuardHook resource.
-	GuardHookRef() *GuardHookReference
+	GuardHookRef() *interfacesawscloudformation.GuardHookReference
 	// Specifies if the Hook is `ENABLED` or `DISABLED` .
 	HookStatus() *string
 	SetHookStatus(val *string)
@@ -302,8 +305,8 @@ type CfnGuardHook interface {
 // The jsii proxy struct for CfnGuardHook
 type jsiiProxy_CfnGuardHook struct {
 	jsiiProxy_CfnResource
-	jsiiProxy_IGuardHookRef
 	jsiiProxy_IInspectable
+	internal.Type__interfacesawscloudformationIGuardHookRef
 }
 
 func (j *jsiiProxy_CfnGuardHook) Alias() *string {
@@ -366,8 +369,8 @@ func (j *jsiiProxy_CfnGuardHook) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGuardHook) Env() *ResourceEnvironment {
-	var returns *ResourceEnvironment
+func (j *jsiiProxy_CfnGuardHook) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,8 +399,8 @@ func (j *jsiiProxy_CfnGuardHook) FailureMode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGuardHook) GuardHookRef() *GuardHookReference {
-	var returns *GuardHookReference
+func (j *jsiiProxy_CfnGuardHook) GuardHookRef() *interfacesawscloudformation.GuardHookReference {
+	var returns *interfacesawscloudformation.GuardHookReference
 	_jsii_.Get(
 		j,
 		"guardHookRef",
@@ -537,6 +540,7 @@ func (j *jsiiProxy_CfnGuardHook) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFormation::GuardHook`.
 func NewCfnGuardHook(scope constructs.Construct, id *string, props *CfnGuardHookProps) CfnGuardHook {
 	_init_.Initialize()
 
@@ -554,6 +558,7 @@ func NewCfnGuardHook(scope constructs.Construct, id *string, props *CfnGuardHook
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::GuardHook`.
 func NewCfnGuardHook_Override(c CfnGuardHook, scope constructs.Construct, id *string, props *CfnGuardHookProps) {
 	_init_.Initialize()
 

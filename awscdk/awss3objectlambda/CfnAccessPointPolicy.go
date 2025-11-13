@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3objectlambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3objectlambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,10 +29,10 @@ import (
 //
 type CfnAccessPointPolicy interface {
 	awscdk.CfnResource
-	IAccessPointPolicyRef
 	awscdk.IInspectable
+	interfacesawss3objectlambda.IAccessPointPolicyRef
 	// A reference to a AccessPointPolicy resource.
-	AccessPointPolicyRef() *AccessPointPolicyReference
+	AccessPointPolicyRef() *interfacesawss3objectlambda.AccessPointPolicyReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -40,7 +42,7 @@ type CfnAccessPointPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -211,12 +213,12 @@ type CfnAccessPointPolicy interface {
 // The jsii proxy struct for CfnAccessPointPolicy
 type jsiiProxy_CfnAccessPointPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessPointPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3objectlambdaIAccessPointPolicyRef
 }
 
-func (j *jsiiProxy_CfnAccessPointPolicy) AccessPointPolicyRef() *AccessPointPolicyReference {
-	var returns *AccessPointPolicyReference
+func (j *jsiiProxy_CfnAccessPointPolicy) AccessPointPolicyRef() *interfacesawss3objectlambda.AccessPointPolicyReference {
+	var returns *interfacesawss3objectlambda.AccessPointPolicyReference
 	_jsii_.Get(
 		j,
 		"accessPointPolicyRef",
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnAccessPointPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPointPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessPointPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnAccessPointPolicy) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::S3ObjectLambda::AccessPointPolicy`.
 func NewCfnAccessPointPolicy(scope constructs.Construct, id *string, props *CfnAccessPointPolicyProps) CfnAccessPointPolicy {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnAccessPointPolicy(scope constructs.Construct, id *string, props *CfnA
 	return &j
 }
 
+// Create a new `AWS::S3ObjectLambda::AccessPointPolicy`.
 func NewCfnAccessPointPolicy_Override(c CfnAccessPointPolicy, scope constructs.Construct, id *string, props *CfnAccessPointPolicyProps) {
 	_init_.Initialize()
 

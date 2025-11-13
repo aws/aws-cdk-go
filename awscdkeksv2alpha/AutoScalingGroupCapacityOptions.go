@@ -10,7 +10,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("SelfManagedCluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   })
 //
 //   // Add self-managed Auto Scaling Group

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnNetworkSettings interface {
 	awscdk.CfnResource
-	INetworkSettingsRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.INetworkSettingsRef
 	awscdk.ITaggableV2
 	// A list of web portal ARNs that this network settings is associated with.
 	AttrAssociatedPortalArns() *[]*string
@@ -62,7 +64,7 @@ type CfnNetworkSettings interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnNetworkSettings interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a NetworkSettings resource.
-	NetworkSettingsRef() *NetworkSettingsReference
+	NetworkSettingsRef() *interfacesawsworkspacesweb.NetworkSettingsReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -241,8 +243,8 @@ type CfnNetworkSettings interface {
 // The jsii proxy struct for CfnNetworkSettings
 type jsiiProxy_CfnNetworkSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebINetworkSettingsRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnNetworkSettings) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnNetworkSettings) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkSettings) NetworkSettingsRef() *NetworkSettingsReference {
-	var returns *NetworkSettingsReference
+func (j *jsiiProxy_CfnNetworkSettings) NetworkSettingsRef() *interfacesawsworkspacesweb.NetworkSettingsReference {
+	var returns *interfacesawsworkspacesweb.NetworkSettingsReference
 	_jsii_.Get(
 		j,
 		"networkSettingsRef",
@@ -437,6 +439,7 @@ func (j *jsiiProxy_CfnNetworkSettings) VpcId() *string {
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::NetworkSettings`.
 func NewCfnNetworkSettings(scope constructs.Construct, id *string, props *CfnNetworkSettingsProps) CfnNetworkSettings {
 	_init_.Initialize()
 
@@ -454,6 +457,7 @@ func NewCfnNetworkSettings(scope constructs.Construct, id *string, props *CfnNet
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::NetworkSettings`.
 func NewCfnNetworkSettings_Override(c CfnNetworkSettings, scope constructs.Construct, id *string, props *CfnNetworkSettingsProps) {
 	_init_.Initialize()
 

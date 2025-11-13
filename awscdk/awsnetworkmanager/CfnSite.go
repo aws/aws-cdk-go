@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnSite interface {
 	awscdk.CfnResource
-	ISiteRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.ISiteRef
 	awscdk.ITaggable
 	// The time that the site was created.
 	AttrCreatedAt() *string
@@ -65,7 +67,7 @@ type CfnSite interface {
 	// A description of your site.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the global network.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
@@ -90,7 +92,7 @@ type CfnSite interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Site resource.
-	SiteRef() *SiteReference
+	SiteRef() *interfacesawsnetworkmanager.SiteReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -243,8 +245,8 @@ type CfnSite interface {
 // The jsii proxy struct for CfnSite
 type jsiiProxy_CfnSite struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISiteRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerISiteRef
 	internal.Type__awscdkITaggable
 }
 
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnSite) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSite) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSite) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -398,8 +400,8 @@ func (j *jsiiProxy_CfnSite) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSite) SiteRef() *SiteReference {
-	var returns *SiteReference
+func (j *jsiiProxy_CfnSite) SiteRef() *interfacesawsnetworkmanager.SiteReference {
+	var returns *interfacesawsnetworkmanager.SiteReference
 	_jsii_.Get(
 		j,
 		"siteRef",
@@ -459,6 +461,7 @@ func (j *jsiiProxy_CfnSite) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::NetworkManager::Site`.
 func NewCfnSite(scope constructs.Construct, id *string, props *CfnSiteProps) CfnSite {
 	_init_.Initialize()
 
@@ -476,6 +479,7 @@ func NewCfnSite(scope constructs.Construct, id *string, props *CfnSiteProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::Site`.
 func NewCfnSite_Override(c CfnSite, scope constructs.Construct, id *string, props *CfnSiteProps) {
 	_init_.Initialize()
 

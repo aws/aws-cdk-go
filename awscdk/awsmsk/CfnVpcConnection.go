@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmsk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmsk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnVpcConnection interface {
 	awscdk.CfnResource
-	IVpcConnectionRef
 	awscdk.IInspectable
+	interfacesawsmsk.IVpcConnectionRef
 	awscdk.ITaggable
 	// The ARN of the VPC connection.
 	AttrArn() *string
@@ -57,7 +59,7 @@ type CfnVpcConnection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -104,7 +106,7 @@ type CfnVpcConnection interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VpcConnection resource.
-	VpcConnectionRef() *VpcConnectionReference
+	VpcConnectionRef() *interfacesawsmsk.VpcConnectionReference
 	// The VPC ID of the remote client.
 	VpcId() *string
 	SetVpcId(val *string)
@@ -238,8 +240,8 @@ type CfnVpcConnection interface {
 // The jsii proxy struct for CfnVpcConnection
 type jsiiProxy_CfnVpcConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVpcConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmskIVpcConnectionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnVpcConnection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVpcConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,8 +425,8 @@ func (j *jsiiProxy_CfnVpcConnection) UpdatedProperties() *map[string]interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcConnection) VpcConnectionRef() *VpcConnectionReference {
-	var returns *VpcConnectionReference
+func (j *jsiiProxy_CfnVpcConnection) VpcConnectionRef() *interfacesawsmsk.VpcConnectionReference {
+	var returns *interfacesawsmsk.VpcConnectionReference
 	_jsii_.Get(
 		j,
 		"vpcConnectionRef",
@@ -444,6 +446,7 @@ func (j *jsiiProxy_CfnVpcConnection) VpcId() *string {
 }
 
 
+// Create a new `AWS::MSK::VpcConnection`.
 func NewCfnVpcConnection(scope constructs.Construct, id *string, props *CfnVpcConnectionProps) CfnVpcConnection {
 	_init_.Initialize()
 
@@ -461,6 +464,7 @@ func NewCfnVpcConnection(scope constructs.Construct, id *string, props *CfnVpcCo
 	return &j
 }
 
+// Create a new `AWS::MSK::VpcConnection`.
 func NewCfnVpcConnection_Override(c CfnVpcConnection, scope constructs.Construct, id *string, props *CfnVpcConnectionProps) {
 	_init_.Initialize()
 

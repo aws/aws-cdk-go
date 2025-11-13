@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -142,8 +144,8 @@ import (
 //
 type CfnModelQualityJobDefinition interface {
 	awscdk.CfnResource
-	IModelQualityJobDefinitionRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IModelQualityJobDefinitionRef
 	awscdk.ITaggable
 	// The time when the job definition was created.
 	AttrCreationTime() *string
@@ -161,7 +163,7 @@ type CfnModelQualityJobDefinition interface {
 	// The name of the endpoint used to run the monitoring job.
 	EndpointName() *string
 	SetEndpointName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the monitoring job definition.
 	JobDefinitionName() *string
 	SetJobDefinitionName(val *string)
@@ -185,7 +187,7 @@ type CfnModelQualityJobDefinition interface {
 	ModelQualityBaselineConfig() interface{}
 	SetModelQualityBaselineConfig(val interface{})
 	// A reference to a ModelQualityJobDefinition resource.
-	ModelQualityJobDefinitionRef() *ModelQualityJobDefinitionReference
+	ModelQualityJobDefinitionRef() *interfacesawssagemaker.ModelQualityJobDefinitionReference
 	// A list of the inputs that are monitored.
 	ModelQualityJobInput() interface{}
 	SetModelQualityJobInput(val interface{})
@@ -360,8 +362,8 @@ type CfnModelQualityJobDefinition interface {
 // The jsii proxy struct for CfnModelQualityJobDefinition
 type jsiiProxy_CfnModelQualityJobDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelQualityJobDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIModelQualityJobDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -435,8 +437,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelQualityJobDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModelQualityJobDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -495,8 +497,8 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) ModelQualityBaselineConfig() in
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelQualityJobDefinition) ModelQualityJobDefinitionRef() *ModelQualityJobDefinitionReference {
-	var returns *ModelQualityJobDefinitionReference
+func (j *jsiiProxy_CfnModelQualityJobDefinition) ModelQualityJobDefinitionRef() *interfacesawssagemaker.ModelQualityJobDefinitionReference {
+	var returns *interfacesawssagemaker.ModelQualityJobDefinitionReference
 	_jsii_.Get(
 		j,
 		"modelQualityJobDefinitionRef",
@@ -626,6 +628,7 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::SageMaker::ModelQualityJobDefinition`.
 func NewCfnModelQualityJobDefinition(scope constructs.Construct, id *string, props *CfnModelQualityJobDefinitionProps) CfnModelQualityJobDefinition {
 	_init_.Initialize()
 
@@ -643,6 +646,7 @@ func NewCfnModelQualityJobDefinition(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::SageMaker::ModelQualityJobDefinition`.
 func NewCfnModelQualityJobDefinition_Override(c CfnModelQualityJobDefinition, scope constructs.Construct, id *string, props *CfnModelQualityJobDefinitionProps) {
 	_init_.Initialize()
 

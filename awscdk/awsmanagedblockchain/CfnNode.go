@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmanagedblockchain/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmanagedblockchain"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnNode interface {
 	awscdk.CfnResource
-	INodeRef
 	awscdk.IInspectable
+	interfacesawsmanagedblockchain.INodeRef
 	// The Amazon Resource Name (ARN) of the node.
 	AttrArn() *string
 	// The unique identifier of the member in which the node is created.
@@ -54,7 +56,7 @@ type CfnNode interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnNode interface {
 	NodeConfiguration() interface{}
 	SetNodeConfiguration(val interface{})
 	// A reference to a Node resource.
-	NodeRef() *NodeReference
+	NodeRef() *interfacesawsmanagedblockchain.NodeReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -230,8 +232,8 @@ type CfnNode interface {
 // The jsii proxy struct for CfnNode
 type jsiiProxy_CfnNode struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INodeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmanagedblockchainINodeRef
 }
 
 func (j *jsiiProxy_CfnNode) AttrArn() *string {
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnNode) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNode) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNode) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnNode) NodeConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNode) NodeRef() *NodeReference {
-	var returns *NodeReference
+func (j *jsiiProxy_CfnNode) NodeRef() *interfacesawsmanagedblockchain.NodeReference {
+	var returns *interfacesawsmanagedblockchain.NodeReference
 	_jsii_.Get(
 		j,
 		"nodeRef",
@@ -425,6 +427,7 @@ func (j *jsiiProxy_CfnNode) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ManagedBlockchain::Node`.
 func NewCfnNode(scope constructs.Construct, id *string, props *CfnNodeProps) CfnNode {
 	_init_.Initialize()
 
@@ -442,6 +445,7 @@ func NewCfnNode(scope constructs.Construct, id *string, props *CfnNodeProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::ManagedBlockchain::Node`.
 func NewCfnNode_Override(c CfnNode, scope constructs.Construct, id *string, props *CfnNodeProps) {
 	_init_.Initialize()
 
@@ -483,13 +487,13 @@ func (j *jsiiProxy_CfnNode)SetNodeConfiguration(val interface{}) {
 }
 
 // Creates a new INodeRef from an ARN.
-func CfnNode_FromNodeArn(scope constructs.Construct, id *string, arn *string) INodeRef {
+func CfnNode_FromNodeArn(scope constructs.Construct, id *string, arn *string) interfacesawsmanagedblockchain.INodeRef {
 	_init_.Initialize()
 
 	if err := validateCfnNode_FromNodeArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns INodeRef
+	var returns interfacesawsmanagedblockchain.INodeRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_managedblockchain.CfnNode",
@@ -502,13 +506,13 @@ func CfnNode_FromNodeArn(scope constructs.Construct, id *string, arn *string) IN
 }
 
 // Creates a new INodeRef from a nodeId.
-func CfnNode_FromNodeId(scope constructs.Construct, id *string, nodeId *string) INodeRef {
+func CfnNode_FromNodeId(scope constructs.Construct, id *string, nodeId *string) interfacesawsmanagedblockchain.INodeRef {
 	_init_.Initialize()
 
 	if err := validateCfnNode_FromNodeIdParameters(scope, id, nodeId); err != nil {
 		panic(err)
 	}
-	var returns INodeRef
+	var returns interfacesawsmanagedblockchain.INodeRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_managedblockchain.CfnNode",

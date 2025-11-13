@@ -8,20 +8,35 @@ import (
 // Lambda Proxy integration properties.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameterMapping ParameterMapping
-//   var payloadFormatVersion PayloadFormatVersion
+//   var booksDefaultFn Function
 //
-//   httpLambdaIntegrationProps := &HttpLambdaIntegrationProps{
-//   	ParameterMapping: parameterMapping,
-//   	PayloadFormatVersion: payloadFormatVersion,
-//   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   }
+//
+//   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
+//
+//   getBooksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("GetBooksIntegration"), booksDefaultFn, &HttpLambdaIntegrationProps{
+//   	ScopePermissionToRoute: jsii.Boolean(false),
+//   })
+//   createBookIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("CreateBookIntegration"), booksDefaultFn, &HttpLambdaIntegrationProps{
+//   	ScopePermissionToRoute: jsii.Boolean(false),
+//   })
+//
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/books"),
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_GET,
+//   	},
+//   	Integration: getBooksIntegration,
+//   })
+//
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/books"),
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
+//   	},
+//   	Integration: createBookIntegration,
+//   })
 //
 type HttpLambdaIntegrationProps struct {
 	// Specifies how to transform HTTP requests before sending them to the backend.
@@ -36,6 +51,14 @@ type HttpLambdaIntegrationProps struct {
 	// Default: PayloadFormatVersion.VERSION_2_0
 	//
 	PayloadFormatVersion awsapigatewayv2.PayloadFormatVersion `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
+	// Scope the permission for invoking the AWS Lambda down to the specific route associated with this integration.
+	//
+	// If this is set to `false`, the permission will allow invoking the AWS Lambda
+	// from any route. This is useful for reducing the AWS Lambda policy size
+	// for cases where the same AWS Lambda function is reused for many integrations.
+	// Default: true.
+	//
+	ScopePermissionToRoute *bool `field:"optional" json:"scopePermissionToRoute" yaml:"scopePermissionToRoute"`
 	// The maximum amount of time an integration will run before it returns without a response.
 	//
 	// Must be between 50 milliseconds and 29 seconds.

@@ -62,8 +62,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLifecyclePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILifecyclePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdlmILifecyclePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -155,24 +155,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicyProps",
 		reflect.TypeOf((*CfnLifecyclePolicyProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_dlm.ILifecyclePolicyRef",
-		reflect.TypeOf((*ILifecyclePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicyRef", GoGetter: "LifecyclePolicyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILifecyclePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.LifecyclePolicyReference",
-		reflect.TypeOf((*LifecyclePolicyReference)(nil)).Elem(),
 	)
 }

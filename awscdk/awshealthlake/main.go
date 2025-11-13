@@ -61,8 +61,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFHIRDatastore{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFHIRDatastoreRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawshealthlakeIFHIRDatastoreRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -90,24 +90,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastoreProps",
 		reflect.TypeOf((*CfnFHIRDatastoreProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_healthlake.FHIRDatastoreReference",
-		reflect.TypeOf((*FHIRDatastoreReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_healthlake.IFHIRDatastoreRef",
-		reflect.TypeOf((*IFHIRDatastoreRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "fhirDatastoreRef", GoGetter: "FhirDatastoreRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFHIRDatastoreRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

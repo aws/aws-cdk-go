@@ -150,6 +150,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "arnForPolicies", GoGetter: "ArnForPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "attach", GoMethod: "Attach"},
 			_jsii_.MemberProperty{JsiiProperty: "autoCreatePolicy", GoGetter: "AutoCreatePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnDynamicReferenceKey", GoMethod: "CfnDynamicReferenceKey"},
 			_jsii_.MemberMethod{JsiiMethod: "denyAccountRootDelete", GoMethod: "DenyAccountRootDelete"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

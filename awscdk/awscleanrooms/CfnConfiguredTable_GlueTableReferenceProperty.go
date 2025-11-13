@@ -11,6 +11,9 @@ package awscleanrooms
 //   glueTableReferenceProperty := &GlueTableReferenceProperty{
 //   	DatabaseName: jsii.String("databaseName"),
 //   	TableName: jsii.String("tableName"),
+//
+//   	// the properties below are optional
+//   	Region: jsii.String("region"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html
@@ -24,5 +27,11 @@ type CfnConfiguredTable_GlueTableReferenceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html#cfn-cleanrooms-configuredtable-gluetablereference-tablename
 	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
+	// The AWS Region where the AWS Glue table is located.
+	//
+	// This parameter is required to uniquely identify and access tables across different Regions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html#cfn-cleanrooms-configuredtable-gluetablereference-region
+	//
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

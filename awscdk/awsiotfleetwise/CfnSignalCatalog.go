@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotfleetwise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotfleetwise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -92,8 +94,8 @@ import (
 //
 type CfnSignalCatalog interface {
 	awscdk.CfnResource
-	ISignalCatalogRef
 	awscdk.IInspectable
+	interfacesawsiotfleetwise.ISignalCatalogRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the signal catalog.
 	AttrArn() *string
@@ -123,7 +125,7 @@ type CfnSignalCatalog interface {
 	// A brief description of the signal catalog.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -151,7 +153,7 @@ type CfnSignalCatalog interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SignalCatalog resource.
-	SignalCatalogRef() *SignalCatalogReference
+	SignalCatalogRef() *interfacesawsiotfleetwise.SignalCatalogReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -304,8 +306,8 @@ type CfnSignalCatalog interface {
 // The jsii proxy struct for CfnSignalCatalog
 type jsiiProxy_CfnSignalCatalog struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISignalCatalogRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotfleetwiseISignalCatalogRef
 	internal.Type__awscdkITaggable
 }
 
@@ -439,8 +441,8 @@ func (j *jsiiProxy_CfnSignalCatalog) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSignalCatalog) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSignalCatalog) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -509,8 +511,8 @@ func (j *jsiiProxy_CfnSignalCatalog) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSignalCatalog) SignalCatalogRef() *SignalCatalogReference {
-	var returns *SignalCatalogReference
+func (j *jsiiProxy_CfnSignalCatalog) SignalCatalogRef() *interfacesawsiotfleetwise.SignalCatalogReference {
+	var returns *interfacesawsiotfleetwise.SignalCatalogReference
 	_jsii_.Get(
 		j,
 		"signalCatalogRef",
@@ -570,6 +572,7 @@ func (j *jsiiProxy_CfnSignalCatalog) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::IoTFleetWise::SignalCatalog`.
 func NewCfnSignalCatalog(scope constructs.Construct, id *string, props *CfnSignalCatalogProps) CfnSignalCatalog {
 	_init_.Initialize()
 
@@ -587,6 +590,7 @@ func NewCfnSignalCatalog(scope constructs.Construct, id *string, props *CfnSigna
 	return &j
 }
 
+// Create a new `AWS::IoTFleetWise::SignalCatalog`.
 func NewCfnSignalCatalog_Override(c CfnSignalCatalog, scope constructs.Construct, id *string, props *CfnSignalCatalogProps) {
 	_init_.Initialize()
 

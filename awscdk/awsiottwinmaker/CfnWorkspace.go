@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiottwinmaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiottwinmaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnWorkspace interface {
 	awscdk.CfnResource
-	IWorkspaceRef
 	awscdk.IInspectable
+	interfacesawsiottwinmaker.IWorkspaceRef
 	awscdk.ITaggable
 	// The workspace ARN.
 	AttrArn() *string
@@ -53,7 +55,7 @@ type CfnWorkspace interface {
 	// The description of the workspace.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -103,7 +105,7 @@ type CfnWorkspace interface {
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// A reference to a Workspace resource.
-	WorkspaceRef() *WorkspaceReference
+	WorkspaceRef() *interfacesawsiottwinmaker.WorkspaceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -234,8 +236,8 @@ type CfnWorkspace interface {
 // The jsii proxy struct for CfnWorkspace
 type jsiiProxy_CfnWorkspace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkspaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiottwinmakerIWorkspaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnWorkspace) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkspace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -439,8 +441,8 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *WorkspaceReference {
-	var returns *WorkspaceReference
+func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *interfacesawsiottwinmaker.WorkspaceReference {
+	var returns *interfacesawsiottwinmaker.WorkspaceReference
 	_jsii_.Get(
 		j,
 		"workspaceRef",
@@ -450,6 +452,7 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *WorkspaceReference {
 }
 
 
+// Create a new `AWS::IoTTwinMaker::Workspace`.
 func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
@@ -467,6 +470,7 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 	return &j
 }
 
+// Create a new `AWS::IoTTwinMaker::Workspace`.
 func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 
@@ -527,13 +531,13 @@ func (j *jsiiProxy_CfnWorkspace)SetWorkspaceId(val *string) {
 }
 
 // Creates a new IWorkspaceRef from an ARN.
-func CfnWorkspace_FromWorkspaceArn(scope constructs.Construct, id *string, arn *string) IWorkspaceRef {
+func CfnWorkspace_FromWorkspaceArn(scope constructs.Construct, id *string, arn *string) interfacesawsiottwinmaker.IWorkspaceRef {
 	_init_.Initialize()
 
 	if err := validateCfnWorkspace_FromWorkspaceArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IWorkspaceRef
+	var returns interfacesawsiottwinmaker.IWorkspaceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
@@ -546,13 +550,13 @@ func CfnWorkspace_FromWorkspaceArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IWorkspaceRef from a workspaceId.
-func CfnWorkspace_FromWorkspaceId(scope constructs.Construct, id *string, workspaceId *string) IWorkspaceRef {
+func CfnWorkspace_FromWorkspaceId(scope constructs.Construct, id *string, workspaceId *string) interfacesawsiottwinmaker.IWorkspaceRef {
 	_init_.Initialize()
 
 	if err := validateCfnWorkspace_FromWorkspaceIdParameters(scope, id, workspaceId); err != nil {
 		panic(err)
 	}
-	var returns IWorkspaceRef
+	var returns interfacesawsiottwinmaker.IWorkspaceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",

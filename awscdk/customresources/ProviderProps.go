@@ -4,9 +4,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Initialization properties for the `Provider` construct.
@@ -106,7 +106,7 @@ type ProviderProps struct {
 	// AWS KMS key used to encrypt provider lambda's environment variables.
 	// Default: -  AWS Lambda creates and uses an AWS managed customer master key (CMK).
 	//
-	ProviderFunctionEnvEncryption awskms.IKeyRef `field:"optional" json:"providerFunctionEnvEncryption" yaml:"providerFunctionEnvEncryption"`
+	ProviderFunctionEnvEncryption interfacesawskms.IKeyRef `field:"optional" json:"providerFunctionEnvEncryption" yaml:"providerFunctionEnvEncryption"`
 	// Provider Lambda name.
 	//
 	// The provider lambda function name.

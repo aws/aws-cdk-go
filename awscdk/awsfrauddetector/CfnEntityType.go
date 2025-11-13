@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfrauddetector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfrauddetector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnEntityType interface {
 	awscdk.CfnResource
-	IEntityTypeRef
 	awscdk.IInspectable
+	interfacesawsfrauddetector.IEntityTypeRef
 	awscdk.ITaggable
 	// The entity type ARN.
 	AttrArn() *string
@@ -57,8 +59,8 @@ type CfnEntityType interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a EntityType resource.
-	EntityTypeRef() *EntityTypeReference
-	Env() *awscdk.ResourceEnvironment
+	EntityTypeRef() *interfacesawsfrauddetector.EntityTypeReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnEntityType interface {
 // The jsii proxy struct for CfnEntityType
 type jsiiProxy_CfnEntityType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEntityTypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfrauddetectorIEntityTypeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnEntityType) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntityType) EntityTypeRef() *EntityTypeReference {
-	var returns *EntityTypeReference
+func (j *jsiiProxy_CfnEntityType) EntityTypeRef() *interfacesawsfrauddetector.EntityTypeReference {
+	var returns *interfacesawsfrauddetector.EntityTypeReference
 	_jsii_.Get(
 		j,
 		"entityTypeRef",
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnEntityType) EntityTypeRef() *EntityTypeReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntityType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEntityType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,6 +429,7 @@ func (j *jsiiProxy_CfnEntityType) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::FraudDetector::EntityType`.
 func NewCfnEntityType(scope constructs.Construct, id *string, props *CfnEntityTypeProps) CfnEntityType {
 	_init_.Initialize()
 
@@ -444,6 +447,7 @@ func NewCfnEntityType(scope constructs.Construct, id *string, props *CfnEntityTy
 	return &j
 }
 
+// Create a new `AWS::FraudDetector::EntityType`.
 func NewCfnEntityType_Override(c CfnEntityType, scope constructs.Construct, id *string, props *CfnEntityTypeProps) {
 	_init_.Initialize()
 

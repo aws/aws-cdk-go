@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnEnvironmentActions interface {
 	awscdk.CfnResource
-	IEnvironmentActionsRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IEnvironmentActionsRef
 	// The Amazon DataZone domain ID of the environment action.
 	AttrDomainId() *string
 	// The environment ID of the environment action.
@@ -58,9 +60,9 @@ type CfnEnvironmentActions interface {
 	// The Amazon DataZone domain ID of the environment action.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EnvironmentActions resource.
-	EnvironmentActionsRef() *EnvironmentActionsReference
+	EnvironmentActionsRef() *interfacesawsdatazone.EnvironmentActionsReference
 	// The environment ID of the environment action.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -237,8 +239,8 @@ type CfnEnvironmentActions interface {
 // The jsii proxy struct for CfnEnvironmentActions
 type jsiiProxy_CfnEnvironmentActions struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentActionsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIEnvironmentActionsRef
 }
 
 func (j *jsiiProxy_CfnEnvironmentActions) AttrDomainId() *string {
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnEnvironmentActions) DomainIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentActions) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironmentActions) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnEnvironmentActions) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentActions) EnvironmentActionsRef() *EnvironmentActionsReference {
-	var returns *EnvironmentActionsReference
+func (j *jsiiProxy_CfnEnvironmentActions) EnvironmentActionsRef() *interfacesawsdatazone.EnvironmentActionsReference {
+	var returns *interfacesawsdatazone.EnvironmentActionsReference
 	_jsii_.Get(
 		j,
 		"environmentActionsRef",
@@ -452,6 +454,7 @@ func (j *jsiiProxy_CfnEnvironmentActions) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::DataZone::EnvironmentActions`.
 func NewCfnEnvironmentActions(scope constructs.Construct, id *string, props *CfnEnvironmentActionsProps) CfnEnvironmentActions {
 	_init_.Initialize()
 
@@ -469,6 +472,7 @@ func NewCfnEnvironmentActions(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::DataZone::EnvironmentActions`.
 func NewCfnEnvironmentActions_Override(c CfnEnvironmentActions, scope constructs.Construct, id *string, props *CfnEnvironmentActionsProps) {
 	_init_.Initialize()
 

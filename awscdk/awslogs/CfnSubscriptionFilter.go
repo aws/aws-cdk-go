@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnSubscriptionFilter interface {
 	awscdk.CfnResource
-	ISubscriptionFilterRef
 	awscdk.IInspectable
+	interfacesawslogs.ISubscriptionFilterRef
 	// This parameter is valid only for log groups that have an active log transformer.
 	ApplyOnTransformedLogs() interface{}
 	SetApplyOnTransformedLogs(val interface{})
@@ -68,7 +70,7 @@ type CfnSubscriptionFilter interface {
 	// The list of system fields that are included in the log events sent to the subscription destination.
 	EmitSystemFields() *[]*string
 	SetEmitSystemFields(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The filter expression that specifies which log events are processed by this subscription filter based on system fields.
 	FieldSelectionCriteria() *string
 	SetFieldSelectionCriteria(val *string)
@@ -106,7 +108,7 @@ type CfnSubscriptionFilter interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a SubscriptionFilter resource.
-	SubscriptionFilterRef() *SubscriptionFilterReference
+	SubscriptionFilterRef() *interfacesawslogs.SubscriptionFilterReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -250,8 +252,8 @@ type CfnSubscriptionFilter interface {
 // The jsii proxy struct for CfnSubscriptionFilter
 type jsiiProxy_CfnSubscriptionFilter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubscriptionFilterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsISubscriptionFilterRef
 }
 
 func (j *jsiiProxy_CfnSubscriptionFilter) ApplyOnTransformedLogs() interface{} {
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnSubscriptionFilter) EmitSystemFields() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionFilter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubscriptionFilter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnSubscriptionFilter) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionFilter) SubscriptionFilterRef() *SubscriptionFilterReference {
-	var returns *SubscriptionFilterReference
+func (j *jsiiProxy_CfnSubscriptionFilter) SubscriptionFilterRef() *interfacesawslogs.SubscriptionFilterReference {
+	var returns *interfacesawslogs.SubscriptionFilterReference
 	_jsii_.Get(
 		j,
 		"subscriptionFilterRef",
@@ -465,6 +467,7 @@ func (j *jsiiProxy_CfnSubscriptionFilter) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Logs::SubscriptionFilter`.
 func NewCfnSubscriptionFilter(scope constructs.Construct, id *string, props *CfnSubscriptionFilterProps) CfnSubscriptionFilter {
 	_init_.Initialize()
 
@@ -482,6 +485,7 @@ func NewCfnSubscriptionFilter(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Logs::SubscriptionFilter`.
 func NewCfnSubscriptionFilter_Override(c CfnSubscriptionFilter, scope constructs.Construct, id *string, props *CfnSubscriptionFilterProps) {
 	_init_.Initialize()
 

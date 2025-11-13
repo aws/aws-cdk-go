@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmwaa/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmwaa"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -87,8 +89,8 @@ import (
 //
 type CfnEnvironment interface {
 	awscdk.CfnResource
-	IEnvironmentRef
 	awscdk.IInspectable
+	interfacesawsmwaa.IEnvironmentRef
 	awscdk.ITaggable
 	// A list of key-value pairs containing the Airflow configuration options for your environment.
 	AirflowConfigurationOptions() interface{}
@@ -131,12 +133,12 @@ type CfnEnvironment interface {
 	// Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
 	EndpointManagement() *string
 	SetEndpointManagement(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The environment class type.
 	EnvironmentClass() *string
 	SetEnvironmentClass(val *string)
 	// A reference to a Environment resource.
-	EnvironmentRef() *EnvironmentReference
+	EnvironmentRef() *interfacesawsmwaa.EnvironmentReference
 	// The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -372,8 +374,8 @@ type CfnEnvironment interface {
 // The jsii proxy struct for CfnEnvironment
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmwaaIEnvironmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -557,8 +559,8 @@ func (j *jsiiProxy_CfnEnvironment) EndpointManagement() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -577,8 +579,8 @@ func (j *jsiiProxy_CfnEnvironment) EnvironmentClass() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *EnvironmentReference {
-	var returns *EnvironmentReference
+func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *interfacesawsmwaa.EnvironmentReference {
+	var returns *interfacesawsmwaa.EnvironmentReference
 	_jsii_.Get(
 		j,
 		"environmentRef",
@@ -868,6 +870,7 @@ func (j *jsiiProxy_CfnEnvironment) WorkerReplacementStrategy() *string {
 }
 
 
+// Create a new `AWS::MWAA::Environment`.
 func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
@@ -885,6 +888,7 @@ func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnviron
 	return &j
 }
 
+// Create a new `AWS::MWAA::Environment`.
 func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 
@@ -1113,13 +1117,13 @@ func (j *jsiiProxy_CfnEnvironment)SetWorkerReplacementStrategy(val *string) {
 }
 
 // Creates a new IEnvironmentRef from an ARN.
-func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) IEnvironmentRef {
+func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) interfacesawsmwaa.IEnvironmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnEnvironment_FromEnvironmentArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IEnvironmentRef
+	var returns interfacesawsmwaa.IEnvironmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
@@ -1132,13 +1136,13 @@ func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IEnvironmentRef from a environmentName.
-func CfnEnvironment_FromEnvironmentName(scope constructs.Construct, id *string, environmentName *string) IEnvironmentRef {
+func CfnEnvironment_FromEnvironmentName(scope constructs.Construct, id *string, environmentName *string) interfacesawsmwaa.IEnvironmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnEnvironment_FromEnvironmentNameParameters(scope, id, environmentName); err != nil {
 		panic(err)
 	}
-	var returns IEnvironmentRef
+	var returns interfacesawsmwaa.IEnvironmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_mwaa.CfnEnvironment",

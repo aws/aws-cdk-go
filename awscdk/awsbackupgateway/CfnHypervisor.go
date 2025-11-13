@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackupgateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackupgateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnHypervisor interface {
 	awscdk.CfnResource
-	IHypervisorRef
 	awscdk.IInspectable
+	interfacesawsbackupgateway.IHypervisorRef
 	awscdk.ITaggable
 	// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor.
 	//
@@ -53,12 +55,12 @@ type CfnHypervisor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The server host of the hypervisor.
 	Host() *string
 	SetHost(val *string)
 	// A reference to a Hypervisor resource.
-	HypervisorRef() *HypervisorReference
+	HypervisorRef() *interfacesawsbackupgateway.HypervisorReference
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -243,8 +245,8 @@ type CfnHypervisor interface {
 // The jsii proxy struct for CfnHypervisor
 type jsiiProxy_CfnHypervisor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHypervisorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupgatewayIHypervisorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnHypervisor) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHypervisor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHypervisor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnHypervisor) Host() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHypervisor) HypervisorRef() *HypervisorReference {
-	var returns *HypervisorReference
+func (j *jsiiProxy_CfnHypervisor) HypervisorRef() *interfacesawsbackupgateway.HypervisorReference {
+	var returns *interfacesawsbackupgateway.HypervisorReference
 	_jsii_.Get(
 		j,
 		"hypervisorRef",
@@ -459,6 +461,7 @@ func (j *jsiiProxy_CfnHypervisor) Username() *string {
 }
 
 
+// Create a new `AWS::BackupGateway::Hypervisor`.
 func NewCfnHypervisor(scope constructs.Construct, id *string, props *CfnHypervisorProps) CfnHypervisor {
 	_init_.Initialize()
 
@@ -476,6 +479,7 @@ func NewCfnHypervisor(scope constructs.Construct, id *string, props *CfnHypervis
 	return &j
 }
 
+// Create a new `AWS::BackupGateway::Hypervisor`.
 func NewCfnHypervisor_Override(c CfnHypervisor, scope constructs.Construct, id *string, props *CfnHypervisorProps) {
 	_init_.Initialize()
 

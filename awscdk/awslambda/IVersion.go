@@ -7,12 +7,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IVersion interface {
 	IFunction
-	IVersionRef
+	interfacesawslambda.IVersionRef
 	// Defines an alias for this version.
 	// Deprecated: Calling `addAlias` on a `Version` object will cause the Alias to be replaced on every function update. Call `function.addAlias()` or `new Alias()` instead.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
@@ -27,7 +30,7 @@ type IVersion interface {
 // The jsii proxy for IVersion
 type jsiiProxy_IVersion struct {
 	jsiiProxy_IFunction
-	jsiiProxy_IVersionRef
+	internal.Type__interfacesawslambdaIVersionRef
 }
 
 func (i *jsiiProxy_IVersion) AddAlias(aliasName *string, options *AliasOptions) Alias {
@@ -343,8 +346,8 @@ func (j *jsiiProxy_IVersion) Connections() awsec2.Connections {
 	return returns
 }
 
-func (j *jsiiProxy_IVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -373,8 +376,8 @@ func (j *jsiiProxy_IVersion) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVersion) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_IVersion) FunctionRef() *interfacesawslambda.FunctionReference {
+	var returns *interfacesawslambda.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",
@@ -463,8 +466,8 @@ func (j *jsiiProxy_IVersion) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVersion) VersionRef() *VersionReference {
-	var returns *VersionReference
+func (j *jsiiProxy_IVersion) VersionRef() *interfacesawslambda.VersionReference {
+	var returns *interfacesawslambda.VersionReference
 	_jsii_.Get(
 		j,
 		"versionRef",

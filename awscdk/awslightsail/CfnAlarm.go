@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,13 +42,13 @@ import (
 //
 type CfnAlarm interface {
 	awscdk.CfnResource
-	IAlarmRef
 	awscdk.IInspectable
+	interfacesawslightsail.IAlarmRef
 	// The name of the alarm.
 	AlarmName() *string
 	SetAlarmName(val *string)
 	// A reference to a Alarm resource.
-	AlarmRef() *AlarmReference
+	AlarmRef() *interfacesawslightsail.AlarmReference
 	// The Amazon Resource Name (ARN) of the alarm.
 	AttrAlarmArn() *string
 	// The current state of the alarm.
@@ -75,7 +77,7 @@ type CfnAlarm interface {
 	// The number of data points within the evaluation periods that must be breaching to cause the alarm to go to the `ALARM` state.
 	DatapointsToAlarm() *float64
 	SetDatapointsToAlarm(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods() *float64
 	SetEvaluationPeriods(val *float64)
@@ -261,8 +263,8 @@ type CfnAlarm interface {
 // The jsii proxy struct for CfnAlarm
 type jsiiProxy_CfnAlarm struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAlarmRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIAlarmRef
 }
 
 func (j *jsiiProxy_CfnAlarm) AlarmName() *string {
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnAlarm) AlarmName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlarm) AlarmRef() *AlarmReference {
-	var returns *AlarmReference
+func (j *jsiiProxy_CfnAlarm) AlarmRef() *interfacesawslightsail.AlarmReference {
+	var returns *interfacesawslightsail.AlarmReference
 	_jsii_.Get(
 		j,
 		"alarmRef",
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnAlarm) DatapointsToAlarm() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlarm) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAlarm) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -516,6 +518,7 @@ func (j *jsiiProxy_CfnAlarm) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lightsail::Alarm`.
 func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) CfnAlarm {
 	_init_.Initialize()
 
@@ -533,6 +536,7 @@ func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) C
 	return &j
 }
 
+// Create a new `AWS::Lightsail::Alarm`.
 func NewCfnAlarm_Override(c CfnAlarm, scope constructs.Construct, id *string, props *CfnAlarmProps) {
 	_init_.Initialize()
 

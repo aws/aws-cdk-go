@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsresiliencehub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsresiliencehub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnResiliencyPolicy interface {
 	awscdk.CfnResource
-	IResiliencyPolicyRef
 	awscdk.IInspectable
+	interfacesawsresiliencehub.IResiliencyPolicyRef
 	awscdk.ITaggable
 	// Amazon Resource Name (ARN) of the resiliency policy.
 	AttrPolicyArn() *string
@@ -57,7 +59,7 @@ type CfnResiliencyPolicy interface {
 	// Specifies a high-level geographical location constraint for where your resilience policy data can be stored.
 	DataLocationConstraint() *string
 	SetDataLocationConstraint(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +87,7 @@ type CfnResiliencyPolicy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResiliencyPolicy resource.
-	ResiliencyPolicyRef() *ResiliencyPolicyReference
+	ResiliencyPolicyRef() *interfacesawsresiliencehub.ResiliencyPolicyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -241,8 +243,8 @@ type CfnResiliencyPolicy interface {
 // The jsii proxy struct for CfnResiliencyPolicy
 type jsiiProxy_CfnResiliencyPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResiliencyPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsresiliencehubIResiliencyPolicyRef
 	internal.Type__awscdkITaggable
 }
 
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnResiliencyPolicy) DataLocationConstraint() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResiliencyPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResiliencyPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnResiliencyPolicy) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResiliencyPolicy) ResiliencyPolicyRef() *ResiliencyPolicyReference {
-	var returns *ResiliencyPolicyReference
+func (j *jsiiProxy_CfnResiliencyPolicy) ResiliencyPolicyRef() *interfacesawsresiliencehub.ResiliencyPolicyReference {
+	var returns *interfacesawsresiliencehub.ResiliencyPolicyReference
 	_jsii_.Get(
 		j,
 		"resiliencyPolicyRef",
@@ -447,6 +449,7 @@ func (j *jsiiProxy_CfnResiliencyPolicy) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::ResilienceHub::ResiliencyPolicy`.
 func NewCfnResiliencyPolicy(scope constructs.Construct, id *string, props *CfnResiliencyPolicyProps) CfnResiliencyPolicy {
 	_init_.Initialize()
 
@@ -464,6 +467,7 @@ func NewCfnResiliencyPolicy(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
+// Create a new `AWS::ResilienceHub::ResiliencyPolicy`.
 func NewCfnResiliencyPolicy_Override(c CfnResiliencyPolicy, scope constructs.Construct, id *string, props *CfnResiliencyPolicyProps) {
 	_init_.Initialize()
 

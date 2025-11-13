@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnEventBusPolicy interface {
 	awscdk.CfnResource
-	IEventBusPolicyRef
 	awscdk.IInspectable
+	interfacesawsevents.IEventBusPolicyRef
 	// The action that you are enabling the other account to perform.
 	// Deprecated: this property has been deprecated.
 	Action() *string
@@ -68,12 +70,12 @@ type CfnEventBusPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the event bus associated with the rule.
 	EventBusName() *string
 	SetEventBusName(val *string)
 	// A reference to a EventBusPolicy resource.
-	EventBusPolicyRef() *EventBusPolicyReference
+	EventBusPolicyRef() *interfacesawsevents.EventBusPolicyReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -249,8 +251,8 @@ type CfnEventBusPolicy interface {
 // The jsii proxy struct for CfnEventBusPolicy
 type jsiiProxy_CfnEventBusPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventBusPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventsIEventBusPolicyRef
 }
 
 func (j *jsiiProxy_CfnEventBusPolicy) Action() *string {
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnEventBusPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventBusPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventBusPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnEventBusPolicy) EventBusName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventBusPolicy) EventBusPolicyRef() *EventBusPolicyReference {
-	var returns *EventBusPolicyReference
+func (j *jsiiProxy_CfnEventBusPolicy) EventBusPolicyRef() *interfacesawsevents.EventBusPolicyReference {
+	var returns *interfacesawsevents.EventBusPolicyReference
 	_jsii_.Get(
 		j,
 		"eventBusPolicyRef",
@@ -434,6 +436,7 @@ func (j *jsiiProxy_CfnEventBusPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Events::EventBusPolicy`.
 func NewCfnEventBusPolicy(scope constructs.Construct, id *string, props *CfnEventBusPolicyProps) CfnEventBusPolicy {
 	_init_.Initialize()
 
@@ -451,6 +454,7 @@ func NewCfnEventBusPolicy(scope constructs.Construct, id *string, props *CfnEven
 	return &j
 }
 
+// Create a new `AWS::Events::EventBusPolicy`.
 func NewCfnEventBusPolicy_Override(c CfnEventBusPolicy, scope constructs.Construct, id *string, props *CfnEventBusPolicyProps) {
 	_init_.Initialize()
 

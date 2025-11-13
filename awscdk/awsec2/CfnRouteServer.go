@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnRouteServer interface {
 	awscdk.CfnResource
-	IRouteServerRef
 	awscdk.IInspectable
+	interfacesawsec2.IRouteServerRef
 	awscdk.ITaggableV2
 	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance.
 	AmazonSideAsn() *float64
@@ -60,7 +62,7 @@ type CfnRouteServer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +87,7 @@ type CfnRouteServer interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RouteServer resource.
-	RouteServerRef() *RouteServerReference
+	RouteServerRef() *interfacesawsec2.RouteServerReference
 	// Indicates whether SNS notifications are enabled for the route server.
 	SnsNotificationsEnabled() interface{}
 	SetSnsNotificationsEnabled(val interface{})
@@ -239,8 +241,8 @@ type CfnRouteServer interface {
 // The jsii proxy struct for CfnRouteServer
 type jsiiProxy_CfnRouteServer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteServerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IRouteServerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -324,8 +326,8 @@ func (j *jsiiProxy_CfnRouteServer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRouteServer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnRouteServer) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServer) RouteServerRef() *RouteServerReference {
-	var returns *RouteServerReference
+func (j *jsiiProxy_CfnRouteServer) RouteServerRef() *interfacesawsec2.RouteServerReference {
+	var returns *interfacesawsec2.RouteServerReference
 	_jsii_.Get(
 		j,
 		"routeServerRef",
@@ -445,6 +447,7 @@ func (j *jsiiProxy_CfnRouteServer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::RouteServer`.
 func NewCfnRouteServer(scope constructs.Construct, id *string, props *CfnRouteServerProps) CfnRouteServer {
 	_init_.Initialize()
 
@@ -462,6 +465,7 @@ func NewCfnRouteServer(scope constructs.Construct, id *string, props *CfnRouteSe
 	return &j
 }
 
+// Create a new `AWS::EC2::RouteServer`.
 func NewCfnRouteServer_Override(c CfnRouteServer, scope constructs.Construct, id *string, props *CfnRouteServerProps) {
 	_init_.Initialize()
 
@@ -522,13 +526,13 @@ func (j *jsiiProxy_CfnRouteServer)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IRouteServerRef from an ARN.
-func CfnRouteServer_FromRouteServerArn(scope constructs.Construct, id *string, arn *string) IRouteServerRef {
+func CfnRouteServer_FromRouteServerArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IRouteServerRef {
 	_init_.Initialize()
 
 	if err := validateCfnRouteServer_FromRouteServerArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IRouteServerRef
+	var returns interfacesawsec2.IRouteServerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnRouteServer",
@@ -541,13 +545,13 @@ func CfnRouteServer_FromRouteServerArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IRouteServerRef from a routeServerId.
-func CfnRouteServer_FromRouteServerId(scope constructs.Construct, id *string, routeServerId *string) IRouteServerRef {
+func CfnRouteServer_FromRouteServerId(scope constructs.Construct, id *string, routeServerId *string) interfacesawsec2.IRouteServerRef {
 	_init_.Initialize()
 
 	if err := validateCfnRouteServer_FromRouteServerIdParameters(scope, id, routeServerId); err != nil {
 		panic(err)
 	}
-	var returns IRouteServerRef
+	var returns interfacesawsec2.IRouteServerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnRouteServer",

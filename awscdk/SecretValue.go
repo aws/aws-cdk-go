@@ -181,6 +181,27 @@ func SecretValue_CfnDynamicReference(ref CfnDynamicReference) SecretValue {
 	return returns
 }
 
+// Returns a key which can be used within an AWS CloudFormation dynamic reference to dynamically load a secret from AWS Secrets Manager.
+// See: https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html
+//
+func SecretValue_CfnDynamicReferenceKey(secretId *string, options *SecretsManagerSecretOptions) *string {
+	_init_.Initialize()
+
+	if err := validateSecretValue_CfnDynamicReferenceKeyParameters(secretId, options); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.SecretValue",
+		"cfnDynamicReferenceKey",
+		[]interface{}{secretId, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Obtain the secret value through a CloudFormation parameter.
 //
 // Generally, this is not a recommended approach. AWS Secrets Manager is the

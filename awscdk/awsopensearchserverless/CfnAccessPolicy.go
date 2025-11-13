@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,10 +33,10 @@ import (
 //
 type CfnAccessPolicy interface {
 	awscdk.CfnResource
-	IAccessPolicyRef
 	awscdk.IInspectable
+	interfacesawsopensearchserverless.IAccessPolicyRef
 	// A reference to a AccessPolicy resource.
-	AccessPolicyRef() *AccessPolicyReference
+	AccessPolicyRef() *interfacesawsopensearchserverless.AccessPolicyReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -47,7 +49,7 @@ type CfnAccessPolicy interface {
 	// The description of the policy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,12 +223,12 @@ type CfnAccessPolicy interface {
 // The jsii proxy struct for CfnAccessPolicy
 type jsiiProxy_CfnAccessPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopensearchserverlessIAccessPolicyRef
 }
 
-func (j *jsiiProxy_CfnAccessPolicy) AccessPolicyRef() *AccessPolicyReference {
-	var returns *AccessPolicyReference
+func (j *jsiiProxy_CfnAccessPolicy) AccessPolicyRef() *interfacesawsopensearchserverless.AccessPolicyReference {
+	var returns *interfacesawsopensearchserverless.AccessPolicyReference
 	_jsii_.Get(
 		j,
 		"accessPolicyRef",
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnAccessPolicy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -386,6 +388,7 @@ func (j *jsiiProxy_CfnAccessPolicy) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::OpenSearchServerless::AccessPolicy`.
 func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccessPolicyProps) CfnAccessPolicy {
 	_init_.Initialize()
 
@@ -403,6 +406,7 @@ func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccess
 	return &j
 }
 
+// Create a new `AWS::OpenSearchServerless::AccessPolicy`.
 func NewCfnAccessPolicy_Override(c CfnAccessPolicy, scope constructs.Construct, id *string, props *CfnAccessPolicyProps) {
 	_init_.Initialize()
 

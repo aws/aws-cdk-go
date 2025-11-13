@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,6 +34,7 @@ import (
 //   	BackupVaultTags: map[string]*string{
 //   		"backupVaultTagsKey": jsii.String("backupVaultTags"),
 //   	},
+//   	MpaApprovalTeamArn: jsii.String("mpaApprovalTeamArn"),
 //   	Notifications: &NotificationObjectTypeProperty{
 //   		BackupVaultEvents: []*string{
 //   			jsii.String("backupVaultEvents"),
@@ -44,8 +47,8 @@ import (
 //
 type CfnLogicallyAirGappedBackupVault interface {
 	awscdk.CfnResource
-	ILogicallyAirGappedBackupVaultRef
 	awscdk.IInspectable
+	interfacesawsbackup.ILogicallyAirGappedBackupVaultRef
 	awscdk.ITaggableV2
 	// The backup vault access policy document in JSON format.
 	AccessPolicy() interface{}
@@ -79,7 +82,7 @@ type CfnLogicallyAirGappedBackupVault interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -91,13 +94,15 @@ type CfnLogicallyAirGappedBackupVault interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a LogicallyAirGappedBackupVault resource.
-	LogicallyAirGappedBackupVaultRef() *LogicallyAirGappedBackupVaultReference
+	LogicallyAirGappedBackupVaultRef() *interfacesawsbackup.LogicallyAirGappedBackupVaultReference
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays() *float64
 	SetMaxRetentionDays(val *float64)
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	MinRetentionDays() *float64
 	SetMinRetentionDays(val *float64)
+	MpaApprovalTeamArn() *string
+	SetMpaApprovalTeamArn(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Returns event notifications for the specified backup vault.
@@ -255,8 +260,8 @@ type CfnLogicallyAirGappedBackupVault interface {
 // The jsii proxy struct for CfnLogicallyAirGappedBackupVault
 type jsiiProxy_CfnLogicallyAirGappedBackupVault struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILogicallyAirGappedBackupVaultRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupILogicallyAirGappedBackupVaultRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -380,8 +385,8 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -400,8 +405,8 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) LogicallyAirGappedBackupVaultRef() *LogicallyAirGappedBackupVaultReference {
-	var returns *LogicallyAirGappedBackupVaultReference
+func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) LogicallyAirGappedBackupVaultRef() *interfacesawsbackup.LogicallyAirGappedBackupVaultReference {
+	var returns *interfacesawsbackup.LogicallyAirGappedBackupVaultReference
 	_jsii_.Get(
 		j,
 		"logicallyAirGappedBackupVaultRef",
@@ -425,6 +430,16 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) MinRetentionDays() *float64
 	_jsii_.Get(
 		j,
 		"minRetentionDays",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) MpaApprovalTeamArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"mpaApprovalTeamArn",
 		&returns,
 	)
 	return returns
@@ -491,6 +506,7 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::Backup::LogicallyAirGappedBackupVault`.
 func NewCfnLogicallyAirGappedBackupVault(scope constructs.Construct, id *string, props *CfnLogicallyAirGappedBackupVaultProps) CfnLogicallyAirGappedBackupVault {
 	_init_.Initialize()
 
@@ -508,6 +524,7 @@ func NewCfnLogicallyAirGappedBackupVault(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::Backup::LogicallyAirGappedBackupVault`.
 func NewCfnLogicallyAirGappedBackupVault_Override(c CfnLogicallyAirGappedBackupVault, scope constructs.Construct, id *string, props *CfnLogicallyAirGappedBackupVaultProps) {
 	_init_.Initialize()
 
@@ -567,6 +584,14 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetMinRetentionDays(val *flo
 	)
 }
 
+func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetMpaApprovalTeamArn(val *string) {
+	_jsii_.Set(
+		j,
+		"mpaApprovalTeamArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetNotifications(val interface{}) {
 	if err := j.validateSetNotificationsParameters(val); err != nil {
 		panic(err)
@@ -579,13 +604,13 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetNotifications(val interfa
 }
 
 // Creates a new ILogicallyAirGappedBackupVaultRef from a backupVaultName.
-func CfnLogicallyAirGappedBackupVault_FromBackupVaultName(scope constructs.Construct, id *string, backupVaultName *string) ILogicallyAirGappedBackupVaultRef {
+func CfnLogicallyAirGappedBackupVault_FromBackupVaultName(scope constructs.Construct, id *string, backupVaultName *string) interfacesawsbackup.ILogicallyAirGappedBackupVaultRef {
 	_init_.Initialize()
 
 	if err := validateCfnLogicallyAirGappedBackupVault_FromBackupVaultNameParameters(scope, id, backupVaultName); err != nil {
 		panic(err)
 	}
-	var returns ILogicallyAirGappedBackupVaultRef
+	var returns interfacesawsbackup.ILogicallyAirGappedBackupVaultRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_backup.CfnLogicallyAirGappedBackupVault",

@@ -30,10 +30,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.AccountReference",
-		reflect.TypeOf((*AccountReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.AddApiKeyOptions",
 		reflect.TypeOf((*AddApiKeyOptions)(nil)).Elem(),
 	)
@@ -90,10 +86,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.ApiKeyProps",
 		reflect.TypeOf((*ApiKeyProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.ApiKeyReference",
-		reflect.TypeOf((*ApiKeyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_apigateway.ApiKeySourceType",
@@ -153,10 +145,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.AuthorizerReference",
-		reflect.TypeOf((*AuthorizerReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.AwsIntegration",
 		reflect.TypeOf((*AwsIntegration)(nil)).Elem(),
@@ -201,14 +189,6 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.BasePathMappingProps",
 		reflect.TypeOf((*BasePathMappingProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.BasePathMappingReference",
-		reflect.TypeOf((*BasePathMappingReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.BasePathMappingV2Reference",
-		reflect.TypeOf((*BasePathMappingV2Reference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.CfnAccount",
 		reflect.TypeOf((*CfnAccount)(nil)).Elem(),
@@ -251,8 +231,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccount{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccountRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIAccountRef)
 			return &j
 		},
 	)
@@ -310,8 +290,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApiKey{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIApiKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -375,8 +355,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAuthorizer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAuthorizerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIAuthorizerRef)
 			return &j
 		},
 	)
@@ -429,8 +409,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnBasePathMapping{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBasePathMappingRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIBasePathMappingRef)
 			return &j
 		},
 	)
@@ -483,8 +463,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnBasePathMappingV2{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBasePathMappingV2Ref)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIBasePathMappingV2Ref)
 			return &j
 		},
 	)
@@ -536,8 +516,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnClientCertificate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IClientCertificateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIClientCertificateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -592,8 +572,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDeployment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeploymentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIDeploymentRef)
 			return &j
 		},
 	)
@@ -665,8 +645,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDocumentationPart{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDocumentationPartRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIDocumentationPartRef)
 			return &j
 		},
 	)
@@ -721,8 +701,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDocumentationVersion{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDocumentationVersionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIDocumentationVersionRef)
 			return &j
 		},
 	)
@@ -785,8 +765,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDomainName{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDomainNameRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIDomainNameRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -845,8 +825,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDomainNameAccessAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDomainNameAccessAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIDomainNameAccessAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -909,8 +889,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDomainNameV2{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDomainNameV2Ref)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIDomainNameV2Ref)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -969,8 +949,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnGatewayResponse{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGatewayResponseRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIGatewayResponseRef)
 			return &j
 		},
 	)
@@ -1031,8 +1011,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMethod{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMethodRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIMethodRef)
 			return &j
 		},
 	)
@@ -1097,8 +1077,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnModel{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IModelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIModelRef)
 			return &j
 		},
 	)
@@ -1151,8 +1131,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRequestValidator{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRequestValidatorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIRequestValidatorRef)
 			return &j
 		},
 	)
@@ -1204,8 +1184,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIResourceRef)
 			return &j
 		},
 	)
@@ -1272,8 +1252,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRestApi{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRestApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIRestApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1345,8 +1325,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStage{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStageRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIStageRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1415,8 +1395,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUsagePlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUsagePlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIUsagePlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1477,8 +1457,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUsagePlanKey{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUsagePlanKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIUsagePlanKeyRef)
 			return &j
 		},
 	)
@@ -1536,8 +1516,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVpcLink{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpcLinkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIVpcLinkRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -1545,10 +1525,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.CfnVpcLinkProps",
 		reflect.TypeOf((*CfnVpcLinkProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.ClientCertificateReference",
-		reflect.TypeOf((*ClientCertificateReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.CognitoUserPoolsAuthorizer",
@@ -1634,18 +1610,6 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.DeploymentProps",
 		reflect.TypeOf((*DeploymentProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.DeploymentReference",
-		reflect.TypeOf((*DeploymentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.DocumentationPartReference",
-		reflect.TypeOf((*DocumentationPartReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.DocumentationVersionReference",
-		reflect.TypeOf((*DocumentationVersionReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.DomainName",
 		reflect.TypeOf((*DomainName)(nil)).Elem(),
@@ -1674,10 +1638,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.DomainNameAccessAssociationReference",
-		reflect.TypeOf((*DomainNameAccessAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.DomainNameAttributes",
 		reflect.TypeOf((*DomainNameAttributes)(nil)).Elem(),
 	)
@@ -1688,14 +1648,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.DomainNameProps",
 		reflect.TypeOf((*DomainNameProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.DomainNameReference",
-		reflect.TypeOf((*DomainNameReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.DomainNameV2Reference",
-		reflect.TypeOf((*DomainNameV2Reference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.EndpointConfiguration",
@@ -1752,10 +1704,6 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.GatewayResponseProps",
 		reflect.TypeOf((*GatewayResponseProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.GatewayResponseReference",
-		reflect.TypeOf((*GatewayResponseReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.HttpIntegration",
 		reflect.TypeOf((*HttpIntegration)(nil)).Elem(),
@@ -1783,21 +1731,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IAccountRef",
-		reflect.TypeOf((*IAccountRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accountRef", GoGetter: "AccountRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccountRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_apigateway.IApiKey",
 		reflect.TypeOf((*IApiKey)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1811,23 +1744,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IApiKey{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiKeyRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIApiKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IApiKeyRef",
-		reflect.TypeOf((*IApiKeyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IApiKeyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1840,111 +1758,6 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IAuthorizer{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IAuthorizerRef",
-		reflect.TypeOf((*IAuthorizerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "authorizerRef", GoGetter: "AuthorizerRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAuthorizerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IBasePathMappingRef",
-		reflect.TypeOf((*IBasePathMappingRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "basePathMappingRef", GoGetter: "BasePathMappingRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IBasePathMappingRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IBasePathMappingV2Ref",
-		reflect.TypeOf((*IBasePathMappingV2Ref)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "basePathMappingV2Ref", GoGetter: "BasePathMappingV2Ref"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IBasePathMappingV2Ref{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IClientCertificateRef",
-		reflect.TypeOf((*IClientCertificateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clientCertificateRef", GoGetter: "ClientCertificateRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IClientCertificateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IDeploymentRef",
-		reflect.TypeOf((*IDeploymentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deploymentRef", GoGetter: "DeploymentRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeploymentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IDocumentationPartRef",
-		reflect.TypeOf((*IDocumentationPartRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "documentationPartRef", GoGetter: "DocumentationPartRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDocumentationPartRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IDocumentationVersionRef",
-		reflect.TypeOf((*IDocumentationVersionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "documentationVersionRef", GoGetter: "DocumentationVersionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDocumentationVersionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1962,53 +1775,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDomainName{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDomainNameRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIDomainNameRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IDomainNameAccessAssociationRef",
-		reflect.TypeOf((*IDomainNameAccessAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "domainNameAccessAssociationRef", GoGetter: "DomainNameAccessAssociationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDomainNameAccessAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IDomainNameRef",
-		reflect.TypeOf((*IDomainNameRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "domainNameRef", GoGetter: "DomainNameRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDomainNameRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IDomainNameV2Ref",
-		reflect.TypeOf((*IDomainNameV2Ref)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "domainNameV2Ref", GoGetter: "DomainNameV2Ref"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDomainNameV2Ref{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2024,38 +1792,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IGatewayResponse{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGatewayResponseRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIGatewayResponseRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IGatewayResponseRef",
-		reflect.TypeOf((*IGatewayResponseRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "gatewayResponseRef", GoGetter: "GatewayResponseRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGatewayResponseRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IMethodRef",
-		reflect.TypeOf((*IMethodRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "methodRef", GoGetter: "MethodRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMethodRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2067,21 +1805,6 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IModel{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IModelRef",
-		reflect.TypeOf((*IModelRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "modelRef", GoGetter: "ModelRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IModelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -2097,21 +1820,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IRequestValidator{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IRequestValidatorRef",
-		reflect.TypeOf((*IRequestValidatorRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "requestValidatorRef", GoGetter: "RequestValidatorRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRequestValidatorRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -2141,22 +1849,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IResource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IResourceRef",
-		reflect.TypeOf((*IResourceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceRef", GoGetter: "ResourceRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIResourceRef)
 			return &j
 		},
 	)
@@ -2180,22 +1873,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IRestApi{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRestApiRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IRestApiRef",
-		reflect.TypeOf((*IRestApiRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "restApiRef", GoGetter: "RestApiRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRestApiRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIRestApiRef)
 			return &j
 		},
 	)
@@ -2215,22 +1893,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IStage{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStageRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IStageRef",
-		reflect.TypeOf((*IStageRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStageRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIStageRef)
 			return &j
 		},
 	)
@@ -2249,37 +1912,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IUsagePlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUsagePlanRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IUsagePlanKeyRef",
-		reflect.TypeOf((*IUsagePlanKeyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "usagePlanKeyRef", GoGetter: "UsagePlanKeyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUsagePlanKeyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IUsagePlanRef",
-		reflect.TypeOf((*IUsagePlanRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "usagePlanRef", GoGetter: "UsagePlanRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUsagePlanRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIUsagePlanRef)
 			return &j
 		},
 	)
@@ -2297,22 +1930,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IVpcLink{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpcLinkRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_apigateway.IVpcLinkRef",
-		reflect.TypeOf((*IVpcLinkRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcLinkRef", GoGetter: "VpcLinkRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVpcLinkRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIVpcLinkRef)
 			return &j
 		},
 	)
@@ -2559,10 +2177,6 @@ func init() {
 		reflect.TypeOf((*MethodProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.MethodReference",
-		reflect.TypeOf((*MethodReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.MethodResponse",
 		reflect.TypeOf((*MethodResponse)(nil)).Elem(),
 	)
@@ -2607,10 +2221,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.ModelProps",
 		reflect.TypeOf((*ModelProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.ModelReference",
-		reflect.TypeOf((*ModelReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_apigateway.PassthroughBehavior",
@@ -2776,10 +2386,6 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.RequestValidatorProps",
 		reflect.TypeOf((*RequestValidatorProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.RequestValidatorReference",
-		reflect.TypeOf((*RequestValidatorReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.Resource",
 		reflect.TypeOf((*Resource)(nil)).Elem(),
@@ -2860,10 +2466,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.ResourceProps",
 		reflect.TypeOf((*ResourceProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.ResourceReference",
-		reflect.TypeOf((*ResourceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.ResponseType",
@@ -2993,10 +2595,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.RestApiProps",
 		reflect.TypeOf((*RestApiProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.RestApiReference",
-		reflect.TypeOf((*RestApiReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.S3ApiDefinition",
@@ -3168,10 +2766,6 @@ func init() {
 		reflect.TypeOf((*StageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.StageReference",
-		reflect.TypeOf((*StageReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.StepFunctionsExecutionIntegrationOptions",
 		reflect.TypeOf((*StepFunctionsExecutionIntegrationOptions)(nil)).Elem(),
 	)
@@ -3305,20 +2899,12 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.UsagePlanKeyReference",
-		reflect.TypeOf((*UsagePlanKeyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.UsagePlanPerApiStage",
 		reflect.TypeOf((*UsagePlanPerApiStage)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.UsagePlanProps",
 		reflect.TypeOf((*UsagePlanProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.UsagePlanReference",
-		reflect.TypeOf((*UsagePlanReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.VpcLink",
@@ -3347,9 +2933,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.VpcLinkProps",
 		reflect.TypeOf((*VpcLinkProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_apigateway.VpcLinkReference",
-		reflect.TypeOf((*VpcLinkReference)(nil)).Elem(),
 	)
 }

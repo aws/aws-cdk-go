@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnUserPoolUserToGroupAttachment interface {
 	awscdk.CfnResource
-	IUserPoolUserToGroupAttachmentRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolUserToGroupAttachmentRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -44,7 +46,7 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the group that you want to add your user to.
 	GroupName() *string
 	SetGroupName(val *string)
@@ -89,7 +91,7 @@ type CfnUserPoolUserToGroupAttachment interface {
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// A reference to a UserPoolUserToGroupAttachment resource.
-	UserPoolUserToGroupAttachmentRef() *UserPoolUserToGroupAttachmentReference
+	UserPoolUserToGroupAttachmentRef() *interfacesawscognito.UserPoolUserToGroupAttachmentReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -220,8 +222,8 @@ type CfnUserPoolUserToGroupAttachment interface {
 // The jsii proxy struct for CfnUserPoolUserToGroupAttachment
 type jsiiProxy_CfnUserPoolUserToGroupAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolUserToGroupAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolUserToGroupAttachmentRef
 }
 
 func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) CfnOptions() awscdk.ICfnResourceOptions {
@@ -264,8 +266,8 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) UserPoolId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) UserPoolUserToGroupAttachmentRef() *UserPoolUserToGroupAttachmentReference {
-	var returns *UserPoolUserToGroupAttachmentReference
+func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) UserPoolUserToGroupAttachmentRef() *interfacesawscognito.UserPoolUserToGroupAttachmentReference {
+	var returns *interfacesawscognito.UserPoolUserToGroupAttachmentReference
 	_jsii_.Get(
 		j,
 		"userPoolUserToGroupAttachmentRef",
@@ -375,6 +377,7 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) UserPoolUserToGroupAttachme
 }
 
 
+// Create a new `AWS::Cognito::UserPoolUserToGroupAttachment`.
 func NewCfnUserPoolUserToGroupAttachment(scope constructs.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) CfnUserPoolUserToGroupAttachment {
 	_init_.Initialize()
 
@@ -392,6 +395,7 @@ func NewCfnUserPoolUserToGroupAttachment(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolUserToGroupAttachment`.
 func NewCfnUserPoolUserToGroupAttachment_Override(c CfnUserPoolUserToGroupAttachment, scope constructs.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) {
 	_init_.Initialize()
 

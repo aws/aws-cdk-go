@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnLaunchRoleConstraint interface {
 	awscdk.CfnResource
-	ILaunchRoleConstraintRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.ILaunchRoleConstraintRef
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
@@ -49,9 +51,9 @@ type CfnLaunchRoleConstraint interface {
 	// The description of the constraint.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LaunchRoleConstraint resource.
-	LaunchRoleConstraintRef() *LaunchRoleConstraintReference
+	LaunchRoleConstraintRef() *interfacesawsservicecatalog.LaunchRoleConstraintReference
 	// You are required to specify either the `RoleArn` or the `LocalRoleName` but can't use both.
 	LocalRoleName() *string
 	SetLocalRoleName(val *string)
@@ -228,8 +230,8 @@ type CfnLaunchRoleConstraint interface {
 // The jsii proxy struct for CfnLaunchRoleConstraint
 type jsiiProxy_CfnLaunchRoleConstraint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILaunchRoleConstraintRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogILaunchRoleConstraintRef
 }
 
 func (j *jsiiProxy_CfnLaunchRoleConstraint) AcceptLanguage() *string {
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchRoleConstraint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLaunchRoleConstraint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchRoleConstraint) LaunchRoleConstraintRef() *LaunchRoleConstraintReference {
-	var returns *LaunchRoleConstraintReference
+func (j *jsiiProxy_CfnLaunchRoleConstraint) LaunchRoleConstraintRef() *interfacesawsservicecatalog.LaunchRoleConstraintReference {
+	var returns *interfacesawsservicecatalog.LaunchRoleConstraintReference
 	_jsii_.Get(
 		j,
 		"launchRoleConstraintRef",
@@ -423,6 +425,7 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::ServiceCatalog::LaunchRoleConstraint`.
 func NewCfnLaunchRoleConstraint(scope constructs.Construct, id *string, props *CfnLaunchRoleConstraintProps) CfnLaunchRoleConstraint {
 	_init_.Initialize()
 
@@ -440,6 +443,7 @@ func NewCfnLaunchRoleConstraint(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::LaunchRoleConstraint`.
 func NewCfnLaunchRoleConstraint_Override(c CfnLaunchRoleConstraint, scope constructs.Construct, id *string, props *CfnLaunchRoleConstraintProps) {
 	_init_.Initialize()
 

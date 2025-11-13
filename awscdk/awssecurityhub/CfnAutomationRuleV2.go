@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -109,8 +111,8 @@ import (
 //
 type CfnAutomationRuleV2 interface {
 	awscdk.CfnResource
-	IAutomationRuleV2Ref
 	awscdk.IInspectable
+	interfacesawssecurityhub.IAutomationRuleV2Ref
 	awscdk.ITaggableV2
 	// A list of actions to be performed when the rule criteria is met.
 	Actions() interface{}
@@ -124,7 +126,7 @@ type CfnAutomationRuleV2 interface {
 	// The timestamp when the V2 automation rule was updated.
 	AttrUpdatedAt() *string
 	// A reference to a AutomationRuleV2 resource.
-	AutomationRuleV2Ref() *AutomationRuleV2Reference
+	AutomationRuleV2Ref() *interfacesawssecurityhub.AutomationRuleV2Reference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -142,7 +144,7 @@ type CfnAutomationRuleV2 interface {
 	// A description of the V2 automation rule.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -319,8 +321,8 @@ type CfnAutomationRuleV2 interface {
 // The jsii proxy struct for CfnAutomationRuleV2
 type jsiiProxy_CfnAutomationRuleV2 struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAutomationRuleV2Ref
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIAutomationRuleV2Ref
 	internal.Type__awscdkITaggableV2
 }
 
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnAutomationRuleV2) AttrUpdatedAt() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomationRuleV2) AutomationRuleV2Ref() *AutomationRuleV2Reference {
-	var returns *AutomationRuleV2Reference
+func (j *jsiiProxy_CfnAutomationRuleV2) AutomationRuleV2Ref() *interfacesawssecurityhub.AutomationRuleV2Reference {
+	var returns *interfacesawssecurityhub.AutomationRuleV2Reference
 	_jsii_.Get(
 		j,
 		"automationRuleV2Ref",
@@ -454,8 +456,8 @@ func (j *jsiiProxy_CfnAutomationRuleV2) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomationRuleV2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAutomationRuleV2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -565,6 +567,7 @@ func (j *jsiiProxy_CfnAutomationRuleV2) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::SecurityHub::AutomationRuleV2`.
 func NewCfnAutomationRuleV2(scope constructs.Construct, id *string, props *CfnAutomationRuleV2Props) CfnAutomationRuleV2 {
 	_init_.Initialize()
 
@@ -582,6 +585,7 @@ func NewCfnAutomationRuleV2(scope constructs.Construct, id *string, props *CfnAu
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::AutomationRuleV2`.
 func NewCfnAutomationRuleV2_Override(c CfnAutomationRuleV2, scope constructs.Construct, id *string, props *CfnAutomationRuleV2Props) {
 	_init_.Initialize()
 

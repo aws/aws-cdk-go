@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnEnvironmentProfile interface {
 	awscdk.CfnResource
-	IEnvironmentProfileRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IEnvironmentProfileRef
 	// The timestamp of when an environment profile was created.
 	AttrCreatedAt() *string
 	// The Amazon DataZone user who created the environment profile.
@@ -75,12 +77,12 @@ type CfnEnvironmentProfile interface {
 	// The identifier of the Amazon DataZone domain in which the environment profile exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of a blueprint with which an environment profile is created.
 	EnvironmentBlueprintIdentifier() *string
 	SetEnvironmentBlueprintIdentifier(val *string)
 	// A reference to a EnvironmentProfile resource.
-	EnvironmentProfileRef() *EnvironmentProfileReference
+	EnvironmentProfileRef() *interfacesawsdatazone.EnvironmentProfileReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -254,8 +256,8 @@ type CfnEnvironmentProfile interface {
 // The jsii proxy struct for CfnEnvironmentProfile
 type jsiiProxy_CfnEnvironmentProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIEnvironmentProfileRef
 }
 
 func (j *jsiiProxy_CfnEnvironmentProfile) AttrCreatedAt() *string {
@@ -408,8 +410,8 @@ func (j *jsiiProxy_CfnEnvironmentProfile) DomainIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironmentProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnEnvironmentProfile) EnvironmentBlueprintIdentifier() *stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentProfile) EnvironmentProfileRef() *EnvironmentProfileReference {
-	var returns *EnvironmentProfileReference
+func (j *jsiiProxy_CfnEnvironmentProfile) EnvironmentProfileRef() *interfacesawsdatazone.EnvironmentProfileReference {
+	var returns *interfacesawsdatazone.EnvironmentProfileReference
 	_jsii_.Get(
 		j,
 		"environmentProfileRef",
@@ -529,6 +531,7 @@ func (j *jsiiProxy_CfnEnvironmentProfile) UserParameters() interface{} {
 }
 
 
+// Create a new `AWS::DataZone::EnvironmentProfile`.
 func NewCfnEnvironmentProfile(scope constructs.Construct, id *string, props *CfnEnvironmentProfileProps) CfnEnvironmentProfile {
 	_init_.Initialize()
 
@@ -546,6 +549,7 @@ func NewCfnEnvironmentProfile(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::DataZone::EnvironmentProfile`.
 func NewCfnEnvironmentProfile_Override(c CfnEnvironmentProfile, scope constructs.Construct, id *string, props *CfnEnvironmentProfileProps) {
 	_init_.Initialize()
 

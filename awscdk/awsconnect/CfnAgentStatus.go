@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,11 +40,11 @@ import (
 //
 type CfnAgentStatus interface {
 	awscdk.CfnResource
-	IAgentStatusRef
 	awscdk.IInspectable
+	interfacesawsconnect.IAgentStatusRef
 	awscdk.ITaggableV2
 	// A reference to a AgentStatus resource.
-	AgentStatusRef() *AgentStatusReference
+	AgentStatusRef() *interfacesawsconnect.AgentStatusReference
 	// The Amazon Resource Name (ARN) of the agent status.
 	AttrAgentStatusArn() *string
 	// The AWS Region where this resource was last modified.
@@ -66,7 +68,7 @@ type CfnAgentStatus interface {
 	// The display order of the agent status.
 	DisplayOrder() *float64
 	SetDisplayOrder(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -249,13 +251,13 @@ type CfnAgentStatus interface {
 // The jsii proxy struct for CfnAgentStatus
 type jsiiProxy_CfnAgentStatus struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAgentStatusRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIAgentStatusRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAgentStatus) AgentStatusRef() *AgentStatusReference {
-	var returns *AgentStatusReference
+func (j *jsiiProxy_CfnAgentStatus) AgentStatusRef() *interfacesawsconnect.AgentStatusReference {
+	var returns *interfacesawsconnect.AgentStatusReference
 	_jsii_.Get(
 		j,
 		"agentStatusRef",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnAgentStatus) DisplayOrder() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgentStatus) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAgentStatus) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -495,6 +497,7 @@ func (j *jsiiProxy_CfnAgentStatus) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Connect::AgentStatus`.
 func NewCfnAgentStatus(scope constructs.Construct, id *string, props *CfnAgentStatusProps) CfnAgentStatus {
 	_init_.Initialize()
 
@@ -512,6 +515,7 @@ func NewCfnAgentStatus(scope constructs.Construct, id *string, props *CfnAgentSt
 	return &j
 }
 
+// Create a new `AWS::Connect::AgentStatus`.
 func NewCfnAgentStatus_Override(c CfnAgentStatus, scope constructs.Construct, id *string, props *CfnAgentStatusProps) {
 	_init_.Initialize()
 

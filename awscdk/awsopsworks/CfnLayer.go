@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -106,8 +108,8 @@ import (
 //
 type CfnLayer interface {
 	awscdk.CfnResource
-	ILayerRef
 	awscdk.IInspectable
+	interfacesawsopsworks.ILayerRef
 	awscdk.ITaggable
 	// One or more user-defined key-value pairs to be added to the stack attributes.
 	Attributes() interface{}
@@ -143,12 +145,12 @@ type CfnLayer interface {
 	// Whether to disable auto healing for the layer.
 	EnableAutoHealing() interface{}
 	SetEnableAutoHealing(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Whether to install operating system and package updates when the instance boots.
 	InstallUpdatesOnBoot() interface{}
 	SetInstallUpdatesOnBoot(val interface{})
 	// A reference to a Layer resource.
-	LayerRef() *LayerReference
+	LayerRef() *interfacesawsopsworks.LayerReference
 	// A `LifeCycleEventConfiguration` object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
 	LifecycleEventConfiguration() interface{}
 	SetLifecycleEventConfiguration(val interface{})
@@ -345,8 +347,8 @@ type CfnLayer interface {
 // The jsii proxy struct for CfnLayer
 type jsiiProxy_CfnLayer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILayerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopsworksILayerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -480,8 +482,8 @@ func (j *jsiiProxy_CfnLayer) EnableAutoHealing() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLayer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -500,8 +502,8 @@ func (j *jsiiProxy_CfnLayer) InstallUpdatesOnBoot() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayer) LayerRef() *LayerReference {
-	var returns *LayerReference
+func (j *jsiiProxy_CfnLayer) LayerRef() *interfacesawsopsworks.LayerReference {
+	var returns *interfacesawsopsworks.LayerReference
 	_jsii_.Get(
 		j,
 		"layerRef",
@@ -681,6 +683,7 @@ func (j *jsiiProxy_CfnLayer) VolumeConfigurations() interface{} {
 }
 
 
+// Create a new `AWS::OpsWorks::Layer`.
 func NewCfnLayer(scope constructs.Construct, id *string, props *CfnLayerProps) CfnLayer {
 	_init_.Initialize()
 
@@ -698,6 +701,7 @@ func NewCfnLayer(scope constructs.Construct, id *string, props *CfnLayerProps) C
 	return &j
 }
 
+// Create a new `AWS::OpsWorks::Layer`.
 func NewCfnLayer_Override(c CfnLayer, scope constructs.Construct, id *string, props *CfnLayerProps) {
 	_init_.Initialize()
 

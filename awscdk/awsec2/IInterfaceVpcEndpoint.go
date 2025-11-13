@@ -4,6 +4,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ func (j *jsiiProxy_IInterfaceVpcEndpoint) Connections() Connections {
 	return returns
 }
 
-func (j *jsiiProxy_IInterfaceVpcEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IInterfaceVpcEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -80,8 +82,8 @@ func (j *jsiiProxy_IInterfaceVpcEndpoint) VpcEndpointId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IInterfaceVpcEndpoint) VpcEndpointRef() *VPCEndpointReference {
-	var returns *VPCEndpointReference
+func (j *jsiiProxy_IInterfaceVpcEndpoint) VpcEndpointRef() *interfacesawsec2.VPCEndpointReference {
+	var returns *interfacesawsec2.VPCEndpointReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointRef",

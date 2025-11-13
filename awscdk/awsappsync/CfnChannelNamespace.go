@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,8 +73,8 @@ import (
 //
 type CfnChannelNamespace interface {
 	awscdk.CfnResource
-	IChannelNamespaceRef
 	awscdk.IInspectable
+	interfacesawsappsync.IChannelNamespaceRef
 	awscdk.ITaggableV2
 	// The `Api` ID.
 	ApiId() *string
@@ -87,7 +89,7 @@ type CfnChannelNamespace interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ChannelNamespace resource.
-	ChannelNamespaceRef() *ChannelNamespaceReference
+	ChannelNamespaceRef() *interfacesawsappsync.ChannelNamespaceReference
 	// The event handler functions that run custom business logic to process published events and subscribe requests.
 	CodeHandlers() *string
 	SetCodeHandlers(val *string)
@@ -98,7 +100,7 @@ type CfnChannelNamespace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration for the `OnPublish` and `OnSubscribe` handlers.
 	HandlerConfigs() interface{}
 	SetHandlerConfigs(val interface{})
@@ -278,8 +280,8 @@ type CfnChannelNamespace interface {
 // The jsii proxy struct for CfnChannelNamespace
 type jsiiProxy_CfnChannelNamespace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChannelNamespaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIChannelNamespaceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnChannelNamespace) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelNamespace) ChannelNamespaceRef() *ChannelNamespaceReference {
-	var returns *ChannelNamespaceReference
+func (j *jsiiProxy_CfnChannelNamespace) ChannelNamespaceRef() *interfacesawsappsync.ChannelNamespaceReference {
+	var returns *interfacesawsappsync.ChannelNamespaceReference
 	_jsii_.Get(
 		j,
 		"channelNamespaceRef",
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnChannelNamespace) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelNamespace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChannelNamespace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -504,6 +506,7 @@ func (j *jsiiProxy_CfnChannelNamespace) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::AppSync::ChannelNamespace`.
 func NewCfnChannelNamespace(scope constructs.Construct, id *string, props *CfnChannelNamespaceProps) CfnChannelNamespace {
 	_init_.Initialize()
 
@@ -521,6 +524,7 @@ func NewCfnChannelNamespace(scope constructs.Construct, id *string, props *CfnCh
 	return &j
 }
 
+// Create a new `AWS::AppSync::ChannelNamespace`.
 func NewCfnChannelNamespace_Override(c CfnChannelNamespace, scope constructs.Construct, id *string, props *CfnChannelNamespaceProps) {
 	_init_.Initialize()
 

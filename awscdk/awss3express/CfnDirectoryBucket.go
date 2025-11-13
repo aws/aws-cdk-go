@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3express/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3express"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -102,8 +104,8 @@ import (
 //
 type CfnDirectoryBucket interface {
 	awscdk.CfnResource
-	IDirectoryBucketRef
 	awscdk.IInspectable
+	interfacesawss3express.IDirectoryBucketRef
 	awscdk.ITaggableV2
 	// Returns the Amazon Resource Name (ARN) of the specified bucket.
 	//
@@ -136,8 +138,8 @@ type CfnDirectoryBucket interface {
 	DataRedundancy() *string
 	SetDataRedundancy(val *string)
 	// A reference to a DirectoryBucket resource.
-	DirectoryBucketRef() *DirectoryBucketReference
-	Env() *awscdk.ResourceEnvironment
+	DirectoryBucketRef() *interfacesawss3express.DirectoryBucketReference
+	Env() *interfaces.ResourceEnvironment
 	// Container for lifecycle rules.
 	//
 	// You can add as many as 1000 rules.
@@ -313,8 +315,8 @@ type CfnDirectoryBucket interface {
 // The jsii proxy struct for CfnDirectoryBucket
 type jsiiProxy_CfnDirectoryBucket struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDirectoryBucketRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3expressIDirectoryBucketRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnDirectoryBucket) DataRedundancy() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectoryBucket) DirectoryBucketRef() *DirectoryBucketReference {
-	var returns *DirectoryBucketReference
+func (j *jsiiProxy_CfnDirectoryBucket) DirectoryBucketRef() *interfacesawss3express.DirectoryBucketReference {
+	var returns *interfacesawss3express.DirectoryBucketReference
 	_jsii_.Get(
 		j,
 		"directoryBucketRef",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnDirectoryBucket) DirectoryBucketRef() *DirectoryBucketRefe
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectoryBucket) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDirectoryBucket) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -529,6 +531,7 @@ func (j *jsiiProxy_CfnDirectoryBucket) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::S3Express::DirectoryBucket`.
 func NewCfnDirectoryBucket(scope constructs.Construct, id *string, props *CfnDirectoryBucketProps) CfnDirectoryBucket {
 	_init_.Initialize()
 
@@ -546,6 +549,7 @@ func NewCfnDirectoryBucket(scope constructs.Construct, id *string, props *CfnDir
 	return &j
 }
 
+// Create a new `AWS::S3Express::DirectoryBucket`.
 func NewCfnDirectoryBucket_Override(c CfnDirectoryBucket, scope constructs.Construct, id *string, props *CfnDirectoryBucketProps) {
 	_init_.Initialize()
 
@@ -620,13 +624,13 @@ func (j *jsiiProxy_CfnDirectoryBucket)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDirectoryBucketRef from a bucketName.
-func CfnDirectoryBucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) IDirectoryBucketRef {
+func CfnDirectoryBucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) interfacesawss3express.IDirectoryBucketRef {
 	_init_.Initialize()
 
 	if err := validateCfnDirectoryBucket_FromBucketNameParameters(scope, id, bucketName); err != nil {
 		panic(err)
 	}
-	var returns IDirectoryBucketRef
+	var returns interfacesawss3express.IDirectoryBucketRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket",
@@ -639,13 +643,13 @@ func CfnDirectoryBucket_FromBucketName(scope constructs.Construct, id *string, b
 }
 
 // Creates a new IDirectoryBucketRef from an ARN.
-func CfnDirectoryBucket_FromDirectoryBucketArn(scope constructs.Construct, id *string, arn *string) IDirectoryBucketRef {
+func CfnDirectoryBucket_FromDirectoryBucketArn(scope constructs.Construct, id *string, arn *string) interfacesawss3express.IDirectoryBucketRef {
 	_init_.Initialize()
 
 	if err := validateCfnDirectoryBucket_FromDirectoryBucketArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDirectoryBucketRef
+	var returns interfacesawss3express.IDirectoryBucketRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket",

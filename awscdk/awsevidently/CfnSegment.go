@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevidently/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevidently"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnSegment interface {
 	awscdk.CfnResource
-	ISegmentRef
 	awscdk.IInspectable
+	interfacesawsevidently.ISegmentRef
 	awscdk.ITaggable
 	// The ARN of the segment.
 	//
@@ -61,7 +63,7 @@ type CfnSegment interface {
 	// An optional description for this segment.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -86,7 +88,7 @@ type CfnSegment interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Segment resource.
-	SegmentRef() *SegmentReference
+	SegmentRef() *interfacesawsevidently.SegmentReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -239,8 +241,8 @@ type CfnSegment interface {
 // The jsii proxy struct for CfnSegment
 type jsiiProxy_CfnSegment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISegmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsevidentlyISegmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnSegment) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSegment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSegment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnSegment) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSegment) SegmentRef() *SegmentReference {
-	var returns *SegmentReference
+func (j *jsiiProxy_CfnSegment) SegmentRef() *interfacesawsevidently.SegmentReference {
+	var returns *interfacesawsevidently.SegmentReference
 	_jsii_.Get(
 		j,
 		"segmentRef",
@@ -425,6 +427,7 @@ func (j *jsiiProxy_CfnSegment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Evidently::Segment`.
 func NewCfnSegment(scope constructs.Construct, id *string, props *CfnSegmentProps) CfnSegment {
 	_init_.Initialize()
 
@@ -442,6 +445,7 @@ func NewCfnSegment(scope constructs.Construct, id *string, props *CfnSegmentProp
 	return &j
 }
 
+// Create a new `AWS::Evidently::Segment`.
 func NewCfnSegment_Override(c CfnSegment, scope constructs.Construct, id *string, props *CfnSegmentProps) {
 	_init_.Initialize()
 

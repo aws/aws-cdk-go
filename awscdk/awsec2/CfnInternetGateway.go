@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnInternetGateway interface {
 	awscdk.CfnResource
-	IInternetGatewayRef
 	awscdk.IInspectable
+	interfacesawsec2.IInternetGatewayRef
 	awscdk.ITaggable
 	// The ID of the internet gateway.
 	AttrInternetGatewayId() *string
@@ -45,9 +47,9 @@ type CfnInternetGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InternetGateway resource.
-	InternetGatewayRef() *InternetGatewayReference
+	InternetGatewayRef() *interfacesawsec2.InternetGatewayReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -217,8 +219,8 @@ type CfnInternetGateway interface {
 // The jsii proxy struct for CfnInternetGateway
 type jsiiProxy_CfnInternetGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInternetGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IInternetGatewayRef
 	internal.Type__awscdkITaggable
 }
 
@@ -272,8 +274,8 @@ func (j *jsiiProxy_CfnInternetGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInternetGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInternetGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -282,8 +284,8 @@ func (j *jsiiProxy_CfnInternetGateway) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInternetGateway) InternetGatewayRef() *InternetGatewayReference {
-	var returns *InternetGatewayReference
+func (j *jsiiProxy_CfnInternetGateway) InternetGatewayRef() *interfacesawsec2.InternetGatewayReference {
+	var returns *interfacesawsec2.InternetGatewayReference
 	_jsii_.Get(
 		j,
 		"internetGatewayRef",
@@ -373,6 +375,7 @@ func (j *jsiiProxy_CfnInternetGateway) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::EC2::InternetGateway`.
 func NewCfnInternetGateway(scope constructs.Construct, id *string, props *CfnInternetGatewayProps) CfnInternetGateway {
 	_init_.Initialize()
 
@@ -390,6 +393,7 @@ func NewCfnInternetGateway(scope constructs.Construct, id *string, props *CfnInt
 	return &j
 }
 
+// Create a new `AWS::EC2::InternetGateway`.
 func NewCfnInternetGateway_Override(c CfnInternetGateway, scope constructs.Construct, id *string, props *CfnInternetGatewayProps) {
 	_init_.Initialize()
 
@@ -412,13 +416,13 @@ func (j *jsiiProxy_CfnInternetGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IInternetGatewayRef from a internetGatewayId.
-func CfnInternetGateway_FromInternetGatewayId(scope constructs.Construct, id *string, internetGatewayId *string) IInternetGatewayRef {
+func CfnInternetGateway_FromInternetGatewayId(scope constructs.Construct, id *string, internetGatewayId *string) interfacesawsec2.IInternetGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnInternetGateway_FromInternetGatewayIdParameters(scope, id, internetGatewayId); err != nil {
 		panic(err)
 	}
-	var returns IInternetGatewayRef
+	var returns interfacesawsec2.IInternetGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnInternetGateway",

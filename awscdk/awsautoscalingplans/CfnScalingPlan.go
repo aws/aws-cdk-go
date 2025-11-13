@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscalingplans/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscalingplans"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -114,8 +116,8 @@ import (
 //
 type CfnScalingPlan interface {
 	awscdk.CfnResource
-	IScalingPlanRef
 	awscdk.IInspectable
+	interfacesawsautoscalingplans.IScalingPlanRef
 	// A CloudFormation stack or a set of tags.
 	ApplicationSource() interface{}
 	SetApplicationSource(val interface{})
@@ -131,7 +133,7 @@ type CfnScalingPlan interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -153,7 +155,7 @@ type CfnScalingPlan interface {
 	ScalingInstructions() interface{}
 	SetScalingInstructions(val interface{})
 	// A reference to a ScalingPlan resource.
-	ScalingPlanRef() *ScalingPlanReference
+	ScalingPlanRef() *interfacesawsautoscalingplans.ScalingPlanReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -301,8 +303,8 @@ type CfnScalingPlan interface {
 // The jsii proxy struct for CfnScalingPlan
 type jsiiProxy_CfnScalingPlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScalingPlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsautoscalingplansIScalingPlanRef
 }
 
 func (j *jsiiProxy_CfnScalingPlan) ApplicationSource() interface{} {
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnScalingPlan) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalingPlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScalingPlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -435,8 +437,8 @@ func (j *jsiiProxy_CfnScalingPlan) ScalingInstructions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalingPlan) ScalingPlanRef() *ScalingPlanReference {
-	var returns *ScalingPlanReference
+func (j *jsiiProxy_CfnScalingPlan) ScalingPlanRef() *interfacesawsautoscalingplans.ScalingPlanReference {
+	var returns *interfacesawsautoscalingplans.ScalingPlanReference
 	_jsii_.Get(
 		j,
 		"scalingPlanRef",
@@ -476,6 +478,7 @@ func (j *jsiiProxy_CfnScalingPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AutoScalingPlans::ScalingPlan`.
 func NewCfnScalingPlan(scope constructs.Construct, id *string, props *CfnScalingPlanProps) CfnScalingPlan {
 	_init_.Initialize()
 
@@ -493,6 +496,7 @@ func NewCfnScalingPlan(scope constructs.Construct, id *string, props *CfnScaling
 	return &j
 }
 
+// Create a new `AWS::AutoScalingPlans::ScalingPlan`.
 func NewCfnScalingPlan_Override(c CfnScalingPlan, scope constructs.Construct, id *string, props *CfnScalingPlanProps) {
 	_init_.Initialize()
 

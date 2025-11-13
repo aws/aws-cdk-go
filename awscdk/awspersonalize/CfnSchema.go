@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspersonalize/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspersonalize"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnSchema interface {
 	awscdk.CfnResource
-	ISchemaRef
 	awscdk.IInspectable
+	interfacesawspersonalize.ISchemaRef
 	// The Amazon Resource Name (ARN) of the schema.
 	AttrSchemaArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -54,7 +56,7 @@ type CfnSchema interface {
 	// The domain of a schema that you created for a dataset in a Domain dataset group.
 	Domain() *string
 	SetDomain(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -79,7 +81,7 @@ type CfnSchema interface {
 	Schema() *string
 	SetSchema(val *string)
 	// A reference to a Schema resource.
-	SchemaRef() *SchemaReference
+	SchemaRef() *interfacesawspersonalize.SchemaReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -227,8 +229,8 @@ type CfnSchema interface {
 // The jsii proxy struct for CfnSchema
 type jsiiProxy_CfnSchema struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISchemaRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspersonalizeISchemaRef
 }
 
 func (j *jsiiProxy_CfnSchema) AttrSchemaArn() *string {
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnSchema) Domain() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchema) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSchema) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnSchema) Schema() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchema) SchemaRef() *SchemaReference {
-	var returns *SchemaReference
+func (j *jsiiProxy_CfnSchema) SchemaRef() *interfacesawspersonalize.SchemaReference {
+	var returns *interfacesawspersonalize.SchemaReference
 	_jsii_.Get(
 		j,
 		"schemaRef",
@@ -392,6 +394,7 @@ func (j *jsiiProxy_CfnSchema) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Personalize::Schema`.
 func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps) CfnSchema {
 	_init_.Initialize()
 
@@ -409,6 +412,7 @@ func NewCfnSchema(scope constructs.Construct, id *string, props *CfnSchemaProps)
 	return &j
 }
 
+// Create a new `AWS::Personalize::Schema`.
 func NewCfnSchema_Override(c CfnSchema, scope constructs.Construct, id *string, props *CfnSchemaProps) {
 	_init_.Initialize()
 

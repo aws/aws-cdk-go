@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -102,8 +104,8 @@ import (
 //
 type CfnContainerFleet interface {
 	awscdk.CfnResource
-	IContainerFleetRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IContainerFleetRef
 	awscdk.ITaggableV2
 	// A time stamp indicating when this data object was created.
 	//
@@ -143,7 +145,7 @@ type CfnContainerFleet interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ContainerFleet resource.
-	ContainerFleetRef() *ContainerFleetReference
+	ContainerFleetRef() *interfacesawsgamelift.ContainerFleetReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -154,7 +156,7 @@ type CfnContainerFleet interface {
 	// A meaningful description of the container fleet.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier for an AWS Identity and Access Management (IAM) role with permissions to run your containers on resources that are managed by Amazon GameLift Servers.
 	FleetRoleArn() *string
 	SetFleetRoleArn(val *string)
@@ -360,8 +362,8 @@ type CfnContainerFleet interface {
 // The jsii proxy struct for CfnContainerFleet
 type jsiiProxy_CfnContainerFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContainerFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIContainerFleetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -495,8 +497,8 @@ func (j *jsiiProxy_CfnContainerFleet) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerFleet) ContainerFleetRef() *ContainerFleetReference {
-	var returns *ContainerFleetReference
+func (j *jsiiProxy_CfnContainerFleet) ContainerFleetRef() *interfacesawsgamelift.ContainerFleetReference {
+	var returns *interfacesawsgamelift.ContainerFleetReference
 	_jsii_.Get(
 		j,
 		"containerFleetRef",
@@ -535,8 +537,8 @@ func (j *jsiiProxy_CfnContainerFleet) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContainerFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -746,6 +748,7 @@ func (j *jsiiProxy_CfnContainerFleet) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::GameLift::ContainerFleet`.
 func NewCfnContainerFleet(scope constructs.Construct, id *string, props *CfnContainerFleetProps) CfnContainerFleet {
 	_init_.Initialize()
 
@@ -763,6 +766,7 @@ func NewCfnContainerFleet(scope constructs.Construct, id *string, props *CfnCont
 	return &j
 }
 
+// Create a new `AWS::GameLift::ContainerFleet`.
 func NewCfnContainerFleet_Override(c CfnContainerFleet, scope constructs.Construct, id *string, props *CfnContainerFleetProps) {
 	_init_.Initialize()
 
@@ -937,13 +941,13 @@ func (j *jsiiProxy_CfnContainerFleet)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IContainerFleetRef from a fleetId.
-func CfnContainerFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IContainerFleetRef {
+func CfnContainerFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) interfacesawsgamelift.IContainerFleetRef {
 	_init_.Initialize()
 
 	if err := validateCfnContainerFleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
 		panic(err)
 	}
-	var returns IContainerFleetRef
+	var returns interfacesawsgamelift.IContainerFleetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnContainerFleet",

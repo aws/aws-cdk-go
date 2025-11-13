@@ -9,19 +9,6 @@ package awsimagebuilder
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnImageRecipeProps := &CfnImageRecipeProps{
-//   	Components: []interface{}{
-//   		&ComponentConfigurationProperty{
-//   			ComponentArn: jsii.String("componentArn"),
-//   			Parameters: []interface{}{
-//   				&ComponentParameterProperty{
-//   					Name: jsii.String("name"),
-//   					Value: []*string{
-//   						jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
 //   	Name: jsii.String("name"),
 //   	ParentImage: jsii.String("parentImage"),
 //   	Version: jsii.String("version"),
@@ -53,6 +40,19 @@ package awsimagebuilder
 //   			VirtualName: jsii.String("virtualName"),
 //   		},
 //   	},
+//   	Components: []interface{}{
+//   		&ComponentConfigurationProperty{
+//   			ComponentArn: jsii.String("componentArn"),
+//   			Parameters: []interface{}{
+//   				&ComponentParameterProperty{
+//   					Name: jsii.String("name"),
+//   					Value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -63,12 +63,6 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
 //
 type CfnImageRecipeProps struct {
-	// The components that are included in the image recipe.
-	//
-	// Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
-	//
-	Components interface{} `field:"required" json:"components" yaml:"components"`
 	// The name of the image recipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
 	//
@@ -102,6 +96,12 @@ type CfnImageRecipeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
 	//
 	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
+	// The components that are included in the image recipe.
+	//
+	// Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+	//
+	Components interface{} `field:"optional" json:"components" yaml:"components"`
 	// The description of the image recipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
 	//

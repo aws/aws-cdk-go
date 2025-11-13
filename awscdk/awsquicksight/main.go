@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.AnalysisReference",
-		reflect.TypeOf((*AnalysisReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
 		reflect.TypeOf((*CfnAnalysis)(nil)).Elem(),
@@ -72,8 +68,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAnalysis{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAnalysisRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightIAnalysisRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -2348,8 +2344,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCustomPermissions{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICustomPermissionsRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightICustomPermissionsRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -2433,8 +2429,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDashboard{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDashboardRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightIDashboardRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -4755,6 +4751,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "columnGroups", GoGetter: "ColumnGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "columnLevelPermissionRules", GoGetter: "ColumnLevelPermissionRules"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "dataPrepConfiguration", GoGetter: "DataPrepConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSetId", GoGetter: "DataSetId"},
 			_jsii_.MemberProperty{JsiiProperty: "datasetParameters", GoGetter: "DatasetParameters"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSetRef", GoGetter: "DataSetRef"},
@@ -4784,6 +4781,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "rowLevelPermissionDataSet", GoGetter: "RowLevelPermissionDataSet"},
 			_jsii_.MemberProperty{JsiiProperty: "rowLevelPermissionTagConfiguration", GoGetter: "RowLevelPermissionTagConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "semanticModelConfiguration", GoGetter: "SemanticModelConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -4797,11 +4795,27 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDataSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightIDataSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.AggregateOperationProperty",
+		reflect.TypeOf((*CfnDataSet_AggregateOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.AggregationProperty",
+		reflect.TypeOf((*CfnDataSet_AggregationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.AppendOperationProperty",
+		reflect.TypeOf((*CfnDataSet_AppendOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.AppendedColumnProperty",
+		reflect.TypeOf((*CfnDataSet_AppendedColumnProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.CalculatedColumnProperty",
@@ -4810,6 +4824,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.CastColumnTypeOperationProperty",
 		reflect.TypeOf((*CfnDataSet_CastColumnTypeOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.CastColumnTypesOperationProperty",
+		reflect.TypeOf((*CfnDataSet_CastColumnTypesOperationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.ColumnDescriptionProperty",
@@ -4828,6 +4846,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_ColumnTagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.ColumnToUnpivotProperty",
+		reflect.TypeOf((*CfnDataSet_ColumnToUnpivotProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.CreateColumnsOperationProperty",
 		reflect.TypeOf((*CfnDataSet_CreateColumnsOperationProperty)(nil)).Elem(),
 	)
@@ -4836,8 +4858,84 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_CustomSqlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataPrepAggregationFunctionProperty",
+		reflect.TypeOf((*CfnDataSet_DataPrepAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataPrepConfigurationProperty",
+		reflect.TypeOf((*CfnDataSet_DataPrepConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataPrepListAggregationFunctionProperty",
+		reflect.TypeOf((*CfnDataSet_DataPrepListAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataPrepPercentileAggregationFunctionProperty",
+		reflect.TypeOf((*CfnDataSet_DataPrepPercentileAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataPrepSimpleAggregationFunctionProperty",
+		reflect.TypeOf((*CfnDataSet_DataPrepSimpleAggregationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetColumnIdMappingProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetColumnIdMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetDateComparisonFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetDateComparisonFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetDateFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetDateFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetDateFilterValueProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetDateFilterValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetDateRangeFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetDateRangeFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetNumericComparisonFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetNumericComparisonFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetNumericFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetNumericFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetNumericFilterValueProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetNumericFilterValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetNumericRangeFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetNumericRangeFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetRefreshPropertiesProperty",
 		reflect.TypeOf((*CfnDataSet_DataSetRefreshPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetStringComparisonFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetStringComparisonFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetStringFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetStringFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetStringFilterValueProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetStringFilterValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetStringListFilterConditionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetStringListFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetStringListFilterValueProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetStringListFilterValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetUsageConfigurationProperty",
@@ -4864,6 +4962,14 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_DecimalDatasetParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DestinationTableProperty",
+		reflect.TypeOf((*CfnDataSet_DestinationTableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DestinationTableSourceProperty",
+		reflect.TypeOf((*CfnDataSet_DestinationTableSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.FieldFolderProperty",
 		reflect.TypeOf((*CfnDataSet_FieldFolderProperty)(nil)).Elem(),
 	)
@@ -4872,8 +4978,20 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_FilterOperationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.FiltersOperationProperty",
+		reflect.TypeOf((*CfnDataSet_FiltersOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.GeoSpatialColumnGroupProperty",
 		reflect.TypeOf((*CfnDataSet_GeoSpatialColumnGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.ImportTableOperationProperty",
+		reflect.TypeOf((*CfnDataSet_ImportTableOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.ImportTableOperationSourceProperty",
+		reflect.TypeOf((*CfnDataSet_ImportTableOperationSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.IncrementalRefreshProperty",
@@ -4904,6 +5022,14 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_JoinKeyPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.JoinOperandPropertiesProperty",
+		reflect.TypeOf((*CfnDataSet_JoinOperandPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.JoinOperationProperty",
+		reflect.TypeOf((*CfnDataSet_JoinOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.LogicalTableProperty",
 		reflect.TypeOf((*CfnDataSet_LogicalTableProperty)(nil)).Elem(),
 	)
@@ -4920,6 +5046,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_NewDefaultValuesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.OutputColumnNameOverrideProperty",
+		reflect.TypeOf((*CfnDataSet_OutputColumnNameOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.OutputColumnProperty",
 		reflect.TypeOf((*CfnDataSet_OutputColumnProperty)(nil)).Elem(),
 	)
@@ -4928,12 +5058,28 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_OverrideDatasetParameterOperationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.ParentDataSetProperty",
+		reflect.TypeOf((*CfnDataSet_ParentDataSetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.PerformanceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSet_PerformanceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.PhysicalTableProperty",
 		reflect.TypeOf((*CfnDataSet_PhysicalTableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.PivotConfigurationProperty",
+		reflect.TypeOf((*CfnDataSet_PivotConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.PivotOperationProperty",
+		reflect.TypeOf((*CfnDataSet_PivotOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.PivotedLabelProperty",
+		reflect.TypeOf((*CfnDataSet_PivotedLabelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.ProjectOperationProperty",
@@ -4960,8 +5106,16 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_RenameColumnOperationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.RenameColumnsOperationProperty",
+		reflect.TypeOf((*CfnDataSet_RenameColumnsOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.ResourcePermissionProperty",
 		reflect.TypeOf((*CfnDataSet_ResourcePermissionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.RowLevelPermissionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSet_RowLevelPermissionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.RowLevelPermissionDataSetProperty",
@@ -4980,12 +5134,32 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_S3SourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.SaaSTableProperty",
+		reflect.TypeOf((*CfnDataSet_SaaSTableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.SemanticModelConfigurationProperty",
+		reflect.TypeOf((*CfnDataSet_SemanticModelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.SemanticTableProperty",
+		reflect.TypeOf((*CfnDataSet_SemanticTableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.SourceTableProperty",
+		reflect.TypeOf((*CfnDataSet_SourceTableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.StringDatasetParameterDefaultValuesProperty",
 		reflect.TypeOf((*CfnDataSet_StringDatasetParameterDefaultValuesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.StringDatasetParameterProperty",
 		reflect.TypeOf((*CfnDataSet_StringDatasetParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.TablePathElementProperty",
+		reflect.TypeOf((*CfnDataSet_TablePathElementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.TagColumnOperationProperty",
@@ -4996,8 +5170,20 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_TransformOperationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.TransformOperationSourceProperty",
+		reflect.TypeOf((*CfnDataSet_TransformOperationSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.TransformStepProperty",
+		reflect.TypeOf((*CfnDataSet_TransformStepProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.UniqueKeyProperty",
 		reflect.TypeOf((*CfnDataSet_UniqueKeyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.UnpivotOperationProperty",
+		reflect.TypeOf((*CfnDataSet_UnpivotOperationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.UntagColumnOperationProperty",
@@ -5006,6 +5192,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.UploadSettingsProperty",
 		reflect.TypeOf((*CfnDataSet_UploadSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.ValueColumnConfigurationProperty",
+		reflect.TypeOf((*CfnDataSet_ValueColumnConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSetProps",
@@ -5069,8 +5259,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDataSource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataSourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightIDataSourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -5255,8 +5445,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFolder{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFolderRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightIFolderRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -5313,8 +5503,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRefreshSchedule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRefreshScheduleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightIRefreshScheduleRef)
 			return &j
 		},
 	)
@@ -5397,8 +5587,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTemplate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightITemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -7549,8 +7739,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTheme{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IThemeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightIThemeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -7667,8 +7857,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTopic{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITopicRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightITopicRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -7841,8 +8031,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVPCConnection{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVPCConnectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightIVPCConnectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -7854,210 +8044,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnVPCConnectionProps",
 		reflect.TypeOf((*CfnVPCConnectionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CustomPermissionsReference",
-		reflect.TypeOf((*CustomPermissionsReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.DashboardReference",
-		reflect.TypeOf((*DashboardReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.DataSetReference",
-		reflect.TypeOf((*DataSetReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.DataSourceReference",
-		reflect.TypeOf((*DataSourceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.FolderReference",
-		reflect.TypeOf((*FolderReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.IAnalysisRef",
-		reflect.TypeOf((*IAnalysisRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "analysisRef", GoGetter: "AnalysisRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAnalysisRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.ICustomPermissionsRef",
-		reflect.TypeOf((*ICustomPermissionsRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "customPermissionsRef", GoGetter: "CustomPermissionsRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICustomPermissionsRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.IDashboardRef",
-		reflect.TypeOf((*IDashboardRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dashboardRef", GoGetter: "DashboardRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDashboardRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.IDataSetRef",
-		reflect.TypeOf((*IDataSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataSetRef", GoGetter: "DataSetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.IDataSourceRef",
-		reflect.TypeOf((*IDataSourceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataSourceRef", GoGetter: "DataSourceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataSourceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.IFolderRef",
-		reflect.TypeOf((*IFolderRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "folderRef", GoGetter: "FolderRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFolderRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.IRefreshScheduleRef",
-		reflect.TypeOf((*IRefreshScheduleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "refreshScheduleRef", GoGetter: "RefreshScheduleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRefreshScheduleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.ITemplateRef",
-		reflect.TypeOf((*ITemplateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "templateRef", GoGetter: "TemplateRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITemplateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.IThemeRef",
-		reflect.TypeOf((*IThemeRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "themeRef", GoGetter: "ThemeRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IThemeRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.ITopicRef",
-		reflect.TypeOf((*ITopicRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "topicRef", GoGetter: "TopicRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITopicRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_quicksight.IVPCConnectionRef",
-		reflect.TypeOf((*IVPCConnectionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcConnectionRef", GoGetter: "VpcConnectionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVPCConnectionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.RefreshScheduleReference",
-		reflect.TypeOf((*RefreshScheduleReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.TemplateReference",
-		reflect.TypeOf((*TemplateReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.ThemeReference",
-		reflect.TypeOf((*ThemeReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.TopicReference",
-		reflect.TypeOf((*TopicReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.VPCConnectionReference",
-		reflect.TypeOf((*VPCConnectionReference)(nil)).Elem(),
 	)
 }

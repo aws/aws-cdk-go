@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnVpcEndpoint interface {
 	awscdk.CfnResource
-	IVpcEndpointRef
 	awscdk.IInspectable
+	interfacesawsopensearchserverless.IVpcEndpointRef
 	// The unique identifier of the endpoint.
 	//
 	// For example, `vpce-050f79086ee71ac05` .
@@ -50,7 +52,7 @@ type CfnVpcEndpoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -95,7 +97,7 @@ type CfnVpcEndpoint interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VpcEndpoint resource.
-	VpcEndpointRef() *VpcEndpointReference
+	VpcEndpointRef() *interfacesawsopensearchserverless.VpcEndpointReference
 	// The ID of the VPC from which you access OpenSearch Serverless.
 	VpcId() *string
 	SetVpcId(val *string)
@@ -229,8 +231,8 @@ type CfnVpcEndpoint interface {
 // The jsii proxy struct for CfnVpcEndpoint
 type jsiiProxy_CfnVpcEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVpcEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopensearchserverlessIVpcEndpointRef
 }
 
 func (j *jsiiProxy_CfnVpcEndpoint) AttrId() *string {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnVpcEndpoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVpcEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnVpcEndpoint) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcEndpoint) VpcEndpointRef() *VpcEndpointReference {
-	var returns *VpcEndpointReference
+func (j *jsiiProxy_CfnVpcEndpoint) VpcEndpointRef() *interfacesawsopensearchserverless.VpcEndpointReference {
+	var returns *interfacesawsopensearchserverless.VpcEndpointReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointRef",
@@ -404,6 +406,7 @@ func (j *jsiiProxy_CfnVpcEndpoint) VpcId() *string {
 }
 
 
+// Create a new `AWS::OpenSearchServerless::VpcEndpoint`.
 func NewCfnVpcEndpoint(scope constructs.Construct, id *string, props *CfnVpcEndpointProps) CfnVpcEndpoint {
 	_init_.Initialize()
 
@@ -421,6 +424,7 @@ func NewCfnVpcEndpoint(scope constructs.Construct, id *string, props *CfnVpcEndp
 	return &j
 }
 
+// Create a new `AWS::OpenSearchServerless::VpcEndpoint`.
 func NewCfnVpcEndpoint_Override(c CfnVpcEndpoint, scope constructs.Construct, id *string, props *CfnVpcEndpointProps) {
 	_init_.Initialize()
 

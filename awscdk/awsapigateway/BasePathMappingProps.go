@@ -1,5 +1,8 @@
 package awsapigateway
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
+)
 
 // Example:
 //   var api RestApi
@@ -34,8 +37,8 @@ type BasePathMappingProps struct {
 	//
 	Stage Stage `field:"optional" json:"stage" yaml:"stage"`
 	// The DomainName to associate with this base path mapping.
-	DomainName IDomainNameRef `field:"required" json:"domainName" yaml:"domainName"`
+	DomainName interfacesawsapigateway.IDomainNameRef `field:"required" json:"domainName" yaml:"domainName"`
 	// The RestApi resource to target.
-	RestApi IRestApiRef `field:"required" json:"restApi" yaml:"restApi"`
+	RestApi interfacesawsapigateway.IRestApiRef `field:"required" json:"restApi" yaml:"restApi"`
 }
 

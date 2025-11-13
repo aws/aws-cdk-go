@@ -17,6 +17,17 @@ package awslocation
 //   	},
 //
 //   	// the properties below are optional
+//   	AllowAndroidApps: []interface{}{
+//   		&AndroidAppProperty{
+//   			CertificateFingerprint: jsii.String("certificateFingerprint"),
+//   			Package: jsii.String("package"),
+//   		},
+//   	},
+//   	AllowAppleApps: []interface{}{
+//   		&AppleAppProperty{
+//   			BundleId: jsii.String("bundleId"),
+//   		},
+//   	},
 //   	AllowReferers: []*string{
 //   		jsii.String("allowReferers"),
 //   	},
@@ -80,6 +91,12 @@ type CfnAPIKey_ApiKeyRestrictionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowresources
 	//
 	AllowResources *[]*string `field:"required" json:"allowResources" yaml:"allowResources"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowandroidapps
+	//
+	AllowAndroidApps interface{} `field:"optional" json:"allowAndroidApps" yaml:"allowAndroidApps"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowappleapps
+	//
+	AllowAppleApps interface{} `field:"optional" json:"allowAppleApps" yaml:"allowAppleApps"`
 	// An optional list of allowed HTTP referers for which requests must originate from.
 	//
 	// Requests using this API key from other domains will not be allowed.

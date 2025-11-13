@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslakeformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslakeformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,8 +101,8 @@ import (
 //
 type CfnTag interface {
 	awscdk.CfnResource
-	ITagRef
 	awscdk.IInspectable
+	interfacesawslakeformation.ITagRef
 	// Catalog id string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html) .
 	CatalogId() *string
 	SetCatalogId(val *string)
@@ -113,7 +115,7 @@ type CfnTag interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -139,7 +141,7 @@ type CfnTag interface {
 	TagKey() *string
 	SetTagKey(val *string)
 	// A reference to a Tag resource.
-	TagRef() *TagReference
+	TagRef() *interfacesawslakeformation.TagReference
 	// An array of UTF-8 strings, not less than 1 or more than 50 strings.
 	TagValues() *[]*string
 	SetTagValues(val *[]*string)
@@ -286,8 +288,8 @@ type CfnTag interface {
 // The jsii proxy struct for CfnTag
 type jsiiProxy_CfnTag struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITagRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslakeformationITagRef
 }
 
 func (j *jsiiProxy_CfnTag) CatalogId() *string {
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnTag) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTag) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTag) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnTag) TagKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTag) TagRef() *TagReference {
-	var returns *TagReference
+func (j *jsiiProxy_CfnTag) TagRef() *interfacesawslakeformation.TagReference {
+	var returns *interfacesawslakeformation.TagReference
 	_jsii_.Get(
 		j,
 		"tagRef",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnTag) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::LakeFormation::Tag`.
 func NewCfnTag(scope constructs.Construct, id *string, props *CfnTagProps) CfnTag {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnTag(scope constructs.Construct, id *string, props *CfnTagProps) CfnTa
 	return &j
 }
 
+// Create a new `AWS::LakeFormation::Tag`.
 func NewCfnTag_Override(c CfnTag, scope constructs.Construct, id *string, props *CfnTagProps) {
 	_init_.Initialize()
 

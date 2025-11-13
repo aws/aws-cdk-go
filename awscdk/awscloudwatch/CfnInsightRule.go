@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnInsightRule interface {
 	awscdk.CfnResource
-	IInsightRuleRef
 	awscdk.IInspectable
+	interfacesawscloudwatch.IInsightRuleRef
 	awscdk.ITaggable
 	// Determines whether the rules is evaluated on transformed versions of logs.
 	ApplyOnTransformedLogs() interface{}
@@ -57,9 +59,9 @@ type CfnInsightRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InsightRule resource.
-	InsightRuleRef() *InsightRuleReference
+	InsightRuleRef() *interfacesawscloudwatch.InsightRuleReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -238,8 +240,8 @@ type CfnInsightRule interface {
 // The jsii proxy struct for CfnInsightRule
 type jsiiProxy_CfnInsightRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInsightRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudwatchIInsightRuleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnInsightRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInsightRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInsightRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnInsightRule) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInsightRule) InsightRuleRef() *InsightRuleReference {
-	var returns *InsightRuleReference
+func (j *jsiiProxy_CfnInsightRule) InsightRuleRef() *interfacesawscloudwatch.InsightRuleReference {
+	var returns *interfacesawscloudwatch.InsightRuleReference
 	_jsii_.Get(
 		j,
 		"insightRuleRef",
@@ -454,6 +456,7 @@ func (j *jsiiProxy_CfnInsightRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudWatch::InsightRule`.
 func NewCfnInsightRule(scope constructs.Construct, id *string, props *CfnInsightRuleProps) CfnInsightRule {
 	_init_.Initialize()
 
@@ -471,6 +474,7 @@ func NewCfnInsightRule(scope constructs.Construct, id *string, props *CfnInsight
 	return &j
 }
 
+// Create a new `AWS::CloudWatch::InsightRule`.
 func NewCfnInsightRule_Override(c CfnInsightRule, scope constructs.Construct, id *string, props *CfnInsightRuleProps) {
 	_init_.Initialize()
 

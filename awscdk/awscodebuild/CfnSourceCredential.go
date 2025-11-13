@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnSourceCredential interface {
 	awscdk.CfnResource
-	ISourceCredentialRef
 	awscdk.IInspectable
+	interfacesawscodebuild.ISourceCredentialRef
 	AttrId() *string
 	// The type of authentication used by the credentials.
 	AuthType() *string
@@ -48,7 +50,7 @@ type CfnSourceCredential interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -70,7 +72,7 @@ type CfnSourceCredential interface {
 	ServerType() *string
 	SetServerType(val *string)
 	// A reference to a SourceCredential resource.
-	SourceCredentialRef() *SourceCredentialReference
+	SourceCredentialRef() *interfacesawscodebuild.SourceCredentialReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -224,8 +226,8 @@ type CfnSourceCredential interface {
 // The jsii proxy struct for CfnSourceCredential
 type jsiiProxy_CfnSourceCredential struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISourceCredentialRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodebuildISourceCredentialRef
 }
 
 func (j *jsiiProxy_CfnSourceCredential) AttrId() *string {
@@ -288,8 +290,8 @@ func (j *jsiiProxy_CfnSourceCredential) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSourceCredential) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSourceCredential) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnSourceCredential) ServerType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSourceCredential) SourceCredentialRef() *SourceCredentialReference {
-	var returns *SourceCredentialReference
+func (j *jsiiProxy_CfnSourceCredential) SourceCredentialRef() *interfacesawscodebuild.SourceCredentialReference {
+	var returns *interfacesawscodebuild.SourceCredentialReference
 	_jsii_.Get(
 		j,
 		"sourceCredentialRef",
@@ -399,6 +401,7 @@ func (j *jsiiProxy_CfnSourceCredential) Username() *string {
 }
 
 
+// Create a new `AWS::CodeBuild::SourceCredential`.
 func NewCfnSourceCredential(scope constructs.Construct, id *string, props *CfnSourceCredentialProps) CfnSourceCredential {
 	_init_.Initialize()
 
@@ -416,6 +419,7 @@ func NewCfnSourceCredential(scope constructs.Construct, id *string, props *CfnSo
 	return &j
 }
 
+// Create a new `AWS::CodeBuild::SourceCredential`.
 func NewCfnSourceCredential_Override(c CfnSourceCredential, scope constructs.Construct, id *string, props *CfnSourceCredentialProps) {
 	_init_.Initialize()
 

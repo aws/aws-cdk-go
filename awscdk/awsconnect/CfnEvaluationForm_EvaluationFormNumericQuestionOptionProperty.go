@@ -37,6 +37,7 @@ type CfnEvaluationForm_EvaluationFormNumericQuestionOptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-automaticfail
 	//
 	AutomaticFail interface{} `field:"optional" json:"automaticFail" yaml:"automaticFail"`
+	// A configuration for automatic fail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-automaticfailconfiguration
 	//
 	AutomaticFailConfiguration interface{} `field:"optional" json:"automaticFailConfiguration" yaml:"automaticFailConfiguration"`

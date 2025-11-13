@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnAuthorizer interface {
 	awscdk.CfnResource
-	IAuthorizerRef
 	awscdk.IInspectable
+	interfacesawsiot.IAuthorizerRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the authorizer.
 	AttrArn() *string
@@ -52,7 +54,7 @@ type CfnAuthorizer interface {
 	AuthorizerName() *string
 	SetAuthorizerName(val *string)
 	// A reference to a Authorizer resource.
-	AuthorizerRef() *AuthorizerReference
+	AuthorizerRef() *interfacesawsiot.AuthorizerReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -65,7 +67,7 @@ type CfnAuthorizer interface {
 	// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections.
 	EnableCachingForHttp() interface{}
 	SetEnableCachingForHttp(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,8 +249,8 @@ type CfnAuthorizer interface {
 // The jsii proxy struct for CfnAuthorizer
 type jsiiProxy_CfnAuthorizer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAuthorizerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIAuthorizerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -282,8 +284,8 @@ func (j *jsiiProxy_CfnAuthorizer) AuthorizerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAuthorizer) AuthorizerRef() *AuthorizerReference {
-	var returns *AuthorizerReference
+func (j *jsiiProxy_CfnAuthorizer) AuthorizerRef() *interfacesawsiot.AuthorizerReference {
+	var returns *interfacesawsiot.AuthorizerReference
 	_jsii_.Get(
 		j,
 		"authorizerRef",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnAuthorizer) EnableCachingForHttp() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAuthorizer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAuthorizer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnAuthorizer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::Authorizer`.
 func NewCfnAuthorizer(scope constructs.Construct, id *string, props *CfnAuthorizerProps) CfnAuthorizer {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnAuthorizer(scope constructs.Construct, id *string, props *CfnAuthoriz
 	return &j
 }
 
+// Create a new `AWS::IoT::Authorizer`.
 func NewCfnAuthorizer_Override(c CfnAuthorizer, scope constructs.Construct, id *string, props *CfnAuthorizerProps) {
 	_init_.Initialize()
 
@@ -580,13 +584,13 @@ func (j *jsiiProxy_CfnAuthorizer)SetTokenSigningPublicKeys(val interface{}) {
 }
 
 // Creates a new IAuthorizerRef from an ARN.
-func CfnAuthorizer_FromAuthorizerArn(scope constructs.Construct, id *string, arn *string) IAuthorizerRef {
+func CfnAuthorizer_FromAuthorizerArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IAuthorizerRef {
 	_init_.Initialize()
 
 	if err := validateCfnAuthorizer_FromAuthorizerArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAuthorizerRef
+	var returns interfacesawsiot.IAuthorizerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnAuthorizer",
@@ -599,13 +603,13 @@ func CfnAuthorizer_FromAuthorizerArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IAuthorizerRef from a authorizerName.
-func CfnAuthorizer_FromAuthorizerName(scope constructs.Construct, id *string, authorizerName *string) IAuthorizerRef {
+func CfnAuthorizer_FromAuthorizerName(scope constructs.Construct, id *string, authorizerName *string) interfacesawsiot.IAuthorizerRef {
 	_init_.Initialize()
 
 	if err := validateCfnAuthorizer_FromAuthorizerNameParameters(scope, id, authorizerName); err != nil {
 		panic(err)
 	}
-	var returns IAuthorizerRef
+	var returns interfacesawsiot.IAuthorizerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnAuthorizer",

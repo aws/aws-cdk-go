@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnDBProxyEndpoint interface {
 	awscdk.CfnResource
-	IDBProxyEndpointRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBProxyEndpointRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the DB proxy endpoint.
 	AttrDbProxyEndpointArn() *string
@@ -75,14 +77,14 @@ type CfnDBProxyEndpoint interface {
 	DbProxyEndpointName() *string
 	SetDbProxyEndpointName(val *string)
 	// A reference to a DBProxyEndpoint resource.
-	DbProxyEndpointRef() *DBProxyEndpointReference
+	DbProxyEndpointRef() *interfacesawsrds.DBProxyEndpointReference
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName() *string
 	SetDbProxyName(val *string)
 	// The network type of the DB proxy endpoint.
 	EndpointNetworkType() *string
 	SetEndpointNetworkType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -259,8 +261,8 @@ type CfnDBProxyEndpoint interface {
 // The jsii proxy struct for CfnDBProxyEndpoint
 type jsiiProxy_CfnDBProxyEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBProxyEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBProxyEndpointRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) DbProxyEndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyEndpoint) DbProxyEndpointRef() *DBProxyEndpointReference {
-	var returns *DBProxyEndpointReference
+func (j *jsiiProxy_CfnDBProxyEndpoint) DbProxyEndpointRef() *interfacesawsrds.DBProxyEndpointReference {
+	var returns *interfacesawsrds.DBProxyEndpointReference
 	_jsii_.Get(
 		j,
 		"dbProxyEndpointRef",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) EndpointNetworkType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBProxyEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) VpcSubnetIds() *[]*string {
 }
 
 
+// Create a new `AWS::RDS::DBProxyEndpoint`.
 func NewCfnDBProxyEndpoint(scope constructs.Construct, id *string, props *CfnDBProxyEndpointProps) CfnDBProxyEndpoint {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnDBProxyEndpoint(scope constructs.Construct, id *string, props *CfnDBP
 	return &j
 }
 
+// Create a new `AWS::RDS::DBProxyEndpoint`.
 func NewCfnDBProxyEndpoint_Override(c CfnDBProxyEndpoint, scope constructs.Construct, id *string, props *CfnDBProxyEndpointProps) {
 	_init_.Initialize()
 

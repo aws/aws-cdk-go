@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrbin/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrbin"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,8 +61,8 @@ import (
 //
 type CfnRule interface {
 	awscdk.CfnResource
-	IRuleRef
 	awscdk.IInspectable
+	interfacesawsrbin.IRuleRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the retention rule.
 	AttrArn() *string
@@ -87,7 +89,7 @@ type CfnRule interface {
 	// The retention rule description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// [Region-level retention rules only] Specifies the exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule.
 	ExcludeResourceTags() interface{}
 	SetExcludeResourceTags(val interface{})
@@ -121,7 +123,7 @@ type CfnRule interface {
 	RetentionPeriod() interface{}
 	SetRetentionPeriod(val interface{})
 	// A reference to a Rule resource.
-	RuleRef() *RuleReference
+	RuleRef() *interfacesawsrbin.RuleReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -275,8 +277,8 @@ type CfnRule interface {
 // The jsii proxy struct for CfnRule
 type jsiiProxy_CfnRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrbinIRuleRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnRule) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -460,8 +462,8 @@ func (j *jsiiProxy_CfnRule) RetentionPeriod() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRule) RuleRef() *RuleReference {
-	var returns *RuleReference
+func (j *jsiiProxy_CfnRule) RuleRef() *interfacesawsrbin.RuleReference {
+	var returns *interfacesawsrbin.RuleReference
 	_jsii_.Get(
 		j,
 		"ruleRef",
@@ -521,6 +523,7 @@ func (j *jsiiProxy_CfnRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Rbin::Rule`.
 func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) CfnRule {
 	_init_.Initialize()
 
@@ -538,6 +541,7 @@ func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Rbin::Rule`.
 func NewCfnRule_Override(c CfnRule, scope constructs.Construct, id *string, props *CfnRuleProps) {
 	_init_.Initialize()
 

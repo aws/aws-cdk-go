@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -93,10 +95,10 @@ import (
 //
 type CfnAnomalyDetector interface {
 	awscdk.CfnResource
-	IAnomalyDetectorRef
 	awscdk.IInspectable
+	interfacesawscloudwatch.IAnomalyDetectorRef
 	// A reference to a AnomalyDetector resource.
-	AnomalyDetectorRef() *AnomalyDetectorReference
+	AnomalyDetectorRef() *interfacesawscloudwatch.AnomalyDetectorReference
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -113,7 +115,7 @@ type CfnAnomalyDetector interface {
 	// The dimensions of the metric associated with the anomaly detection band.
 	Dimensions() interface{}
 	SetDimensions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -296,12 +298,12 @@ type CfnAnomalyDetector interface {
 // The jsii proxy struct for CfnAnomalyDetector
 type jsiiProxy_CfnAnomalyDetector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnomalyDetectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudwatchIAnomalyDetectorRef
 }
 
-func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorRef() *AnomalyDetectorReference {
-	var returns *AnomalyDetectorReference
+func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorRef() *interfacesawscloudwatch.AnomalyDetectorReference {
+	var returns *interfacesawscloudwatch.AnomalyDetectorReference
 	_jsii_.Get(
 		j,
 		"anomalyDetectorRef",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) Dimensions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyDetector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnomalyDetector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -511,6 +513,7 @@ func (j *jsiiProxy_CfnAnomalyDetector) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::CloudWatch::AnomalyDetector`.
 func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) CfnAnomalyDetector {
 	_init_.Initialize()
 
@@ -528,6 +531,7 @@ func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAno
 	return &j
 }
 
+// Create a new `AWS::CloudWatch::AnomalyDetector`.
 func NewCfnAnomalyDetector_Override(c CfnAnomalyDetector, scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) {
 	_init_.Initialize()
 

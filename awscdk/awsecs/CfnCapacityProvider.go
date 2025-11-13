@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -147,14 +149,14 @@ import (
 //
 type CfnCapacityProvider interface {
 	awscdk.CfnResource
-	ICapacityProviderRef
 	awscdk.IInspectable
+	interfacesawsecs.ICapacityProviderRef
 	awscdk.ITaggable
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider() interface{}
 	SetAutoScalingGroupProvider(val interface{})
 	// A reference to a CapacityProvider resource.
-	CapacityProviderRef() *CapacityProviderReference
+	CapacityProviderRef() *interfacesawsecs.CapacityProviderReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -167,7 +169,7 @@ type CfnCapacityProvider interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -343,8 +345,8 @@ type CfnCapacityProvider interface {
 // The jsii proxy struct for CfnCapacityProvider
 type jsiiProxy_CfnCapacityProvider struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICapacityProviderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecsICapacityProviderRef
 	internal.Type__awscdkITaggable
 }
 
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnCapacityProvider) AutoScalingGroupProvider() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityProvider) CapacityProviderRef() *CapacityProviderReference {
-	var returns *CapacityProviderReference
+func (j *jsiiProxy_CfnCapacityProvider) CapacityProviderRef() *interfacesawsecs.CapacityProviderReference {
+	var returns *interfacesawsecs.CapacityProviderReference
 	_jsii_.Get(
 		j,
 		"capacityProviderRef",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnCapacityProvider) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCapacityProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -529,6 +531,7 @@ func (j *jsiiProxy_CfnCapacityProvider) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::ECS::CapacityProvider`.
 func NewCfnCapacityProvider(scope constructs.Construct, id *string, props *CfnCapacityProviderProps) CfnCapacityProvider {
 	_init_.Initialize()
 
@@ -546,6 +549,7 @@ func NewCfnCapacityProvider(scope constructs.Construct, id *string, props *CfnCa
 	return &j
 }
 
+// Create a new `AWS::ECS::CapacityProvider`.
 func NewCfnCapacityProvider_Override(c CfnCapacityProvider, scope constructs.Construct, id *string, props *CfnCapacityProviderProps) {
 	_init_.Initialize()
 
@@ -606,13 +610,13 @@ func (j *jsiiProxy_CfnCapacityProvider)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ICapacityProviderRef from a capacityProviderName.
-func CfnCapacityProvider_FromCapacityProviderName(scope constructs.Construct, id *string, capacityProviderName *string) ICapacityProviderRef {
+func CfnCapacityProvider_FromCapacityProviderName(scope constructs.Construct, id *string, capacityProviderName *string) interfacesawsecs.ICapacityProviderRef {
 	_init_.Initialize()
 
 	if err := validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope, id, capacityProviderName); err != nil {
 		panic(err)
 	}
-	var returns ICapacityProviderRef
+	var returns interfacesawsecs.ICapacityProviderRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",

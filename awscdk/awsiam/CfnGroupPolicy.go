@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnGroupPolicy interface {
 	awscdk.CfnResource
-	IGroupPolicyRef
 	awscdk.IInspectable
+	interfacesawsiam.IGroupPolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -45,12 +47,12 @@ type CfnGroupPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the group to associate the policy with.
 	GroupName() *string
 	SetGroupName(val *string)
 	// A reference to a GroupPolicy resource.
-	GroupPolicyRef() *GroupPolicyReference
+	GroupPolicyRef() *interfacesawsiam.GroupPolicyReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +223,8 @@ type CfnGroupPolicy interface {
 // The jsii proxy struct for CfnGroupPolicy
 type jsiiProxy_CfnGroupPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGroupPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIGroupPolicyRef
 }
 
 func (j *jsiiProxy_CfnGroupPolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnGroupPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGroupPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnGroupPolicy) GroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupPolicy) GroupPolicyRef() *GroupPolicyReference {
-	var returns *GroupPolicyReference
+func (j *jsiiProxy_CfnGroupPolicy) GroupPolicyRef() *interfacesawsiam.GroupPolicyReference {
+	var returns *interfacesawsiam.GroupPolicyReference
 	_jsii_.Get(
 		j,
 		"groupPolicyRef",
@@ -376,6 +378,7 @@ func (j *jsiiProxy_CfnGroupPolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IAM::GroupPolicy`.
 func NewCfnGroupPolicy(scope constructs.Construct, id *string, props *CfnGroupPolicyProps) CfnGroupPolicy {
 	_init_.Initialize()
 
@@ -393,6 +396,7 @@ func NewCfnGroupPolicy(scope constructs.Construct, id *string, props *CfnGroupPo
 	return &j
 }
 
+// Create a new `AWS::IAM::GroupPolicy`.
 func NewCfnGroupPolicy_Override(c CfnGroupPolicy, scope constructs.Construct, id *string, props *CfnGroupPolicyProps) {
 	_init_.Initialize()
 

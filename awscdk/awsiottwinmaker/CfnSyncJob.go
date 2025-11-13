@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiottwinmaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiottwinmaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnSyncJob interface {
 	awscdk.CfnResource
-	ISyncJobRef
 	awscdk.IInspectable
+	interfacesawsiottwinmaker.ISyncJobRef
 	awscdk.ITaggable
 	// The SyncJob ARN.
 	AttrArn() *string
@@ -51,7 +53,7 @@ type CfnSyncJob interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnSyncJob interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a SyncJob resource.
-	SyncJobRef() *SyncJobReference
+	SyncJobRef() *interfacesawsiottwinmaker.SyncJobReference
 	// The SyncJob IAM role.
 	SyncRole() *string
 	SetSyncRole(val *string)
@@ -232,8 +234,8 @@ type CfnSyncJob interface {
 // The jsii proxy struct for CfnSyncJob
 type jsiiProxy_CfnSyncJob struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISyncJobRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiottwinmakerISyncJobRef
 	internal.Type__awscdkITaggable
 }
 
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnSyncJob) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSyncJob) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSyncJob) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnSyncJob) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSyncJob) SyncJobRef() *SyncJobReference {
-	var returns *SyncJobReference
+func (j *jsiiProxy_CfnSyncJob) SyncJobRef() *interfacesawsiottwinmaker.SyncJobReference {
+	var returns *interfacesawsiottwinmaker.SyncJobReference
 	_jsii_.Get(
 		j,
 		"syncJobRef",
@@ -448,6 +450,7 @@ func (j *jsiiProxy_CfnSyncJob) WorkspaceId() *string {
 }
 
 
+// Create a new `AWS::IoTTwinMaker::SyncJob`.
 func NewCfnSyncJob(scope constructs.Construct, id *string, props *CfnSyncJobProps) CfnSyncJob {
 	_init_.Initialize()
 
@@ -465,6 +468,7 @@ func NewCfnSyncJob(scope constructs.Construct, id *string, props *CfnSyncJobProp
 	return &j
 }
 
+// Create a new `AWS::IoTTwinMaker::SyncJob`.
 func NewCfnSyncJob_Override(c CfnSyncJob, scope constructs.Construct, id *string, props *CfnSyncJobProps) {
 	_init_.Initialize()
 

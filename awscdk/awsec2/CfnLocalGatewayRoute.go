@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnLocalGatewayRoute interface {
 	awscdk.CfnResource
-	ILocalGatewayRouteRef
 	awscdk.IInspectable
+	interfacesawsec2.ILocalGatewayRouteRef
 	// The state of the local gateway route table.
 	AttrState() *string
 	// The type of local gateway route.
@@ -50,9 +52,9 @@ type CfnLocalGatewayRoute interface {
 	// The CIDR block used for destination matches.
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LocalGatewayRoute resource.
-	LocalGatewayRouteRef() *LocalGatewayRouteReference
+	LocalGatewayRouteRef() *interfacesawsec2.LocalGatewayRouteReference
 	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId() *string
 	SetLocalGatewayRouteTableId(val *string)
@@ -226,8 +228,8 @@ type CfnLocalGatewayRoute interface {
 // The jsii proxy struct for CfnLocalGatewayRoute
 type jsiiProxy_CfnLocalGatewayRoute struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocalGatewayRouteRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ILocalGatewayRouteRef
 }
 
 func (j *jsiiProxy_CfnLocalGatewayRoute) AttrState() *string {
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnLocalGatewayRoute) DestinationCidrBlock() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocalGatewayRoute) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocalGatewayRoute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnLocalGatewayRoute) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocalGatewayRoute) LocalGatewayRouteRef() *LocalGatewayRouteReference {
-	var returns *LocalGatewayRouteReference
+func (j *jsiiProxy_CfnLocalGatewayRoute) LocalGatewayRouteRef() *interfacesawsec2.LocalGatewayRouteReference {
+	var returns *interfacesawsec2.LocalGatewayRouteReference
 	_jsii_.Get(
 		j,
 		"localGatewayRouteRef",
@@ -411,6 +413,7 @@ func (j *jsiiProxy_CfnLocalGatewayRoute) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::EC2::LocalGatewayRoute`.
 func NewCfnLocalGatewayRoute(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteProps) CfnLocalGatewayRoute {
 	_init_.Initialize()
 
@@ -428,6 +431,7 @@ func NewCfnLocalGatewayRoute(scope constructs.Construct, id *string, props *CfnL
 	return &j
 }
 
+// Create a new `AWS::EC2::LocalGatewayRoute`.
 func NewCfnLocalGatewayRoute_Override(c CfnLocalGatewayRoute, scope constructs.Construct, id *string, props *CfnLocalGatewayRouteProps) {
 	_init_.Initialize()
 

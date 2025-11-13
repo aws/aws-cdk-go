@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssynthetics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssynthetics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -146,8 +148,8 @@ import (
 //
 type CfnCanary interface {
 	awscdk.CfnResource
-	ICanaryRef
 	awscdk.IInspectable
+	interfacesawssynthetics.ICanaryRef
 	awscdk.ITaggable
 	// A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.
 	ArtifactConfig() interface{}
@@ -167,7 +169,7 @@ type CfnCanary interface {
 	BrowserConfigs() interface{}
 	SetBrowserConfigs(val interface{})
 	// A reference to a Canary resource.
-	CanaryRef() *CanaryReference
+	CanaryRef() *interfacesawssynthetics.CanaryReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -188,7 +190,7 @@ type CfnCanary interface {
 	// Specifies whether to perform a dry run before updating the canary.
 	DryRunAndUpdate() interface{}
 	SetDryRunAndUpdate(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the IAM role to be used to run the canary.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -398,8 +400,8 @@ type CfnCanary interface {
 // The jsii proxy struct for CfnCanary
 type jsiiProxy_CfnCanary struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICanaryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssyntheticsICanaryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -463,8 +465,8 @@ func (j *jsiiProxy_CfnCanary) BrowserConfigs() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCanary) CanaryRef() *CanaryReference {
-	var returns *CanaryReference
+func (j *jsiiProxy_CfnCanary) CanaryRef() *interfacesawssynthetics.CanaryReference {
+	var returns *interfacesawssynthetics.CanaryReference
 	_jsii_.Get(
 		j,
 		"canaryRef",
@@ -543,8 +545,8 @@ func (j *jsiiProxy_CfnCanary) DryRunAndUpdate() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCanary) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCanary) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -764,6 +766,7 @@ func (j *jsiiProxy_CfnCanary) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::Synthetics::Canary`.
 func NewCfnCanary(scope constructs.Construct, id *string, props *CfnCanaryProps) CfnCanary {
 	_init_.Initialize()
 
@@ -781,6 +784,7 @@ func NewCfnCanary(scope constructs.Construct, id *string, props *CfnCanaryProps)
 	return &j
 }
 
+// Create a new `AWS::Synthetics::Canary`.
 func NewCfnCanary_Override(c CfnCanary, scope constructs.Construct, id *string, props *CfnCanaryProps) {
 	_init_.Initialize()
 
@@ -1000,13 +1004,13 @@ func (j *jsiiProxy_CfnCanary)SetVpcConfig(val interface{}) {
 }
 
 // Creates a new ICanaryRef from a canaryName.
-func CfnCanary_FromCanaryName(scope constructs.Construct, id *string, canaryName *string) ICanaryRef {
+func CfnCanary_FromCanaryName(scope constructs.Construct, id *string, canaryName *string) interfacesawssynthetics.ICanaryRef {
 	_init_.Initialize()
 
 	if err := validateCfnCanary_FromCanaryNameParameters(scope, id, canaryName); err != nil {
 		panic(err)
 	}
-	var returns ICanaryRef
+	var returns interfacesawssynthetics.ICanaryRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_synthetics.CfnCanary",

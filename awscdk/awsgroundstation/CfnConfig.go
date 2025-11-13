@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgroundstation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgroundstation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -98,8 +100,8 @@ import (
 //
 type CfnConfig interface {
 	awscdk.CfnResource
-	IConfigRef
 	awscdk.IInspectable
+	interfacesawsgroundstation.IConfigRef
 	awscdk.ITaggable
 	// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	AttrArn() *string
@@ -116,12 +118,12 @@ type CfnConfig interface {
 	ConfigData() interface{}
 	SetConfigData(val interface{})
 	// A reference to a Config resource.
-	ConfigRef() *ConfigReference
+	ConfigRef() *interfacesawsgroundstation.ConfigReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -294,8 +296,8 @@ type CfnConfig interface {
 // The jsii proxy struct for CfnConfig
 type jsiiProxy_CfnConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgroundstationIConfigRef
 	internal.Type__awscdkITaggable
 }
 
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnConfig) ConfigData() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfig) ConfigRef() *ConfigReference {
-	var returns *ConfigReference
+func (j *jsiiProxy_CfnConfig) ConfigRef() *interfacesawsgroundstation.ConfigReference {
+	var returns *interfacesawsgroundstation.ConfigReference
 	_jsii_.Get(
 		j,
 		"configRef",
@@ -389,8 +391,8 @@ func (j *jsiiProxy_CfnConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -490,6 +492,7 @@ func (j *jsiiProxy_CfnConfig) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GroundStation::Config`.
 func NewCfnConfig(scope constructs.Construct, id *string, props *CfnConfigProps) CfnConfig {
 	_init_.Initialize()
 
@@ -507,6 +510,7 @@ func NewCfnConfig(scope constructs.Construct, id *string, props *CfnConfigProps)
 	return &j
 }
 
+// Create a new `AWS::GroundStation::Config`.
 func NewCfnConfig_Override(c CfnConfig, scope constructs.Construct, id *string, props *CfnConfigProps) {
 	_init_.Initialize()
 

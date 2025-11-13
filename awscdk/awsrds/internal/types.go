@@ -1,18 +1,32 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsrdsICustomDBEngineVersionRef = interfacesawsrds.ICustomDBEngineVersionRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsrdsIDBClusterRef = interfacesawsrds.IDBClusterRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsrdsIDBClusterParameterGroupRef = interfacesawsrds.IDBClusterParameterGroupRef
+type Type__interfacesawsrdsIDBInstanceRef = interfacesawsrds.IDBInstanceRef
+type Type__interfacesawsrdsIDBParameterGroupRef = interfacesawsrds.IDBParameterGroupRef
+type Type__interfacesawsrdsIDBProxyRef = interfacesawsrds.IDBProxyRef
+type Type__interfacesawsrdsIDBProxyEndpointRef = interfacesawsrds.IDBProxyEndpointRef
+type Type__interfacesawsrdsIDBProxyTargetGroupRef = interfacesawsrds.IDBProxyTargetGroupRef
+type Type__interfacesawsrdsIDBSecurityGroupRef = interfacesawsrds.IDBSecurityGroupRef
+type Type__interfacesawsrdsIDBSecurityGroupIngressRef = interfacesawsrds.IDBSecurityGroupIngressRef
+type Type__interfacesawsrdsIDBShardGroupRef = interfacesawsrds.IDBShardGroupRef
+type Type__interfacesawsrdsIDBSubnetGroupRef = interfacesawsrds.IDBSubnetGroupRef
+type Type__interfacesawsrdsIEventSubscriptionRef = interfacesawsrds.IEventSubscriptionRef
+type Type__interfacesawsrdsIGlobalClusterRef = interfacesawsrds.IGlobalClusterRef
+type Type__interfacesawsrdsIIntegrationRef = interfacesawsrds.IIntegrationRef
+type Type__interfacesawsrdsIOptionGroupRef = interfacesawsrds.IOptionGroupRef
 type Type__awscdkResource = awscdk.Resource
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awssecretsmanagerISecretAttachmentTarget = awssecretsmanager.ISecretAttachmentTarget
 type Type__awssecretsmanagerSecret = awssecretsmanager.Secret
 type Type__awscdkIResource = awscdk.IResource
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

@@ -44,7 +44,7 @@ type CfnDashboard_SheetDefinitionProperty struct {
 	Layouts interface{} `field:"optional" json:"layouts" yaml:"layouts"`
 	// The name of the sheet.
 	//
-	// This name is displayed on the sheet's tab in the Amazon QuickSight console.
+	// This name is displayed on the sheet's tab in the Quick Suite console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetdefinition.html#cfn-quicksight-dashboard-sheetdefinition-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

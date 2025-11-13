@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeconnections/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodeconnections"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnConnection interface {
 	awscdk.CfnResource
-	IConnectionRef
 	awscdk.IInspectable
+	interfacesawscodeconnections.IConnectionRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the connection.
 	//
@@ -62,12 +64,12 @@ type CfnConnection interface {
 	ConnectionName() *string
 	SetConnectionName(val *string)
 	// A reference to a Connection resource.
-	ConnectionRef() *ConnectionReference
+	ConnectionRef() *interfacesawscodeconnections.ConnectionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the host associated with the connection.
 	HostArn() *string
 	SetHostArn(val *string)
@@ -241,8 +243,8 @@ type CfnConnection interface {
 // The jsii proxy struct for CfnConnection
 type jsiiProxy_CfnConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodeconnectionsIConnectionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnConnection) ConnectionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnection) ConnectionRef() *ConnectionReference {
-	var returns *ConnectionReference
+func (j *jsiiProxy_CfnConnection) ConnectionRef() *interfacesawscodeconnections.ConnectionReference {
+	var returns *interfacesawscodeconnections.ConnectionReference
 	_jsii_.Get(
 		j,
 		"connectionRef",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnConnection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -447,6 +449,7 @@ func (j *jsiiProxy_CfnConnection) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CodeConnections::Connection`.
 func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnectionProps) CfnConnection {
 	_init_.Initialize()
 
@@ -464,6 +467,7 @@ func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnecti
 	return &j
 }
 
+// Create a new `AWS::CodeConnections::Connection`.
 func NewCfnConnection_Override(c CfnConnection, scope constructs.Construct, id *string, props *CfnConnectionProps) {
 	_init_.Initialize()
 

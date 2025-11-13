@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrekognition/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrekognition"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnCollection interface {
 	awscdk.CfnResource
-	ICollectionRef
 	awscdk.IInspectable
+	interfacesawsrekognition.ICollectionRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name of the collection.
 	AttrArn() *string
@@ -48,12 +50,12 @@ type CfnCollection interface {
 	CollectionId() *string
 	SetCollectionId(val *string)
 	// A reference to a Collection resource.
-	CollectionRef() *CollectionReference
+	CollectionRef() *interfacesawsrekognition.CollectionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnCollection interface {
 // The jsii proxy struct for CfnCollection
 type jsiiProxy_CfnCollection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICollectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrekognitionICollectionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnCollection) CollectionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCollection) CollectionRef() *CollectionReference {
-	var returns *CollectionReference
+func (j *jsiiProxy_CfnCollection) CollectionRef() *interfacesawsrekognition.CollectionReference {
+	var returns *interfacesawsrekognition.CollectionReference
 	_jsii_.Get(
 		j,
 		"collectionRef",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnCollection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCollection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCollection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -389,6 +391,7 @@ func (j *jsiiProxy_CfnCollection) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Rekognition::Collection`.
 func NewCfnCollection(scope constructs.Construct, id *string, props *CfnCollectionProps) CfnCollection {
 	_init_.Initialize()
 
@@ -406,6 +409,7 @@ func NewCfnCollection(scope constructs.Construct, id *string, props *CfnCollecti
 	return &j
 }
 
+// Create a new `AWS::Rekognition::Collection`.
 func NewCfnCollection_Override(c CfnCollection, scope constructs.Construct, id *string, props *CfnCollectionProps) {
 	_init_.Initialize()
 
@@ -439,13 +443,13 @@ func (j *jsiiProxy_CfnCollection)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ICollectionRef from an ARN.
-func CfnCollection_FromCollectionArn(scope constructs.Construct, id *string, arn *string) ICollectionRef {
+func CfnCollection_FromCollectionArn(scope constructs.Construct, id *string, arn *string) interfacesawsrekognition.ICollectionRef {
 	_init_.Initialize()
 
 	if err := validateCfnCollection_FromCollectionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ICollectionRef
+	var returns interfacesawsrekognition.ICollectionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rekognition.CfnCollection",
@@ -458,13 +462,13 @@ func CfnCollection_FromCollectionArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new ICollectionRef from a collectionId.
-func CfnCollection_FromCollectionId(scope constructs.Construct, id *string, collectionId *string) ICollectionRef {
+func CfnCollection_FromCollectionId(scope constructs.Construct, id *string, collectionId *string) interfacesawsrekognition.ICollectionRef {
 	_init_.Initialize()
 
 	if err := validateCfnCollection_FromCollectionIdParameters(scope, id, collectionId); err != nil {
 		panic(err)
 	}
-	var returns ICollectionRef
+	var returns interfacesawsrekognition.ICollectionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rekognition.CfnCollection",

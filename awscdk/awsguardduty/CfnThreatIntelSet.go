@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsguardduty/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnThreatIntelSet interface {
 	awscdk.CfnResource
-	IThreatIntelSetRef
 	awscdk.IInspectable
+	interfacesawsguardduty.IThreatIntelSetRef
 	awscdk.ITaggable
 	// A boolean value that determines if GuardDuty can start using this list for custom threat detection.
 	Activate() interface{}
@@ -61,7 +63,7 @@ type CfnThreatIntelSet interface {
 	// The unique ID of the detector of the GuardDuty account for which you want to create a `threatIntelSet` .
 	DetectorId() *string
 	SetDetectorId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
 	ExpectedBucketOwner() *string
 	SetExpectedBucketOwner(val *string)
@@ -101,7 +103,7 @@ type CfnThreatIntelSet interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a ThreatIntelSet resource.
-	ThreatIntelSetRef() *ThreatIntelSetReference
+	ThreatIntelSetRef() *interfacesawsguardduty.ThreatIntelSetReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -245,8 +247,8 @@ type CfnThreatIntelSet interface {
 // The jsii proxy struct for CfnThreatIntelSet
 type jsiiProxy_CfnThreatIntelSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IThreatIntelSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsguarddutyIThreatIntelSetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnThreatIntelSet) DetectorId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnThreatIntelSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnThreatIntelSet) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) ThreatIntelSetRef() *ThreatIntelSetReference {
-	var returns *ThreatIntelSetReference
+func (j *jsiiProxy_CfnThreatIntelSet) ThreatIntelSetRef() *interfacesawsguardduty.ThreatIntelSetReference {
+	var returns *interfacesawsguardduty.ThreatIntelSetReference
 	_jsii_.Get(
 		j,
 		"threatIntelSetRef",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnThreatIntelSet) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::GuardDuty::ThreatIntelSet`.
 func NewCfnThreatIntelSet(scope constructs.Construct, id *string, props *CfnThreatIntelSetProps) CfnThreatIntelSet {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnThreatIntelSet(scope constructs.Construct, id *string, props *CfnThre
 	return &j
 }
 
+// Create a new `AWS::GuardDuty::ThreatIntelSet`.
 func NewCfnThreatIntelSet_Override(c CfnThreatIntelSet, scope constructs.Construct, id *string, props *CfnThreatIntelSetProps) {
 	_init_.Initialize()
 

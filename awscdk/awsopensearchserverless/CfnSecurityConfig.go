@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnSecurityConfig interface {
 	awscdk.CfnResource
-	ISecurityConfigRef
 	awscdk.IInspectable
+	interfacesawsopensearchserverless.ISecurityConfigRef
 	// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 	AttrIamIdentityCenterOptionsApplicationArn() *string
 	// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless.
@@ -75,7 +77,7 @@ type CfnSecurityConfig interface {
 	// The description of the security configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Describes IAM federation options in the form of a key-value map.
 	IamFederationOptions() interface{}
 	SetIamFederationOptions(val interface{})
@@ -106,7 +108,7 @@ type CfnSecurityConfig interface {
 	SamlOptions() interface{}
 	SetSamlOptions(val interface{})
 	// A reference to a SecurityConfig resource.
-	SecurityConfigRef() *SecurityConfigReference
+	SecurityConfigRef() *interfacesawsopensearchserverless.SecurityConfigReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -257,8 +259,8 @@ type CfnSecurityConfig interface {
 // The jsii proxy struct for CfnSecurityConfig
 type jsiiProxy_CfnSecurityConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopensearchserverlessISecurityConfigRef
 }
 
 func (j *jsiiProxy_CfnSecurityConfig) AttrIamIdentityCenterOptionsApplicationArn() *string {
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnSecurityConfig) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -431,8 +433,8 @@ func (j *jsiiProxy_CfnSecurityConfig) SamlOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityConfig) SecurityConfigRef() *SecurityConfigReference {
-	var returns *SecurityConfigReference
+func (j *jsiiProxy_CfnSecurityConfig) SecurityConfigRef() *interfacesawsopensearchserverless.SecurityConfigReference {
+	var returns *interfacesawsopensearchserverless.SecurityConfigReference
 	_jsii_.Get(
 		j,
 		"securityConfigRef",
@@ -482,6 +484,7 @@ func (j *jsiiProxy_CfnSecurityConfig) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::OpenSearchServerless::SecurityConfig`.
 func NewCfnSecurityConfig(scope constructs.Construct, id *string, props *CfnSecurityConfigProps) CfnSecurityConfig {
 	_init_.Initialize()
 
@@ -499,6 +502,7 @@ func NewCfnSecurityConfig(scope constructs.Construct, id *string, props *CfnSecu
 	return &j
 }
 
+// Create a new `AWS::OpenSearchServerless::SecurityConfig`.
 func NewCfnSecurityConfig_Override(c CfnSecurityConfig, scope constructs.Construct, id *string, props *CfnSecurityConfigProps) {
 	_init_.Initialize()
 

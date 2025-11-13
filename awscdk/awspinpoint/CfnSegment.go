@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -180,8 +182,8 @@ import (
 //
 type CfnSegment interface {
 	awscdk.CfnResource
-	ISegmentRef
 	awscdk.IInspectable
+	interfacesawspinpoint.ISegmentRef
 	awscdk.ITaggable
 	// The unique identifier for the Amazon Pinpoint application that the segment is associated with.
 	ApplicationId() *string
@@ -202,7 +204,7 @@ type CfnSegment interface {
 	// An array that defines the dimensions for the segment.
 	Dimensions() interface{}
 	SetDimensions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,7 +229,7 @@ type CfnSegment interface {
 	SegmentGroups() interface{}
 	SetSegmentGroups(val interface{})
 	// A reference to a Segment resource.
-	SegmentRef() *SegmentReference
+	SegmentRef() *interfacesawspinpoint.SegmentReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -380,8 +382,8 @@ type CfnSegment interface {
 // The jsii proxy struct for CfnSegment
 type jsiiProxy_CfnSegment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISegmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointISegmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -465,8 +467,8 @@ func (j *jsiiProxy_CfnSegment) Dimensions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSegment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSegment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -525,8 +527,8 @@ func (j *jsiiProxy_CfnSegment) SegmentGroups() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSegment) SegmentRef() *SegmentReference {
-	var returns *SegmentReference
+func (j *jsiiProxy_CfnSegment) SegmentRef() *interfacesawspinpoint.SegmentReference {
+	var returns *interfacesawspinpoint.SegmentReference
 	_jsii_.Get(
 		j,
 		"segmentRef",
@@ -586,6 +588,7 @@ func (j *jsiiProxy_CfnSegment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::Segment`.
 func NewCfnSegment(scope constructs.Construct, id *string, props *CfnSegmentProps) CfnSegment {
 	_init_.Initialize()
 
@@ -603,6 +606,7 @@ func NewCfnSegment(scope constructs.Construct, id *string, props *CfnSegmentProp
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::Segment`.
 func NewCfnSegment_Override(c CfnSegment, scope constructs.Construct, id *string, props *CfnSegmentProps) {
 	_init_.Initialize()
 

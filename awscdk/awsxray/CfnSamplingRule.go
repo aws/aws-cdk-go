@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsxray/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsxray"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -94,8 +96,8 @@ import (
 //
 type CfnSamplingRule interface {
 	awscdk.CfnResource
-	ISamplingRuleRef
 	awscdk.IInspectable
+	interfacesawsxray.ISamplingRuleRef
 	awscdk.ITaggableV2
 	// The sampling rule ARN that was created or updated.
 	AttrRuleArn() *string
@@ -110,7 +112,7 @@ type CfnSamplingRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -141,7 +143,7 @@ type CfnSamplingRule interface {
 	// Deprecated: this property has been deprecated.
 	SetSamplingRuleRecord(val interface{})
 	// A reference to a SamplingRule resource.
-	SamplingRuleRef() *SamplingRuleReference
+	SamplingRuleRef() *interfacesawsxray.SamplingRuleReference
 	// Deprecated: this property has been deprecated.
 	SamplingRuleUpdate() interface{}
 	// Deprecated: this property has been deprecated.
@@ -296,8 +298,8 @@ type CfnSamplingRule interface {
 // The jsii proxy struct for CfnSamplingRule
 type jsiiProxy_CfnSamplingRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISamplingRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsxrayISamplingRuleRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnSamplingRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSamplingRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSamplingRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -431,8 +433,8 @@ func (j *jsiiProxy_CfnSamplingRule) SamplingRuleRecord() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSamplingRule) SamplingRuleRef() *SamplingRuleReference {
-	var returns *SamplingRuleReference
+func (j *jsiiProxy_CfnSamplingRule) SamplingRuleRef() *interfacesawsxray.SamplingRuleReference {
+	var returns *interfacesawsxray.SamplingRuleReference
 	_jsii_.Get(
 		j,
 		"samplingRuleRef",
@@ -492,6 +494,7 @@ func (j *jsiiProxy_CfnSamplingRule) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::XRay::SamplingRule`.
 func NewCfnSamplingRule(scope constructs.Construct, id *string, props *CfnSamplingRuleProps) CfnSamplingRule {
 	_init_.Initialize()
 
@@ -509,6 +512,7 @@ func NewCfnSamplingRule(scope constructs.Construct, id *string, props *CfnSampli
 	return &j
 }
 
+// Create a new `AWS::XRay::SamplingRule`.
 func NewCfnSamplingRule_Override(c CfnSamplingRule, scope constructs.Construct, id *string, props *CfnSamplingRuleProps) {
 	_init_.Initialize()
 

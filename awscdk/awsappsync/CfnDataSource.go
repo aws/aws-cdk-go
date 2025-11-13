@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -88,8 +90,8 @@ import (
 //
 type CfnDataSource interface {
 	awscdk.CfnResource
-	IDataSourceRef
 	awscdk.IInspectable
+	interfacesawsappsync.IDataSourceRef
 	// Unique AWS AppSync GraphQL API identifier where this data source will be created.
 	ApiId() *string
 	SetApiId(val *string)
@@ -107,7 +109,7 @@ type CfnDataSource interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataSource resource.
-	DataSourceRef() *DataSourceReference
+	DataSourceRef() *interfacesawsappsync.DataSourceReference
 	// The description of the data source.
 	Description() *string
 	SetDescription(val *string)
@@ -118,7 +120,7 @@ type CfnDataSource interface {
 	ElasticsearchConfig() interface{}
 	// Deprecated: this property has been deprecated.
 	SetElasticsearchConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An EventBridge configuration that contains a valid ARN of an event bus.
 	EventBridgeConfig() interface{}
 	SetEventBridgeConfig(val interface{})
@@ -310,8 +312,8 @@ type CfnDataSource interface {
 // The jsii proxy struct for CfnDataSource
 type jsiiProxy_CfnDataSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIDataSourceRef
 }
 
 func (j *jsiiProxy_CfnDataSource) ApiId() *string {
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnDataSource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) DataSourceRef() *DataSourceReference {
-	var returns *DataSourceReference
+func (j *jsiiProxy_CfnDataSource) DataSourceRef() *interfacesawsappsync.DataSourceReference {
+	var returns *interfacesawsappsync.DataSourceReference
 	_jsii_.Get(
 		j,
 		"dataSourceRef",
@@ -424,8 +426,8 @@ func (j *jsiiProxy_CfnDataSource) ElasticsearchConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -585,6 +587,7 @@ func (j *jsiiProxy_CfnDataSource) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppSync::DataSource`.
 func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
@@ -602,6 +605,7 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 	return &j
 }
 
+// Create a new `AWS::AppSync::DataSource`.
 func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 

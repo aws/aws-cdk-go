@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotanalytics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotanalytics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -85,8 +87,8 @@ import (
 //
 type CfnDatastore interface {
 	awscdk.CfnResource
-	IDatastoreRef
 	awscdk.IInspectable
+	interfacesawsiotanalytics.IDatastoreRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -105,11 +107,11 @@ type CfnDatastore interface {
 	DatastorePartitions() interface{}
 	SetDatastorePartitions(val interface{})
 	// A reference to a Datastore resource.
-	DatastoreRef() *DatastoreReference
+	DatastoreRef() *interfacesawsiotanalytics.DatastoreReference
 	// Where data store data is stored.
 	DatastoreStorage() interface{}
 	SetDatastoreStorage(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Contains the configuration information of file formats.
 	//
 	// AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
@@ -287,8 +289,8 @@ type CfnDatastore interface {
 // The jsii proxy struct for CfnDatastore
 type jsiiProxy_CfnDatastore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatastoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotanalyticsIDatastoreRef
 	internal.Type__awscdkITaggable
 }
 
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnDatastore) DatastorePartitions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatastore) DatastoreRef() *DatastoreReference {
-	var returns *DatastoreReference
+func (j *jsiiProxy_CfnDatastore) DatastoreRef() *interfacesawsiotanalytics.DatastoreReference {
+	var returns *interfacesawsiotanalytics.DatastoreReference
 	_jsii_.Get(
 		j,
 		"datastoreRef",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnDatastore) DatastoreStorage() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatastore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDatastore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -493,6 +495,7 @@ func (j *jsiiProxy_CfnDatastore) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTAnalytics::Datastore`.
 func NewCfnDatastore(scope constructs.Construct, id *string, props *CfnDatastoreProps) CfnDatastore {
 	_init_.Initialize()
 
@@ -510,6 +513,7 @@ func NewCfnDatastore(scope constructs.Construct, id *string, props *CfnDatastore
 	return &j
 }
 
+// Create a new `AWS::IoTAnalytics::Datastore`.
 func NewCfnDatastore_Override(c CfnDatastore, scope constructs.Construct, id *string, props *CfnDatastoreProps) {
 	_init_.Initialize()
 
@@ -584,13 +588,13 @@ func (j *jsiiProxy_CfnDatastore)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDatastoreRef from a datastoreName.
-func CfnDatastore_FromDatastoreName(scope constructs.Construct, id *string, datastoreName *string) IDatastoreRef {
+func CfnDatastore_FromDatastoreName(scope constructs.Construct, id *string, datastoreName *string) interfacesawsiotanalytics.IDatastoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnDatastore_FromDatastoreNameParameters(scope, id, datastoreName); err != nil {
 		panic(err)
 	}
-	var returns IDatastoreRef
+	var returns interfacesawsiotanalytics.IDatastoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotanalytics.CfnDatastore",

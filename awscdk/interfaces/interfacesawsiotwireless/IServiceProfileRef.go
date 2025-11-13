@@ -1,0 +1,56 @@
+package interfacesawsiotwireless
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a ServiceProfile.
+// Experimental.
+type IServiceProfileRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a ServiceProfile resource.
+	// Experimental.
+	ServiceProfileRef() *ServiceProfileReference
+}
+
+// The jsii proxy for IServiceProfileRef
+type jsiiProxy_IServiceProfileRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IServiceProfileRef) ServiceProfileRef() *ServiceProfileReference {
+	var returns *ServiceProfileReference
+	_jsii_.Get(
+		j,
+		"serviceProfileRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IServiceProfileRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IServiceProfileRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

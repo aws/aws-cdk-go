@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnIPAMResourceDiscovery interface {
 	awscdk.CfnResource
-	IIPAMResourceDiscoveryRef
 	awscdk.IInspectable
+	interfacesawsec2.IIPAMResourceDiscoveryRef
 	awscdk.ITaggable
 	// The resource discovery ARN.
 	AttrIpamResourceDiscoveryArn() *string
@@ -82,9 +84,9 @@ type CfnIPAMResourceDiscovery interface {
 	// The resource discovery description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IPAMResourceDiscovery resource.
-	IpamResourceDiscoveryRef() *IPAMResourceDiscoveryReference
+	IpamResourceDiscoveryRef() *interfacesawsec2.IPAMResourceDiscoveryReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -260,8 +262,8 @@ type CfnIPAMResourceDiscovery interface {
 // The jsii proxy struct for CfnIPAMResourceDiscovery
 type jsiiProxy_CfnIPAMResourceDiscovery struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIPAMResourceDiscoveryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IIPAMResourceDiscoveryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMResourceDiscovery) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIPAMResourceDiscovery) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMResourceDiscovery) IpamResourceDiscoveryRef() *IPAMResourceDiscoveryReference {
-	var returns *IPAMResourceDiscoveryReference
+func (j *jsiiProxy_CfnIPAMResourceDiscovery) IpamResourceDiscoveryRef() *interfacesawsec2.IPAMResourceDiscoveryReference {
+	var returns *interfacesawsec2.IPAMResourceDiscoveryReference
 	_jsii_.Get(
 		j,
 		"ipamResourceDiscoveryRef",
@@ -496,6 +498,7 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::EC2::IPAMResourceDiscovery`.
 func NewCfnIPAMResourceDiscovery(scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryProps) CfnIPAMResourceDiscovery {
 	_init_.Initialize()
 
@@ -513,6 +516,7 @@ func NewCfnIPAMResourceDiscovery(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::EC2::IPAMResourceDiscovery`.
 func NewCfnIPAMResourceDiscovery_Override(c CfnIPAMResourceDiscovery, scope constructs.Construct, id *string, props *CfnIPAMResourceDiscoveryProps) {
 	_init_.Initialize()
 
@@ -565,13 +569,13 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IIPAMResourceDiscoveryRef from a ipamResourceDiscoveryId.
-func CfnIPAMResourceDiscovery_FromIpamResourceDiscoveryId(scope constructs.Construct, id *string, ipamResourceDiscoveryId *string) IIPAMResourceDiscoveryRef {
+func CfnIPAMResourceDiscovery_FromIpamResourceDiscoveryId(scope constructs.Construct, id *string, ipamResourceDiscoveryId *string) interfacesawsec2.IIPAMResourceDiscoveryRef {
 	_init_.Initialize()
 
 	if err := validateCfnIPAMResourceDiscovery_FromIpamResourceDiscoveryIdParameters(scope, id, ipamResourceDiscoveryId); err != nil {
 		panic(err)
 	}
-	var returns IIPAMResourceDiscoveryRef
+	var returns interfacesawsec2.IIPAMResourceDiscoveryRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscovery",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnWarmPool interface {
 	awscdk.CfnResource
-	IWarmPoolRef
 	awscdk.IInspectable
+	interfacesawsautoscaling.IWarmPoolRef
 	// The name of the Auto Scaling group.
 	AutoScalingGroupName() *string
 	SetAutoScalingGroupName(val *string)
@@ -54,7 +56,7 @@ type CfnWarmPool interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 	InstanceReusePolicy() interface{}
 	SetInstanceReusePolicy(val interface{})
@@ -102,7 +104,7 @@ type CfnWarmPool interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WarmPool resource.
-	WarmPoolRef() *WarmPoolReference
+	WarmPoolRef() *interfacesawsautoscaling.WarmPoolReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -233,8 +235,8 @@ type CfnWarmPool interface {
 // The jsii proxy struct for CfnWarmPool
 type jsiiProxy_CfnWarmPool struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWarmPoolRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsautoscalingIWarmPoolRef
 }
 
 func (j *jsiiProxy_CfnWarmPool) AutoScalingGroupName() *string {
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnWarmPool) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWarmPool) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWarmPool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnWarmPool) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWarmPool) WarmPoolRef() *WarmPoolReference {
-	var returns *WarmPoolReference
+func (j *jsiiProxy_CfnWarmPool) WarmPoolRef() *interfacesawsautoscaling.WarmPoolReference {
+	var returns *interfacesawsautoscaling.WarmPoolReference
 	_jsii_.Get(
 		j,
 		"warmPoolRef",
@@ -408,6 +410,7 @@ func (j *jsiiProxy_CfnWarmPool) WarmPoolRef() *WarmPoolReference {
 }
 
 
+// Create a new `AWS::AutoScaling::WarmPool`.
 func NewCfnWarmPool(scope constructs.Construct, id *string, props *CfnWarmPoolProps) CfnWarmPool {
 	_init_.Initialize()
 
@@ -425,6 +428,7 @@ func NewCfnWarmPool(scope constructs.Construct, id *string, props *CfnWarmPoolPr
 	return &j
 }
 
+// Create a new `AWS::AutoScaling::WarmPool`.
 func NewCfnWarmPool_Override(c CfnWarmPool, scope constructs.Construct, id *string, props *CfnWarmPoolProps) {
 	_init_.Initialize()
 

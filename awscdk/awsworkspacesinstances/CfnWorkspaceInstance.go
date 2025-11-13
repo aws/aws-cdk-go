@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesinstances/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesinstances"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -144,8 +146,8 @@ import (
 //
 type CfnWorkspaceInstance interface {
 	awscdk.CfnResource
-	IWorkspaceInstanceRef
 	awscdk.IInspectable
+	interfacesawsworkspacesinstances.IWorkspaceInstanceRef
 	awscdk.ITaggableV2
 	AttrEc2ManagedInstance() awscdk.IResolvable
 	AttrEc2ManagedInstanceInstanceId() *string
@@ -164,7 +166,7 @@ type CfnWorkspaceInstance interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -204,7 +206,7 @@ type CfnWorkspaceInstance interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WorkspaceInstance resource.
-	WorkspaceInstanceRef() *WorkspaceInstanceReference
+	WorkspaceInstanceRef() *interfacesawsworkspacesinstances.WorkspaceInstanceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -335,8 +337,8 @@ type CfnWorkspaceInstance interface {
 // The jsii proxy struct for CfnWorkspaceInstance
 type jsiiProxy_CfnWorkspaceInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkspaceInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspacesinstancesIWorkspaceInstanceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnWorkspaceInstance) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspaceInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkspaceInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -520,8 +522,8 @@ func (j *jsiiProxy_CfnWorkspaceInstance) UpdatedProperties() *map[string]interfa
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspaceInstance) WorkspaceInstanceRef() *WorkspaceInstanceReference {
-	var returns *WorkspaceInstanceReference
+func (j *jsiiProxy_CfnWorkspaceInstance) WorkspaceInstanceRef() *interfacesawsworkspacesinstances.WorkspaceInstanceReference {
+	var returns *interfacesawsworkspacesinstances.WorkspaceInstanceReference
 	_jsii_.Get(
 		j,
 		"workspaceInstanceRef",
@@ -531,6 +533,7 @@ func (j *jsiiProxy_CfnWorkspaceInstance) WorkspaceInstanceRef() *WorkspaceInstan
 }
 
 
+// Create a new `AWS::WorkspacesInstances::WorkspaceInstance`.
 func NewCfnWorkspaceInstance(scope constructs.Construct, id *string, props *CfnWorkspaceInstanceProps) CfnWorkspaceInstance {
 	_init_.Initialize()
 
@@ -548,6 +551,7 @@ func NewCfnWorkspaceInstance(scope constructs.Construct, id *string, props *CfnW
 	return &j
 }
 
+// Create a new `AWS::WorkspacesInstances::WorkspaceInstance`.
 func NewCfnWorkspaceInstance_Override(c CfnWorkspaceInstance, scope constructs.Construct, id *string, props *CfnWorkspaceInstanceProps) {
 	_init_.Initialize()
 
@@ -581,13 +585,13 @@ func (j *jsiiProxy_CfnWorkspaceInstance)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IWorkspaceInstanceRef from a workspaceInstanceId.
-func CfnWorkspaceInstance_FromWorkspaceInstanceId(scope constructs.Construct, id *string, workspaceInstanceId *string) IWorkspaceInstanceRef {
+func CfnWorkspaceInstance_FromWorkspaceInstanceId(scope constructs.Construct, id *string, workspaceInstanceId *string) interfacesawsworkspacesinstances.IWorkspaceInstanceRef {
 	_init_.Initialize()
 
 	if err := validateCfnWorkspaceInstance_FromWorkspaceInstanceIdParameters(scope, id, workspaceInstanceId); err != nil {
 		panic(err)
 	}
-	var returns IWorkspaceInstanceRef
+	var returns interfacesawsworkspacesinstances.IWorkspaceInstanceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance",

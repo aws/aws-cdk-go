@@ -57,8 +57,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDataRepositoryAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataRepositoryAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfsxIDataRepositoryAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -139,8 +139,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFileSystem{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFileSystemRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfsxIFileSystemRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -251,8 +251,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnS3AccessPointAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IS3AccessPointAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfsxIS3AccessPointAttachmentRef)
 			return &j
 		},
 	)
@@ -330,8 +330,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSnapshot{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISnapshotRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfsxISnapshotRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -390,8 +390,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStorageVirtualMachine{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStorageVirtualMachineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfsxIStorageVirtualMachineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -458,8 +458,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVolume{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVolumeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsfsxIVolumeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -530,10 +530,6 @@ func init() {
 		"aws-cdk-lib.aws_fsx.DailyAutomaticBackupStartTimeProps",
 		reflect.TypeOf((*DailyAutomaticBackupStartTimeProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.DataRepositoryAssociationReference",
-		reflect.TypeOf((*DataRepositoryAssociationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_fsx.DriveCacheType",
 		reflect.TypeOf((*DriveCacheType)(nil)).Elem(),
@@ -574,10 +570,6 @@ func init() {
 		"aws-cdk-lib.aws_fsx.FileSystemProps",
 		reflect.TypeOf((*FileSystemProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.FileSystemReference",
-		reflect.TypeOf((*FileSystemReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_fsx.FileSystemTypeVersion",
 		reflect.TypeOf((*FileSystemTypeVersion)(nil)).Elem(),
@@ -585,21 +577,6 @@ func init() {
 			"V_2_10": FileSystemTypeVersion_V_2_10,
 			"V_2_12": FileSystemTypeVersion_V_2_12,
 			"V_2_15": FileSystemTypeVersion_V_2_15,
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fsx.IDataRepositoryAssociationRef",
-		reflect.TypeOf((*IDataRepositoryAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataRepositoryAssociationRef", GoGetter: "DataRepositoryAssociationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataRepositoryAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -612,81 +589,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IFileSystem{}
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fsx.IFileSystemRef",
-		reflect.TypeOf((*IFileSystemRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "fileSystemRef", GoGetter: "FileSystemRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFileSystemRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fsx.IS3AccessPointAttachmentRef",
-		reflect.TypeOf((*IS3AccessPointAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "s3AccessPointAttachmentRef", GoGetter: "S3AccessPointAttachmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IS3AccessPointAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fsx.ISnapshotRef",
-		reflect.TypeOf((*ISnapshotRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "snapshotRef", GoGetter: "SnapshotRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISnapshotRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fsx.IStorageVirtualMachineRef",
-		reflect.TypeOf((*IStorageVirtualMachineRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "storageVirtualMachineRef", GoGetter: "StorageVirtualMachineRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStorageVirtualMachineRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fsx.IVolumeRef",
-		reflect.TypeOf((*IVolumeRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "volumeRef", GoGetter: "VolumeRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVolumeRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -764,14 +666,6 @@ func init() {
 		"aws-cdk-lib.aws_fsx.LustreMaintenanceTimeProps",
 		reflect.TypeOf((*LustreMaintenanceTimeProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.S3AccessPointAttachmentReference",
-		reflect.TypeOf((*S3AccessPointAttachmentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.SnapshotReference",
-		reflect.TypeOf((*SnapshotReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_fsx.StorageType",
 		reflect.TypeOf((*StorageType)(nil)).Elem(),
@@ -780,14 +674,6 @@ func init() {
 			"HDD": StorageType_HDD,
 			"INTELLIGENT_TIERING": StorageType_INTELLIGENT_TIERING,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.StorageVirtualMachineReference",
-		reflect.TypeOf((*StorageVirtualMachineReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.VolumeReference",
-		reflect.TypeOf((*VolumeReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_fsx.Weekday",

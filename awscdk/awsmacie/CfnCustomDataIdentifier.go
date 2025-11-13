@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmacie/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmacie"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnCustomDataIdentifier interface {
 	awscdk.CfnResource
-	ICustomDataIdentifierRef
 	awscdk.IInspectable
+	interfacesawsmacie.ICustomDataIdentifierRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the custom data identifier.
 	AttrArn() *string
@@ -69,13 +71,13 @@ type CfnCustomDataIdentifier interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomDataIdentifier resource.
-	CustomDataIdentifierRef() *CustomDataIdentifierReference
+	CustomDataIdentifierRef() *interfacesawsmacie.CustomDataIdentifierReference
 	// A custom description of the custom data identifier.
 	//
 	// The description can contain 1-512 characters.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An array of character sequences ( *ignore words* ) to exclude from the results.
 	IgnoreWords() *[]*string
 	SetIgnoreWords(val *[]*string)
@@ -260,8 +262,8 @@ type CfnCustomDataIdentifier interface {
 // The jsii proxy struct for CfnCustomDataIdentifier
 type jsiiProxy_CfnCustomDataIdentifier struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomDataIdentifierRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmacieICustomDataIdentifierRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomDataIdentifier) CustomDataIdentifierRef() *CustomDataIdentifierReference {
-	var returns *CustomDataIdentifierReference
+func (j *jsiiProxy_CfnCustomDataIdentifier) CustomDataIdentifierRef() *interfacesawsmacie.CustomDataIdentifierReference {
+	var returns *interfacesawsmacie.CustomDataIdentifierReference
 	_jsii_.Get(
 		j,
 		"customDataIdentifierRef",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomDataIdentifier) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomDataIdentifier) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -486,6 +488,7 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::Macie::CustomDataIdentifier`.
 func NewCfnCustomDataIdentifier(scope constructs.Construct, id *string, props *CfnCustomDataIdentifierProps) CfnCustomDataIdentifier {
 	_init_.Initialize()
 
@@ -503,6 +506,7 @@ func NewCfnCustomDataIdentifier(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::Macie::CustomDataIdentifier`.
 func NewCfnCustomDataIdentifier_Override(c CfnCustomDataIdentifier, scope constructs.Construct, id *string, props *CfnCustomDataIdentifierProps) {
 	_init_.Initialize()
 

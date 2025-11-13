@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -60,7 +61,7 @@ type NatGateway interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The maximum amount of time to wait before forcibly releasing the IP addresses if connections are still in progress.
 	// Default: '350 seconds'.
 	//
@@ -152,8 +153,8 @@ func (j *jsiiProxy_NatGateway) Eip() awsec2.CfnEIP {
 	return returns
 }
 
-func (j *jsiiProxy_NatGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_NatGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

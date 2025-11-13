@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -315,8 +317,8 @@ import (
 //
 type CfnEndpoint interface {
 	awscdk.CfnResource
-	IEndpointRef
 	awscdk.IInspectable
+	interfacesawsdms.IEndpointRef
 	awscdk.ITaggable
 	// A value that can be used for cross-account validation.
 	AttrExternalId() *string
@@ -349,14 +351,14 @@ type CfnEndpoint interface {
 	EndpointIdentifier() *string
 	SetEndpointIdentifier(val *string)
 	// A reference to a Endpoint resource.
-	EndpointRef() *EndpointReference
+	EndpointRef() *interfacesawsdms.EndpointReference
 	// The type of endpoint.
 	EndpointType() *string
 	SetEndpointType(val *string)
 	// The type of engine for the endpoint, depending on the `EndpointType` value.
 	EngineName() *string
 	SetEngineName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Additional attributes associated with the connection.
 	ExtraConnectionAttributes() *string
 	SetExtraConnectionAttributes(val *string)
@@ -594,8 +596,8 @@ type CfnEndpoint interface {
 // The jsii proxy struct for CfnEndpoint
 type jsiiProxy_CfnEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIEndpointRef
 	internal.Type__awscdkITaggable
 }
 
@@ -719,8 +721,8 @@ func (j *jsiiProxy_CfnEndpoint) EndpointIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
-	var returns *EndpointReference
+func (j *jsiiProxy_CfnEndpoint) EndpointRef() *interfacesawsdms.EndpointReference {
+	var returns *interfacesawsdms.EndpointReference
 	_jsii_.Get(
 		j,
 		"endpointRef",
@@ -749,8 +751,8 @@ func (j *jsiiProxy_CfnEndpoint) EngineName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -1060,6 +1062,7 @@ func (j *jsiiProxy_CfnEndpoint) Username() *string {
 }
 
 
+// Create a new `AWS::DMS::Endpoint`.
 func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
@@ -1077,6 +1080,7 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 	return &j
 }
 
+// Create a new `AWS::DMS::Endpoint`.
 func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 
@@ -1396,13 +1400,13 @@ func (j *jsiiProxy_CfnEndpoint)SetUsername(val *string) {
 }
 
 // Creates a new IEndpointRef from a endpointId.
-func CfnEndpoint_FromEndpointId(scope constructs.Construct, id *string, endpointId *string) IEndpointRef {
+func CfnEndpoint_FromEndpointId(scope constructs.Construct, id *string, endpointId *string) interfacesawsdms.IEndpointRef {
 	_init_.Initialize()
 
 	if err := validateCfnEndpoint_FromEndpointIdParameters(scope, id, endpointId); err != nil {
 		panic(err)
 	}
-	var returns IEndpointRef
+	var returns interfacesawsdms.IEndpointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_dms.CfnEndpoint",

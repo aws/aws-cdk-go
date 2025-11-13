@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnQueueFleetAssociation interface {
 	awscdk.CfnResource
-	IQueueFleetAssociationRef
 	awscdk.IInspectable
+	interfacesawsdeadline.IQueueFleetAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -37,7 +39,7 @@ type CfnQueueFleetAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the farm that contains the queue and the fleet.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -57,7 +59,7 @@ type CfnQueueFleetAssociation interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a QueueFleetAssociation resource.
-	QueueFleetAssociationRef() *QueueFleetAssociationReference
+	QueueFleetAssociationRef() *interfacesawsdeadline.QueueFleetAssociationReference
 	// The queue ID.
 	QueueId() *string
 	SetQueueId(val *string)
@@ -213,8 +215,8 @@ type CfnQueueFleetAssociation interface {
 // The jsii proxy struct for CfnQueueFleetAssociation
 type jsiiProxy_CfnQueueFleetAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueueFleetAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineIQueueFleetAssociationRef
 }
 
 func (j *jsiiProxy_CfnQueueFleetAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -257,8 +259,8 @@ func (j *jsiiProxy_CfnQueueFleetAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueueFleetAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueueFleetAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnQueueFleetAssociation) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueueFleetAssociation) QueueFleetAssociationRef() *QueueFleetAssociationReference {
-	var returns *QueueFleetAssociationReference
+func (j *jsiiProxy_CfnQueueFleetAssociation) QueueFleetAssociationRef() *interfacesawsdeadline.QueueFleetAssociationReference {
+	var returns *interfacesawsdeadline.QueueFleetAssociationReference
 	_jsii_.Get(
 		j,
 		"queueFleetAssociationRef",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnQueueFleetAssociation) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::Deadline::QueueFleetAssociation`.
 func NewCfnQueueFleetAssociation(scope constructs.Construct, id *string, props *CfnQueueFleetAssociationProps) CfnQueueFleetAssociation {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnQueueFleetAssociation(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Deadline::QueueFleetAssociation`.
 func NewCfnQueueFleetAssociation_Override(c CfnQueueFleetAssociation, scope constructs.Construct, id *string, props *CfnQueueFleetAssociationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsb2bi/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsb2bi"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -154,8 +156,8 @@ import (
 //
 type CfnTransformer interface {
 	awscdk.CfnResource
-	ITransformerRef
 	awscdk.IInspectable
+	interfacesawsb2bi.ITransformerRef
 	awscdk.ITaggableV2
 	// Returns a timestamp indicating when the transformer was created.
 	//
@@ -182,7 +184,7 @@ type CfnTransformer interface {
 	EdiType() interface{}
 	// Deprecated: this property has been deprecated.
 	SetEdiType(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Deprecated: this property has been deprecated.
 	FileFormat() *string
 	// Deprecated: this property has been deprecated.
@@ -240,7 +242,7 @@ type CfnTransformer interface {
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// A reference to a Transformer resource.
-	TransformerRef() *TransformerReference
+	TransformerRef() *interfacesawsb2bi.TransformerReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -384,8 +386,8 @@ type CfnTransformer interface {
 // The jsii proxy struct for CfnTransformer
 type jsiiProxy_CfnTransformer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransformerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsb2biITransformerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -489,8 +491,8 @@ func (j *jsiiProxy_CfnTransformer) EdiType() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransformer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransformer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -639,8 +641,8 @@ func (j *jsiiProxy_CfnTransformer) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransformer) TransformerRef() *TransformerReference {
-	var returns *TransformerReference
+func (j *jsiiProxy_CfnTransformer) TransformerRef() *interfacesawsb2bi.TransformerReference {
+	var returns *interfacesawsb2bi.TransformerReference
 	_jsii_.Get(
 		j,
 		"transformerRef",
@@ -670,6 +672,7 @@ func (j *jsiiProxy_CfnTransformer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::B2BI::Transformer`.
 func NewCfnTransformer(scope constructs.Construct, id *string, props *CfnTransformerProps) CfnTransformer {
 	_init_.Initialize()
 
@@ -687,6 +690,7 @@ func NewCfnTransformer(scope constructs.Construct, id *string, props *CfnTransfo
 	return &j
 }
 
+// Create a new `AWS::B2BI::Transformer`.
 func NewCfnTransformer_Override(c CfnTransformer, scope constructs.Construct, id *string, props *CfnTransformerProps) {
 	_init_.Initialize()
 

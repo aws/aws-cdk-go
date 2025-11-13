@@ -65,8 +65,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsarcregionswitchIPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -198,24 +198,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlanProps",
 		reflect.TypeOf((*CfnPlanProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_arcregionswitch.IPlanRef",
-		reflect.TypeOf((*IPlanRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "planRef", GoGetter: "PlanRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPlanRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_arcregionswitch.PlanReference",
-		reflect.TypeOf((*PlanReference)(nil)).Elem(),
 	)
 }

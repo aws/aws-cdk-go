@@ -21,14 +21,17 @@ package awss3vectors
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-vectorbucketpolicy.html
 //
 type CfnVectorBucketPolicyProps struct {
+	// A policy document containing permissions to add to the specified vector bucket.
+	//
+	// In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-vectorbucketpolicy.html#cfn-s3vectors-vectorbucketpolicy-policy
 	//
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
-	// The Amazon Resource Name (ARN) of the vector bucket.
+	// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-vectorbucketpolicy.html#cfn-s3vectors-vectorbucketpolicy-vectorbucketarn
 	//
 	VectorBucketArn *string `field:"optional" json:"vectorBucketArn" yaml:"vectorBucketArn"`
-	// The name of the vector bucket.
+	// The name of the S3 vector bucket to which the policy applies.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-vectorbucketpolicy.html#cfn-s3vectors-vectorbucketpolicy-vectorbucketname
 	//
 	VectorBucketName *string `field:"optional" json:"vectorBucketName" yaml:"vectorBucketName"`

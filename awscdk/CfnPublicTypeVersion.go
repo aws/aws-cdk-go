@@ -4,6 +4,9 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
+	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,7 +43,7 @@ import (
 type CfnPublicTypeVersion interface {
 	CfnResource
 	IInspectable
-	IPublicTypeVersionRef
+	interfacesawscloudformation.IPublicTypeVersionRef
 	// The Amazon Resource Number (ARN) of the extension.
 	Arn() *string
 	SetArn(val *string)
@@ -61,7 +64,7 @@ type CfnPublicTypeVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The S3 bucket to which CloudFormation delivers the contract test execution logs.
 	LogDeliveryBucket() *string
 	SetLogDeliveryBucket(val *string)
@@ -78,7 +81,7 @@ type CfnPublicTypeVersion interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PublicTypeVersion resource.
-	PublicTypeVersionRef() *PublicTypeVersionReference
+	PublicTypeVersionRef() *interfacesawscloudformation.PublicTypeVersionReference
 	// The version number to assign to this version of the extension.
 	PublicVersionNumber() *string
 	SetPublicVersionNumber(val *string)
@@ -241,7 +244,7 @@ type CfnPublicTypeVersion interface {
 type jsiiProxy_CfnPublicTypeVersion struct {
 	jsiiProxy_CfnResource
 	jsiiProxy_IInspectable
-	jsiiProxy_IPublicTypeVersionRef
+	internal.Type__interfacesawscloudformationIPublicTypeVersionRef
 }
 
 func (j *jsiiProxy_CfnPublicTypeVersion) Arn() *string {
@@ -324,8 +327,8 @@ func (j *jsiiProxy_CfnPublicTypeVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicTypeVersion) Env() *ResourceEnvironment {
-	var returns *ResourceEnvironment
+func (j *jsiiProxy_CfnPublicTypeVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +367,8 @@ func (j *jsiiProxy_CfnPublicTypeVersion) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicTypeVersion) PublicTypeVersionRef() *PublicTypeVersionReference {
-	var returns *PublicTypeVersionReference
+func (j *jsiiProxy_CfnPublicTypeVersion) PublicTypeVersionRef() *interfacesawscloudformation.PublicTypeVersionReference {
+	var returns *interfacesawscloudformation.PublicTypeVersionReference
 	_jsii_.Get(
 		j,
 		"publicTypeVersionRef",
@@ -445,6 +448,7 @@ func (j *jsiiProxy_CfnPublicTypeVersion) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::CloudFormation::PublicTypeVersion`.
 func NewCfnPublicTypeVersion(scope constructs.Construct, id *string, props *CfnPublicTypeVersionProps) CfnPublicTypeVersion {
 	_init_.Initialize()
 
@@ -462,6 +466,7 @@ func NewCfnPublicTypeVersion(scope constructs.Construct, id *string, props *CfnP
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::PublicTypeVersion`.
 func NewCfnPublicTypeVersion_Override(c CfnPublicTypeVersion, scope constructs.Construct, id *string, props *CfnPublicTypeVersionProps) {
 	_init_.Initialize()
 

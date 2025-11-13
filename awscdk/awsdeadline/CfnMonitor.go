@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnMonitor interface {
 	awscdk.CfnResource
-	IMonitorRef
 	awscdk.IInspectable
+	interfacesawsdeadline.IMonitorRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the monitor.
 	AttrArn() *string
@@ -64,7 +66,7 @@ type CfnMonitor interface {
 	// The name of the monitor that displays on the Deadline Cloud console.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn() *string
 	SetIdentityCenterInstanceArn(val *string)
@@ -79,7 +81,7 @@ type CfnMonitor interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a Monitor resource.
-	MonitorRef() *MonitorReference
+	MonitorRef() *interfacesawsdeadline.MonitorReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -243,8 +245,8 @@ type CfnMonitor interface {
 // The jsii proxy struct for CfnMonitor
 type jsiiProxy_CfnMonitor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMonitorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineIMonitorRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnMonitor) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMonitor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMonitor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -378,8 +380,8 @@ func (j *jsiiProxy_CfnMonitor) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMonitor) MonitorRef() *MonitorReference {
-	var returns *MonitorReference
+func (j *jsiiProxy_CfnMonitor) MonitorRef() *interfacesawsdeadline.MonitorReference {
+	var returns *interfacesawsdeadline.MonitorReference
 	_jsii_.Get(
 		j,
 		"monitorRef",
@@ -469,6 +471,7 @@ func (j *jsiiProxy_CfnMonitor) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Deadline::Monitor`.
 func NewCfnMonitor(scope constructs.Construct, id *string, props *CfnMonitorProps) CfnMonitor {
 	_init_.Initialize()
 
@@ -486,6 +489,7 @@ func NewCfnMonitor(scope constructs.Construct, id *string, props *CfnMonitorProp
 	return &j
 }
 
+// Create a new `AWS::Deadline::Monitor`.
 func NewCfnMonitor_Override(c CfnMonitor, scope constructs.Construct, id *string, props *CfnMonitorProps) {
 	_init_.Initialize()
 

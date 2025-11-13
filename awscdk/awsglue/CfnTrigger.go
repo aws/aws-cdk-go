@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnTrigger interface {
 	awscdk.CfnResource
-	ITriggerRef
 	awscdk.IInspectable
+	interfacesawsglue.ITriggerRef
 	awscdk.ITaggable
 	// The actions initiated by this trigger.
 	Actions() interface{}
@@ -85,7 +87,7 @@ type CfnTrigger interface {
 	// A description of this trigger.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 	EventBatchingCondition() interface{}
 	SetEventBatchingCondition(val interface{})
@@ -128,7 +130,7 @@ type CfnTrigger interface {
 	TagsRaw() interface{}
 	SetTagsRaw(val interface{})
 	// A reference to a Trigger resource.
-	TriggerRef() *TriggerReference
+	TriggerRef() *interfacesawsglue.TriggerReference
 	// The type of trigger that this is.
 	Type() *string
 	SetType(val *string)
@@ -278,8 +280,8 @@ type CfnTrigger interface {
 // The jsii proxy struct for CfnTrigger
 type jsiiProxy_CfnTrigger struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITriggerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueITriggerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnTrigger) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrigger) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrigger) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -463,8 +465,8 @@ func (j *jsiiProxy_CfnTrigger) TagsRaw() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrigger) TriggerRef() *TriggerReference {
-	var returns *TriggerReference
+func (j *jsiiProxy_CfnTrigger) TriggerRef() *interfacesawsglue.TriggerReference {
+	var returns *interfacesawsglue.TriggerReference
 	_jsii_.Get(
 		j,
 		"triggerRef",
@@ -514,6 +516,7 @@ func (j *jsiiProxy_CfnTrigger) WorkflowName() *string {
 }
 
 
+// Create a new `AWS::Glue::Trigger`.
 func NewCfnTrigger(scope constructs.Construct, id *string, props *CfnTriggerProps) CfnTrigger {
 	_init_.Initialize()
 
@@ -531,6 +534,7 @@ func NewCfnTrigger(scope constructs.Construct, id *string, props *CfnTriggerProp
 	return &j
 }
 
+// Create a new `AWS::Glue::Trigger`.
 func NewCfnTrigger_Override(c CfnTrigger, scope constructs.Construct, id *string, props *CfnTriggerProps) {
 	_init_.Initialize()
 
@@ -637,13 +641,13 @@ func (j *jsiiProxy_CfnTrigger)SetWorkflowName(val *string) {
 }
 
 // Creates a new ITriggerRef from a triggerName.
-func CfnTrigger_FromTriggerName(scope constructs.Construct, id *string, triggerName *string) ITriggerRef {
+func CfnTrigger_FromTriggerName(scope constructs.Construct, id *string, triggerName *string) interfacesawsglue.ITriggerRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrigger_FromTriggerNameParameters(scope, id, triggerName); err != nil {
 		panic(err)
 	}
-	var returns ITriggerRef
+	var returns interfacesawsglue.ITriggerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_glue.CfnTrigger",

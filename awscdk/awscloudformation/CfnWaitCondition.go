@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnWaitCondition interface {
 	awscdk.CfnResource
-	IWaitConditionRef
 	awscdk.IInspectable
+	interfacesawscloudformation.IWaitConditionRef
 	AttrData() awscdk.IResolvable
 	// Returns a unique identifier for the resource.
 	AttrId() *string
@@ -47,7 +49,7 @@ type CfnWaitCondition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to the wait condition handle used to signal this wait condition.
 	Handle() *string
 	SetHandle(val *string)
@@ -89,7 +91,7 @@ type CfnWaitCondition interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WaitCondition resource.
-	WaitConditionRef() *WaitConditionReference
+	WaitConditionRef() *interfacesawscloudformation.WaitConditionReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -220,8 +222,8 @@ type CfnWaitCondition interface {
 // The jsii proxy struct for CfnWaitCondition
 type jsiiProxy_CfnWaitCondition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWaitConditionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationIWaitConditionRef
 }
 
 func (j *jsiiProxy_CfnWaitCondition) AttrData() awscdk.IResolvable {
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnWaitCondition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWaitCondition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWaitCondition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnWaitCondition) UpdatedProperties() *map[string]interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnWaitCondition) WaitConditionRef() *WaitConditionReference {
-	var returns *WaitConditionReference
+func (j *jsiiProxy_CfnWaitCondition) WaitConditionRef() *interfacesawscloudformation.WaitConditionReference {
+	var returns *interfacesawscloudformation.WaitConditionReference
 	_jsii_.Get(
 		j,
 		"waitConditionRef",
@@ -395,6 +397,7 @@ func (j *jsiiProxy_CfnWaitCondition) WaitConditionRef() *WaitConditionReference 
 }
 
 
+// Create a new `AWS::CloudFormation::WaitCondition`.
 func NewCfnWaitCondition(scope constructs.Construct, id *string, props *CfnWaitConditionProps) CfnWaitCondition {
 	_init_.Initialize()
 
@@ -412,6 +415,7 @@ func NewCfnWaitCondition(scope constructs.Construct, id *string, props *CfnWaitC
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::WaitCondition`.
 func NewCfnWaitCondition_Override(c CfnWaitCondition, scope constructs.Construct, id *string, props *CfnWaitConditionProps) {
 	_init_.Initialize()
 

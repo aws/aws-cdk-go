@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatabrew/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatabrew"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnSchedule interface {
 	awscdk.CfnResource
-	IScheduleRef
 	awscdk.IInspectable
+	interfacesawsdatabrew.IScheduleRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,7 +55,7 @@ type CfnSchedule interface {
 	// The dates and times when the job is to run.
 	CronExpression() *string
 	SetCronExpression(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of jobs to be run, according to the schedule.
 	JobNames() *[]*string
 	SetJobNames(val *[]*string)
@@ -78,7 +80,7 @@ type CfnSchedule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Schedule resource.
-	ScheduleRef() *ScheduleReference
+	ScheduleRef() *interfacesawsdatabrew.ScheduleReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -231,8 +233,8 @@ type CfnSchedule interface {
 // The jsii proxy struct for CfnSchedule
 type jsiiProxy_CfnSchedule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScheduleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatabrewIScheduleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnSchedule) CronExpression() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchedule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSchedule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnSchedule) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchedule) ScheduleRef() *ScheduleReference {
-	var returns *ScheduleReference
+func (j *jsiiProxy_CfnSchedule) ScheduleRef() *interfacesawsdatabrew.ScheduleReference {
+	var returns *interfacesawsdatabrew.ScheduleReference
 	_jsii_.Get(
 		j,
 		"scheduleRef",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnSchedule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataBrew::Schedule`.
 func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnScheduleProps) CfnSchedule {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnSchedulePr
 	return &j
 }
 
+// Create a new `AWS::DataBrew::Schedule`.
 func NewCfnSchedule_Override(c CfnSchedule, scope constructs.Construct, id *string, props *CfnScheduleProps) {
 	_init_.Initialize()
 

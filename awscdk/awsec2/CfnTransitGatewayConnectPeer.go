@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnTransitGatewayConnectPeer interface {
 	awscdk.CfnResource
-	ITransitGatewayConnectPeerRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayConnectPeerRef
 	awscdk.ITaggableV2
 	// The BGP configuration details.
 	AttrConnectPeerConfigurationBgpConfigurations() awscdk.IResolvable
@@ -78,7 +80,7 @@ type CfnTransitGatewayConnectPeer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -107,7 +109,7 @@ type CfnTransitGatewayConnectPeer interface {
 	TransitGatewayAttachmentId() *string
 	SetTransitGatewayAttachmentId(val *string)
 	// A reference to a TransitGatewayConnectPeer resource.
-	TransitGatewayConnectPeerRef() *TransitGatewayConnectPeerReference
+	TransitGatewayConnectPeerRef() *interfacesawsec2.TransitGatewayConnectPeerReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -251,8 +253,8 @@ type CfnTransitGatewayConnectPeer interface {
 // The jsii proxy struct for CfnTransitGatewayConnectPeer
 type jsiiProxy_CfnTransitGatewayConnectPeer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayConnectPeerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayConnectPeerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnTransitGatewayConnectPeer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayConnectPeer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayConnectPeer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -436,8 +438,8 @@ func (j *jsiiProxy_CfnTransitGatewayConnectPeer) TransitGatewayAttachmentId() *s
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayConnectPeer) TransitGatewayConnectPeerRef() *TransitGatewayConnectPeerReference {
-	var returns *TransitGatewayConnectPeerReference
+func (j *jsiiProxy_CfnTransitGatewayConnectPeer) TransitGatewayConnectPeerRef() *interfacesawsec2.TransitGatewayConnectPeerReference {
+	var returns *interfacesawsec2.TransitGatewayConnectPeerReference
 	_jsii_.Get(
 		j,
 		"transitGatewayConnectPeerRef",
@@ -467,6 +469,7 @@ func (j *jsiiProxy_CfnTransitGatewayConnectPeer) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayConnectPeer`.
 func NewCfnTransitGatewayConnectPeer(scope constructs.Construct, id *string, props *CfnTransitGatewayConnectPeerProps) CfnTransitGatewayConnectPeer {
 	_init_.Initialize()
 
@@ -484,6 +487,7 @@ func NewCfnTransitGatewayConnectPeer(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayConnectPeer`.
 func NewCfnTransitGatewayConnectPeer_Override(c CfnTransitGatewayConnectPeer, scope constructs.Construct, id *string, props *CfnTransitGatewayConnectPeerProps) {
 	_init_.Initialize()
 
@@ -528,13 +532,13 @@ func (j *jsiiProxy_CfnTransitGatewayConnectPeer)SetTransitGatewayAttachmentId(va
 }
 
 // Creates a new ITransitGatewayConnectPeerRef from a transitGatewayConnectPeerId.
-func CfnTransitGatewayConnectPeer_FromTransitGatewayConnectPeerId(scope constructs.Construct, id *string, transitGatewayConnectPeerId *string) ITransitGatewayConnectPeerRef {
+func CfnTransitGatewayConnectPeer_FromTransitGatewayConnectPeerId(scope constructs.Construct, id *string, transitGatewayConnectPeerId *string) interfacesawsec2.ITransitGatewayConnectPeerRef {
 	_init_.Initialize()
 
 	if err := validateCfnTransitGatewayConnectPeer_FromTransitGatewayConnectPeerIdParameters(scope, id, transitGatewayConnectPeerId); err != nil {
 		panic(err)
 	}
-	var returns ITransitGatewayConnectPeerRef
+	var returns interfacesawsec2.ITransitGatewayConnectPeerRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayConnectPeer",

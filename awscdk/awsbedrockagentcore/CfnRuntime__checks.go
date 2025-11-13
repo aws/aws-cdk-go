@@ -255,6 +255,30 @@ func (j *jsiiProxy_CfnRuntime) validateSetEnvironmentVariablesParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuntime) validateSetLifecycleConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnRuntime_LifecycleConfigurationProperty:
+		val := val.(*CfnRuntime_LifecycleConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnRuntime_LifecycleConfigurationProperty:
+		val_ := val.(CfnRuntime_LifecycleConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRuntime_LifecycleConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuntime) validateSetNetworkConfigurationParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -276,6 +300,30 @@ func (j *jsiiProxy_CfnRuntime) validateSetNetworkConfigurationParameters(val int
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRuntime_NetworkConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnRuntime) validateSetRequestHeaderConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnRuntime_RequestHeaderConfigurationProperty:
+		val := val.(*CfnRuntime_RequestHeaderConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnRuntime_RequestHeaderConfigurationProperty:
+		val_ := val.(CfnRuntime_RequestHeaderConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRuntime_RequestHeaderConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

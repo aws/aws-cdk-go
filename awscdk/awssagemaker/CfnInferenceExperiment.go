@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -85,8 +87,8 @@ import (
 //
 type CfnInferenceExperiment interface {
 	awscdk.CfnResource
-	IInferenceExperimentRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IInferenceExperimentRef
 	awscdk.ITaggable
 	// The ARN for your inference experiment.
 	AttrArn() *string
@@ -133,9 +135,9 @@ type CfnInferenceExperiment interface {
 	// The name of the endpoint.
 	EndpointName() *string
 	SetEndpointName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InferenceExperiment resource.
-	InferenceExperimentRef() *InferenceExperimentReference
+	InferenceExperimentRef() *interfacesawssagemaker.InferenceExperimentReference
 	// The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
 	KmsKey() *string
 	SetKmsKey(val *string)
@@ -329,8 +331,8 @@ type CfnInferenceExperiment interface {
 // The jsii proxy struct for CfnInferenceExperiment
 type jsiiProxy_CfnInferenceExperiment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInferenceExperimentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIInferenceExperimentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -494,8 +496,8 @@ func (j *jsiiProxy_CfnInferenceExperiment) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInferenceExperiment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInferenceExperiment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -504,8 +506,8 @@ func (j *jsiiProxy_CfnInferenceExperiment) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInferenceExperiment) InferenceExperimentRef() *InferenceExperimentReference {
-	var returns *InferenceExperimentReference
+func (j *jsiiProxy_CfnInferenceExperiment) InferenceExperimentRef() *interfacesawssagemaker.InferenceExperimentReference {
+	var returns *interfacesawssagemaker.InferenceExperimentReference
 	_jsii_.Get(
 		j,
 		"inferenceExperimentRef",
@@ -675,6 +677,7 @@ func (j *jsiiProxy_CfnInferenceExperiment) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::SageMaker::InferenceExperiment`.
 func NewCfnInferenceExperiment(scope constructs.Construct, id *string, props *CfnInferenceExperimentProps) CfnInferenceExperiment {
 	_init_.Initialize()
 
@@ -692,6 +695,7 @@ func NewCfnInferenceExperiment(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::SageMaker::InferenceExperiment`.
 func NewCfnInferenceExperiment_Override(c CfnInferenceExperiment, scope constructs.Construct, id *string, props *CfnInferenceExperimentProps) {
 	_init_.Initialize()
 
@@ -834,13 +838,13 @@ func (j *jsiiProxy_CfnInferenceExperiment)SetType(val *string) {
 }
 
 // Creates a new IInferenceExperimentRef from an ARN.
-func CfnInferenceExperiment_FromInferenceExperimentArn(scope constructs.Construct, id *string, arn *string) IInferenceExperimentRef {
+func CfnInferenceExperiment_FromInferenceExperimentArn(scope constructs.Construct, id *string, arn *string) interfacesawssagemaker.IInferenceExperimentRef {
 	_init_.Initialize()
 
 	if err := validateCfnInferenceExperiment_FromInferenceExperimentArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IInferenceExperimentRef
+	var returns interfacesawssagemaker.IInferenceExperimentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnInferenceExperiment",
@@ -853,13 +857,13 @@ func CfnInferenceExperiment_FromInferenceExperimentArn(scope constructs.Construc
 }
 
 // Creates a new IInferenceExperimentRef from a inferenceExperimentName.
-func CfnInferenceExperiment_FromInferenceExperimentName(scope constructs.Construct, id *string, inferenceExperimentName *string) IInferenceExperimentRef {
+func CfnInferenceExperiment_FromInferenceExperimentName(scope constructs.Construct, id *string, inferenceExperimentName *string) interfacesawssagemaker.IInferenceExperimentRef {
 	_init_.Initialize()
 
 	if err := validateCfnInferenceExperiment_FromInferenceExperimentNameParameters(scope, id, inferenceExperimentName); err != nil {
 		panic(err)
 	}
-	var returns IInferenceExperimentRef
+	var returns interfacesawssagemaker.IInferenceExperimentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnInferenceExperiment",

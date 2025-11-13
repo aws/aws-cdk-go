@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnStorageProfile interface {
 	awscdk.CfnResource
-	IStorageProfileRef
 	awscdk.IInspectable
+	interfacesawsdeadline.IStorageProfileRef
 	// The storage profile ID.
 	AttrStorageProfileId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -51,7 +53,7 @@ type CfnStorageProfile interface {
 	// The display name of the storage profile summary to update.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the farm that contains the storage profile.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -83,7 +85,7 @@ type CfnStorageProfile interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StorageProfile resource.
-	StorageProfileRef() *StorageProfileReference
+	StorageProfileRef() *interfacesawsdeadline.StorageProfileReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -227,8 +229,8 @@ type CfnStorageProfile interface {
 // The jsii proxy struct for CfnStorageProfile
 type jsiiProxy_CfnStorageProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStorageProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineIStorageProfileRef
 }
 
 func (j *jsiiProxy_CfnStorageProfile) AttrStorageProfileId() *string {
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnStorageProfile) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStorageProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnStorageProfile) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageProfile) StorageProfileRef() *StorageProfileReference {
-	var returns *StorageProfileReference
+func (j *jsiiProxy_CfnStorageProfile) StorageProfileRef() *interfacesawsdeadline.StorageProfileReference {
+	var returns *interfacesawsdeadline.StorageProfileReference
 	_jsii_.Get(
 		j,
 		"storageProfileRef",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnStorageProfile) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Deadline::StorageProfile`.
 func NewCfnStorageProfile(scope constructs.Construct, id *string, props *CfnStorageProfileProps) CfnStorageProfile {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnStorageProfile(scope constructs.Construct, id *string, props *CfnStor
 	return &j
 }
 
+// Create a new `AWS::Deadline::StorageProfile`.
 func NewCfnStorageProfile_Override(c CfnStorageProfile, scope constructs.Construct, id *string, props *CfnStorageProfileProps) {
 	_init_.Initialize()
 

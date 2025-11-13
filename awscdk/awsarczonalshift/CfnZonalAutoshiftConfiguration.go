@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsarczonalshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsarczonalshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,8 +55,8 @@ import (
 //
 type CfnZonalAutoshiftConfiguration interface {
 	awscdk.CfnResource
-	IZonalAutoshiftConfigurationRef
 	awscdk.IInspectable
+	interfacesawsarczonalshift.IZonalAutoshiftConfigurationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -64,7 +66,7 @@ type CfnZonalAutoshiftConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -106,7 +108,7 @@ type CfnZonalAutoshiftConfiguration interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a ZonalAutoshiftConfiguration resource.
-	ZonalAutoshiftConfigurationRef() *ZonalAutoshiftConfigurationReference
+	ZonalAutoshiftConfigurationRef() *interfacesawsarczonalshift.ZonalAutoshiftConfigurationReference
 	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery.
 	ZonalAutoshiftStatus() *string
 	SetZonalAutoshiftStatus(val *string)
@@ -240,8 +242,8 @@ type CfnZonalAutoshiftConfiguration interface {
 // The jsii proxy struct for CfnZonalAutoshiftConfiguration
 type jsiiProxy_CfnZonalAutoshiftConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IZonalAutoshiftConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsarczonalshiftIZonalAutoshiftConfigurationRef
 }
 
 func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) CfnOptions() awscdk.ICfnResourceOptions {
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) UpdatedProperties() *map[stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) ZonalAutoshiftConfigurationRef() *ZonalAutoshiftConfigurationReference {
-	var returns *ZonalAutoshiftConfigurationReference
+func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) ZonalAutoshiftConfigurationRef() *interfacesawsarczonalshift.ZonalAutoshiftConfigurationReference {
+	var returns *interfacesawsarczonalshift.ZonalAutoshiftConfigurationReference
 	_jsii_.Get(
 		j,
 		"zonalAutoshiftConfigurationRef",
@@ -395,6 +397,7 @@ func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) ZonalAutoshiftStatus() *strin
 }
 
 
+// Create a new `AWS::ARCZonalShift::ZonalAutoshiftConfiguration`.
 func NewCfnZonalAutoshiftConfiguration(scope constructs.Construct, id *string, props *CfnZonalAutoshiftConfigurationProps) CfnZonalAutoshiftConfiguration {
 	_init_.Initialize()
 
@@ -412,6 +415,7 @@ func NewCfnZonalAutoshiftConfiguration(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::ARCZonalShift::ZonalAutoshiftConfiguration`.
 func NewCfnZonalAutoshiftConfiguration_Override(c CfnZonalAutoshiftConfiguration, scope constructs.Construct, id *string, props *CfnZonalAutoshiftConfigurationProps) {
 	_init_.Initialize()
 

@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnTable) validateSetTableNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnTableParameters(scope constructs.Construct, id *string, props *CfnTableProps) error {
 	return nil
 }

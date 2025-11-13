@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnPortfolioProductAssociation interface {
 	awscdk.CfnResource
-	IPortfolioProductAssociationRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.IPortfolioProductAssociationRef
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
@@ -43,7 +45,7 @@ type CfnPortfolioProductAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -60,7 +62,7 @@ type CfnPortfolioProductAssociation interface {
 	PortfolioId() *string
 	SetPortfolioId(val *string)
 	// A reference to a PortfolioProductAssociation resource.
-	PortfolioProductAssociationRef() *PortfolioProductAssociationReference
+	PortfolioProductAssociationRef() *interfacesawsservicecatalog.PortfolioProductAssociationReference
 	// The product identifier.
 	ProductId() *string
 	SetProductId(val *string)
@@ -219,8 +221,8 @@ type CfnPortfolioProductAssociation interface {
 // The jsii proxy struct for CfnPortfolioProductAssociation
 type jsiiProxy_CfnPortfolioProductAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPortfolioProductAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogIPortfolioProductAssociationRef
 }
 
 func (j *jsiiProxy_CfnPortfolioProductAssociation) AcceptLanguage() *string {
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortfolioProductAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPortfolioProductAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation) PortfolioId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortfolioProductAssociation) PortfolioProductAssociationRef() *PortfolioProductAssociationReference {
-	var returns *PortfolioProductAssociationReference
+func (j *jsiiProxy_CfnPortfolioProductAssociation) PortfolioProductAssociationRef() *interfacesawsservicecatalog.PortfolioProductAssociationReference {
+	var returns *interfacesawsservicecatalog.PortfolioProductAssociationReference
 	_jsii_.Get(
 		j,
 		"portfolioProductAssociationRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::ServiceCatalog::PortfolioProductAssociation`.
 func NewCfnPortfolioProductAssociation(scope constructs.Construct, id *string, props *CfnPortfolioProductAssociationProps) CfnPortfolioProductAssociation {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnPortfolioProductAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::PortfolioProductAssociation`.
 func NewCfnPortfolioProductAssociation_Override(c CfnPortfolioProductAssociation, scope constructs.Construct, id *string, props *CfnPortfolioProductAssociationProps) {
 	_init_.Initialize()
 

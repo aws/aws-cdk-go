@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnListenerCertificate interface {
 	awscdk.CfnResource
-	IListenerCertificateRef
 	awscdk.IInspectable
+	interfacesawselasticloadbalancingv2.IListenerCertificateRef
 	AttrId() *string
 	// The certificate.
 	Certificates() interface{}
@@ -44,12 +46,12 @@ type CfnListenerCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn() *string
 	SetListenerArn(val *string)
 	// A reference to a ListenerCertificate resource.
-	ListenerCertificateRef() *ListenerCertificateReference
+	ListenerCertificateRef() *interfacesawselasticloadbalancingv2.ListenerCertificateReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -214,8 +216,8 @@ type CfnListenerCertificate interface {
 // The jsii proxy struct for CfnListenerCertificate
 type jsiiProxy_CfnListenerCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IListenerCertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticloadbalancingv2IListenerCertificateRef
 }
 
 func (j *jsiiProxy_CfnListenerCertificate) AttrId() *string {
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnListenerCertificate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListenerCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnListenerCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnListenerCertificate) ListenerArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnListenerCertificate) ListenerCertificateRef() *ListenerCertificateReference {
-	var returns *ListenerCertificateReference
+func (j *jsiiProxy_CfnListenerCertificate) ListenerCertificateRef() *interfacesawselasticloadbalancingv2.ListenerCertificateReference {
+	var returns *interfacesawselasticloadbalancingv2.ListenerCertificateReference
 	_jsii_.Get(
 		j,
 		"listenerCertificateRef",
@@ -369,6 +371,7 @@ func (j *jsiiProxy_CfnListenerCertificate) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
 func NewCfnListenerCertificate(scope constructs.Construct, id *string, props *CfnListenerCertificateProps) CfnListenerCertificate {
 	_init_.Initialize()
 
@@ -386,6 +389,7 @@ func NewCfnListenerCertificate(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
 func NewCfnListenerCertificate_Override(c CfnListenerCertificate, scope constructs.Construct, id *string, props *CfnListenerCertificateProps) {
 	_init_.Initialize()
 

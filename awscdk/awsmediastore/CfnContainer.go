@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediastore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediastore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnContainer interface {
 	awscdk.CfnResource
-	IContainerRef
 	awscdk.IInspectable
+	interfacesawsmediastore.IContainerRef
 	awscdk.ITaggable
 	// The state of access logging on the container.
 	AccessLoggingEnabled() interface{}
@@ -87,7 +89,7 @@ type CfnContainer interface {
 	ContainerName() *string
 	SetContainerName(val *string)
 	// A reference to a Container resource.
-	ContainerRef() *ContainerReference
+	ContainerRef() *interfacesawsmediastore.ContainerReference
 	// > End of support notice: On November 13, 2025, AWS will discontinue support for AWS Elemental MediaStore.
 	CorsPolicy() interface{}
 	SetCorsPolicy(val interface{})
@@ -95,7 +97,7 @@ type CfnContainer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// > End of support notice: On November 13, 2025, AWS will discontinue support for AWS Elemental MediaStore.
 	LifecyclePolicy() *string
 	SetLifecyclePolicy(val *string)
@@ -273,8 +275,8 @@ type CfnContainer interface {
 // The jsii proxy struct for CfnContainer
 type jsiiProxy_CfnContainer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContainerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediastoreIContainerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnContainer) ContainerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainer) ContainerRef() *ContainerReference {
-	var returns *ContainerReference
+func (j *jsiiProxy_CfnContainer) ContainerRef() *interfacesawsmediastore.ContainerReference {
+	var returns *interfacesawsmediastore.ContainerReference
 	_jsii_.Get(
 		j,
 		"containerRef",
@@ -378,8 +380,8 @@ func (j *jsiiProxy_CfnContainer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContainer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -499,6 +501,7 @@ func (j *jsiiProxy_CfnContainer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaStore::Container`.
 func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainerProps) CfnContainer {
 	_init_.Initialize()
 
@@ -516,6 +519,7 @@ func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainer
 	return &j
 }
 
+// Create a new `AWS::MediaStore::Container`.
 func NewCfnContainer_Override(c CfnContainer, scope constructs.Construct, id *string, props *CfnContainerProps) {
 	_init_.Initialize()
 

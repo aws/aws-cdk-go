@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnResolverQueryLoggingConfig interface {
 	awscdk.CfnResource
-	IResolverQueryLoggingConfigRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IResolverQueryLoggingConfigRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the query logging configuration.
 	AttrArn() *string
@@ -76,7 +78,7 @@ type CfnResolverQueryLoggingConfig interface {
 	// The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
 	DestinationArn() *string
 	SetDestinationArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -98,7 +100,7 @@ type CfnResolverQueryLoggingConfig interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResolverQueryLoggingConfig resource.
-	ResolverQueryLoggingConfigRef() *ResolverQueryLoggingConfigReference
+	ResolverQueryLoggingConfigRef() *interfacesawsroute53resolver.ResolverQueryLoggingConfigReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -249,8 +251,8 @@ type CfnResolverQueryLoggingConfig interface {
 // The jsii proxy struct for CfnResolverQueryLoggingConfig
 type jsiiProxy_CfnResolverQueryLoggingConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResolverQueryLoggingConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIResolverQueryLoggingConfigRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfig) DestinationArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverQueryLoggingConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResolverQueryLoggingConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -444,8 +446,8 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfig) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverQueryLoggingConfig) ResolverQueryLoggingConfigRef() *ResolverQueryLoggingConfigReference {
-	var returns *ResolverQueryLoggingConfigReference
+func (j *jsiiProxy_CfnResolverQueryLoggingConfig) ResolverQueryLoggingConfigRef() *interfacesawsroute53resolver.ResolverQueryLoggingConfigReference {
+	var returns *interfacesawsroute53resolver.ResolverQueryLoggingConfigReference
 	_jsii_.Get(
 		j,
 		"resolverQueryLoggingConfigRef",
@@ -495,6 +497,7 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfig) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
 func NewCfnResolverQueryLoggingConfig(scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) CfnResolverQueryLoggingConfig {
 	_init_.Initialize()
 
@@ -512,6 +515,7 @@ func NewCfnResolverQueryLoggingConfig(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
 func NewCfnResolverQueryLoggingConfig_Override(c CfnResolverQueryLoggingConfig, scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) {
 	_init_.Initialize()
 

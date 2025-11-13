@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspcaconnectorscep/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspcaconnectorscep"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnChallenge interface {
 	awscdk.CfnResource
-	IChallengeRef
 	awscdk.IInspectable
+	interfacesawspcaconnectorscep.IChallengeRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the challenge.
 	AttrChallengeArn() *string
@@ -46,7 +48,7 @@ type CfnChallenge interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Challenge resource.
-	ChallengeRef() *ChallengeReference
+	ChallengeRef() *interfacesawspcaconnectorscep.ChallengeReference
 	// The Amazon Resource Name (ARN) of the connector.
 	ConnectorArn() *string
 	SetConnectorArn(val *string)
@@ -54,7 +56,7 @@ type CfnChallenge interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +223,8 @@ type CfnChallenge interface {
 // The jsii proxy struct for CfnChallenge
 type jsiiProxy_CfnChallenge struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChallengeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspcaconnectorscepIChallengeRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -276,8 +278,8 @@ func (j *jsiiProxy_CfnChallenge) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChallenge) ChallengeRef() *ChallengeReference {
-	var returns *ChallengeReference
+func (j *jsiiProxy_CfnChallenge) ChallengeRef() *interfacesawspcaconnectorscep.ChallengeReference {
+	var returns *interfacesawspcaconnectorscep.ChallengeReference
 	_jsii_.Get(
 		j,
 		"challengeRef",
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnChallenge) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChallenge) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChallenge) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -387,6 +389,7 @@ func (j *jsiiProxy_CfnChallenge) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::PCAConnectorSCEP::Challenge`.
 func NewCfnChallenge(scope constructs.Construct, id *string, props *CfnChallengeProps) CfnChallenge {
 	_init_.Initialize()
 
@@ -404,6 +407,7 @@ func NewCfnChallenge(scope constructs.Construct, id *string, props *CfnChallenge
 	return &j
 }
 
+// Create a new `AWS::PCAConnectorSCEP::Challenge`.
 func NewCfnChallenge_Override(c CfnChallenge, scope constructs.Construct, id *string, props *CfnChallengeProps) {
 	_init_.Initialize()
 

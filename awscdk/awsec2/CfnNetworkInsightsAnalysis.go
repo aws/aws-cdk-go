@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnNetworkInsightsAnalysis interface {
 	awscdk.CfnResource
-	INetworkInsightsAnalysisRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkInsightsAnalysisRef
 	awscdk.ITaggable
 	// The member accounts that contain resources that the path can traverse.
 	AdditionalAccounts() *[]*string
@@ -80,7 +82,7 @@ type CfnNetworkInsightsAnalysis interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Names (ARN) of the resources that the path must traverse.
 	FilterInArns() *[]*string
 	SetFilterInArns(val *[]*string)
@@ -98,7 +100,7 @@ type CfnNetworkInsightsAnalysis interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a NetworkInsightsAnalysis resource.
-	NetworkInsightsAnalysisRef() *NetworkInsightsAnalysisReference
+	NetworkInsightsAnalysisRef() *interfacesawsec2.NetworkInsightsAnalysisReference
 	// The ID of the path.
 	NetworkInsightsPathId() *string
 	SetNetworkInsightsPathId(val *string)
@@ -261,8 +263,8 @@ type CfnNetworkInsightsAnalysis interface {
 // The jsii proxy struct for CfnNetworkInsightsAnalysis
 type jsiiProxy_CfnNetworkInsightsAnalysis struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkInsightsAnalysisRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkInsightsAnalysisRef
 	internal.Type__awscdkITaggable
 }
 
@@ -426,8 +428,8 @@ func (j *jsiiProxy_CfnNetworkInsightsAnalysis) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsAnalysis) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkInsightsAnalysis) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -466,8 +468,8 @@ func (j *jsiiProxy_CfnNetworkInsightsAnalysis) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsAnalysis) NetworkInsightsAnalysisRef() *NetworkInsightsAnalysisReference {
-	var returns *NetworkInsightsAnalysisReference
+func (j *jsiiProxy_CfnNetworkInsightsAnalysis) NetworkInsightsAnalysisRef() *interfacesawsec2.NetworkInsightsAnalysisReference {
+	var returns *interfacesawsec2.NetworkInsightsAnalysisReference
 	_jsii_.Get(
 		j,
 		"networkInsightsAnalysisRef",
@@ -557,6 +559,7 @@ func (j *jsiiProxy_CfnNetworkInsightsAnalysis) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::EC2::NetworkInsightsAnalysis`.
 func NewCfnNetworkInsightsAnalysis(scope constructs.Construct, id *string, props *CfnNetworkInsightsAnalysisProps) CfnNetworkInsightsAnalysis {
 	_init_.Initialize()
 
@@ -574,6 +577,7 @@ func NewCfnNetworkInsightsAnalysis(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkInsightsAnalysis`.
 func NewCfnNetworkInsightsAnalysis_Override(c CfnNetworkInsightsAnalysis, scope constructs.Construct, id *string, props *CfnNetworkInsightsAnalysisProps) {
 	_init_.Initialize()
 
@@ -631,13 +635,13 @@ func (j *jsiiProxy_CfnNetworkInsightsAnalysis)SetTagsRaw(val *[]*awscdk.CfnTag) 
 }
 
 // Creates a new INetworkInsightsAnalysisRef from an ARN.
-func CfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisArn(scope constructs.Construct, id *string, arn *string) INetworkInsightsAnalysisRef {
+func CfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.INetworkInsightsAnalysisRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns INetworkInsightsAnalysisRef
+	var returns interfacesawsec2.INetworkInsightsAnalysisRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis",
@@ -650,13 +654,13 @@ func CfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisArn(scope constructs.
 }
 
 // Creates a new INetworkInsightsAnalysisRef from a networkInsightsAnalysisId.
-func CfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisId(scope constructs.Construct, id *string, networkInsightsAnalysisId *string) INetworkInsightsAnalysisRef {
+func CfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisId(scope constructs.Construct, id *string, networkInsightsAnalysisId *string) interfacesawsec2.INetworkInsightsAnalysisRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisIdParameters(scope, id, networkInsightsAnalysisId); err != nil {
 		panic(err)
 	}
-	var returns INetworkInsightsAnalysisRef
+	var returns interfacesawsec2.INetworkInsightsAnalysisRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis",

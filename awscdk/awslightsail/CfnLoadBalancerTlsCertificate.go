@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnLoadBalancerTlsCertificate interface {
 	awscdk.CfnResource
-	ILoadBalancerTlsCertificateRef
 	awscdk.IInspectable
+	interfacesawslightsail.ILoadBalancerTlsCertificateRef
 	// The Amazon Resource Name (ARN) of the SSL/TLS certificate.
 	AttrLoadBalancerTlsCertificateArn() *string
 	// The validation status of the SSL/TLS certificate.
@@ -59,7 +61,7 @@ type CfnLoadBalancerTlsCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A Boolean value indicating whether HTTPS redirection is enabled for the load balancer that the TLS certificate is attached to.
 	HttpsRedirectionEnabled() interface{}
 	SetHttpsRedirectionEnabled(val interface{})
@@ -70,7 +72,7 @@ type CfnLoadBalancerTlsCertificate interface {
 	LoadBalancerName() *string
 	SetLoadBalancerName(val *string)
 	// A reference to a LoadBalancerTlsCertificate resource.
-	LoadBalancerTlsCertificateRef() *LoadBalancerTlsCertificateReference
+	LoadBalancerTlsCertificateRef() *interfacesawslightsail.LoadBalancerTlsCertificateReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnLoadBalancerTlsCertificate interface {
 // The jsii proxy struct for CfnLoadBalancerTlsCertificate
 type jsiiProxy_CfnLoadBalancerTlsCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoadBalancerTlsCertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailILoadBalancerTlsCertificateRef
 }
 
 func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) AttrLoadBalancerTlsCertificateArn() *string {
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) LoadBalancerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) LoadBalancerTlsCertificateRef() *LoadBalancerTlsCertificateReference {
-	var returns *LoadBalancerTlsCertificateReference
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) LoadBalancerTlsCertificateRef() *interfacesawslightsail.LoadBalancerTlsCertificateReference {
+	var returns *interfacesawslightsail.LoadBalancerTlsCertificateReference
 	_jsii_.Get(
 		j,
 		"loadBalancerTlsCertificateRef",
@@ -440,6 +442,7 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::Lightsail::LoadBalancerTlsCertificate`.
 func NewCfnLoadBalancerTlsCertificate(scope constructs.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) CfnLoadBalancerTlsCertificate {
 	_init_.Initialize()
 
@@ -457,6 +460,7 @@ func NewCfnLoadBalancerTlsCertificate(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::Lightsail::LoadBalancerTlsCertificate`.
 func NewCfnLoadBalancerTlsCertificate_Override(c CfnLoadBalancerTlsCertificate, scope constructs.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) {
 	_init_.Initialize()
 

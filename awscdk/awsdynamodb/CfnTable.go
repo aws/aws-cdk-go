@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -182,8 +184,8 @@ import (
 //
 type CfnTable interface {
 	awscdk.CfnResource
-	ITableRef
 	awscdk.IInspectable
+	interfacesawsdynamodb.ITableRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
 	AttrArn() *string
@@ -212,7 +214,7 @@ type CfnTable interface {
 	// Determines if a table is protected from deletion.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Global secondary indexes to be created on the table.
 	//
 	// You can create up to 20 global secondary indexes.
@@ -276,7 +278,7 @@ type CfnTable interface {
 	TableName() *string
 	SetTableName(val *string)
 	// A reference to a Table resource.
-	TableRef() *TableReference
+	TableRef() *interfacesawsdynamodb.TableReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An array of key-value pairs to apply to this resource.
@@ -431,8 +433,8 @@ type CfnTable interface {
 // The jsii proxy struct for CfnTable
 type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdynamodbITableRef
 	internal.Type__awscdkITaggable
 }
 
@@ -536,8 +538,8 @@ func (j *jsiiProxy_CfnTable) DeletionProtectionEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -716,8 +718,8 @@ func (j *jsiiProxy_CfnTable) TableName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) TableRef() *TableReference {
-	var returns *TableReference
+func (j *jsiiProxy_CfnTable) TableRef() *interfacesawsdynamodb.TableReference {
+	var returns *interfacesawsdynamodb.TableReference
 	_jsii_.Get(
 		j,
 		"tableRef",
@@ -787,6 +789,7 @@ func (j *jsiiProxy_CfnTable) WarmThroughput() interface{} {
 }
 
 
+// Create a new `AWS::DynamoDB::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
@@ -804,6 +807,7 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 	return &j
 }
 
+// Create a new `AWS::DynamoDB::Table`.
 func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
@@ -1026,13 +1030,13 @@ func (j *jsiiProxy_CfnTable)SetWarmThroughput(val interface{}) {
 }
 
 // Creates a new ITableRef from an ARN.
-func CfnTable_FromTableArn(scope constructs.Construct, id *string, arn *string) ITableRef {
+func CfnTable_FromTableArn(scope constructs.Construct, id *string, arn *string) interfacesawsdynamodb.ITableRef {
 	_init_.Initialize()
 
 	if err := validateCfnTable_FromTableArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ITableRef
+	var returns interfacesawsdynamodb.ITableRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_dynamodb.CfnTable",
@@ -1045,13 +1049,13 @@ func CfnTable_FromTableArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new ITableRef from a tableName.
-func CfnTable_FromTableName(scope constructs.Construct, id *string, tableName *string) ITableRef {
+func CfnTable_FromTableName(scope constructs.Construct, id *string, tableName *string) interfacesawsdynamodb.ITableRef {
 	_init_.Initialize()
 
 	if err := validateCfnTable_FromTableNameParameters(scope, id, tableName); err != nil {
 		panic(err)
 	}
-	var returns ITableRef
+	var returns interfacesawsdynamodb.ITableRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_dynamodb.CfnTable",

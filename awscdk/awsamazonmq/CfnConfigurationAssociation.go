@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamazonmq/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamazonmq"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnConfigurationAssociation interface {
 	awscdk.CfnResource
-	IConfigurationAssociationRef
 	awscdk.IInspectable
+	interfacesawsamazonmq.IConfigurationAssociationRef
 	// The ID of the ConfigurationAssociation Resource.
 	AttrId() *string
 	// ID of the Broker that the configuration should be applied to.
@@ -44,12 +46,12 @@ type CfnConfigurationAssociation interface {
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// A reference to a ConfigurationAssociation resource.
-	ConfigurationAssociationRef() *ConfigurationAssociationReference
+	ConfigurationAssociationRef() *interfacesawsamazonmq.ConfigurationAssociationReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -214,8 +216,8 @@ type CfnConfigurationAssociation interface {
 // The jsii proxy struct for CfnConfigurationAssociation
 type jsiiProxy_CfnConfigurationAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamazonmqIConfigurationAssociationRef
 }
 
 func (j *jsiiProxy_CfnConfigurationAssociation) AttrId() *string {
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnConfigurationAssociation) Configuration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationAssociation) ConfigurationAssociationRef() *ConfigurationAssociationReference {
-	var returns *ConfigurationAssociationReference
+func (j *jsiiProxy_CfnConfigurationAssociation) ConfigurationAssociationRef() *interfacesawsamazonmq.ConfigurationAssociationReference {
+	var returns *interfacesawsamazonmq.ConfigurationAssociationReference
 	_jsii_.Get(
 		j,
 		"configurationAssociationRef",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnConfigurationAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -369,6 +371,7 @@ func (j *jsiiProxy_CfnConfigurationAssociation) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::AmazonMQ::ConfigurationAssociation`.
 func NewCfnConfigurationAssociation(scope constructs.Construct, id *string, props *CfnConfigurationAssociationProps) CfnConfigurationAssociation {
 	_init_.Initialize()
 
@@ -386,6 +389,7 @@ func NewCfnConfigurationAssociation(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::AmazonMQ::ConfigurationAssociation`.
 func NewCfnConfigurationAssociation_Override(c CfnConfigurationAssociation, scope constructs.Construct, id *string, props *CfnConfigurationAssociationProps) {
 	_init_.Initialize()
 

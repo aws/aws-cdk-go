@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnRestoreTestingSelection interface {
 	awscdk.CfnResource
-	IRestoreTestingSelectionRef
 	awscdk.IInspectable
+	interfacesawsbackup.IRestoreTestingSelectionRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -74,7 +76,7 @@ type CfnRestoreTestingSelection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource;.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
@@ -114,7 +116,7 @@ type CfnRestoreTestingSelection interface {
 	RestoreTestingSelectionName() *string
 	SetRestoreTestingSelectionName(val *string)
 	// A reference to a RestoreTestingSelection resource.
-	RestoreTestingSelectionRef() *RestoreTestingSelectionReference
+	RestoreTestingSelectionRef() *interfacesawsbackup.RestoreTestingSelectionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -265,8 +267,8 @@ type CfnRestoreTestingSelection interface {
 // The jsii proxy struct for CfnRestoreTestingSelection
 type jsiiProxy_CfnRestoreTestingSelection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRestoreTestingSelectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupIRestoreTestingSelectionRef
 }
 
 func (j *jsiiProxy_CfnRestoreTestingSelection) CfnOptions() awscdk.ICfnResourceOptions {
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnRestoreTestingSelection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRestoreTestingSelection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRestoreTestingSelection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -419,8 +421,8 @@ func (j *jsiiProxy_CfnRestoreTestingSelection) RestoreTestingSelectionName() *st
 	return returns
 }
 
-func (j *jsiiProxy_CfnRestoreTestingSelection) RestoreTestingSelectionRef() *RestoreTestingSelectionReference {
-	var returns *RestoreTestingSelectionReference
+func (j *jsiiProxy_CfnRestoreTestingSelection) RestoreTestingSelectionRef() *interfacesawsbackup.RestoreTestingSelectionReference {
+	var returns *interfacesawsbackup.RestoreTestingSelectionReference
 	_jsii_.Get(
 		j,
 		"restoreTestingSelectionRef",
@@ -470,6 +472,7 @@ func (j *jsiiProxy_CfnRestoreTestingSelection) ValidationWindowHours() *float64 
 }
 
 
+// Create a new `AWS::Backup::RestoreTestingSelection`.
 func NewCfnRestoreTestingSelection(scope constructs.Construct, id *string, props *CfnRestoreTestingSelectionProps) CfnRestoreTestingSelection {
 	_init_.Initialize()
 
@@ -487,6 +490,7 @@ func NewCfnRestoreTestingSelection(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::Backup::RestoreTestingSelection`.
 func NewCfnRestoreTestingSelection_Override(c CfnRestoreTestingSelection, scope constructs.Construct, id *string, props *CfnRestoreTestingSelectionProps) {
 	_init_.Initialize()
 

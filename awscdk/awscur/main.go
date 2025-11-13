@@ -61,8 +61,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReportDefinition{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReportDefinitionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscurIReportDefinitionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -70,24 +70,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cur.CfnReportDefinitionProps",
 		reflect.TypeOf((*CfnReportDefinitionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cur.IReportDefinitionRef",
-		reflect.TypeOf((*IReportDefinitionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "reportDefinitionRef", GoGetter: "ReportDefinitionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReportDefinitionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cur.ReportDefinitionReference",
-		reflect.TypeOf((*ReportDefinitionReference)(nil)).Elem(),
 	)
 }

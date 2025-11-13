@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -112,7 +114,7 @@ type ResponseHeadersPolicy interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -126,7 +128,7 @@ type ResponseHeadersPolicy interface {
 	// The ID of the response headers policy.
 	ResponseHeadersPolicyId() *string
 	// A reference to a ResponseHeadersPolicy resource.
-	ResponseHeadersPolicyRef() *ResponseHeadersPolicyReference
+	ResponseHeadersPolicyRef() *interfacesawscloudfront.ResponseHeadersPolicyReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -163,8 +165,8 @@ type jsiiProxy_ResponseHeadersPolicy struct {
 	jsiiProxy_IResponseHeadersPolicy
 }
 
-func (j *jsiiProxy_ResponseHeadersPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ResponseHeadersPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -203,8 +205,8 @@ func (j *jsiiProxy_ResponseHeadersPolicy) ResponseHeadersPolicyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ResponseHeadersPolicy) ResponseHeadersPolicyRef() *ResponseHeadersPolicyReference {
-	var returns *ResponseHeadersPolicyReference
+func (j *jsiiProxy_ResponseHeadersPolicy) ResponseHeadersPolicyRef() *interfacesawscloudfront.ResponseHeadersPolicyReference {
+	var returns *interfacesawscloudfront.ResponseHeadersPolicyReference
 	_jsii_.Get(
 		j,
 		"responseHeadersPolicyRef",

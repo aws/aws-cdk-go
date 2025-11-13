@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslakeformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslakeformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnResource interface {
 	awscdk.CfnResource
-	IResourceRef
 	awscdk.IInspectable
+	interfacesawslakeformation.IResourceRef
 	// An identifier for the catalog resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -45,7 +47,7 @@ type CfnResource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
 	HybridAccessEnabled() interface{}
 	SetHybridAccessEnabled(val interface{})
@@ -70,7 +72,7 @@ type CfnResource interface {
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// A reference to a Resource resource.
-	ResourceRef() *ResourceReference
+	ResourceRef() *interfacesawslakeformation.ResourceReference
 	// The IAM role that registered a resource.
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -227,8 +229,8 @@ type CfnResource interface {
 // The jsii proxy struct for CfnResource
 type jsiiProxy_CfnResource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslakeformationIResourceRef
 }
 
 func (j *jsiiProxy_CfnResource) AttrId() *string {
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnResource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnResource) ResourceArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResource) ResourceRef() *ResourceReference {
-	var returns *ResourceReference
+func (j *jsiiProxy_CfnResource) ResourceRef() *interfacesawslakeformation.ResourceReference {
+	var returns *interfacesawslakeformation.ResourceReference
 	_jsii_.Get(
 		j,
 		"resourceRef",
@@ -412,6 +414,7 @@ func (j *jsiiProxy_CfnResource) WithFederation() interface{} {
 }
 
 
+// Create a new `AWS::LakeFormation::Resource`.
 func NewCfnResource(scope constructs.Construct, id *string, props *CfnResourceProps) CfnResource {
 	_init_.Initialize()
 
@@ -429,6 +432,7 @@ func NewCfnResource(scope constructs.Construct, id *string, props *CfnResourcePr
 	return &j
 }
 
+// Create a new `AWS::LakeFormation::Resource`.
 func NewCfnResource_Override(c CfnResource, scope constructs.Construct, id *string, props *CfnResourceProps) {
 	_init_.Initialize()
 

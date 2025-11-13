@@ -1,12 +1,20 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsconfigIAggregationAuthorizationRef = interfacesawsconfig.IAggregationAuthorizationRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsconfigIConfigRuleRef = interfacesawsconfig.IConfigRuleRef
+type Type__interfacesawsconfigIConfigurationAggregatorRef = interfacesawsconfig.IConfigurationAggregatorRef
+type Type__interfacesawsconfigIConfigurationRecorderRef = interfacesawsconfig.IConfigurationRecorderRef
+type Type__interfacesawsconfigIConformancePackRef = interfacesawsconfig.IConformancePackRef
+type Type__interfacesawsconfigIDeliveryChannelRef = interfacesawsconfig.IDeliveryChannelRef
+type Type__interfacesawsconfigIOrganizationConfigRuleRef = interfacesawsconfig.IOrganizationConfigRuleRef
+type Type__interfacesawsconfigIOrganizationConformancePackRef = interfacesawsconfig.IOrganizationConformancePackRef
+type Type__interfacesawsconfigIRemediationConfigurationRef = interfacesawsconfig.IRemediationConfigurationRef
+type Type__interfacesawsconfigIStoredQueryRef = interfacesawsconfig.IStoredQueryRef
 type Type__awscdkResource = awscdk.Resource
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awscdkIResource = awscdk.IResource

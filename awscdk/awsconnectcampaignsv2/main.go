@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_connectcampaignsv2.CampaignReference",
-		reflect.TypeOf((*CampaignReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign",
 		reflect.TypeOf((*CfnCampaign)(nil)).Elem(),
@@ -62,8 +58,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCampaign{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICampaignRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconnectcampaignsv2ICampaignRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -187,20 +183,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaignProps",
 		reflect.TypeOf((*CfnCampaignProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_connectcampaignsv2.ICampaignRef",
-		reflect.TypeOf((*ICampaignRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "campaignRef", GoGetter: "CampaignRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICampaignRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

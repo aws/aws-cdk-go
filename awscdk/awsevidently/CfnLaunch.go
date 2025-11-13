@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevidently/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevidently"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -92,8 +94,8 @@ import (
 //
 type CfnLaunch interface {
 	awscdk.CfnResource
-	ILaunchRef
 	awscdk.IInspectable
+	interfacesawsevidently.ILaunchRef
 	awscdk.ITaggable
 	// The ARN of the launch.
 	//
@@ -111,7 +113,7 @@ type CfnLaunch interface {
 	// An optional description for the launch.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A structure that you can use to start and stop the launch.
 	ExecutionStatus() interface{}
 	SetExecutionStatus(val interface{})
@@ -119,7 +121,7 @@ type CfnLaunch interface {
 	Groups() interface{}
 	SetGroups(val interface{})
 	// A reference to a Launch resource.
-	LaunchRef() *LaunchReference
+	LaunchRef() *interfacesawsevidently.LaunchReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -304,8 +306,8 @@ type CfnLaunch interface {
 // The jsii proxy struct for CfnLaunch
 type jsiiProxy_CfnLaunch struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILaunchRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsevidentlyILaunchRef
 	internal.Type__awscdkITaggable
 }
 
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnLaunch) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunch) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLaunch) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -399,8 +401,8 @@ func (j *jsiiProxy_CfnLaunch) Groups() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunch) LaunchRef() *LaunchReference {
-	var returns *LaunchReference
+func (j *jsiiProxy_CfnLaunch) LaunchRef() *interfacesawsevidently.LaunchReference {
+	var returns *interfacesawsevidently.LaunchReference
 	_jsii_.Get(
 		j,
 		"launchRef",
@@ -540,6 +542,7 @@ func (j *jsiiProxy_CfnLaunch) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Evidently::Launch`.
 func NewCfnLaunch(scope constructs.Construct, id *string, props *CfnLaunchProps) CfnLaunch {
 	_init_.Initialize()
 
@@ -557,6 +560,7 @@ func NewCfnLaunch(scope constructs.Construct, id *string, props *CfnLaunchProps)
 	return &j
 }
 
+// Create a new `AWS::Evidently::Launch`.
 func NewCfnLaunch_Override(c CfnLaunch, scope constructs.Construct, id *string, props *CfnLaunchProps) {
 	_init_.Initialize()
 

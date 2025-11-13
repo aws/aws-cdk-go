@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -16,7 +18,7 @@ import (
 // For more information, see [VPC CIDR blocks](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html) in the *Amazon VPC User Guide* .
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //   var vpc Vpc
 //
 //
@@ -43,7 +45,7 @@ import (
 //   }
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
 //   	VpcSubnets: []SubnetSelection{
@@ -51,15 +53,15 @@ import (
 //   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},
-//   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
 //
 type CfnVPCCidrBlock interface {
 	awscdk.CfnResource
-	IVPCCidrBlockRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCCidrBlockRef
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
 	AmazonProvidedIpv6CidrBlock() interface{}
 	SetAmazonProvidedIpv6CidrBlock(val interface{})
@@ -85,7 +87,7 @@ type CfnVPCCidrBlock interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Associate a CIDR allocated from an IPv4 IPAM pool to a VPC.
 	Ipv4IpamPoolId() *string
 	SetIpv4IpamPoolId(val *string)
@@ -144,7 +146,7 @@ type CfnVPCCidrBlock interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPCCidrBlock resource.
-	VpcCidrBlockRef() *VPCCidrBlockReference
+	VpcCidrBlockRef() *interfacesawsec2.VPCCidrBlockReference
 	// The ID of the VPC.
 	VpcId() *string
 	SetVpcId(val *string)
@@ -278,8 +280,8 @@ type CfnVPCCidrBlock interface {
 // The jsii proxy struct for CfnVPCCidrBlock
 type jsiiProxy_CfnVPCCidrBlock struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCCidrBlockRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCCidrBlockRef
 }
 
 func (j *jsiiProxy_CfnVPCCidrBlock) AmazonProvidedIpv6CidrBlock() interface{} {
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnVPCCidrBlock) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCCidrBlock) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCCidrBlock) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -512,8 +514,8 @@ func (j *jsiiProxy_CfnVPCCidrBlock) UpdatedProperties() *map[string]interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCCidrBlock) VpcCidrBlockRef() *VPCCidrBlockReference {
-	var returns *VPCCidrBlockReference
+func (j *jsiiProxy_CfnVPCCidrBlock) VpcCidrBlockRef() *interfacesawsec2.VPCCidrBlockReference {
+	var returns *interfacesawsec2.VPCCidrBlockReference
 	_jsii_.Get(
 		j,
 		"vpcCidrBlockRef",
@@ -533,6 +535,7 @@ func (j *jsiiProxy_CfnVPCCidrBlock) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::VPCCidrBlock`.
 func NewCfnVPCCidrBlock(scope constructs.Construct, id *string, props *CfnVPCCidrBlockProps) CfnVPCCidrBlock {
 	_init_.Initialize()
 
@@ -550,6 +553,7 @@ func NewCfnVPCCidrBlock(scope constructs.Construct, id *string, props *CfnVPCCid
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCCidrBlock`.
 func NewCfnVPCCidrBlock_Override(c CfnVPCCidrBlock, scope constructs.Construct, id *string, props *CfnVPCCidrBlockProps) {
 	_init_.Initialize()
 

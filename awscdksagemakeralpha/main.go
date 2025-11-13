@@ -71,6 +71,7 @@ func init() {
 		reflect.TypeOf((*EndpointConfig)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addInstanceProductionVariant", GoMethod: "AddInstanceProductionVariant"},
+			_jsii_.MemberMethod{JsiiMethod: "addServerlessProductionVariant", GoMethod: "AddServerlessProductionVariant"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointConfigArn", GoGetter: "EndpointConfigArn"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointConfigName", GoGetter: "EndpointConfigName"},
@@ -275,5 +276,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-sagemaker-alpha.ScalableInstanceCountProps",
 		reflect.TypeOf((*ScalableInstanceCountProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-sagemaker-alpha.ServerlessProductionVariantProps",
+		reflect.TypeOf((*ServerlessProductionVariantProps)(nil)).Elem(),
 	)
 }

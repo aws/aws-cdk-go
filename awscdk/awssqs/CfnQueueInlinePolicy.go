@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnQueueInlinePolicy interface {
 	awscdk.CfnResource
-	IQueueInlinePolicyRef
 	awscdk.IInspectable
+	interfacesawssqs.IQueueInlinePolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnQueueInlinePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -58,7 +60,7 @@ type CfnQueueInlinePolicy interface {
 	Queue() *string
 	SetQueue(val *string)
 	// A reference to a QueueInlinePolicy resource.
-	QueueInlinePolicyRef() *QueueInlinePolicyReference
+	QueueInlinePolicyRef() *interfacesawssqs.QueueInlinePolicyReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -211,8 +213,8 @@ type CfnQueueInlinePolicy interface {
 // The jsii proxy struct for CfnQueueInlinePolicy
 type jsiiProxy_CfnQueueInlinePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueueInlinePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssqsIQueueInlinePolicyRef
 }
 
 func (j *jsiiProxy_CfnQueueInlinePolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -255,8 +257,8 @@ func (j *jsiiProxy_CfnQueueInlinePolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueueInlinePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueueInlinePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnQueueInlinePolicy) Queue() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueueInlinePolicy) QueueInlinePolicyRef() *QueueInlinePolicyReference {
-	var returns *QueueInlinePolicyReference
+func (j *jsiiProxy_CfnQueueInlinePolicy) QueueInlinePolicyRef() *interfacesawssqs.QueueInlinePolicyReference {
+	var returns *interfacesawssqs.QueueInlinePolicyReference
 	_jsii_.Get(
 		j,
 		"queueInlinePolicyRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnQueueInlinePolicy) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::SQS::QueueInlinePolicy`.
 func NewCfnQueueInlinePolicy(scope constructs.Construct, id *string, props *CfnQueueInlinePolicyProps) CfnQueueInlinePolicy {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnQueueInlinePolicy(scope constructs.Construct, id *string, props *CfnQ
 	return &j
 }
 
+// Create a new `AWS::SQS::QueueInlinePolicy`.
 func NewCfnQueueInlinePolicy_Override(c CfnQueueInlinePolicy, scope constructs.Construct, id *string, props *CfnQueueInlinePolicyProps) {
 	_init_.Initialize()
 

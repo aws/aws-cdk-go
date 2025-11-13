@@ -2,6 +2,7 @@ package awsec2
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 )
 
 // Properties of a LaunchTemplate.
@@ -149,7 +150,7 @@ type LaunchTemplateProps struct {
 	// The placement group that you want to launch the instance into.
 	// Default: - no placement group will be used for this launch template.
 	//
-	PlacementGroup IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup interfacesawsec2.IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// Whether IMDSv2 should be required on launched instances.
 	// Default: - false.
 	//

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnService interface {
 	awscdk.CfnResource
-	IServiceRef
 	awscdk.IInspectable
+	interfacesawsservicediscovery.IServiceRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the service.
 	AttrArn() *string
@@ -82,7 +84,7 @@ type CfnService interface {
 	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 	DnsConfig() interface{}
 	SetDnsConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
 	HealthCheckConfig() interface{}
 	SetHealthCheckConfig(val interface{})
@@ -116,7 +118,7 @@ type CfnService interface {
 	ServiceAttributes() interface{}
 	SetServiceAttributes(val interface{})
 	// A reference to a Service resource.
-	ServiceRef() *ServiceReference
+	ServiceRef() *interfacesawsservicediscovery.ServiceReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -272,8 +274,8 @@ type CfnService interface {
 // The jsii proxy struct for CfnService
 type jsiiProxy_CfnService struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicediscoveryIServiceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnService) DnsConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnService) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -457,8 +459,8 @@ func (j *jsiiProxy_CfnService) ServiceAttributes() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) ServiceRef() *ServiceReference {
-	var returns *ServiceReference
+func (j *jsiiProxy_CfnService) ServiceRef() *interfacesawsservicediscovery.ServiceReference {
+	var returns *interfacesawsservicediscovery.ServiceReference
 	_jsii_.Get(
 		j,
 		"serviceRef",
@@ -528,6 +530,7 @@ func (j *jsiiProxy_CfnService) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ServiceDiscovery::Service`.
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
@@ -545,6 +548,7 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 	return &j
 }
 
+// Create a new `AWS::ServiceDiscovery::Service`.
 func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 
@@ -640,13 +644,13 @@ func (j *jsiiProxy_CfnService)SetType(val *string) {
 }
 
 // Creates a new IServiceRef from an ARN.
-func CfnService_FromServiceArn(scope constructs.Construct, id *string, arn *string) IServiceRef {
+func CfnService_FromServiceArn(scope constructs.Construct, id *string, arn *string) interfacesawsservicediscovery.IServiceRef {
 	_init_.Initialize()
 
 	if err := validateCfnService_FromServiceArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IServiceRef
+	var returns interfacesawsservicediscovery.IServiceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_servicediscovery.CfnService",
@@ -659,13 +663,13 @@ func CfnService_FromServiceArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IServiceRef from a serviceId.
-func CfnService_FromServiceId(scope constructs.Construct, id *string, serviceId *string) IServiceRef {
+func CfnService_FromServiceId(scope constructs.Construct, id *string, serviceId *string) interfacesawsservicediscovery.IServiceRef {
 	_init_.Initialize()
 
 	if err := validateCfnService_FromServiceIdParameters(scope, id, serviceId); err != nil {
 		panic(err)
 	}
-	var returns IServiceRef
+	var returns interfacesawsservicediscovery.IServiceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_servicediscovery.CfnService",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticbeanstalk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticbeanstalk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnConfigurationTemplate interface {
 	awscdk.CfnResource
-	IConfigurationTemplateRef
 	awscdk.IInspectable
+	interfacesawselasticbeanstalk.IConfigurationTemplateRef
 	// The name of the Elastic Beanstalk application to associate with this configuration template.
 	ApplicationName() *string
 	SetApplicationName(val *string)
@@ -63,7 +65,7 @@ type CfnConfigurationTemplate interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConfigurationTemplate resource.
-	ConfigurationTemplateRef() *ConfigurationTemplateReference
+	ConfigurationTemplateRef() *interfacesawselasticbeanstalk.ConfigurationTemplateReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -71,7 +73,7 @@ type CfnConfigurationTemplate interface {
 	// An optional description for this configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of an environment whose settings you want to use to create the configuration template.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
@@ -251,8 +253,8 @@ type CfnConfigurationTemplate interface {
 // The jsii proxy struct for CfnConfigurationTemplate
 type jsiiProxy_CfnConfigurationTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticbeanstalkIConfigurationTemplateRef
 }
 
 func (j *jsiiProxy_CfnConfigurationTemplate) ApplicationName() *string {
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnConfigurationTemplate) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationTemplate) ConfigurationTemplateRef() *ConfigurationTemplateReference {
-	var returns *ConfigurationTemplateReference
+func (j *jsiiProxy_CfnConfigurationTemplate) ConfigurationTemplateRef() *interfacesawselasticbeanstalk.ConfigurationTemplateReference {
+	var returns *interfacesawselasticbeanstalk.ConfigurationTemplateReference
 	_jsii_.Get(
 		j,
 		"configurationTemplateRef",
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnConfigurationTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -456,6 +458,7 @@ func (j *jsiiProxy_CfnConfigurationTemplate) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::ElasticBeanstalk::ConfigurationTemplate`.
 func NewCfnConfigurationTemplate(scope constructs.Construct, id *string, props *CfnConfigurationTemplateProps) CfnConfigurationTemplate {
 	_init_.Initialize()
 
@@ -473,6 +476,7 @@ func NewCfnConfigurationTemplate(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::ElasticBeanstalk::ConfigurationTemplate`.
 func NewCfnConfigurationTemplate_Override(c CfnConfigurationTemplate, scope constructs.Construct, id *string, props *CfnConfigurationTemplateProps) {
 	_init_.Initialize()
 

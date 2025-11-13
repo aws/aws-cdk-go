@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnSecret interface {
 	awscdk.CfnResource
-	ISecretRef
 	awscdk.IInspectable
+	interfacesawssecretsmanager.ISecretRef
 	awscdk.ITaggable
 	// The ARN of the secret.
 	AttrId() *string
@@ -82,7 +84,7 @@ type CfnSecret interface {
 	// The description of the secret.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A structure that specifies how to generate a password to encrypt and store in the secret.
 	GenerateSecretString() interface{}
 	SetGenerateSecretString(val interface{})
@@ -113,7 +115,7 @@ type CfnSecret interface {
 	ReplicaRegions() interface{}
 	SetReplicaRegions(val interface{})
 	// A reference to a Secret resource.
-	SecretRef() *SecretReference
+	SecretRef() *interfacesawssecretsmanager.SecretReference
 	// The text to encrypt and store in the secret.
 	SecretString() *string
 	SetSecretString(val *string)
@@ -269,8 +271,8 @@ type CfnSecret interface {
 // The jsii proxy struct for CfnSecret
 type jsiiProxy_CfnSecret struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecretRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecretsmanagerISecretRef
 	internal.Type__awscdkITaggable
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnSecret) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecret) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecret) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnSecret) ReplicaRegions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecret) SecretRef() *SecretReference {
-	var returns *SecretReference
+func (j *jsiiProxy_CfnSecret) SecretRef() *interfacesawssecretsmanager.SecretReference {
+	var returns *interfacesawssecretsmanager.SecretReference
 	_jsii_.Get(
 		j,
 		"secretRef",
@@ -485,6 +487,7 @@ func (j *jsiiProxy_CfnSecret) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SecretsManager::Secret`.
 func NewCfnSecret(scope constructs.Construct, id *string, props *CfnSecretProps) CfnSecret {
 	_init_.Initialize()
 
@@ -502,6 +505,7 @@ func NewCfnSecret(scope constructs.Construct, id *string, props *CfnSecretProps)
 	return &j
 }
 
+// Create a new `AWS::SecretsManager::Secret`.
 func NewCfnSecret_Override(c CfnSecret, scope constructs.Construct, id *string, props *CfnSecretProps) {
 	_init_.Initialize()
 
@@ -578,13 +582,13 @@ func (j *jsiiProxy_CfnSecret)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ISecretRef from a secretId.
-func CfnSecret_FromSecretId(scope constructs.Construct, id *string, secretId *string) ISecretRef {
+func CfnSecret_FromSecretId(scope constructs.Construct, id *string, secretId *string) interfacesawssecretsmanager.ISecretRef {
 	_init_.Initialize()
 
 	if err := validateCfnSecret_FromSecretIdParameters(scope, id, secretId); err != nil {
 		panic(err)
 	}
-	var returns ISecretRef
+	var returns interfacesawssecretsmanager.ISecretRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_secretsmanager.CfnSecret",

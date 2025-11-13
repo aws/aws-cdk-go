@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplify/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamplify"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnDomain interface {
 	awscdk.CfnResource
-	IDomainRef
 	awscdk.IInspectable
+	interfacesawsamplify.IDomainRef
 	// The unique ID for an Amplify app.
 	AppId() *string
 	SetAppId(val *string)
@@ -98,11 +100,11 @@ type CfnDomain interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// A reference to a Domain resource.
-	DomainRef() *DomainReference
+	DomainRef() *interfacesawsamplify.DomainReference
 	// Enables the automated creation of subdomains for branches.
 	EnableAutoSubDomain() interface{}
 	SetEnableAutoSubDomain(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -270,8 +272,8 @@ type CfnDomain interface {
 // The jsii proxy struct for CfnDomain
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamplifyIDomainRef
 }
 
 func (j *jsiiProxy_CfnDomain) AppId() *string {
@@ -464,8 +466,8 @@ func (j *jsiiProxy_CfnDomain) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) DomainRef() *DomainReference {
-	var returns *DomainReference
+func (j *jsiiProxy_CfnDomain) DomainRef() *interfacesawsamplify.DomainReference {
+	var returns *interfacesawsamplify.DomainReference
 	_jsii_.Get(
 		j,
 		"domainRef",
@@ -484,8 +486,8 @@ func (j *jsiiProxy_CfnDomain) EnableAutoSubDomain() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -565,6 +567,7 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Amplify::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -582,6 +585,7 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
+// Create a new `AWS::Amplify::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 

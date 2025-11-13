@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnectcampaigns/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnectcampaigns"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,13 +65,13 @@ import (
 //
 type CfnCampaign interface {
 	awscdk.CfnResource
-	ICampaignRef
 	awscdk.IInspectable
+	interfacesawsconnectcampaigns.ICampaignRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the high-volume outbound campaign.
 	AttrArn() *string
 	// A reference to a Campaign resource.
-	CampaignRef() *CampaignReference
+	CampaignRef() *interfacesawsconnectcampaigns.CampaignReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -85,7 +87,7 @@ type CfnCampaign interface {
 	// Contains information about the dialer configuration.
 	DialerConfig() interface{}
 	SetDialerConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -261,8 +263,8 @@ type CfnCampaign interface {
 // The jsii proxy struct for CfnCampaign
 type jsiiProxy_CfnCampaign struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICampaignRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectcampaignsICampaignRef
 	internal.Type__awscdkITaggable
 }
 
@@ -276,8 +278,8 @@ func (j *jsiiProxy_CfnCampaign) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCampaign) CampaignRef() *CampaignReference {
-	var returns *CampaignReference
+func (j *jsiiProxy_CfnCampaign) CampaignRef() *interfacesawsconnectcampaigns.CampaignReference {
+	var returns *interfacesawsconnectcampaigns.CampaignReference
 	_jsii_.Get(
 		j,
 		"campaignRef",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnCampaign) DialerConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCampaign) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCampaign) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -457,6 +459,7 @@ func (j *jsiiProxy_CfnCampaign) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ConnectCampaigns::Campaign`.
 func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignProps) CfnCampaign {
 	_init_.Initialize()
 
@@ -474,6 +477,7 @@ func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignPr
 	return &j
 }
 
+// Create a new `AWS::ConnectCampaigns::Campaign`.
 func NewCfnCampaign_Override(c CfnCampaign, scope constructs.Construct, id *string, props *CfnCampaignProps) {
 	_init_.Initialize()
 

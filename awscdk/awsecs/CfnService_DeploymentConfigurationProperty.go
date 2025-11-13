@@ -65,6 +65,9 @@ type CfnService_DeploymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-baketimeinminutes
 	//
 	BakeTimeInMinutes *float64 `field:"optional" json:"bakeTimeInMinutes" yaml:"bakeTimeInMinutes"`
+	// Configuration for canary deployment strategy.
+	//
+	// Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-canaryconfiguration
 	//
 	CanaryConfiguration interface{} `field:"optional" json:"canaryConfiguration" yaml:"canaryConfiguration"`
@@ -78,6 +81,9 @@ type CfnService_DeploymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-lifecyclehooks
 	//
 	LifecycleHooks interface{} `field:"optional" json:"lifecycleHooks" yaml:"lifecycleHooks"`
+	// Configuration for linear deployment strategy.
+	//
+	// Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-linearconfiguration
 	//
 	LinearConfiguration interface{} `field:"optional" json:"linearConfiguration" yaml:"linearConfiguration"`

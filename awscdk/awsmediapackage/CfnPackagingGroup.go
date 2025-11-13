@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediapackage/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackage"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnPackagingGroup interface {
 	awscdk.CfnResource
-	IPackagingGroupRef
 	awscdk.IInspectable
+	interfacesawsmediapackage.IPackagingGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the packaging group.
 	//
@@ -65,7 +67,7 @@ type CfnPackagingGroup interface {
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs() interface{}
 	SetEgressAccessLogs(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Unique identifier that you assign to the packaging group.
 	Id() *string
 	SetId(val *string)
@@ -82,7 +84,7 @@ type CfnPackagingGroup interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PackagingGroup resource.
-	PackagingGroupRef() *PackagingGroupReference
+	PackagingGroupRef() *interfacesawsmediapackage.PackagingGroupReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -240,8 +242,8 @@ type CfnPackagingGroup interface {
 // The jsii proxy struct for CfnPackagingGroup
 type jsiiProxy_CfnPackagingGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPackagingGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediapackageIPackagingGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnPackagingGroup) EgressAccessLogs() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackagingGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPackagingGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -365,8 +367,8 @@ func (j *jsiiProxy_CfnPackagingGroup) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackagingGroup) PackagingGroupRef() *PackagingGroupReference {
-	var returns *PackagingGroupReference
+func (j *jsiiProxy_CfnPackagingGroup) PackagingGroupRef() *interfacesawsmediapackage.PackagingGroupReference {
+	var returns *interfacesawsmediapackage.PackagingGroupReference
 	_jsii_.Get(
 		j,
 		"packagingGroupRef",
@@ -436,6 +438,7 @@ func (j *jsiiProxy_CfnPackagingGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::MediaPackage::PackagingGroup`.
 func NewCfnPackagingGroup(scope constructs.Construct, id *string, props *CfnPackagingGroupProps) CfnPackagingGroup {
 	_init_.Initialize()
 
@@ -453,6 +456,7 @@ func NewCfnPackagingGroup(scope constructs.Construct, id *string, props *CfnPack
 	return &j
 }
 
+// Create a new `AWS::MediaPackage::PackagingGroup`.
 func NewCfnPackagingGroup_Override(c CfnPackagingGroup, scope constructs.Construct, id *string, props *CfnPackagingGroupProps) {
 	_init_.Initialize()
 

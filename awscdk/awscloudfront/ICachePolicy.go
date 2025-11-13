@@ -2,18 +2,21 @@ package awscloudfront
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
 
 // Represents a Cache Policy.
 type ICachePolicy interface {
-	ICachePolicyRef
+	interfacesawscloudfront.ICachePolicyRef
 	// The ID of the cache policy.
 	CachePolicyId() *string
 }
 
 // The jsii proxy for ICachePolicy
 type jsiiProxy_ICachePolicy struct {
-	jsiiProxy_ICachePolicyRef
+	internal.Type__interfacesawscloudfrontICachePolicyRef
 }
 
 func (j *jsiiProxy_ICachePolicy) CachePolicyId() *string {

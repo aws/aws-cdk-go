@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnLogGroup interface {
 	awscdk.CfnResource
-	ILogGroupRef
 	awscdk.IInspectable
+	interfacesawslogs.ILogGroupRef
 	awscdk.ITaggable
 	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`.
 	AttrArn() *string
@@ -67,7 +69,7 @@ type CfnLogGroup interface {
 	// Creates a data protection policy and assigns it to the log group.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Creates or updates a *field index policy* for the specified log group.
 	FieldIndexPolicies() interface{}
 	SetFieldIndexPolicies(val interface{})
@@ -83,7 +85,7 @@ type CfnLogGroup interface {
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	// A reference to a LogGroup resource.
-	LogGroupRef() *LogGroupReference
+	LogGroupRef() *interfacesawslogs.LogGroupReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -259,8 +261,8 @@ type CfnLogGroup interface {
 // The jsii proxy struct for CfnLogGroup
 type jsiiProxy_CfnLogGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILogGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsILogGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -324,8 +326,8 @@ func (j *jsiiProxy_CfnLogGroup) DataProtectionPolicy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLogGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnLogGroup) LogGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogGroup) LogGroupRef() *LogGroupReference {
-	var returns *LogGroupReference
+func (j *jsiiProxy_CfnLogGroup) LogGroupRef() *interfacesawslogs.LogGroupReference {
+	var returns *interfacesawslogs.LogGroupReference
 	_jsii_.Get(
 		j,
 		"logGroupRef",
@@ -485,6 +487,7 @@ func (j *jsiiProxy_CfnLogGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Logs::LogGroup`.
 func NewCfnLogGroup(scope constructs.Construct, id *string, props *CfnLogGroupProps) CfnLogGroup {
 	_init_.Initialize()
 
@@ -502,6 +505,7 @@ func NewCfnLogGroup(scope constructs.Construct, id *string, props *CfnLogGroupPr
 	return &j
 }
 
+// Create a new `AWS::Logs::LogGroup`.
 func NewCfnLogGroup_Override(c CfnLogGroup, scope constructs.Construct, id *string, props *CfnLogGroupProps) {
 	_init_.Initialize()
 
@@ -583,13 +587,13 @@ func (j *jsiiProxy_CfnLogGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ILogGroupRef from an ARN.
-func CfnLogGroup_FromLogGroupArn(scope constructs.Construct, id *string, arn *string) ILogGroupRef {
+func CfnLogGroup_FromLogGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawslogs.ILogGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnLogGroup_FromLogGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ILogGroupRef
+	var returns interfacesawslogs.ILogGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnLogGroup",
@@ -602,13 +606,13 @@ func CfnLogGroup_FromLogGroupArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new ILogGroupRef from a logGroupName.
-func CfnLogGroup_FromLogGroupName(scope constructs.Construct, id *string, logGroupName *string) ILogGroupRef {
+func CfnLogGroup_FromLogGroupName(scope constructs.Construct, id *string, logGroupName *string) interfacesawslogs.ILogGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnLogGroup_FromLogGroupNameParameters(scope, id, logGroupName); err != nil {
 		panic(err)
 	}
-	var returns ILogGroupRef
+	var returns interfacesawslogs.ILogGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnLogGroup",

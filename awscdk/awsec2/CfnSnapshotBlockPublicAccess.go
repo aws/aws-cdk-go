@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnSnapshotBlockPublicAccess interface {
 	awscdk.CfnResource
-	ISnapshotBlockPublicAccessRef
 	awscdk.IInspectable
+	interfacesawsec2.ISnapshotBlockPublicAccessRef
 	// `Ref` returns the ID of the AWS account.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -39,7 +41,7 @@ type CfnSnapshotBlockPublicAccess interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -58,7 +60,7 @@ type CfnSnapshotBlockPublicAccess interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SnapshotBlockPublicAccess resource.
-	SnapshotBlockPublicAccessRef() *SnapshotBlockPublicAccessReference
+	SnapshotBlockPublicAccessRef() *interfacesawsec2.SnapshotBlockPublicAccessReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -209,8 +211,8 @@ type CfnSnapshotBlockPublicAccess interface {
 // The jsii proxy struct for CfnSnapshotBlockPublicAccess
 type jsiiProxy_CfnSnapshotBlockPublicAccess struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISnapshotBlockPublicAccessRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISnapshotBlockPublicAccessRef
 }
 
 func (j *jsiiProxy_CfnSnapshotBlockPublicAccess) AttrAccountId() *string {
@@ -263,8 +265,8 @@ func (j *jsiiProxy_CfnSnapshotBlockPublicAccess) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSnapshotBlockPublicAccess) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSnapshotBlockPublicAccess) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnSnapshotBlockPublicAccess) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSnapshotBlockPublicAccess) SnapshotBlockPublicAccessRef() *SnapshotBlockPublicAccessReference {
-	var returns *SnapshotBlockPublicAccessReference
+func (j *jsiiProxy_CfnSnapshotBlockPublicAccess) SnapshotBlockPublicAccessRef() *interfacesawsec2.SnapshotBlockPublicAccessReference {
+	var returns *interfacesawsec2.SnapshotBlockPublicAccessReference
 	_jsii_.Get(
 		j,
 		"snapshotBlockPublicAccessRef",
@@ -354,6 +356,7 @@ func (j *jsiiProxy_CfnSnapshotBlockPublicAccess) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::EC2::SnapshotBlockPublicAccess`.
 func NewCfnSnapshotBlockPublicAccess(scope constructs.Construct, id *string, props *CfnSnapshotBlockPublicAccessProps) CfnSnapshotBlockPublicAccess {
 	_init_.Initialize()
 
@@ -371,6 +374,7 @@ func NewCfnSnapshotBlockPublicAccess(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::EC2::SnapshotBlockPublicAccess`.
 func NewCfnSnapshotBlockPublicAccess_Override(c CfnSnapshotBlockPublicAccess, scope constructs.Construct, id *string, props *CfnSnapshotBlockPublicAccessProps) {
 	_init_.Initialize()
 

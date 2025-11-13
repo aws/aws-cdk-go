@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,7 +21,7 @@ func (a *jsiiProxy_ApiDefinition) validateBindParameters(scope constructs.Constr
 	return nil
 }
 
-func (a *jsiiProxy_ApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi IRestApiRef) error {
+func (a *jsiiProxy_ApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi interfacesawsapigateway.IRestApiRef) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}

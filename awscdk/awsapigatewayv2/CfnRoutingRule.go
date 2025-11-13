@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnRoutingRule interface {
 	awscdk.CfnResource
-	IRoutingRuleRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IRoutingRuleRef
 	// The resulting action based on matching a routing rules condition.
 	Actions() interface{}
 	SetActions(val interface{})
@@ -79,7 +81,7 @@ type CfnRoutingRule interface {
 	// The ARN of the domain name.
 	DomainNameArn() *string
 	SetDomainNameArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnRoutingRule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RoutingRule resource.
-	RoutingRuleRef() *RoutingRuleReference
+	RoutingRuleRef() *interfacesawsapigatewayv2.RoutingRuleReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -249,8 +251,8 @@ type CfnRoutingRule interface {
 // The jsii proxy struct for CfnRoutingRule
 type jsiiProxy_CfnRoutingRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRoutingRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IRoutingRuleRef
 }
 
 func (j *jsiiProxy_CfnRoutingRule) Actions() interface{} {
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnRoutingRule) DomainNameArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoutingRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRoutingRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnRoutingRule) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoutingRule) RoutingRuleRef() *RoutingRuleReference {
-	var returns *RoutingRuleReference
+func (j *jsiiProxy_CfnRoutingRule) RoutingRuleRef() *interfacesawsapigatewayv2.RoutingRuleReference {
+	var returns *interfacesawsapigatewayv2.RoutingRuleReference
 	_jsii_.Get(
 		j,
 		"routingRuleRef",
@@ -434,6 +436,7 @@ func (j *jsiiProxy_CfnRoutingRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGatewayV2::RoutingRule`.
 func NewCfnRoutingRule(scope constructs.Construct, id *string, props *CfnRoutingRuleProps) CfnRoutingRule {
 	_init_.Initialize()
 
@@ -451,6 +454,7 @@ func NewCfnRoutingRule(scope constructs.Construct, id *string, props *CfnRouting
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::RoutingRule`.
 func NewCfnRoutingRule_Override(c CfnRoutingRule, scope constructs.Construct, id *string, props *CfnRoutingRuleProps) {
 	_init_.Initialize()
 

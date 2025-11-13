@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdetective/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdetective"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnMemberInvitation interface {
 	awscdk.CfnResource
-	IMemberInvitationRef
 	awscdk.IInspectable
+	interfacesawsdetective.IMemberInvitationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -46,7 +48,7 @@ type CfnMemberInvitation interface {
 	// Whether to send an invitation email to the member account.
 	DisableEmailNotification() interface{}
 	SetDisableEmailNotification(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the behavior graph to invite the account to contribute data to.
 	GraphArn() *string
 	SetGraphArn(val *string)
@@ -67,7 +69,7 @@ type CfnMemberInvitation interface {
 	MemberId() *string
 	SetMemberId(val *string)
 	// A reference to a MemberInvitation resource.
-	MemberInvitationRef() *MemberInvitationReference
+	MemberInvitationRef() *interfacesawsdetective.MemberInvitationReference
 	// Customized text to include in the invitation email message.
 	Message() *string
 	SetMessage(val *string)
@@ -225,8 +227,8 @@ type CfnMemberInvitation interface {
 // The jsii proxy struct for CfnMemberInvitation
 type jsiiProxy_CfnMemberInvitation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMemberInvitationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdetectiveIMemberInvitationRef
 }
 
 func (j *jsiiProxy_CfnMemberInvitation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnMemberInvitation) DisableEmailNotification() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMemberInvitation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMemberInvitation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnMemberInvitation) MemberId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMemberInvitation) MemberInvitationRef() *MemberInvitationReference {
-	var returns *MemberInvitationReference
+func (j *jsiiProxy_CfnMemberInvitation) MemberInvitationRef() *interfacesawsdetective.MemberInvitationReference {
+	var returns *interfacesawsdetective.MemberInvitationReference
 	_jsii_.Get(
 		j,
 		"memberInvitationRef",
@@ -400,6 +402,7 @@ func (j *jsiiProxy_CfnMemberInvitation) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Detective::MemberInvitation`.
 func NewCfnMemberInvitation(scope constructs.Construct, id *string, props *CfnMemberInvitationProps) CfnMemberInvitation {
 	_init_.Initialize()
 
@@ -417,6 +420,7 @@ func NewCfnMemberInvitation(scope constructs.Construct, id *string, props *CfnMe
 	return &j
 }
 
+// Create a new `AWS::Detective::MemberInvitation`.
 func NewCfnMemberInvitation_Override(c CfnMemberInvitation, scope constructs.Construct, id *string, props *CfnMemberInvitationProps) {
 	_init_.Initialize()
 

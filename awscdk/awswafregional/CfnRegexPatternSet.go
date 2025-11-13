@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnRegexPatternSet interface {
 	awscdk.CfnResource
-	IRegexPatternSetRef
 	awscdk.IInspectable
+	interfacesawswafregional.IRegexPatternSetRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,7 +45,7 @@ type CfnRegexPatternSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -65,7 +67,7 @@ type CfnRegexPatternSet interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RegexPatternSet resource.
-	RegexPatternSetRef() *RegexPatternSetReference
+	RegexPatternSetRef() *interfacesawswafregional.RegexPatternSetReference
 	// Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t` .
 	RegexPatternStrings() *[]*string
 	SetRegexPatternStrings(val *[]*string)
@@ -216,8 +218,8 @@ type CfnRegexPatternSet interface {
 // The jsii proxy struct for CfnRegexPatternSet
 type jsiiProxy_CfnRegexPatternSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRegexPatternSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalIRegexPatternSetRef
 }
 
 func (j *jsiiProxy_CfnRegexPatternSet) AttrId() *string {
@@ -270,8 +272,8 @@ func (j *jsiiProxy_CfnRegexPatternSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegexPatternSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRegexPatternSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnRegexPatternSet) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegexPatternSet) RegexPatternSetRef() *RegexPatternSetReference {
-	var returns *RegexPatternSetReference
+func (j *jsiiProxy_CfnRegexPatternSet) RegexPatternSetRef() *interfacesawswafregional.RegexPatternSetReference {
+	var returns *interfacesawswafregional.RegexPatternSetReference
 	_jsii_.Get(
 		j,
 		"regexPatternSetRef",
@@ -371,6 +373,7 @@ func (j *jsiiProxy_CfnRegexPatternSet) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::WAFRegional::RegexPatternSet`.
 func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
 	_init_.Initialize()
 
@@ -388,6 +391,7 @@ func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnReg
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::RegexPatternSet`.
 func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) {
 	_init_.Initialize()
 

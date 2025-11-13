@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnIPAMScope interface {
 	awscdk.CfnResource
-	IIPAMScopeRef
 	awscdk.IInspectable
+	interfacesawsec2.IIPAMScopeRef
 	awscdk.ITaggable
 	// The ARN of the scope.
 	AttrArn() *string
@@ -64,12 +66,12 @@ type CfnIPAMScope interface {
 	// The description of the scope.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the IPAM for which you're creating this scope.
 	IpamId() *string
 	SetIpamId(val *string)
 	// A reference to a IPAMScope resource.
-	IpamScopeRef() *IPAMScopeReference
+	IpamScopeRef() *interfacesawsec2.IPAMScopeReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -239,8 +241,8 @@ type CfnIPAMScope interface {
 // The jsii proxy struct for CfnIPAMScope
 type jsiiProxy_CfnIPAMScope struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIPAMScopeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IIPAMScopeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnIPAMScope) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMScope) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIPAMScope) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnIPAMScope) IpamId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAMScope) IpamScopeRef() *IPAMScopeReference {
-	var returns *IPAMScopeReference
+func (j *jsiiProxy_CfnIPAMScope) IpamScopeRef() *interfacesawsec2.IPAMScopeReference {
+	var returns *interfacesawsec2.IPAMScopeReference
 	_jsii_.Get(
 		j,
 		"ipamScopeRef",
@@ -465,6 +467,7 @@ func (j *jsiiProxy_CfnIPAMScope) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::IPAMScope`.
 func NewCfnIPAMScope(scope constructs.Construct, id *string, props *CfnIPAMScopeProps) CfnIPAMScope {
 	_init_.Initialize()
 
@@ -482,6 +485,7 @@ func NewCfnIPAMScope(scope constructs.Construct, id *string, props *CfnIPAMScope
 	return &j
 }
 
+// Create a new `AWS::EC2::IPAMScope`.
 func NewCfnIPAMScope_Override(c CfnIPAMScope, scope constructs.Construct, id *string, props *CfnIPAMScopeProps) {
 	_init_.Initialize()
 
@@ -523,13 +527,13 @@ func (j *jsiiProxy_CfnIPAMScope)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IIPAMScopeRef from an ARN.
-func CfnIPAMScope_FromIPAMScopeArn(scope constructs.Construct, id *string, arn *string) IIPAMScopeRef {
+func CfnIPAMScope_FromIPAMScopeArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IIPAMScopeRef {
 	_init_.Initialize()
 
 	if err := validateCfnIPAMScope_FromIPAMScopeArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IIPAMScopeRef
+	var returns interfacesawsec2.IIPAMScopeRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAMScope",
@@ -542,13 +546,13 @@ func CfnIPAMScope_FromIPAMScopeArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IIPAMScopeRef from a ipamScopeId.
-func CfnIPAMScope_FromIpamScopeId(scope constructs.Construct, id *string, ipamScopeId *string) IIPAMScopeRef {
+func CfnIPAMScope_FromIpamScopeId(scope constructs.Construct, id *string, ipamScopeId *string) interfacesawsec2.IIPAMScopeRef {
 	_init_.Initialize()
 
 	if err := validateCfnIPAMScope_FromIpamScopeIdParameters(scope, id, ipamScopeId); err != nil {
 		panic(err)
 	}
-	var returns IIPAMScopeRef
+	var returns interfacesawsec2.IIPAMScopeRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAMScope",

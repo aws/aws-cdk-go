@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnThingGroup interface {
 	awscdk.CfnResource
-	IThingGroupRef
 	awscdk.IInspectable
+	interfacesawsiot.IThingGroupRef
 	awscdk.ITaggable
 	// The thing group ARN.
 	AttrArn() *string
@@ -62,7 +64,7 @@ type CfnThingGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -102,7 +104,7 @@ type CfnThingGroup interface {
 	ThingGroupProperties() interface{}
 	SetThingGroupProperties(val interface{})
 	// A reference to a ThingGroup resource.
-	ThingGroupRef() *ThingGroupReference
+	ThingGroupRef() *interfacesawsiot.ThingGroupReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,8 +248,8 @@ type CfnThingGroup interface {
 // The jsii proxy struct for CfnThingGroup
 type jsiiProxy_CfnThingGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IThingGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIThingGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnThingGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThingGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnThingGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,8 +423,8 @@ func (j *jsiiProxy_CfnThingGroup) ThingGroupProperties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThingGroup) ThingGroupRef() *ThingGroupReference {
-	var returns *ThingGroupReference
+func (j *jsiiProxy_CfnThingGroup) ThingGroupRef() *interfacesawsiot.ThingGroupReference {
+	var returns *interfacesawsiot.ThingGroupReference
 	_jsii_.Get(
 		j,
 		"thingGroupRef",
@@ -452,6 +454,7 @@ func (j *jsiiProxy_CfnThingGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::ThingGroup`.
 func NewCfnThingGroup(scope constructs.Construct, id *string, props *CfnThingGroupProps) CfnThingGroup {
 	_init_.Initialize()
 
@@ -469,6 +472,7 @@ func NewCfnThingGroup(scope constructs.Construct, id *string, props *CfnThingGro
 	return &j
 }
 
+// Create a new `AWS::IoT::ThingGroup`.
 func NewCfnThingGroup_Override(c CfnThingGroup, scope constructs.Construct, id *string, props *CfnThingGroupProps) {
 	_init_.Initialize()
 
@@ -526,13 +530,13 @@ func (j *jsiiProxy_CfnThingGroup)SetThingGroupProperties(val interface{}) {
 }
 
 // Creates a new IThingGroupRef from an ARN.
-func CfnThingGroup_FromThingGroupArn(scope constructs.Construct, id *string, arn *string) IThingGroupRef {
+func CfnThingGroup_FromThingGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IThingGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnThingGroup_FromThingGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IThingGroupRef
+	var returns interfacesawsiot.IThingGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnThingGroup",
@@ -545,13 +549,13 @@ func CfnThingGroup_FromThingGroupArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IThingGroupRef from a thingGroupName.
-func CfnThingGroup_FromThingGroupName(scope constructs.Construct, id *string, thingGroupName *string) IThingGroupRef {
+func CfnThingGroup_FromThingGroupName(scope constructs.Construct, id *string, thingGroupName *string) interfacesawsiot.IThingGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnThingGroup_FromThingGroupNameParameters(scope, id, thingGroupName); err != nil {
 		panic(err)
 	}
-	var returns IThingGroupRef
+	var returns interfacesawsiot.IThingGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnThingGroup",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivschat/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivschat"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
-	ILoggingConfigurationRef
 	awscdk.IInspectable
+	interfacesawsivschat.ILoggingConfigurationRef
 	awscdk.ITaggable
 	// The logging-configuration ARN.
 	//
@@ -72,9 +74,9 @@ type CfnLoggingConfiguration interface {
 	// The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
 	DestinationConfiguration() interface{}
 	SetDestinationConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LoggingConfiguration resource.
-	LoggingConfigurationRef() *LoggingConfigurationReference
+	LoggingConfigurationRef() *interfacesawsivschat.LoggingConfigurationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,8 +249,8 @@ type CfnLoggingConfiguration interface {
 // The jsii proxy struct for CfnLoggingConfiguration
 type jsiiProxy_CfnLoggingConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoggingConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivschatILoggingConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) DestinationConfiguration() interface
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLoggingConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) LoggingConfigurationRef() *LoggingConfigurationReference {
-	var returns *LoggingConfigurationReference
+func (j *jsiiProxy_CfnLoggingConfiguration) LoggingConfigurationRef() *interfacesawsivschat.LoggingConfigurationReference {
+	var returns *interfacesawsivschat.LoggingConfigurationReference
 	_jsii_.Get(
 		j,
 		"loggingConfigurationRef",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::IVSChat::LoggingConfiguration`.
 func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::IVSChat::LoggingConfiguration`.
 func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 

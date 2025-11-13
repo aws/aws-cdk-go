@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnLinkAssociation interface {
 	awscdk.CfnResource
-	ILinkAssociationRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.ILinkAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -40,12 +42,12 @@ type CfnLinkAssociation interface {
 	// The device ID for the link association.
 	DeviceId() *string
 	SetDeviceId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the global network.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
 	// A reference to a LinkAssociation resource.
-	LinkAssociationRef() *LinkAssociationReference
+	LinkAssociationRef() *interfacesawsnetworkmanager.LinkAssociationReference
 	// The ID of the link.
 	LinkId() *string
 	SetLinkId(val *string)
@@ -213,8 +215,8 @@ type CfnLinkAssociation interface {
 // The jsii proxy struct for CfnLinkAssociation
 type jsiiProxy_CfnLinkAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILinkAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerILinkAssociationRef
 }
 
 func (j *jsiiProxy_CfnLinkAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnLinkAssociation) DeviceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLinkAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLinkAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnLinkAssociation) GlobalNetworkId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLinkAssociation) LinkAssociationRef() *LinkAssociationReference {
-	var returns *LinkAssociationReference
+func (j *jsiiProxy_CfnLinkAssociation) LinkAssociationRef() *interfacesawsnetworkmanager.LinkAssociationReference {
+	var returns *interfacesawsnetworkmanager.LinkAssociationReference
 	_jsii_.Get(
 		j,
 		"linkAssociationRef",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnLinkAssociation) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::NetworkManager::LinkAssociation`.
 func NewCfnLinkAssociation(scope constructs.Construct, id *string, props *CfnLinkAssociationProps) CfnLinkAssociation {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnLinkAssociation(scope constructs.Construct, id *string, props *CfnLin
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::LinkAssociation`.
 func NewCfnLinkAssociation_Override(c CfnLinkAssociation, scope constructs.Construct, id *string, props *CfnLinkAssociationProps) {
 	_init_.Initialize()
 

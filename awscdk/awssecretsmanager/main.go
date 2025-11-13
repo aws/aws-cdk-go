@@ -67,8 +67,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourcePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourcePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecretsmanagerIResourcePolicyRef)
 			return &j
 		},
 	)
@@ -122,8 +122,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRotationSchedule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRotationScheduleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecretsmanagerIRotationScheduleRef)
 			return &j
 		},
 	)
@@ -188,8 +188,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSecret{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISecretRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecretsmanagerISecretRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -250,8 +250,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSecretTargetAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISecretTargetAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecretsmanagerISecretTargetAttachmentRef)
 			return &j
 		},
 	)
@@ -284,36 +284,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_secretsmanager.IResourcePolicyRef",
-		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourcePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_secretsmanager.IRotationScheduleRef",
-		reflect.TypeOf((*IRotationScheduleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "rotationScheduleRef", GoGetter: "RotationScheduleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRotationScheduleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_secretsmanager.ISecret",
 		reflect.TypeOf((*ISecret)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -321,6 +291,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "attach", GoMethod: "Attach"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnDynamicReferenceKey", GoMethod: "CfnDynamicReferenceKey"},
 			_jsii_.MemberMethod{JsiiMethod: "denyAccountRootDelete", GoMethod: "DenyAccountRootDelete"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -351,21 +322,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_secretsmanager.ISecretRef",
-		reflect.TypeOf((*ISecretRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "secretRef", GoGetter: "SecretRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISecretRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_secretsmanager.ISecretTargetAttachment",
 		reflect.TypeOf((*ISecretTargetAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -373,6 +329,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "attach", GoMethod: "Attach"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnDynamicReferenceKey", GoMethod: "CfnDynamicReferenceKey"},
 			_jsii_.MemberMethod{JsiiMethod: "denyAccountRootDelete", GoMethod: "DenyAccountRootDelete"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -390,21 +347,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ISecretTargetAttachment{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISecret)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_secretsmanager.ISecretTargetAttachmentRef",
-		reflect.TypeOf((*ISecretTargetAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "secretTargetAttachmentRef", GoGetter: "SecretTargetAttachmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISecretTargetAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -441,10 +383,6 @@ func init() {
 		"aws-cdk-lib.aws_secretsmanager.ResourcePolicyProps",
 		reflect.TypeOf((*ResourcePolicyProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_secretsmanager.ResourcePolicyReference",
-		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_secretsmanager.RotationSchedule",
 		reflect.TypeOf((*RotationSchedule)(nil)).Elem(),
@@ -473,10 +411,6 @@ func init() {
 		"aws-cdk-lib.aws_secretsmanager.RotationScheduleProps",
 		reflect.TypeOf((*RotationScheduleProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_secretsmanager.RotationScheduleReference",
-		reflect.TypeOf((*RotationScheduleReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_secretsmanager.Secret",
 		reflect.TypeOf((*Secret)(nil)).Elem(),
@@ -488,6 +422,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "arnForPolicies", GoGetter: "ArnForPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "attach", GoMethod: "Attach"},
 			_jsii_.MemberProperty{JsiiProperty: "autoCreatePolicy", GoGetter: "AutoCreatePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnDynamicReferenceKey", GoMethod: "CfnDynamicReferenceKey"},
 			_jsii_.MemberMethod{JsiiMethod: "denyAccountRootDelete", GoMethod: "DenyAccountRootDelete"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -525,10 +460,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_secretsmanager.SecretProps",
 		reflect.TypeOf((*SecretProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_secretsmanager.SecretReference",
-		reflect.TypeOf((*SecretReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_secretsmanager.SecretRotation",
@@ -587,6 +518,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "arnForPolicies", GoGetter: "ArnForPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "attach", GoMethod: "Attach"},
 			_jsii_.MemberProperty{JsiiProperty: "autoCreatePolicy", GoGetter: "AutoCreatePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnDynamicReferenceKey", GoMethod: "CfnDynamicReferenceKey"},
 			_jsii_.MemberMethod{JsiiMethod: "denyAccountRootDelete", GoMethod: "DenyAccountRootDelete"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -617,10 +549,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachmentProps",
 		reflect.TypeOf((*SecretTargetAttachmentProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachmentReference",
-		reflect.TypeOf((*SecretTargetAttachmentReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_secretsmanager.SingleUserHostedRotationOptions",

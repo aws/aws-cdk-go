@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,10 +30,10 @@ import (
 //
 type CfnAccount interface {
 	awscdk.CfnResource
-	IAccountRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IAccountRef
 	// A reference to a Account resource.
-	AccountRef() *AccountReference
+	AccountRef() *interfacesawsapigateway.AccountReference
 	// The ID for the account.
 	//
 	// For example: `abc123` .
@@ -48,7 +50,7 @@ type CfnAccount interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,12 +215,12 @@ type CfnAccount interface {
 // The jsii proxy struct for CfnAccount
 type jsiiProxy_CfnAccount struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccountRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIAccountRef
 }
 
-func (j *jsiiProxy_CfnAccount) AccountRef() *AccountReference {
-	var returns *AccountReference
+func (j *jsiiProxy_CfnAccount) AccountRef() *interfacesawsapigateway.AccountReference {
+	var returns *interfacesawsapigateway.AccountReference
 	_jsii_.Get(
 		j,
 		"accountRef",
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnAccount) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccount) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccount) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,6 +360,7 @@ func (j *jsiiProxy_CfnAccount) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGateway::Account`.
 func NewCfnAccount(scope constructs.Construct, id *string, props *CfnAccountProps) CfnAccount {
 	_init_.Initialize()
 
@@ -375,6 +378,7 @@ func NewCfnAccount(scope constructs.Construct, id *string, props *CfnAccountProp
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::Account`.
 func NewCfnAccount_Override(c CfnAccount, scope constructs.Construct, id *string, props *CfnAccountProps) {
 	_init_.Initialize()
 

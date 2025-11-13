@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnNetworkInsightsPath interface {
 	awscdk.CfnResource
-	INetworkInsightsPathRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkInsightsPathRef
 	awscdk.ITaggable
 	// The time stamp when the path was created.
 	AttrCreatedDate() *string
@@ -94,7 +96,7 @@ type CfnNetworkInsightsPath interface {
 	// The destination port.
 	DestinationPort() *float64
 	SetDestinationPort(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Scopes the analysis to network paths that match specific filters at the destination.
 	FilterAtDestination() interface{}
 	SetFilterAtDestination(val interface{})
@@ -112,7 +114,7 @@ type CfnNetworkInsightsPath interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a NetworkInsightsPath resource.
-	NetworkInsightsPathRef() *NetworkInsightsPathReference
+	NetworkInsightsPathRef() *interfacesawsec2.NetworkInsightsPathReference
 	// The tree node.
 	Node() constructs.Node
 	// The protocol.
@@ -281,8 +283,8 @@ type CfnNetworkInsightsPath interface {
 // The jsii proxy struct for CfnNetworkInsightsPath
 type jsiiProxy_CfnNetworkInsightsPath struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkInsightsPathRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkInsightsPathRef
 	internal.Type__awscdkITaggable
 }
 
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) DestinationPort() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsPath) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkInsightsPath) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -446,8 +448,8 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsPath) NetworkInsightsPathRef() *NetworkInsightsPathReference {
-	var returns *NetworkInsightsPathReference
+func (j *jsiiProxy_CfnNetworkInsightsPath) NetworkInsightsPathRef() *interfacesawsec2.NetworkInsightsPathReference {
+	var returns *interfacesawsec2.NetworkInsightsPathReference
 	_jsii_.Get(
 		j,
 		"networkInsightsPathRef",
@@ -557,6 +559,7 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::EC2::NetworkInsightsPath`.
 func NewCfnNetworkInsightsPath(scope constructs.Construct, id *string, props *CfnNetworkInsightsPathProps) CfnNetworkInsightsPath {
 	_init_.Initialize()
 
@@ -574,6 +577,7 @@ func NewCfnNetworkInsightsPath(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkInsightsPath`.
 func NewCfnNetworkInsightsPath_Override(c CfnNetworkInsightsPath, scope constructs.Construct, id *string, props *CfnNetworkInsightsPathProps) {
 	_init_.Initialize()
 
@@ -672,13 +676,13 @@ func (j *jsiiProxy_CfnNetworkInsightsPath)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new INetworkInsightsPathRef from an ARN.
-func CfnNetworkInsightsPath_FromNetworkInsightsPathArn(scope constructs.Construct, id *string, arn *string) INetworkInsightsPathRef {
+func CfnNetworkInsightsPath_FromNetworkInsightsPathArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.INetworkInsightsPathRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkInsightsPath_FromNetworkInsightsPathArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns INetworkInsightsPathRef
+	var returns interfacesawsec2.INetworkInsightsPathRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsPath",
@@ -691,13 +695,13 @@ func CfnNetworkInsightsPath_FromNetworkInsightsPathArn(scope constructs.Construc
 }
 
 // Creates a new INetworkInsightsPathRef from a networkInsightsPathId.
-func CfnNetworkInsightsPath_FromNetworkInsightsPathId(scope constructs.Construct, id *string, networkInsightsPathId *string) INetworkInsightsPathRef {
+func CfnNetworkInsightsPath_FromNetworkInsightsPathId(scope constructs.Construct, id *string, networkInsightsPathId *string) interfacesawsec2.INetworkInsightsPathRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkInsightsPath_FromNetworkInsightsPathIdParameters(scope, id, networkInsightsPathId); err != nil {
 		panic(err)
 	}
-	var returns INetworkInsightsPathRef
+	var returns interfacesawsec2.INetworkInsightsPathRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsPath",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbillingconductor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbillingconductor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnPricingPlan interface {
 	awscdk.CfnResource
-	IPricingPlanRef
 	awscdk.IInspectable
+	interfacesawsbillingconductor.IPricingPlanRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the created pricing plan.
 	AttrArn() *string
@@ -59,7 +61,7 @@ type CfnPricingPlan interface {
 	// The pricing plan description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -76,7 +78,7 @@ type CfnPricingPlan interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PricingPlan resource.
-	PricingPlanRef() *PricingPlanReference
+	PricingPlanRef() *interfacesawsbillingconductor.PricingPlanReference
 	// The `PricingRuleArns` that are associated with the Pricing Plan.
 	PricingRuleArns() *[]*string
 	SetPricingRuleArns(val *[]*string)
@@ -237,8 +239,8 @@ type CfnPricingPlan interface {
 // The jsii proxy struct for CfnPricingPlan
 type jsiiProxy_CfnPricingPlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPricingPlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbillingconductorIPricingPlanRef
 	internal.Type__awscdkITaggable
 }
 
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnPricingPlan) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPricingPlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPricingPlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnPricingPlan) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPricingPlan) PricingPlanRef() *PricingPlanReference {
-	var returns *PricingPlanReference
+func (j *jsiiProxy_CfnPricingPlan) PricingPlanRef() *interfacesawsbillingconductor.PricingPlanReference {
+	var returns *interfacesawsbillingconductor.PricingPlanReference
 	_jsii_.Get(
 		j,
 		"pricingPlanRef",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnPricingPlan) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::BillingConductor::PricingPlan`.
 func NewCfnPricingPlan(scope constructs.Construct, id *string, props *CfnPricingPlanProps) CfnPricingPlan {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnPricingPlan(scope constructs.Construct, id *string, props *CfnPricing
 	return &j
 }
 
+// Create a new `AWS::BillingConductor::PricingPlan`.
 func NewCfnPricingPlan_Override(c CfnPricingPlan, scope constructs.Construct, id *string, props *CfnPricingPlanProps) {
 	_init_.Initialize()
 

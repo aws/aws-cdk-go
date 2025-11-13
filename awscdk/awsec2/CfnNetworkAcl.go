@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnNetworkAcl interface {
 	awscdk.CfnResource
-	INetworkAclRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkAclRef
 	awscdk.ITaggable
 	// The ID of the network ACL.
 	AttrId() *string
@@ -48,7 +50,7 @@ type CfnNetworkAcl interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -60,7 +62,7 @@ type CfnNetworkAcl interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a NetworkAcl resource.
-	NetworkAclRef() *NetworkAclReference
+	NetworkAclRef() *interfacesawsec2.NetworkAclReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -223,8 +225,8 @@ type CfnNetworkAcl interface {
 // The jsii proxy struct for CfnNetworkAcl
 type jsiiProxy_CfnNetworkAcl struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkAclRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkAclRef
 	internal.Type__awscdkITaggable
 }
 
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnNetworkAcl) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkAcl) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkAcl) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnNetworkAcl) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkAcl) NetworkAclRef() *NetworkAclReference {
-	var returns *NetworkAclReference
+func (j *jsiiProxy_CfnNetworkAcl) NetworkAclRef() *interfacesawsec2.NetworkAclReference {
+	var returns *interfacesawsec2.NetworkAclReference
 	_jsii_.Get(
 		j,
 		"networkAclRef",
@@ -389,6 +391,7 @@ func (j *jsiiProxy_CfnNetworkAcl) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::NetworkAcl`.
 func NewCfnNetworkAcl(scope constructs.Construct, id *string, props *CfnNetworkAclProps) CfnNetworkAcl {
 	_init_.Initialize()
 
@@ -406,6 +409,7 @@ func NewCfnNetworkAcl(scope constructs.Construct, id *string, props *CfnNetworkA
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkAcl`.
 func NewCfnNetworkAcl_Override(c CfnNetworkAcl, scope constructs.Construct, id *string, props *CfnNetworkAclProps) {
 	_init_.Initialize()
 

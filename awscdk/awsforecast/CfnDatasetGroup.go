@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsforecast/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsforecast"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnDatasetGroup interface {
 	awscdk.CfnResource
-	IDatasetGroupRef
 	awscdk.IInspectable
+	interfacesawsforecast.IDatasetGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the dataset group.
 	AttrDatasetGroupArn() *string
@@ -67,11 +69,11 @@ type CfnDatasetGroup interface {
 	DatasetGroupName() *string
 	SetDatasetGroupName(val *string)
 	// A reference to a DatasetGroup resource.
-	DatasetGroupRef() *DatasetGroupReference
+	DatasetGroupRef() *interfacesawsforecast.DatasetGroupReference
 	// The domain associated with the dataset group.
 	Domain() *string
 	SetDomain(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,8 +243,8 @@ type CfnDatasetGroup interface {
 // The jsii proxy struct for CfnDatasetGroup
 type jsiiProxy_CfnDatasetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatasetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsforecastIDatasetGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnDatasetGroup) DatasetGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatasetGroup) DatasetGroupRef() *DatasetGroupReference {
-	var returns *DatasetGroupReference
+func (j *jsiiProxy_CfnDatasetGroup) DatasetGroupRef() *interfacesawsforecast.DatasetGroupReference {
+	var returns *interfacesawsforecast.DatasetGroupReference
 	_jsii_.Get(
 		j,
 		"datasetGroupRef",
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnDatasetGroup) Domain() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatasetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDatasetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,6 +429,7 @@ func (j *jsiiProxy_CfnDatasetGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Forecast::DatasetGroup`.
 func NewCfnDatasetGroup(scope constructs.Construct, id *string, props *CfnDatasetGroupProps) CfnDatasetGroup {
 	_init_.Initialize()
 
@@ -444,6 +447,7 @@ func NewCfnDatasetGroup(scope constructs.Construct, id *string, props *CfnDatase
 	return &j
 }
 
+// Create a new `AWS::Forecast::DatasetGroup`.
 func NewCfnDatasetGroup_Override(c CfnDatasetGroup, scope constructs.Construct, id *string, props *CfnDatasetGroupProps) {
 	_init_.Initialize()
 

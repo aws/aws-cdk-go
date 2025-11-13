@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnTransitGatewayMulticastGroupSource interface {
 	awscdk.CfnResource
-	ITransitGatewayMulticastGroupSourceRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayMulticastGroupSourceRef
 	// Information about the registered transit gateway multicast domain group members.
 	AttrGroupMember() awscdk.IResolvable
 	// Indicates that the resource is a transit gateway group member.
@@ -54,7 +56,7 @@ type CfnTransitGatewayMulticastGroupSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IP address assigned to the transit gateway multicast group.
 	GroupIpAddress() *string
 	SetGroupIpAddress(val *string)
@@ -86,7 +88,7 @@ type CfnTransitGatewayMulticastGroupSource interface {
 	TransitGatewayMulticastDomainId() *string
 	SetTransitGatewayMulticastDomainId(val *string)
 	// A reference to a TransitGatewayMulticastGroupSource resource.
-	TransitGatewayMulticastGroupSourceRef() *TransitGatewayMulticastGroupSourceReference
+	TransitGatewayMulticastGroupSourceRef() *interfacesawsec2.TransitGatewayMulticastGroupSourceReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -230,8 +232,8 @@ type CfnTransitGatewayMulticastGroupSource interface {
 // The jsii proxy struct for CfnTransitGatewayMulticastGroupSource
 type jsiiProxy_CfnTransitGatewayMulticastGroupSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayMulticastGroupSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayMulticastGroupSourceRef
 }
 
 func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) AttrGroupMember() awscdk.IResolvable {
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) CreationStack() *[]*st
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) TransitGatewayMulticas
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) TransitGatewayMulticastGroupSourceRef() *TransitGatewayMulticastGroupSourceReference {
-	var returns *TransitGatewayMulticastGroupSourceReference
+func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) TransitGatewayMulticastGroupSourceRef() *interfacesawsec2.TransitGatewayMulticastGroupSourceReference {
+	var returns *interfacesawsec2.TransitGatewayMulticastGroupSourceReference
 	_jsii_.Get(
 		j,
 		"transitGatewayMulticastGroupSourceRef",
@@ -465,6 +467,7 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) UpdatedProperties() *m
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayMulticastGroupSource`.
 func NewCfnTransitGatewayMulticastGroupSource(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupSourceProps) CfnTransitGatewayMulticastGroupSource {
 	_init_.Initialize()
 
@@ -482,6 +485,7 @@ func NewCfnTransitGatewayMulticastGroupSource(scope constructs.Construct, id *st
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayMulticastGroupSource`.
 func NewCfnTransitGatewayMulticastGroupSource_Override(c CfnTransitGatewayMulticastGroupSource, scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupSourceProps) {
 	_init_.Initialize()
 

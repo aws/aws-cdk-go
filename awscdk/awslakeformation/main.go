@@ -54,8 +54,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDataCellsFilter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataCellsFilterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslakeformationIDataCellsFilterRef)
 			return &j
 		},
 	)
@@ -122,8 +122,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDataLakeSettings{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataLakeSettingsRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslakeformationIDataLakeSettingsRef)
 			return &j
 		},
 	)
@@ -184,8 +184,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPermissions{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPermissionsRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslakeformationIPermissionsRef)
 			return &j
 		},
 	)
@@ -272,8 +272,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPrincipalPermissions{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrincipalPermissionsRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslakeformationIPrincipalPermissionsRef)
 			return &j
 		},
 	)
@@ -371,8 +371,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslakeformationIResourceRef)
 			return &j
 		},
 	)
@@ -423,8 +423,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTag{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITagRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslakeformationITagRef)
 			return &j
 		},
 	)
@@ -472,8 +472,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTagAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITagAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslakeformationITagAssociationRef)
 			return &j
 		},
 	)
@@ -504,138 +504,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lakeformation.CfnTagProps",
 		reflect.TypeOf((*CfnTagProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.DataCellsFilterReference",
-		reflect.TypeOf((*DataCellsFilterReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.DataLakeSettingsReference",
-		reflect.TypeOf((*DataLakeSettingsReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lakeformation.IDataCellsFilterRef",
-		reflect.TypeOf((*IDataCellsFilterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataCellsFilterRef", GoGetter: "DataCellsFilterRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataCellsFilterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lakeformation.IDataLakeSettingsRef",
-		reflect.TypeOf((*IDataLakeSettingsRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataLakeSettingsRef", GoGetter: "DataLakeSettingsRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataLakeSettingsRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lakeformation.IPermissionsRef",
-		reflect.TypeOf((*IPermissionsRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "permissionsRef", GoGetter: "PermissionsRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPermissionsRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lakeformation.IPrincipalPermissionsRef",
-		reflect.TypeOf((*IPrincipalPermissionsRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "principalPermissionsRef", GoGetter: "PrincipalPermissionsRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPrincipalPermissionsRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lakeformation.IResourceRef",
-		reflect.TypeOf((*IResourceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceRef", GoGetter: "ResourceRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lakeformation.ITagAssociationRef",
-		reflect.TypeOf((*ITagAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tagAssociationRef", GoGetter: "TagAssociationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITagAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lakeformation.ITagRef",
-		reflect.TypeOf((*ITagRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tagRef", GoGetter: "TagRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITagRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.PermissionsReference",
-		reflect.TypeOf((*PermissionsReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.PrincipalPermissionsReference",
-		reflect.TypeOf((*PrincipalPermissionsReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.ResourceReference",
-		reflect.TypeOf((*ResourceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.TagAssociationReference",
-		reflect.TypeOf((*TagAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.TagReference",
-		reflect.TypeOf((*TagReference)(nil)).Elem(),
 	)
 }

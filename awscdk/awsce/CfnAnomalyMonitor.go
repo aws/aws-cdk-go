@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsce/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsce"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,11 +39,11 @@ import (
 //
 type CfnAnomalyMonitor interface {
 	awscdk.CfnResource
-	IAnomalyMonitorRef
 	awscdk.IInspectable
+	interfacesawsce.IAnomalyMonitorRef
 	awscdk.ITaggableV2
 	// A reference to a AnomalyMonitor resource.
-	AnomalyMonitorRef() *AnomalyMonitorReference
+	AnomalyMonitorRef() *interfacesawsce.AnomalyMonitorReference
 	// The date when the monitor was created.
 	AttrCreationDate() *string
 	// The value for evaluated dimensions.
@@ -63,7 +65,7 @@ type CfnAnomalyMonitor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -243,13 +245,13 @@ type CfnAnomalyMonitor interface {
 // The jsii proxy struct for CfnAnomalyMonitor
 type jsiiProxy_CfnAnomalyMonitor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnomalyMonitorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsceIAnomalyMonitorRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAnomalyMonitor) AnomalyMonitorRef() *AnomalyMonitorReference {
-	var returns *AnomalyMonitorReference
+func (j *jsiiProxy_CfnAnomalyMonitor) AnomalyMonitorRef() *interfacesawsce.AnomalyMonitorReference {
+	var returns *interfacesawsce.AnomalyMonitorReference
 	_jsii_.Get(
 		j,
 		"anomalyMonitorRef",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnAnomalyMonitor) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyMonitor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnomalyMonitor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -479,6 +481,7 @@ func (j *jsiiProxy_CfnAnomalyMonitor) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::CE::AnomalyMonitor`.
 func NewCfnAnomalyMonitor(scope constructs.Construct, id *string, props *CfnAnomalyMonitorProps) CfnAnomalyMonitor {
 	_init_.Initialize()
 
@@ -496,6 +499,7 @@ func NewCfnAnomalyMonitor(scope constructs.Construct, id *string, props *CfnAnom
 	return &j
 }
 
+// Create a new `AWS::CE::AnomalyMonitor`.
 func NewCfnAnomalyMonitor_Override(c CfnAnomalyMonitor, scope constructs.Construct, id *string, props *CfnAnomalyMonitorProps) {
 	_init_.Initialize()
 

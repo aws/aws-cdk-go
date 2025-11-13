@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,9 +47,9 @@ type GatewayResponse interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a GatewayResponse resource.
-	GatewayResponseRef() *GatewayResponseReference
+	GatewayResponseRef() *interfacesawsapigateway.GatewayResponseReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -94,8 +96,8 @@ type jsiiProxy_GatewayResponse struct {
 	jsiiProxy_IGatewayResponse
 }
 
-func (j *jsiiProxy_GatewayResponse) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_GatewayResponse) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -104,8 +106,8 @@ func (j *jsiiProxy_GatewayResponse) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_GatewayResponse) GatewayResponseRef() *GatewayResponseReference {
-	var returns *GatewayResponseReference
+func (j *jsiiProxy_GatewayResponse) GatewayResponseRef() *interfacesawsapigateway.GatewayResponseReference {
+	var returns *interfacesawsapigateway.GatewayResponseReference
 	_jsii_.Get(
 		j,
 		"gatewayResponseRef",

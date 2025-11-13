@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnEIP interface {
 	awscdk.CfnResource
-	IEIPRef
 	awscdk.IInspectable
+	interfacesawsec2.IEIPRef
 	awscdk.ITaggable
 	// An Elastic IP address or a carrier IP address in a Wavelength Zone.
 	Address() *string
@@ -57,8 +59,8 @@ type CfnEIP interface {
 	Domain() *string
 	SetDomain(val *string)
 	// A reference to a EIP resource.
-	EipRef() *EIPReference
-	Env() *awscdk.ResourceEnvironment
+	EipRef() *interfacesawsec2.EIPReference
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -243,8 +245,8 @@ type CfnEIP interface {
 // The jsii proxy struct for CfnEIP
 type jsiiProxy_CfnEIP struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEIPRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IEIPRef
 	internal.Type__awscdkITaggable
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnEIP) Domain() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEIP) EipRef() *EIPReference {
-	var returns *EIPReference
+func (j *jsiiProxy_CfnEIP) EipRef() *interfacesawsec2.EIPReference {
+	var returns *interfacesawsec2.EIPReference
 	_jsii_.Get(
 		j,
 		"eipRef",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnEIP) EipRef() *EIPReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEIP) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEIP) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -479,6 +481,7 @@ func (j *jsiiProxy_CfnEIP) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::EIP`.
 func NewCfnEIP(scope constructs.Construct, id *string, props *CfnEIPProps) CfnEIP {
 	_init_.Initialize()
 
@@ -496,6 +499,7 @@ func NewCfnEIP(scope constructs.Construct, id *string, props *CfnEIPProps) CfnEI
 	return &j
 }
 
+// Create a new `AWS::EC2::EIP`.
 func NewCfnEIP_Override(c CfnEIP, scope constructs.Construct, id *string, props *CfnEIPProps) {
 	_init_.Initialize()
 

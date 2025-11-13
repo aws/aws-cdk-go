@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspcs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspcs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnQueue interface {
 	awscdk.CfnResource
-	IQueueRef
 	awscdk.IInspectable
+	interfacesawspcs.IQueueRef
 	awscdk.ITaggableV2
 	// The unique Amazon Resource Name (ARN) of the queue.
 	AttrArn() *string
@@ -75,7 +77,7 @@ type CfnQueue interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -92,7 +94,7 @@ type CfnQueue interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Queue resource.
-	QueueRef() *QueueReference
+	QueueRef() *interfacesawspcs.QueueReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -251,8 +253,8 @@ type CfnQueue interface {
 // The jsii proxy struct for CfnQueue
 type jsiiProxy_CfnQueue struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueueRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspcsIQueueRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnQueue) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueue) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnQueue) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) QueueRef() *QueueReference {
-	var returns *QueueReference
+func (j *jsiiProxy_CfnQueue) QueueRef() *interfacesawspcs.QueueReference {
+	var returns *interfacesawspcs.QueueReference
 	_jsii_.Get(
 		j,
 		"queueRef",
@@ -477,6 +479,7 @@ func (j *jsiiProxy_CfnQueue) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::PCS::Queue`.
 func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) CfnQueue {
 	_init_.Initialize()
 
@@ -494,6 +497,7 @@ func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) C
 	return &j
 }
 
+// Create a new `AWS::PCS::Queue`.
 func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, props *CfnQueueProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -199,8 +201,8 @@ import (
 //
 type CfnEndpointConfig interface {
 	awscdk.CfnResource
-	IEndpointConfigRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IEndpointConfigRef
 	awscdk.ITaggable
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	AsyncInferenceConfig() interface{}
@@ -226,8 +228,8 @@ type CfnEndpointConfig interface {
 	EndpointConfigName() *string
 	SetEndpointConfigName(val *string)
 	// A reference to a EndpointConfig resource.
-	EndpointConfigRef() *EndpointConfigReference
-	Env() *awscdk.ResourceEnvironment
+	EndpointConfigRef() *interfacesawssagemaker.EndpointConfigReference
+	Env() *interfaces.ResourceEnvironment
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// A parameter to activate explainers.
@@ -413,8 +415,8 @@ type CfnEndpointConfig interface {
 // The jsii proxy struct for CfnEndpointConfig
 type jsiiProxy_CfnEndpointConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEndpointConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIEndpointConfigRef
 	internal.Type__awscdkITaggable
 }
 
@@ -518,8 +520,8 @@ func (j *jsiiProxy_CfnEndpointConfig) EndpointConfigName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointConfig) EndpointConfigRef() *EndpointConfigReference {
-	var returns *EndpointConfigReference
+func (j *jsiiProxy_CfnEndpointConfig) EndpointConfigRef() *interfacesawssagemaker.EndpointConfigReference {
+	var returns *interfacesawssagemaker.EndpointConfigReference
 	_jsii_.Get(
 		j,
 		"endpointConfigRef",
@@ -528,8 +530,8 @@ func (j *jsiiProxy_CfnEndpointConfig) EndpointConfigRef() *EndpointConfigReferen
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEndpointConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -679,6 +681,7 @@ func (j *jsiiProxy_CfnEndpointConfig) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::EndpointConfig`.
 func NewCfnEndpointConfig(scope constructs.Construct, id *string, props *CfnEndpointConfigProps) CfnEndpointConfig {
 	_init_.Initialize()
 
@@ -696,6 +699,7 @@ func NewCfnEndpointConfig(scope constructs.Construct, id *string, props *CfnEndp
 	return &j
 }
 
+// Create a new `AWS::SageMaker::EndpointConfig`.
 func NewCfnEndpointConfig_Override(c CfnEndpointConfig, scope constructs.Construct, id *string, props *CfnEndpointConfigProps) {
 	_init_.Initialize()
 

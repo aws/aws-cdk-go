@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnVolumeAttachment interface {
 	awscdk.CfnResource
-	IVolumeAttachmentRef
 	awscdk.IInspectable
+	interfacesawsec2.IVolumeAttachmentRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -48,7 +50,7 @@ type CfnVolumeAttachment interface {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
 	Device() *string
 	SetDevice(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the instance to which the volume attaches.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -87,7 +89,7 @@ type CfnVolumeAttachment interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VolumeAttachment resource.
-	VolumeAttachmentRef() *VolumeAttachmentReference
+	VolumeAttachmentRef() *interfacesawsec2.VolumeAttachmentReference
 	// The ID of the Amazon EBS volume.
 	VolumeId() *string
 	SetVolumeId(val *string)
@@ -221,8 +223,8 @@ type CfnVolumeAttachment interface {
 // The jsii proxy struct for CfnVolumeAttachment
 type jsiiProxy_CfnVolumeAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVolumeAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVolumeAttachmentRef
 }
 
 func (j *jsiiProxy_CfnVolumeAttachment) CfnOptions() awscdk.ICfnResourceOptions {
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnVolumeAttachment) Device() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolumeAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVolumeAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnVolumeAttachment) UpdatedProperties() *map[string]interfac
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolumeAttachment) VolumeAttachmentRef() *VolumeAttachmentReference {
-	var returns *VolumeAttachmentReference
+func (j *jsiiProxy_CfnVolumeAttachment) VolumeAttachmentRef() *interfacesawsec2.VolumeAttachmentReference {
+	var returns *interfacesawsec2.VolumeAttachmentReference
 	_jsii_.Get(
 		j,
 		"volumeAttachmentRef",
@@ -376,6 +378,7 @@ func (j *jsiiProxy_CfnVolumeAttachment) VolumeId() *string {
 }
 
 
+// Create a new `AWS::EC2::VolumeAttachment`.
 func NewCfnVolumeAttachment(scope constructs.Construct, id *string, props *CfnVolumeAttachmentProps) CfnVolumeAttachment {
 	_init_.Initialize()
 
@@ -393,6 +396,7 @@ func NewCfnVolumeAttachment(scope constructs.Construct, id *string, props *CfnVo
 	return &j
 }
 
+// Create a new `AWS::EC2::VolumeAttachment`.
 func NewCfnVolumeAttachment_Override(c CfnVolumeAttachment, scope constructs.Construct, id *string, props *CfnVolumeAttachmentProps) {
 	_init_.Initialize()
 

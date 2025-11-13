@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnUsageProfile interface {
 	awscdk.CfnResource
-	IUsageProfileRef
 	awscdk.IInspectable
+	interfacesawsglue.IUsageProfileRef
 	awscdk.ITaggableV2
 	// The date and time when the usage profile was created.
 	AttrCreatedOn() *string
@@ -76,7 +78,7 @@ type CfnUsageProfile interface {
 	// A description of the usage profile.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -118,7 +120,7 @@ type CfnUsageProfile interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a UsageProfile resource.
-	UsageProfileRef() *UsageProfileReference
+	UsageProfileRef() *interfacesawsglue.UsageProfileReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -249,8 +251,8 @@ type CfnUsageProfile interface {
 // The jsii proxy struct for CfnUsageProfile
 type jsiiProxy_CfnUsageProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUsageProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIUsageProfileRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnUsageProfile) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUsageProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUsageProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -424,8 +426,8 @@ func (j *jsiiProxy_CfnUsageProfile) UpdatedProperties() *map[string]interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnUsageProfile) UsageProfileRef() *UsageProfileReference {
-	var returns *UsageProfileReference
+func (j *jsiiProxy_CfnUsageProfile) UsageProfileRef() *interfacesawsglue.UsageProfileReference {
+	var returns *interfacesawsglue.UsageProfileReference
 	_jsii_.Get(
 		j,
 		"usageProfileRef",
@@ -435,6 +437,7 @@ func (j *jsiiProxy_CfnUsageProfile) UsageProfileRef() *UsageProfileReference {
 }
 
 
+// Create a new `AWS::Glue::UsageProfile`.
 func NewCfnUsageProfile(scope constructs.Construct, id *string, props *CfnUsageProfileProps) CfnUsageProfile {
 	_init_.Initialize()
 
@@ -452,6 +455,7 @@ func NewCfnUsageProfile(scope constructs.Construct, id *string, props *CfnUsageP
 	return &j
 }
 
+// Create a new `AWS::Glue::UsageProfile`.
 func NewCfnUsageProfile_Override(c CfnUsageProfile, scope constructs.Construct, id *string, props *CfnUsageProfileProps) {
 	_init_.Initialize()
 

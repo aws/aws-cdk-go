@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnRouteResponse interface {
 	awscdk.CfnResource
-	IRouteResponseRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IRouteResponseRef
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
@@ -55,7 +57,7 @@ type CfnRouteResponse interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -89,7 +91,7 @@ type CfnRouteResponse interface {
 	RouteResponseKey() *string
 	SetRouteResponseKey(val *string)
 	// A reference to a RouteResponse resource.
-	RouteResponseRef() *RouteResponseReference
+	RouteResponseRef() *interfacesawsapigatewayv2.RouteResponseReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -237,8 +239,8 @@ type CfnRouteResponse interface {
 // The jsii proxy struct for CfnRouteResponse
 type jsiiProxy_CfnRouteResponse struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteResponseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IRouteResponseRef
 }
 
 func (j *jsiiProxy_CfnRouteResponse) ApiId() *string {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnRouteResponse) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteResponse) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRouteResponse) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -391,8 +393,8 @@ func (j *jsiiProxy_CfnRouteResponse) RouteResponseKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteResponse) RouteResponseRef() *RouteResponseReference {
-	var returns *RouteResponseReference
+func (j *jsiiProxy_CfnRouteResponse) RouteResponseRef() *interfacesawsapigatewayv2.RouteResponseReference {
+	var returns *interfacesawsapigatewayv2.RouteResponseReference
 	_jsii_.Get(
 		j,
 		"routeResponseRef",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnRouteResponse) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::ApiGatewayV2::RouteResponse`.
 func NewCfnRouteResponse(scope constructs.Construct, id *string, props *CfnRouteResponseProps) CfnRouteResponse {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnRouteResponse(scope constructs.Construct, id *string, props *CfnRoute
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::RouteResponse`.
 func NewCfnRouteResponse_Override(c CfnRouteResponse, scope constructs.Construct, id *string, props *CfnRouteResponseProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnFlowAlias interface {
 	awscdk.CfnResource
-	IFlowAliasRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IFlowAliasRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the alias.
 	AttrArn() *string
@@ -74,9 +76,9 @@ type CfnFlowAlias interface {
 	// A description of the alias.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FlowAlias resource.
-	FlowAliasRef() *FlowAliasReference
+	FlowAliasRef() *interfacesawsbedrock.FlowAliasReference
 	// The Amazon Resource Name (ARN) of the alias.
 	FlowArn() *string
 	SetFlowArn(val *string)
@@ -255,8 +257,8 @@ type CfnFlowAlias interface {
 // The jsii proxy struct for CfnFlowAlias
 type jsiiProxy_CfnFlowAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIFlowAliasRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnFlowAlias) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlowAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -390,8 +392,8 @@ func (j *jsiiProxy_CfnFlowAlias) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowAlias) FlowAliasRef() *FlowAliasReference {
-	var returns *FlowAliasReference
+func (j *jsiiProxy_CfnFlowAlias) FlowAliasRef() *interfacesawsbedrock.FlowAliasReference {
+	var returns *interfacesawsbedrock.FlowAliasReference
 	_jsii_.Get(
 		j,
 		"flowAliasRef",
@@ -501,6 +503,7 @@ func (j *jsiiProxy_CfnFlowAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Bedrock::FlowAlias`.
 func NewCfnFlowAlias(scope constructs.Construct, id *string, props *CfnFlowAliasProps) CfnFlowAlias {
 	_init_.Initialize()
 
@@ -518,6 +521,7 @@ func NewCfnFlowAlias(scope constructs.Construct, id *string, props *CfnFlowAlias
 	return &j
 }
 
+// Create a new `AWS::Bedrock::FlowAlias`.
 func NewCfnFlowAlias_Override(c CfnFlowAlias, scope constructs.Construct, id *string, props *CfnFlowAliasProps) {
 	_init_.Initialize()
 

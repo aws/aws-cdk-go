@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The `AWS::SecurityHub::PolicyAssociation` resource specifies associations for a configuration policy or a self-managed configuration.
 //
-// You can associate a AWS Security Hub configuration policy or self-managed configuration with the organization root, organizational units (OUs), or AWS accounts . After a successful association, the configuration policy takes effect in the specified targets. For more information, see [Creating and associating Security Hub configuration policies](https://docs.aws.amazon.com/securityhub/latest/userguide/create-associate-policy.html) in the *AWS Security Hub User Guide* .
+// You can associate a Security Hub configuration policy or self-managed configuration with the organization root, organizational units (OUs), or AWS accounts . After a successful association, the configuration policy takes effect in the specified targets. For more information, see [Creating and associating Security Hub configuration policies](https://docs.aws.amazon.com/securityhub/latest/userguide/create-associate-policy.html) in the *Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,8 +30,8 @@ import (
 //
 type CfnPolicyAssociation interface {
 	awscdk.CfnResource
-	IPolicyAssociationRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IPolicyAssociationRef
 	// The association identifier, formatted as `TargetType/TargetId` .
 	//
 	// For example, `ACCOUNT/123456789012` .
@@ -38,7 +40,7 @@ type CfnPolicyAssociation interface {
 	AttrAssociationStatus() *string
 	// The explanation for a `FAILED` value for `AssociationStatus` .
 	AttrAssociationStatusMessage() *string
-	// Indicates whether the association between the specified target and the configuration was directly applied by the AWS Security Hub delegated administrator or inherited from a parent.
+	// Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent.
 	AttrAssociationType() *string
 	// The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
 	AttrUpdatedAt() *string
@@ -54,7 +56,7 @@ type CfnPolicyAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -68,7 +70,7 @@ type CfnPolicyAssociation interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PolicyAssociation resource.
-	PolicyAssociationRef() *PolicyAssociationReference
+	PolicyAssociationRef() *interfacesawssecurityhub.PolicyAssociationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -227,8 +229,8 @@ type CfnPolicyAssociation interface {
 // The jsii proxy struct for CfnPolicyAssociation
 type jsiiProxy_CfnPolicyAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPolicyAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIPolicyAssociationRef
 }
 
 func (j *jsiiProxy_CfnPolicyAssociation) AttrAssociationIdentifier() *string {
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnPolicyAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPolicyAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnPolicyAssociation) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyAssociation) PolicyAssociationRef() *PolicyAssociationReference {
-	var returns *PolicyAssociationReference
+func (j *jsiiProxy_CfnPolicyAssociation) PolicyAssociationRef() *interfacesawssecurityhub.PolicyAssociationReference {
+	var returns *interfacesawssecurityhub.PolicyAssociationReference
 	_jsii_.Get(
 		j,
 		"policyAssociationRef",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnPolicyAssociation) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::SecurityHub::PolicyAssociation`.
 func NewCfnPolicyAssociation(scope constructs.Construct, id *string, props *CfnPolicyAssociationProps) CfnPolicyAssociation {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnPolicyAssociation(scope constructs.Construct, id *string, props *CfnP
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::PolicyAssociation`.
 func NewCfnPolicyAssociation_Override(c CfnPolicyAssociation, scope constructs.Construct, id *string, props *CfnPolicyAssociationProps) {
 	_init_.Initialize()
 

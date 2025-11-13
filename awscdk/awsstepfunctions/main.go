@@ -47,10 +47,6 @@ func init() {
 		reflect.TypeOf((*ActivityProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions.ActivityReference",
-		reflect.TypeOf((*ActivityReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.AfterwardsOptions",
 		reflect.TypeOf((*AfterwardsOptions)(nil)).Elem(),
 	)
@@ -120,8 +116,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnActivity{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IActivityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsstepfunctionsIActivityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -193,8 +189,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStateMachine{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStateMachineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsstepfunctionsIStateMachineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -272,8 +268,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStateMachineAlias{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStateMachineAliasRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsstepfunctionsIStateMachineAliasRef)
 			return &j
 		},
 	)
@@ -337,8 +333,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStateMachineVersion{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStateMachineVersionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsstepfunctionsIStateMachineVersionRef)
 			return &j
 		},
 	)
@@ -790,21 +786,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_stepfunctions.IActivityRef",
-		reflect.TypeOf((*IActivityRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "activityRef", GoGetter: "ActivityRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IActivityRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_stepfunctions.IChainable",
 		reflect.TypeOf((*IChainable)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -872,51 +853,6 @@ func init() {
 			j := jsiiProxy_IStateMachine{}
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_stepfunctions.IStateMachineAliasRef",
-		reflect.TypeOf((*IStateMachineAliasRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stateMachineAliasRef", GoGetter: "StateMachineAliasRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStateMachineAliasRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_stepfunctions.IStateMachineRef",
-		reflect.TypeOf((*IStateMachineRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stateMachineRef", GoGetter: "StateMachineRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStateMachineRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_stepfunctions.IStateMachineVersionRef",
-		reflect.TypeOf((*IStateMachineVersionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stateMachineVersionRef", GoGetter: "StateMachineVersionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStateMachineVersionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1645,10 +1581,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions.StateMachineAliasReference",
-		reflect.TypeOf((*StateMachineAliasReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.StateMachineFragment",
 		reflect.TypeOf((*StateMachineFragment)(nil)).Elem(),
@@ -1673,10 +1605,6 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions.StateMachineProps",
 		reflect.TypeOf((*StateMachineProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions.StateMachineReference",
-		reflect.TypeOf((*StateMachineReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_stepfunctions.StateMachineType",
 		reflect.TypeOf((*StateMachineType)(nil)).Elem(),
@@ -1684,10 +1612,6 @@ func init() {
 			"EXPRESS": StateMachineType_EXPRESS,
 			"STANDARD": StateMachineType_STANDARD,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions.StateMachineVersionReference",
-		reflect.TypeOf((*StateMachineVersionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.StateProps",

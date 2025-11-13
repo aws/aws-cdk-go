@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnFolder interface {
 	awscdk.CfnResource
-	IFolderRef
 	awscdk.IInspectable
+	interfacesawsquicksight.IFolderRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the folder.
 	AttrArn() *string
@@ -66,12 +68,12 @@ type CfnFolder interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the folder.
 	FolderId() *string
 	SetFolderId(val *string)
 	// A reference to a Folder resource.
-	FolderRef() *FolderReference
+	FolderRef() *interfacesawsquicksight.FolderReference
 	// The type of folder it is.
 	FolderType() *string
 	SetFolderType(val *string)
@@ -254,8 +256,8 @@ type CfnFolder interface {
 // The jsii proxy struct for CfnFolder
 type jsiiProxy_CfnFolder struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFolderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightIFolderRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnFolder) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFolder) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFolder) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnFolder) FolderId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFolder) FolderRef() *FolderReference {
-	var returns *FolderReference
+func (j *jsiiProxy_CfnFolder) FolderRef() *interfacesawsquicksight.FolderReference {
+	var returns *interfacesawsquicksight.FolderReference
 	_jsii_.Get(
 		j,
 		"folderRef",
@@ -500,6 +502,7 @@ func (j *jsiiProxy_CfnFolder) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::QuickSight::Folder`.
 func NewCfnFolder(scope constructs.Construct, id *string, props *CfnFolderProps) CfnFolder {
 	_init_.Initialize()
 
@@ -517,6 +520,7 @@ func NewCfnFolder(scope constructs.Construct, id *string, props *CfnFolderProps)
 	return &j
 }
 
+// Create a new `AWS::QuickSight::Folder`.
 func NewCfnFolder_Override(c CfnFolder, scope constructs.Construct, id *string, props *CfnFolderProps) {
 	_init_.Initialize()
 

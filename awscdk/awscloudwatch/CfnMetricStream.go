@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -83,8 +85,8 @@ import (
 //
 type CfnMetricStream interface {
 	awscdk.CfnResource
-	IMetricStreamRef
 	awscdk.IInspectable
+	interfacesawscloudwatch.IMetricStreamRef
 	awscdk.ITaggable
 	// The ARN of the metric stream.
 	AttrArn() *string
@@ -103,7 +105,7 @@ type CfnMetricStream interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here.
 	ExcludeFilters() interface{}
 	SetExcludeFilters(val interface{})
@@ -127,7 +129,7 @@ type CfnMetricStream interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MetricStream resource.
-	MetricStreamRef() *MetricStreamReference
+	MetricStreamRef() *interfacesawscloudwatch.MetricStreamReference
 	// If you are creating a new metric stream, this is the name for the new stream.
 	Name() *string
 	SetName(val *string)
@@ -299,8 +301,8 @@ type CfnMetricStream interface {
 // The jsii proxy struct for CfnMetricStream
 type jsiiProxy_CfnMetricStream struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMetricStreamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudwatchIMetricStreamRef
 	internal.Type__awscdkITaggable
 }
 
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnMetricStream) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMetricStream) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMetricStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -444,8 +446,8 @@ func (j *jsiiProxy_CfnMetricStream) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMetricStream) MetricStreamRef() *MetricStreamReference {
-	var returns *MetricStreamReference
+func (j *jsiiProxy_CfnMetricStream) MetricStreamRef() *interfacesawscloudwatch.MetricStreamReference {
+	var returns *interfacesawscloudwatch.MetricStreamReference
 	_jsii_.Get(
 		j,
 		"metricStreamRef",
@@ -565,6 +567,7 @@ func (j *jsiiProxy_CfnMetricStream) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::CloudWatch::MetricStream`.
 func NewCfnMetricStream(scope constructs.Construct, id *string, props *CfnMetricStreamProps) CfnMetricStream {
 	_init_.Initialize()
 
@@ -582,6 +585,7 @@ func NewCfnMetricStream(scope constructs.Construct, id *string, props *CfnMetric
 	return &j
 }
 
+// Create a new `AWS::CloudWatch::MetricStream`.
 func NewCfnMetricStream_Override(c CfnMetricStream, scope constructs.Construct, id *string, props *CfnMetricStreamProps) {
 	_init_.Initialize()
 
@@ -689,13 +693,13 @@ func (j *jsiiProxy_CfnMetricStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMetricStreamRef from an ARN.
-func CfnMetricStream_FromMetricStreamArn(scope constructs.Construct, id *string, arn *string) IMetricStreamRef {
+func CfnMetricStream_FromMetricStreamArn(scope constructs.Construct, id *string, arn *string) interfacesawscloudwatch.IMetricStreamRef {
 	_init_.Initialize()
 
 	if err := validateCfnMetricStream_FromMetricStreamArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IMetricStreamRef
+	var returns interfacesawscloudwatch.IMetricStreamRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream",
@@ -708,13 +712,13 @@ func CfnMetricStream_FromMetricStreamArn(scope constructs.Construct, id *string,
 }
 
 // Creates a new IMetricStreamRef from a metricStreamName.
-func CfnMetricStream_FromMetricStreamName(scope constructs.Construct, id *string, metricStreamName *string) IMetricStreamRef {
+func CfnMetricStream_FromMetricStreamName(scope constructs.Construct, id *string, metricStreamName *string) interfacesawscloudwatch.IMetricStreamRef {
 	_init_.Initialize()
 
 	if err := validateCfnMetricStream_FromMetricStreamNameParameters(scope, id, metricStreamName); err != nil {
 		panic(err)
 	}
-	var returns IMetricStreamRef
+	var returns interfacesawscloudwatch.IMetricStreamRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -156,8 +158,8 @@ import (
 //
 type CfnProcessingJob interface {
 	awscdk.CfnResource
-	IProcessingJobRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IProcessingJobRef
 	awscdk.ITaggableV2
 	// Configuration to run a processing job in a specified container image.
 	AppSpecification() interface{}
@@ -195,7 +197,7 @@ type CfnProcessingJob interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Sets the environment variables in the Docker container.
 	Environment() interface{}
 	SetEnvironment(val interface{})
@@ -224,7 +226,7 @@ type CfnProcessingJob interface {
 	ProcessingJobName() *string
 	SetProcessingJobName(val *string)
 	// A reference to a ProcessingJob resource.
-	ProcessingJobRef() *ProcessingJobReference
+	ProcessingJobRef() *interfacesawssagemaker.ProcessingJobReference
 	// Contains information about the output location for the compiled model and the target device that the model runs on.
 	ProcessingOutputConfig() interface{}
 	SetProcessingOutputConfig(val interface{})
@@ -392,8 +394,8 @@ type CfnProcessingJob interface {
 // The jsii proxy struct for CfnProcessingJob
 type jsiiProxy_CfnProcessingJob struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProcessingJobRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIProcessingJobRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -567,8 +569,8 @@ func (j *jsiiProxy_CfnProcessingJob) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProcessingJob) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProcessingJob) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -647,8 +649,8 @@ func (j *jsiiProxy_CfnProcessingJob) ProcessingJobName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProcessingJob) ProcessingJobRef() *ProcessingJobReference {
-	var returns *ProcessingJobReference
+func (j *jsiiProxy_CfnProcessingJob) ProcessingJobRef() *interfacesawssagemaker.ProcessingJobReference {
+	var returns *interfacesawssagemaker.ProcessingJobReference
 	_jsii_.Get(
 		j,
 		"processingJobRef",
@@ -748,6 +750,7 @@ func (j *jsiiProxy_CfnProcessingJob) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::SageMaker::ProcessingJob`.
 func NewCfnProcessingJob(scope constructs.Construct, id *string, props *CfnProcessingJobProps) CfnProcessingJob {
 	_init_.Initialize()
 
@@ -765,6 +768,7 @@ func NewCfnProcessingJob(scope constructs.Construct, id *string, props *CfnProce
 	return &j
 }
 
+// Create a new `AWS::SageMaker::ProcessingJob`.
 func NewCfnProcessingJob_Override(c CfnProcessingJob, scope constructs.Construct, id *string, props *CfnProcessingJobProps) {
 	_init_.Initialize()
 

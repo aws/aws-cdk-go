@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,10 +40,10 @@ import (
 //
 type CfnAPNSVoipChannel interface {
 	awscdk.CfnResource
-	IAPNSVoipChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IAPNSVoipChannelRef
 	// A reference to a APNSVoipChannel resource.
-	ApnsVoipChannelRef() *APNSVoipChannelReference
+	ApnsVoipChannelRef() *interfacesawspinpoint.APNSVoipChannelReference
 	// The unique identifier for the Amazon Pinpoint application that the APNs VoIP channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -70,7 +72,7 @@ type CfnAPNSVoipChannel interface {
 	// Specifies whether to enable the APNs VoIP channel for the Amazon Pinpoint application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,12 +249,12 @@ type CfnAPNSVoipChannel interface {
 // The jsii proxy struct for CfnAPNSVoipChannel
 type jsiiProxy_CfnAPNSVoipChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAPNSVoipChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIAPNSVoipChannelRef
 }
 
-func (j *jsiiProxy_CfnAPNSVoipChannel) ApnsVoipChannelRef() *APNSVoipChannelReference {
-	var returns *APNSVoipChannelReference
+func (j *jsiiProxy_CfnAPNSVoipChannel) ApnsVoipChannelRef() *interfacesawspinpoint.APNSVoipChannelReference {
+	var returns *interfacesawspinpoint.APNSVoipChannelReference
 	_jsii_.Get(
 		j,
 		"apnsVoipChannelRef",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnAPNSVoipChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAPNSVoipChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAPNSVoipChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -472,6 +474,7 @@ func (j *jsiiProxy_CfnAPNSVoipChannel) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Pinpoint::APNSVoipChannel`.
 func NewCfnAPNSVoipChannel(scope constructs.Construct, id *string, props *CfnAPNSVoipChannelProps) CfnAPNSVoipChannel {
 	_init_.Initialize()
 
@@ -489,6 +492,7 @@ func NewCfnAPNSVoipChannel(scope constructs.Construct, id *string, props *CfnAPN
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::APNSVoipChannel`.
 func NewCfnAPNSVoipChannel_Override(c CfnAPNSVoipChannel, scope constructs.Construct, id *string, props *CfnAPNSVoipChannelProps) {
 	_init_.Initialize()
 

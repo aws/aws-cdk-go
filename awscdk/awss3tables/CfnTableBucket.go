@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3tables/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3tables"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,6 +34,12 @@ import (
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		SseAlgorithm: jsii.String("sseAlgorithm"),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	UnreferencedFileRemoval: &UnreferencedFileRemovalProperty{
 //   		NoncurrentDays: jsii.Number(123),
 //   		Status: jsii.String("status"),
@@ -43,10 +51,13 @@ import (
 //
 type CfnTableBucket interface {
 	awscdk.CfnResource
-	ITableBucketRef
 	awscdk.IInspectable
+	interfacesawss3tables.ITableBucketRef
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the table bucket.
 	AttrTableBucketArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -59,7 +70,7 @@ type CfnTableBucket interface {
 	// Configuration specifying how data should be encrypted.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +96,10 @@ type CfnTableBucket interface {
 	TableBucketName() *string
 	SetTableBucketName(val *string)
 	// A reference to a TableBucket resource.
-	TableBucketRef() *TableBucketReference
+	TableBucketRef() *interfacesawss3tables.TableBucketReference
+	// User tags (key-value pairs) to associate with the table bucket.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The unreferenced file removal settings for your table bucket.
 	UnreferencedFileRemoval() interface{}
 	SetUnreferencedFileRemoval(val interface{})
@@ -232,8 +246,9 @@ type CfnTableBucket interface {
 // The jsii proxy struct for CfnTableBucket
 type jsiiProxy_CfnTableBucket struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITableBucketRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3tablesITableBucketRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTableBucket) AttrTableBucketArn() *string {
@@ -241,6 +256,16 @@ func (j *jsiiProxy_CfnTableBucket) AttrTableBucketArn() *string {
 	_jsii_.Get(
 		j,
 		"attrTableBucketArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTableBucket) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -296,8 +321,8 @@ func (j *jsiiProxy_CfnTableBucket) EncryptionConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTableBucket) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTableBucket) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -356,11 +381,21 @@ func (j *jsiiProxy_CfnTableBucket) TableBucketName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTableBucket) TableBucketRef() *TableBucketReference {
-	var returns *TableBucketReference
+func (j *jsiiProxy_CfnTableBucket) TableBucketRef() *interfacesawss3tables.TableBucketReference {
+	var returns *interfacesawss3tables.TableBucketReference
 	_jsii_.Get(
 		j,
 		"tableBucketRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTableBucket) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -397,6 +432,7 @@ func (j *jsiiProxy_CfnTableBucket) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::S3Tables::TableBucket`.
 func NewCfnTableBucket(scope constructs.Construct, id *string, props *CfnTableBucketProps) CfnTableBucket {
 	_init_.Initialize()
 
@@ -414,6 +450,7 @@ func NewCfnTableBucket(scope constructs.Construct, id *string, props *CfnTableBu
 	return &j
 }
 
+// Create a new `AWS::S3Tables::TableBucket`.
 func NewCfnTableBucket_Override(c CfnTableBucket, scope constructs.Construct, id *string, props *CfnTableBucketProps) {
 	_init_.Initialize()
 
@@ -442,6 +479,17 @@ func (j *jsiiProxy_CfnTableBucket)SetTableBucketName(val *string) {
 	_jsii_.Set(
 		j,
 		"tableBucketName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTableBucket)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

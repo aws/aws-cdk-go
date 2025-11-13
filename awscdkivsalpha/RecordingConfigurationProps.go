@@ -2,7 +2,7 @@ package awscdkivsalpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Properties of the IVS Recording configuration.
@@ -25,7 +25,7 @@ import (
 type RecordingConfigurationProps struct {
 	// S3 bucket where recorded videos will be stored.
 	// Experimental.
-	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket interfacesawss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
 	// The name of the Recording configuration.
 	//
 	// The value does not need to be unique.

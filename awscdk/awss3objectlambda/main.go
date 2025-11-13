@@ -7,14 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3objectlambda.AccessPointPolicyReference",
-		reflect.TypeOf((*AccessPointPolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3objectlambda.AccessPointReference",
-		reflect.TypeOf((*AccessPointReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
 		reflect.TypeOf((*CfnAccessPoint)(nil)).Elem(),
@@ -69,8 +61,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccessPoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessPointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3objectlambdaIAccessPointRef)
 			return &j
 		},
 	)
@@ -144,8 +136,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccessPointPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessPointPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3objectlambdaIAccessPointPolicyRef)
 			return &j
 		},
 	)
@@ -156,35 +148,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointProps",
 		reflect.TypeOf((*CfnAccessPointProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3objectlambda.IAccessPointPolicyRef",
-		reflect.TypeOf((*IAccessPointPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessPointPolicyRef", GoGetter: "AccessPointPolicyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccessPointPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3objectlambda.IAccessPointRef",
-		reflect.TypeOf((*IAccessPointRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessPointRef", GoGetter: "AccessPointRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccessPointRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

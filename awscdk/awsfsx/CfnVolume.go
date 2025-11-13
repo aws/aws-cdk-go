@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfsx/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfsx"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -129,8 +131,8 @@ import (
 //
 type CfnVolume interface {
 	awscdk.CfnResource
-	IVolumeRef
 	awscdk.IInspectable
+	interfacesawsfsx.IVolumeRef
 	awscdk.ITaggable
 	// Returns the volume's Amazon Resource Name (ARN).
 	//
@@ -156,7 +158,7 @@ type CfnVolume interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -206,7 +208,7 @@ type CfnVolume interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a Volume resource.
-	VolumeRef() *VolumeReference
+	VolumeRef() *interfacesawsfsx.VolumeReference
 	// The type of the volume.
 	VolumeType() *string
 	SetVolumeType(val *string)
@@ -340,8 +342,8 @@ type CfnVolume interface {
 // The jsii proxy struct for CfnVolume
 type jsiiProxy_CfnVolume struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVolumeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfsxIVolumeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnVolume) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVolume) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -545,8 +547,8 @@ func (j *jsiiProxy_CfnVolume) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) VolumeRef() *VolumeReference {
-	var returns *VolumeReference
+func (j *jsiiProxy_CfnVolume) VolumeRef() *interfacesawsfsx.VolumeReference {
+	var returns *interfacesawsfsx.VolumeReference
 	_jsii_.Get(
 		j,
 		"volumeRef",
@@ -566,6 +568,7 @@ func (j *jsiiProxy_CfnVolume) VolumeType() *string {
 }
 
 
+// Create a new `AWS::FSx::Volume`.
 func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
@@ -583,6 +586,7 @@ func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps)
 	return &j
 }
 
+// Create a new `AWS::FSx::Volume`.
 func NewCfnVolume_Override(c CfnVolume, scope constructs.Construct, id *string, props *CfnVolumeProps) {
 	_init_.Initialize()
 

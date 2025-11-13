@@ -1,11 +1,31 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsglueIClassifierRef = interfacesawsglue.IClassifierRef
+type Type__interfacesawsglueIConnectionRef = interfacesawsglue.IConnectionRef
+type Type__interfacesawsglueICrawlerRef = interfacesawsglue.ICrawlerRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsglueICustomEntityTypeRef = interfacesawsglue.ICustomEntityTypeRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsglueIDataCatalogEncryptionSettingsRef = interfacesawsglue.IDataCatalogEncryptionSettingsRef
+type Type__interfacesawsglueIDataQualityRulesetRef = interfacesawsglue.IDataQualityRulesetRef
+type Type__interfacesawsglueIDatabaseRef = interfacesawsglue.IDatabaseRef
+type Type__interfacesawsglueIDevEndpointRef = interfacesawsglue.IDevEndpointRef
+type Type__interfacesawsglueIIntegrationResourcePropertyRef = interfacesawsglue.IIntegrationResourcePropertyRef
+type Type__interfacesawsglueIJobRef = interfacesawsglue.IJobRef
+type Type__interfacesawsglueIMLTransformRef = interfacesawsglue.IMLTransformRef
+type Type__interfacesawsglueIPartitionRef = interfacesawsglue.IPartitionRef
+type Type__interfacesawsglueIRegistryRef = interfacesawsglue.IRegistryRef
+type Type__interfacesawsglueISchemaRef = interfacesawsglue.ISchemaRef
+type Type__interfacesawsglueISchemaVersionRef = interfacesawsglue.ISchemaVersionRef
+type Type__interfacesawsglueISchemaVersionMetadataRef = interfacesawsglue.ISchemaVersionMetadataRef
+type Type__interfacesawsglueISecurityConfigurationRef = interfacesawsglue.ISecurityConfigurationRef
+type Type__interfacesawsglueITableRef = interfacesawsglue.ITableRef
+type Type__interfacesawsglueITableOptimizerRef = interfacesawsglue.ITableOptimizerRef
+type Type__interfacesawsglueITriggerRef = interfacesawsglue.ITriggerRef
+type Type__interfacesawsglueIUsageProfileRef = interfacesawsglue.IUsageProfileRef
+type Type__interfacesawsglueIWorkflowRef = interfacesawsglue.IWorkflowRef

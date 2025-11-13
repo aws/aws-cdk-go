@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsentityresolution/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsentityresolution"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -103,8 +105,8 @@ import (
 //
 type CfnMatchingWorkflow interface {
 	awscdk.CfnResource
-	IMatchingWorkflowRef
 	awscdk.IInspectable
+	interfacesawsentityresolution.IMatchingWorkflowRef
 	awscdk.ITaggableV2
 	// The time of this MatchingWorkflow got created.
 	AttrCreatedAt() *string
@@ -126,7 +128,7 @@ type CfnMatchingWorkflow interface {
 	// A description of the workflow.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Optional.
 	IncrementalRunConfig() interface{}
 	SetIncrementalRunConfig(val interface{})
@@ -144,7 +146,7 @@ type CfnMatchingWorkflow interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MatchingWorkflow resource.
-	MatchingWorkflowRef() *MatchingWorkflowReference
+	MatchingWorkflowRef() *interfacesawsentityresolution.MatchingWorkflowReference
 	// The tree node.
 	Node() constructs.Node
 	// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
@@ -314,8 +316,8 @@ type CfnMatchingWorkflow interface {
 // The jsii proxy struct for CfnMatchingWorkflow
 type jsiiProxy_CfnMatchingWorkflow struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMatchingWorkflowRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsentityresolutionIMatchingWorkflowRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -409,8 +411,8 @@ func (j *jsiiProxy_CfnMatchingWorkflow) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchingWorkflow) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMatchingWorkflow) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -449,8 +451,8 @@ func (j *jsiiProxy_CfnMatchingWorkflow) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchingWorkflow) MatchingWorkflowRef() *MatchingWorkflowReference {
-	var returns *MatchingWorkflowReference
+func (j *jsiiProxy_CfnMatchingWorkflow) MatchingWorkflowRef() *interfacesawsentityresolution.MatchingWorkflowReference {
+	var returns *interfacesawsentityresolution.MatchingWorkflowReference
 	_jsii_.Get(
 		j,
 		"matchingWorkflowRef",
@@ -560,6 +562,7 @@ func (j *jsiiProxy_CfnMatchingWorkflow) WorkflowName() *string {
 }
 
 
+// Create a new `AWS::EntityResolution::MatchingWorkflow`.
 func NewCfnMatchingWorkflow(scope constructs.Construct, id *string, props *CfnMatchingWorkflowProps) CfnMatchingWorkflow {
 	_init_.Initialize()
 
@@ -577,6 +580,7 @@ func NewCfnMatchingWorkflow(scope constructs.Construct, id *string, props *CfnMa
 	return &j
 }
 
+// Create a new `AWS::EntityResolution::MatchingWorkflow`.
 func NewCfnMatchingWorkflow_Override(c CfnMatchingWorkflow, scope constructs.Construct, id *string, props *CfnMatchingWorkflowProps) {
 	_init_.Initialize()
 
@@ -673,13 +677,13 @@ func (j *jsiiProxy_CfnMatchingWorkflow)SetWorkflowName(val *string) {
 }
 
 // Creates a new IMatchingWorkflowRef from a workflowName.
-func CfnMatchingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) IMatchingWorkflowRef {
+func CfnMatchingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) interfacesawsentityresolution.IMatchingWorkflowRef {
 	_init_.Initialize()
 
 	if err := validateCfnMatchingWorkflow_FromWorkflowNameParameters(scope, id, workflowName); err != nil {
 		panic(err)
 	}
-	var returns IMatchingWorkflowRef
+	var returns interfacesawsentityresolution.IMatchingWorkflowRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow",

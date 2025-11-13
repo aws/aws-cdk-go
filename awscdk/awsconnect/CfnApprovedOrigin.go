@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,10 +27,10 @@ import (
 //
 type CfnApprovedOrigin interface {
 	awscdk.CfnResource
-	IApprovedOriginRef
 	awscdk.IInspectable
+	interfacesawsconnect.IApprovedOriginRef
 	// A reference to a ApprovedOrigin resource.
-	ApprovedOriginRef() *ApprovedOriginReference
+	ApprovedOriginRef() *interfacesawsconnect.ApprovedOriginReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnApprovedOrigin interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -209,12 +211,12 @@ type CfnApprovedOrigin interface {
 // The jsii proxy struct for CfnApprovedOrigin
 type jsiiProxy_CfnApprovedOrigin struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApprovedOriginRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIApprovedOriginRef
 }
 
-func (j *jsiiProxy_CfnApprovedOrigin) ApprovedOriginRef() *ApprovedOriginReference {
-	var returns *ApprovedOriginReference
+func (j *jsiiProxy_CfnApprovedOrigin) ApprovedOriginRef() *interfacesawsconnect.ApprovedOriginReference {
+	var returns *interfacesawsconnect.ApprovedOriginReference
 	_jsii_.Get(
 		j,
 		"approvedOriginRef",
@@ -263,8 +265,8 @@ func (j *jsiiProxy_CfnApprovedOrigin) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApprovedOrigin) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApprovedOrigin) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,6 +356,7 @@ func (j *jsiiProxy_CfnApprovedOrigin) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Connect::ApprovedOrigin`.
 func NewCfnApprovedOrigin(scope constructs.Construct, id *string, props *CfnApprovedOriginProps) CfnApprovedOrigin {
 	_init_.Initialize()
 
@@ -371,6 +374,7 @@ func NewCfnApprovedOrigin(scope constructs.Construct, id *string, props *CfnAppr
 	return &j
 }
 
+// Create a new `AWS::Connect::ApprovedOrigin`.
 func NewCfnApprovedOrigin_Override(c CfnApprovedOrigin, scope constructs.Construct, id *string, props *CfnApprovedOriginProps) {
 	_init_.Initialize()
 

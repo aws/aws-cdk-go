@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssmsvoice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssmsvoice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -66,8 +68,8 @@ import (
 //
 type CfnPool interface {
 	awscdk.CfnResource
-	IPoolRef
 	awscdk.IInspectable
+	interfacesawssmsvoice.IPoolRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name of the `Pool` .
 	AttrArn() *string
@@ -87,7 +89,7 @@ type CfnPool interface {
 	// When set to true the pool can't be deleted.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -113,7 +115,7 @@ type CfnPool interface {
 	OriginationIdentities() *[]*string
 	SetOriginationIdentities(val *[]*string)
 	// A reference to a Pool resource.
-	PoolRef() *PoolReference
+	PoolRef() *interfacesawssmsvoice.PoolReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -278,8 +280,8 @@ type CfnPool interface {
 // The jsii proxy struct for CfnPool
 type jsiiProxy_CfnPool struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPoolRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssmsvoiceIPoolRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnPool) DeletionProtectionEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPool) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -433,8 +435,8 @@ func (j *jsiiProxy_CfnPool) OriginationIdentities() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPool) PoolRef() *PoolReference {
-	var returns *PoolReference
+func (j *jsiiProxy_CfnPool) PoolRef() *interfacesawssmsvoice.PoolReference {
+	var returns *interfacesawssmsvoice.PoolReference
 	_jsii_.Get(
 		j,
 		"poolRef",
@@ -524,6 +526,7 @@ func (j *jsiiProxy_CfnPool) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SMSVOICE::Pool`.
 func NewCfnPool(scope constructs.Construct, id *string, props *CfnPoolProps) CfnPool {
 	_init_.Initialize()
 
@@ -541,6 +544,7 @@ func NewCfnPool(scope constructs.Construct, id *string, props *CfnPoolProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::SMSVOICE::Pool`.
 func NewCfnPool_Override(c CfnPool, scope constructs.Construct, id *string, props *CfnPoolProps) {
 	_init_.Initialize()
 
@@ -648,13 +652,13 @@ func (j *jsiiProxy_CfnPool)SetTwoWay(val interface{}) {
 }
 
 // Creates a new IPoolRef from an ARN.
-func CfnPool_FromPoolArn(scope constructs.Construct, id *string, arn *string) IPoolRef {
+func CfnPool_FromPoolArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IPoolRef {
 	_init_.Initialize()
 
 	if err := validateCfnPool_FromPoolArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IPoolRef
+	var returns interfacesawssmsvoice.IPoolRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnPool",
@@ -667,13 +671,13 @@ func CfnPool_FromPoolArn(scope constructs.Construct, id *string, arn *string) IP
 }
 
 // Creates a new IPoolRef from a poolId.
-func CfnPool_FromPoolId(scope constructs.Construct, id *string, poolId *string) IPoolRef {
+func CfnPool_FromPoolId(scope constructs.Construct, id *string, poolId *string) interfacesawssmsvoice.IPoolRef {
 	_init_.Initialize()
 
 	if err := validateCfnPool_FromPoolIdParameters(scope, id, poolId); err != nil {
 		panic(err)
 	}
-	var returns IPoolRef
+	var returns interfacesawssmsvoice.IPoolRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnPool",

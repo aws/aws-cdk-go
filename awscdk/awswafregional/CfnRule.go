@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnRule interface {
 	awscdk.CfnResource
-	IRuleRef
 	awscdk.IInspectable
+	interfacesawswafregional.IRuleRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -57,7 +59,7 @@ type CfnRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +87,7 @@ type CfnRule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Rule resource.
-	RuleRef() *RuleReference
+	RuleRef() *interfacesawswafregional.RuleReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -233,8 +235,8 @@ type CfnRule interface {
 // The jsii proxy struct for CfnRule
 type jsiiProxy_CfnRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalIRuleRef
 }
 
 func (j *jsiiProxy_CfnRule) AttrId() *string {
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnRule) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRule) RuleRef() *RuleReference {
-	var returns *RuleReference
+func (j *jsiiProxy_CfnRule) RuleRef() *interfacesawswafregional.RuleReference {
+	var returns *interfacesawswafregional.RuleReference
 	_jsii_.Get(
 		j,
 		"ruleRef",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::WAFRegional::Rule`.
 func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) CfnRule {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::Rule`.
 func NewCfnRule_Override(c CfnRule, scope constructs.Construct, id *string, props *CfnRuleProps) {
 	_init_.Initialize()
 

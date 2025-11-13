@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnOriginAccessControl interface {
 	awscdk.CfnResource
-	IOriginAccessControlRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IOriginAccessControlRef
 	// The unique identifier of the origin access control.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -51,7 +53,7 @@ type CfnOriginAccessControl interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -68,7 +70,7 @@ type CfnOriginAccessControl interface {
 	OriginAccessControlConfig() interface{}
 	SetOriginAccessControlConfig(val interface{})
 	// A reference to a OriginAccessControl resource.
-	OriginAccessControlRef() *OriginAccessControlReference
+	OriginAccessControlRef() *interfacesawscloudfront.OriginAccessControlReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -221,8 +223,8 @@ type CfnOriginAccessControl interface {
 // The jsii proxy struct for CfnOriginAccessControl
 type jsiiProxy_CfnOriginAccessControl struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOriginAccessControlRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIOriginAccessControlRef
 }
 
 func (j *jsiiProxy_CfnOriginAccessControl) AttrId() *string {
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnOriginAccessControl) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginAccessControl) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOriginAccessControl) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnOriginAccessControl) OriginAccessControlConfig() interface
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginAccessControl) OriginAccessControlRef() *OriginAccessControlReference {
-	var returns *OriginAccessControlReference
+func (j *jsiiProxy_CfnOriginAccessControl) OriginAccessControlRef() *interfacesawscloudfront.OriginAccessControlReference {
+	var returns *interfacesawscloudfront.OriginAccessControlReference
 	_jsii_.Get(
 		j,
 		"originAccessControlRef",
@@ -366,6 +368,7 @@ func (j *jsiiProxy_CfnOriginAccessControl) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::CloudFront::OriginAccessControl`.
 func NewCfnOriginAccessControl(scope constructs.Construct, id *string, props *CfnOriginAccessControlProps) CfnOriginAccessControl {
 	_init_.Initialize()
 
@@ -383,6 +386,7 @@ func NewCfnOriginAccessControl(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::CloudFront::OriginAccessControl`.
 func NewCfnOriginAccessControl_Override(c CfnOriginAccessControl, scope constructs.Construct, id *string, props *CfnOriginAccessControlProps) {
 	_init_.Initialize()
 

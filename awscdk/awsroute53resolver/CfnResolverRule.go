@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnResolverRule interface {
 	awscdk.CfnResource
-	IResolverRuleRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IResolverRuleRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resolver rule, such as `arn:aws:route53resolver:us-east-1:123456789012:resolver-rule/resolver-rule-a1bzhi` .
 	AttrArn() *string
@@ -83,7 +85,7 @@ type CfnResolverRule interface {
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps` .
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -108,7 +110,7 @@ type CfnResolverRule interface {
 	ResolverEndpointId() *string
 	SetResolverEndpointId(val *string)
 	// A reference to a ResolverRule resource.
-	ResolverRuleRef() *ResolverRuleReference
+	ResolverRuleRef() *interfacesawsroute53resolver.ResolverRuleReference
 	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify `FORWARD` or `DELEGATE` .
 	RuleType() *string
 	SetRuleType(val *string)
@@ -267,8 +269,8 @@ type CfnResolverRule interface {
 // The jsii proxy struct for CfnResolverRule
 type jsiiProxy_CfnResolverRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResolverRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIResolverRuleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnResolverRule) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResolverRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -452,8 +454,8 @@ func (j *jsiiProxy_CfnResolverRule) ResolverEndpointId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverRule) ResolverRuleRef() *ResolverRuleReference {
-	var returns *ResolverRuleReference
+func (j *jsiiProxy_CfnResolverRule) ResolverRuleRef() *interfacesawsroute53resolver.ResolverRuleReference {
+	var returns *interfacesawsroute53resolver.ResolverRuleReference
 	_jsii_.Get(
 		j,
 		"resolverRuleRef",
@@ -533,6 +535,7 @@ func (j *jsiiProxy_CfnResolverRule) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Route53Resolver::ResolverRule`.
 func NewCfnResolverRule(scope constructs.Construct, id *string, props *CfnResolverRuleProps) CfnResolverRule {
 	_init_.Initialize()
 
@@ -550,6 +553,7 @@ func NewCfnResolverRule(scope constructs.Construct, id *string, props *CfnResolv
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::ResolverRule`.
 func NewCfnResolverRule_Override(c CfnResolverRule, scope constructs.Construct, id *string, props *CfnResolverRuleProps) {
 	_init_.Initialize()
 

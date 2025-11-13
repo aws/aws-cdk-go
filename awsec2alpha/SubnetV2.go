@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -61,7 +63,7 @@ type SubnetV2 interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Dependencies for internet connectivity This Property exposes the RouteTable-Subnet association so that other resources can depend on it.
 	// Experimental.
 	InternetConnectivityEstablished() constructs.IDependable
@@ -97,7 +99,7 @@ type SubnetV2 interface {
 	SubnetId() *string
 	// A reference to a Subnet resource.
 	// Experimental.
-	SubnetRef() *awsec2.SubnetReference
+	SubnetRef() *interfacesawsec2.SubnetReference
 	// The type of subnet (public or private) that this subnet represents.
 	// Experimental.
 	SubnetType() awsec2.SubnetType
@@ -153,8 +155,8 @@ func (j *jsiiProxy_SubnetV2) AvailabilityZone() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SubnetV2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SubnetV2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -253,8 +255,8 @@ func (j *jsiiProxy_SubnetV2) SubnetId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SubnetV2) SubnetRef() *awsec2.SubnetReference {
-	var returns *awsec2.SubnetReference
+func (j *jsiiProxy_SubnetV2) SubnetRef() *interfacesawsec2.SubnetReference {
+	var returns *interfacesawsec2.SubnetReference
 	_jsii_.Get(
 		j,
 		"subnetRef",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,11 +40,11 @@ import (
 //
 type CfnAnycastIpList interface {
 	awscdk.CfnResource
-	IAnycastIpListRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IAnycastIpListRef
 	awscdk.ITaggableV2
 	// A reference to a AnycastIpList resource.
-	AnycastIpListRef() *AnycastIpListReference
+	AnycastIpListRef() *interfacesawscloudfront.AnycastIpListReference
 	// An Anycast static IP list.
 	//
 	// For more information, see [Request Anycast static IPs to use for allowlisting](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/request-static-ips.html) in the *Amazon CloudFront Developer Guide*.
@@ -62,7 +64,8 @@ type CfnAnycastIpList interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
+	// The IP address type for the Anycast static IP list.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The number of IP addresses in the Anycast static IP list.
@@ -238,13 +241,13 @@ type CfnAnycastIpList interface {
 // The jsii proxy struct for CfnAnycastIpList
 type jsiiProxy_CfnAnycastIpList struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnycastIpListRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIAnycastIpListRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAnycastIpList) AnycastIpListRef() *AnycastIpListReference {
-	var returns *AnycastIpListReference
+func (j *jsiiProxy_CfnAnycastIpList) AnycastIpListRef() *interfacesawscloudfront.AnycastIpListReference {
+	var returns *interfacesawscloudfront.AnycastIpListReference
 	_jsii_.Get(
 		j,
 		"anycastIpListRef",
@@ -333,8 +336,8 @@ func (j *jsiiProxy_CfnAnycastIpList) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnycastIpList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnycastIpList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -444,6 +447,7 @@ func (j *jsiiProxy_CfnAnycastIpList) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::CloudFront::AnycastIpList`.
 func NewCfnAnycastIpList(scope constructs.Construct, id *string, props *CfnAnycastIpListProps) CfnAnycastIpList {
 	_init_.Initialize()
 
@@ -461,6 +465,7 @@ func NewCfnAnycastIpList(scope constructs.Construct, id *string, props *CfnAnyca
 	return &j
 }
 
+// Create a new `AWS::CloudFront::AnycastIpList`.
 func NewCfnAnycastIpList_Override(c CfnAnycastIpList, scope constructs.Construct, id *string, props *CfnAnycastIpListProps) {
 	_init_.Initialize()
 

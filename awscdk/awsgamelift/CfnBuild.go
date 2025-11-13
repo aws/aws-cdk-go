@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,15 +45,15 @@ import (
 //
 type CfnBuild interface {
 	awscdk.CfnResource
-	IBuildRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IBuildRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to a Amazon GameLift Servers build resource and uniquely identifies it. ARNs are unique across all Regions. Format is `arn:aws:gamelift:<region>::build/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` . In a GameLift build ARN, the resource ID matches the *BuildId* value.
 	AttrBuildArn() *string
 	// A unique identifier for the build.
 	AttrBuildId() *string
 	// A reference to a Build resource.
-	BuildRef() *BuildReference
+	BuildRef() *interfacesawsgamelift.BuildReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -63,7 +65,7 @@ type CfnBuild interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -246,8 +248,8 @@ type CfnBuild interface {
 // The jsii proxy struct for CfnBuild
 type jsiiProxy_CfnBuild struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBuildRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIBuildRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnBuild) AttrBuildId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBuild) BuildRef() *BuildReference {
-	var returns *BuildReference
+func (j *jsiiProxy_CfnBuild) BuildRef() *interfacesawsgamelift.BuildReference {
+	var returns *interfacesawsgamelift.BuildReference
 	_jsii_.Get(
 		j,
 		"buildRef",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnBuild) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBuild) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBuild) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -462,6 +464,7 @@ func (j *jsiiProxy_CfnBuild) Version() *string {
 }
 
 
+// Create a new `AWS::GameLift::Build`.
 func NewCfnBuild(scope constructs.Construct, id *string, props *CfnBuildProps) CfnBuild {
 	_init_.Initialize()
 
@@ -479,6 +482,7 @@ func NewCfnBuild(scope constructs.Construct, id *string, props *CfnBuildProps) C
 	return &j
 }
 
+// Create a new `AWS::GameLift::Build`.
 func NewCfnBuild_Override(c CfnBuild, scope constructs.Construct, id *string, props *CfnBuildProps) {
 	_init_.Initialize()
 
@@ -544,13 +548,13 @@ func (j *jsiiProxy_CfnBuild)SetVersion(val *string) {
 }
 
 // Creates a new IBuildRef from an ARN.
-func CfnBuild_FromBuildArn(scope constructs.Construct, id *string, arn *string) IBuildRef {
+func CfnBuild_FromBuildArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IBuildRef {
 	_init_.Initialize()
 
 	if err := validateCfnBuild_FromBuildArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IBuildRef
+	var returns interfacesawsgamelift.IBuildRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnBuild",
@@ -563,13 +567,13 @@ func CfnBuild_FromBuildArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IBuildRef from a buildId.
-func CfnBuild_FromBuildId(scope constructs.Construct, id *string, buildId *string) IBuildRef {
+func CfnBuild_FromBuildId(scope constructs.Construct, id *string, buildId *string) interfacesawsgamelift.IBuildRef {
 	_init_.Initialize()
 
 	if err := validateCfnBuild_FromBuildIdParameters(scope, id, buildId); err != nil {
 		panic(err)
 	}
-	var returns IBuildRef
+	var returns interfacesawsgamelift.IBuildRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnBuild",

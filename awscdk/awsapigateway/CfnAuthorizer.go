@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnAuthorizer interface {
 	awscdk.CfnResource
-	IAuthorizerRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IAuthorizerRef
 	// The ID for the authorizer.
 	//
 	// For example: `abc123` .
@@ -49,7 +51,7 @@ type CfnAuthorizer interface {
 	AuthorizerCredentials() *string
 	SetAuthorizerCredentials(val *string)
 	// A reference to a Authorizer resource.
-	AuthorizerRef() *AuthorizerReference
+	AuthorizerRef() *interfacesawsapigateway.AuthorizerReference
 	// The TTL in seconds of cached authorizer results.
 	AuthorizerResultTtlInSeconds() *float64
 	SetAuthorizerResultTtlInSeconds(val *float64)
@@ -68,7 +70,7 @@ type CfnAuthorizer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identity source for which authorization is requested.
 	IdentitySource() *string
 	SetIdentitySource(val *string)
@@ -251,8 +253,8 @@ type CfnAuthorizer interface {
 // The jsii proxy struct for CfnAuthorizer
 type jsiiProxy_CfnAuthorizer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAuthorizerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIAuthorizerRef
 }
 
 func (j *jsiiProxy_CfnAuthorizer) AttrAuthorizerId() *string {
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnAuthorizer) AuthorizerCredentials() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAuthorizer) AuthorizerRef() *AuthorizerReference {
-	var returns *AuthorizerReference
+func (j *jsiiProxy_CfnAuthorizer) AuthorizerRef() *interfacesawsapigateway.AuthorizerReference {
+	var returns *interfacesawsapigateway.AuthorizerReference
 	_jsii_.Get(
 		j,
 		"authorizerRef",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnAuthorizer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAuthorizer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAuthorizer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -486,6 +488,7 @@ func (j *jsiiProxy_CfnAuthorizer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGateway::Authorizer`.
 func NewCfnAuthorizer(scope constructs.Construct, id *string, props *CfnAuthorizerProps) CfnAuthorizer {
 	_init_.Initialize()
 
@@ -503,6 +506,7 @@ func NewCfnAuthorizer(scope constructs.Construct, id *string, props *CfnAuthoriz
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::Authorizer`.
 func NewCfnAuthorizer_Override(c CfnAuthorizer, scope constructs.Construct, id *string, props *CfnAuthorizerProps) {
 	_init_.Initialize()
 

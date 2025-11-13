@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstransfer/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstransfer"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,8 +55,8 @@ import (
 //
 type CfnCertificate interface {
 	awscdk.CfnResource
-	ICertificateRef
 	awscdk.IInspectable
+	interfacesawstransfer.ICertificateRef
 	awscdk.ITaggable
 	// An optional date that specifies when the certificate becomes active.
 	ActiveDate() *string
@@ -86,7 +88,7 @@ type CfnCertificate interface {
 	CertificateChain() *string
 	SetCertificateChain(val *string)
 	// A reference to a Certificate resource.
-	CertificateRef() *CertificateReference
+	CertificateRef() *interfacesawstransfer.CertificateReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -99,7 +101,7 @@ type CfnCertificate interface {
 	// The name or description that's used to identity the certificate.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An optional date that specifies when the certificate becomes inactive.
 	InactiveDate() *string
 	SetInactiveDate(val *string)
@@ -280,8 +282,8 @@ type CfnCertificate interface {
 // The jsii proxy struct for CfnCertificate
 type jsiiProxy_CfnCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstransferICertificateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnCertificate) CertificateChain() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) CertificateRef() *CertificateReference {
-	var returns *CertificateReference
+func (j *jsiiProxy_CfnCertificate) CertificateRef() *interfacesawstransfer.CertificateReference {
+	var returns *interfacesawstransfer.CertificateReference
 	_jsii_.Get(
 		j,
 		"certificateRef",
@@ -445,8 +447,8 @@ func (j *jsiiProxy_CfnCertificate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -566,6 +568,7 @@ func (j *jsiiProxy_CfnCertificate) Usage() *string {
 }
 
 
+// Create a new `AWS::Transfer::Certificate`.
 func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
@@ -583,6 +586,7 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 	return &j
 }
 
+// Create a new `AWS::Transfer::Certificate`.
 func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 
@@ -667,13 +671,13 @@ func (j *jsiiProxy_CfnCertificate)SetUsage(val *string) {
 }
 
 // Creates a new ICertificateRef from an ARN.
-func CfnCertificate_FromCertificateArn(scope constructs.Construct, id *string, arn *string) ICertificateRef {
+func CfnCertificate_FromCertificateArn(scope constructs.Construct, id *string, arn *string) interfacesawstransfer.ICertificateRef {
 	_init_.Initialize()
 
 	if err := validateCfnCertificate_FromCertificateArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ICertificateRef
+	var returns interfacesawstransfer.ICertificateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_transfer.CfnCertificate",
@@ -686,13 +690,13 @@ func CfnCertificate_FromCertificateArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new ICertificateRef from a certificateId.
-func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) ICertificateRef {
+func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) interfacesawstransfer.ICertificateRef {
 	_init_.Initialize()
 
 	if err := validateCfnCertificate_FromCertificateIdParameters(scope, id, certificateId); err != nil {
 		panic(err)
 	}
-	var returns ICertificateRef
+	var returns interfacesawstransfer.ICertificateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_transfer.CfnCertificate",

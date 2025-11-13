@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsresourceexplorer2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsresourceexplorer2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnIndex interface {
 	awscdk.CfnResource
-	IIndexRef
 	awscdk.IInspectable
+	interfacesawsresourceexplorer2.IIndexRef
 	awscdk.ITaggable
 	// The ARN of the new index for the AWS Region . For example:.
 	//
@@ -57,9 +59,9 @@ type CfnIndex interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Index resource.
-	IndexRef() *IndexReference
+	IndexRef() *interfacesawsresourceexplorer2.IndexReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -232,8 +234,8 @@ type CfnIndex interface {
 // The jsii proxy struct for CfnIndex
 type jsiiProxy_CfnIndex struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIndexRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsresourceexplorer2IIndexRef
 	internal.Type__awscdkITaggable
 }
 
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnIndex) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIndex) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnIndex) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) IndexRef() *IndexReference {
-	var returns *IndexReference
+func (j *jsiiProxy_CfnIndex) IndexRef() *interfacesawsresourceexplorer2.IndexReference {
+	var returns *interfacesawsresourceexplorer2.IndexReference
 	_jsii_.Get(
 		j,
 		"indexRef",
@@ -408,6 +410,7 @@ func (j *jsiiProxy_CfnIndex) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ResourceExplorer2::Index`.
 func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) CfnIndex {
 	_init_.Initialize()
 
@@ -425,6 +428,7 @@ func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) C
 	return &j
 }
 
+// Create a new `AWS::ResourceExplorer2::Index`.
 func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, props *CfnIndexProps) {
 	_init_.Initialize()
 

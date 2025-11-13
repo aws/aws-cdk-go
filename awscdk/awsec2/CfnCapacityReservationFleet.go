@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnCapacityReservationFleet interface {
 	awscdk.CfnResource
-	ICapacityReservationFleetRef
 	awscdk.IInspectable
+	interfacesawsec2.ICapacityReservationFleetRef
 	awscdk.ITaggableV2
 	// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use.
 	AllocationStrategy() *string
@@ -63,7 +65,7 @@ type CfnCapacityReservationFleet interface {
 	// The ID of the Capacity Reservation Fleet.
 	AttrCapacityReservationFleetId() *string
 	// A reference to a CapacityReservationFleet resource.
-	CapacityReservationFleetRef() *CapacityReservationFleetReference
+	CapacityReservationFleetRef() *interfacesawsec2.CapacityReservationFleetReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -78,7 +80,7 @@ type CfnCapacityReservationFleet interface {
 	// The date and time at which the Capacity Reservation Fleet expires.
 	EndDate() *string
 	SetEndDate(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
 	InstanceMatchCriteria() *string
 	SetInstanceMatchCriteria(val *string)
@@ -264,8 +266,8 @@ type CfnCapacityReservationFleet interface {
 // The jsii proxy struct for CfnCapacityReservationFleet
 type jsiiProxy_CfnCapacityReservationFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICapacityReservationFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ICapacityReservationFleetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) AttrCapacityReservationFleetId()
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) CapacityReservationFleetRef() *CapacityReservationFleetReference {
-	var returns *CapacityReservationFleetReference
+func (j *jsiiProxy_CfnCapacityReservationFleet) CapacityReservationFleetRef() *interfacesawsec2.CapacityReservationFleetReference {
+	var returns *interfacesawsec2.CapacityReservationFleetReference
 	_jsii_.Get(
 		j,
 		"capacityReservationFleetRef",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) EndDate() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCapacityReservationFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -500,6 +502,7 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::EC2::CapacityReservationFleet`.
 func NewCfnCapacityReservationFleet(scope constructs.Construct, id *string, props *CfnCapacityReservationFleetProps) CfnCapacityReservationFleet {
 	_init_.Initialize()
 
@@ -517,6 +520,7 @@ func NewCfnCapacityReservationFleet(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::EC2::CapacityReservationFleet`.
 func NewCfnCapacityReservationFleet_Override(c CfnCapacityReservationFleet, scope constructs.Construct, id *string, props *CfnCapacityReservationFleetProps) {
 	_init_.Initialize()
 
@@ -612,13 +616,13 @@ func (j *jsiiProxy_CfnCapacityReservationFleet)SetTotalTargetCapacity(val *float
 }
 
 // Creates a new ICapacityReservationFleetRef from a capacityReservationFleetId.
-func CfnCapacityReservationFleet_FromCapacityReservationFleetId(scope constructs.Construct, id *string, capacityReservationFleetId *string) ICapacityReservationFleetRef {
+func CfnCapacityReservationFleet_FromCapacityReservationFleetId(scope constructs.Construct, id *string, capacityReservationFleetId *string) interfacesawsec2.ICapacityReservationFleetRef {
 	_init_.Initialize()
 
 	if err := validateCfnCapacityReservationFleet_FromCapacityReservationFleetIdParameters(scope, id, capacityReservationFleetId); err != nil {
 		panic(err)
 	}
-	var returns ICapacityReservationFleetRef
+	var returns interfacesawsec2.ICapacityReservationFleetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnCapacityReservationFleet",

@@ -7,6 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
@@ -36,6 +37,14 @@ func (i *jsiiProxy_ISecret) validateAddToResourcePolicyParameters(statement awsi
 func (i *jsiiProxy_ISecret) validateAttachParameters(target ISecretAttachmentTarget) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_ISecret) validateCfnDynamicReferenceKeyParameters(options *awscdk.SecretsManagerSecretOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

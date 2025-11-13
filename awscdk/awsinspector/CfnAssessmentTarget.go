@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsinspector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,13 +27,13 @@ import (
 //
 type CfnAssessmentTarget interface {
 	awscdk.CfnResource
-	IAssessmentTargetRef
 	awscdk.IInspectable
+	interfacesawsinspector.IAssessmentTargetRef
 	// The name of the Amazon Inspector assessment target.
 	AssessmentTargetName() *string
 	SetAssessmentTargetName(val *string)
 	// A reference to a AssessmentTarget resource.
-	AssessmentTargetRef() *AssessmentTargetReference
+	AssessmentTargetRef() *interfacesawsinspector.AssessmentTargetReference
 	// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -43,7 +45,7 @@ type CfnAssessmentTarget interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -211,8 +213,8 @@ type CfnAssessmentTarget interface {
 // The jsii proxy struct for CfnAssessmentTarget
 type jsiiProxy_CfnAssessmentTarget struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssessmentTargetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsinspectorIAssessmentTargetRef
 }
 
 func (j *jsiiProxy_CfnAssessmentTarget) AssessmentTargetName() *string {
@@ -225,8 +227,8 @@ func (j *jsiiProxy_CfnAssessmentTarget) AssessmentTargetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssessmentTarget) AssessmentTargetRef() *AssessmentTargetReference {
-	var returns *AssessmentTargetReference
+func (j *jsiiProxy_CfnAssessmentTarget) AssessmentTargetRef() *interfacesawsinspector.AssessmentTargetReference {
+	var returns *interfacesawsinspector.AssessmentTargetReference
 	_jsii_.Get(
 		j,
 		"assessmentTargetRef",
@@ -285,8 +287,8 @@ func (j *jsiiProxy_CfnAssessmentTarget) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssessmentTarget) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAssessmentTarget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -366,6 +368,7 @@ func (j *jsiiProxy_CfnAssessmentTarget) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Inspector::AssessmentTarget`.
 func NewCfnAssessmentTarget(scope constructs.Construct, id *string, props *CfnAssessmentTargetProps) CfnAssessmentTarget {
 	_init_.Initialize()
 
@@ -383,6 +386,7 @@ func NewCfnAssessmentTarget(scope constructs.Construct, id *string, props *CfnAs
 	return &j
 }
 
+// Create a new `AWS::Inspector::AssessmentTarget`.
 func NewCfnAssessmentTarget_Override(c CfnAssessmentTarget, scope constructs.Construct, id *string, props *CfnAssessmentTargetProps) {
 	_init_.Initialize()
 

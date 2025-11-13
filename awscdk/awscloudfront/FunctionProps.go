@@ -1,5 +1,8 @@
 package awscloudfront
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
+)
 
 // Properties for creating a CloudFront Function.
 //
@@ -33,7 +36,7 @@ type FunctionProps struct {
 	// `cloudfront-js-2.0` or newer.
 	// Default: - no key value store is associated.
 	//
-	KeyValueStore IKeyValueStoreRef `field:"optional" json:"keyValueStore" yaml:"keyValueStore"`
+	KeyValueStore interfacesawscloudfront.IKeyValueStoreRef `field:"optional" json:"keyValueStore" yaml:"keyValueStore"`
 	// The runtime environment for the function.
 	// Default: FunctionRuntime.JS_1_0 (unless `keyValueStore` is specified, then `FunctionRuntime.JS_2_0`)
 	//

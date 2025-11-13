@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslex/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslex"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
-	IResourcePolicyRef
 	awscdk.IInspectable
+	interfacesawslex.IResourcePolicyRef
 	// The identifier of the resource policy.
 	AttrId() *string
 	// Specifies the current revision of a resource policy.
@@ -44,7 +46,7 @@ type CfnResourcePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnResourcePolicy interface {
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// A reference to a ResourcePolicy resource.
-	ResourcePolicyRef() *ResourcePolicyReference
+	ResourcePolicyRef() *interfacesawslex.ResourcePolicyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -217,8 +219,8 @@ type CfnResourcePolicy interface {
 // The jsii proxy struct for CfnResourcePolicy
 type jsiiProxy_CfnResourcePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourcePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslexIResourcePolicyRef
 }
 
 func (j *jsiiProxy_CfnResourcePolicy) AttrId() *string {
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnResourcePolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourcePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourcePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnResourcePolicy) ResourceArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourcePolicy) ResourcePolicyRef() *ResourcePolicyReference {
-	var returns *ResourcePolicyReference
+func (j *jsiiProxy_CfnResourcePolicy) ResourcePolicyRef() *interfacesawslex.ResourcePolicyReference {
+	var returns *interfacesawslex.ResourcePolicyReference
 	_jsii_.Get(
 		j,
 		"resourcePolicyRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Lex::ResourcePolicy`.
 func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnReso
 	return &j
 }
 
+// Create a new `AWS::Lex::ResourcePolicy`.
 func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 

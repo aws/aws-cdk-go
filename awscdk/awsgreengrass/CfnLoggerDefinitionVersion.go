@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnLoggerDefinitionVersion interface {
 	awscdk.CfnResource
-	ILoggerDefinitionVersionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.ILoggerDefinitionVersionRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,12 +55,12 @@ type CfnLoggerDefinitionVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the logger definition associated with this version.
 	LoggerDefinitionId() *string
 	SetLoggerDefinitionId(val *string)
 	// A reference to a LoggerDefinitionVersion resource.
-	LoggerDefinitionVersionRef() *LoggerDefinitionVersionReference
+	LoggerDefinitionVersionRef() *interfacesawsgreengrass.LoggerDefinitionVersionReference
 	// The loggers in this version.
 	Loggers() interface{}
 	SetLoggers(val interface{})
@@ -226,8 +228,8 @@ type CfnLoggerDefinitionVersion interface {
 // The jsii proxy struct for CfnLoggerDefinitionVersion
 type jsiiProxy_CfnLoggerDefinitionVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoggerDefinitionVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassILoggerDefinitionVersionRef
 }
 
 func (j *jsiiProxy_CfnLoggerDefinitionVersion) AttrId() *string {
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggerDefinitionVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLoggerDefinitionVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) LoggerDefinitionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggerDefinitionVersion) LoggerDefinitionVersionRef() *LoggerDefinitionVersionReference {
-	var returns *LoggerDefinitionVersionReference
+func (j *jsiiProxy_CfnLoggerDefinitionVersion) LoggerDefinitionVersionRef() *interfacesawsgreengrass.LoggerDefinitionVersionReference {
+	var returns *interfacesawsgreengrass.LoggerDefinitionVersionReference
 	_jsii_.Get(
 		j,
 		"loggerDefinitionVersionRef",
@@ -381,6 +383,7 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::Greengrass::LoggerDefinitionVersion`.
 func NewCfnLoggerDefinitionVersion(scope constructs.Construct, id *string, props *CfnLoggerDefinitionVersionProps) CfnLoggerDefinitionVersion {
 	_init_.Initialize()
 
@@ -398,6 +401,7 @@ func NewCfnLoggerDefinitionVersion(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::Greengrass::LoggerDefinitionVersion`.
 func NewCfnLoggerDefinitionVersion_Override(c CfnLoggerDefinitionVersion, scope constructs.Construct, id *string, props *CfnLoggerDefinitionVersionProps) {
 	_init_.Initialize()
 

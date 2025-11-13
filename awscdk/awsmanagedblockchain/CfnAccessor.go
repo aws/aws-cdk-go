@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmanagedblockchain/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmanagedblockchain"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,11 +37,11 @@ import (
 //
 type CfnAccessor interface {
 	awscdk.CfnResource
-	IAccessorRef
 	awscdk.IInspectable
+	interfacesawsmanagedblockchain.IAccessorRef
 	awscdk.ITaggable
 	// A reference to a Accessor resource.
-	AccessorRef() *AccessorReference
+	AccessorRef() *interfacesawsmanagedblockchain.AccessorReference
 	// The type of the accessor.
 	AccessorType() *string
 	SetAccessorType(val *string)
@@ -66,7 +68,7 @@ type CfnAccessor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -239,13 +241,13 @@ type CfnAccessor interface {
 // The jsii proxy struct for CfnAccessor
 type jsiiProxy_CfnAccessor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmanagedblockchainIAccessorRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAccessor) AccessorRef() *AccessorReference {
-	var returns *AccessorReference
+func (j *jsiiProxy_CfnAccessor) AccessorRef() *interfacesawsmanagedblockchain.AccessorReference {
+	var returns *interfacesawsmanagedblockchain.AccessorReference
 	_jsii_.Get(
 		j,
 		"accessorRef",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnAccessor) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -455,6 +457,7 @@ func (j *jsiiProxy_CfnAccessor) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ManagedBlockchain::Accessor`.
 func NewCfnAccessor(scope constructs.Construct, id *string, props *CfnAccessorProps) CfnAccessor {
 	_init_.Initialize()
 
@@ -472,6 +475,7 @@ func NewCfnAccessor(scope constructs.Construct, id *string, props *CfnAccessorPr
 	return &j
 }
 
+// Create a new `AWS::ManagedBlockchain::Accessor`.
 func NewCfnAccessor_Override(c CfnAccessor, scope constructs.Construct, id *string, props *CfnAccessorProps) {
 	_init_.Initialize()
 
@@ -513,13 +517,13 @@ func (j *jsiiProxy_CfnAccessor)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IAccessorRef from an ARN.
-func CfnAccessor_FromAccessorArn(scope constructs.Construct, id *string, arn *string) IAccessorRef {
+func CfnAccessor_FromAccessorArn(scope constructs.Construct, id *string, arn *string) interfacesawsmanagedblockchain.IAccessorRef {
 	_init_.Initialize()
 
 	if err := validateCfnAccessor_FromAccessorArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAccessorRef
+	var returns interfacesawsmanagedblockchain.IAccessorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_managedblockchain.CfnAccessor",
@@ -532,13 +536,13 @@ func CfnAccessor_FromAccessorArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new IAccessorRef from a accessorId.
-func CfnAccessor_FromAccessorId(scope constructs.Construct, id *string, accessorId *string) IAccessorRef {
+func CfnAccessor_FromAccessorId(scope constructs.Construct, id *string, accessorId *string) interfacesawsmanagedblockchain.IAccessorRef {
 	_init_.Initialize()
 
 	if err := validateCfnAccessor_FromAccessorIdParameters(scope, id, accessorId); err != nil {
 		panic(err)
 	}
-	var returns IAccessorRef
+	var returns interfacesawsmanagedblockchain.IAccessorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_managedblockchain.CfnAccessor",

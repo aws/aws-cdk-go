@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnXssMatchSet interface {
 	awscdk.CfnResource
-	IXssMatchSetRef
 	awscdk.IInspectable
+	interfacesawswafregional.IXssMatchSetRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -56,7 +58,7 @@ type CfnXssMatchSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -95,7 +97,7 @@ type CfnXssMatchSet interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a XssMatchSet resource.
-	XssMatchSetRef() *XssMatchSetReference
+	XssMatchSetRef() *interfacesawswafregional.XssMatchSetReference
 	// Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
 	XssMatchTuples() interface{}
 	SetXssMatchTuples(val interface{})
@@ -229,8 +231,8 @@ type CfnXssMatchSet interface {
 // The jsii proxy struct for CfnXssMatchSet
 type jsiiProxy_CfnXssMatchSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IXssMatchSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalIXssMatchSetRef
 }
 
 func (j *jsiiProxy_CfnXssMatchSet) AttrId() *string {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnXssMatchSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnXssMatchSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnXssMatchSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnXssMatchSet) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnXssMatchSet) XssMatchSetRef() *XssMatchSetReference {
-	var returns *XssMatchSetReference
+func (j *jsiiProxy_CfnXssMatchSet) XssMatchSetRef() *interfacesawswafregional.XssMatchSetReference {
+	var returns *interfacesawswafregional.XssMatchSetReference
 	_jsii_.Get(
 		j,
 		"xssMatchSetRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnXssMatchSet) XssMatchTuples() interface{} {
 }
 
 
+// Create a new `AWS::WAFRegional::XssMatchSet`.
 func NewCfnXssMatchSet(scope constructs.Construct, id *string, props *CfnXssMatchSetProps) CfnXssMatchSet {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnXssMatchSet(scope constructs.Construct, id *string, props *CfnXssMatc
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::XssMatchSet`.
 func NewCfnXssMatchSet_Override(c CfnXssMatchSet, scope constructs.Construct, id *string, props *CfnXssMatchSetProps) {
 	_init_.Initialize()
 

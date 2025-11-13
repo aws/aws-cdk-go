@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -89,8 +91,8 @@ import (
 //
 type CfnInferenceComponent interface {
 	awscdk.CfnResource
-	IInferenceComponentRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IInferenceComponentRef
 	awscdk.ITaggableV2
 	// The time when the inference component was created.
 	AttrCreationTime() *string
@@ -127,12 +129,12 @@ type CfnInferenceComponent interface {
 	// The name of the endpoint that hosts the inference component.
 	EndpointName() *string
 	SetEndpointName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the inference component.
 	InferenceComponentName() *string
 	SetInferenceComponentName(val *string)
 	// A reference to a InferenceComponent resource.
-	InferenceComponentRef() *InferenceComponentReference
+	InferenceComponentRef() *interfacesawssagemaker.InferenceComponentReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -309,8 +311,8 @@ type CfnInferenceComponent interface {
 // The jsii proxy struct for CfnInferenceComponent
 type jsiiProxy_CfnInferenceComponent struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInferenceComponentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIInferenceComponentRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -474,8 +476,8 @@ func (j *jsiiProxy_CfnInferenceComponent) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInferenceComponent) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInferenceComponent) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -494,8 +496,8 @@ func (j *jsiiProxy_CfnInferenceComponent) InferenceComponentName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInferenceComponent) InferenceComponentRef() *InferenceComponentReference {
-	var returns *InferenceComponentReference
+func (j *jsiiProxy_CfnInferenceComponent) InferenceComponentRef() *interfacesawssagemaker.InferenceComponentReference {
+	var returns *interfacesawssagemaker.InferenceComponentReference
 	_jsii_.Get(
 		j,
 		"inferenceComponentRef",
@@ -605,6 +607,7 @@ func (j *jsiiProxy_CfnInferenceComponent) VariantName() *string {
 }
 
 
+// Create a new `AWS::SageMaker::InferenceComponent`.
 func NewCfnInferenceComponent(scope constructs.Construct, id *string, props *CfnInferenceComponentProps) CfnInferenceComponent {
 	_init_.Initialize()
 
@@ -622,6 +625,7 @@ func NewCfnInferenceComponent(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::SageMaker::InferenceComponent`.
 func NewCfnInferenceComponent_Override(c CfnInferenceComponent, scope constructs.Construct, id *string, props *CfnInferenceComponentProps) {
 	_init_.Initialize()
 

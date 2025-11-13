@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnMultiRegionAccessPoint interface {
 	awscdk.CfnResource
-	IMultiRegionAccessPointRef
 	awscdk.IInspectable
+	interfacesawss3.IMultiRegionAccessPointRef
 	// The alias for the Multi-Region Access Point.
 	//
 	// For more information about the distinction between the name and the alias of an Multi-Region Access Point, see [Managing Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming) in the *Amazon S3 User Guide* .
@@ -59,7 +61,7 @@ type CfnMultiRegionAccessPoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,7 +73,7 @@ type CfnMultiRegionAccessPoint interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MultiRegionAccessPoint resource.
-	MultiRegionAccessPointRef() *MultiRegionAccessPointReference
+	MultiRegionAccessPointRef() *interfacesawss3.MultiRegionAccessPointReference
 	// The name of the Multi-Region Access Point.
 	Name() *string
 	SetName(val *string)
@@ -235,8 +237,8 @@ type CfnMultiRegionAccessPoint interface {
 // The jsii proxy struct for CfnMultiRegionAccessPoint
 type jsiiProxy_CfnMultiRegionAccessPoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMultiRegionAccessPointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IMultiRegionAccessPointRef
 }
 
 func (j *jsiiProxy_CfnMultiRegionAccessPoint) AttrAlias() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnMultiRegionAccessPoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiRegionAccessPoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMultiRegionAccessPoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnMultiRegionAccessPoint) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiRegionAccessPoint) MultiRegionAccessPointRef() *MultiRegionAccessPointReference {
-	var returns *MultiRegionAccessPointReference
+func (j *jsiiProxy_CfnMultiRegionAccessPoint) MultiRegionAccessPointRef() *interfacesawss3.MultiRegionAccessPointReference {
+	var returns *interfacesawss3.MultiRegionAccessPointReference
 	_jsii_.Get(
 		j,
 		"multiRegionAccessPointRef",
@@ -410,6 +412,7 @@ func (j *jsiiProxy_CfnMultiRegionAccessPoint) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::S3::MultiRegionAccessPoint`.
 func NewCfnMultiRegionAccessPoint(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointProps) CfnMultiRegionAccessPoint {
 	_init_.Initialize()
 
@@ -427,6 +430,7 @@ func NewCfnMultiRegionAccessPoint(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::S3::MultiRegionAccessPoint`.
 func NewCfnMultiRegionAccessPoint_Override(c CfnMultiRegionAccessPoint, scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointProps) {
 	_init_.Initialize()
 

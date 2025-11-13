@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -73,8 +75,8 @@ import (
 //
 type CfnMultiplexprogram interface {
 	awscdk.CfnResource
-	IMultiplexprogramRef
 	awscdk.IInspectable
+	interfacesawsmedialive.IMultiplexprogramRef
 	// The unique ID of the channel.
 	AttrChannelId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -86,7 +88,7 @@ type CfnMultiplexprogram interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnMultiplexprogram interface {
 	MultiplexId() *string
 	SetMultiplexId(val *string)
 	// A reference to a Multiplexprogram resource.
-	MultiplexprogramRef() *MultiplexprogramReference
+	MultiplexprogramRef() *interfacesawsmedialive.MultiplexprogramReference
 	// Multiplex Program settings configuration.
 	MultiplexProgramSettings() interface{}
 	SetMultiplexProgramSettings(val interface{})
@@ -271,8 +273,8 @@ type CfnMultiplexprogram interface {
 // The jsii proxy struct for CfnMultiplexprogram
 type jsiiProxy_CfnMultiplexprogram struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMultiplexprogramRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveIMultiplexprogramRef
 }
 
 func (j *jsiiProxy_CfnMultiplexprogram) AttrChannelId() *string {
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnMultiplexprogram) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiplexprogram) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMultiplexprogram) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnMultiplexprogram) MultiplexId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiplexprogram) MultiplexprogramRef() *MultiplexprogramReference {
-	var returns *MultiplexprogramReference
+func (j *jsiiProxy_CfnMultiplexprogram) MultiplexprogramRef() *interfacesawsmedialive.MultiplexprogramReference {
+	var returns *interfacesawsmedialive.MultiplexprogramReference
 	_jsii_.Get(
 		j,
 		"multiplexprogramRef",
@@ -466,6 +468,7 @@ func (j *jsiiProxy_CfnMultiplexprogram) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::MediaLive::Multiplexprogram`.
 func NewCfnMultiplexprogram(scope constructs.Construct, id *string, props *CfnMultiplexprogramProps) CfnMultiplexprogram {
 	_init_.Initialize()
 
@@ -483,6 +486,7 @@ func NewCfnMultiplexprogram(scope constructs.Construct, id *string, props *CfnMu
 	return &j
 }
 
+// Create a new `AWS::MediaLive::Multiplexprogram`.
 func NewCfnMultiplexprogram_Override(c CfnMultiplexprogram, scope constructs.Construct, id *string, props *CfnMultiplexprogramProps) {
 	_init_.Initialize()
 

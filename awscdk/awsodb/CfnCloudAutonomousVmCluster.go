@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnCloudAutonomousVmCluster interface {
 	awscdk.CfnResource
-	ICloudAutonomousVmClusterRef
 	awscdk.IInspectable
+	interfacesawsodb.ICloudAutonomousVmClusterRef
 	awscdk.ITaggableV2
 	// The percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
 	AttrAutonomousDataStoragePercentage() awscdk.IResolvable
@@ -133,7 +135,7 @@ type CfnCloudAutonomousVmCluster interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CloudAutonomousVmCluster resource.
-	CloudAutonomousVmClusterRef() *CloudAutonomousVmClusterReference
+	CloudAutonomousVmClusterRef() *interfacesawsodb.CloudAutonomousVmClusterReference
 	// The unique identifier of the Cloud Exadata Infrastructure containing this Autonomous VM cluster.
 	CloudExadataInfrastructureId() *string
 	SetCloudExadataInfrastructureId(val *string)
@@ -153,7 +155,7 @@ type CfnCloudAutonomousVmCluster interface {
 	// The display name of the Autonomous VM cluster.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
 	IsMtlsEnabledVmCluster() interface{}
 	SetIsMtlsEnabledVmCluster(val interface{})
@@ -348,8 +350,8 @@ type CfnCloudAutonomousVmCluster interface {
 // The jsii proxy struct for CfnCloudAutonomousVmCluster
 type jsiiProxy_CfnCloudAutonomousVmCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICloudAutonomousVmClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsodbICloudAutonomousVmClusterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -683,8 +685,8 @@ func (j *jsiiProxy_CfnCloudAutonomousVmCluster) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudAutonomousVmCluster) CloudAutonomousVmClusterRef() *CloudAutonomousVmClusterReference {
-	var returns *CloudAutonomousVmClusterReference
+func (j *jsiiProxy_CfnCloudAutonomousVmCluster) CloudAutonomousVmClusterRef() *interfacesawsodb.CloudAutonomousVmClusterReference {
+	var returns *interfacesawsodb.CloudAutonomousVmClusterReference
 	_jsii_.Get(
 		j,
 		"cloudAutonomousVmClusterRef",
@@ -753,8 +755,8 @@ func (j *jsiiProxy_CfnCloudAutonomousVmCluster) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudAutonomousVmCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCloudAutonomousVmCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -924,6 +926,7 @@ func (j *jsiiProxy_CfnCloudAutonomousVmCluster) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::ODB::CloudAutonomousVmCluster`.
 func NewCfnCloudAutonomousVmCluster(scope constructs.Construct, id *string, props *CfnCloudAutonomousVmClusterProps) CfnCloudAutonomousVmCluster {
 	_init_.Initialize()
 
@@ -941,6 +944,7 @@ func NewCfnCloudAutonomousVmCluster(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::ODB::CloudAutonomousVmCluster`.
 func NewCfnCloudAutonomousVmCluster_Override(c CfnCloudAutonomousVmCluster, scope constructs.Construct, id *string, props *CfnCloudAutonomousVmClusterProps) {
 	_init_.Initialize()
 

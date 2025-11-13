@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmsk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmsk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,10 +31,10 @@ import (
 //
 type CfnBatchScramSecret interface {
 	awscdk.CfnResource
-	IBatchScramSecretRef
 	awscdk.IInspectable
+	interfacesawsmsk.IBatchScramSecretRef
 	// A reference to a BatchScramSecret resource.
-	BatchScramSecretRef() *BatchScramSecretReference
+	BatchScramSecretRef() *interfacesawsmsk.BatchScramSecretReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -45,7 +47,7 @@ type CfnBatchScramSecret interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,12 +215,12 @@ type CfnBatchScramSecret interface {
 // The jsii proxy struct for CfnBatchScramSecret
 type jsiiProxy_CfnBatchScramSecret struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBatchScramSecretRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmskIBatchScramSecretRef
 }
 
-func (j *jsiiProxy_CfnBatchScramSecret) BatchScramSecretRef() *BatchScramSecretReference {
-	var returns *BatchScramSecretReference
+func (j *jsiiProxy_CfnBatchScramSecret) BatchScramSecretRef() *interfacesawsmsk.BatchScramSecretReference {
+	var returns *interfacesawsmsk.BatchScramSecretReference
 	_jsii_.Get(
 		j,
 		"batchScramSecretRef",
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnBatchScramSecret) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBatchScramSecret) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBatchScramSecret) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,6 +360,7 @@ func (j *jsiiProxy_CfnBatchScramSecret) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::MSK::BatchScramSecret`.
 func NewCfnBatchScramSecret(scope constructs.Construct, id *string, props *CfnBatchScramSecretProps) CfnBatchScramSecret {
 	_init_.Initialize()
 
@@ -375,6 +378,7 @@ func NewCfnBatchScramSecret(scope constructs.Construct, id *string, props *CfnBa
 	return &j
 }
 
+// Create a new `AWS::MSK::BatchScramSecret`.
 func NewCfnBatchScramSecret_Override(c CfnBatchScramSecret, scope constructs.Construct, id *string, props *CfnBatchScramSecretProps) {
 	_init_.Initialize()
 

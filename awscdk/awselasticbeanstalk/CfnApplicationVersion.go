@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticbeanstalk/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticbeanstalk"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,13 +37,13 @@ import (
 //
 type CfnApplicationVersion interface {
 	awscdk.CfnResource
-	IApplicationVersionRef
 	awscdk.IInspectable
+	interfacesawselasticbeanstalk.IApplicationVersionRef
 	// The name of the Elastic Beanstalk application that is associated with this application version.
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// A reference to a ApplicationVersion resource.
-	ApplicationVersionRef() *ApplicationVersionReference
+	ApplicationVersionRef() *interfacesawselasticbeanstalk.ApplicationVersionReference
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -55,7 +57,7 @@ type CfnApplicationVersion interface {
 	// A description of this application version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnApplicationVersion interface {
 // The jsii proxy struct for CfnApplicationVersion
 type jsiiProxy_CfnApplicationVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticbeanstalkIApplicationVersionRef
 }
 
 func (j *jsiiProxy_CfnApplicationVersion) ApplicationName() *string {
@@ -237,8 +239,8 @@ func (j *jsiiProxy_CfnApplicationVersion) ApplicationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationVersion) ApplicationVersionRef() *ApplicationVersionReference {
-	var returns *ApplicationVersionReference
+func (j *jsiiProxy_CfnApplicationVersion) ApplicationVersionRef() *interfacesawselasticbeanstalk.ApplicationVersionReference {
+	var returns *interfacesawselasticbeanstalk.ApplicationVersionReference
 	_jsii_.Get(
 		j,
 		"applicationVersionRef",
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnApplicationVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnApplicationVersion) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::ElasticBeanstalk::ApplicationVersion`.
 func NewCfnApplicationVersion(scope constructs.Construct, id *string, props *CfnApplicationVersionProps) CfnApplicationVersion {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnApplicationVersion(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::ElasticBeanstalk::ApplicationVersion`.
 func NewCfnApplicationVersion_Override(c CfnApplicationVersion, scope constructs.Construct, id *string, props *CfnApplicationVersionProps) {
 	_init_.Initialize()
 

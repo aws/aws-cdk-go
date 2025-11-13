@@ -57,8 +57,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnChannel{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IChannelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudtrailIChannelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -122,8 +122,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDashboard{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDashboardRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudtrailIDashboardRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -205,8 +205,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEventDataStore{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEventDataStoreRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudtrailIEventDataStoreRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -273,8 +273,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourcePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourcePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudtrailIResourcePolicyRef)
 			return &j
 		},
 	)
@@ -341,8 +341,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTrail{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITrailRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudtrailITrailRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -371,99 +371,12 @@ func init() {
 		"aws-cdk-lib.aws_cloudtrail.CfnTrailProps",
 		reflect.TypeOf((*CfnTrailProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudtrail.ChannelReference",
-		reflect.TypeOf((*ChannelReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudtrail.DashboardReference",
-		reflect.TypeOf((*DashboardReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cloudtrail.DataResourceType",
 		reflect.TypeOf((*DataResourceType)(nil)).Elem(),
 		map[string]interface{}{
 			"LAMBDA_FUNCTION": DataResourceType_LAMBDA_FUNCTION,
 			"S3_OBJECT": DataResourceType_S3_OBJECT,
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudtrail.EventDataStoreReference",
-		reflect.TypeOf((*EventDataStoreReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudtrail.IChannelRef",
-		reflect.TypeOf((*IChannelRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IChannelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudtrail.IDashboardRef",
-		reflect.TypeOf((*IDashboardRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dashboardRef", GoGetter: "DashboardRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDashboardRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudtrail.IEventDataStoreRef",
-		reflect.TypeOf((*IEventDataStoreRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "eventDataStoreRef", GoGetter: "EventDataStoreRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEventDataStoreRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudtrail.IResourcePolicyRef",
-		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourcePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudtrail.ITrailRef",
-		reflect.TypeOf((*ITrailRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "trailRef", GoGetter: "TrailRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITrailRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -493,10 +406,6 @@ func init() {
 			"ALL": ReadWriteType_ALL,
 			"NONE": ReadWriteType_NONE,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudtrail.ResourcePolicyReference",
-		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudtrail.S3EventSelector",
@@ -533,9 +442,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudtrail.TrailProps",
 		reflect.TypeOf((*TrailProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudtrail.TrailReference",
-		reflect.TypeOf((*TrailReference)(nil)).Elem(),
 	)
 }

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediapackagev2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackagev2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnChannelPolicy interface {
 	awscdk.CfnResource
-	IChannelPolicyRef
 	awscdk.IInspectable
+	interfacesawsmediapackagev2.IChannelPolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -42,12 +44,12 @@ type CfnChannelPolicy interface {
 	ChannelName() *string
 	SetChannelName(val *string)
 	// A reference to a ChannelPolicy resource.
-	ChannelPolicyRef() *ChannelPolicyReference
+	ChannelPolicyRef() *interfacesawsmediapackagev2.ChannelPolicyReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -215,8 +217,8 @@ type CfnChannelPolicy interface {
 // The jsii proxy struct for CfnChannelPolicy
 type jsiiProxy_CfnChannelPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChannelPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediapackagev2IChannelPolicyRef
 }
 
 func (j *jsiiProxy_CfnChannelPolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnChannelPolicy) ChannelName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelPolicy) ChannelPolicyRef() *ChannelPolicyReference {
-	var returns *ChannelPolicyReference
+func (j *jsiiProxy_CfnChannelPolicy) ChannelPolicyRef() *interfacesawsmediapackagev2.ChannelPolicyReference {
+	var returns *interfacesawsmediapackagev2.ChannelPolicyReference
 	_jsii_.Get(
 		j,
 		"channelPolicyRef",
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnChannelPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChannelPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnChannelPolicy) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::MediaPackageV2::ChannelPolicy`.
 func NewCfnChannelPolicy(scope constructs.Construct, id *string, props *CfnChannelPolicyProps) CfnChannelPolicy {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnChannelPolicy(scope constructs.Construct, id *string, props *CfnChann
 	return &j
 }
 
+// Create a new `AWS::MediaPackageV2::ChannelPolicy`.
 func NewCfnChannelPolicy_Override(c CfnChannelPolicy, scope constructs.Construct, id *string, props *CfnChannelPolicyProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemrcontainers/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemrcontainers"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnVirtualCluster interface {
 	awscdk.CfnResource
-	IVirtualClusterRef
 	awscdk.IInspectable
+	interfacesawsemrcontainers.IVirtualClusterRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
 	AttrArn() *string
@@ -63,7 +65,7 @@ type CfnVirtualCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -110,7 +112,7 @@ type CfnVirtualCluster interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VirtualCluster resource.
-	VirtualClusterRef() *VirtualClusterReference
+	VirtualClusterRef() *interfacesawsemrcontainers.VirtualClusterReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -241,8 +243,8 @@ type CfnVirtualCluster interface {
 // The jsii proxy struct for CfnVirtualCluster
 type jsiiProxy_CfnVirtualCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVirtualClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrcontainersIVirtualClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnVirtualCluster) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVirtualCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -426,8 +428,8 @@ func (j *jsiiProxy_CfnVirtualCluster) UpdatedProperties() *map[string]interface{
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualCluster) VirtualClusterRef() *VirtualClusterReference {
-	var returns *VirtualClusterReference
+func (j *jsiiProxy_CfnVirtualCluster) VirtualClusterRef() *interfacesawsemrcontainers.VirtualClusterReference {
+	var returns *interfacesawsemrcontainers.VirtualClusterReference
 	_jsii_.Get(
 		j,
 		"virtualClusterRef",
@@ -437,6 +439,7 @@ func (j *jsiiProxy_CfnVirtualCluster) VirtualClusterRef() *VirtualClusterReferen
 }
 
 
+// Create a new `AWS::EMRContainers::VirtualCluster`.
 func NewCfnVirtualCluster(scope constructs.Construct, id *string, props *CfnVirtualClusterProps) CfnVirtualCluster {
 	_init_.Initialize()
 
@@ -454,6 +457,7 @@ func NewCfnVirtualCluster(scope constructs.Construct, id *string, props *CfnVirt
 	return &j
 }
 
+// Create a new `AWS::EMRContainers::VirtualCluster`.
 func NewCfnVirtualCluster_Override(c CfnVirtualCluster, scope constructs.Construct, id *string, props *CfnVirtualClusterProps) {
 	_init_.Initialize()
 
@@ -506,13 +510,13 @@ func (j *jsiiProxy_CfnVirtualCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IVirtualClusterRef from an ARN.
-func CfnVirtualCluster_FromVirtualClusterArn(scope constructs.Construct, id *string, arn *string) IVirtualClusterRef {
+func CfnVirtualCluster_FromVirtualClusterArn(scope constructs.Construct, id *string, arn *string) interfacesawsemrcontainers.IVirtualClusterRef {
 	_init_.Initialize()
 
 	if err := validateCfnVirtualCluster_FromVirtualClusterArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IVirtualClusterRef
+	var returns interfacesawsemrcontainers.IVirtualClusterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_emrcontainers.CfnVirtualCluster",
@@ -525,13 +529,13 @@ func CfnVirtualCluster_FromVirtualClusterArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IVirtualClusterRef from a virtualClusterId.
-func CfnVirtualCluster_FromVirtualClusterId(scope constructs.Construct, id *string, virtualClusterId *string) IVirtualClusterRef {
+func CfnVirtualCluster_FromVirtualClusterId(scope constructs.Construct, id *string, virtualClusterId *string) interfacesawsemrcontainers.IVirtualClusterRef {
 	_init_.Initialize()
 
 	if err := validateCfnVirtualCluster_FromVirtualClusterIdParameters(scope, id, virtualClusterId); err != nil {
 		panic(err)
 	}
-	var returns IVirtualClusterRef
+	var returns interfacesawsemrcontainers.IVirtualClusterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_emrcontainers.CfnVirtualCluster",

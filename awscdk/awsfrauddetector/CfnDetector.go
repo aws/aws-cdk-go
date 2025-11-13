@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfrauddetector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfrauddetector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -141,8 +143,8 @@ import (
 //
 type CfnDetector interface {
 	awscdk.CfnResource
-	IDetectorRef
 	awscdk.IInspectable
+	interfacesawsfrauddetector.IDetectorRef
 	awscdk.ITaggable
 	// The models to associate with this detector.
 	AssociatedModels() interface{}
@@ -177,11 +179,11 @@ type CfnDetector interface {
 	DetectorId() *string
 	SetDetectorId(val *string)
 	// A reference to a Detector resource.
-	DetectorRef() *DetectorReference
+	DetectorRef() *interfacesawsfrauddetector.DetectorReference
 	// The status of the detector version.
 	DetectorVersionStatus() *string
 	SetDetectorVersionStatus(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The event type associated with this detector.
 	EventType() interface{}
 	SetEventType(val interface{})
@@ -360,8 +362,8 @@ type CfnDetector interface {
 // The jsii proxy struct for CfnDetector
 type jsiiProxy_CfnDetector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDetectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfrauddetectorIDetectorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -505,8 +507,8 @@ func (j *jsiiProxy_CfnDetector) DetectorId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDetector) DetectorRef() *DetectorReference {
-	var returns *DetectorReference
+func (j *jsiiProxy_CfnDetector) DetectorRef() *interfacesawsfrauddetector.DetectorReference {
+	var returns *interfacesawsfrauddetector.DetectorReference
 	_jsii_.Get(
 		j,
 		"detectorRef",
@@ -525,8 +527,8 @@ func (j *jsiiProxy_CfnDetector) DetectorVersionStatus() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDetector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDetector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -646,6 +648,7 @@ func (j *jsiiProxy_CfnDetector) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::FraudDetector::Detector`.
 func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorProps) CfnDetector {
 	_init_.Initialize()
 
@@ -663,6 +666,7 @@ func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorPr
 	return &j
 }
 
+// Create a new `AWS::FraudDetector::Detector`.
 func NewCfnDetector_Override(c CfnDetector, scope constructs.Construct, id *string, props *CfnDetectorProps) {
 	_init_.Initialize()
 

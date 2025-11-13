@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnLaunchNotificationConstraint interface {
 	awscdk.CfnResource
-	ILaunchNotificationConstraintRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.ILaunchNotificationConstraintRef
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
@@ -51,9 +53,9 @@ type CfnLaunchNotificationConstraint interface {
 	// The description of the constraint.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LaunchNotificationConstraint resource.
-	LaunchNotificationConstraintRef() *LaunchNotificationConstraintReference
+	LaunchNotificationConstraintRef() *interfacesawsservicecatalog.LaunchNotificationConstraintReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,8 +229,8 @@ type CfnLaunchNotificationConstraint interface {
 // The jsii proxy struct for CfnLaunchNotificationConstraint
 type jsiiProxy_CfnLaunchNotificationConstraint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILaunchNotificationConstraintRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogILaunchNotificationConstraintRef
 }
 
 func (j *jsiiProxy_CfnLaunchNotificationConstraint) AcceptLanguage() *string {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnLaunchNotificationConstraint) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchNotificationConstraint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLaunchNotificationConstraint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnLaunchNotificationConstraint) Env() *awscdk.ResourceEnviro
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchNotificationConstraint) LaunchNotificationConstraintRef() *LaunchNotificationConstraintReference {
-	var returns *LaunchNotificationConstraintReference
+func (j *jsiiProxy_CfnLaunchNotificationConstraint) LaunchNotificationConstraintRef() *interfacesawsservicecatalog.LaunchNotificationConstraintReference {
+	var returns *interfacesawsservicecatalog.LaunchNotificationConstraintReference
 	_jsii_.Get(
 		j,
 		"launchNotificationConstraintRef",
@@ -412,6 +414,7 @@ func (j *jsiiProxy_CfnLaunchNotificationConstraint) UpdatedProperties() *map[str
 }
 
 
+// Create a new `AWS::ServiceCatalog::LaunchNotificationConstraint`.
 func NewCfnLaunchNotificationConstraint(scope constructs.Construct, id *string, props *CfnLaunchNotificationConstraintProps) CfnLaunchNotificationConstraint {
 	_init_.Initialize()
 
@@ -429,6 +432,7 @@ func NewCfnLaunchNotificationConstraint(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::LaunchNotificationConstraint`.
 func NewCfnLaunchNotificationConstraint_Override(c CfnLaunchNotificationConstraint, scope constructs.Construct, id *string, props *CfnLaunchNotificationConstraintProps) {
 	_init_.Initialize()
 

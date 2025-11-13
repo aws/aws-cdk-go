@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,7 +64,7 @@ func (m *jsiiProxy_Method) validateGrantExecuteParameters(grantee awsiam.IGranta
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricParameters(metricName *string, stage IStageRef, props *awscloudwatch.MetricOptions) error {
+func (m *jsiiProxy_Method) validateMetricParameters(metricName *string, stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) error {
 	if metricName == nil {
 		return fmt.Errorf("parameter metricName is required, but nil was provided")
 	}
@@ -79,7 +80,7 @@ func (m *jsiiProxy_Method) validateMetricParameters(metricName *string, stage IS
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricCacheHitCountParameters(stage IStageRef, props *awscloudwatch.MetricOptions) error {
+func (m *jsiiProxy_Method) validateMetricCacheHitCountParameters(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
@@ -91,7 +92,7 @@ func (m *jsiiProxy_Method) validateMetricCacheHitCountParameters(stage IStageRef
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricCacheMissCountParameters(stage IStageRef, props *awscloudwatch.MetricOptions) error {
+func (m *jsiiProxy_Method) validateMetricCacheMissCountParameters(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
@@ -103,7 +104,7 @@ func (m *jsiiProxy_Method) validateMetricCacheMissCountParameters(stage IStageRe
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricClientErrorParameters(stage IStageRef, props *awscloudwatch.MetricOptions) error {
+func (m *jsiiProxy_Method) validateMetricClientErrorParameters(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
@@ -115,7 +116,7 @@ func (m *jsiiProxy_Method) validateMetricClientErrorParameters(stage IStageRef, 
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricCountParameters(stage IStageRef, props *awscloudwatch.MetricOptions) error {
+func (m *jsiiProxy_Method) validateMetricCountParameters(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
@@ -127,7 +128,7 @@ func (m *jsiiProxy_Method) validateMetricCountParameters(stage IStageRef, props 
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricIntegrationLatencyParameters(stage IStageRef, props *awscloudwatch.MetricOptions) error {
+func (m *jsiiProxy_Method) validateMetricIntegrationLatencyParameters(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
@@ -139,7 +140,7 @@ func (m *jsiiProxy_Method) validateMetricIntegrationLatencyParameters(stage ISta
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricLatencyParameters(stage IStageRef, props *awscloudwatch.MetricOptions) error {
+func (m *jsiiProxy_Method) validateMetricLatencyParameters(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
@@ -151,7 +152,7 @@ func (m *jsiiProxy_Method) validateMetricLatencyParameters(stage IStageRef, prop
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateMetricServerErrorParameters(stage IStageRef, props *awscloudwatch.MetricOptions) error {
+func (m *jsiiProxy_Method) validateMetricServerErrorParameters(stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}

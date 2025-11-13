@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,8 +66,8 @@ import (
 //
 type CfnStateMachine interface {
 	awscdk.CfnResource
-	IStateMachineRef
 	awscdk.IInspectable
+	interfacesawssam.IStateMachineRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -82,7 +84,7 @@ type CfnStateMachine interface {
 	SetDefinitionSubstitutions(val interface{})
 	DefinitionUri() interface{}
 	SetDefinitionUri(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	Events() interface{}
 	SetEvents(val interface{})
 	Logging() interface{}
@@ -117,7 +119,7 @@ type CfnStateMachine interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StateMachine resource.
-	StateMachineRef() *StateMachineReference
+	StateMachineRef() *interfacesawssam.StateMachineReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	TagsRaw() *map[string]*string
@@ -269,8 +271,8 @@ type CfnStateMachine interface {
 // The jsii proxy struct for CfnStateMachine
 type jsiiProxy_CfnStateMachine struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStateMachineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssamIStateMachineRef
 	internal.Type__awscdkITaggable
 }
 
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnStateMachine) DefinitionUri() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachine) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStateMachine) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -454,8 +456,8 @@ func (j *jsiiProxy_CfnStateMachine) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachine) StateMachineRef() *StateMachineReference {
-	var returns *StateMachineReference
+func (j *jsiiProxy_CfnStateMachine) StateMachineRef() *interfacesawssam.StateMachineReference {
+	var returns *interfacesawssam.StateMachineReference
 	_jsii_.Get(
 		j,
 		"stateMachineRef",
@@ -525,6 +527,7 @@ func (j *jsiiProxy_CfnStateMachine) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Serverless::StateMachine`.
 func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateMachineProps) CfnStateMachine {
 	_init_.Initialize()
 
@@ -542,6 +545,7 @@ func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateM
 	return &j
 }
 
+// Create a new `AWS::Serverless::StateMachine`.
 func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, id *string, props *CfnStateMachineProps) {
 	_init_.Initialize()
 

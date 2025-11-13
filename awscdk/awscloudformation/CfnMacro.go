@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnMacro interface {
 	awscdk.CfnResource
-	IMacroRef
 	awscdk.IInspectable
+	interfacesawscloudformation.IMacroRef
 	// Returns a unique identifier for the resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -48,7 +50,7 @@ type CfnMacro interface {
 	// A description of the macro.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the underlying Lambda function that you want CloudFormation to invoke when the macro is run.
 	FunctionName() *string
 	SetFunctionName(val *string)
@@ -69,7 +71,7 @@ type CfnMacro interface {
 	LogRoleArn() *string
 	SetLogRoleArn(val *string)
 	// A reference to a Macro resource.
-	MacroRef() *MacroReference
+	MacroRef() *interfacesawscloudformation.MacroReference
 	// The name of the macro.
 	Name() *string
 	SetName(val *string)
@@ -227,8 +229,8 @@ type CfnMacro interface {
 // The jsii proxy struct for CfnMacro
 type jsiiProxy_CfnMacro struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMacroRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationIMacroRef
 }
 
 func (j *jsiiProxy_CfnMacro) AttrId() *string {
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnMacro) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMacro) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMacro) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnMacro) LogRoleArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMacro) MacroRef() *MacroReference {
-	var returns *MacroReference
+func (j *jsiiProxy_CfnMacro) MacroRef() *interfacesawscloudformation.MacroReference {
+	var returns *interfacesawscloudformation.MacroReference
 	_jsii_.Get(
 		j,
 		"macroRef",
@@ -412,6 +414,7 @@ func (j *jsiiProxy_CfnMacro) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFormation::Macro`.
 func NewCfnMacro(scope constructs.Construct, id *string, props *CfnMacroProps) CfnMacro {
 	_init_.Initialize()
 
@@ -429,6 +432,7 @@ func NewCfnMacro(scope constructs.Construct, id *string, props *CfnMacroProps) C
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::Macro`.
 func NewCfnMacro_Override(c CfnMacro, scope constructs.Construct, id *string, props *CfnMacroProps) {
 	_init_.Initialize()
 

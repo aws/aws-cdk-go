@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrockagentcore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnCodeInterpreterCustom interface {
 	awscdk.CfnResource
-	ICodeInterpreterCustomRef
 	awscdk.IInspectable
+	interfacesawsbedrockagentcore.ICodeInterpreterCustomRef
 	awscdk.ITaggableV2
 	// The code interpreter Amazon Resource Name (ARN).
 	AttrCodeInterpreterArn() *string
@@ -73,7 +75,7 @@ type CfnCodeInterpreterCustom interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CodeInterpreterCustom resource.
-	CodeInterpreterCustomRef() *CodeInterpreterCustomReference
+	CodeInterpreterCustomRef() *interfacesawsbedrockagentcore.CodeInterpreterCustomReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -81,7 +83,7 @@ type CfnCodeInterpreterCustom interface {
 	// The code interpreter description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the execution role.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -258,8 +260,8 @@ type CfnCodeInterpreterCustom interface {
 // The jsii proxy struct for CfnCodeInterpreterCustom
 type jsiiProxy_CfnCodeInterpreterCustom struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICodeInterpreterCustomRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockagentcoreICodeInterpreterCustomRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnCodeInterpreterCustom) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeInterpreterCustom) CodeInterpreterCustomRef() *CodeInterpreterCustomReference {
-	var returns *CodeInterpreterCustomReference
+func (j *jsiiProxy_CfnCodeInterpreterCustom) CodeInterpreterCustomRef() *interfacesawsbedrockagentcore.CodeInterpreterCustomReference {
+	var returns *interfacesawsbedrockagentcore.CodeInterpreterCustomReference
 	_jsii_.Get(
 		j,
 		"codeInterpreterCustomRef",
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnCodeInterpreterCustom) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeInterpreterCustom) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCodeInterpreterCustom) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -504,6 +506,7 @@ func (j *jsiiProxy_CfnCodeInterpreterCustom) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::BedrockAgentCore::CodeInterpreterCustom`.
 func NewCfnCodeInterpreterCustom(scope constructs.Construct, id *string, props *CfnCodeInterpreterCustomProps) CfnCodeInterpreterCustom {
 	_init_.Initialize()
 
@@ -521,6 +524,7 @@ func NewCfnCodeInterpreterCustom(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::BedrockAgentCore::CodeInterpreterCustom`.
 func NewCfnCodeInterpreterCustom_Override(c CfnCodeInterpreterCustom, scope constructs.Construct, id *string, props *CfnCodeInterpreterCustomProps) {
 	_init_.Initialize()
 
@@ -578,13 +582,13 @@ func (j *jsiiProxy_CfnCodeInterpreterCustom)SetTags(val *map[string]*string) {
 }
 
 // Creates a new ICodeInterpreterCustomRef from a codeInterpreterId.
-func CfnCodeInterpreterCustom_FromCodeInterpreterId(scope constructs.Construct, id *string, codeInterpreterId *string) ICodeInterpreterCustomRef {
+func CfnCodeInterpreterCustom_FromCodeInterpreterId(scope constructs.Construct, id *string, codeInterpreterId *string) interfacesawsbedrockagentcore.ICodeInterpreterCustomRef {
 	_init_.Initialize()
 
 	if err := validateCfnCodeInterpreterCustom_FromCodeInterpreterIdParameters(scope, id, codeInterpreterId); err != nil {
 		panic(err)
 	}
-	var returns ICodeInterpreterCustomRef
+	var returns interfacesawsbedrockagentcore.ICodeInterpreterCustomRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterCustom",

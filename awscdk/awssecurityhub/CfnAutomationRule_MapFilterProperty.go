@@ -1,7 +1,7 @@
 package awssecurityhub
 
 
-// A map filter for filtering AWS Security Hub findings.
+// A map filter for filtering Security Hub findings.
 //
 // Each map filter provides the field to check for, the value to check for, and the comparison operator.
 //
@@ -39,7 +39,7 @@ type CfnAutomationRule_MapFilterProperty struct {
 	//
 	// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can’t have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field. Combining filters in this way returns an error.
 	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-mapfilter.html#cfn-securityhub-automationrule-mapfilter-comparison
 	//
 	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`

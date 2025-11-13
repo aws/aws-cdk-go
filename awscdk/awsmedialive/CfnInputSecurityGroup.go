@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnInputSecurityGroup interface {
 	awscdk.CfnResource
-	IInputSecurityGroupRef
 	awscdk.IInspectable
+	interfacesawsmedialive.IInputSecurityGroupRef
 	awscdk.ITaggable
 	// The ARN of the MediaLive input security group.
 	//
@@ -51,9 +53,9 @@ type CfnInputSecurityGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InputSecurityGroup resource.
-	InputSecurityGroupRef() *InputSecurityGroupReference
+	InputSecurityGroupRef() *interfacesawsmedialive.InputSecurityGroupReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -226,8 +228,8 @@ type CfnInputSecurityGroup interface {
 // The jsii proxy struct for CfnInputSecurityGroup
 type jsiiProxy_CfnInputSecurityGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInputSecurityGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveIInputSecurityGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnInputSecurityGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInputSecurityGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInputSecurityGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnInputSecurityGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInputSecurityGroup) InputSecurityGroupRef() *InputSecurityGroupReference {
-	var returns *InputSecurityGroupReference
+func (j *jsiiProxy_CfnInputSecurityGroup) InputSecurityGroupRef() *interfacesawsmedialive.InputSecurityGroupReference {
+	var returns *interfacesawsmedialive.InputSecurityGroupReference
 	_jsii_.Get(
 		j,
 		"inputSecurityGroupRef",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnInputSecurityGroup) WhitelistRules() interface{} {
 }
 
 
+// Create a new `AWS::MediaLive::InputSecurityGroup`.
 func NewCfnInputSecurityGroup(scope constructs.Construct, id *string, props *CfnInputSecurityGroupProps) CfnInputSecurityGroup {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnInputSecurityGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::MediaLive::InputSecurityGroup`.
 func NewCfnInputSecurityGroup_Override(c CfnInputSecurityGroup, scope constructs.Construct, id *string, props *CfnInputSecurityGroupProps) {
 	_init_.Initialize()
 
@@ -449,13 +453,13 @@ func (j *jsiiProxy_CfnInputSecurityGroup)SetWhitelistRules(val interface{}) {
 }
 
 // Creates a new IInputSecurityGroupRef from an ARN.
-func CfnInputSecurityGroup_FromInputSecurityGroupArn(scope constructs.Construct, id *string, arn *string) IInputSecurityGroupRef {
+func CfnInputSecurityGroup_FromInputSecurityGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IInputSecurityGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnInputSecurityGroup_FromInputSecurityGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IInputSecurityGroupRef
+	var returns interfacesawsmedialive.IInputSecurityGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
@@ -468,13 +472,13 @@ func CfnInputSecurityGroup_FromInputSecurityGroupArn(scope constructs.Construct,
 }
 
 // Creates a new IInputSecurityGroupRef from a inputSecurityGroupId.
-func CfnInputSecurityGroup_FromInputSecurityGroupId(scope constructs.Construct, id *string, inputSecurityGroupId *string) IInputSecurityGroupRef {
+func CfnInputSecurityGroup_FromInputSecurityGroupId(scope constructs.Construct, id *string, inputSecurityGroupId *string) interfacesawsmedialive.IInputSecurityGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnInputSecurityGroup_FromInputSecurityGroupIdParameters(scope, id, inputSecurityGroupId); err != nil {
 		panic(err)
 	}
-	var returns IInputSecurityGroupRef
+	var returns interfacesawsmedialive.IInputSecurityGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",

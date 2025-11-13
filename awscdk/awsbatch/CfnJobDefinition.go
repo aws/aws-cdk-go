@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,8 +22,8 @@ import (
 //
 type CfnJobDefinition interface {
 	awscdk.CfnResource
-	IJobDefinitionRef
 	awscdk.IInspectable
+	interfacesawsbatch.IJobDefinitionRef
 	awscdk.ITaggable
 	// The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
 	AttrJobDefinitionArn() *string
@@ -46,12 +48,12 @@ type CfnJobDefinition interface {
 	// An object with properties that are specific to Amazon EKS-based jobs.
 	EksProperties() interface{}
 	SetEksProperties(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the job definition.
 	JobDefinitionName() *string
 	SetJobDefinitionName(val *string)
 	// A reference to a JobDefinition resource.
-	JobDefinitionRef() *JobDefinitionReference
+	JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,6 +83,7 @@ type CfnJobDefinition interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Specifies the resource retention policy settings for the job definition.
 	ResourceRetentionPolicy() interface{}
 	SetResourceRetentionPolicy(val interface{})
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
@@ -247,8 +250,8 @@ type CfnJobDefinition interface {
 // The jsii proxy struct for CfnJobDefinition
 type jsiiProxy_CfnJobDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IJobDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbatchIJobDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -342,8 +345,8 @@ func (j *jsiiProxy_CfnJobDefinition) EksProperties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnJobDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -362,8 +365,8 @@ func (j *jsiiProxy_CfnJobDefinition) JobDefinitionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobDefinition) JobDefinitionRef() *JobDefinitionReference {
-	var returns *JobDefinitionReference
+func (j *jsiiProxy_CfnJobDefinition) JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference {
+	var returns *interfacesawsbatch.JobDefinitionReference
 	_jsii_.Get(
 		j,
 		"jobDefinitionRef",
@@ -543,6 +546,7 @@ func (j *jsiiProxy_CfnJobDefinition) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Batch::JobDefinition`.
 func NewCfnJobDefinition(scope constructs.Construct, id *string, props *CfnJobDefinitionProps) CfnJobDefinition {
 	_init_.Initialize()
 
@@ -560,6 +564,7 @@ func NewCfnJobDefinition(scope constructs.Construct, id *string, props *CfnJobDe
 	return &j
 }
 
+// Create a new `AWS::Batch::JobDefinition`.
 func NewCfnJobDefinition_Override(c CfnJobDefinition, scope constructs.Construct, id *string, props *CfnJobDefinitionProps) {
 	_init_.Initialize()
 
@@ -721,13 +726,13 @@ func (j *jsiiProxy_CfnJobDefinition)SetType(val *string) {
 }
 
 // Creates a new IJobDefinitionRef from an ARN.
-func CfnJobDefinition_FromJobDefinitionArn(scope constructs.Construct, id *string, arn *string) IJobDefinitionRef {
+func CfnJobDefinition_FromJobDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsbatch.IJobDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnJobDefinition_FromJobDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IJobDefinitionRef
+	var returns interfacesawsbatch.IJobDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition",
@@ -740,13 +745,13 @@ func CfnJobDefinition_FromJobDefinitionArn(scope constructs.Construct, id *strin
 }
 
 // Creates a new IJobDefinitionRef from a jobDefinitionName.
-func CfnJobDefinition_FromJobDefinitionName(scope constructs.Construct, id *string, jobDefinitionName *string) IJobDefinitionRef {
+func CfnJobDefinition_FromJobDefinitionName(scope constructs.Construct, id *string, jobDefinitionName *string) interfacesawsbatch.IJobDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnJobDefinition_FromJobDefinitionNameParameters(scope, id, jobDefinitionName); err != nil {
 		panic(err)
 	}
-	var returns IJobDefinitionRef
+	var returns interfacesawsbatch.IJobDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition",

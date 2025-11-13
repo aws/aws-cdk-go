@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevicefarm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevicefarm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnNetworkProfile interface {
 	awscdk.CfnResource
-	INetworkProfileRef
 	awscdk.IInspectable
+	interfacesawsdevicefarm.INetworkProfileRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the network profile.
 	//
@@ -73,7 +75,7 @@ type CfnNetworkProfile interface {
 	// Proportion of received packets that fail to arrive from 0 to 100 percent.
 	DownlinkLossPercent() *float64
 	SetDownlinkLossPercent(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -88,7 +90,7 @@ type CfnNetworkProfile interface {
 	Name() *string
 	SetName(val *string)
 	// A reference to a NetworkProfile resource.
-	NetworkProfileRef() *NetworkProfileReference
+	NetworkProfileRef() *interfacesawsdevicefarm.NetworkProfileReference
 	// The tree node.
 	Node() constructs.Node
 	// The Amazon Resource Name (ARN) of the specified project.
@@ -263,8 +265,8 @@ type CfnNetworkProfile interface {
 // The jsii proxy struct for CfnNetworkProfile
 type jsiiProxy_CfnNetworkProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdevicefarmINetworkProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnNetworkProfile) DownlinkLossPercent() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -398,8 +400,8 @@ func (j *jsiiProxy_CfnNetworkProfile) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkProfile) NetworkProfileRef() *NetworkProfileReference {
-	var returns *NetworkProfileReference
+func (j *jsiiProxy_CfnNetworkProfile) NetworkProfileRef() *interfacesawsdevicefarm.NetworkProfileReference {
+	var returns *interfacesawsdevicefarm.NetworkProfileReference
 	_jsii_.Get(
 		j,
 		"networkProfileRef",
@@ -529,6 +531,7 @@ func (j *jsiiProxy_CfnNetworkProfile) UplinkLossPercent() *float64 {
 }
 
 
+// Create a new `AWS::DeviceFarm::NetworkProfile`.
 func NewCfnNetworkProfile(scope constructs.Construct, id *string, props *CfnNetworkProfileProps) CfnNetworkProfile {
 	_init_.Initialize()
 
@@ -546,6 +549,7 @@ func NewCfnNetworkProfile(scope constructs.Construct, id *string, props *CfnNetw
 	return &j
 }
 
+// Create a new `AWS::DeviceFarm::NetworkProfile`.
 func NewCfnNetworkProfile_Override(c CfnNetworkProfile, scope constructs.Construct, id *string, props *CfnNetworkProfileProps) {
 	_init_.Initialize()
 

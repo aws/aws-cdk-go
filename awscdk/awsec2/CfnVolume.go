@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnVolume interface {
 	awscdk.CfnResource
-	IVolumeRef
 	awscdk.IInspectable
+	interfacesawsec2.IVolumeRef
 	awscdk.ITaggable
 	// The ID of the volume.
 	AttrVolumeId() *string
@@ -73,6 +75,7 @@ type CfnVolume interface {
 	// For example, `us-east-1a` .
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
+	// The ID of the Availability Zone for the volume.
 	AvailabilityZoneId() *string
 	SetAvailabilityZoneId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -87,7 +90,7 @@ type CfnVolume interface {
 	// Indicates whether the volume should be encrypted.
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	Iops() *float64
 	SetIops(val *float64)
@@ -123,6 +126,7 @@ type CfnVolume interface {
 	// The snapshot from which to create the volume.
 	SnapshotId() *string
 	SetSnapshotId(val *string)
+	// The ID of the source volume from which the volume copy was created.
 	SourceVolumeId() *string
 	SetSourceVolumeId(val *string)
 	// The stack in which this element is defined.
@@ -154,7 +158,7 @@ type CfnVolume interface {
 	VolumeInitializationRate() *float64
 	SetVolumeInitializationRate(val *float64)
 	// A reference to a Volume resource.
-	VolumeRef() *VolumeReference
+	VolumeRef() *interfacesawsec2.VolumeReference
 	// The volume type.
 	//
 	// This parameter can be one of the following values:.
@@ -290,8 +294,8 @@ type CfnVolume interface {
 // The jsii proxy struct for CfnVolume
 type jsiiProxy_CfnVolume struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVolumeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVolumeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -385,8 +389,8 @@ func (j *jsiiProxy_CfnVolume) Encrypted() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVolume) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -565,8 +569,8 @@ func (j *jsiiProxy_CfnVolume) VolumeInitializationRate() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) VolumeRef() *VolumeReference {
-	var returns *VolumeReference
+func (j *jsiiProxy_CfnVolume) VolumeRef() *interfacesawsec2.VolumeReference {
+	var returns *interfacesawsec2.VolumeReference
 	_jsii_.Get(
 		j,
 		"volumeRef",
@@ -586,6 +590,7 @@ func (j *jsiiProxy_CfnVolume) VolumeType() *string {
 }
 
 
+// Create a new `AWS::EC2::Volume`.
 func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
@@ -603,6 +608,7 @@ func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps)
 	return &j
 }
 
+// Create a new `AWS::EC2::Volume`.
 func NewCfnVolume_Override(c CfnVolume, scope constructs.Construct, id *string, props *CfnVolumeProps) {
 	_init_.Initialize()
 
@@ -746,13 +752,13 @@ func (j *jsiiProxy_CfnVolume)SetVolumeType(val *string) {
 }
 
 // Creates a new IVolumeRef from a volumeId.
-func CfnVolume_FromVolumeId(scope constructs.Construct, id *string, volumeId *string) IVolumeRef {
+func CfnVolume_FromVolumeId(scope constructs.Construct, id *string, volumeId *string) interfacesawsec2.IVolumeRef {
 	_init_.Initialize()
 
 	if err := validateCfnVolume_FromVolumeIdParameters(scope, id, volumeId); err != nil {
 		panic(err)
 	}
-	var returns IVolumeRef
+	var returns interfacesawsec2.IVolumeRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVolume",

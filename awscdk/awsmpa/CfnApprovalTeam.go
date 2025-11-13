@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmpa/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmpa"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,14 +58,14 @@ import (
 //
 type CfnApprovalTeam interface {
 	awscdk.CfnResource
-	IApprovalTeamRef
 	awscdk.IInspectable
+	interfacesawsmpa.IApprovalTeamRef
 	awscdk.ITaggableV2
 	// Contains details for how an approval team grants approval.
 	ApprovalStrategy() interface{}
 	SetApprovalStrategy(val interface{})
 	// A reference to a ApprovalTeam resource.
-	ApprovalTeamRef() *ApprovalTeamReference
+	ApprovalTeamRef() *interfacesawsmpa.ApprovalTeamReference
 	// Contains details for an approver.
 	Approvers() interface{}
 	SetApprovers(val interface{})
@@ -103,7 +105,7 @@ type CfnApprovalTeam interface {
 	// Description for the team.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -277,8 +279,8 @@ type CfnApprovalTeam interface {
 // The jsii proxy struct for CfnApprovalTeam
 type jsiiProxy_CfnApprovalTeam struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApprovalTeamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmpaIApprovalTeamRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -292,8 +294,8 @@ func (j *jsiiProxy_CfnApprovalTeam) ApprovalStrategy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApprovalTeam) ApprovalTeamRef() *ApprovalTeamReference {
-	var returns *ApprovalTeamReference
+func (j *jsiiProxy_CfnApprovalTeam) ApprovalTeamRef() *interfacesawsmpa.ApprovalTeamReference {
+	var returns *interfacesawsmpa.ApprovalTeamReference
 	_jsii_.Get(
 		j,
 		"approvalTeamRef",
@@ -462,8 +464,8 @@ func (j *jsiiProxy_CfnApprovalTeam) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApprovalTeam) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApprovalTeam) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -563,6 +565,7 @@ func (j *jsiiProxy_CfnApprovalTeam) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::MPA::ApprovalTeam`.
 func NewCfnApprovalTeam(scope constructs.Construct, id *string, props *CfnApprovalTeamProps) CfnApprovalTeam {
 	_init_.Initialize()
 
@@ -580,6 +583,7 @@ func NewCfnApprovalTeam(scope constructs.Construct, id *string, props *CfnApprov
 	return &j
 }
 
+// Create a new `AWS::MPA::ApprovalTeam`.
 func NewCfnApprovalTeam_Override(c CfnApprovalTeam, scope constructs.Construct, id *string, props *CfnApprovalTeamProps) {
 	_init_.Initialize()
 

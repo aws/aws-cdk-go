@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnIpAccessSettings interface {
 	awscdk.CfnResource
-	IIpAccessSettingsRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.IIpAccessSettingsRef
 	awscdk.ITaggableV2
 	// Additional encryption context of the IP access settings.
 	AdditionalEncryptionContext() interface{}
@@ -79,9 +81,9 @@ type CfnIpAccessSettings interface {
 	// The display name of the IP access settings.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IpAccessSettings resource.
-	IpAccessSettingsRef() *IpAccessSettingsReference
+	IpAccessSettingsRef() *interfacesawsworkspacesweb.IpAccessSettingsReference
 	// The IP rules of the IP access settings.
 	IpRules() interface{}
 	SetIpRules(val interface{})
@@ -252,8 +254,8 @@ type CfnIpAccessSettings interface {
 // The jsii proxy struct for CfnIpAccessSettings
 type jsiiProxy_CfnIpAccessSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIpAccessSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebIIpAccessSettingsRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnIpAccessSettings) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIpAccessSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIpAccessSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnIpAccessSettings) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIpAccessSettings) IpAccessSettingsRef() *IpAccessSettingsReference {
-	var returns *IpAccessSettingsReference
+func (j *jsiiProxy_CfnIpAccessSettings) IpAccessSettingsRef() *interfacesawsworkspacesweb.IpAccessSettingsReference {
+	var returns *interfacesawsworkspacesweb.IpAccessSettingsReference
 	_jsii_.Get(
 		j,
 		"ipAccessSettingsRef",
@@ -478,6 +480,7 @@ func (j *jsiiProxy_CfnIpAccessSettings) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::IpAccessSettings`.
 func NewCfnIpAccessSettings(scope constructs.Construct, id *string, props *CfnIpAccessSettingsProps) CfnIpAccessSettings {
 	_init_.Initialize()
 
@@ -495,6 +498,7 @@ func NewCfnIpAccessSettings(scope constructs.Construct, id *string, props *CfnIp
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::IpAccessSettings`.
 func NewCfnIpAccessSettings_Override(c CfnIpAccessSettings, scope constructs.Construct, id *string, props *CfnIpAccessSettingsProps) {
 	_init_.Initialize()
 

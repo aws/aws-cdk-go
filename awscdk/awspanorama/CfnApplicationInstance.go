@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspanorama/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspanorama"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,14 +49,14 @@ import (
 //
 type CfnApplicationInstance interface {
 	awscdk.CfnResource
-	IApplicationInstanceRef
 	awscdk.IInspectable
+	interfacesawspanorama.IApplicationInstanceRef
 	awscdk.ITaggable
 	// The ID of an application instance to replace with the new instance.
 	ApplicationInstanceIdToReplace() *string
 	SetApplicationInstanceIdToReplace(val *string)
 	// A reference to a ApplicationInstance resource.
-	ApplicationInstanceRef() *ApplicationInstanceReference
+	ApplicationInstanceRef() *interfacesawspanorama.ApplicationInstanceReference
 	// The application instance's ID.
 	AttrApplicationInstanceId() *string
 	// The application instance's ARN.
@@ -86,7 +88,7 @@ type CfnApplicationInstance interface {
 	// A description for the application instance.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -268,8 +270,8 @@ type CfnApplicationInstance interface {
 // The jsii proxy struct for CfnApplicationInstance
 type jsiiProxy_CfnApplicationInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspanoramaIApplicationInstanceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnApplicationInstance) ApplicationInstanceIdToReplace() *str
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationInstance) ApplicationInstanceRef() *ApplicationInstanceReference {
-	var returns *ApplicationInstanceReference
+func (j *jsiiProxy_CfnApplicationInstance) ApplicationInstanceRef() *interfacesawspanorama.ApplicationInstanceReference {
+	var returns *interfacesawspanorama.ApplicationInstanceReference
 	_jsii_.Get(
 		j,
 		"applicationInstanceRef",
@@ -433,8 +435,8 @@ func (j *jsiiProxy_CfnApplicationInstance) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -564,6 +566,7 @@ func (j *jsiiProxy_CfnApplicationInstance) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::Panorama::ApplicationInstance`.
 func NewCfnApplicationInstance(scope constructs.Construct, id *string, props *CfnApplicationInstanceProps) CfnApplicationInstance {
 	_init_.Initialize()
 
@@ -581,6 +584,7 @@ func NewCfnApplicationInstance(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::Panorama::ApplicationInstance`.
 func NewCfnApplicationInstance_Override(c CfnApplicationInstance, scope constructs.Construct, id *string, props *CfnApplicationInstanceProps) {
 	_init_.Initialize()
 
@@ -668,13 +672,13 @@ func (j *jsiiProxy_CfnApplicationInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IApplicationInstanceRef from an ARN.
-func CfnApplicationInstance_FromApplicationInstanceArn(scope constructs.Construct, id *string, arn *string) IApplicationInstanceRef {
+func CfnApplicationInstance_FromApplicationInstanceArn(scope constructs.Construct, id *string, arn *string) interfacesawspanorama.IApplicationInstanceRef {
 	_init_.Initialize()
 
 	if err := validateCfnApplicationInstance_FromApplicationInstanceArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IApplicationInstanceRef
+	var returns interfacesawspanorama.IApplicationInstanceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_panorama.CfnApplicationInstance",
@@ -687,13 +691,13 @@ func CfnApplicationInstance_FromApplicationInstanceArn(scope constructs.Construc
 }
 
 // Creates a new IApplicationInstanceRef from a applicationInstanceId.
-func CfnApplicationInstance_FromApplicationInstanceId(scope constructs.Construct, id *string, applicationInstanceId *string) IApplicationInstanceRef {
+func CfnApplicationInstance_FromApplicationInstanceId(scope constructs.Construct, id *string, applicationInstanceId *string) interfacesawspanorama.IApplicationInstanceRef {
 	_init_.Initialize()
 
 	if err := validateCfnApplicationInstance_FromApplicationInstanceIdParameters(scope, id, applicationInstanceId); err != nil {
 		panic(err)
 	}
-	var returns IApplicationInstanceRef
+	var returns interfacesawspanorama.IApplicationInstanceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_panorama.CfnApplicationInstance",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnMitigationAction interface {
 	awscdk.CfnResource
-	IMitigationActionRef
 	awscdk.IInspectable
+	interfacesawsiot.IMitigationActionRef
 	awscdk.ITaggable
 	// The friendly name of the mitigation action.
 	ActionName() *string
@@ -83,7 +85,7 @@ type CfnMitigationAction interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -95,7 +97,7 @@ type CfnMitigationAction interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MitigationAction resource.
-	MitigationActionRef() *MitigationActionReference
+	MitigationActionRef() *interfacesawsiot.MitigationActionReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -258,8 +260,8 @@ type CfnMitigationAction interface {
 // The jsii proxy struct for CfnMitigationAction
 type jsiiProxy_CfnMitigationAction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMitigationActionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIMitigationActionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnMitigationAction) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMitigationAction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMitigationAction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnMitigationAction) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMitigationAction) MitigationActionRef() *MitigationActionReference {
-	var returns *MitigationActionReference
+func (j *jsiiProxy_CfnMitigationAction) MitigationActionRef() *interfacesawsiot.MitigationActionReference {
+	var returns *interfacesawsiot.MitigationActionReference
 	_jsii_.Get(
 		j,
 		"mitigationActionRef",
@@ -454,6 +456,7 @@ func (j *jsiiProxy_CfnMitigationAction) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::IoT::MitigationAction`.
 func NewCfnMitigationAction(scope constructs.Construct, id *string, props *CfnMitigationActionProps) CfnMitigationAction {
 	_init_.Initialize()
 
@@ -471,6 +474,7 @@ func NewCfnMitigationAction(scope constructs.Construct, id *string, props *CfnMi
 	return &j
 }
 
+// Create a new `AWS::IoT::MitigationAction`.
 func NewCfnMitigationAction_Override(c CfnMitigationAction, scope constructs.Construct, id *string, props *CfnMitigationActionProps) {
 	_init_.Initialize()
 

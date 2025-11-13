@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationsignals/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationsignals"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnDiscovery interface {
 	awscdk.CfnResource
-	IDiscoveryRef
 	awscdk.IInspectable
+	interfacesawsapplicationsignals.IDiscoveryRef
 	// The 12 digit AWS Account ID for the account.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -51,8 +53,8 @@ type CfnDiscovery interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a Discovery resource.
-	DiscoveryRef() *DiscoveryReference
-	Env() *awscdk.ResourceEnvironment
+	DiscoveryRef() *interfacesawsapplicationsignals.DiscoveryReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -217,8 +219,8 @@ type CfnDiscovery interface {
 // The jsii proxy struct for CfnDiscovery
 type jsiiProxy_CfnDiscovery struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDiscoveryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapplicationsignalsIDiscoveryRef
 }
 
 func (j *jsiiProxy_CfnDiscovery) AttrAccountId() *string {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnDiscovery) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDiscovery) DiscoveryRef() *DiscoveryReference {
-	var returns *DiscoveryReference
+func (j *jsiiProxy_CfnDiscovery) DiscoveryRef() *interfacesawsapplicationsignals.DiscoveryReference {
+	var returns *interfacesawsapplicationsignals.DiscoveryReference
 	_jsii_.Get(
 		j,
 		"discoveryRef",
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnDiscovery) DiscoveryRef() *DiscoveryReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDiscovery) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDiscovery) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -352,6 +354,7 @@ func (j *jsiiProxy_CfnDiscovery) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApplicationSignals::Discovery`.
 func NewCfnDiscovery(scope constructs.Construct, id *string, props *CfnDiscoveryProps) CfnDiscovery {
 	_init_.Initialize()
 
@@ -369,6 +372,7 @@ func NewCfnDiscovery(scope constructs.Construct, id *string, props *CfnDiscovery
 	return &j
 }
 
+// Create a new `AWS::ApplicationSignals::Discovery`.
 func NewCfnDiscovery_Override(c CfnDiscovery, scope constructs.Construct, id *string, props *CfnDiscoveryProps) {
 	_init_.Initialize()
 

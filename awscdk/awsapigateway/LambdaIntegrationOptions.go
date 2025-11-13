@@ -6,16 +6,19 @@ import (
 )
 
 // Example:
+//   var book Resource
 //   var backend Function
 //
 //
-//   api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
-//   	Handler: backend,
-//   	IntegrationOptions: &LambdaIntegrationOptions{
-//   		AllowTestInvoke: jsii.Boolean(false),
-//   		Timeout: awscdk.Duration_Seconds(jsii.Number(1)),
-//   	},
+//   getBookIntegration := apigateway.NewLambdaIntegration(backend, &LambdaIntegrationOptions{
+//   	ScopePermissionToMethod: jsii.Boolean(false),
 //   })
+//   createBookIntegration := apigateway.NewLambdaIntegration(backend, &LambdaIntegrationOptions{
+//   	ScopePermissionToMethod: jsii.Boolean(false),
+//   })
+//
+//   book.AddMethod(jsii.String("GET"), getBookIntegration)
+//   book.AddMethod(jsii.String("POST"), createBookIntegration)
 //
 type LambdaIntegrationOptions struct {
 	// A list of request parameters whose values are to be cached.
@@ -105,6 +108,8 @@ type LambdaIntegrationOptions struct {
 	// will allow the `test-invoke-stage` stage to invoke this handler. If this
 	// is set to `false`, the function will only be usable from the deployment
 	// endpoint.
+	//
+	// Note that this property is ignored when `scopePermissionToMethod` is `false`.
 	// Default: true.
 	//
 	AllowTestInvoke *bool `field:"optional" json:"allowTestInvoke" yaml:"allowTestInvoke"`
@@ -114,5 +119,15 @@ type LambdaIntegrationOptions struct {
 	// Default: true.
 	//
 	Proxy *bool `field:"optional" json:"proxy" yaml:"proxy"`
+	// Scope the permission for invoking the AWS Lambda down to the specific method associated with this integration.
+	//
+	// If this is set to `false`, the permission will allow invoking the AWS Lambda
+	// from any method. This is useful for reducing the AWS Lambda policy size
+	// for cases where the same AWS Lambda function is reused for many integrations.
+	//
+	// Note that this will always allow test invocations.
+	// Default: true.
+	//
+	ScopePermissionToMethod *bool `field:"optional" json:"scopePermissionToMethod" yaml:"scopePermissionToMethod"`
 }
 

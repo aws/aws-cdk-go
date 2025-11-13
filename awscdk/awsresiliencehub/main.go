@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_resiliencehub.AppReference",
-		reflect.TypeOf((*AppReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_resiliencehub.CfnApp",
 		reflect.TypeOf((*CfnApp)(nil)).Elem(),
@@ -63,8 +59,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnApp{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAppRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsresiliencehubIAppRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -137,8 +133,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResiliencyPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResiliencyPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsresiliencehubIResiliencyPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -150,39 +146,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_resiliencehub.CfnResiliencyPolicyProps",
 		reflect.TypeOf((*CfnResiliencyPolicyProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_resiliencehub.IAppRef",
-		reflect.TypeOf((*IAppRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "appRef", GoGetter: "AppRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAppRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_resiliencehub.IResiliencyPolicyRef",
-		reflect.TypeOf((*IResiliencyPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resiliencyPolicyRef", GoGetter: "ResiliencyPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResiliencyPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_resiliencehub.ResiliencyPolicyReference",
-		reflect.TypeOf((*ResiliencyPolicyReference)(nil)).Elem(),
 	)
 }

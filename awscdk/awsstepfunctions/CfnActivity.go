@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,11 +45,11 @@ import (
 //
 type CfnActivity interface {
 	awscdk.CfnResource
-	IActivityRef
 	awscdk.IInspectable
+	interfacesawsstepfunctions.IActivityRef
 	awscdk.ITaggable
 	// A reference to a Activity resource.
-	ActivityRef() *ActivityReference
+	ActivityRef() *interfacesawsstepfunctions.ActivityReference
 	// Returns the ARN of the resource.
 	AttrArn() *string
 	// Returns the name of the activity. For example:.
@@ -72,7 +74,7 @@ type CfnActivity interface {
 	// Encryption configuration for the activity.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -245,13 +247,13 @@ type CfnActivity interface {
 // The jsii proxy struct for CfnActivity
 type jsiiProxy_CfnActivity struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IActivityRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsstepfunctionsIActivityRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnActivity) ActivityRef() *ActivityReference {
-	var returns *ActivityReference
+func (j *jsiiProxy_CfnActivity) ActivityRef() *interfacesawsstepfunctions.ActivityReference {
+	var returns *interfacesawsstepfunctions.ActivityReference
 	_jsii_.Get(
 		j,
 		"activityRef",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnActivity) EncryptionConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnActivity) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnActivity) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -431,6 +433,7 @@ func (j *jsiiProxy_CfnActivity) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::StepFunctions::Activity`.
 func NewCfnActivity(scope constructs.Construct, id *string, props *CfnActivityProps) CfnActivity {
 	_init_.Initialize()
 
@@ -448,6 +451,7 @@ func NewCfnActivity(scope constructs.Construct, id *string, props *CfnActivityPr
 	return &j
 }
 
+// Create a new `AWS::StepFunctions::Activity`.
 func NewCfnActivity_Override(c CfnActivity, scope constructs.Construct, id *string, props *CfnActivityProps) {
 	_init_.Initialize()
 

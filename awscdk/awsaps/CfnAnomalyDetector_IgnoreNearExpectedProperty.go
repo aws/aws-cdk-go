@@ -1,6 +1,8 @@
 package awsaps
 
 
+// Configuration for threshold settings that determine when values near expected values should be ignored during anomaly detection.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,11 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-ignorenearexpected.html
 //
 type CfnAnomalyDetector_IgnoreNearExpectedProperty struct {
+	// The absolute amount by which values can differ from expected values before being considered anomalous.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-ignorenearexpected.html#cfn-aps-anomalydetector-ignorenearexpected-amount
 	//
 	Amount *float64 `field:"optional" json:"amount" yaml:"amount"`
+	// The ratio by which values can differ from expected values before being considered anomalous.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-ignorenearexpected.html#cfn-aps-anomalydetector-ignorenearexpected-ratio
 	//
 	Ratio *float64 `field:"optional" json:"ratio" yaml:"ratio"`

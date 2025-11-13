@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -95,8 +97,8 @@ import (
 //
 type CfnAlarm interface {
 	awscdk.CfnResource
-	IAlarmRef
 	awscdk.IInspectable
+	interfacesawscloudwatch.IAlarmRef
 	awscdk.ITaggableV2
 	// Indicates whether actions should be executed during any changes to the alarm state.
 	ActionsEnabled() interface{}
@@ -111,7 +113,7 @@ type CfnAlarm interface {
 	AlarmName() *string
 	SetAlarmName(val *string)
 	// A reference to a Alarm resource.
-	AlarmRef() *AlarmReference
+	AlarmRef() *interfacesawscloudwatch.AlarmReference
 	// The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
 	AttrArn() *string
 	// Tag Manager which manages the tags for this resource.
@@ -134,7 +136,7 @@ type CfnAlarm interface {
 	// The dimensions for the metric associated with the alarm.
 	Dimensions() interface{}
 	SetDimensions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Used only for alarms based on percentiles.
 	EvaluateLowSampleCountPercentile() *string
 	SetEvaluateLowSampleCountPercentile(val *string)
@@ -348,8 +350,8 @@ type CfnAlarm interface {
 // The jsii proxy struct for CfnAlarm
 type jsiiProxy_CfnAlarm struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAlarmRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudwatchIAlarmRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnAlarm) AlarmName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlarm) AlarmRef() *AlarmReference {
-	var returns *AlarmReference
+func (j *jsiiProxy_CfnAlarm) AlarmRef() *interfacesawscloudwatch.AlarmReference {
+	var returns *interfacesawscloudwatch.AlarmReference
 	_jsii_.Get(
 		j,
 		"alarmRef",
@@ -493,8 +495,8 @@ func (j *jsiiProxy_CfnAlarm) Dimensions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlarm) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAlarm) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -714,6 +716,7 @@ func (j *jsiiProxy_CfnAlarm) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudWatch::Alarm`.
 func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) CfnAlarm {
 	_init_.Initialize()
 
@@ -731,6 +734,7 @@ func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) C
 	return &j
 }
 
+// Create a new `AWS::CloudWatch::Alarm`.
 func NewCfnAlarm_Override(c CfnAlarm, scope constructs.Construct, id *string, props *CfnAlarmProps) {
 	_init_.Initialize()
 
@@ -936,13 +940,13 @@ func (j *jsiiProxy_CfnAlarm)SetUnit(val *string) {
 }
 
 // Creates a new IAlarmRef from an ARN.
-func CfnAlarm_FromAlarmArn(scope constructs.Construct, id *string, arn *string) IAlarmRef {
+func CfnAlarm_FromAlarmArn(scope constructs.Construct, id *string, arn *string) interfacesawscloudwatch.IAlarmRef {
 	_init_.Initialize()
 
 	if err := validateCfnAlarm_FromAlarmArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAlarmRef
+	var returns interfacesawscloudwatch.IAlarmRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
@@ -955,13 +959,13 @@ func CfnAlarm_FromAlarmArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IAlarmRef from a alarmName.
-func CfnAlarm_FromAlarmName(scope constructs.Construct, id *string, alarmName *string) IAlarmRef {
+func CfnAlarm_FromAlarmName(scope constructs.Construct, id *string, alarmName *string) interfacesawscloudwatch.IAlarmRef {
 	_init_.Initialize()
 
 	if err := validateCfnAlarm_FromAlarmNameParameters(scope, id, alarmName); err != nil {
 		panic(err)
 	}
-	var returns IAlarmRef
+	var returns interfacesawscloudwatch.IAlarmRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",

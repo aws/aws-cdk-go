@@ -105,7 +105,7 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-qappsconfiguration
 	//
 	QAppsConfiguration interface{} `field:"optional" json:"qAppsConfiguration" yaml:"qAppsConfiguration"`
-	// The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
+	// The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-quicksightconfiguration
 	//
 	QuickSightConfiguration interface{} `field:"optional" json:"quickSightConfiguration" yaml:"quickSightConfiguration"`

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnUserPoolResourceServer interface {
 	awscdk.CfnResource
-	IUserPoolResourceServerRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolResourceServerRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -47,7 +49,7 @@ type CfnUserPoolResourceServer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A unique resource server identifier for the resource server.
 	Identifier() *string
 	SetIdentifier(val *string)
@@ -95,7 +97,7 @@ type CfnUserPoolResourceServer interface {
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// A reference to a UserPoolResourceServer resource.
-	UserPoolResourceServerRef() *UserPoolResourceServerReference
+	UserPoolResourceServerRef() *interfacesawscognito.UserPoolResourceServerReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -226,8 +228,8 @@ type CfnUserPoolResourceServer interface {
 // The jsii proxy struct for CfnUserPoolResourceServer
 type jsiiProxy_CfnUserPoolResourceServer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolResourceServerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolResourceServerRef
 }
 
 func (j *jsiiProxy_CfnUserPoolResourceServer) CfnOptions() awscdk.ICfnResourceOptions {
@@ -270,8 +272,8 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolResourceServer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolResourceServer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) UserPoolId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolResourceServer) UserPoolResourceServerRef() *UserPoolResourceServerReference {
-	var returns *UserPoolResourceServerReference
+func (j *jsiiProxy_CfnUserPoolResourceServer) UserPoolResourceServerRef() *interfacesawscognito.UserPoolResourceServerReference {
+	var returns *interfacesawscognito.UserPoolResourceServerReference
 	_jsii_.Get(
 		j,
 		"userPoolResourceServerRef",
@@ -391,6 +393,7 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) UserPoolResourceServerRef() *UserP
 }
 
 
+// Create a new `AWS::Cognito::UserPoolResourceServer`.
 func NewCfnUserPoolResourceServer(scope constructs.Construct, id *string, props *CfnUserPoolResourceServerProps) CfnUserPoolResourceServer {
 	_init_.Initialize()
 
@@ -408,6 +411,7 @@ func NewCfnUserPoolResourceServer(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolResourceServer`.
 func NewCfnUserPoolResourceServer_Override(c CfnUserPoolResourceServer, scope constructs.Construct, id *string, props *CfnUserPoolResourceServerProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -119,8 +121,8 @@ import (
 //
 type CfnModel interface {
 	awscdk.CfnResource
-	IModelRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IModelRef
 	awscdk.ITaggable
 	AttrId() *string
 	// The name of the model, such as `MyModel` .
@@ -140,7 +142,7 @@ type CfnModel interface {
 	// Isolates the model container.
 	EnableNetworkIsolation() interface{}
 	SetEnableNetworkIsolation(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -161,7 +163,7 @@ type CfnModel interface {
 	ModelName() *string
 	SetModelName(val *string)
 	// A reference to a Model resource.
-	ModelRef() *ModelReference
+	ModelRef() *interfacesawssagemaker.ModelReference
 	// The tree node.
 	Node() constructs.Node
 	// The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
@@ -327,8 +329,8 @@ type CfnModel interface {
 // The jsii proxy struct for CfnModel
 type jsiiProxy_CfnModel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIModelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnModel) EnableNetworkIsolation() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -462,8 +464,8 @@ func (j *jsiiProxy_CfnModel) ModelName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModel) ModelRef() *ModelReference {
-	var returns *ModelReference
+func (j *jsiiProxy_CfnModel) ModelRef() *interfacesawssagemaker.ModelReference {
+	var returns *interfacesawssagemaker.ModelReference
 	_jsii_.Get(
 		j,
 		"modelRef",
@@ -563,6 +565,7 @@ func (j *jsiiProxy_CfnModel) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::Model`.
 func NewCfnModel(scope constructs.Construct, id *string, props *CfnModelProps) CfnModel {
 	_init_.Initialize()
 
@@ -580,6 +583,7 @@ func NewCfnModel(scope constructs.Construct, id *string, props *CfnModelProps) C
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Model`.
 func NewCfnModel_Override(c CfnModel, scope constructs.Construct, id *string, props *CfnModelProps) {
 	_init_.Initialize()
 

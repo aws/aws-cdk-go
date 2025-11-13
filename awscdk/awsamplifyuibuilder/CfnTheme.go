@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplifyuibuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamplifyuibuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnTheme interface {
 	awscdk.CfnResource
-	IThemeRef
 	awscdk.IInspectable
+	interfacesawsamplifyuibuilder.IThemeRef
 	awscdk.ITaggable
 	// The unique ID for the Amplify app associated with the theme.
 	AppId() *string
@@ -76,7 +78,7 @@ type CfnTheme interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
@@ -113,7 +115,7 @@ type CfnTheme interface {
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
 	// A reference to a Theme resource.
-	ThemeRef() *ThemeReference
+	ThemeRef() *interfacesawsamplifyuibuilder.ThemeReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,8 +262,8 @@ type CfnTheme interface {
 // The jsii proxy struct for CfnTheme
 type jsiiProxy_CfnTheme struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IThemeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamplifyuibuilderIThemeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnTheme) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTheme) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -445,8 +447,8 @@ func (j *jsiiProxy_CfnTheme) TagsRaw() *map[string]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) ThemeRef() *ThemeReference {
-	var returns *ThemeReference
+func (j *jsiiProxy_CfnTheme) ThemeRef() *interfacesawsamplifyuibuilder.ThemeReference {
+	var returns *interfacesawsamplifyuibuilder.ThemeReference
 	_jsii_.Get(
 		j,
 		"themeRef",
@@ -486,6 +488,7 @@ func (j *jsiiProxy_CfnTheme) Values() interface{} {
 }
 
 
+// Create a new `AWS::AmplifyUIBuilder::Theme`.
 func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
@@ -503,6 +506,7 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 	return &j
 }
 
+// Create a new `AWS::AmplifyUIBuilder::Theme`.
 func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 

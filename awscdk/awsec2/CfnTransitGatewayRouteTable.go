@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnTransitGatewayRouteTable interface {
 	awscdk.CfnResource
-	ITransitGatewayRouteTableRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayRouteTableRef
 	awscdk.ITaggable
 	// The ID of the transit gateway route table.
 	AttrTransitGatewayRouteTableId() *string
@@ -46,7 +48,7 @@ type CfnTransitGatewayRouteTable interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnTransitGatewayRouteTable interface {
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
 	// A reference to a TransitGatewayRouteTable resource.
-	TransitGatewayRouteTableRef() *TransitGatewayRouteTableReference
+	TransitGatewayRouteTableRef() *interfacesawsec2.TransitGatewayRouteTableReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -221,8 +223,8 @@ type CfnTransitGatewayRouteTable interface {
 // The jsii proxy struct for CfnTransitGatewayRouteTable
 type jsiiProxy_CfnTransitGatewayRouteTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayRouteTableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayRouteTableRef
 	internal.Type__awscdkITaggable
 }
 
@@ -276,8 +278,8 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTable) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRouteTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayRouteTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTable) TransitGatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRouteTable) TransitGatewayRouteTableRef() *TransitGatewayRouteTableReference {
-	var returns *TransitGatewayRouteTableReference
+func (j *jsiiProxy_CfnTransitGatewayRouteTable) TransitGatewayRouteTableRef() *interfacesawsec2.TransitGatewayRouteTableReference {
+	var returns *interfacesawsec2.TransitGatewayRouteTableReference
 	_jsii_.Get(
 		j,
 		"transitGatewayRouteTableRef",
@@ -387,6 +389,7 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTable) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayRouteTable`.
 func NewCfnTransitGatewayRouteTable(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableProps) CfnTransitGatewayRouteTable {
 	_init_.Initialize()
 
@@ -404,6 +407,7 @@ func NewCfnTransitGatewayRouteTable(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayRouteTable`.
 func NewCfnTransitGatewayRouteTable_Override(c CfnTransitGatewayRouteTable, scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableProps) {
 	_init_.Initialize()
 
@@ -437,13 +441,13 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTable)SetTransitGatewayId(val *string) 
 }
 
 // Creates a new ITransitGatewayRouteTableRef from a transitGatewayRouteTableId.
-func CfnTransitGatewayRouteTable_FromTransitGatewayRouteTableId(scope constructs.Construct, id *string, transitGatewayRouteTableId *string) ITransitGatewayRouteTableRef {
+func CfnTransitGatewayRouteTable_FromTransitGatewayRouteTableId(scope constructs.Construct, id *string, transitGatewayRouteTableId *string) interfacesawsec2.ITransitGatewayRouteTableRef {
 	_init_.Initialize()
 
 	if err := validateCfnTransitGatewayRouteTable_FromTransitGatewayRouteTableIdParameters(scope, id, transitGatewayRouteTableId); err != nil {
 		panic(err)
 	}
-	var returns ITransitGatewayRouteTableRef
+	var returns interfacesawsec2.ITransitGatewayRouteTableRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTable",

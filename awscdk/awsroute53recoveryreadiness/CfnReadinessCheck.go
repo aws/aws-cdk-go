@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoveryreadiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoveryreadiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnReadinessCheck interface {
 	awscdk.CfnResource
-	IReadinessCheckRef
 	awscdk.IInspectable
+	interfacesawsroute53recoveryreadiness.IReadinessCheckRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the readiness check.
 	AttrReadinessCheckArn() *string
@@ -51,7 +53,7 @@ type CfnReadinessCheck interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -68,7 +70,7 @@ type CfnReadinessCheck interface {
 	ReadinessCheckName() *string
 	SetReadinessCheckName(val *string)
 	// A reference to a ReadinessCheck resource.
-	ReadinessCheckRef() *ReadinessCheckReference
+	ReadinessCheckRef() *interfacesawsroute53recoveryreadiness.ReadinessCheckReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -229,8 +231,8 @@ type CfnReadinessCheck interface {
 // The jsii proxy struct for CfnReadinessCheck
 type jsiiProxy_CfnReadinessCheck struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReadinessCheckRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53recoveryreadinessIReadinessCheckRef
 	internal.Type__awscdkITaggable
 }
 
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnReadinessCheck) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReadinessCheck) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReadinessCheck) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -324,8 +326,8 @@ func (j *jsiiProxy_CfnReadinessCheck) ReadinessCheckName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReadinessCheck) ReadinessCheckRef() *ReadinessCheckReference {
-	var returns *ReadinessCheckReference
+func (j *jsiiProxy_CfnReadinessCheck) ReadinessCheckRef() *interfacesawsroute53recoveryreadiness.ReadinessCheckReference {
+	var returns *interfacesawsroute53recoveryreadiness.ReadinessCheckReference
 	_jsii_.Get(
 		j,
 		"readinessCheckRef",
@@ -405,6 +407,7 @@ func (j *jsiiProxy_CfnReadinessCheck) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Route53RecoveryReadiness::ReadinessCheck`.
 func NewCfnReadinessCheck(scope constructs.Construct, id *string, props *CfnReadinessCheckProps) CfnReadinessCheck {
 	_init_.Initialize()
 
@@ -422,6 +425,7 @@ func NewCfnReadinessCheck(scope constructs.Construct, id *string, props *CfnRead
 	return &j
 }
 
+// Create a new `AWS::Route53RecoveryReadiness::ReadinessCheck`.
 func NewCfnReadinessCheck_Override(c CfnReadinessCheck, scope constructs.Construct, id *string, props *CfnReadinessCheckProps) {
 	_init_.Initialize()
 

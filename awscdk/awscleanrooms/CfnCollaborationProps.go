@@ -18,6 +18,9 @@ import (
 //   	QueryLogStatus: jsii.String("queryLogStatus"),
 //
 //   	// the properties below are optional
+//   	AllowedResultRegions: []*string{
+//   		jsii.String("allowedResultRegions"),
+//   	},
 //   	AnalyticsEngine: jsii.String("analyticsEngine"),
 //   	AutoApprovedChangeTypes: []*string{
 //   		jsii.String("autoApprovedChangeTypes"),
@@ -120,6 +123,12 @@ type CfnCollaborationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-querylogstatus
 	//
 	QueryLogStatus *string `field:"required" json:"queryLogStatus" yaml:"queryLogStatus"`
+	// The AWS Regions where collaboration query results can be stored.
+	//
+	// Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-allowedresultregions
+	//
+	AllowedResultRegions *[]*string `field:"optional" json:"allowedResultRegions" yaml:"allowedResultRegions"`
 	// The analytics engine for the collaboration.
 	//
 	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.

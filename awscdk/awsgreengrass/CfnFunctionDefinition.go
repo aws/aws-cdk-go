@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -84,8 +86,8 @@ import (
 //
 type CfnFunctionDefinition interface {
 	awscdk.CfnResource
-	IFunctionDefinitionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IFunctionDefinitionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `FunctionDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/functions/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
@@ -104,9 +106,9 @@ type CfnFunctionDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FunctionDefinition resource.
-	FunctionDefinitionRef() *FunctionDefinitionReference
+	FunctionDefinitionRef() *interfacesawsgreengrass.FunctionDefinitionReference
 	// The function definition version to include when the function definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -282,8 +284,8 @@ type CfnFunctionDefinition interface {
 // The jsii proxy struct for CfnFunctionDefinition
 type jsiiProxy_CfnFunctionDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFunctionDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIFunctionDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnFunctionDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunctionDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFunctionDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnFunctionDefinition) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunctionDefinition) FunctionDefinitionRef() *FunctionDefinitionReference {
-	var returns *FunctionDefinitionReference
+func (j *jsiiProxy_CfnFunctionDefinition) FunctionDefinitionRef() *interfacesawsgreengrass.FunctionDefinitionReference {
+	var returns *interfacesawsgreengrass.FunctionDefinitionReference
 	_jsii_.Get(
 		j,
 		"functionDefinitionRef",
@@ -488,6 +490,7 @@ func (j *jsiiProxy_CfnFunctionDefinition) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Greengrass::FunctionDefinition`.
 func NewCfnFunctionDefinition(scope constructs.Construct, id *string, props *CfnFunctionDefinitionProps) CfnFunctionDefinition {
 	_init_.Initialize()
 
@@ -505,6 +508,7 @@ func NewCfnFunctionDefinition(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Greengrass::FunctionDefinition`.
 func NewCfnFunctionDefinition_Override(c CfnFunctionDefinition, scope constructs.Construct, id *string, props *CfnFunctionDefinitionProps) {
 	_init_.Initialize()
 
@@ -546,13 +550,13 @@ func (j *jsiiProxy_CfnFunctionDefinition)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new IFunctionDefinitionRef from an ARN.
-func CfnFunctionDefinition_FromFunctionDefinitionArn(scope constructs.Construct, id *string, arn *string) IFunctionDefinitionRef {
+func CfnFunctionDefinition_FromFunctionDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.IFunctionDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnFunctionDefinition_FromFunctionDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IFunctionDefinitionRef
+	var returns interfacesawsgreengrass.IFunctionDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
@@ -565,13 +569,13 @@ func CfnFunctionDefinition_FromFunctionDefinitionArn(scope constructs.Construct,
 }
 
 // Creates a new IFunctionDefinitionRef from a functionDefinitionId.
-func CfnFunctionDefinition_FromFunctionDefinitionId(scope constructs.Construct, id *string, functionDefinitionId *string) IFunctionDefinitionRef {
+func CfnFunctionDefinition_FromFunctionDefinitionId(scope constructs.Construct, id *string, functionDefinitionId *string) interfacesawsgreengrass.IFunctionDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnFunctionDefinition_FromFunctionDefinitionIdParameters(scope, id, functionDefinitionId); err != nil {
 		panic(err)
 	}
-	var returns IFunctionDefinitionRef
+	var returns interfacesawsgreengrass.IFunctionDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",

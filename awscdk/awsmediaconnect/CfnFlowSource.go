@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,8 +66,8 @@ import (
 //
 type CfnFlowSource interface {
 	awscdk.CfnResource
-	IFlowSourceRef
 	awscdk.IInspectable
+	interfacesawsmediaconnect.IFlowSourceRef
 	// The IP address that the flow listens on for incoming content.
 	AttrIngestIp() *string
 	// The ARN of the source.
@@ -92,12 +94,12 @@ type CfnFlowSource interface {
 	// The ARN of the entitlement that allows you to subscribe to this flow.
 	EntitlementArn() *string
 	SetEntitlementArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow this source is connected to.
 	FlowArn() *string
 	SetFlowArn(val *string)
 	// A reference to a FlowSource resource.
-	FlowSourceRef() *FlowSourceReference
+	FlowSourceRef() *interfacesawsmediaconnect.FlowSourceReference
 	// The bridge's source.
 	GatewayBridgeSource() interface{}
 	SetGatewayBridgeSource(val interface{})
@@ -304,8 +306,8 @@ type CfnFlowSource interface {
 // The jsii proxy struct for CfnFlowSource
 type jsiiProxy_CfnFlowSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconnectIFlowSourceRef
 }
 
 func (j *jsiiProxy_CfnFlowSource) AttrIngestIp() *string {
@@ -408,8 +410,8 @@ func (j *jsiiProxy_CfnFlowSource) EntitlementArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlowSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -428,8 +430,8 @@ func (j *jsiiProxy_CfnFlowSource) FlowArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowSource) FlowSourceRef() *FlowSourceReference {
-	var returns *FlowSourceReference
+func (j *jsiiProxy_CfnFlowSource) FlowSourceRef() *interfacesawsmediaconnect.FlowSourceReference {
+	var returns *interfacesawsmediaconnect.FlowSourceReference
 	_jsii_.Get(
 		j,
 		"flowSourceRef",
@@ -639,6 +641,7 @@ func (j *jsiiProxy_CfnFlowSource) WhitelistCidr() *string {
 }
 
 
+// Create a new `AWS::MediaConnect::FlowSource`.
 func NewCfnFlowSource(scope constructs.Construct, id *string, props *CfnFlowSourceProps) CfnFlowSource {
 	_init_.Initialize()
 
@@ -656,6 +659,7 @@ func NewCfnFlowSource(scope constructs.Construct, id *string, props *CfnFlowSour
 	return &j
 }
 
+// Create a new `AWS::MediaConnect::FlowSource`.
 func NewCfnFlowSource_Override(c CfnFlowSource, scope constructs.Construct, id *string, props *CfnFlowSourceProps) {
 	_init_.Initialize()
 

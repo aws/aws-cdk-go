@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplify/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamplify"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,8 +61,8 @@ import (
 //
 type CfnBranch interface {
 	awscdk.CfnResource
-	IBranchRef
 	awscdk.IInspectable
+	interfacesawsamplify.IBranchRef
 	awscdk.ITaggable
 	// The unique ID for an Amplify app.
 	AppId() *string
@@ -81,7 +83,7 @@ type CfnBranch interface {
 	BranchName() *string
 	SetBranchName(val *string)
 	// A reference to a Branch resource.
-	BranchRef() *BranchReference
+	BranchRef() *interfacesawsamplify.BranchReference
 	// The build specification (build spec) for the branch.
 	BuildSpec() *string
 	SetBuildSpec(val *string)
@@ -112,7 +114,7 @@ type CfnBranch interface {
 	// Specifies whether the skew protection feature is enabled for the branch.
 	EnableSkewProtection() interface{}
 	SetEnableSkewProtection(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The environment variables for the branch.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
@@ -294,8 +296,8 @@ type CfnBranch interface {
 // The jsii proxy struct for CfnBranch
 type jsiiProxy_CfnBranch struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBranchRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamplifyIBranchRef
 	internal.Type__awscdkITaggable
 }
 
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnBranch) BranchName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBranch) BranchRef() *BranchReference {
-	var returns *BranchReference
+func (j *jsiiProxy_CfnBranch) BranchRef() *interfacesawsamplify.BranchReference {
+	var returns *interfacesawsamplify.BranchReference
 	_jsii_.Get(
 		j,
 		"branchRef",
@@ -479,8 +481,8 @@ func (j *jsiiProxy_CfnBranch) EnableSkewProtection() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBranch) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBranch) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -610,6 +612,7 @@ func (j *jsiiProxy_CfnBranch) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Amplify::Branch`.
 func NewCfnBranch(scope constructs.Construct, id *string, props *CfnBranchProps) CfnBranch {
 	_init_.Initialize()
 
@@ -627,6 +630,7 @@ func NewCfnBranch(scope constructs.Construct, id *string, props *CfnBranchProps)
 	return &j
 }
 
+// Create a new `AWS::Amplify::Branch`.
 func NewCfnBranch_Override(c CfnBranch, scope constructs.Construct, id *string, props *CfnBranchProps) {
 	_init_.Initialize()
 

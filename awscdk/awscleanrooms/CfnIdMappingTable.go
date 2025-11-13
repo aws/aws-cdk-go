@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanrooms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanrooms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnIdMappingTable interface {
 	awscdk.CfnResource
-	IIdMappingTableRef
 	awscdk.IInspectable
+	interfacesawscleanrooms.IIdMappingTableRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the ID mapping table.
 	AttrArn() *string
@@ -67,9 +69,9 @@ type CfnIdMappingTable interface {
 	// The description of the ID mapping table.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IdMappingTable resource.
-	IdMappingTableRef() *IdMappingTableReference
+	IdMappingTableRef() *interfacesawscleanrooms.IdMappingTableReference
 	// The input reference configuration for the ID mapping table.
 	InputReferenceConfig() interface{}
 	SetInputReferenceConfig(val interface{})
@@ -249,8 +251,8 @@ type CfnIdMappingTable interface {
 // The jsii proxy struct for CfnIdMappingTable
 type jsiiProxy_CfnIdMappingTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdMappingTableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsIIdMappingTableRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnIdMappingTable) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdMappingTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdMappingTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnIdMappingTable) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdMappingTable) IdMappingTableRef() *IdMappingTableReference {
-	var returns *IdMappingTableReference
+func (j *jsiiProxy_CfnIdMappingTable) IdMappingTableRef() *interfacesawscleanrooms.IdMappingTableReference {
+	var returns *interfacesawscleanrooms.IdMappingTableReference
 	_jsii_.Get(
 		j,
 		"idMappingTableRef",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnIdMappingTable) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::CleanRooms::IdMappingTable`.
 func NewCfnIdMappingTable(scope constructs.Construct, id *string, props *CfnIdMappingTableProps) CfnIdMappingTable {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnIdMappingTable(scope constructs.Construct, id *string, props *CfnIdMa
 	return &j
 }
 
+// Create a new `AWS::CleanRooms::IdMappingTable`.
 func NewCfnIdMappingTable_Override(c CfnIdMappingTable, scope constructs.Construct, id *string, props *CfnIdMappingTableProps) {
 	_init_.Initialize()
 

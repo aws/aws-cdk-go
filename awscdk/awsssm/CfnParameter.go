@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnParameter interface {
 	awscdk.CfnResource
-	IParameterRef
 	awscdk.IInspectable
+	interfacesawsssm.IParameterRef
 	awscdk.ITaggable
 	// A regular expression used to validate the parameter value.
 	AllowedPattern() *string
@@ -69,7 +71,7 @@ type CfnParameter interface {
 	// Information about the parameter.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -86,7 +88,7 @@ type CfnParameter interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Parameter resource.
-	ParameterRef() *ParameterReference
+	ParameterRef() *interfacesawsssm.ParameterReference
 	// Information about the policies assigned to a parameter.
 	Policies() *string
 	SetPolicies(val *string)
@@ -256,8 +258,8 @@ type CfnParameter interface {
 // The jsii proxy struct for CfnParameter
 type jsiiProxy_CfnParameter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IParameterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmIParameterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnParameter) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnParameter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -391,8 +393,8 @@ func (j *jsiiProxy_CfnParameter) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameter) ParameterRef() *ParameterReference {
-	var returns *ParameterReference
+func (j *jsiiProxy_CfnParameter) ParameterRef() *interfacesawsssm.ParameterReference {
+	var returns *interfacesawsssm.ParameterReference
 	_jsii_.Get(
 		j,
 		"parameterRef",
@@ -502,6 +504,7 @@ func (j *jsiiProxy_CfnParameter) Value() *string {
 }
 
 
+// Create a new `AWS::SSM::Parameter`.
 func NewCfnParameter(scope constructs.Construct, id *string, props *CfnParameterProps) CfnParameter {
 	_init_.Initialize()
 
@@ -519,6 +522,7 @@ func NewCfnParameter(scope constructs.Construct, id *string, props *CfnParameter
 	return &j
 }
 
+// Create a new `AWS::SSM::Parameter`.
 func NewCfnParameter_Override(c CfnParameter, scope constructs.Construct, id *string, props *CfnParameterProps) {
 	_init_.Initialize()
 

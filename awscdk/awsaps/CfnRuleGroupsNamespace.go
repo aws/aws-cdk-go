@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsaps/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsaps"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnRuleGroupsNamespace interface {
 	awscdk.CfnResource
-	IRuleGroupsNamespaceRef
 	awscdk.IInspectable
+	interfacesawsaps.IRuleGroupsNamespaceRef
 	awscdk.ITaggable
 	// The ARN of the rule groups namespace.
 	//
@@ -55,7 +57,7 @@ type CfnRuleGroupsNamespace interface {
 	// The rules file used in the namespace.
 	Data() *string
 	SetData(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnRuleGroupsNamespace interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RuleGroupsNamespace resource.
-	RuleGroupsNamespaceRef() *RuleGroupsNamespaceReference
+	RuleGroupsNamespaceRef() *interfacesawsaps.RuleGroupsNamespaceReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -233,8 +235,8 @@ type CfnRuleGroupsNamespace interface {
 // The jsii proxy struct for CfnRuleGroupsNamespace
 type jsiiProxy_CfnRuleGroupsNamespace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRuleGroupsNamespaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapsIRuleGroupsNamespaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) Data() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroupsNamespace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRuleGroupsNamespace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroupsNamespace) RuleGroupsNamespaceRef() *RuleGroupsNamespaceReference {
-	var returns *RuleGroupsNamespaceReference
+func (j *jsiiProxy_CfnRuleGroupsNamespace) RuleGroupsNamespaceRef() *interfacesawsaps.RuleGroupsNamespaceReference {
+	var returns *interfacesawsaps.RuleGroupsNamespaceReference
 	_jsii_.Get(
 		j,
 		"ruleGroupsNamespaceRef",
@@ -419,6 +421,7 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) Workspace() *string {
 }
 
 
+// Create a new `AWS::APS::RuleGroupsNamespace`.
 func NewCfnRuleGroupsNamespace(scope constructs.Construct, id *string, props *CfnRuleGroupsNamespaceProps) CfnRuleGroupsNamespace {
 	_init_.Initialize()
 
@@ -436,6 +439,7 @@ func NewCfnRuleGroupsNamespace(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::APS::RuleGroupsNamespace`.
 func NewCfnRuleGroupsNamespace_Override(c CfnRuleGroupsNamespace, scope constructs.Construct, id *string, props *CfnRuleGroupsNamespaceProps) {
 	_init_.Initialize()
 

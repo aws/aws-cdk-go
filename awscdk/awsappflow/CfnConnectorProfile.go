@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappflow/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappflow"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -291,8 +293,8 @@ import (
 //
 type CfnConnectorProfile interface {
 	awscdk.CfnResource
-	IConnectorProfileRef
 	awscdk.IInspectable
+	interfacesawsappflow.IConnectorProfileRef
 	// The Amazon Resource Name (ARN) of the connector profile.
 	AttrConnectorProfileArn() *string
 	// The Amazon Resource Name (ARN) of the connector profile credentials.
@@ -315,7 +317,7 @@ type CfnConnectorProfile interface {
 	ConnectorProfileName() *string
 	SetConnectorProfileName(val *string)
 	// A reference to a ConnectorProfile resource.
-	ConnectorProfileRef() *ConnectorProfileReference
+	ConnectorProfileRef() *interfacesawsappflow.ConnectorProfileReference
 	// The type of connector, such as Salesforce, Amplitude, and so on.
 	ConnectorType() *string
 	SetConnectorType(val *string)
@@ -323,7 +325,7 @@ type CfnConnectorProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
 	KmsArn() *string
 	SetKmsArn(val *string)
@@ -491,8 +493,8 @@ type CfnConnectorProfile interface {
 // The jsii proxy struct for CfnConnectorProfile
 type jsiiProxy_CfnConnectorProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectorProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappflowIConnectorProfileRef
 }
 
 func (j *jsiiProxy_CfnConnectorProfile) AttrConnectorProfileArn() *string {
@@ -585,8 +587,8 @@ func (j *jsiiProxy_CfnConnectorProfile) ConnectorProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorProfile) ConnectorProfileRef() *ConnectorProfileReference {
-	var returns *ConnectorProfileReference
+func (j *jsiiProxy_CfnConnectorProfile) ConnectorProfileRef() *interfacesawsappflow.ConnectorProfileReference {
+	var returns *interfacesawsappflow.ConnectorProfileReference
 	_jsii_.Get(
 		j,
 		"connectorProfileRef",
@@ -615,8 +617,8 @@ func (j *jsiiProxy_CfnConnectorProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnectorProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -696,6 +698,7 @@ func (j *jsiiProxy_CfnConnectorProfile) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::AppFlow::ConnectorProfile`.
 func NewCfnConnectorProfile(scope constructs.Construct, id *string, props *CfnConnectorProfileProps) CfnConnectorProfile {
 	_init_.Initialize()
 
@@ -713,6 +716,7 @@ func NewCfnConnectorProfile(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
+// Create a new `AWS::AppFlow::ConnectorProfile`.
 func NewCfnConnectorProfile_Override(c CfnConnectorProfile, scope constructs.Construct, id *string, props *CfnConnectorProfileProps) {
 	_init_.Initialize()
 

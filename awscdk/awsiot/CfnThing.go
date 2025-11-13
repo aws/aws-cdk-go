@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnThing interface {
 	awscdk.CfnResource
-	IThingRef
 	awscdk.IInspectable
+	interfacesawsiot.IThingRef
 	// The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
 	AttrArn() *string
 	// A string that contains up to three key value pairs.
@@ -49,7 +51,7 @@ type CfnThing interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -75,7 +77,7 @@ type CfnThing interface {
 	ThingName() *string
 	SetThingName(val *string)
 	// A reference to a Thing resource.
-	ThingRef() *ThingReference
+	ThingRef() *interfacesawsiot.ThingReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -219,8 +221,8 @@ type CfnThing interface {
 // The jsii proxy struct for CfnThing
 type jsiiProxy_CfnThing struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IThingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIThingRef
 }
 
 func (j *jsiiProxy_CfnThing) AttrArn() *string {
@@ -293,8 +295,8 @@ func (j *jsiiProxy_CfnThing) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThing) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnThing) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnThing) ThingName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThing) ThingRef() *ThingReference {
-	var returns *ThingReference
+func (j *jsiiProxy_CfnThing) ThingRef() *interfacesawsiot.ThingReference {
+	var returns *interfacesawsiot.ThingReference
 	_jsii_.Get(
 		j,
 		"thingRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnThing) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::Thing`.
 func NewCfnThing(scope constructs.Construct, id *string, props *CfnThingProps) CfnThing {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnThing(scope constructs.Construct, id *string, props *CfnThingProps) C
 	return &j
 }
 
+// Create a new `AWS::IoT::Thing`.
 func NewCfnThing_Override(c CfnThing, scope constructs.Construct, id *string, props *CfnThingProps) {
 	_init_.Initialize()
 
@@ -431,13 +435,13 @@ func (j *jsiiProxy_CfnThing)SetThingName(val *string) {
 }
 
 // Creates a new IThingRef from an ARN.
-func CfnThing_FromThingArn(scope constructs.Construct, id *string, arn *string) IThingRef {
+func CfnThing_FromThingArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IThingRef {
 	_init_.Initialize()
 
 	if err := validateCfnThing_FromThingArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IThingRef
+	var returns interfacesawsiot.IThingRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnThing",
@@ -450,13 +454,13 @@ func CfnThing_FromThingArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IThingRef from a thingName.
-func CfnThing_FromThingName(scope constructs.Construct, id *string, thingName *string) IThingRef {
+func CfnThing_FromThingName(scope constructs.Construct, id *string, thingName *string) interfacesawsiot.IThingRef {
 	_init_.Initialize()
 
 	if err := validateCfnThing_FromThingNameParameters(scope, id, thingName); err != nil {
 		panic(err)
 	}
-	var returns IThingRef
+	var returns interfacesawsiot.IThingRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnThing",

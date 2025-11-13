@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnImage interface {
 	awscdk.CfnResource
-	IImageRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IImageRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the image.
 	//
@@ -57,7 +59,7 @@ type CfnImage interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The description of the image.
 	ImageDescription() *string
 	SetImageDescription(val *string)
@@ -70,7 +72,7 @@ type CfnImage interface {
 	ImageName() *string
 	SetImageName(val *string)
 	// A reference to a Image resource.
-	ImageRef() *ImageReference
+	ImageRef() *interfacesawssagemaker.ImageReference
 	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
 	ImageRoleArn() *string
 	SetImageRoleArn(val *string)
@@ -243,8 +245,8 @@ type CfnImage interface {
 // The jsii proxy struct for CfnImage
 type jsiiProxy_CfnImage struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IImageRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIImageRef
 	internal.Type__awscdkITaggable
 }
 
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnImage) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImage) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnImage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnImage) ImageName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImage) ImageRef() *ImageReference {
-	var returns *ImageReference
+func (j *jsiiProxy_CfnImage) ImageRef() *interfacesawssagemaker.ImageReference {
+	var returns *interfacesawssagemaker.ImageReference
 	_jsii_.Get(
 		j,
 		"imageRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnImage) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::Image`.
 func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) CfnImage {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) C
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Image`.
 func NewCfnImage_Override(c CfnImage, scope constructs.Construct, id *string, props *CfnImageProps) {
 	_init_.Initialize()
 

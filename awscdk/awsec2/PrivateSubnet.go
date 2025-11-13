@@ -5,6 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,7 +44,7 @@ type PrivateSubnet interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Dependable that can be depended upon to force internet connectivity established on the VPC.
 	InternetConnectivityEstablished() constructs.IDependable
 	// The IPv4 CIDR block for this subnet.
@@ -78,7 +80,7 @@ type PrivateSubnet interface {
 	// The Amazon Resource Name (ARN) of the Outpost for this subnet (if one exists).
 	SubnetOutpostArn() *string
 	// A reference to a Subnet resource.
-	SubnetRef() *SubnetReference
+	SubnetRef() *interfacesawsec2.SubnetReference
 	SubnetVpcId() *string
 	// Create a default route that points to a passed IGW, with a dependency on the IGW's attachment to the VPC.
 	AddDefaultInternetRoute(gatewayId *string, gatewayAttachment constructs.IDependable)
@@ -150,8 +152,8 @@ func (j *jsiiProxy_PrivateSubnet) DependencyElements() *[]constructs.IDependable
 	return returns
 }
 
-func (j *jsiiProxy_PrivateSubnet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_PrivateSubnet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -280,8 +282,8 @@ func (j *jsiiProxy_PrivateSubnet) SubnetOutpostArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_PrivateSubnet) SubnetRef() *SubnetReference {
-	var returns *SubnetReference
+func (j *jsiiProxy_PrivateSubnet) SubnetRef() *interfacesawsec2.SubnetReference {
+	var returns *interfacesawsec2.SubnetReference
 	_jsii_.Get(
 		j,
 		"subnetRef",

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdksagemakeralpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -47,7 +48,7 @@ type Model interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal this Model is running as.
 	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
@@ -130,8 +131,8 @@ func (j *jsiiProxy_Model) Connections() awsec2.Connections {
 	return returns
 }
 
-func (j *jsiiProxy_Model) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Model) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

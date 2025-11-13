@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnDomain interface {
 	awscdk.CfnResource
-	IDomainRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IDomainRef
 	awscdk.ITaggableV2
 	// The ARN of the Amazon DataZone domain.
 	AttrArn() *string
@@ -81,11 +83,11 @@ type CfnDomain interface {
 	DomainExecutionRole() *string
 	SetDomainExecutionRole(val *string)
 	// A reference to a Domain resource.
-	DomainRef() *DomainReference
+	DomainRef() *interfacesawsdatazone.DomainReference
 	// The domain version.
 	DomainVersion() *string
 	SetDomainVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
@@ -265,8 +267,8 @@ type CfnDomain interface {
 // The jsii proxy struct for CfnDomain
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIDomainRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -420,8 +422,8 @@ func (j *jsiiProxy_CfnDomain) DomainExecutionRole() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) DomainRef() *DomainReference {
-	var returns *DomainReference
+func (j *jsiiProxy_CfnDomain) DomainRef() *interfacesawsdatazone.DomainReference {
+	var returns *interfacesawsdatazone.DomainReference
 	_jsii_.Get(
 		j,
 		"domainRef",
@@ -440,8 +442,8 @@ func (j *jsiiProxy_CfnDomain) DomainVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -561,6 +563,7 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataZone::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -578,6 +581,7 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
+// Create a new `AWS::DataZone::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
@@ -665,13 +669,13 @@ func (j *jsiiProxy_CfnDomain)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDomainRef from an ARN.
-func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string) IDomainRef {
+func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string) interfacesawsdatazone.IDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomain_FromDomainArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDomainRef
+	var returns interfacesawsdatazone.IDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_datazone.CfnDomain",
@@ -684,13 +688,13 @@ func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IDomainRef from a domainId.
-func CfnDomain_FromDomainId(scope constructs.Construct, id *string, domainId *string) IDomainRef {
+func CfnDomain_FromDomainId(scope constructs.Construct, id *string, domainId *string) interfacesawsdatazone.IDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomain_FromDomainIdParameters(scope, id, domainId); err != nil {
 		panic(err)
 	}
-	var returns IDomainRef
+	var returns interfacesawsdatazone.IDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_datazone.CfnDomain",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -172,11 +174,12 @@ import (
 //
 type CfnEvaluationForm interface {
 	awscdk.CfnResource
-	IEvaluationFormRef
 	awscdk.IInspectable
+	interfacesawsconnect.IEvaluationFormRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the evaluation form.
 	AttrEvaluationFormArn() *string
+	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration() interface{}
 	SetAutoEvaluationConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -191,9 +194,9 @@ type CfnEvaluationForm interface {
 	// The description of the evaluation form.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EvaluationForm resource.
-	EvaluationFormRef() *EvaluationFormReference
+	EvaluationFormRef() *interfacesawsconnect.EvaluationFormReference
 	// The identifier of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -378,8 +381,8 @@ type CfnEvaluationForm interface {
 // The jsii proxy struct for CfnEvaluationForm
 type jsiiProxy_CfnEvaluationForm struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEvaluationFormRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIEvaluationFormRef
 	internal.Type__awscdkITaggable
 }
 
@@ -453,8 +456,8 @@ func (j *jsiiProxy_CfnEvaluationForm) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEvaluationForm) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEvaluationForm) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -463,8 +466,8 @@ func (j *jsiiProxy_CfnEvaluationForm) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEvaluationForm) EvaluationFormRef() *EvaluationFormReference {
-	var returns *EvaluationFormReference
+func (j *jsiiProxy_CfnEvaluationForm) EvaluationFormRef() *interfacesawsconnect.EvaluationFormReference {
+	var returns *interfacesawsconnect.EvaluationFormReference
 	_jsii_.Get(
 		j,
 		"evaluationFormRef",
@@ -604,6 +607,7 @@ func (j *jsiiProxy_CfnEvaluationForm) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Connect::EvaluationForm`.
 func NewCfnEvaluationForm(scope constructs.Construct, id *string, props *CfnEvaluationFormProps) CfnEvaluationForm {
 	_init_.Initialize()
 
@@ -621,6 +625,7 @@ func NewCfnEvaluationForm(scope constructs.Construct, id *string, props *CfnEval
 	return &j
 }
 
+// Create a new `AWS::Connect::EvaluationForm`.
 func NewCfnEvaluationForm_Override(c CfnEvaluationForm, scope constructs.Construct, id *string, props *CfnEvaluationFormProps) {
 	_init_.Initialize()
 

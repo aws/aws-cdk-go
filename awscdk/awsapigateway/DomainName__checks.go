@@ -8,10 +8,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStageRef, options *ApiMappingOptions) error {
+func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage interfacesawsapigateway.IStageRef, options *ApiMappingOptions) error {
 	if targetStage == nil {
 		return fmt.Errorf("parameter targetStage is required, but nil was provided")
 	}
@@ -23,7 +24,7 @@ func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStag
 	return nil
 }
 
-func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi IRestApiRef, options *BasePathMappingOptions) error {
+func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi interfacesawsapigateway.IRestApiRef, options *BasePathMappingOptions) error {
 	if targetApi == nil {
 		return fmt.Errorf("parameter targetApi is required, but nil was provided")
 	}

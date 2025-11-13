@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -464,8 +466,8 @@ import (
 //
 type CfnCampaign interface {
 	awscdk.CfnResource
-	ICampaignRef
 	awscdk.IInspectable
+	interfacesawspinpoint.ICampaignRef
 	awscdk.ITaggable
 	// An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
 	AdditionalTreatments() interface{}
@@ -481,7 +483,7 @@ type CfnCampaign interface {
 	CampaignHook() interface{}
 	SetCampaignHook(val interface{})
 	// A reference to a Campaign resource.
-	CampaignRef() *CampaignReference
+	CampaignRef() *interfacesawspinpoint.CampaignReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -497,7 +499,7 @@ type CfnCampaign interface {
 	// A custom description of the campaign.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
 	HoldoutPercent() *float64
 	SetHoldoutPercent(val *float64)
@@ -703,8 +705,8 @@ type CfnCampaign interface {
 // The jsii proxy struct for CfnCampaign
 type jsiiProxy_CfnCampaign struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICampaignRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointICampaignRef
 	internal.Type__awscdkITaggable
 }
 
@@ -758,8 +760,8 @@ func (j *jsiiProxy_CfnCampaign) CampaignHook() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCampaign) CampaignRef() *CampaignReference {
-	var returns *CampaignReference
+func (j *jsiiProxy_CfnCampaign) CampaignRef() *interfacesawspinpoint.CampaignReference {
+	var returns *interfacesawspinpoint.CampaignReference
 	_jsii_.Get(
 		j,
 		"campaignRef",
@@ -828,8 +830,8 @@ func (j *jsiiProxy_CfnCampaign) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCampaign) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCampaign) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -1039,6 +1041,7 @@ func (j *jsiiProxy_CfnCampaign) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::Campaign`.
 func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignProps) CfnCampaign {
 	_init_.Initialize()
 
@@ -1056,6 +1059,7 @@ func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignPr
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::Campaign`.
 func NewCfnCampaign_Override(c CfnCampaign, scope constructs.Construct, id *string, props *CfnCampaignProps) {
 	_init_.Initialize()
 

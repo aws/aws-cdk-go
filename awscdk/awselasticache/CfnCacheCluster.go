@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -77,8 +79,8 @@ import (
 //
 type CfnCacheCluster interface {
 	awscdk.CfnResource
-	ICacheClusterRef
 	awscdk.IInspectable
+	interfacesawselasticache.ICacheClusterRef
 	awscdk.ITaggable
 	// The DNS hostname of the cache node.
 	//
@@ -101,7 +103,7 @@ type CfnCacheCluster interface {
 	AzMode() *string
 	SetAzMode(val *string)
 	// A reference to a CacheCluster resource.
-	CacheClusterRef() *CacheClusterReference
+	CacheClusterRef() *interfacesawselasticache.CacheClusterReference
 	// The compute and memory capacity of the nodes in the node group (shard).
 	CacheNodeType() *string
 	SetCacheNodeType(val *string)
@@ -132,7 +134,7 @@ type CfnCacheCluster interface {
 	// The version number of the cache engine to be used for this cluster.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
 	IpDiscovery() *string
 	SetIpDiscovery(val *string)
@@ -347,8 +349,8 @@ type CfnCacheCluster interface {
 // The jsii proxy struct for CfnCacheCluster
 type jsiiProxy_CfnCacheCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICacheClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheICacheClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnCacheCluster) AzMode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCacheCluster) CacheClusterRef() *CacheClusterReference {
-	var returns *CacheClusterReference
+func (j *jsiiProxy_CfnCacheCluster) CacheClusterRef() *interfacesawselasticache.CacheClusterReference {
+	var returns *interfacesawselasticache.CacheClusterReference
 	_jsii_.Get(
 		j,
 		"cacheClusterRef",
@@ -542,8 +544,8 @@ func (j *jsiiProxy_CfnCacheCluster) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCacheCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCacheCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -783,6 +785,7 @@ func (j *jsiiProxy_CfnCacheCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
+// Create a new `AWS::ElastiCache::CacheCluster`.
 func NewCfnCacheCluster(scope constructs.Construct, id *string, props *CfnCacheClusterProps) CfnCacheCluster {
 	_init_.Initialize()
 
@@ -800,6 +803,7 @@ func NewCfnCacheCluster(scope constructs.Construct, id *string, props *CfnCacheC
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::CacheCluster`.
 func NewCfnCacheCluster_Override(c CfnCacheCluster, scope constructs.Construct, id *string, props *CfnCacheClusterProps) {
 	_init_.Initialize()
 

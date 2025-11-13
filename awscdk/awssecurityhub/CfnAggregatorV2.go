@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,11 +36,11 @@ import (
 //
 type CfnAggregatorV2 interface {
 	awscdk.CfnResource
-	IAggregatorV2Ref
 	awscdk.IInspectable
+	interfacesawssecurityhub.IAggregatorV2Ref
 	awscdk.ITaggableV2
 	// A reference to a AggregatorV2 resource.
-	AggregatorV2Ref() *AggregatorV2Reference
+	AggregatorV2Ref() *interfacesawssecurityhub.AggregatorV2Reference
 	// The AWS Region where data is aggregated.
 	AttrAggregationRegion() *string
 	// The ARN of the AggregatorV2.
@@ -54,7 +56,7 @@ type CfnAggregatorV2 interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The list of Regions that are linked to the aggregation Region.
 	LinkedRegions() *[]*string
 	SetLinkedRegions(val *[]*string)
@@ -228,13 +230,13 @@ type CfnAggregatorV2 interface {
 // The jsii proxy struct for CfnAggregatorV2
 type jsiiProxy_CfnAggregatorV2 struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAggregatorV2Ref
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIAggregatorV2Ref
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAggregatorV2) AggregatorV2Ref() *AggregatorV2Reference {
-	var returns *AggregatorV2Reference
+func (j *jsiiProxy_CfnAggregatorV2) AggregatorV2Ref() *interfacesawssecurityhub.AggregatorV2Reference {
+	var returns *interfacesawssecurityhub.AggregatorV2Reference
 	_jsii_.Get(
 		j,
 		"aggregatorV2Ref",
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnAggregatorV2) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAggregatorV2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAggregatorV2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -414,6 +416,7 @@ func (j *jsiiProxy_CfnAggregatorV2) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::SecurityHub::AggregatorV2`.
 func NewCfnAggregatorV2(scope constructs.Construct, id *string, props *CfnAggregatorV2Props) CfnAggregatorV2 {
 	_init_.Initialize()
 
@@ -431,6 +434,7 @@ func NewCfnAggregatorV2(scope constructs.Construct, id *string, props *CfnAggreg
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::AggregatorV2`.
 func NewCfnAggregatorV2_Override(c CfnAggregatorV2, scope constructs.Construct, id *string, props *CfnAggregatorV2Props) {
 	_init_.Initialize()
 

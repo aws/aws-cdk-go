@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssso/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssso"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,8 +61,8 @@ import (
 //
 type CfnPermissionSet interface {
 	awscdk.CfnResource
-	IPermissionSetRef
 	awscdk.IInspectable
+	interfacesawssso.IPermissionSetRef
 	awscdk.ITaggable
 	// The permission set ARN of the permission set, such as `arn:aws:sso:::permissionSet/ins-instanceid/ps-permissionsetid` .
 	AttrPermissionSetArn() *string
@@ -79,7 +81,7 @@ type CfnPermissionSet interface {
 	// The description of the `PermissionSet` .
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The inline policy that is attached to the permission set.
 	InlinePolicy() interface{}
 	SetInlinePolicy(val interface{})
@@ -108,7 +110,7 @@ type CfnPermissionSet interface {
 	PermissionsBoundary() interface{}
 	SetPermissionsBoundary(val interface{})
 	// A reference to a PermissionSet resource.
-	PermissionSetRef() *PermissionSetReference
+	PermissionSetRef() *interfacesawssso.PermissionSetReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -272,8 +274,8 @@ type CfnPermissionSet interface {
 // The jsii proxy struct for CfnPermissionSet
 type jsiiProxy_CfnPermissionSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPermissionSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssoIPermissionSetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnPermissionSet) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermissionSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPermissionSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnPermissionSet) PermissionsBoundary() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermissionSet) PermissionSetRef() *PermissionSetReference {
-	var returns *PermissionSetReference
+func (j *jsiiProxy_CfnPermissionSet) PermissionSetRef() *interfacesawssso.PermissionSetReference {
+	var returns *interfacesawssso.PermissionSetReference
 	_jsii_.Get(
 		j,
 		"permissionSetRef",
@@ -518,6 +520,7 @@ func (j *jsiiProxy_CfnPermissionSet) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::SSO::PermissionSet`.
 func NewCfnPermissionSet(scope constructs.Construct, id *string, props *CfnPermissionSetProps) CfnPermissionSet {
 	_init_.Initialize()
 
@@ -535,6 +538,7 @@ func NewCfnPermissionSet(scope constructs.Construct, id *string, props *CfnPermi
 	return &j
 }
 
+// Create a new `AWS::SSO::PermissionSet`.
 func NewCfnPermissionSet_Override(c CfnPermissionSet, scope constructs.Construct, id *string, props *CfnPermissionSetProps) {
 	_init_.Initialize()
 

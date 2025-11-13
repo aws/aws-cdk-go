@@ -2,11 +2,11 @@ package awss3deployment
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
 
 // Properties for `BucketDeployment`.
@@ -90,7 +90,7 @@ type BucketDeploymentProps struct {
 	// files are uploaded to the destination bucket.
 	// Default: - No invalidation occurs.
 	//
-	Distribution awscloudfront.IDistributionRef `field:"optional" json:"distribution" yaml:"distribution"`
+	Distribution interfacesawscloudfront.IDistributionRef `field:"optional" json:"distribution" yaml:"distribution"`
 	// The file paths to invalidate in the CloudFront distribution.
 	// Default: - All files under the destination bucket key prefix will be invalidated.
 	//

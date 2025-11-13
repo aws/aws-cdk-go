@@ -18,6 +18,20 @@ package awsquicksight
 //   			Expression: jsii.String("expression"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	Alias: jsii.String("alias"),
+//   	Source: &TransformOperationSourceProperty{
+//   		TransformOperationId: jsii.String("transformOperationId"),
+//
+//   		// the properties below are optional
+//   		ColumnIdMappings: []interface{}{
+//   			&DataSetColumnIdMappingProperty{
+//   				SourceColumnId: jsii.String("sourceColumnId"),
+//   				TargetColumnId: jsii.String("targetColumnId"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html
@@ -26,6 +40,14 @@ type CfnDataSet_CreateColumnsOperationProperty struct {
 	// Calculated columns to create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
 	//
-	Columns interface{} `field:"optional" json:"columns" yaml:"columns"`
+	Columns interface{} `field:"required" json:"columns" yaml:"columns"`
+	// Alias for this operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-alias
+	//
+	Alias *string `field:"optional" json:"alias" yaml:"alias"`
+	// The source transform operation that provides input data for creating new calculated columns.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-source
+	//
+	Source interface{} `field:"optional" json:"source" yaml:"source"`
 }
 

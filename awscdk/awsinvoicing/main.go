@@ -56,8 +56,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnInvoiceUnit{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInvoiceUnitRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsinvoicingIInvoiceUnitRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -73,24 +73,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_invoicing.CfnInvoiceUnitProps",
 		reflect.TypeOf((*CfnInvoiceUnitProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_invoicing.IInvoiceUnitRef",
-		reflect.TypeOf((*IInvoiceUnitRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "invoiceUnitRef", GoGetter: "InvoiceUnitRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IInvoiceUnitRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_invoicing.InvoiceUnitReference",
-		reflect.TypeOf((*InvoiceUnitReference)(nil)).Elem(),
 	)
 }

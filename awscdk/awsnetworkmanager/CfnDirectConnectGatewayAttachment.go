@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnDirectConnectGatewayAttachment interface {
 	awscdk.CfnResource
-	IDirectConnectGatewayAttachmentRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.IDirectConnectGatewayAttachmentRef
 	awscdk.ITaggableV2
 	// Id of the attachment.
 	AttrAttachmentId() *string
@@ -101,11 +103,11 @@ type CfnDirectConnectGatewayAttachment interface {
 	DirectConnectGatewayArn() *string
 	SetDirectConnectGatewayArn(val *string)
 	// A reference to a DirectConnectGatewayAttachment resource.
-	DirectConnectGatewayAttachmentRef() *DirectConnectGatewayAttachmentReference
+	DirectConnectGatewayAttachmentRef() *interfacesawsnetworkmanager.DirectConnectGatewayAttachmentReference
 	// The Regions where the edges are located.
 	EdgeLocations() *[]*string
 	SetEdgeLocations(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -279,8 +281,8 @@ type CfnDirectConnectGatewayAttachment interface {
 // The jsii proxy struct for CfnDirectConnectGatewayAttachment
 type jsiiProxy_CfnDirectConnectGatewayAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDirectConnectGatewayAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerIDirectConnectGatewayAttachmentRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -474,8 +476,8 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) DirectConnectGatewayArn() 
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) DirectConnectGatewayAttachmentRef() *DirectConnectGatewayAttachmentReference {
-	var returns *DirectConnectGatewayAttachmentReference
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) DirectConnectGatewayAttachmentRef() *interfacesawsnetworkmanager.DirectConnectGatewayAttachmentReference {
+	var returns *interfacesawsnetworkmanager.DirectConnectGatewayAttachmentReference
 	_jsii_.Get(
 		j,
 		"directConnectGatewayAttachmentRef",
@@ -494,8 +496,8 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) EdgeLocations() *[]*string
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -595,6 +597,7 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) UpdatedProperties() *map[s
 }
 
 
+// Create a new `AWS::NetworkManager::DirectConnectGatewayAttachment`.
 func NewCfnDirectConnectGatewayAttachment(scope constructs.Construct, id *string, props *CfnDirectConnectGatewayAttachmentProps) CfnDirectConnectGatewayAttachment {
 	_init_.Initialize()
 
@@ -612,6 +615,7 @@ func NewCfnDirectConnectGatewayAttachment(scope constructs.Construct, id *string
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::DirectConnectGatewayAttachment`.
 func NewCfnDirectConnectGatewayAttachment_Override(c CfnDirectConnectGatewayAttachment, scope constructs.Construct, id *string, props *CfnDirectConnectGatewayAttachmentProps) {
 	_init_.Initialize()
 

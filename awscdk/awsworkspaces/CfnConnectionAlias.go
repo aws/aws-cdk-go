@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspaces/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnConnectionAlias interface {
 	awscdk.CfnResource
-	IConnectionAliasRef
 	awscdk.IInspectable
+	interfacesawsworkspaces.IConnectionAliasRef
 	awscdk.ITaggable
 	// The identifier of the connection alias, returned as a string.
 	AttrAliasId() *string
@@ -49,7 +51,7 @@ type CfnConnectionAlias interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConnectionAlias resource.
-	ConnectionAliasRef() *ConnectionAliasReference
+	ConnectionAliasRef() *interfacesawsworkspaces.ConnectionAliasReference
 	// The connection string specified for the connection alias.
 	ConnectionString() *string
 	SetConnectionString(val *string)
@@ -57,7 +59,7 @@ type CfnConnectionAlias interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,8 +229,8 @@ type CfnConnectionAlias interface {
 // The jsii proxy struct for CfnConnectionAlias
 type jsiiProxy_CfnConnectionAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectionAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspacesIConnectionAliasRef
 	internal.Type__awscdkITaggable
 }
 
@@ -292,8 +294,8 @@ func (j *jsiiProxy_CfnConnectionAlias) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectionAlias) ConnectionAliasRef() *ConnectionAliasReference {
-	var returns *ConnectionAliasReference
+func (j *jsiiProxy_CfnConnectionAlias) ConnectionAliasRef() *interfacesawsworkspaces.ConnectionAliasReference {
+	var returns *interfacesawsworkspaces.ConnectionAliasReference
 	_jsii_.Get(
 		j,
 		"connectionAliasRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnConnectionAlias) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectionAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnectionAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnConnectionAlias) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::WorkSpaces::ConnectionAlias`.
 func NewCfnConnectionAlias(scope constructs.Construct, id *string, props *CfnConnectionAliasProps) CfnConnectionAlias {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnConnectionAlias(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
+// Create a new `AWS::WorkSpaces::ConnectionAlias`.
 func NewCfnConnectionAlias_Override(c CfnConnectionAlias, scope constructs.Construct, id *string, props *CfnConnectionAliasProps) {
 	_init_.Initialize()
 

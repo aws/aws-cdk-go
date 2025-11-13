@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnTransitGatewayRegistration interface {
 	awscdk.CfnResource
-	ITransitGatewayRegistrationRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.ITransitGatewayRegistrationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -38,7 +40,7 @@ type CfnTransitGatewayRegistration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the global network.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
@@ -67,7 +69,7 @@ type CfnTransitGatewayRegistration interface {
 	TransitGatewayArn() *string
 	SetTransitGatewayArn(val *string)
 	// A reference to a TransitGatewayRegistration resource.
-	TransitGatewayRegistrationRef() *TransitGatewayRegistrationReference
+	TransitGatewayRegistrationRef() *interfacesawsnetworkmanager.TransitGatewayRegistrationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -211,8 +213,8 @@ type CfnTransitGatewayRegistration interface {
 // The jsii proxy struct for CfnTransitGatewayRegistration
 type jsiiProxy_CfnTransitGatewayRegistration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayRegistrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerITransitGatewayRegistrationRef
 }
 
 func (j *jsiiProxy_CfnTransitGatewayRegistration) CfnOptions() awscdk.ICfnResourceOptions {
@@ -255,8 +257,8 @@ func (j *jsiiProxy_CfnTransitGatewayRegistration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRegistration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayRegistration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnTransitGatewayRegistration) TransitGatewayArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRegistration) TransitGatewayRegistrationRef() *TransitGatewayRegistrationReference {
-	var returns *TransitGatewayRegistrationReference
+func (j *jsiiProxy_CfnTransitGatewayRegistration) TransitGatewayRegistrationRef() *interfacesawsnetworkmanager.TransitGatewayRegistrationReference {
+	var returns *interfacesawsnetworkmanager.TransitGatewayRegistrationReference
 	_jsii_.Get(
 		j,
 		"transitGatewayRegistrationRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnTransitGatewayRegistration) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::NetworkManager::TransitGatewayRegistration`.
 func NewCfnTransitGatewayRegistration(scope constructs.Construct, id *string, props *CfnTransitGatewayRegistrationProps) CfnTransitGatewayRegistration {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnTransitGatewayRegistration(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::TransitGatewayRegistration`.
 func NewCfnTransitGatewayRegistration_Override(c CfnTransitGatewayRegistration, scope constructs.Construct, id *string, props *CfnTransitGatewayRegistrationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -164,8 +166,8 @@ import (
 //
 type CfnAlarmModel interface {
 	awscdk.CfnResource
-	IAlarmModelRef
 	awscdk.IInspectable
+	interfacesawsiotevents.IAlarmModelRef
 	awscdk.ITaggable
 	// Contains the configuration information of alarm state changes.
 	AlarmCapabilities() interface{}
@@ -180,7 +182,7 @@ type CfnAlarmModel interface {
 	AlarmModelName() *string
 	SetAlarmModelName(val *string)
 	// A reference to a AlarmModel resource.
-	AlarmModelRef() *AlarmModelReference
+	AlarmModelRef() *interfacesawsiotevents.AlarmModelReference
 	// Defines when your alarm is invoked.
 	AlarmRule() interface{}
 	SetAlarmRule(val interface{})
@@ -193,7 +195,7 @@ type CfnAlarmModel interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An input attribute used as a key to create an alarm.
 	Key() *string
 	SetKey(val *string)
@@ -372,8 +374,8 @@ type CfnAlarmModel interface {
 // The jsii proxy struct for CfnAlarmModel
 type jsiiProxy_CfnAlarmModel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAlarmModelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsioteventsIAlarmModelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -417,8 +419,8 @@ func (j *jsiiProxy_CfnAlarmModel) AlarmModelName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlarmModel) AlarmModelRef() *AlarmModelReference {
-	var returns *AlarmModelReference
+func (j *jsiiProxy_CfnAlarmModel) AlarmModelRef() *interfacesawsiotevents.AlarmModelReference {
+	var returns *interfacesawsiotevents.AlarmModelReference
 	_jsii_.Get(
 		j,
 		"alarmModelRef",
@@ -477,8 +479,8 @@ func (j *jsiiProxy_CfnAlarmModel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlarmModel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAlarmModel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -598,6 +600,7 @@ func (j *jsiiProxy_CfnAlarmModel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTEvents::AlarmModel`.
 func NewCfnAlarmModel(scope constructs.Construct, id *string, props *CfnAlarmModelProps) CfnAlarmModel {
 	_init_.Initialize()
 
@@ -615,6 +618,7 @@ func NewCfnAlarmModel(scope constructs.Construct, id *string, props *CfnAlarmMod
 	return &j
 }
 
+// Create a new `AWS::IoTEvents::AlarmModel`.
 func NewCfnAlarmModel_Override(c CfnAlarmModel, scope constructs.Construct, id *string, props *CfnAlarmModelProps) {
 	_init_.Initialize()
 
@@ -713,13 +717,13 @@ func (j *jsiiProxy_CfnAlarmModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IAlarmModelRef from a alarmModelName.
-func CfnAlarmModel_FromAlarmModelName(scope constructs.Construct, id *string, alarmModelName *string) IAlarmModelRef {
+func CfnAlarmModel_FromAlarmModelName(scope constructs.Construct, id *string, alarmModelName *string) interfacesawsiotevents.IAlarmModelRef {
 	_init_.Initialize()
 
 	if err := validateCfnAlarmModel_FromAlarmModelNameParameters(scope, id, alarmModelName); err != nil {
 		panic(err)
 	}
-	var returns IAlarmModelRef
+	var returns interfacesawsiotevents.IAlarmModelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotevents.CfnAlarmModel",

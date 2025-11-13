@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnLocationEFS interface {
 	awscdk.CfnResource
-	ILocationEFSRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationEFSRef
 	awscdk.ITaggable
 	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to mount your Amazon EFS file system.
 	AccessPointArn() *string
@@ -69,7 +71,7 @@ type CfnLocationEFS interface {
 	// Specifies the ARN for your Amazon EFS file system.
 	EfsFilesystemArn() *string
 	SetEfsFilesystemArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies an AWS Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.
 	FileSystemAccessRoleArn() *string
 	SetFileSystemAccessRoleArn(val *string)
@@ -77,7 +79,7 @@ type CfnLocationEFS interface {
 	InTransitEncryption() *string
 	SetInTransitEncryption(val *string)
 	// A reference to a LocationEFS resource.
-	LocationEfsRef() *LocationEFSReference
+	LocationEfsRef() *interfacesawsdatasync.LocationEFSReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -250,8 +252,8 @@ type CfnLocationEFS interface {
 // The jsii proxy struct for CfnLocationEFS
 type jsiiProxy_CfnLocationEFS struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationEFSRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationEFSRef
 	internal.Type__awscdkITaggable
 }
 
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnLocationEFS) EfsFilesystemArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationEFS) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationEFS) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnLocationEFS) InTransitEncryption() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationEFS) LocationEfsRef() *LocationEFSReference {
-	var returns *LocationEFSReference
+func (j *jsiiProxy_CfnLocationEFS) LocationEfsRef() *interfacesawsdatasync.LocationEFSReference {
+	var returns *interfacesawsdatasync.LocationEFSReference
 	_jsii_.Get(
 		j,
 		"locationEfsRef",
@@ -476,6 +478,7 @@ func (j *jsiiProxy_CfnLocationEFS) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataSync::LocationEFS`.
 func NewCfnLocationEFS(scope constructs.Construct, id *string, props *CfnLocationEFSProps) CfnLocationEFS {
 	_init_.Initialize()
 
@@ -493,6 +496,7 @@ func NewCfnLocationEFS(scope constructs.Construct, id *string, props *CfnLocatio
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationEFS`.
 func NewCfnLocationEFS_Override(c CfnLocationEFS, scope constructs.Construct, id *string, props *CfnLocationEFSProps) {
 	_init_.Initialize()
 

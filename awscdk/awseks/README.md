@@ -78,13 +78,13 @@ This example defines an Amazon EKS cluster with the following configuration:
 * A Kubernetes pod with a container based on the [paulbouwer/hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) image.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 // provisioning a cluster
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 
 // apply a kubernetes manifest to the cluster
@@ -155,12 +155,12 @@ A more detailed breakdown of each is provided further down this README.
 Creating a new cluster is done using the `Cluster` or `FargateCluster` constructs. The only required properties are the kubernetes `version` and `kubectlLayer`.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -175,13 +175,13 @@ This can happen in one of three situations:
 This affects the EKS cluster itself, the custom resource that created the cluster, associated IAM roles, node groups, security groups, VPC and any other CloudFormation resources managed by this construct.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 import core "github.com/aws/aws-cdk-go/awscdk"
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 	RemovalPolicy: core.RemovalPolicy_RETAIN,
 })
 ```
@@ -189,12 +189,12 @@ eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 You can also use `FargateCluster` to provision a cluster that uses only fargate workers.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 eks.NewFargateCluster(this, jsii.String("HelloEKS"), &FargateClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -217,14 +217,14 @@ By default, this library will allocate a managed node group with 2 *m5.large* in
 At cluster instantiation time, you can customize the number of instances and their type:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	DefaultCapacity: jsii.Number(5),
 	DefaultCapacityInstance: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_SMALL),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -233,13 +233,13 @@ To access the node group that was created on your behalf, you can use `cluster.d
 Additional customizations are available post instantiation. To apply them, set the default capacity to 0, and use the `cluster.addNodegroupCapacity` method:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	DefaultCapacity: jsii.Number(0),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 
 cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
@@ -333,7 +333,7 @@ Node groups are available with IPv6 configured networks.  For custom roles assig
 > For more details visit [Configuring the Amazon VPC CNI plugin for Kubernetes to use IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html#cni-iam-role-create-role)
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 ipv6Management := iam.NewPolicyDocument(&PolicyDocumentProps{
@@ -364,9 +364,9 @@ eksClusterNodeGroupRole := iam.NewRole(this, jsii.String("eksClusterNodeGroupRol
 })
 
 cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	DefaultCapacity: jsii.Number(0),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 
 cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
@@ -479,14 +479,14 @@ has been changed. As a workaround, you need to add a temporary policy to the clu
 successful replacement. Consider this example if you are renaming the cluster from `foo` to `bar`:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 cluster := eks.NewCluster(this, jsii.String("cluster-to-rename"), &ClusterProps{
 	ClusterName: jsii.String("foo"),
 	 // rename this to 'bar'
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
-	Version: eks.KubernetesVersion_V1_33(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
 })
 
 // allow the cluster admin role to delete the cluster 'foo'
@@ -553,12 +553,12 @@ To create an EKS cluster that **only** uses Fargate capacity, you can use `Farga
 The following code defines an Amazon EKS cluster with a default Fargate Profile that matches all pods from the "kube-system" and "default" namespaces. It is also configured to [run CoreDNS on Fargate](https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html#fargate-gs-coredns).
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -642,13 +642,13 @@ To disable bootstrapping altogether (i.e. to fully customize user-data), set `bo
 You can also configure the cluster to use an auto-scaling group as the default capacity:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	DefaultCapacityType: eks.DefaultCapacityType_EC2,
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -758,14 +758,14 @@ AWS Identity and Access Management (IAM) and native Kubernetes [Role Based Acces
 You can configure the [cluster endpoint access](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) by using the `endpointAccess` property:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 	 // No access outside of your VPC.
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -785,33 +785,33 @@ From the docs:
 To deploy the controller on your EKS cluster, configure the `albController` property:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	AlbController: &AlbControllerOptions{
 		Version: eks.AlbControllerVersion_V2_8_2(),
 	},
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
 To provide additional Helm chart values supported by `albController` in CDK, use the `additionalHelmChartValues` property. For example, the following code snippet shows how to set the `enableWafV2` flag:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	AlbController: &AlbControllerOptions{
 		Version: eks.AlbControllerVersion_V2_8_2(),
 		AdditionalHelmChartValues: &AlbControllerHelmChartOptions{
 			EnableWafv2: jsii.Boolean(false),
 		},
 	},
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -850,20 +850,20 @@ if cluster.AlbController {
 You can specify the VPC of the cluster using the `vpc` and `vpcSubnets` properties:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 var vpc Vpc
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	Vpc: Vpc,
 	VpcSubnets: []SubnetSelection{
 		&SubnetSelection{
 			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 		},
 	},
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -909,12 +909,12 @@ The `ClusterHandler` is a set of Lambda functions (`onEventHandler`, `isComplete
 You can configure the environment of the Cluster Handler functions by specifying it at cluster instantiation. For example, this can be useful in order to configure an http proxy:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 var proxyInstanceSecurityGroup SecurityGroup
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	ClusterHandlerEnvironment: map[string]*string{
 		"https_proxy": jsii.String("http://proxy.myproxy.com"),
 	},
@@ -923,7 +923,7 @@ cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	   * Cluster Handler Lambdas so that it can reach the proxy.
 	   */
 	ClusterHandlerSecurityGroup: proxyInstanceSecurityGroup,
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -932,7 +932,7 @@ cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 You can optionally choose to configure your cluster to use IPv6 using the [`ipFamily`](https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily) definition for your cluster.  Note that this will require the underlying subnets to have an associated IPv6 CIDR.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 var vpc Vpc
 
 
@@ -959,7 +959,7 @@ for _, subnet := range subnets {
 }
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	Vpc: vpc,
 	IpFamily: eks.IpFamily_IP_V6,
 	VpcSubnets: []SubnetSelection{
@@ -967,7 +967,7 @@ cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 			Subnets: vpc.*PublicSubnets,
 		},
 	},
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -998,15 +998,15 @@ cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("Cluster"), &Clus
 You can configure the environment of this function by specifying it at cluster instantiation. For example, this can be useful in order to configure an http proxy:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	KubectlEnvironment: map[string]*string{
 		"http_proxy": jsii.String("http://proxy.myproxy.com"),
 	},
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -1023,12 +1023,12 @@ Depending on which version of kubernetes you're targeting, you will need to use 
 the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -1064,7 +1064,7 @@ cluster1 := eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	KubectlLayer: layer,
 	Vpc: Vpc,
 	ClusterName: jsii.String("cluster-name"),
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 })
 
 // or
@@ -1080,7 +1080,7 @@ cluster2 := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &C
 By default, the kubectl provider is configured with 1024MiB of memory. You can use the `kubectlMemory` option to specify the memory size for the AWS Lambda function:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 // or
 var vpc Vpc
@@ -1088,8 +1088,8 @@ var vpc Vpc
 
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
 	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
@@ -1126,14 +1126,14 @@ cluster.AddAutoScalingGroupCapacity(jsii.String("self-ng-arm"), &AutoScalingGrou
 When you create a cluster, you can specify a `mastersRole`. The `Cluster` construct will associate this role with the `system:masters` [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) group, giving it super-user access to the cluster.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 var role Role
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	MastersRole: role,
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -1179,28 +1179,28 @@ You can use the `secretsEncryptionKey` to configure which key the cluster will u
 > This setting can only be specified when the cluster is created and cannot be updated.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
 cluster := eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	SecretsEncryptionKey: secretsKey,
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
 You can also use a similar configuration for running a cluster built using the FargateCluster construct.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
 cluster := eks.NewFargateCluster(this, jsii.String("MyFargateCluster"), &FargateClusterProps{
 	SecretsEncryptionKey: secretsKey,
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -1219,12 +1219,12 @@ When you create an Amazon EKS cluster, you can configure it to leverage the [EKS
 Once you have identified the on-premises node and pod (optional) CIDRs you will use for your hybrid nodes and the workloads running on them, you can specify them during cluster creation using the `remoteNodeNetworks` and `remotePodNetworks` (optional) properties:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("KubectlLayer")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("KubectlLayer")),
 	RemoteNodeNetworks: []RemoteNodeNetwork{
 		&RemoteNodeNetwork{
 			Cidrs: []*string{
@@ -1287,7 +1287,7 @@ To access the Kubernetes resources from the console, make sure your viewing prin
 in the `aws-auth` ConfigMap. Some options to consider:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 var cluster Cluster
 var your_current_role Role
 var vpc Vpc
@@ -1310,7 +1310,7 @@ your_current_role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 
 ```go
 // Option 2: create your custom mastersRole with scoped assumeBy arn as the Cluster prop. Switch to this role from the AWS console.
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 var vpc Vpc
 
 
@@ -1320,8 +1320,8 @@ mastersRole := iam.NewRole(this, jsii.String("MastersRole"), &RoleProps{
 
 cluster := eks.NewCluster(this, jsii.String("EksCluster"), &ClusterProps{
 	Vpc: Vpc,
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("KubectlLayer")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("KubectlLayer")),
 	MastersRole: MastersRole,
 })
 
@@ -1370,14 +1370,14 @@ AWS IAM principals from both Amazon EKS access entry APIs and the aws-auth confi
 To specify the `authenticationMode`:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 var vpc Vpc
 
 
 eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	Vpc: Vpc,
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("KubectlLayer")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("KubectlLayer")),
 	AuthenticationMode: eks.AuthenticationMode_API_AND_CONFIG_MAP,
 })
 ```
@@ -1425,7 +1425,7 @@ eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &Acce
 Use `grantAccess()` to grant the AccessPolicy to an IAM principal:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 var vpc Vpc
 
 
@@ -1444,8 +1444,8 @@ eksAdminViewRole := iam.NewRole(this, jsii.String("EKSAdminViewRole"), &RoleProp
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	Vpc: Vpc,
 	MastersRole: clusterAdminRole,
-	Version: eks.KubernetesVersion_V1_33(),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("KubectlLayer")),
+	Version: eks.KubernetesVersion_V1_34(),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("KubectlLayer")),
 	AuthenticationMode: eks.AuthenticationMode_API_AND_CONFIG_MAP,
 })
 
@@ -1819,13 +1819,13 @@ Pruning is enabled by default but can be disabled through the `prune` option
 when a cluster is defined:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	Prune: jsii.Boolean(false),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 
@@ -2271,18 +2271,18 @@ You can enable logging for each one separately using the `clusterLogging`
 property. For example:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	// ...
-	Version: eks.KubernetesVersion_V1_33(),
+	Version: eks.KubernetesVersion_V1_34(),
 	ClusterLogging: []ClusterLoggingTypes{
 		eks.ClusterLoggingTypes_API,
 		eks.ClusterLoggingTypes_AUTHENTICATOR,
 		eks.ClusterLoggingTypes_SCHEDULER,
 	},
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 ```
 

@@ -8,10 +8,6 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.AccountPolicyReference",
-		reflect.TypeOf((*AccountPolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.AddKeyEntryProperty",
 		reflect.TypeOf((*AddKeyEntryProperty)(nil)).Elem(),
 	)
@@ -69,8 +65,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccountPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccountPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIAccountPolicyRef)
 			return &j
 		},
 	)
@@ -129,8 +125,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDelivery{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeliveryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIDeliveryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -183,8 +179,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDeliveryDestination{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeliveryDestinationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIDeliveryDestinationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -249,8 +245,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDeliverySource{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeliverySourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIDeliverySourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -306,8 +302,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDestination{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDestinationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIDestinationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -360,8 +356,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIntegration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIntegrationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIIntegrationRef)
 			return &j
 		},
 	)
@@ -428,8 +424,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLogAnomalyDetector{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogAnomalyDetectorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsILogAnomalyDetectorRef)
 			return &j
 		},
 	)
@@ -487,8 +483,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLogGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsILogGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -539,8 +535,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLogStream{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogStreamRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsILogStreamRef)
 			return &j
 		},
 	)
@@ -595,8 +591,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMetricFilter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMetricFilterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIMetricFilterRef)
 			return &j
 		},
 	)
@@ -657,8 +653,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnQueryDefinition{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IQueryDefinitionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIQueryDefinitionRef)
 			return &j
 		},
 	)
@@ -708,8 +704,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourcePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourcePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsIResourcePolicyRef)
 			return &j
 		},
 	)
@@ -766,8 +762,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSubscriptionFilter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISubscriptionFilterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsISubscriptionFilterRef)
 			return &j
 		},
 	)
@@ -817,8 +813,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTransformer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITransformerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsITransformerRef)
 			return &j
 		},
 	)
@@ -1081,22 +1077,6 @@ func init() {
 			"PIPE": DelimiterCharacter_PIPE,
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.DeliveryDestinationReference",
-		reflect.TypeOf((*DeliveryDestinationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.DeliveryReference",
-		reflect.TypeOf((*DeliveryReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.DeliverySourceReference",
-		reflect.TypeOf((*DeliverySourceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.DestinationReference",
-		reflect.TypeOf((*DestinationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_logs.Distribution",
 		reflect.TypeOf((*Distribution)(nil)).Elem(),
@@ -1130,81 +1110,6 @@ func init() {
 		reflect.TypeOf((*GrokProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IAccountPolicyRef",
-		reflect.TypeOf((*IAccountPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accountPolicyRef", GoGetter: "AccountPolicyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccountPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IDeliveryDestinationRef",
-		reflect.TypeOf((*IDeliveryDestinationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deliveryDestinationRef", GoGetter: "DeliveryDestinationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeliveryDestinationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IDeliveryRef",
-		reflect.TypeOf((*IDeliveryRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deliveryRef", GoGetter: "DeliveryRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeliveryRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IDeliverySourceRef",
-		reflect.TypeOf((*IDeliverySourceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deliverySourceRef", GoGetter: "DeliverySourceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDeliverySourceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IDestinationRef",
-		reflect.TypeOf((*IDestinationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "destinationRef", GoGetter: "DestinationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDestinationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_logs.IFilterPattern",
 		reflect.TypeOf((*IFilterPattern)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1212,36 +1117,6 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IFilterPattern{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IIntegrationRef",
-		reflect.TypeOf((*IIntegrationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIntegrationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.ILogAnomalyDetectorRef",
-		reflect.TypeOf((*ILogAnomalyDetectorRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "logAnomalyDetectorRef", GoGetter: "LogAnomalyDetectorRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILogAnomalyDetectorRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1275,21 +1150,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.ILogGroupRef",
-		reflect.TypeOf((*ILogGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "logGroupRef", GoGetter: "LogGroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILogGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_logs.ILogStream",
 		reflect.TypeOf((*ILogStream)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1306,21 +1166,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.ILogStreamRef",
-		reflect.TypeOf((*ILogStreamRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "logStreamRef", GoGetter: "LogStreamRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILogStreamRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_logs.ILogSubscriptionDestination",
 		reflect.TypeOf((*ILogSubscriptionDestination)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1331,91 +1176,12 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IMetricFilterRef",
-		reflect.TypeOf((*IMetricFilterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "metricFilterRef", GoGetter: "MetricFilterRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMetricFilterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_logs.IProcessor",
 		reflect.TypeOf((*IProcessor)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
 			return &jsiiProxy_IProcessor{}
 		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IQueryDefinitionRef",
-		reflect.TypeOf((*IQueryDefinitionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queryDefinitionRef", GoGetter: "QueryDefinitionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IQueryDefinitionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.IResourcePolicyRef",
-		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourcePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.ISubscriptionFilterRef",
-		reflect.TypeOf((*ISubscriptionFilterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriptionFilterRef", GoGetter: "SubscriptionFilterRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISubscriptionFilterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_logs.ITransformerRef",
-		reflect.TypeOf((*ITransformerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transformerRef", GoGetter: "TransformerRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITransformerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.IntegrationReference",
-		reflect.TypeOf((*IntegrationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_logs.JsonMutatorProcessor",
@@ -1480,10 +1246,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.ListToMapProperty",
 		reflect.TypeOf((*ListToMapProperty)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.LogAnomalyDetectorReference",
-		reflect.TypeOf((*LogAnomalyDetectorReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_logs.LogGroup",
 		reflect.TypeOf((*LogGroup)(nil)).Elem(),
@@ -1531,10 +1293,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.LogGroupProps",
 		reflect.TypeOf((*LogGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.LogGroupReference",
-		reflect.TypeOf((*LogGroupReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_logs.LogRetention",
@@ -1585,10 +1343,6 @@ func init() {
 		reflect.TypeOf((*LogStreamProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.LogStreamReference",
-		reflect.TypeOf((*LogStreamReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.LogSubscriptionDestinationConfig",
 		reflect.TypeOf((*LogSubscriptionDestinationConfig)(nil)).Elem(),
 	)
@@ -1620,10 +1374,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.MetricFilterProps",
 		reflect.TypeOf((*MetricFilterProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.MetricFilterReference",
-		reflect.TypeOf((*MetricFilterReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.MoveKeyEntryProperty",
@@ -1719,10 +1469,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.QueryDefinitionProps",
 		reflect.TypeOf((*QueryDefinitionProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.QueryDefinitionReference",
-		reflect.TypeOf((*QueryDefinitionReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_logs.QueryString",
 		reflect.TypeOf((*QueryString)(nil)).Elem(),
@@ -1779,10 +1525,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.ResourcePolicyProps",
 		reflect.TypeOf((*ResourcePolicyProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.ResourcePolicyReference",
-		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_logs.RetentionDays",
@@ -1895,10 +1637,6 @@ func init() {
 		reflect.TypeOf((*SubscriptionFilterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.SubscriptionFilterReference",
-		reflect.TypeOf((*SubscriptionFilterReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.SubstituteStringEntryProperty",
 		reflect.TypeOf((*SubstituteStringEntryProperty)(nil)).Elem(),
 	)
@@ -1933,10 +1671,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.TransformerProps",
 		reflect.TypeOf((*TransformerProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.TransformerReference",
-		reflect.TypeOf((*TransformerReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.TypeConverterEntryProperty",

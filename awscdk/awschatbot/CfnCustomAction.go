@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awschatbot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawschatbot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnCustomAction interface {
 	awscdk.CfnResource
-	ICustomActionRef
 	awscdk.IInspectable
+	interfacesawschatbot.ICustomActionRef
 	awscdk.ITaggableV2
 	// The name of the custom action.
 	ActionName() *string
@@ -84,11 +86,11 @@ type CfnCustomAction interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomAction resource.
-	CustomActionRef() *CustomActionReference
+	CustomActionRef() *interfacesawschatbot.CustomActionReference
 	// The definition of the command to run when invoked as an alias or as an action button.
 	Definition() interface{}
 	SetDefinition(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -256,8 +258,8 @@ type CfnCustomAction interface {
 // The jsii proxy struct for CfnCustomAction
 type jsiiProxy_CfnCustomAction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomActionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawschatbotICustomActionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnCustomAction) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomAction) CustomActionRef() *CustomActionReference {
-	var returns *CustomActionReference
+func (j *jsiiProxy_CfnCustomAction) CustomActionRef() *interfacesawschatbot.CustomActionReference {
+	var returns *interfacesawschatbot.CustomActionReference
 	_jsii_.Get(
 		j,
 		"customActionRef",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnCustomAction) Definition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomAction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomAction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -452,6 +454,7 @@ func (j *jsiiProxy_CfnCustomAction) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Chatbot::CustomAction`.
 func NewCfnCustomAction(scope constructs.Construct, id *string, props *CfnCustomActionProps) CfnCustomAction {
 	_init_.Initialize()
 
@@ -469,6 +472,7 @@ func NewCfnCustomAction(scope constructs.Construct, id *string, props *CfnCustom
 	return &j
 }
 
+// Create a new `AWS::Chatbot::CustomAction`.
 func NewCfnCustomAction_Override(c CfnCustomAction, scope constructs.Construct, id *string, props *CfnCustomActionProps) {
 	_init_.Initialize()
 

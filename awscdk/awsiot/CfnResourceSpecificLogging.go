@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnResourceSpecificLogging interface {
 	awscdk.CfnResource
-	IResourceSpecificLoggingRef
 	awscdk.IInspectable
+	interfacesawsiot.IResourceSpecificLoggingRef
 	// The target Id.
 	AttrTargetId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -39,7 +41,7 @@ type CfnResourceSpecificLogging interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -61,7 +63,7 @@ type CfnResourceSpecificLogging interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourceSpecificLogging resource.
-	ResourceSpecificLoggingRef() *ResourceSpecificLoggingReference
+	ResourceSpecificLoggingRef() *interfacesawsiot.ResourceSpecificLoggingReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -215,8 +217,8 @@ type CfnResourceSpecificLogging interface {
 // The jsii proxy struct for CfnResourceSpecificLogging
 type jsiiProxy_CfnResourceSpecificLogging struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceSpecificLoggingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIResourceSpecificLoggingRef
 }
 
 func (j *jsiiProxy_CfnResourceSpecificLogging) AttrTargetId() *string {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnResourceSpecificLogging) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceSpecificLogging) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceSpecificLogging) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnResourceSpecificLogging) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceSpecificLogging) ResourceSpecificLoggingRef() *ResourceSpecificLoggingReference {
-	var returns *ResourceSpecificLoggingReference
+func (j *jsiiProxy_CfnResourceSpecificLogging) ResourceSpecificLoggingRef() *interfacesawsiot.ResourceSpecificLoggingReference {
+	var returns *interfacesawsiot.ResourceSpecificLoggingReference
 	_jsii_.Get(
 		j,
 		"resourceSpecificLoggingRef",
@@ -380,6 +382,7 @@ func (j *jsiiProxy_CfnResourceSpecificLogging) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::IoT::ResourceSpecificLogging`.
 func NewCfnResourceSpecificLogging(scope constructs.Construct, id *string, props *CfnResourceSpecificLoggingProps) CfnResourceSpecificLogging {
 	_init_.Initialize()
 
@@ -397,6 +400,7 @@ func NewCfnResourceSpecificLogging(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::IoT::ResourceSpecificLogging`.
 func NewCfnResourceSpecificLogging_Override(c CfnResourceSpecificLogging, scope constructs.Construct, id *string, props *CfnResourceSpecificLoggingProps) {
 	_init_.Initialize()
 

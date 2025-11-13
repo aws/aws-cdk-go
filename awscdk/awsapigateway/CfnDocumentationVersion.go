@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnDocumentationVersion interface {
 	awscdk.CfnResource
-	IDocumentationVersionRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IDocumentationVersionRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -48,8 +50,8 @@ type CfnDocumentationVersion interface {
 	DocumentationVersion() *string
 	SetDocumentationVersion(val *string)
 	// A reference to a DocumentationVersion resource.
-	DocumentationVersionRef() *DocumentationVersionReference
-	Env() *awscdk.ResourceEnvironment
+	DocumentationVersionRef() *interfacesawsapigateway.DocumentationVersionReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -217,8 +219,8 @@ type CfnDocumentationVersion interface {
 // The jsii proxy struct for CfnDocumentationVersion
 type jsiiProxy_CfnDocumentationVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDocumentationVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIDocumentationVersionRef
 }
 
 func (j *jsiiProxy_CfnDocumentationVersion) CfnOptions() awscdk.ICfnResourceOptions {
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnDocumentationVersion) DocumentationVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocumentationVersion) DocumentationVersionRef() *DocumentationVersionReference {
-	var returns *DocumentationVersionReference
+func (j *jsiiProxy_CfnDocumentationVersion) DocumentationVersionRef() *interfacesawsapigateway.DocumentationVersionReference {
+	var returns *interfacesawsapigateway.DocumentationVersionReference
 	_jsii_.Get(
 		j,
 		"documentationVersionRef",
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnDocumentationVersion) DocumentationVersionRef() *Documenta
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocumentationVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDocumentationVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -372,6 +374,7 @@ func (j *jsiiProxy_CfnDocumentationVersion) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::ApiGateway::DocumentationVersion`.
 func NewCfnDocumentationVersion(scope constructs.Construct, id *string, props *CfnDocumentationVersionProps) CfnDocumentationVersion {
 	_init_.Initialize()
 
@@ -389,6 +392,7 @@ func NewCfnDocumentationVersion(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::DocumentationVersion`.
 func NewCfnDocumentationVersion_Override(c CfnDocumentationVersion, scope constructs.Construct, id *string, props *CfnDocumentationVersionProps) {
 	_init_.Initialize()
 

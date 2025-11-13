@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,10 +29,10 @@ import (
 //
 type CfnAcceptedPortfolioShare interface {
 	awscdk.CfnResource
-	IAcceptedPortfolioShareRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.IAcceptedPortfolioShareRef
 	// A reference to a AcceptedPortfolioShare resource.
-	AcceptedPortfolioShareRef() *AcceptedPortfolioShareReference
+	AcceptedPortfolioShareRef() *interfacesawsservicecatalog.AcceptedPortfolioShareReference
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
@@ -44,7 +46,7 @@ type CfnAcceptedPortfolioShare interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -212,12 +214,12 @@ type CfnAcceptedPortfolioShare interface {
 // The jsii proxy struct for CfnAcceptedPortfolioShare
 type jsiiProxy_CfnAcceptedPortfolioShare struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAcceptedPortfolioShareRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogIAcceptedPortfolioShareRef
 }
 
-func (j *jsiiProxy_CfnAcceptedPortfolioShare) AcceptedPortfolioShareRef() *AcceptedPortfolioShareReference {
-	var returns *AcceptedPortfolioShareReference
+func (j *jsiiProxy_CfnAcceptedPortfolioShare) AcceptedPortfolioShareRef() *interfacesawsservicecatalog.AcceptedPortfolioShareReference {
+	var returns *interfacesawsservicecatalog.AcceptedPortfolioShareReference
 	_jsii_.Get(
 		j,
 		"acceptedPortfolioShareRef",
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnAcceptedPortfolioShare) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAcceptedPortfolioShare) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAcceptedPortfolioShare) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -367,6 +369,7 @@ func (j *jsiiProxy_CfnAcceptedPortfolioShare) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::ServiceCatalog::AcceptedPortfolioShare`.
 func NewCfnAcceptedPortfolioShare(scope constructs.Construct, id *string, props *CfnAcceptedPortfolioShareProps) CfnAcceptedPortfolioShare {
 	_init_.Initialize()
 
@@ -384,6 +387,7 @@ func NewCfnAcceptedPortfolioShare(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::AcceptedPortfolioShare`.
 func NewCfnAcceptedPortfolioShare_Override(c CfnAcceptedPortfolioShare, scope constructs.Construct, id *string, props *CfnAcceptedPortfolioShareProps) {
 	_init_.Initialize()
 

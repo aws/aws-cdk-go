@@ -4,6 +4,9 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -12,7 +15,7 @@ import (
 //
 type IUser interface {
 	IIdentity
-	IUserRef
+	interfacesawsiam.IUserRef
 	// Adds this user to a group.
 	AddToGroup(group IGroup)
 	// The user's ARN.
@@ -24,7 +27,7 @@ type IUser interface {
 // The jsii proxy for IUser
 type jsiiProxy_IUser struct {
 	jsiiProxy_IIdentity
-	jsiiProxy_IUserRef
+	internal.Type__interfacesawsiamIUserRef
 }
 
 func (i *jsiiProxy_IUser) AddToGroup(group IGroup) {
@@ -117,8 +120,8 @@ func (j *jsiiProxy_IUser) AssumeRoleAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IUser) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IUser) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -177,8 +180,8 @@ func (j *jsiiProxy_IUser) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IUser) UserRef() *UserReference {
-	var returns *UserReference
+func (j *jsiiProxy_IUser) UserRef() *interfacesawsiam.UserReference {
+	var returns *interfacesawsiam.UserReference
 	_jsii_.Get(
 		j,
 		"userRef",

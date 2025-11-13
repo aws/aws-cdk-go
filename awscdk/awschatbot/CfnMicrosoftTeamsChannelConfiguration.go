@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awschatbot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawschatbot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnMicrosoftTeamsChannelConfiguration interface {
 	awscdk.CfnResource
-	IMicrosoftTeamsChannelConfigurationRef
 	awscdk.IInspectable
+	interfacesawschatbot.IMicrosoftTeamsChannelConfigurationRef
 	awscdk.ITaggableV2
 	// The ARN of the resource.
 	AttrArn() *string
@@ -74,7 +76,7 @@ type CfnMicrosoftTeamsChannelConfiguration interface {
 	// Links a list of resource ARNs (for example, custom action ARNs) to a Microsoft Teams channel configuration for  .
 	CustomizationResourceArns() *[]*string
 	SetCustomizationResourceArns(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	GuardrailPolicies() *[]*string
 	SetGuardrailPolicies(val *[]*string)
@@ -97,7 +99,7 @@ type CfnMicrosoftTeamsChannelConfiguration interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MicrosoftTeamsChannelConfiguration resource.
-	MicrosoftTeamsChannelConfigurationRef() *MicrosoftTeamsChannelConfigurationReference
+	MicrosoftTeamsChannelConfigurationRef() *interfacesawschatbot.MicrosoftTeamsChannelConfigurationReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -273,8 +275,8 @@ type CfnMicrosoftTeamsChannelConfiguration interface {
 // The jsii proxy struct for CfnMicrosoftTeamsChannelConfiguration
 type jsiiProxy_CfnMicrosoftTeamsChannelConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMicrosoftTeamsChannelConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawschatbotIMicrosoftTeamsChannelConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) CustomizationResourceA
 	return returns
 }
 
-func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -408,8 +410,8 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) MicrosoftTeamsChannelConfigurationRef() *MicrosoftTeamsChannelConfigurationReference {
-	var returns *MicrosoftTeamsChannelConfigurationReference
+func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) MicrosoftTeamsChannelConfigurationRef() *interfacesawschatbot.MicrosoftTeamsChannelConfigurationReference {
+	var returns *interfacesawschatbot.MicrosoftTeamsChannelConfigurationReference
 	_jsii_.Get(
 		j,
 		"microsoftTeamsChannelConfigurationRef",
@@ -539,6 +541,7 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) UserRoleRequired() int
 }
 
 
+// Create a new `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`.
 func NewCfnMicrosoftTeamsChannelConfiguration(scope constructs.Construct, id *string, props *CfnMicrosoftTeamsChannelConfigurationProps) CfnMicrosoftTeamsChannelConfiguration {
 	_init_.Initialize()
 
@@ -556,6 +559,7 @@ func NewCfnMicrosoftTeamsChannelConfiguration(scope constructs.Construct, id *st
 	return &j
 }
 
+// Create a new `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`.
 func NewCfnMicrosoftTeamsChannelConfiguration_Override(c CfnMicrosoftTeamsChannelConfiguration, scope constructs.Construct, id *string, props *CfnMicrosoftTeamsChannelConfigurationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnSecurityGroupIngress interface {
 	awscdk.CfnResource
-	ISecurityGroupIngressRef
 	awscdk.IInspectable
+	interfacesawselasticache.ISecurityGroupIngressRef
 	AttrId() *string
 	// The name of the Cache Security Group to authorize.
 	CacheSecurityGroupName() *string
@@ -53,7 +55,7 @@ type CfnSecurityGroupIngress interface {
 	// Specifies the Amazon Account ID of the owner of the EC2 security group specified in the EC2SecurityGroupName property.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -72,7 +74,7 @@ type CfnSecurityGroupIngress interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SecurityGroupIngress resource.
-	SecurityGroupIngressRef() *SecurityGroupIngressReference
+	SecurityGroupIngressRef() *interfacesawselasticache.SecurityGroupIngressReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -220,8 +222,8 @@ type CfnSecurityGroupIngress interface {
 // The jsii proxy struct for CfnSecurityGroupIngress
 type jsiiProxy_CfnSecurityGroupIngress struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityGroupIngressRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheISecurityGroupIngressRef
 }
 
 func (j *jsiiProxy_CfnSecurityGroupIngress) AttrId() *string {
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) Ec2SecurityGroupOwnerId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroupIngress) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityGroupIngress) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroupIngress) SecurityGroupIngressRef() *SecurityGroupIngressReference {
-	var returns *SecurityGroupIngressReference
+func (j *jsiiProxy_CfnSecurityGroupIngress) SecurityGroupIngressRef() *interfacesawselasticache.SecurityGroupIngressReference {
+	var returns *interfacesawselasticache.SecurityGroupIngressReference
 	_jsii_.Get(
 		j,
 		"securityGroupIngressRef",
@@ -385,6 +387,7 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::ElastiCache::SecurityGroupIngress`.
 func NewCfnSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnSecurityGroupIngressProps) CfnSecurityGroupIngress {
 	_init_.Initialize()
 
@@ -402,6 +405,7 @@ func NewCfnSecurityGroupIngress(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::SecurityGroupIngress`.
 func NewCfnSecurityGroupIngress_Override(c CfnSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnSecurityGroupIngressProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediatailor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediatailor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnVodSource interface {
 	awscdk.CfnResource
-	IVodSourceRef
 	awscdk.IInspectable
+	interfacesawsmediatailor.IVodSourceRef
 	awscdk.ITaggableV2
 	// <p>The ARN of the VOD source.</p>.
 	AttrArn() *string
@@ -56,7 +58,7 @@ type CfnVodSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The HTTP package configurations for the VOD source.
 	HttpPackageConfigurations() interface{}
 	SetHttpPackageConfigurations(val interface{})
@@ -104,7 +106,7 @@ type CfnVodSource interface {
 	VodSourceName() *string
 	SetVodSourceName(val *string)
 	// A reference to a VodSource resource.
-	VodSourceRef() *VodSourceReference
+	VodSourceRef() *interfacesawsmediatailor.VodSourceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -235,8 +237,8 @@ type CfnVodSource interface {
 // The jsii proxy struct for CfnVodSource
 type jsiiProxy_CfnVodSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVodSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediatailorIVodSourceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnVodSource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVodSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVodSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -410,8 +412,8 @@ func (j *jsiiProxy_CfnVodSource) VodSourceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVodSource) VodSourceRef() *VodSourceReference {
-	var returns *VodSourceReference
+func (j *jsiiProxy_CfnVodSource) VodSourceRef() *interfacesawsmediatailor.VodSourceReference {
+	var returns *interfacesawsmediatailor.VodSourceReference
 	_jsii_.Get(
 		j,
 		"vodSourceRef",
@@ -421,6 +423,7 @@ func (j *jsiiProxy_CfnVodSource) VodSourceRef() *VodSourceReference {
 }
 
 
+// Create a new `AWS::MediaTailor::VodSource`.
 func NewCfnVodSource(scope constructs.Construct, id *string, props *CfnVodSourceProps) CfnVodSource {
 	_init_.Initialize()
 
@@ -438,6 +441,7 @@ func NewCfnVodSource(scope constructs.Construct, id *string, props *CfnVodSource
 	return &j
 }
 
+// Create a new `AWS::MediaTailor::VodSource`.
 func NewCfnVodSource_Override(c CfnVodSource, scope constructs.Construct, id *string, props *CfnVodSourceProps) {
 	_init_.Initialize()
 

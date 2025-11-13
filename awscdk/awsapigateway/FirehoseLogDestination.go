@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 )
 
 // Use a Firehose delivery stream as a custom access log destination for API Gateway.
@@ -33,7 +34,7 @@ import (
 type FirehoseLogDestination interface {
 	IAccessLogDestination
 	// Binds this destination to the Firehose delivery stream.
-	Bind(stage IStageRef) *AccessLogDestinationConfig
+	Bind(stage interfacesawsapigateway.IStageRef) *AccessLogDestinationConfig
 }
 
 // The jsii proxy struct for FirehoseLogDestination
@@ -68,7 +69,7 @@ func NewFirehoseLogDestination_Override(f FirehoseLogDestination, stream awskine
 	)
 }
 
-func (f *jsiiProxy_FirehoseLogDestination) Bind(stage IStageRef) *AccessLogDestinationConfig {
+func (f *jsiiProxy_FirehoseLogDestination) Bind(stage interfacesawsapigateway.IStageRef) *AccessLogDestinationConfig {
 	if err := f.validateBindParameters(stage); err != nil {
 		panic(err)
 	}

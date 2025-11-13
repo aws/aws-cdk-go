@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnScheduledAudit interface {
 	awscdk.CfnResource
-	IScheduledAuditRef
 	awscdk.IInspectable
+	interfacesawsiot.IScheduledAuditRef
 	awscdk.ITaggable
 	// The ARN of the scheduled audit.
 	AttrScheduledAuditArn() *string
@@ -60,7 +62,7 @@ type CfnScheduledAudit interface {
 	// The day of the week on which the scheduled audit is run (if the `frequency` is "WEEKLY" or "BIWEEKLY").
 	DayOfWeek() *string
 	SetDayOfWeek(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// How often the scheduled audit occurs.
 	Frequency() *string
 	SetFrequency(val *string)
@@ -85,7 +87,7 @@ type CfnScheduledAudit interface {
 	ScheduledAuditName() *string
 	SetScheduledAuditName(val *string)
 	// A reference to a ScheduledAudit resource.
-	ScheduledAuditRef() *ScheduledAuditReference
+	ScheduledAuditRef() *interfacesawsiot.ScheduledAuditReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -241,8 +243,8 @@ type CfnScheduledAudit interface {
 // The jsii proxy struct for CfnScheduledAudit
 type jsiiProxy_CfnScheduledAudit struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScheduledAuditRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIScheduledAuditRef
 	internal.Type__awscdkITaggable
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnScheduledAudit) DayOfWeek() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledAudit) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScheduledAudit) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnScheduledAudit) ScheduledAuditName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledAudit) ScheduledAuditRef() *ScheduledAuditReference {
-	var returns *ScheduledAuditReference
+func (j *jsiiProxy_CfnScheduledAudit) ScheduledAuditRef() *interfacesawsiot.ScheduledAuditReference {
+	var returns *interfacesawsiot.ScheduledAuditReference
 	_jsii_.Get(
 		j,
 		"scheduledAuditRef",
@@ -447,6 +449,7 @@ func (j *jsiiProxy_CfnScheduledAudit) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::IoT::ScheduledAudit`.
 func NewCfnScheduledAudit(scope constructs.Construct, id *string, props *CfnScheduledAuditProps) CfnScheduledAudit {
 	_init_.Initialize()
 
@@ -464,6 +467,7 @@ func NewCfnScheduledAudit(scope constructs.Construct, id *string, props *CfnSche
 	return &j
 }
 
+// Create a new `AWS::IoT::ScheduledAudit`.
 func NewCfnScheduledAudit_Override(c CfnScheduledAudit, scope constructs.Construct, id *string, props *CfnScheduledAuditProps) {
 	_init_.Initialize()
 
@@ -532,13 +536,13 @@ func (j *jsiiProxy_CfnScheduledAudit)SetTargetCheckNames(val *[]*string) {
 }
 
 // Creates a new IScheduledAuditRef from an ARN.
-func CfnScheduledAudit_FromScheduledAuditArn(scope constructs.Construct, id *string, arn *string) IScheduledAuditRef {
+func CfnScheduledAudit_FromScheduledAuditArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IScheduledAuditRef {
 	_init_.Initialize()
 
 	if err := validateCfnScheduledAudit_FromScheduledAuditArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IScheduledAuditRef
+	var returns interfacesawsiot.IScheduledAuditRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnScheduledAudit",
@@ -551,13 +555,13 @@ func CfnScheduledAudit_FromScheduledAuditArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IScheduledAuditRef from a scheduledAuditName.
-func CfnScheduledAudit_FromScheduledAuditName(scope constructs.Construct, id *string, scheduledAuditName *string) IScheduledAuditRef {
+func CfnScheduledAudit_FromScheduledAuditName(scope constructs.Construct, id *string, scheduledAuditName *string) interfacesawsiot.IScheduledAuditRef {
 	_init_.Initialize()
 
 	if err := validateCfnScheduledAudit_FromScheduledAuditNameParameters(scope, id, scheduledAuditName); err != nil {
 		panic(err)
 	}
-	var returns IScheduledAuditRef
+	var returns interfacesawsiot.IScheduledAuditRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnScheduledAudit",

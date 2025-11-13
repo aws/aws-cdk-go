@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3notifications/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,7 +26,7 @@ type SqsDestination interface {
 	// Allows using SQS queues as destinations for bucket notifications.
 	//
 	// Use `bucket.onEvent(event, queue)` to subscribe.
-	Bind(scope constructs.Construct, bucket awss3.IBucketRef) *awss3.BucketNotificationDestinationConfig
+	Bind(scope constructs.Construct, bucket interfacesawss3.IBucketRef) *awss3.BucketNotificationDestinationConfig
 }
 
 // The jsii proxy struct for SqsDestination
@@ -60,7 +61,7 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 	)
 }
 
-func (s *jsiiProxy_SqsDestination) Bind(scope constructs.Construct, bucket awss3.IBucketRef) *awss3.BucketNotificationDestinationConfig {
+func (s *jsiiProxy_SqsDestination) Bind(scope constructs.Construct, bucket interfacesawss3.IBucketRef) *awss3.BucketNotificationDestinationConfig {
 	if err := s.validateBindParameters(scope, bucket); err != nil {
 		panic(err)
 	}

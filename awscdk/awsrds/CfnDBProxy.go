@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnDBProxy interface {
 	awscdk.CfnResource
-	IDBProxyRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBProxyRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the proxy.
 	AttrDbProxyArn() *string
@@ -94,7 +96,7 @@ type CfnDBProxy interface {
 	DbProxyName() *string
 	SetDbProxyName(val *string)
 	// A reference to a DBProxy resource.
-	DbProxyRef() *DBProxyReference
+	DbProxyRef() *interfacesawsrds.DBProxyReference
 	// Specifies whether the proxy logs detailed connection and query information.
 	DebugLogging() interface{}
 	SetDebugLogging(val interface{})
@@ -107,7 +109,7 @@ type CfnDBProxy interface {
 	// The kinds of databases that the proxy can connect to.
 	EngineFamily() *string
 	SetEngineFamily(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout() *float64
 	SetIdleClientTimeout(val *float64)
@@ -293,8 +295,8 @@ type CfnDBProxy interface {
 // The jsii proxy struct for CfnDBProxy
 type jsiiProxy_CfnDBProxy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBProxyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBProxyRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -398,8 +400,8 @@ func (j *jsiiProxy_CfnDBProxy) DbProxyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxy) DbProxyRef() *DBProxyReference {
-	var returns *DBProxyReference
+func (j *jsiiProxy_CfnDBProxy) DbProxyRef() *interfacesawsrds.DBProxyReference {
+	var returns *interfacesawsrds.DBProxyReference
 	_jsii_.Get(
 		j,
 		"dbProxyRef",
@@ -448,8 +450,8 @@ func (j *jsiiProxy_CfnDBProxy) EngineFamily() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBProxy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -589,6 +591,7 @@ func (j *jsiiProxy_CfnDBProxy) VpcSubnetIds() *[]*string {
 }
 
 
+// Create a new `AWS::RDS::DBProxy`.
 func NewCfnDBProxy(scope constructs.Construct, id *string, props *CfnDBProxyProps) CfnDBProxy {
 	_init_.Initialize()
 
@@ -606,6 +609,7 @@ func NewCfnDBProxy(scope constructs.Construct, id *string, props *CfnDBProxyProp
 	return &j
 }
 
+// Create a new `AWS::RDS::DBProxy`.
 func NewCfnDBProxy_Override(c CfnDBProxy, scope constructs.Construct, id *string, props *CfnDBProxyProps) {
 	_init_.Initialize()
 

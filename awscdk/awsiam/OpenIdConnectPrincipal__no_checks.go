@@ -20,7 +20,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) validateWithConditionsParameters(cond
 	return nil
 }
 
-func validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider IOIDCProviderRef) error {
+func validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider interfacesawsiam.IOIDCProviderRef) error {
 	return nil
 }
 

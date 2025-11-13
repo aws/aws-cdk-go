@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspersonalize/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspersonalize"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnSolution interface {
 	awscdk.CfnResource
-	ISolutionRef
 	awscdk.IInspectable
+	interfacesawspersonalize.ISolutionRef
 	// The Amazon Resource Name (ARN) of the solution.
 	AttrSolutionArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -67,7 +69,7 @@ type CfnSolution interface {
 	// The Amazon Resource Name (ARN) of the dataset group that provides the training data.
 	DatasetGroupArn() *string
 	SetDatasetGroupArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The event type (for example, 'click' or 'like') that is used for training the model.
 	EventType() *string
 	SetEventType(val *string)
@@ -104,7 +106,7 @@ type CfnSolution interface {
 	SolutionConfig() interface{}
 	SetSolutionConfig(val interface{})
 	// A reference to a Solution resource.
-	SolutionRef() *SolutionReference
+	SolutionRef() *interfacesawspersonalize.SolutionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -252,8 +254,8 @@ type CfnSolution interface {
 // The jsii proxy struct for CfnSolution
 type jsiiProxy_CfnSolution struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISolutionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspersonalizeISolutionRef
 }
 
 func (j *jsiiProxy_CfnSolution) AttrSolutionArn() *string {
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnSolution) DatasetGroupArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSolution) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSolution) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnSolution) SolutionConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSolution) SolutionRef() *SolutionReference {
-	var returns *SolutionReference
+func (j *jsiiProxy_CfnSolution) SolutionRef() *interfacesawspersonalize.SolutionReference {
+	var returns *interfacesawspersonalize.SolutionReference
 	_jsii_.Get(
 		j,
 		"solutionRef",
@@ -457,6 +459,7 @@ func (j *jsiiProxy_CfnSolution) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Personalize::Solution`.
 func NewCfnSolution(scope constructs.Construct, id *string, props *CfnSolutionProps) CfnSolution {
 	_init_.Initialize()
 
@@ -474,6 +477,7 @@ func NewCfnSolution(scope constructs.Construct, id *string, props *CfnSolutionPr
 	return &j
 }
 
+// Create a new `AWS::Personalize::Solution`.
 func NewCfnSolution_Override(c CfnSolution, scope constructs.Construct, id *string, props *CfnSolutionProps) {
 	_init_.Initialize()
 

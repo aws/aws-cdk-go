@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -98,8 +100,8 @@ import (
 //
 type CfnVerifiedAccessEndpoint interface {
 	awscdk.CfnResource
-	IVerifiedAccessEndpointRef
 	awscdk.IInspectable
+	interfacesawsec2.IVerifiedAccessEndpointRef
 	awscdk.ITaggable
 	// The DNS name for users to reach your application.
 	ApplicationDomain() *string
@@ -145,7 +147,7 @@ type CfnVerifiedAccessEndpoint interface {
 	// The type of AWS Verified Access endpoint.
 	EndpointType() *string
 	SetEndpointType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The load balancer details if creating the AWS Verified Access endpoint as `load-balancer` type.
 	LoadBalancerOptions() interface{}
 	SetLoadBalancerOptions(val interface{})
@@ -207,7 +209,7 @@ type CfnVerifiedAccessEndpoint interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VerifiedAccessEndpoint resource.
-	VerifiedAccessEndpointRef() *VerifiedAccessEndpointReference
+	VerifiedAccessEndpointRef() *interfacesawsec2.VerifiedAccessEndpointReference
 	// The ID of the AWS Verified Access group.
 	VerifiedAccessGroupId() *string
 	SetVerifiedAccessGroupId(val *string)
@@ -341,8 +343,8 @@ type CfnVerifiedAccessEndpoint interface {
 // The jsii proxy struct for CfnVerifiedAccessEndpoint
 type jsiiProxy_CfnVerifiedAccessEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVerifiedAccessEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVerifiedAccessEndpointRef
 	internal.Type__awscdkITaggable
 }
 
@@ -526,8 +528,8 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) EndpointType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -686,8 +688,8 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) UpdatedProperties() *map[string]in
 	return returns
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessEndpoint) VerifiedAccessEndpointRef() *VerifiedAccessEndpointReference {
-	var returns *VerifiedAccessEndpointReference
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) VerifiedAccessEndpointRef() *interfacesawsec2.VerifiedAccessEndpointReference {
+	var returns *interfacesawsec2.VerifiedAccessEndpointReference
 	_jsii_.Get(
 		j,
 		"verifiedAccessEndpointRef",
@@ -707,6 +709,7 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) VerifiedAccessGroupId() *string {
 }
 
 
+// Create a new `AWS::EC2::VerifiedAccessEndpoint`.
 func NewCfnVerifiedAccessEndpoint(scope constructs.Construct, id *string, props *CfnVerifiedAccessEndpointProps) CfnVerifiedAccessEndpoint {
 	_init_.Initialize()
 
@@ -724,6 +727,7 @@ func NewCfnVerifiedAccessEndpoint(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::EC2::VerifiedAccessEndpoint`.
 func NewCfnVerifiedAccessEndpoint_Override(c CfnVerifiedAccessEndpoint, scope constructs.Construct, id *string, props *CfnVerifiedAccessEndpointProps) {
 	_init_.Initialize()
 
@@ -893,13 +897,13 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetVerifiedAccessGroupId(val *strin
 }
 
 // Creates a new IVerifiedAccessEndpointRef from a verifiedAccessEndpointId.
-func CfnVerifiedAccessEndpoint_FromVerifiedAccessEndpointId(scope constructs.Construct, id *string, verifiedAccessEndpointId *string) IVerifiedAccessEndpointRef {
+func CfnVerifiedAccessEndpoint_FromVerifiedAccessEndpointId(scope constructs.Construct, id *string, verifiedAccessEndpointId *string) interfacesawsec2.IVerifiedAccessEndpointRef {
 	_init_.Initialize()
 
 	if err := validateCfnVerifiedAccessEndpoint_FromVerifiedAccessEndpointIdParameters(scope, id, verifiedAccessEndpointId); err != nil {
 		panic(err)
 	}
-	var returns IVerifiedAccessEndpointRef
+	var returns interfacesawsec2.IVerifiedAccessEndpointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessEndpoint",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnDocument interface {
 	awscdk.CfnResource
-	IDocumentRef
 	awscdk.IInspectable
+	interfacesawsssm.IDocumentRef
 	awscdk.ITaggable
 	// A list of key-value pairs that describe attachments to a version of a document.
 	Attachments() interface{}
@@ -51,11 +53,11 @@ type CfnDocument interface {
 	DocumentFormat() *string
 	SetDocumentFormat(val *string)
 	// A reference to a Document resource.
-	DocumentRef() *DocumentReference
+	DocumentRef() *interfacesawsssm.DocumentReference
 	// The type of document to create.
 	DocumentType() *string
 	SetDocumentType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -240,8 +242,8 @@ type CfnDocument interface {
 // The jsii proxy struct for CfnDocument
 type jsiiProxy_CfnDocument struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDocumentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmIDocumentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnDocument) DocumentFormat() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocument) DocumentRef() *DocumentReference {
-	var returns *DocumentReference
+func (j *jsiiProxy_CfnDocument) DocumentRef() *interfacesawsssm.DocumentReference {
+	var returns *interfacesawsssm.DocumentReference
 	_jsii_.Get(
 		j,
 		"documentRef",
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnDocument) DocumentType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDocument) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDocument) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -476,6 +478,7 @@ func (j *jsiiProxy_CfnDocument) VersionName() *string {
 }
 
 
+// Create a new `AWS::SSM::Document`.
 func NewCfnDocument(scope constructs.Construct, id *string, props *CfnDocumentProps) CfnDocument {
 	_init_.Initialize()
 
@@ -493,6 +496,7 @@ func NewCfnDocument(scope constructs.Construct, id *string, props *CfnDocumentPr
 	return &j
 }
 
+// Create a new `AWS::SSM::Document`.
 func NewCfnDocument_Override(c CfnDocument, scope constructs.Construct, id *string, props *CfnDocumentProps) {
 	_init_.Initialize()
 
@@ -596,13 +600,13 @@ func (j *jsiiProxy_CfnDocument)SetVersionName(val *string) {
 }
 
 // Creates a new IDocumentRef from a documentName.
-func CfnDocument_FromDocumentName(scope constructs.Construct, id *string, documentName *string) IDocumentRef {
+func CfnDocument_FromDocumentName(scope constructs.Construct, id *string, documentName *string) interfacesawsssm.IDocumentRef {
 	_init_.Initialize()
 
 	if err := validateCfnDocument_FromDocumentNameParameters(scope, id, documentName); err != nil {
 		panic(err)
 	}
-	var returns IDocumentRef
+	var returns interfacesawsssm.IDocumentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ssm.CfnDocument",

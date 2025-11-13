@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3outposts/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3outposts"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnBucket interface {
 	awscdk.CfnResource
-	IBucketRef
 	awscdk.IInspectable
+	interfacesawss3outposts.IBucketRef
 	awscdk.ITaggable
 	// Returns the ARN of the specified bucket.
 	//
@@ -71,7 +73,7 @@ type CfnBucket interface {
 	BucketName() *string
 	SetBucketName(val *string)
 	// A reference to a Bucket resource.
-	BucketRef() *BucketReference
+	BucketRef() *interfacesawss3outposts.BucketReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -81,7 +83,7 @@ type CfnBucket interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an existing lifecycle configuration.
 	LifecycleConfiguration() interface{}
 	SetLifecycleConfiguration(val interface{})
@@ -259,8 +261,8 @@ type CfnBucket interface {
 // The jsii proxy struct for CfnBucket
 type jsiiProxy_CfnBucket struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBucketRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3outpostsIBucketRef
 	internal.Type__awscdkITaggable
 }
 
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnBucket) BucketName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) BucketRef() *BucketReference {
-	var returns *BucketReference
+func (j *jsiiProxy_CfnBucket) BucketRef() *interfacesawss3outposts.BucketReference {
+	var returns *interfacesawss3outposts.BucketReference
 	_jsii_.Get(
 		j,
 		"bucketRef",
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnBucket) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBucket) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -445,6 +447,7 @@ func (j *jsiiProxy_CfnBucket) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::S3Outposts::Bucket`.
 func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps) CfnBucket {
 	_init_.Initialize()
 
@@ -462,6 +465,7 @@ func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps)
 	return &j
 }
 
+// Create a new `AWS::S3Outposts::Bucket`.
 func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, props *CfnBucketProps) {
 	_init_.Initialize()
 

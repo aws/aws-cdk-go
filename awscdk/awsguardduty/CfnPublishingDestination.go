@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsguardduty/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnPublishingDestination interface {
 	awscdk.CfnResource
-	IPublishingDestinationRef
 	awscdk.IInspectable
+	interfacesawsguardduty.IPublishingDestinationRef
 	awscdk.ITaggableV2
 	// The ID of the publishing destination.
 	AttrId() *string
@@ -70,7 +72,7 @@ type CfnPublishingDestination interface {
 	// The ID of the GuardDuty detector where the publishing destination exists.
 	DetectorId() *string
 	SetDetectorId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnPublishingDestination interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PublishingDestination resource.
-	PublishingDestinationRef() *PublishingDestinationReference
+	PublishingDestinationRef() *interfacesawsguardduty.PublishingDestinationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -240,8 +242,8 @@ type CfnPublishingDestination interface {
 // The jsii proxy struct for CfnPublishingDestination
 type jsiiProxy_CfnPublishingDestination struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPublishingDestinationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsguarddutyIPublishingDestinationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnPublishingDestination) DetectorId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublishingDestination) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPublishingDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnPublishingDestination) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublishingDestination) PublishingDestinationRef() *PublishingDestinationReference {
-	var returns *PublishingDestinationReference
+func (j *jsiiProxy_CfnPublishingDestination) PublishingDestinationRef() *interfacesawsguardduty.PublishingDestinationReference {
+	var returns *interfacesawsguardduty.PublishingDestinationReference
 	_jsii_.Get(
 		j,
 		"publishingDestinationRef",
@@ -446,6 +448,7 @@ func (j *jsiiProxy_CfnPublishingDestination) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::GuardDuty::PublishingDestination`.
 func NewCfnPublishingDestination(scope constructs.Construct, id *string, props *CfnPublishingDestinationProps) CfnPublishingDestination {
 	_init_.Initialize()
 
@@ -463,6 +466,7 @@ func NewCfnPublishingDestination(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::GuardDuty::PublishingDestination`.
 func NewCfnPublishingDestination_Override(c CfnPublishingDestination, scope constructs.Construct, id *string, props *CfnPublishingDestinationProps) {
 	_init_.Initialize()
 

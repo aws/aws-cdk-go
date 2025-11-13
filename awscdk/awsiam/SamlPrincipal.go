@@ -3,6 +3,8 @@ package awsiam
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Principal entity that represents a SAML federated identity provider.
@@ -134,7 +136,7 @@ func (j *jsiiProxy_SamlPrincipal) PrincipalAccount() *string {
 }
 
 
-func NewSamlPrincipal(samlProvider ISAMLProviderRef, conditions *map[string]interface{}) SamlPrincipal {
+func NewSamlPrincipal(samlProvider interfacesawsiam.ISAMLProviderRef, conditions *map[string]interface{}) SamlPrincipal {
 	_init_.Initialize()
 
 	if err := validateNewSamlPrincipalParameters(samlProvider, conditions); err != nil {
@@ -151,7 +153,7 @@ func NewSamlPrincipal(samlProvider ISAMLProviderRef, conditions *map[string]inte
 	return &j
 }
 
-func NewSamlPrincipal_Override(s SamlPrincipal, samlProvider ISAMLProviderRef, conditions *map[string]interface{}) {
+func NewSamlPrincipal_Override(s SamlPrincipal, samlProvider interfacesawsiam.ISAMLProviderRef, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(

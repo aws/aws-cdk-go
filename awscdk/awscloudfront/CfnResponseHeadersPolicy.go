@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -117,8 +119,8 @@ import (
 //
 type CfnResponseHeadersPolicy interface {
 	awscdk.CfnResource
-	IResponseHeadersPolicyRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IResponseHeadersPolicyRef
 	// The unique identifier for the response headers policy.
 	//
 	// For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
@@ -134,7 +136,7 @@ type CfnResponseHeadersPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -156,7 +158,7 @@ type CfnResponseHeadersPolicy interface {
 	ResponseHeadersPolicyConfig() interface{}
 	SetResponseHeadersPolicyConfig(val interface{})
 	// A reference to a ResponseHeadersPolicy resource.
-	ResponseHeadersPolicyRef() *ResponseHeadersPolicyReference
+	ResponseHeadersPolicyRef() *interfacesawscloudfront.ResponseHeadersPolicyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -304,8 +306,8 @@ type CfnResponseHeadersPolicy interface {
 // The jsii proxy struct for CfnResponseHeadersPolicy
 type jsiiProxy_CfnResponseHeadersPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResponseHeadersPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIResponseHeadersPolicyRef
 }
 
 func (j *jsiiProxy_CfnResponseHeadersPolicy) AttrId() *string {
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnResponseHeadersPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResponseHeadersPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResponseHeadersPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnResponseHeadersPolicy) ResponseHeadersPolicyConfig() inter
 	return returns
 }
 
-func (j *jsiiProxy_CfnResponseHeadersPolicy) ResponseHeadersPolicyRef() *ResponseHeadersPolicyReference {
-	var returns *ResponseHeadersPolicyReference
+func (j *jsiiProxy_CfnResponseHeadersPolicy) ResponseHeadersPolicyRef() *interfacesawscloudfront.ResponseHeadersPolicyReference {
+	var returns *interfacesawscloudfront.ResponseHeadersPolicyReference
 	_jsii_.Get(
 		j,
 		"responseHeadersPolicyRef",
@@ -459,6 +461,7 @@ func (j *jsiiProxy_CfnResponseHeadersPolicy) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::CloudFront::ResponseHeadersPolicy`.
 func NewCfnResponseHeadersPolicy(scope constructs.Construct, id *string, props *CfnResponseHeadersPolicyProps) CfnResponseHeadersPolicy {
 	_init_.Initialize()
 
@@ -476,6 +479,7 @@ func NewCfnResponseHeadersPolicy(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::CloudFront::ResponseHeadersPolicy`.
 func NewCfnResponseHeadersPolicy_Override(c CfnResponseHeadersPolicy, scope constructs.Construct, id *string, props *CfnResponseHeadersPolicyProps) {
 	_init_.Initialize()
 

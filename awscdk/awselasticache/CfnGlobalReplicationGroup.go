@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnGlobalReplicationGroup interface {
 	awscdk.CfnResource
-	IGlobalReplicationGroupRef
 	awscdk.IInspectable
+	interfacesawselasticache.IGlobalReplicationGroupRef
 	// The ID used to associate a secondary cluster to the Global Replication Group.
 	AttrGlobalReplicationGroupId() *string
 	// The status of the Global Datastore.
@@ -90,7 +92,7 @@ type CfnGlobalReplicationGroup interface {
 	// The Elasticache Valkey or Redis OSS engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The number of node groups that comprise the Global Datastore.
 	GlobalNodeGroupCount() *float64
 	SetGlobalNodeGroupCount(val *float64)
@@ -101,7 +103,7 @@ type CfnGlobalReplicationGroup interface {
 	GlobalReplicationGroupIdSuffix() *string
 	SetGlobalReplicationGroupIdSuffix(val *string)
 	// A reference to a GlobalReplicationGroup resource.
-	GlobalReplicationGroupRef() *GlobalReplicationGroupReference
+	GlobalReplicationGroupRef() *interfacesawselasticache.GlobalReplicationGroupReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -272,8 +274,8 @@ type CfnGlobalReplicationGroup interface {
 // The jsii proxy struct for CfnGlobalReplicationGroup
 type jsiiProxy_CfnGlobalReplicationGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGlobalReplicationGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheIGlobalReplicationGroupRef
 }
 
 func (j *jsiiProxy_CfnGlobalReplicationGroup) AttrGlobalReplicationGroupId() *string {
@@ -386,8 +388,8 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalReplicationGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGlobalReplicationGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -426,8 +428,8 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) GlobalReplicationGroupIdSuffix() *
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalReplicationGroup) GlobalReplicationGroupRef() *GlobalReplicationGroupReference {
-	var returns *GlobalReplicationGroupReference
+func (j *jsiiProxy_CfnGlobalReplicationGroup) GlobalReplicationGroupRef() *interfacesawselasticache.GlobalReplicationGroupReference {
+	var returns *interfacesawselasticache.GlobalReplicationGroupReference
 	_jsii_.Get(
 		j,
 		"globalReplicationGroupRef",
@@ -517,6 +519,7 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::ElastiCache::GlobalReplicationGroup`.
 func NewCfnGlobalReplicationGroup(scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) CfnGlobalReplicationGroup {
 	_init_.Initialize()
 
@@ -534,6 +537,7 @@ func NewCfnGlobalReplicationGroup(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::GlobalReplicationGroup`.
 func NewCfnGlobalReplicationGroup_Override(c CfnGlobalReplicationGroup, scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) {
 	_init_.Initialize()
 
@@ -634,13 +638,13 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup)SetRegionalConfigurations(val inter
 }
 
 // Creates a new IGlobalReplicationGroupRef from a globalReplicationGroupId.
-func CfnGlobalReplicationGroup_FromGlobalReplicationGroupId(scope constructs.Construct, id *string, globalReplicationGroupId *string) IGlobalReplicationGroupRef {
+func CfnGlobalReplicationGroup_FromGlobalReplicationGroupId(scope constructs.Construct, id *string, globalReplicationGroupId *string) interfacesawselasticache.IGlobalReplicationGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupIdParameters(scope, id, globalReplicationGroupId); err != nil {
 		panic(err)
 	}
-	var returns IGlobalReplicationGroupRef
+	var returns interfacesawselasticache.IGlobalReplicationGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",

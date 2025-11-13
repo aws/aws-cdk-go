@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnKeyValueStore interface {
 	awscdk.CfnResource
-	IKeyValueStoreRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IKeyValueStoreRef
 	// The Amazon Resource Name (ARN) of the key value store.
 	AttrArn() *string
 	// The unique Id for the key value store.
@@ -55,12 +57,12 @@ type CfnKeyValueStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The import source for the key value store.
 	ImportSource() interface{}
 	SetImportSource(val interface{})
 	// A reference to a KeyValueStore resource.
-	KeyValueStoreRef() *KeyValueStoreReference
+	KeyValueStoreRef() *interfacesawscloudfront.KeyValueStoreReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -228,8 +230,8 @@ type CfnKeyValueStore interface {
 // The jsii proxy struct for CfnKeyValueStore
 type jsiiProxy_CfnKeyValueStore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKeyValueStoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIKeyValueStoreRef
 }
 
 func (j *jsiiProxy_CfnKeyValueStore) AttrArn() *string {
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnKeyValueStore) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyValueStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKeyValueStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnKeyValueStore) ImportSource() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyValueStore) KeyValueStoreRef() *KeyValueStoreReference {
-	var returns *KeyValueStoreReference
+func (j *jsiiProxy_CfnKeyValueStore) KeyValueStoreRef() *interfacesawscloudfront.KeyValueStoreReference {
+	var returns *interfacesawscloudfront.KeyValueStoreReference
 	_jsii_.Get(
 		j,
 		"keyValueStoreRef",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnKeyValueStore) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::CloudFront::KeyValueStore`.
 func NewCfnKeyValueStore(scope constructs.Construct, id *string, props *CfnKeyValueStoreProps) CfnKeyValueStore {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnKeyValueStore(scope constructs.Construct, id *string, props *CfnKeyVa
 	return &j
 }
 
+// Create a new `AWS::CloudFront::KeyValueStore`.
 func NewCfnKeyValueStore_Override(c CfnKeyValueStore, scope constructs.Construct, id *string, props *CfnKeyValueStoreProps) {
 	_init_.Initialize()
 

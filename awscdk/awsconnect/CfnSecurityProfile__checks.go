@@ -299,6 +299,30 @@ func (j *jsiiProxy_CfnSecurityProfile) validateSetApplicationsParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnSecurityProfile) validateSetGranularAccessControlConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnSecurityProfile_GranularAccessControlConfigurationProperty:
+		val := val.(*CfnSecurityProfile_GranularAccessControlConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnSecurityProfile_GranularAccessControlConfigurationProperty:
+		val_ := val.(CfnSecurityProfile_GranularAccessControlConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSecurityProfile_GranularAccessControlConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnSecurityProfile) validateSetInstanceArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

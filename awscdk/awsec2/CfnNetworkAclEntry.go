@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnNetworkAclEntry interface {
 	awscdk.CfnResource
-	INetworkAclEntryRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkAclEntryRef
 	// The ID of the network ACL entry.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -65,7 +67,7 @@ type CfnNetworkAclEntry interface {
 	// Whether this rule applies to egress traffic from the subnet ( `true` ) or ingress traffic to the subnet ( `false` ).
 	Egress() interface{}
 	SetEgress(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Internet Control Message Protocol (ICMP) code and type.
 	Icmp() interface{}
 	SetIcmp(val interface{})
@@ -83,7 +85,7 @@ type CfnNetworkAclEntry interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a NetworkAclEntry resource.
-	NetworkAclEntryRef() *NetworkAclEntryReference
+	NetworkAclEntryRef() *interfacesawsec2.NetworkAclEntryReference
 	// The ID of the ACL for the entry.
 	NetworkAclId() *string
 	SetNetworkAclId(val *string)
@@ -253,8 +255,8 @@ type CfnNetworkAclEntry interface {
 // The jsii proxy struct for CfnNetworkAclEntry
 type jsiiProxy_CfnNetworkAclEntry struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkAclEntryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkAclEntryRef
 }
 
 func (j *jsiiProxy_CfnNetworkAclEntry) AttrId() *string {
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnNetworkAclEntry) Egress() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkAclEntry) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkAclEntry) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnNetworkAclEntry) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkAclEntry) NetworkAclEntryRef() *NetworkAclEntryReference {
-	var returns *NetworkAclEntryReference
+func (j *jsiiProxy_CfnNetworkAclEntry) NetworkAclEntryRef() *interfacesawsec2.NetworkAclEntryReference {
+	var returns *interfacesawsec2.NetworkAclEntryReference
 	_jsii_.Get(
 		j,
 		"networkAclEntryRef",
@@ -478,6 +480,7 @@ func (j *jsiiProxy_CfnNetworkAclEntry) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::EC2::NetworkAclEntry`.
 func NewCfnNetworkAclEntry(scope constructs.Construct, id *string, props *CfnNetworkAclEntryProps) CfnNetworkAclEntry {
 	_init_.Initialize()
 
@@ -495,6 +498,7 @@ func NewCfnNetworkAclEntry(scope constructs.Construct, id *string, props *CfnNet
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkAclEntry`.
 func NewCfnNetworkAclEntry_Override(c CfnNetworkAclEntry, scope constructs.Construct, id *string, props *CfnNetworkAclEntryProps) {
 	_init_.Initialize()
 

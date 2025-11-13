@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,7 +20,7 @@ func (m *jsiiProxy_ManagedPolicy) validateApplyRemovalPolicyParameters(policy aw
 	return nil
 }
 
-func (m *jsiiProxy_ManagedPolicy) validateAttachToGroupParameters(group IGroupRef) error {
+func (m *jsiiProxy_ManagedPolicy) validateAttachToGroupParameters(group interfacesawsiam.IGroupRef) error {
 	if group == nil {
 		return fmt.Errorf("parameter group is required, but nil was provided")
 	}
@@ -35,7 +36,7 @@ func (m *jsiiProxy_ManagedPolicy) validateAttachToRoleParameters(role IRole) err
 	return nil
 }
 
-func (m *jsiiProxy_ManagedPolicy) validateAttachToUserParameters(user IUserRef) error {
+func (m *jsiiProxy_ManagedPolicy) validateAttachToUserParameters(user interfacesawsiam.IUserRef) error {
 	if user == nil {
 		return fmt.Errorf("parameter user is required, but nil was provided")
 	}

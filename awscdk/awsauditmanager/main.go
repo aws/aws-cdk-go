@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_auditmanager.AssessmentReference",
-		reflect.TypeOf((*AssessmentReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
 		reflect.TypeOf((*CfnAssessment)(nil)).Elem(),
@@ -65,8 +61,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAssessment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAssessmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsauditmanagerIAssessmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -98,20 +94,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_auditmanager.CfnAssessmentProps",
 		reflect.TypeOf((*CfnAssessmentProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_auditmanager.IAssessmentRef",
-		reflect.TypeOf((*IAssessmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assessmentRef", GoGetter: "AssessmentRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAssessmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

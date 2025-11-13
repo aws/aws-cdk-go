@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnNetworkInterfacePermission interface {
 	awscdk.CfnResource
-	INetworkInterfacePermissionRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkInterfacePermissionRef
 	AttrId() *string
 	// The AWS account ID.
 	AwsAccountId() *string
@@ -41,7 +43,7 @@ type CfnNetworkInterfacePermission interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -56,7 +58,7 @@ type CfnNetworkInterfacePermission interface {
 	NetworkInterfaceId() *string
 	SetNetworkInterfaceId(val *string)
 	// A reference to a NetworkInterfacePermission resource.
-	NetworkInterfacePermissionRef() *NetworkInterfacePermissionReference
+	NetworkInterfacePermissionRef() *interfacesawsec2.NetworkInterfacePermissionReference
 	// The tree node.
 	Node() constructs.Node
 	// The type of permission to grant: `INSTANCE-ATTACH` or `EIP-ASSOCIATE` .
@@ -214,8 +216,8 @@ type CfnNetworkInterfacePermission interface {
 // The jsii proxy struct for CfnNetworkInterfacePermission
 type jsiiProxy_CfnNetworkInterfacePermission struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkInterfacePermissionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkInterfacePermissionRef
 }
 
 func (j *jsiiProxy_CfnNetworkInterfacePermission) AttrId() *string {
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnNetworkInterfacePermission) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInterfacePermission) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkInterfacePermission) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnNetworkInterfacePermission) NetworkInterfaceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInterfacePermission) NetworkInterfacePermissionRef() *NetworkInterfacePermissionReference {
-	var returns *NetworkInterfacePermissionReference
+func (j *jsiiProxy_CfnNetworkInterfacePermission) NetworkInterfacePermissionRef() *interfacesawsec2.NetworkInterfacePermissionReference {
+	var returns *interfacesawsec2.NetworkInterfacePermissionReference
 	_jsii_.Get(
 		j,
 		"networkInterfacePermissionRef",
@@ -379,6 +381,7 @@ func (j *jsiiProxy_CfnNetworkInterfacePermission) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::EC2::NetworkInterfacePermission`.
 func NewCfnNetworkInterfacePermission(scope constructs.Construct, id *string, props *CfnNetworkInterfacePermissionProps) CfnNetworkInterfacePermission {
 	_init_.Initialize()
 
@@ -396,6 +399,7 @@ func NewCfnNetworkInterfacePermission(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkInterfacePermission`.
 func NewCfnNetworkInterfacePermission_Override(c CfnNetworkInterfacePermission, scope constructs.Construct, id *string, props *CfnNetworkInterfacePermissionProps) {
 	_init_.Initialize()
 

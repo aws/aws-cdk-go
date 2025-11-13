@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnLayerVersionPermission interface {
 	awscdk.CfnResource
-	ILayerVersionPermissionRef
 	awscdk.IInspectable
+	interfacesawslambda.ILayerVersionPermissionRef
 	// The API action that grants access to the layer.
 	Action() *string
 	SetAction(val *string)
@@ -47,12 +49,12 @@ type CfnLayerVersionPermission interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name or Amazon Resource Name (ARN) of the layer.
 	LayerVersionArn() *string
 	SetLayerVersionArn(val *string)
 	// A reference to a LayerVersionPermission resource.
-	LayerVersionPermissionRef() *LayerVersionPermissionReference
+	LayerVersionPermissionRef() *interfacesawslambda.LayerVersionPermissionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnLayerVersionPermission interface {
 // The jsii proxy struct for CfnLayerVersionPermission
 type jsiiProxy_CfnLayerVersionPermission struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILayerVersionPermissionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslambdaILayerVersionPermissionRef
 }
 
 func (j *jsiiProxy_CfnLayerVersionPermission) Action() *string {
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnLayerVersionPermission) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayerVersionPermission) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLayerVersionPermission) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnLayerVersionPermission) LayerVersionArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayerVersionPermission) LayerVersionPermissionRef() *LayerVersionPermissionReference {
-	var returns *LayerVersionPermissionReference
+func (j *jsiiProxy_CfnLayerVersionPermission) LayerVersionPermissionRef() *interfacesawslambda.LayerVersionPermissionReference {
+	var returns *interfacesawslambda.LayerVersionPermissionReference
 	_jsii_.Get(
 		j,
 		"layerVersionPermissionRef",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnLayerVersionPermission) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::Lambda::LayerVersionPermission`.
 func NewCfnLayerVersionPermission(scope constructs.Construct, id *string, props *CfnLayerVersionPermissionProps) CfnLayerVersionPermission {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnLayerVersionPermission(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::Lambda::LayerVersionPermission`.
 func NewCfnLayerVersionPermission_Override(c CfnLayerVersionPermission, scope constructs.Construct, id *string, props *CfnLayerVersionPermissionProps) {
 	_init_.Initialize()
 

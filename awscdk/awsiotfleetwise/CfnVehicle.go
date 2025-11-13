@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotfleetwise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotfleetwise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnVehicle interface {
 	awscdk.CfnResource
-	IVehicleRef
 	awscdk.IInspectable
+	interfacesawsiotfleetwise.IVehicleRef
 	awscdk.ITaggable
 	// An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
 	AssociationBehavior() *string
@@ -87,7 +89,7 @@ type CfnVehicle interface {
 	// The Amazon Resource Name (ARN) of a decoder manifest associated with the vehicle to create.
 	DecoderManifestArn() *string
 	SetDecoderManifestArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -137,7 +139,7 @@ type CfnVehicle interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a Vehicle resource.
-	VehicleRef() *VehicleReference
+	VehicleRef() *interfacesawsiotfleetwise.VehicleReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -268,8 +270,8 @@ type CfnVehicle interface {
 // The jsii proxy struct for CfnVehicle
 type jsiiProxy_CfnVehicle struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVehicleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotfleetwiseIVehicleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnVehicle) DecoderManifestArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVehicle) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVehicle) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -493,8 +495,8 @@ func (j *jsiiProxy_CfnVehicle) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVehicle) VehicleRef() *VehicleReference {
-	var returns *VehicleReference
+func (j *jsiiProxy_CfnVehicle) VehicleRef() *interfacesawsiotfleetwise.VehicleReference {
+	var returns *interfacesawsiotfleetwise.VehicleReference
 	_jsii_.Get(
 		j,
 		"vehicleRef",
@@ -504,6 +506,7 @@ func (j *jsiiProxy_CfnVehicle) VehicleRef() *VehicleReference {
 }
 
 
+// Create a new `AWS::IoTFleetWise::Vehicle`.
 func NewCfnVehicle(scope constructs.Construct, id *string, props *CfnVehicleProps) CfnVehicle {
 	_init_.Initialize()
 
@@ -521,6 +524,7 @@ func NewCfnVehicle(scope constructs.Construct, id *string, props *CfnVehicleProp
 	return &j
 }
 
+// Create a new `AWS::IoTFleetWise::Vehicle`.
 func NewCfnVehicle_Override(c CfnVehicle, scope constructs.Construct, id *string, props *CfnVehicleProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnRotationSchedule interface {
 	awscdk.CfnResource
-	IRotationScheduleRef
 	awscdk.IInspectable
+	interfacesawssecretsmanager.IRotationScheduleRef
 	// The ARN of the secret.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -76,7 +78,7 @@ type CfnRotationSchedule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Creates a new Lambda rotation function based on one of the [Secrets Manager rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) . To use a rotation function that already exists, specify `RotationLambdaARN` instead.
 	HostedRotationLambda() interface{}
 	SetHostedRotationLambda(val interface{})
@@ -107,7 +109,7 @@ type CfnRotationSchedule interface {
 	RotationRules() interface{}
 	SetRotationRules(val interface{})
 	// A reference to a RotationSchedule resource.
-	RotationScheduleRef() *RotationScheduleReference
+	RotationScheduleRef() *interfacesawssecretsmanager.RotationScheduleReference
 	// The ARN or name of the secret to rotate.
 	//
 	// This is unique for each rotation schedule definition.
@@ -260,8 +262,8 @@ type CfnRotationSchedule interface {
 // The jsii proxy struct for CfnRotationSchedule
 type jsiiProxy_CfnRotationSchedule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRotationScheduleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecretsmanagerIRotationScheduleRef
 }
 
 func (j *jsiiProxy_CfnRotationSchedule) AttrId() *string {
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnRotationSchedule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRotationSchedule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRotationSchedule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnRotationSchedule) RotationRules() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRotationSchedule) RotationScheduleRef() *RotationScheduleReference {
-	var returns *RotationScheduleReference
+func (j *jsiiProxy_CfnRotationSchedule) RotationScheduleRef() *interfacesawssecretsmanager.RotationScheduleReference {
+	var returns *interfacesawssecretsmanager.RotationScheduleReference
 	_jsii_.Get(
 		j,
 		"rotationScheduleRef",
@@ -445,6 +447,7 @@ func (j *jsiiProxy_CfnRotationSchedule) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::SecretsManager::RotationSchedule`.
 func NewCfnRotationSchedule(scope constructs.Construct, id *string, props *CfnRotationScheduleProps) CfnRotationSchedule {
 	_init_.Initialize()
 
@@ -462,6 +465,7 @@ func NewCfnRotationSchedule(scope constructs.Construct, id *string, props *CfnRo
 	return &j
 }
 
+// Create a new `AWS::SecretsManager::RotationSchedule`.
 func NewCfnRotationSchedule_Override(c CfnRotationSchedule, scope constructs.Construct, id *string, props *CfnRotationScheduleProps) {
 	_init_.Initialize()
 

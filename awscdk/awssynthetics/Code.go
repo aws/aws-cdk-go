@@ -4,8 +4,8 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -79,7 +79,7 @@ func Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) AssetC
 // Returns: `S3Code` associated with the specified S3 object.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-func Code_FromBucket(bucket awss3.IBucketRef, key *string, objectVersion *string) S3Code {
+func Code_FromBucket(bucket interfacesawss3.IBucketRef, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	if err := validateCode_FromBucketParameters(bucket, key); err != nil {

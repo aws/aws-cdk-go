@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,7 +21,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateApplyRemovalPolicyParame
 	return nil
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToGroupParameters(group awsiam.IGroupRef) error {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToGroupParameters(group interfacesawsiam.IGroupRef) error {
 	if group == nil {
 		return fmt.Errorf("parameter group is required, but nil was provided")
 	}
@@ -36,7 +37,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToRoleParameters(r
 	return nil
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToUserParameters(user awsiam.IUserRef) error {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToUserParameters(user interfacesawsiam.IUserRef) error {
 	if user == nil {
 		return fmt.Errorf("parameter user is required, but nil was provided")
 	}

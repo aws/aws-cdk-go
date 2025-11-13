@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnPhoneNumber interface {
 	awscdk.CfnResource
-	IPhoneNumberRef
 	awscdk.IInspectable
+	interfacesawsconnect.IPhoneNumberRef
 	awscdk.ITaggable
 	// The phone number, in E.164 format.
 	AttrAddress() *string
@@ -59,7 +61,7 @@ type CfnPhoneNumber interface {
 	// The description of the phone number.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,7 +75,7 @@ type CfnPhoneNumber interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PhoneNumber resource.
-	PhoneNumberRef() *PhoneNumberReference
+	PhoneNumberRef() *interfacesawsconnect.PhoneNumberReference
 	// The prefix of the phone number.
 	//
 	// If provided, it must contain `+` as part of the country code.
@@ -245,8 +247,8 @@ type CfnPhoneNumber interface {
 // The jsii proxy struct for CfnPhoneNumber
 type jsiiProxy_CfnPhoneNumber struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPhoneNumberRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIPhoneNumberRef
 	internal.Type__awscdkITaggable
 }
 
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnPhoneNumber) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPhoneNumber) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnPhoneNumber) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) PhoneNumberRef() *PhoneNumberReference {
-	var returns *PhoneNumberReference
+func (j *jsiiProxy_CfnPhoneNumber) PhoneNumberRef() *interfacesawsconnect.PhoneNumberReference {
+	var returns *interfacesawsconnect.PhoneNumberReference
 	_jsii_.Get(
 		j,
 		"phoneNumberRef",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnPhoneNumber) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Connect::PhoneNumber`.
 func NewCfnPhoneNumber(scope constructs.Construct, id *string, props *CfnPhoneNumberProps) CfnPhoneNumber {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnPhoneNumber(scope constructs.Construct, id *string, props *CfnPhoneNu
 	return &j
 }
 
+// Create a new `AWS::Connect::PhoneNumber`.
 func NewCfnPhoneNumber_Override(c CfnPhoneNumber, scope constructs.Construct, id *string, props *CfnPhoneNumberProps) {
 	_init_.Initialize()
 

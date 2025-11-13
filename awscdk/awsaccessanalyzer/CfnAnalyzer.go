@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsaccessanalyzer/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsaccessanalyzer"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -96,8 +98,8 @@ import (
 //
 type CfnAnalyzer interface {
 	awscdk.CfnResource
-	IAnalyzerRef
 	awscdk.IInspectable
+	interfacesawsaccessanalyzer.IAnalyzerRef
 	awscdk.ITaggable
 	// Contains information about the configuration of an analyzer for an AWS organization or account.
 	AnalyzerConfiguration() interface{}
@@ -106,7 +108,7 @@ type CfnAnalyzer interface {
 	AnalyzerName() *string
 	SetAnalyzerName(val *string)
 	// A reference to a Analyzer resource.
-	AnalyzerRef() *AnalyzerReference
+	AnalyzerRef() *interfacesawsaccessanalyzer.AnalyzerReference
 	// Specifies the archive rules to add for the analyzer.
 	ArchiveRules() interface{}
 	SetArchiveRules(val interface{})
@@ -121,7 +123,7 @@ type CfnAnalyzer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -294,8 +296,8 @@ type CfnAnalyzer interface {
 // The jsii proxy struct for CfnAnalyzer
 type jsiiProxy_CfnAnalyzer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnalyzerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsaccessanalyzerIAnalyzerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnAnalyzer) AnalyzerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalyzer) AnalyzerRef() *AnalyzerReference {
-	var returns *AnalyzerReference
+func (j *jsiiProxy_CfnAnalyzer) AnalyzerRef() *interfacesawsaccessanalyzer.AnalyzerReference {
+	var returns *interfacesawsaccessanalyzer.AnalyzerReference
 	_jsii_.Get(
 		j,
 		"analyzerRef",
@@ -389,8 +391,8 @@ func (j *jsiiProxy_CfnAnalyzer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalyzer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnalyzer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -490,6 +492,7 @@ func (j *jsiiProxy_CfnAnalyzer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AccessAnalyzer::Analyzer`.
 func NewCfnAnalyzer(scope constructs.Construct, id *string, props *CfnAnalyzerProps) CfnAnalyzer {
 	_init_.Initialize()
 
@@ -507,6 +510,7 @@ func NewCfnAnalyzer(scope constructs.Construct, id *string, props *CfnAnalyzerPr
 	return &j
 }
 
+// Create a new `AWS::AccessAnalyzer::Analyzer`.
 func NewCfnAnalyzer_Override(c CfnAnalyzer, scope constructs.Construct, id *string, props *CfnAnalyzerProps) {
 	_init_.Initialize()
 

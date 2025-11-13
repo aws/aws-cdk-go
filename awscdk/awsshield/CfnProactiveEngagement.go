@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsshield/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsshield"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnProactiveEngagement interface {
 	awscdk.CfnResource
-	IProactiveEngagementRef
 	awscdk.IInspectable
+	interfacesawsshield.IProactiveEngagementRef
 	// The ID of the account that submitted the template.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -63,7 +65,7 @@ type CfnProactiveEngagement interface {
 	// The list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support, plus any relevant notes.
 	EmergencyContactList() interface{}
 	SetEmergencyContactList(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnProactiveEngagement interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a ProactiveEngagement resource.
-	ProactiveEngagementRef() *ProactiveEngagementReference
+	ProactiveEngagementRef() *interfacesawsshield.ProactiveEngagementReference
 	// Specifies whether proactive engagement is enabled or disabled.
 	ProactiveEngagementStatus() *string
 	SetProactiveEngagementStatus(val *string)
@@ -233,8 +235,8 @@ type CfnProactiveEngagement interface {
 // The jsii proxy struct for CfnProactiveEngagement
 type jsiiProxy_CfnProactiveEngagement struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProactiveEngagementRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsshieldIProactiveEngagementRef
 }
 
 func (j *jsiiProxy_CfnProactiveEngagement) AttrAccountId() *string {
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnProactiveEngagement) EmergencyContactList() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProactiveEngagement) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProactiveEngagement) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnProactiveEngagement) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProactiveEngagement) ProactiveEngagementRef() *ProactiveEngagementReference {
-	var returns *ProactiveEngagementReference
+func (j *jsiiProxy_CfnProactiveEngagement) ProactiveEngagementRef() *interfacesawsshield.ProactiveEngagementReference {
+	var returns *interfacesawsshield.ProactiveEngagementReference
 	_jsii_.Get(
 		j,
 		"proactiveEngagementRef",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnProactiveEngagement) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::Shield::ProactiveEngagement`.
 func NewCfnProactiveEngagement(scope constructs.Construct, id *string, props *CfnProactiveEngagementProps) CfnProactiveEngagement {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnProactiveEngagement(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::Shield::ProactiveEngagement`.
 func NewCfnProactiveEngagement_Override(c CfnProactiveEngagement, scope constructs.Construct, id *string, props *CfnProactiveEngagementProps) {
 	_init_.Initialize()
 

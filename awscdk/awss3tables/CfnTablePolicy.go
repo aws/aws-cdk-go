@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3tables/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3tables"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnTablePolicy interface {
 	awscdk.CfnResource
-	ITablePolicyRef
 	awscdk.IInspectable
+	interfacesawss3tables.ITablePolicyRef
 	// The namespace to associated with the table.
 	AttrNamespace() *string
 	// The Amazon Resource Name (ARN) of the table bucket that contains the table.
@@ -51,7 +53,7 @@ type CfnTablePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,7 +82,7 @@ type CfnTablePolicy interface {
 	TableArn() *string
 	SetTableArn(val *string)
 	// A reference to a TablePolicy resource.
-	TablePolicyRef() *TablePolicyReference
+	TablePolicyRef() *interfacesawss3tables.TablePolicyReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,8 +226,8 @@ type CfnTablePolicy interface {
 // The jsii proxy struct for CfnTablePolicy
 type jsiiProxy_CfnTablePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITablePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3tablesITablePolicyRef
 }
 
 func (j *jsiiProxy_CfnTablePolicy) AttrNamespace() *string {
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnTablePolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTablePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTablePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnTablePolicy) TableArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTablePolicy) TablePolicyRef() *TablePolicyReference {
-	var returns *TablePolicyReference
+func (j *jsiiProxy_CfnTablePolicy) TablePolicyRef() *interfacesawss3tables.TablePolicyReference {
+	var returns *interfacesawss3tables.TablePolicyReference
 	_jsii_.Get(
 		j,
 		"tablePolicyRef",
@@ -399,6 +401,7 @@ func (j *jsiiProxy_CfnTablePolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::S3Tables::TablePolicy`.
 func NewCfnTablePolicy(scope constructs.Construct, id *string, props *CfnTablePolicyProps) CfnTablePolicy {
 	_init_.Initialize()
 
@@ -416,6 +419,7 @@ func NewCfnTablePolicy(scope constructs.Construct, id *string, props *CfnTablePo
 	return &j
 }
 
+// Create a new `AWS::S3Tables::TablePolicy`.
 func NewCfnTablePolicy_Override(c CfnTablePolicy, scope constructs.Construct, id *string, props *CfnTablePolicyProps) {
 	_init_.Initialize()
 

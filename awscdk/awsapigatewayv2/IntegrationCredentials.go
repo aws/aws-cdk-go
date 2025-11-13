@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Credentials used for AWS Service integrations.
@@ -51,7 +51,7 @@ func NewIntegrationCredentials_Override(i IntegrationCredentials) {
 }
 
 // Use the specified role for integration requests.
-func IntegrationCredentials_FromRole(role awsiam.IRoleRef) IntegrationCredentials {
+func IntegrationCredentials_FromRole(role interfacesawsiam.IRoleRef) IntegrationCredentials {
 	_init_.Initialize()
 
 	if err := validateIntegrationCredentials_FromRoleParameters(role); err != nil {

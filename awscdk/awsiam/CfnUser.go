@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnUser interface {
 	awscdk.CfnResource
-	IUserRef
 	awscdk.IInspectable
+	interfacesawsiam.IUserRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::User` resource.
 	//
@@ -70,7 +72,7 @@ type CfnUser interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of group names to which you want to add the user.
 	Groups() *[]*string
 	SetGroups(val *[]*string)
@@ -134,7 +136,7 @@ type CfnUser interface {
 	UserName() *string
 	SetUserName(val *string)
 	// A reference to a User resource.
-	UserRef() *UserReference
+	UserRef() *interfacesawsiam.UserReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -265,8 +267,8 @@ type CfnUser interface {
 // The jsii proxy struct for CfnUser
 type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIUserRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnUser) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUser) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUser) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -480,8 +482,8 @@ func (j *jsiiProxy_CfnUser) UserName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUser) UserRef() *UserReference {
-	var returns *UserReference
+func (j *jsiiProxy_CfnUser) UserRef() *interfacesawsiam.UserReference {
+	var returns *interfacesawsiam.UserReference
 	_jsii_.Get(
 		j,
 		"userRef",
@@ -491,6 +493,7 @@ func (j *jsiiProxy_CfnUser) UserRef() *UserReference {
 }
 
 
+// Create a new `AWS::IAM::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
@@ -508,6 +511,7 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::IAM::User`.
 func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnDeliverySource interface {
 	awscdk.CfnResource
-	IDeliverySourceRef
 	awscdk.IInspectable
+	interfacesawslogs.IDeliverySourceRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 	AttrArn() *string
@@ -69,8 +71,8 @@ type CfnDeliverySource interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DeliverySource resource.
-	DeliverySourceRef() *DeliverySourceReference
-	Env() *awscdk.ResourceEnvironment
+	DeliverySourceRef() *interfacesawslogs.DeliverySourceReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,8 +249,8 @@ type CfnDeliverySource interface {
 // The jsii proxy struct for CfnDeliverySource
 type jsiiProxy_CfnDeliverySource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeliverySourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsIDeliverySourceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnDeliverySource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliverySource) DeliverySourceRef() *DeliverySourceReference {
-	var returns *DeliverySourceReference
+func (j *jsiiProxy_CfnDeliverySource) DeliverySourceRef() *interfacesawslogs.DeliverySourceReference {
+	var returns *interfacesawslogs.DeliverySourceReference
 	_jsii_.Get(
 		j,
 		"deliverySourceRef",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnDeliverySource) DeliverySourceRef() *DeliverySourceReferen
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliverySource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeliverySource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnDeliverySource) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Logs::DeliverySource`.
 func NewCfnDeliverySource(scope constructs.Construct, id *string, props *CfnDeliverySourceProps) CfnDeliverySource {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnDeliverySource(scope constructs.Construct, id *string, props *CfnDeli
 	return &j
 }
 
+// Create a new `AWS::Logs::DeliverySource`.
 func NewCfnDeliverySource_Override(c CfnDeliverySource, scope constructs.Construct, id *string, props *CfnDeliverySourceProps) {
 	_init_.Initialize()
 
@@ -519,13 +523,13 @@ func (j *jsiiProxy_CfnDeliverySource)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDeliverySourceRef from an ARN.
-func CfnDeliverySource_FromDeliverySourceArn(scope constructs.Construct, id *string, arn *string) IDeliverySourceRef {
+func CfnDeliverySource_FromDeliverySourceArn(scope constructs.Construct, id *string, arn *string) interfacesawslogs.IDeliverySourceRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeliverySource_FromDeliverySourceArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDeliverySourceRef
+	var returns interfacesawslogs.IDeliverySourceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnDeliverySource",
@@ -538,13 +542,13 @@ func CfnDeliverySource_FromDeliverySourceArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IDeliverySourceRef from a deliverySourceName.
-func CfnDeliverySource_FromDeliverySourceName(scope constructs.Construct, id *string, deliverySourceName *string) IDeliverySourceRef {
+func CfnDeliverySource_FromDeliverySourceName(scope constructs.Construct, id *string, deliverySourceName *string) interfacesawslogs.IDeliverySourceRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeliverySource_FromDeliverySourceNameParameters(scope, id, deliverySourceName); err != nil {
 		panic(err)
 	}
-	var returns IDeliverySourceRef
+	var returns interfacesawslogs.IDeliverySourceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnDeliverySource",

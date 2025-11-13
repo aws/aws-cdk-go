@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnEnvironment interface {
 	awscdk.CfnResource
-	IEnvironmentRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IEnvironmentRef
 	// The identifier of the AWS account in which an environment exists.
 	AttrAwsAccountId() *string
 	// The AWS Region in which an environment exists.
@@ -83,7 +85,7 @@ type CfnEnvironment interface {
 	// The identifier of the Amazon DataZone domain in which the environment is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the AWS account in which an environment exists.
 	EnvironmentAccountIdentifier() *string
 	SetEnvironmentAccountIdentifier(val *string)
@@ -94,7 +96,7 @@ type CfnEnvironment interface {
 	EnvironmentProfileIdentifier() *string
 	SetEnvironmentProfileIdentifier(val *string)
 	// A reference to a Environment resource.
-	EnvironmentRef() *EnvironmentReference
+	EnvironmentRef() *interfacesawsdatazone.EnvironmentReference
 	// The ARN of the environment role.
 	EnvironmentRoleArn() *string
 	SetEnvironmentRoleArn(val *string)
@@ -274,8 +276,8 @@ type CfnEnvironment interface {
 // The jsii proxy struct for CfnEnvironment
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIEnvironmentRef
 }
 
 func (j *jsiiProxy_CfnEnvironment) AttrAwsAccountId() *string {
@@ -458,8 +460,8 @@ func (j *jsiiProxy_CfnEnvironment) DomainIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -498,8 +500,8 @@ func (j *jsiiProxy_CfnEnvironment) EnvironmentProfileIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *EnvironmentReference {
-	var returns *EnvironmentReference
+func (j *jsiiProxy_CfnEnvironment) EnvironmentRef() *interfacesawsdatazone.EnvironmentReference {
+	var returns *interfacesawsdatazone.EnvironmentReference
 	_jsii_.Get(
 		j,
 		"environmentRef",
@@ -619,6 +621,7 @@ func (j *jsiiProxy_CfnEnvironment) UserParameters() interface{} {
 }
 
 
+// Create a new `AWS::DataZone::Environment`.
 func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
@@ -636,6 +639,7 @@ func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnviron
 	return &j
 }
 
+// Create a new `AWS::DataZone::Environment`.
 func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrassv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrassv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -106,8 +108,8 @@ import (
 //
 type CfnComponentVersion interface {
 	awscdk.CfnResource
-	IComponentVersionRef
 	awscdk.IInspectable
+	interfacesawsgreengrassv2.IComponentVersionRef
 	awscdk.ITaggable
 	// The ARN of the component version.
 	AttrArn() *string
@@ -121,12 +123,12 @@ type CfnComponentVersion interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ComponentVersion resource.
-	ComponentVersionRef() *ComponentVersionReference
+	ComponentVersionRef() *interfacesawsgreengrassv2.ComponentVersionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The recipe to use to create the component.
 	InlineRecipe() *string
 	SetInlineRecipe(val *string)
@@ -302,8 +304,8 @@ type CfnComponentVersion interface {
 // The jsii proxy struct for CfnComponentVersion
 type jsiiProxy_CfnComponentVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IComponentVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassv2IComponentVersionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnComponentVersion) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponentVersion) ComponentVersionRef() *ComponentVersionReference {
-	var returns *ComponentVersionReference
+func (j *jsiiProxy_CfnComponentVersion) ComponentVersionRef() *interfacesawsgreengrassv2.ComponentVersionReference {
+	var returns *interfacesawsgreengrassv2.ComponentVersionReference
 	_jsii_.Get(
 		j,
 		"componentVersionRef",
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnComponentVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponentVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnComponentVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -498,6 +500,7 @@ func (j *jsiiProxy_CfnComponentVersion) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::GreengrassV2::ComponentVersion`.
 func NewCfnComponentVersion(scope constructs.Construct, id *string, props *CfnComponentVersionProps) CfnComponentVersion {
 	_init_.Initialize()
 
@@ -515,6 +518,7 @@ func NewCfnComponentVersion(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
+// Create a new `AWS::GreengrassV2::ComponentVersion`.
 func NewCfnComponentVersion_Override(c CfnComponentVersion, scope constructs.Construct, id *string, props *CfnComponentVersionProps) {
 	_init_.Initialize()
 

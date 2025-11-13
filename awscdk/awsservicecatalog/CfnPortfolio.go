@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnPortfolio interface {
 	awscdk.CfnResource
-	IPortfolioRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.IPortfolioRef
 	awscdk.ITaggable
 	// The language code.
 	AcceptLanguage() *string
@@ -60,7 +62,7 @@ type CfnPortfolio interface {
 	// The name to use for display purposes.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnPortfolio interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Portfolio resource.
-	PortfolioRef() *PortfolioReference
+	PortfolioRef() *interfacesawsservicecatalog.PortfolioReference
 	// The name of the portfolio provider.
 	ProviderName() *string
 	SetProviderName(val *string)
@@ -235,8 +237,8 @@ type CfnPortfolio interface {
 // The jsii proxy struct for CfnPortfolio
 type jsiiProxy_CfnPortfolio struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPortfolioRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogIPortfolioRef
 	internal.Type__awscdkITaggable
 }
 
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnPortfolio) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortfolio) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPortfolio) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnPortfolio) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortfolio) PortfolioRef() *PortfolioReference {
-	var returns *PortfolioReference
+func (j *jsiiProxy_CfnPortfolio) PortfolioRef() *interfacesawsservicecatalog.PortfolioReference {
+	var returns *interfacesawsservicecatalog.PortfolioReference
 	_jsii_.Get(
 		j,
 		"portfolioRef",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnPortfolio) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ServiceCatalog::Portfolio`.
 func NewCfnPortfolio(scope constructs.Construct, id *string, props *CfnPortfolioProps) CfnPortfolio {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnPortfolio(scope constructs.Construct, id *string, props *CfnPortfolio
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::Portfolio`.
 func NewCfnPortfolio_Override(c CfnPortfolio, scope constructs.Construct, id *string, props *CfnPortfolioProps) {
 	_init_.Initialize()
 
@@ -518,13 +522,13 @@ func (j *jsiiProxy_CfnPortfolio)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IPortfolioRef from a portfolioId.
-func CfnPortfolio_FromPortfolioId(scope constructs.Construct, id *string, portfolioId *string) IPortfolioRef {
+func CfnPortfolio_FromPortfolioId(scope constructs.Construct, id *string, portfolioId *string) interfacesawsservicecatalog.IPortfolioRef {
 	_init_.Initialize()
 
 	if err := validateCfnPortfolio_FromPortfolioIdParameters(scope, id, portfolioId); err != nil {
 		panic(err)
 	}
-	var returns IPortfolioRef
+	var returns interfacesawsservicecatalog.IPortfolioRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_servicecatalog.CfnPortfolio",

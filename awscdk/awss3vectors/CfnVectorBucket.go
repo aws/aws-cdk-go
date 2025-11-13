@@ -6,10 +6,39 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3vectors/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3vectors"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::S3Vectors::VectorBucket.
+// Defines an Amazon S3 vector bucket in the same AWS Region where you create the AWS CloudFormation stack.
+//
+// Vector buckets are specialized storage containers designed for storing and managing vector data used in machine learning and AI applications. They provide optimized storage and retrieval capabilities for high-dimensional vector data.
+//
+// To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
+//
+// > You can only delete empty vector buckets. Deletion fails for buckets that have contents.
+//
+// - **Permissions** - The required permissions for CloudFormation to use are based on the operations that are performed on the stack.
+//
+// - Create
+//
+// - s3vectors:CreateVectorBucket
+// - s3vectors:GetVectorBucket
+// - kms:GenerateDataKey (if using KMS encryption)
+// - Read
+//
+// - s3vectors:GetVectorBucket
+// - kms:GenerateDataKey (if using KMS encryption)
+// - Delete
+//
+// - s3vectors:DeleteVectorBucket
+// - s3vectors:GetVectorBucket
+// - kms:GenerateDataKey (if using KMS encryption)
+// - List
+//
+// - s3vectors:ListVectorBuckets
+// - kms:GenerateDataKey (if using KMS encryption).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,11 +57,15 @@ import (
 //
 type CfnVectorBucket interface {
 	awscdk.CfnResource
-	IVectorBucketRef
 	awscdk.IInspectable
-	// Date and time when the vector bucket was created.
+	interfacesawss3vectors.IVectorBucketRef
+	// Returns the date and time when the vector bucket was created.
+	//
+	// Example: `2024-12-21T10:30:00Z`.
 	AttrCreationTime() *string
-	// The Amazon Resource Name (ARN) of the vector bucket.
+	// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`.
 	AttrVectorBucketArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,7 +79,7 @@ type CfnVectorBucket interface {
 	// The encryption configuration for the vector bucket.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,11 +114,11 @@ type CfnVectorBucket interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The name of the vector bucket.
+	// A name for the vector bucket.
 	VectorBucketName() *string
 	SetVectorBucketName(val *string)
 	// A reference to a VectorBucket resource.
-	VectorBucketRef() *VectorBucketReference
+	VectorBucketRef() *interfacesawss3vectors.VectorBucketReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -216,8 +249,8 @@ type CfnVectorBucket interface {
 // The jsii proxy struct for CfnVectorBucket
 type jsiiProxy_CfnVectorBucket struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVectorBucketRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3vectorsIVectorBucketRef
 }
 
 func (j *jsiiProxy_CfnVectorBucket) AttrCreationTime() *string {
@@ -290,8 +323,8 @@ func (j *jsiiProxy_CfnVectorBucket) EncryptionConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVectorBucket) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVectorBucket) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -370,8 +403,8 @@ func (j *jsiiProxy_CfnVectorBucket) VectorBucketName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVectorBucket) VectorBucketRef() *VectorBucketReference {
-	var returns *VectorBucketReference
+func (j *jsiiProxy_CfnVectorBucket) VectorBucketRef() *interfacesawss3vectors.VectorBucketReference {
+	var returns *interfacesawss3vectors.VectorBucketReference
 	_jsii_.Get(
 		j,
 		"vectorBucketRef",
@@ -381,6 +414,7 @@ func (j *jsiiProxy_CfnVectorBucket) VectorBucketRef() *VectorBucketReference {
 }
 
 
+// Create a new `AWS::S3Vectors::VectorBucket`.
 func NewCfnVectorBucket(scope constructs.Construct, id *string, props *CfnVectorBucketProps) CfnVectorBucket {
 	_init_.Initialize()
 
@@ -398,6 +432,7 @@ func NewCfnVectorBucket(scope constructs.Construct, id *string, props *CfnVector
 	return &j
 }
 
+// Create a new `AWS::S3Vectors::VectorBucket`.
 func NewCfnVectorBucket_Override(c CfnVectorBucket, scope constructs.Construct, id *string, props *CfnVectorBucketProps) {
 	_init_.Initialize()
 

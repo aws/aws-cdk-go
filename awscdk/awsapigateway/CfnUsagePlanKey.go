@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnUsagePlanKey interface {
 	awscdk.CfnResource
-	IUsagePlanKeyRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IUsagePlanKeyRef
 	// The ID for the usage plan key.
 	//
 	// For example: `abc123` .
@@ -43,7 +45,7 @@ type CfnUsagePlanKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Id of the UsagePlanKey resource.
 	KeyId() *string
 	SetKeyId(val *string)
@@ -88,7 +90,7 @@ type CfnUsagePlanKey interface {
 	UsagePlanId() *string
 	SetUsagePlanId(val *string)
 	// A reference to a UsagePlanKey resource.
-	UsagePlanKeyRef() *UsagePlanKeyReference
+	UsagePlanKeyRef() *interfacesawsapigateway.UsagePlanKeyReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -219,8 +221,8 @@ type CfnUsagePlanKey interface {
 // The jsii proxy struct for CfnUsagePlanKey
 type jsiiProxy_CfnUsagePlanKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUsagePlanKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIUsagePlanKeyRef
 }
 
 func (j *jsiiProxy_CfnUsagePlanKey) AttrId() *string {
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnUsagePlanKey) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUsagePlanKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUsagePlanKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnUsagePlanKey) UsagePlanId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUsagePlanKey) UsagePlanKeyRef() *UsagePlanKeyReference {
-	var returns *UsagePlanKeyReference
+func (j *jsiiProxy_CfnUsagePlanKey) UsagePlanKeyRef() *interfacesawsapigateway.UsagePlanKeyReference {
+	var returns *interfacesawsapigateway.UsagePlanKeyReference
 	_jsii_.Get(
 		j,
 		"usagePlanKeyRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnUsagePlanKey) UsagePlanKeyRef() *UsagePlanKeyReference {
 }
 
 
+// Create a new `AWS::ApiGateway::UsagePlanKey`.
 func NewCfnUsagePlanKey(scope constructs.Construct, id *string, props *CfnUsagePlanKeyProps) CfnUsagePlanKey {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnUsagePlanKey(scope constructs.Construct, id *string, props *CfnUsageP
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::UsagePlanKey`.
 func NewCfnUsagePlanKey_Override(c CfnUsagePlanKey, scope constructs.Construct, id *string, props *CfnUsagePlanKeyProps) {
 	_init_.Initialize()
 

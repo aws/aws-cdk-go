@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::DelegatedAdmin` resource designates the delegated AWS Security Hub administrator account for an organization.
+// The `AWS::SecurityHub::DelegatedAdmin` resource designates the delegated Security Hub administrator account for an organization.
 //
-// You must enable the integration between Security Hub and AWS Organizations before you can designate a delegated Security Hub administrator. Only the management account for an organization can designate the delegated Security Hub administrator account. For more information, see [Designating the delegated Security Hub administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *AWS Security Hub User Guide* .
+// You must enable the integration between Security Hub and AWS Organizations before you can designate a delegated Security Hub administrator. Only the management account for an organization can designate the delegated Security Hub administrator account. For more information, see [Designating the delegated Security Hub administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *Security Hub User Guide* .
 //
 // To change the delegated administrator account, remove the current delegated administrator account, and then designate the new account.
 //
@@ -32,8 +34,8 @@ import (
 //
 type CfnDelegatedAdmin interface {
 	awscdk.CfnResource
-	IDelegatedAdminRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IDelegatedAdminRef
 	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId() *string
 	SetAdminAccountId(val *string)
@@ -51,8 +53,8 @@ type CfnDelegatedAdmin interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DelegatedAdmin resource.
-	DelegatedAdminRef() *DelegatedAdminReference
-	Env() *awscdk.ResourceEnvironment
+	DelegatedAdminRef() *interfacesawssecurityhub.DelegatedAdminReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -217,8 +219,8 @@ type CfnDelegatedAdmin interface {
 // The jsii proxy struct for CfnDelegatedAdmin
 type jsiiProxy_CfnDelegatedAdmin struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDelegatedAdminRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIDelegatedAdminRef
 }
 
 func (j *jsiiProxy_CfnDelegatedAdmin) AdminAccountId() *string {
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnDelegatedAdmin) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDelegatedAdmin) DelegatedAdminRef() *DelegatedAdminReference {
-	var returns *DelegatedAdminReference
+func (j *jsiiProxy_CfnDelegatedAdmin) DelegatedAdminRef() *interfacesawssecurityhub.DelegatedAdminReference {
+	var returns *interfacesawssecurityhub.DelegatedAdminReference
 	_jsii_.Get(
 		j,
 		"delegatedAdminRef",
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnDelegatedAdmin) DelegatedAdminRef() *DelegatedAdminReferen
 	return returns
 }
 
-func (j *jsiiProxy_CfnDelegatedAdmin) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDelegatedAdmin) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -372,6 +374,7 @@ func (j *jsiiProxy_CfnDelegatedAdmin) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::SecurityHub::DelegatedAdmin`.
 func NewCfnDelegatedAdmin(scope constructs.Construct, id *string, props *CfnDelegatedAdminProps) CfnDelegatedAdmin {
 	_init_.Initialize()
 
@@ -389,6 +392,7 @@ func NewCfnDelegatedAdmin(scope constructs.Construct, id *string, props *CfnDele
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::DelegatedAdmin`.
 func NewCfnDelegatedAdmin_Override(c CfnDelegatedAdmin, scope constructs.Construct, id *string, props *CfnDelegatedAdminProps) {
 	_init_.Initialize()
 

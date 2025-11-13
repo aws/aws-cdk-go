@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,10 +28,10 @@ import (
 //
 type CfnApplicationEntitlementAssociation interface {
 	awscdk.CfnResource
-	IApplicationEntitlementAssociationRef
 	awscdk.IInspectable
+	interfacesawsappstream.IApplicationEntitlementAssociationRef
 	// A reference to a ApplicationEntitlementAssociation resource.
-	ApplicationEntitlementAssociationRef() *ApplicationEntitlementAssociationReference
+	ApplicationEntitlementAssociationRef() *interfacesawsappstream.ApplicationEntitlementAssociationReference
 	// The identifier of the application.
 	ApplicationIdentifier() *string
 	SetApplicationIdentifier(val *string)
@@ -45,7 +47,7 @@ type CfnApplicationEntitlementAssociation interface {
 	// The name of the entitlement.
 	EntitlementName() *string
 	SetEntitlementName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,12 +215,12 @@ type CfnApplicationEntitlementAssociation interface {
 // The jsii proxy struct for CfnApplicationEntitlementAssociation
 type jsiiProxy_CfnApplicationEntitlementAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationEntitlementAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIApplicationEntitlementAssociationRef
 }
 
-func (j *jsiiProxy_CfnApplicationEntitlementAssociation) ApplicationEntitlementAssociationRef() *ApplicationEntitlementAssociationReference {
-	var returns *ApplicationEntitlementAssociationReference
+func (j *jsiiProxy_CfnApplicationEntitlementAssociation) ApplicationEntitlementAssociationRef() *interfacesawsappstream.ApplicationEntitlementAssociationReference {
+	var returns *interfacesawsappstream.ApplicationEntitlementAssociationReference
 	_jsii_.Get(
 		j,
 		"applicationEntitlementAssociationRef",
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnApplicationEntitlementAssociation) EntitlementName() *stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationEntitlementAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationEntitlementAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnApplicationEntitlementAssociation) UpdatedProperties() *ma
 }
 
 
+// Create a new `AWS::AppStream::ApplicationEntitlementAssociation`.
 func NewCfnApplicationEntitlementAssociation(scope constructs.Construct, id *string, props *CfnApplicationEntitlementAssociationProps) CfnApplicationEntitlementAssociation {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnApplicationEntitlementAssociation(scope constructs.Construct, id *str
 	return &j
 }
 
+// Create a new `AWS::AppStream::ApplicationEntitlementAssociation`.
 func NewCfnApplicationEntitlementAssociation_Override(c CfnApplicationEntitlementAssociation, scope constructs.Construct, id *string, props *CfnApplicationEntitlementAssociationProps) {
 	_init_.Initialize()
 

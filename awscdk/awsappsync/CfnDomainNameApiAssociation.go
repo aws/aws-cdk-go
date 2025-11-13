@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,8 +27,8 @@ import (
 //
 type CfnDomainNameApiAssociation interface {
 	awscdk.CfnResource
-	IDomainNameApiAssociationRef
 	awscdk.IInspectable
+	interfacesawsappsync.IDomainNameApiAssociationRef
 	// The API ID.
 	ApiId() *string
 	SetApiId(val *string)
@@ -44,8 +46,8 @@ type CfnDomainNameApiAssociation interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// A reference to a DomainNameApiAssociation resource.
-	DomainNameApiAssociationRef() *DomainNameApiAssociationReference
-	Env() *awscdk.ResourceEnvironment
+	DomainNameApiAssociationRef() *interfacesawsappsync.DomainNameApiAssociationReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -210,8 +212,8 @@ type CfnDomainNameApiAssociation interface {
 // The jsii proxy struct for CfnDomainNameApiAssociation
 type jsiiProxy_CfnDomainNameApiAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainNameApiAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIDomainNameApiAssociationRef
 }
 
 func (j *jsiiProxy_CfnDomainNameApiAssociation) ApiId() *string {
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnDomainNameApiAssociation) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainNameApiAssociation) DomainNameApiAssociationRef() *DomainNameApiAssociationReference {
-	var returns *DomainNameApiAssociationReference
+func (j *jsiiProxy_CfnDomainNameApiAssociation) DomainNameApiAssociationRef() *interfacesawsappsync.DomainNameApiAssociationReference {
+	var returns *interfacesawsappsync.DomainNameApiAssociationReference
 	_jsii_.Get(
 		j,
 		"domainNameApiAssociationRef",
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnDomainNameApiAssociation) DomainNameApiAssociationRef() *D
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainNameApiAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomainNameApiAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -365,6 +367,7 @@ func (j *jsiiProxy_CfnDomainNameApiAssociation) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::AppSync::DomainNameApiAssociation`.
 func NewCfnDomainNameApiAssociation(scope constructs.Construct, id *string, props *CfnDomainNameApiAssociationProps) CfnDomainNameApiAssociation {
 	_init_.Initialize()
 
@@ -382,6 +385,7 @@ func NewCfnDomainNameApiAssociation(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::AppSync::DomainNameApiAssociation`.
 func NewCfnDomainNameApiAssociation_Override(c CfnDomainNameApiAssociation, scope constructs.Construct, id *string, props *CfnDomainNameApiAssociationProps) {
 	_init_.Initialize()
 

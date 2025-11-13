@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslicensemanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslicensemanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,8 +73,8 @@ import (
 //
 type CfnLicense interface {
 	awscdk.CfnResource
-	ILicenseRef
 	awscdk.IInspectable
+	interfacesawslicensemanager.ILicenseRef
 	// The Amazon Resource Name (ARN) of the license.
 	AttrLicenseArn() *string
 	// The license version.
@@ -95,7 +97,7 @@ type CfnLicense interface {
 	// License entitlements.
 	Entitlements() interface{}
 	SetEntitlements(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Home Region of the license.
 	HomeRegion() *string
 	SetHomeRegion(val *string)
@@ -109,7 +111,7 @@ type CfnLicense interface {
 	LicenseName() *string
 	SetLicenseName(val *string)
 	// A reference to a License resource.
-	LicenseRef() *LicenseReference
+	LicenseRef() *interfacesawslicensemanager.LicenseReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -286,8 +288,8 @@ type CfnLicense interface {
 // The jsii proxy struct for CfnLicense
 type jsiiProxy_CfnLicense struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILicenseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslicensemanagerILicenseRef
 }
 
 func (j *jsiiProxy_CfnLicense) AttrLicenseArn() *string {
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnLicense) Entitlements() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLicense) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLicense) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnLicense) LicenseName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLicense) LicenseRef() *LicenseReference {
-	var returns *LicenseReference
+func (j *jsiiProxy_CfnLicense) LicenseRef() *interfacesawslicensemanager.LicenseReference {
+	var returns *interfacesawslicensemanager.LicenseReference
 	_jsii_.Get(
 		j,
 		"licenseRef",
@@ -541,6 +543,7 @@ func (j *jsiiProxy_CfnLicense) Validity() interface{} {
 }
 
 
+// Create a new `AWS::LicenseManager::License`.
 func NewCfnLicense(scope constructs.Construct, id *string, props *CfnLicenseProps) CfnLicense {
 	_init_.Initialize()
 
@@ -558,6 +561,7 @@ func NewCfnLicense(scope constructs.Construct, id *string, props *CfnLicenseProp
 	return &j
 }
 
+// Create a new `AWS::LicenseManager::License`.
 func NewCfnLicense_Override(c CfnLicense, scope constructs.Construct, id *string, props *CfnLicenseProps) {
 	_init_.Initialize()
 

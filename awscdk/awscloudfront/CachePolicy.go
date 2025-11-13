@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -104,7 +106,7 @@ type CachePolicy interface {
 	// The ID of the cache policy.
 	CachePolicyId() *string
 	// A reference to a CachePolicy resource.
-	CachePolicyRef() *CachePolicyReference
+	CachePolicyRef() *interfacesawscloudfront.CachePolicyReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -114,7 +116,7 @@ type CachePolicy interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -171,8 +173,8 @@ func (j *jsiiProxy_CachePolicy) CachePolicyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CachePolicy) CachePolicyRef() *CachePolicyReference {
-	var returns *CachePolicyReference
+func (j *jsiiProxy_CachePolicy) CachePolicyRef() *interfacesawscloudfront.CachePolicyReference {
+	var returns *interfacesawscloudfront.CachePolicyReference
 	_jsii_.Get(
 		j,
 		"cachePolicyRef",
@@ -181,8 +183,8 @@ func (j *jsiiProxy_CachePolicy) CachePolicyRef() *CachePolicyReference {
 	return returns
 }
 
-func (j *jsiiProxy_CachePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CachePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

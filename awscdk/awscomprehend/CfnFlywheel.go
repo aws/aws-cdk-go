@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscomprehend/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscomprehend"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -79,8 +81,8 @@ import (
 //
 type CfnFlywheel interface {
 	awscdk.CfnResource
-	IFlywheelRef
 	awscdk.IInspectable
+	interfacesawscomprehend.IFlywheelRef
 	awscdk.ITaggable
 	// The Amazon Resource Number (ARN) of the active model version.
 	ActiveModelArn() *string
@@ -105,12 +107,12 @@ type CfnFlywheel interface {
 	// Data security configuration.
 	DataSecurityConfig() interface{}
 	SetDataSecurityConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Name for the flywheel.
 	FlywheelName() *string
 	SetFlywheelName(val *string)
 	// A reference to a Flywheel resource.
-	FlywheelRef() *FlywheelReference
+	FlywheelRef() *interfacesawscomprehend.FlywheelReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -286,8 +288,8 @@ type CfnFlywheel interface {
 // The jsii proxy struct for CfnFlywheel
 type jsiiProxy_CfnFlywheel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlywheelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscomprehendIFlywheelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnFlywheel) DataSecurityConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlywheel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlywheel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,8 +403,8 @@ func (j *jsiiProxy_CfnFlywheel) FlywheelName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlywheel) FlywheelRef() *FlywheelReference {
-	var returns *FlywheelReference
+func (j *jsiiProxy_CfnFlywheel) FlywheelRef() *interfacesawscomprehend.FlywheelReference {
+	var returns *interfacesawscomprehend.FlywheelReference
 	_jsii_.Get(
 		j,
 		"flywheelRef",
@@ -512,6 +514,7 @@ func (j *jsiiProxy_CfnFlywheel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Comprehend::Flywheel`.
 func NewCfnFlywheel(scope constructs.Construct, id *string, props *CfnFlywheelProps) CfnFlywheel {
 	_init_.Initialize()
 
@@ -529,6 +532,7 @@ func NewCfnFlywheel(scope constructs.Construct, id *string, props *CfnFlywheelPr
 	return &j
 }
 
+// Create a new `AWS::Comprehend::Flywheel`.
 func NewCfnFlywheel_Override(c CfnFlywheel, scope constructs.Construct, id *string, props *CfnFlywheelProps) {
 	_init_.Initialize()
 

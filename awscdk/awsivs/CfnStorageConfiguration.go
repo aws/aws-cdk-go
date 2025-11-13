@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnStorageConfiguration interface {
 	awscdk.CfnResource
-	IStorageConfigurationRef
 	awscdk.IInspectable
+	interfacesawsivs.IStorageConfigurationRef
 	awscdk.ITaggableV2
 	// The storage-configuration ARN.
 	//
@@ -55,7 +57,7 @@ type CfnStorageConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnStorageConfiguration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StorageConfiguration resource.
-	StorageConfigurationRef() *StorageConfigurationReference
+	StorageConfigurationRef() *interfacesawsivs.StorageConfigurationReference
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -231,8 +233,8 @@ type CfnStorageConfiguration interface {
 // The jsii proxy struct for CfnStorageConfiguration
 type jsiiProxy_CfnStorageConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStorageConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivsIStorageConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnStorageConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStorageConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnStorageConfiguration) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageConfiguration) StorageConfigurationRef() *StorageConfigurationReference {
-	var returns *StorageConfigurationReference
+func (j *jsiiProxy_CfnStorageConfiguration) StorageConfigurationRef() *interfacesawsivs.StorageConfigurationReference {
+	var returns *interfacesawsivs.StorageConfigurationReference
 	_jsii_.Get(
 		j,
 		"storageConfigurationRef",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnStorageConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::IVS::StorageConfiguration`.
 func NewCfnStorageConfiguration(scope constructs.Construct, id *string, props *CfnStorageConfigurationProps) CfnStorageConfiguration {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnStorageConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::IVS::StorageConfiguration`.
 func NewCfnStorageConfiguration_Override(c CfnStorageConfiguration, scope constructs.Construct, id *string, props *CfnStorageConfigurationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnSchemaVersionMetadata interface {
 	awscdk.CfnResource
-	ISchemaVersionMetadataRef
 	awscdk.IInspectable
+	interfacesawsglue.ISchemaVersionMetadataRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -37,7 +39,7 @@ type CfnSchemaVersionMetadata interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A metadata key in a key-value pair for metadata.
 	Key() *string
 	SetKey(val *string)
@@ -62,7 +64,7 @@ type CfnSchemaVersionMetadata interface {
 	SchemaVersionId() *string
 	SetSchemaVersionId(val *string)
 	// A reference to a SchemaVersionMetadata resource.
-	SchemaVersionMetadataRef() *SchemaVersionMetadataReference
+	SchemaVersionMetadataRef() *interfacesawsglue.SchemaVersionMetadataReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -213,8 +215,8 @@ type CfnSchemaVersionMetadata interface {
 // The jsii proxy struct for CfnSchemaVersionMetadata
 type jsiiProxy_CfnSchemaVersionMetadata struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISchemaVersionMetadataRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueISchemaVersionMetadataRef
 }
 
 func (j *jsiiProxy_CfnSchemaVersionMetadata) CfnOptions() awscdk.ICfnResourceOptions {
@@ -257,8 +259,8 @@ func (j *jsiiProxy_CfnSchemaVersionMetadata) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchemaVersionMetadata) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSchemaVersionMetadata) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnSchemaVersionMetadata) SchemaVersionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchemaVersionMetadata) SchemaVersionMetadataRef() *SchemaVersionMetadataReference {
-	var returns *SchemaVersionMetadataReference
+func (j *jsiiProxy_CfnSchemaVersionMetadata) SchemaVersionMetadataRef() *interfacesawsglue.SchemaVersionMetadataReference {
+	var returns *interfacesawsglue.SchemaVersionMetadataReference
 	_jsii_.Get(
 		j,
 		"schemaVersionMetadataRef",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnSchemaVersionMetadata) Value() *string {
 }
 
 
+// Create a new `AWS::Glue::SchemaVersionMetadata`.
 func NewCfnSchemaVersionMetadata(scope constructs.Construct, id *string, props *CfnSchemaVersionMetadataProps) CfnSchemaVersionMetadata {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnSchemaVersionMetadata(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Glue::SchemaVersionMetadata`.
 func NewCfnSchemaVersionMetadata_Override(c CfnSchemaVersionMetadata, scope constructs.Construct, id *string, props *CfnSchemaVersionMetadataProps) {
 	_init_.Initialize()
 

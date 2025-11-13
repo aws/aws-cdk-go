@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnFeatureGroup interface {
 	awscdk.CfnResource
-	IFeatureGroupRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IFeatureGroupRef
 	awscdk.ITaggable
 	// The time a `FeatureGroup` was created.
 	AttrCreationTime() *string
@@ -79,7 +81,7 @@ type CfnFeatureGroup interface {
 	// A free form description of a `FeatureGroup` .
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the feature that stores the `EventTime` of a Record in a `FeatureGroup` .
 	EventTimeFeatureName() *string
 	SetEventTimeFeatureName(val *string)
@@ -92,7 +94,7 @@ type CfnFeatureGroup interface {
 	FeatureGroupName() *string
 	SetFeatureGroupName(val *string)
 	// A reference to a FeatureGroup resource.
-	FeatureGroupRef() *FeatureGroupReference
+	FeatureGroupRef() *interfacesawssagemaker.FeatureGroupReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -277,8 +279,8 @@ type CfnFeatureGroup interface {
 // The jsii proxy struct for CfnFeatureGroup
 type jsiiProxy_CfnFeatureGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFeatureGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIFeatureGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnFeatureGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFeatureGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFeatureGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnFeatureGroup) FeatureGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFeatureGroup) FeatureGroupRef() *FeatureGroupReference {
-	var returns *FeatureGroupReference
+func (j *jsiiProxy_CfnFeatureGroup) FeatureGroupRef() *interfacesawssagemaker.FeatureGroupReference {
+	var returns *interfacesawssagemaker.FeatureGroupReference
 	_jsii_.Get(
 		j,
 		"featureGroupRef",
@@ -533,6 +535,7 @@ func (j *jsiiProxy_CfnFeatureGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::SageMaker::FeatureGroup`.
 func NewCfnFeatureGroup(scope constructs.Construct, id *string, props *CfnFeatureGroupProps) CfnFeatureGroup {
 	_init_.Initialize()
 
@@ -550,6 +553,7 @@ func NewCfnFeatureGroup(scope constructs.Construct, id *string, props *CfnFeatur
 	return &j
 }
 
+// Create a new `AWS::SageMaker::FeatureGroup`.
 func NewCfnFeatureGroup_Override(c CfnFeatureGroup, scope constructs.Construct, id *string, props *CfnFeatureGroupProps) {
 	_init_.Initialize()
 
@@ -659,13 +663,13 @@ func (j *jsiiProxy_CfnFeatureGroup)SetThroughputConfig(val interface{}) {
 }
 
 // Creates a new IFeatureGroupRef from a featureGroupName.
-func CfnFeatureGroup_FromFeatureGroupName(scope constructs.Construct, id *string, featureGroupName *string) IFeatureGroupRef {
+func CfnFeatureGroup_FromFeatureGroupName(scope constructs.Construct, id *string, featureGroupName *string) interfacesawssagemaker.IFeatureGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnFeatureGroup_FromFeatureGroupNameParameters(scope, id, featureGroupName); err != nil {
 		panic(err)
 	}
-	var returns IFeatureGroupRef
+	var returns interfacesawssagemaker.IFeatureGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup",

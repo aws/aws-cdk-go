@@ -66,8 +66,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPipe{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPipeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawspipesIPipeRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -303,24 +303,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipeProps",
 		reflect.TypeOf((*CfnPipeProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_pipes.IPipeRef",
-		reflect.TypeOf((*IPipeRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "pipeRef", GoGetter: "PipeRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPipeRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pipes.PipeReference",
-		reflect.TypeOf((*PipeReference)(nil)).Elem(),
 	)
 }

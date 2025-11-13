@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnCustomDBEngineVersion interface {
 	awscdk.CfnResource
-	ICustomDBEngineVersionRef
 	awscdk.IInspectable
+	interfacesawsrds.ICustomDBEngineVersionRef
 	awscdk.ITaggableV2
 	// The ARN of the custom engine version.
 	AttrDbEngineVersionArn() *string
@@ -59,7 +61,7 @@ type CfnCustomDBEngineVersion interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomDBEngineVersion resource.
-	CustomDbEngineVersionRef() *CustomDBEngineVersionReference
+	CustomDbEngineVersionRef() *interfacesawsrds.CustomDBEngineVersionReference
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV.
 	DatabaseInstallationFilesS3BucketName() *string
 	SetDatabaseInstallationFilesS3BucketName(val *string)
@@ -75,7 +77,7 @@ type CfnCustomDBEngineVersion interface {
 	// The name of your CEV.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A value that indicates the ID of the AMI.
 	ImageId() *string
 	SetImageId(val *string)
@@ -261,8 +263,8 @@ type CfnCustomDBEngineVersion interface {
 // The jsii proxy struct for CfnCustomDBEngineVersion
 type jsiiProxy_CfnCustomDBEngineVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomDBEngineVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsICustomDBEngineVersionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomDBEngineVersion) CustomDbEngineVersionRef() *CustomDBEngineVersionReference {
-	var returns *CustomDBEngineVersionReference
+func (j *jsiiProxy_CfnCustomDBEngineVersion) CustomDbEngineVersionRef() *interfacesawsrds.CustomDBEngineVersionReference {
+	var returns *interfacesawsrds.CustomDBEngineVersionReference
 	_jsii_.Get(
 		j,
 		"customDbEngineVersionRef",
@@ -386,8 +388,8 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomDBEngineVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomDBEngineVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -527,6 +529,7 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) UseAwsProvidedLatestImage() interfa
 }
 
 
+// Create a new `AWS::RDS::CustomDBEngineVersion`.
 func NewCfnCustomDBEngineVersion(scope constructs.Construct, id *string, props *CfnCustomDBEngineVersionProps) CfnCustomDBEngineVersion {
 	_init_.Initialize()
 
@@ -544,6 +547,7 @@ func NewCfnCustomDBEngineVersion(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::RDS::CustomDBEngineVersion`.
 func NewCfnCustomDBEngineVersion_Override(c CfnCustomDBEngineVersion, scope constructs.Construct, id *string, props *CfnCustomDBEngineVersionProps) {
 	_init_.Initialize()
 

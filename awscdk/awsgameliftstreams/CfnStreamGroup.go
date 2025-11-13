@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgameliftstreams/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgameliftstreams"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnStreamGroup interface {
 	awscdk.CfnResource
-	IStreamGroupRef
 	awscdk.IInspectable
+	interfacesawsgameliftstreams.IStreamGroupRef
 	awscdk.ITaggableV2
 	// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the stream group resource. For example: `arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4` .
 	AttrArn() *string
@@ -80,7 +82,7 @@ type CfnStreamGroup interface {
 	// A descriptive label for the stream group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A set of one or more locations and the streaming capacity for each location.
 	LocationConfigurations() interface{}
 	SetLocationConfigurations(val interface{})
@@ -109,7 +111,7 @@ type CfnStreamGroup interface {
 	StreamClass() *string
 	SetStreamClass(val *string)
 	// A reference to a StreamGroup resource.
-	StreamGroupRef() *StreamGroupReference
+	StreamGroupRef() *interfacesawsgameliftstreams.StreamGroupReference
 	// A list of labels to assign to the new stream group resource.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
@@ -256,8 +258,8 @@ type CfnStreamGroup interface {
 // The jsii proxy struct for CfnStreamGroup
 type jsiiProxy_CfnStreamGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftstreamsIStreamGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnStreamGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStreamGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,8 +423,8 @@ func (j *jsiiProxy_CfnStreamGroup) StreamClass() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamGroup) StreamGroupRef() *StreamGroupReference {
-	var returns *StreamGroupReference
+func (j *jsiiProxy_CfnStreamGroup) StreamGroupRef() *interfacesawsgameliftstreams.StreamGroupReference {
+	var returns *interfacesawsgameliftstreams.StreamGroupReference
 	_jsii_.Get(
 		j,
 		"streamGroupRef",
@@ -462,6 +464,7 @@ func (j *jsiiProxy_CfnStreamGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GameLiftStreams::StreamGroup`.
 func NewCfnStreamGroup(scope constructs.Construct, id *string, props *CfnStreamGroupProps) CfnStreamGroup {
 	_init_.Initialize()
 
@@ -479,6 +482,7 @@ func NewCfnStreamGroup(scope constructs.Construct, id *string, props *CfnStreamG
 	return &j
 }
 
+// Create a new `AWS::GameLiftStreams::StreamGroup`.
 func NewCfnStreamGroup_Override(c CfnStreamGroup, scope constructs.Construct, id *string, props *CfnStreamGroupProps) {
 	_init_.Initialize()
 

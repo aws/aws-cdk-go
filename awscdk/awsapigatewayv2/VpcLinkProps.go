@@ -2,6 +2,7 @@ package awsapigatewayv2
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 )
 
 // Properties for a VpcLink.
@@ -31,7 +32,7 @@ type VpcLinkProps struct {
 	// A list of security groups for the VPC link.
 	// Default: - no security groups. Use `addSecurityGroups` to add security groups
 	//
-	SecurityGroups *[]awsec2.ISecurityGroupRef `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interfacesawsec2.ISecurityGroupRef `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// A list of subnets for the VPC link.
 	// Default: - private subnets of the provided VPC. Use `addSubnets` to add more subnets
 	//

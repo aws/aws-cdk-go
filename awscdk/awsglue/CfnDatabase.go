@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnDatabase interface {
 	awscdk.CfnResource
-	IDatabaseRef
 	awscdk.IInspectable
+	interfacesawsglue.IDatabaseRef
 	// The AWS account ID for the account in which to create the catalog object.
 	CatalogId() *string
 	SetCatalogId(val *string)
@@ -77,8 +79,8 @@ type CfnDatabase interface {
 	DatabaseName() *string
 	SetDatabaseName(val *string)
 	// A reference to a Database resource.
-	DatabaseRef() *DatabaseReference
-	Env() *awscdk.ResourceEnvironment
+	DatabaseRef() *interfacesawsglue.DatabaseReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -243,8 +245,8 @@ type CfnDatabase interface {
 // The jsii proxy struct for CfnDatabase
 type jsiiProxy_CfnDatabase struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatabaseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIDatabaseRef
 }
 
 func (j *jsiiProxy_CfnDatabase) CatalogId() *string {
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnDatabase) DatabaseName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatabase) DatabaseRef() *DatabaseReference {
-	var returns *DatabaseReference
+func (j *jsiiProxy_CfnDatabase) DatabaseRef() *interfacesawsglue.DatabaseReference {
+	var returns *interfacesawsglue.DatabaseReference
 	_jsii_.Get(
 		j,
 		"databaseRef",
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnDatabase) DatabaseRef() *DatabaseReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatabase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDatabase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnDatabase) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Glue::Database`.
 func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabasePr
 	return &j
 }
 
+// Create a new `AWS::Glue::Database`.
 func NewCfnDatabase_Override(c CfnDatabase, scope constructs.Construct, id *string, props *CfnDatabaseProps) {
 	_init_.Initialize()
 
@@ -456,13 +460,13 @@ func (j *jsiiProxy_CfnDatabase)SetDatabaseName(val *string) {
 }
 
 // Creates a new IDatabaseRef from a databaseName.
-func CfnDatabase_FromDatabaseName(scope constructs.Construct, id *string, databaseName *string) IDatabaseRef {
+func CfnDatabase_FromDatabaseName(scope constructs.Construct, id *string, databaseName *string) interfacesawsglue.IDatabaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnDatabase_FromDatabaseNameParameters(scope, id, databaseName); err != nil {
 		panic(err)
 	}
-	var returns IDatabaseRef
+	var returns interfacesawsglue.IDatabaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_glue.CfnDatabase",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssns"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +62,8 @@ import (
 //
 type CfnTopic interface {
 	awscdk.CfnResource
-	ITopicRef
 	awscdk.IInspectable
+	interfacesawssns.ITopicRef
 	awscdk.ITaggable
 	// The `ArchivePolicy` determines the number of days Amazon SNS retains messages in FIFO topics.
 	ArchivePolicy() interface{}
@@ -91,7 +93,7 @@ type CfnTopic interface {
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic.
 	FifoThroughputScope() *string
 	SetFifoThroughputScope(val *string)
@@ -137,7 +139,7 @@ type CfnTopic interface {
 	TopicName() *string
 	SetTopicName(val *string)
 	// A reference to a Topic resource.
-	TopicRef() *TopicReference
+	TopicRef() *interfacesawssns.TopicReference
 	// Tracing mode of an Amazon SNS topic.
 	TracingConfig() *string
 	SetTracingConfig(val *string)
@@ -284,8 +286,8 @@ type CfnTopic interface {
 // The jsii proxy struct for CfnTopic
 type jsiiProxy_CfnTopic struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITopicRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssnsITopicRef
 	internal.Type__awscdkITaggable
 }
 
@@ -399,8 +401,8 @@ func (j *jsiiProxy_CfnTopic) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopic) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTopic) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -529,8 +531,8 @@ func (j *jsiiProxy_CfnTopic) TopicName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopic) TopicRef() *TopicReference {
-	var returns *TopicReference
+func (j *jsiiProxy_CfnTopic) TopicRef() *interfacesawssns.TopicReference {
+	var returns *interfacesawssns.TopicReference
 	_jsii_.Get(
 		j,
 		"topicRef",
@@ -570,6 +572,7 @@ func (j *jsiiProxy_CfnTopic) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SNS::Topic`.
 func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) CfnTopic {
 	_init_.Initialize()
 
@@ -587,6 +590,7 @@ func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) C
 	return &j
 }
 
+// Create a new `AWS::SNS::Topic`.
 func NewCfnTopic_Override(c CfnTopic, scope constructs.Construct, id *string, props *CfnTopicProps) {
 	_init_.Initialize()
 

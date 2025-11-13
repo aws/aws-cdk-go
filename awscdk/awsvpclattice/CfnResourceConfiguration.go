@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnResourceConfiguration interface {
 	awscdk.CfnResource
-	IResourceConfigurationRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.IResourceConfigurationRef
 	awscdk.ITaggableV2
 	// Specifies whether the resource configuration can be associated with a sharable service network.
 	AllowAssociationToSharableServiceNetwork() interface{}
@@ -72,7 +74,7 @@ type CfnResourceConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -109,7 +111,7 @@ type CfnResourceConfiguration interface {
 	ResourceConfigurationGroupId() *string
 	SetResourceConfigurationGroupId(val *string)
 	// A reference to a ResourceConfiguration resource.
-	ResourceConfigurationRef() *ResourceConfigurationReference
+	ResourceConfigurationRef() *interfacesawsvpclattice.ResourceConfigurationReference
 	// The type of resource configuration.
 	//
 	// A resource configuration can be one of the following types:.
@@ -268,8 +270,8 @@ type CfnResourceConfiguration interface {
 // The jsii proxy struct for CfnResourceConfiguration
 type jsiiProxy_CfnResourceConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeIResourceConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnResourceConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -453,8 +455,8 @@ func (j *jsiiProxy_CfnResourceConfiguration) ResourceConfigurationGroupId() *str
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceConfiguration) ResourceConfigurationRef() *ResourceConfigurationReference {
-	var returns *ResourceConfigurationReference
+func (j *jsiiProxy_CfnResourceConfiguration) ResourceConfigurationRef() *interfacesawsvpclattice.ResourceConfigurationReference {
+	var returns *interfacesawsvpclattice.ResourceConfigurationReference
 	_jsii_.Get(
 		j,
 		"resourceConfigurationRef",
@@ -524,6 +526,7 @@ func (j *jsiiProxy_CfnResourceConfiguration) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::VpcLattice::ResourceConfiguration`.
 func NewCfnResourceConfiguration(scope constructs.Construct, id *string, props *CfnResourceConfigurationProps) CfnResourceConfiguration {
 	_init_.Initialize()
 
@@ -541,6 +544,7 @@ func NewCfnResourceConfiguration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::ResourceConfiguration`.
 func NewCfnResourceConfiguration_Override(c CfnResourceConfiguration, scope constructs.Construct, id *string, props *CfnResourceConfigurationProps) {
 	_init_.Initialize()
 

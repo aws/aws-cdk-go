@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,14 +69,14 @@ import (
 //
 type CfnApi interface {
 	awscdk.CfnResource
-	IApiRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IApiRef
 	awscdk.ITaggable
 	// An API key selection expression.
 	ApiKeySelectionExpression() *string
 	SetApiKeySelectionExpression(val *string)
 	// A reference to a Api resource.
-	ApiRef() *ApiReference
+	ApiRef() *interfacesawsapigatewayv2.ApiReference
 	// The default endpoint for an API.
 	//
 	// For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
@@ -114,7 +116,7 @@ type CfnApi interface {
 	// Avoid validating models when creating a deployment.
 	DisableSchemaValidation() interface{}
 	SetDisableSchemaValidation(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies whether to rollback the API creation when a warning is encountered.
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
@@ -308,8 +310,8 @@ type CfnApi interface {
 // The jsii proxy struct for CfnApi
 type jsiiProxy_CfnApi struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApiRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IApiRef
 	internal.Type__awscdkITaggable
 }
 
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnApi) ApiKeySelectionExpression() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApi) ApiRef() *ApiReference {
-	var returns *ApiReference
+func (j *jsiiProxy_CfnApi) ApiRef() *interfacesawsapigatewayv2.ApiReference {
+	var returns *interfacesawsapigatewayv2.ApiReference
 	_jsii_.Get(
 		j,
 		"apiRef",
@@ -473,8 +475,8 @@ func (j *jsiiProxy_CfnApi) DisableSchemaValidation() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApi) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -644,6 +646,7 @@ func (j *jsiiProxy_CfnApi) Version() *string {
 }
 
 
+// Create a new `AWS::ApiGatewayV2::Api`.
 func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnApi {
 	_init_.Initialize()
 
@@ -661,6 +664,7 @@ func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnAp
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::Api`.
 func NewCfnApi_Override(c CfnApi, scope constructs.Construct, id *string, props *CfnApiProps) {
 	_init_.Initialize()
 
@@ -831,13 +835,13 @@ func (j *jsiiProxy_CfnApi)SetVersion(val *string) {
 }
 
 // Creates a new IApiRef from a apiId.
-func CfnApi_FromApiId(scope constructs.Construct, id *string, apiId *string) IApiRef {
+func CfnApi_FromApiId(scope constructs.Construct, id *string, apiId *string) interfacesawsapigatewayv2.IApiRef {
 	_init_.Initialize()
 
 	if err := validateCfnApi_FromApiIdParameters(scope, id, apiId); err != nil {
 		panic(err)
 	}
-	var returns IApiRef
+	var returns interfacesawsapigatewayv2.IApiRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigatewayv2.CfnApi",

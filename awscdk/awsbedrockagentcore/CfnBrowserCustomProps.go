@@ -25,6 +25,9 @@ package awsbedrockagentcore
 //   	},
 //
 //   	// the properties below are optional
+//   	BrowserSigning: &BrowserSigningProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	Description: jsii.String("description"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	RecordingConfig: &RecordingConfigProperty{
@@ -52,6 +55,10 @@ type CfnBrowserCustomProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html#cfn-bedrockagentcore-browsercustom-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"required" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// Browser signing configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html#cfn-bedrockagentcore-browsercustom-browsersigning
+	//
+	BrowserSigning interface{} `field:"optional" json:"browserSigning" yaml:"browserSigning"`
 	// The custom browser.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html#cfn-bedrockagentcore-browsercustom-description
 	//

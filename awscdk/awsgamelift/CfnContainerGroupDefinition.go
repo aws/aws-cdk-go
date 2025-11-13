@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -135,8 +137,8 @@ import (
 //
 type CfnContainerGroupDefinition interface {
 	awscdk.CfnResource
-	IContainerGroupDefinitionRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IContainerGroupDefinitionRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to an Amazon GameLift Servers `ContainerGroupDefinition` resource. It uniquely identifies the resource across all AWS Regions. Format is `arn:aws:gamelift:[region]::containergroupdefinition/[container group definition name]:[version]` .
 	AttrContainerGroupDefinitionArn() *string
@@ -170,7 +172,7 @@ type CfnContainerGroupDefinition interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ContainerGroupDefinition resource.
-	ContainerGroupDefinitionRef() *ContainerGroupDefinitionReference
+	ContainerGroupDefinitionRef() *interfacesawsgamelift.ContainerGroupDefinitionReference
 	// The type of container group.
 	ContainerGroupType() *string
 	SetContainerGroupType(val *string)
@@ -178,7 +180,7 @@ type CfnContainerGroupDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The definition for the game server container in this group.
 	GameServerContainerDefinition() interface{}
 	SetGameServerContainerDefinition(val interface{})
@@ -370,8 +372,8 @@ type CfnContainerGroupDefinition interface {
 // The jsii proxy struct for CfnContainerGroupDefinition
 type jsiiProxy_CfnContainerGroupDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContainerGroupDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIContainerGroupDefinitionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -465,8 +467,8 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) ContainerGroupDefinitionRef() *ContainerGroupDefinitionReference {
-	var returns *ContainerGroupDefinitionReference
+func (j *jsiiProxy_CfnContainerGroupDefinition) ContainerGroupDefinitionRef() *interfacesawsgamelift.ContainerGroupDefinitionReference {
+	var returns *interfacesawsgamelift.ContainerGroupDefinitionReference
 	_jsii_.Get(
 		j,
 		"containerGroupDefinitionRef",
@@ -495,8 +497,8 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContainerGroupDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -656,6 +658,7 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) VersionDescription() *string {
 }
 
 
+// Create a new `AWS::GameLift::ContainerGroupDefinition`.
 func NewCfnContainerGroupDefinition(scope constructs.Construct, id *string, props *CfnContainerGroupDefinitionProps) CfnContainerGroupDefinition {
 	_init_.Initialize()
 
@@ -673,6 +676,7 @@ func NewCfnContainerGroupDefinition(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::GameLift::ContainerGroupDefinition`.
 func NewCfnContainerGroupDefinition_Override(c CfnContainerGroupDefinition, scope constructs.Construct, id *string, props *CfnContainerGroupDefinitionProps) {
 	_init_.Initialize()
 

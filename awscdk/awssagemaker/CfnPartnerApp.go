@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnPartnerApp interface {
 	awscdk.CfnResource
-	IPartnerAppRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IPartnerAppRef
 	awscdk.ITaggableV2
 	// Configuration settings for the Partner AI App.
 	ApplicationConfig() interface{}
@@ -84,7 +86,7 @@ type CfnPartnerApp interface {
 	// Enables IAM Session based Identity for PartnerApp.
 	EnableIamSessionBasedIdentity() interface{}
 	SetEnableIamSessionBasedIdentity(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role of the user.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -110,7 +112,7 @@ type CfnPartnerApp interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PartnerApp resource.
-	PartnerAppRef() *PartnerAppReference
+	PartnerAppRef() *interfacesawssagemaker.PartnerAppReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -272,8 +274,8 @@ type CfnPartnerApp interface {
 // The jsii proxy struct for CfnPartnerApp
 type jsiiProxy_CfnPartnerApp struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPartnerAppRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIPartnerAppRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnPartnerApp) EnableIamSessionBasedIdentity() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartnerApp) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPartnerApp) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -457,8 +459,8 @@ func (j *jsiiProxy_CfnPartnerApp) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartnerApp) PartnerAppRef() *PartnerAppReference {
-	var returns *PartnerAppReference
+func (j *jsiiProxy_CfnPartnerApp) PartnerAppRef() *interfacesawssagemaker.PartnerAppReference {
+	var returns *interfacesawssagemaker.PartnerAppReference
 	_jsii_.Get(
 		j,
 		"partnerAppRef",
@@ -538,6 +540,7 @@ func (j *jsiiProxy_CfnPartnerApp) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::PartnerApp`.
 func NewCfnPartnerApp(scope constructs.Construct, id *string, props *CfnPartnerAppProps) CfnPartnerApp {
 	_init_.Initialize()
 
@@ -555,6 +558,7 @@ func NewCfnPartnerApp(scope constructs.Construct, id *string, props *CfnPartnerA
 	return &j
 }
 
+// Create a new `AWS::SageMaker::PartnerApp`.
 func NewCfnPartnerApp_Override(c CfnPartnerApp, scope constructs.Construct, id *string, props *CfnPartnerAppProps) {
 	_init_.Initialize()
 

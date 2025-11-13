@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnOptionGroup interface {
 	awscdk.CfnResource
-	IOptionGroupRef
 	awscdk.IInspectable
+	interfacesawsrds.IOptionGroupRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -71,7 +73,7 @@ type CfnOptionGroup interface {
 	// Specifies the name of the engine that this option group should be associated with.
 	EngineName() *string
 	SetEngineName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -97,7 +99,7 @@ type CfnOptionGroup interface {
 	OptionGroupName() *string
 	SetOptionGroupName(val *string)
 	// A reference to a OptionGroup resource.
-	OptionGroupRef() *OptionGroupReference
+	OptionGroupRef() *interfacesawsrds.OptionGroupReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -255,8 +257,8 @@ type CfnOptionGroup interface {
 // The jsii proxy struct for CfnOptionGroup
 type jsiiProxy_CfnOptionGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOptionGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIOptionGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnOptionGroup) EngineName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOptionGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOptionGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnOptionGroup) OptionGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOptionGroup) OptionGroupRef() *OptionGroupReference {
-	var returns *OptionGroupReference
+func (j *jsiiProxy_CfnOptionGroup) OptionGroupRef() *interfacesawsrds.OptionGroupReference {
+	var returns *interfacesawsrds.OptionGroupReference
 	_jsii_.Get(
 		j,
 		"optionGroupRef",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnOptionGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RDS::OptionGroup`.
 func NewCfnOptionGroup(scope constructs.Construct, id *string, props *CfnOptionGroupProps) CfnOptionGroup {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnOptionGroup(scope constructs.Construct, id *string, props *CfnOptionG
 	return &j
 }
 
+// Create a new `AWS::RDS::OptionGroup`.
 func NewCfnOptionGroup_Override(c CfnOptionGroup, scope constructs.Construct, id *string, props *CfnOptionGroupProps) {
 	_init_.Initialize()
 
@@ -542,13 +546,13 @@ func (j *jsiiProxy_CfnOptionGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IOptionGroupRef from a optionGroupName.
-func CfnOptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, optionGroupName *string) IOptionGroupRef {
+func CfnOptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, optionGroupName *string) interfacesawsrds.IOptionGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnOptionGroup_FromOptionGroupNameParameters(scope, id, optionGroupName); err != nil {
 		panic(err)
 	}
-	var returns IOptionGroupRef
+	var returns interfacesawsrds.IOptionGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rds.CfnOptionGroup",

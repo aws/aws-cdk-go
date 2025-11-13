@@ -3,20 +3,20 @@ package awsiam
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 )
 
 // A resource with a resource policy that can be added to.
 type IResourceWithPolicyV2 interface {
-	awscdk.IEnvironmentAware
+	interfaces.IEnvironmentAware
 	// Add a statement to the resource's resource policy.
 	AddToResourcePolicy(statement PolicyStatement) *AddToResourcePolicyResult
 }
 
 // The jsii proxy for IResourceWithPolicyV2
 type jsiiProxy_IResourceWithPolicyV2 struct {
-	internal.Type__awscdkIEnvironmentAware
+	internal.Type__interfacesIEnvironmentAware
 }
 
 func (i *jsiiProxy_IResourceWithPolicyV2) AddToResourcePolicy(statement PolicyStatement) *AddToResourcePolicyResult {

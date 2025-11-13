@@ -4,18 +4,18 @@ package awseks
 // EKS cluster logging types.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //
 //
 //   cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	// ...
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   	ClusterLogging: []ClusterLoggingTypes{
 //   		eks.ClusterLoggingTypes_API,
 //   		eks.ClusterLoggingTypes_AUTHENTICATOR,
 //   		eks.ClusterLoggingTypes_SCHEDULER,
 //   	},
-//   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 //   })
 //
 type ClusterLoggingTypes string

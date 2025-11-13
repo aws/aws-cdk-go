@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,8 +28,8 @@ import (
 //
 type CfnCertificate interface {
 	awscdk.CfnResource
-	ICertificateRef
 	awscdk.IInspectable
+	interfacesawsdms.ICertificateRef
 	AttrId() *string
 	// A customer-assigned name for the certificate.
 	CertificateIdentifier() *string
@@ -36,7 +38,7 @@ type CfnCertificate interface {
 	CertificatePem() *string
 	SetCertificatePem(val *string)
 	// A reference to a Certificate resource.
-	CertificateRef() *CertificateReference
+	CertificateRef() *interfacesawsdms.CertificateReference
 	// The location of an imported Oracle Wallet certificate for use with SSL.
 	CertificateWallet() *string
 	SetCertificateWallet(val *string)
@@ -49,7 +51,7 @@ type CfnCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -214,8 +216,8 @@ type CfnCertificate interface {
 // The jsii proxy struct for CfnCertificate
 type jsiiProxy_CfnCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsICertificateRef
 }
 
 func (j *jsiiProxy_CfnCertificate) AttrId() *string {
@@ -248,8 +250,8 @@ func (j *jsiiProxy_CfnCertificate) CertificatePem() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) CertificateRef() *CertificateReference {
-	var returns *CertificateReference
+func (j *jsiiProxy_CfnCertificate) CertificateRef() *interfacesawsdms.CertificateReference {
+	var returns *interfacesawsdms.CertificateReference
 	_jsii_.Get(
 		j,
 		"certificateRef",
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnCertificate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -379,6 +381,7 @@ func (j *jsiiProxy_CfnCertificate) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DMS::Certificate`.
 func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
@@ -396,6 +399,7 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 	return &j
 }
 
+// Create a new `AWS::DMS::Certificate`.
 func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 
@@ -431,13 +435,13 @@ func (j *jsiiProxy_CfnCertificate)SetCertificateWallet(val *string) {
 }
 
 // Creates a new ICertificateRef from a certificateId.
-func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) ICertificateRef {
+func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) interfacesawsdms.ICertificateRef {
 	_init_.Initialize()
 
 	if err := validateCfnCertificate_FromCertificateIdParameters(scope, id, certificateId); err != nil {
 		panic(err)
 	}
-	var returns ICertificateRef
+	var returns interfacesawsdms.ICertificateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_dms.CfnCertificate",

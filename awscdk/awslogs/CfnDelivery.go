@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnDelivery interface {
 	awscdk.CfnResource
-	IDeliveryRef
 	awscdk.IInspectable
+	interfacesawslogs.IDeliveryRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery.
 	AttrArn() *string
@@ -69,11 +71,11 @@ type CfnDelivery interface {
 	DeliveryDestinationArn() *string
 	SetDeliveryDestinationArn(val *string)
 	// A reference to a Delivery resource.
-	DeliveryRef() *DeliveryReference
+	DeliveryRef() *interfacesawslogs.DeliveryReference
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName() *string
 	SetDeliverySourceName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The field delimiter that is used between record fields when the final output format of a delivery is in `Plain` , `W3C` , or `Raw` format.
 	FieldDelimiter() *string
 	SetFieldDelimiter(val *string)
@@ -253,8 +255,8 @@ type CfnDelivery interface {
 // The jsii proxy struct for CfnDelivery
 type jsiiProxy_CfnDelivery struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeliveryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsIDeliveryRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnDelivery) DeliveryDestinationArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDelivery) DeliveryRef() *DeliveryReference {
-	var returns *DeliveryReference
+func (j *jsiiProxy_CfnDelivery) DeliveryRef() *interfacesawslogs.DeliveryReference {
+	var returns *interfacesawslogs.DeliveryReference
 	_jsii_.Get(
 		j,
 		"deliveryRef",
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnDelivery) DeliverySourceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDelivery) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDelivery) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -489,6 +491,7 @@ func (j *jsiiProxy_CfnDelivery) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Logs::Delivery`.
 func NewCfnDelivery(scope constructs.Construct, id *string, props *CfnDeliveryProps) CfnDelivery {
 	_init_.Initialize()
 
@@ -506,6 +509,7 @@ func NewCfnDelivery(scope constructs.Construct, id *string, props *CfnDeliveryPr
 	return &j
 }
 
+// Create a new `AWS::Logs::Delivery`.
 func NewCfnDelivery_Override(c CfnDelivery, scope constructs.Construct, id *string, props *CfnDeliveryProps) {
 	_init_.Initialize()
 

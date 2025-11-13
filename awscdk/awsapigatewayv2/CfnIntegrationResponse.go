@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnIntegrationResponse interface {
 	awscdk.CfnResource
-	IIntegrationResponseRef
 	awscdk.IInspectable
+	interfacesawsapigatewayv2.IIntegrationResponseRef
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
@@ -56,7 +58,7 @@ type CfnIntegrationResponse interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The integration ID.
 	IntegrationId() *string
 	SetIntegrationId(val *string)
@@ -64,7 +66,7 @@ type CfnIntegrationResponse interface {
 	IntegrationResponseKey() *string
 	SetIntegrationResponseKey(val *string)
 	// A reference to a IntegrationResponse resource.
-	IntegrationResponseRef() *IntegrationResponseReference
+	IntegrationResponseRef() *interfacesawsapigatewayv2.IntegrationResponseReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -238,8 +240,8 @@ type CfnIntegrationResponse interface {
 // The jsii proxy struct for CfnIntegrationResponse
 type jsiiProxy_CfnIntegrationResponse struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIntegrationResponseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayv2IIntegrationResponseRef
 }
 
 func (j *jsiiProxy_CfnIntegrationResponse) ApiId() *string {
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnIntegrationResponse) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegrationResponse) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIntegrationResponse) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnIntegrationResponse) IntegrationResponseKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegrationResponse) IntegrationResponseRef() *IntegrationResponseReference {
-	var returns *IntegrationResponseReference
+func (j *jsiiProxy_CfnIntegrationResponse) IntegrationResponseRef() *interfacesawsapigatewayv2.IntegrationResponseReference {
+	var returns *interfacesawsapigatewayv2.IntegrationResponseReference
 	_jsii_.Get(
 		j,
 		"integrationResponseRef",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnIntegrationResponse) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::ApiGatewayV2::IntegrationResponse`.
 func NewCfnIntegrationResponse(scope constructs.Construct, id *string, props *CfnIntegrationResponseProps) CfnIntegrationResponse {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnIntegrationResponse(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::ApiGatewayV2::IntegrationResponse`.
 func NewCfnIntegrationResponse_Override(c CfnIntegrationResponse, scope constructs.Construct, id *string, props *CfnIntegrationResponseProps) {
 	_init_.Initialize()
 

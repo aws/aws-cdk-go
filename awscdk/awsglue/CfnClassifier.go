@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnClassifier interface {
 	awscdk.CfnResource
-	IClassifierRef
 	awscdk.IInspectable
+	interfacesawsglue.IClassifierRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -70,7 +72,7 @@ type CfnClassifier interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Classifier resource.
-	ClassifierRef() *ClassifierReference
+	ClassifierRef() *interfacesawsglue.ClassifierReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -78,7 +80,7 @@ type CfnClassifier interface {
 	// A classifier for comma-separated values (CSV).
 	CsvClassifier() interface{}
 	SetCsvClassifier(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A classifier that uses `grok` .
 	GrokClassifier() interface{}
 	SetGrokClassifier(val interface{})
@@ -252,8 +254,8 @@ type CfnClassifier interface {
 // The jsii proxy struct for CfnClassifier
 type jsiiProxy_CfnClassifier struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClassifierRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIClassifierRef
 }
 
 func (j *jsiiProxy_CfnClassifier) AttrId() *string {
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnClassifier) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClassifier) ClassifierRef() *ClassifierReference {
-	var returns *ClassifierReference
+func (j *jsiiProxy_CfnClassifier) ClassifierRef() *interfacesawsglue.ClassifierReference {
+	var returns *interfacesawsglue.ClassifierReference
 	_jsii_.Get(
 		j,
 		"classifierRef",
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnClassifier) CsvClassifier() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClassifier) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClassifier) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -427,6 +429,7 @@ func (j *jsiiProxy_CfnClassifier) XmlClassifier() interface{} {
 }
 
 
+// Create a new `AWS::Glue::Classifier`.
 func NewCfnClassifier(scope constructs.Construct, id *string, props *CfnClassifierProps) CfnClassifier {
 	_init_.Initialize()
 
@@ -444,6 +447,7 @@ func NewCfnClassifier(scope constructs.Construct, id *string, props *CfnClassifi
 	return &j
 }
 
+// Create a new `AWS::Glue::Classifier`.
 func NewCfnClassifier_Override(c CfnClassifier, scope constructs.Construct, id *string, props *CfnClassifierProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotsitewise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnDataset interface {
 	awscdk.CfnResource
-	IDatasetRef
 	awscdk.IInspectable
+	interfacesawsiotsitewise.IDatasetRef
 	awscdk.ITaggableV2
 	// The ARN of the dataset, which has the following format.
 	//
@@ -72,11 +74,11 @@ type CfnDataset interface {
 	DatasetName() *string
 	SetDatasetName(val *string)
 	// A reference to a Dataset resource.
-	DatasetRef() *DatasetReference
+	DatasetRef() *interfacesawsiotsitewise.DatasetReference
 	// The data source for the dataset.
 	DatasetSource() interface{}
 	SetDatasetSource(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -244,8 +246,8 @@ type CfnDataset interface {
 // The jsii proxy struct for CfnDataset
 type jsiiProxy_CfnDataset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatasetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotsitewiseIDatasetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnDataset) DatasetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) DatasetRef() *DatasetReference {
-	var returns *DatasetReference
+func (j *jsiiProxy_CfnDataset) DatasetRef() *interfacesawsiotsitewise.DatasetReference {
+	var returns *interfacesawsiotsitewise.DatasetReference
 	_jsii_.Get(
 		j,
 		"datasetRef",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnDataset) DatasetSource() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -440,6 +442,7 @@ func (j *jsiiProxy_CfnDataset) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTSiteWise::Dataset`.
 func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
 	_init_.Initialize()
 
@@ -457,6 +460,7 @@ func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProp
 	return &j
 }
 
+// Create a new `AWS::IoTSiteWise::Dataset`.
 func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string, props *CfnDatasetProps) {
 	_init_.Initialize()
 
@@ -509,13 +513,13 @@ func (j *jsiiProxy_CfnDataset)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDatasetRef from an ARN.
-func CfnDataset_FromDatasetArn(scope constructs.Construct, id *string, arn *string) IDatasetRef {
+func CfnDataset_FromDatasetArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IDatasetRef {
 	_init_.Initialize()
 
 	if err := validateCfnDataset_FromDatasetArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDatasetRef
+	var returns interfacesawsiotsitewise.IDatasetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnDataset",
@@ -528,13 +532,13 @@ func CfnDataset_FromDatasetArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IDatasetRef from a datasetId.
-func CfnDataset_FromDatasetId(scope constructs.Construct, id *string, datasetId *string) IDatasetRef {
+func CfnDataset_FromDatasetId(scope constructs.Construct, id *string, datasetId *string) interfacesawsiotsitewise.IDatasetRef {
 	_init_.Initialize()
 
 	if err := validateCfnDataset_FromDatasetIdParameters(scope, id, datasetId); err != nil {
 		panic(err)
 	}
-	var returns IDatasetRef
+	var returns interfacesawsiotsitewise.IDatasetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnDataset",

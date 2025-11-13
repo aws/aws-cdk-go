@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsce/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsce"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnCostCategory interface {
 	awscdk.CfnResource
-	ICostCategoryRef
 	awscdk.IInspectable
+	interfacesawsce.ICostCategoryRef
 	awscdk.ITaggableV2
 	// The unique identifier for your Cost Category.
 	AttrArn() *string
@@ -53,7 +55,7 @@ type CfnCostCategory interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CostCategory resource.
-	CostCategoryRef() *CostCategoryReference
+	CostCategoryRef() *interfacesawsce.CostCategoryReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -61,7 +63,7 @@ type CfnCostCategory interface {
 	// The default value for the cost category.
 	DefaultValue() *string
 	SetDefaultValue(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,8 +243,8 @@ type CfnCostCategory interface {
 // The jsii proxy struct for CfnCostCategory
 type jsiiProxy_CfnCostCategory struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICostCategoryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsceICostCategoryRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnCostCategory) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCostCategory) CostCategoryRef() *CostCategoryReference {
-	var returns *CostCategoryReference
+func (j *jsiiProxy_CfnCostCategory) CostCategoryRef() *interfacesawsce.CostCategoryReference {
+	var returns *interfacesawsce.CostCategoryReference
 	_jsii_.Get(
 		j,
 		"costCategoryRef",
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnCostCategory) DefaultValue() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCostCategory) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCostCategory) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -457,6 +459,7 @@ func (j *jsiiProxy_CfnCostCategory) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::CE::CostCategory`.
 func NewCfnCostCategory(scope constructs.Construct, id *string, props *CfnCostCategoryProps) CfnCostCategory {
 	_init_.Initialize()
 
@@ -474,6 +477,7 @@ func NewCfnCostCategory(scope constructs.Construct, id *string, props *CfnCostCa
 	return &j
 }
 
+// Create a new `AWS::CE::CostCategory`.
 func NewCfnCostCategory_Override(c CfnCostCategory, scope constructs.Construct, id *string, props *CfnCostCategoryProps) {
 	_init_.Initialize()
 

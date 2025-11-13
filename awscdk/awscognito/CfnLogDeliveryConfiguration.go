@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnLogDeliveryConfiguration interface {
 	awscdk.CfnResource
-	ILogDeliveryConfigurationRef
 	awscdk.IInspectable
+	interfacesawscognito.ILogDeliveryConfigurationRef
 	// A user pool ID, for example `us-east-1_EXAMPLE` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -56,12 +58,12 @@ type CfnLogDeliveryConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A logging destination of a user pool.
 	LogConfigurations() interface{}
 	SetLogConfigurations(val interface{})
 	// A reference to a LogDeliveryConfiguration resource.
-	LogDeliveryConfigurationRef() *LogDeliveryConfigurationReference
+	LogDeliveryConfigurationRef() *interfacesawscognito.LogDeliveryConfigurationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -229,8 +231,8 @@ type CfnLogDeliveryConfiguration interface {
 // The jsii proxy struct for CfnLogDeliveryConfiguration
 type jsiiProxy_CfnLogDeliveryConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILogDeliveryConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoILogDeliveryConfigurationRef
 }
 
 func (j *jsiiProxy_CfnLogDeliveryConfiguration) AttrId() *string {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnLogDeliveryConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogDeliveryConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLogDeliveryConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnLogDeliveryConfiguration) LogConfigurations() interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogDeliveryConfiguration) LogDeliveryConfigurationRef() *LogDeliveryConfigurationReference {
-	var returns *LogDeliveryConfigurationReference
+func (j *jsiiProxy_CfnLogDeliveryConfiguration) LogDeliveryConfigurationRef() *interfacesawscognito.LogDeliveryConfigurationReference {
+	var returns *interfacesawscognito.LogDeliveryConfigurationReference
 	_jsii_.Get(
 		j,
 		"logDeliveryConfigurationRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnLogDeliveryConfiguration) UserPoolId() *string {
 }
 
 
+// Create a new `AWS::Cognito::LogDeliveryConfiguration`.
 func NewCfnLogDeliveryConfiguration(scope constructs.Construct, id *string, props *CfnLogDeliveryConfigurationProps) CfnLogDeliveryConfiguration {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnLogDeliveryConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::Cognito::LogDeliveryConfiguration`.
 func NewCfnLogDeliveryConfiguration_Override(c CfnLogDeliveryConfiguration, scope constructs.Construct, id *string, props *CfnLogDeliveryConfigurationProps) {
 	_init_.Initialize()
 

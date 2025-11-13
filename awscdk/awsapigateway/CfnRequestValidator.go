@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnRequestValidator interface {
 	awscdk.CfnResource
-	IRequestValidatorRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IRequestValidatorRef
 	// The ID for the request validator.
 	//
 	// For example: `abc123` .
@@ -46,7 +48,7 @@ type CfnRequestValidator interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -68,7 +70,7 @@ type CfnRequestValidator interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RequestValidator resource.
-	RequestValidatorRef() *RequestValidatorReference
+	RequestValidatorRef() *interfacesawsapigateway.RequestValidatorReference
 	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
@@ -225,8 +227,8 @@ type CfnRequestValidator interface {
 // The jsii proxy struct for CfnRequestValidator
 type jsiiProxy_CfnRequestValidator struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRequestValidatorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIRequestValidatorRef
 }
 
 func (j *jsiiProxy_CfnRequestValidator) AttrRequestValidatorId() *string {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnRequestValidator) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRequestValidator) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRequestValidator) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnRequestValidator) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRequestValidator) RequestValidatorRef() *RequestValidatorReference {
-	var returns *RequestValidatorReference
+func (j *jsiiProxy_CfnRequestValidator) RequestValidatorRef() *interfacesawsapigateway.RequestValidatorReference {
+	var returns *interfacesawsapigateway.RequestValidatorReference
 	_jsii_.Get(
 		j,
 		"requestValidatorRef",
@@ -400,6 +402,7 @@ func (j *jsiiProxy_CfnRequestValidator) ValidateRequestParameters() interface{} 
 }
 
 
+// Create a new `AWS::ApiGateway::RequestValidator`.
 func NewCfnRequestValidator(scope constructs.Construct, id *string, props *CfnRequestValidatorProps) CfnRequestValidator {
 	_init_.Initialize()
 
@@ -417,6 +420,7 @@ func NewCfnRequestValidator(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::RequestValidator`.
 func NewCfnRequestValidator_Override(c CfnRequestValidator, scope constructs.Construct, id *string, props *CfnRequestValidatorProps) {
 	_init_.Initialize()
 

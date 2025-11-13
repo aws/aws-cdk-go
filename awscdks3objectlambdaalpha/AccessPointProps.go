@@ -2,7 +2,7 @@ package awscdks3objectlambdaalpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // The S3 object lambda access point configuration.
@@ -33,7 +33,7 @@ import (
 type AccessPointProps struct {
 	// The bucket to which this access point belongs.
 	// Experimental.
-	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket interfacesawss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
 	// The Lambda function used to transform objects.
 	// Experimental.
 	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`

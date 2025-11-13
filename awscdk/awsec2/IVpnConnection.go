@@ -6,12 +6,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IVpnConnection interface {
 	awscdk.IResource
-	IVPNConnectionRef
+	interfacesawsec2.IVPNConnectionRef
 	// Return the given named metric for this VPNConnection.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The bytes received through the VPN tunnel.
@@ -39,7 +41,7 @@ type IVpnConnection interface {
 // The jsii proxy for IVpnConnection
 type jsiiProxy_IVpnConnection struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IVPNConnectionRef
+	internal.Type__interfacesawsec2IVPNConnectionRef
 }
 
 func (i *jsiiProxy_IVpnConnection) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
@@ -157,8 +159,8 @@ func (j *jsiiProxy_IVpnConnection) VpnId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVpnConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IVpnConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -187,8 +189,8 @@ func (j *jsiiProxy_IVpnConnection) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVpnConnection) VpnConnectionRef() *VPNConnectionReference {
-	var returns *VPNConnectionReference
+func (j *jsiiProxy_IVpnConnection) VpnConnectionRef() *interfacesawsec2.VPNConnectionReference {
+	var returns *interfacesawsec2.VPNConnectionReference
 	_jsii_.Get(
 		j,
 		"vpnConnectionRef",

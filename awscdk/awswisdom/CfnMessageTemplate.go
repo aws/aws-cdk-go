@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -159,8 +161,8 @@ import (
 //
 type CfnMessageTemplate interface {
 	awscdk.CfnResource
-	IMessageTemplateRef
 	awscdk.IInspectable
+	interfacesawswisdom.IMessageTemplateRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the message template.
 	AttrMessageTemplateArn() *string
@@ -193,7 +195,7 @@ type CfnMessageTemplate interface {
 	// The description of the message template.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration information of the external data source.
 	GroupingConfiguration() interface{}
 	SetGroupingConfiguration(val interface{})
@@ -217,7 +219,7 @@ type CfnMessageTemplate interface {
 	MessageTemplateAttachments() interface{}
 	SetMessageTemplateAttachments(val interface{})
 	// A reference to a MessageTemplate resource.
-	MessageTemplateRef() *MessageTemplateReference
+	MessageTemplateRef() *interfacesawswisdom.MessageTemplateReference
 	// The name of the message template.
 	Name() *string
 	SetName(val *string)
@@ -378,8 +380,8 @@ type CfnMessageTemplate interface {
 // The jsii proxy struct for CfnMessageTemplate
 type jsiiProxy_CfnMessageTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMessageTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIMessageTemplateRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -503,8 +505,8 @@ func (j *jsiiProxy_CfnMessageTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMessageTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMessageTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -563,8 +565,8 @@ func (j *jsiiProxy_CfnMessageTemplate) MessageTemplateAttachments() interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnMessageTemplate) MessageTemplateRef() *MessageTemplateReference {
-	var returns *MessageTemplateReference
+func (j *jsiiProxy_CfnMessageTemplate) MessageTemplateRef() *interfacesawswisdom.MessageTemplateReference {
+	var returns *interfacesawswisdom.MessageTemplateReference
 	_jsii_.Get(
 		j,
 		"messageTemplateRef",
@@ -644,6 +646,7 @@ func (j *jsiiProxy_CfnMessageTemplate) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Wisdom::MessageTemplate`.
 func NewCfnMessageTemplate(scope constructs.Construct, id *string, props *CfnMessageTemplateProps) CfnMessageTemplate {
 	_init_.Initialize()
 
@@ -661,6 +664,7 @@ func NewCfnMessageTemplate(scope constructs.Construct, id *string, props *CfnMes
 	return &j
 }
 
+// Create a new `AWS::Wisdom::MessageTemplate`.
 func NewCfnMessageTemplate_Override(c CfnMessageTemplate, scope constructs.Construct, id *string, props *CfnMessageTemplateProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -91,8 +93,8 @@ import (
 //
 type CfnPartition interface {
 	awscdk.CfnResource
-	IPartitionRef
 	awscdk.IInspectable
+	interfacesawsglue.IPartitionRef
 	AttrId() *string
 	// The AWS account ID of the catalog in which the partion is to be created.
 	CatalogId() *string
@@ -109,7 +111,7 @@ type CfnPartition interface {
 	// The name of the catalog database in which to create the partition.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -126,7 +128,7 @@ type CfnPartition interface {
 	PartitionInput() interface{}
 	SetPartitionInput(val interface{})
 	// A reference to a Partition resource.
-	PartitionRef() *PartitionReference
+	PartitionRef() *interfacesawsglue.PartitionReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -282,8 +284,8 @@ type CfnPartition interface {
 // The jsii proxy struct for CfnPartition
 type jsiiProxy_CfnPartition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPartitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIPartitionRef
 }
 
 func (j *jsiiProxy_CfnPartition) AttrId() *string {
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnPartition) DatabaseName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPartition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnPartition) PartitionInput() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartition) PartitionRef() *PartitionReference {
-	var returns *PartitionReference
+func (j *jsiiProxy_CfnPartition) PartitionRef() *interfacesawsglue.PartitionReference {
+	var returns *interfacesawsglue.PartitionReference
 	_jsii_.Get(
 		j,
 		"partitionRef",
@@ -457,6 +459,7 @@ func (j *jsiiProxy_CfnPartition) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Glue::Partition`.
 func NewCfnPartition(scope constructs.Construct, id *string, props *CfnPartitionProps) CfnPartition {
 	_init_.Initialize()
 
@@ -474,6 +477,7 @@ func NewCfnPartition(scope constructs.Construct, id *string, props *CfnPartition
 	return &j
 }
 
+// Create a new `AWS::Glue::Partition`.
 func NewCfnPartition_Override(c CfnPartition, scope constructs.Construct, id *string, props *CfnPartitionProps) {
 	_init_.Initialize()
 

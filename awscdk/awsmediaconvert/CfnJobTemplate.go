@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconvert/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconvert"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnJobTemplate interface {
 	awscdk.CfnResource
-	IJobTemplateRef
 	awscdk.IInspectable
+	interfacesawsmediaconvert.IJobTemplateRef
 	awscdk.ITaggable
 	// Accelerated transcoding can significantly speed up jobs with long, visually complex content.
 	AccelerationSettings() interface{}
@@ -76,12 +78,12 @@ type CfnJobTemplate interface {
 	// Optional.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Optional.
 	HopDestinations() interface{}
 	SetHopDestinations(val interface{})
 	// A reference to a JobTemplate resource.
-	JobTemplateRef() *JobTemplateReference
+	JobTemplateRef() *interfacesawsmediaconvert.JobTemplateReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -266,8 +268,8 @@ type CfnJobTemplate interface {
 // The jsii proxy struct for CfnJobTemplate
 type jsiiProxy_CfnJobTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IJobTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconvertIJobTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnJobTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnJobTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -391,8 +393,8 @@ func (j *jsiiProxy_CfnJobTemplate) HopDestinations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobTemplate) JobTemplateRef() *JobTemplateReference {
-	var returns *JobTemplateReference
+func (j *jsiiProxy_CfnJobTemplate) JobTemplateRef() *interfacesawsmediaconvert.JobTemplateReference {
+	var returns *interfacesawsmediaconvert.JobTemplateReference
 	_jsii_.Get(
 		j,
 		"jobTemplateRef",
@@ -532,6 +534,7 @@ func (j *jsiiProxy_CfnJobTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaConvert::JobTemplate`.
 func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemplateProps) CfnJobTemplate {
 	_init_.Initialize()
 
@@ -549,6 +552,7 @@ func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemp
 	return &j
 }
 
+// Create a new `AWS::MediaConvert::JobTemplate`.
 func NewCfnJobTemplate_Override(c CfnJobTemplate, scope constructs.Construct, id *string, props *CfnJobTemplateProps) {
 	_init_.Initialize()
 

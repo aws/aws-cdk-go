@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsneptune/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsneptune"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnEventSubscription interface {
 	awscdk.CfnResource
-	IEventSubscriptionRef
 	awscdk.IInspectable
+	interfacesawsneptune.IEventSubscriptionRef
 	awscdk.ITaggableV2
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -64,12 +66,12 @@ type CfnEventSubscription interface {
 	// A Boolean value indicating if the subscription is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of event categories for a SourceType that you want to subscribe to.
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
 	// A reference to a EventSubscription resource.
-	EventSubscriptionRef() *EventSubscriptionReference
+	EventSubscriptionRef() *interfacesawsneptune.EventSubscriptionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -249,8 +251,8 @@ type CfnEventSubscription interface {
 // The jsii proxy struct for CfnEventSubscription
 type jsiiProxy_CfnEventSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsneptuneIEventSubscriptionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnEventSubscription) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnEventSubscription) EventCategories() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) EventSubscriptionRef() *EventSubscriptionReference {
-	var returns *EventSubscriptionReference
+func (j *jsiiProxy_CfnEventSubscription) EventSubscriptionRef() *interfacesawsneptune.EventSubscriptionReference {
+	var returns *interfacesawsneptune.EventSubscriptionReference
 	_jsii_.Get(
 		j,
 		"eventSubscriptionRef",
@@ -455,6 +457,7 @@ func (j *jsiiProxy_CfnEventSubscription) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::Neptune::EventSubscription`.
 func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
 	_init_.Initialize()
 
@@ -472,6 +475,7 @@ func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnE
 	return &j
 }
 
+// Create a new `AWS::Neptune::EventSubscription`.
 func NewCfnEventSubscription_Override(c CfnEventSubscription, scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) {
 	_init_.Initialize()
 

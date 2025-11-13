@@ -42,10 +42,6 @@ func init() {
 		"aws-cdk-lib.aws_globalaccelerator.AcceleratorProps",
 		reflect.TypeOf((*AcceleratorProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_globalaccelerator.AcceleratorReference",
-		reflect.TypeOf((*AcceleratorReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_globalaccelerator.CfnAccelerator",
 		reflect.TypeOf((*CfnAccelerator)(nil)).Elem(),
@@ -97,8 +93,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccelerator{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAcceleratorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglobalacceleratorIAcceleratorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -153,8 +149,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCrossAccountAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICrossAccountAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglobalacceleratorICrossAccountAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -218,8 +214,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnEndpointGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEndpointGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglobalacceleratorIEndpointGroupRef)
 			return &j
 		},
 	)
@@ -280,8 +276,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnListener{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListenerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglobalacceleratorIListenerRef)
 			return &j
 		},
 	)
@@ -308,10 +304,6 @@ func init() {
 			"TCP": ConnectionProtocol_TCP,
 			"UDP": ConnectionProtocol_UDP,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_globalaccelerator.CrossAccountAttachmentReference",
-		reflect.TypeOf((*CrossAccountAttachmentReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_globalaccelerator.EndpointGroup",
@@ -347,10 +339,6 @@ func init() {
 		"aws-cdk-lib.aws_globalaccelerator.EndpointGroupProps",
 		reflect.TypeOf((*EndpointGroupProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_globalaccelerator.EndpointGroupReference",
-		reflect.TypeOf((*EndpointGroupReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_globalaccelerator.HealthCheckProtocol",
 		reflect.TypeOf((*HealthCheckProtocol)(nil)).Elem(),
@@ -377,36 +365,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IAccelerator{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_globalaccelerator.IAcceleratorRef",
-		reflect.TypeOf((*IAcceleratorRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "acceleratorRef", GoGetter: "AcceleratorRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAcceleratorRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_globalaccelerator.ICrossAccountAttachmentRef",
-		reflect.TypeOf((*ICrossAccountAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "crossAccountAttachmentRef", GoGetter: "CrossAccountAttachmentRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICrossAccountAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -438,21 +396,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_globalaccelerator.IEndpointGroupRef",
-		reflect.TypeOf((*IEndpointGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "endpointGroupRef", GoGetter: "EndpointGroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IEndpointGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_globalaccelerator.IListener",
 		reflect.TypeOf((*IListener)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -465,21 +408,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IListener{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_globalaccelerator.IListenerRef",
-		reflect.TypeOf((*IListenerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IListenerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -522,10 +450,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_globalaccelerator.ListenerProps",
 		reflect.TypeOf((*ListenerProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_globalaccelerator.ListenerReference",
-		reflect.TypeOf((*ListenerReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_globalaccelerator.PortOverride",

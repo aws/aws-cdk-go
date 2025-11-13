@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFront Key Value Store.
 type IKeyValueStore interface {
-	IKeyValueStoreRef
+	interfacesawscloudfront.IKeyValueStoreRef
 	awscdk.IResource
 	// The ARN of the Key Value Store.
 	KeyValueStoreArn() *string
@@ -22,7 +24,7 @@ type IKeyValueStore interface {
 
 // The jsii proxy for IKeyValueStore
 type jsiiProxy_IKeyValueStore struct {
-	jsiiProxy_IKeyValueStoreRef
+	internal.Type__interfacesawscloudfrontIKeyValueStoreRef
 	internal.Type__awscdkIResource
 }
 
@@ -67,8 +69,8 @@ func (j *jsiiProxy_IKeyValueStore) KeyValueStoreStatus() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IKeyValueStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IKeyValueStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -77,8 +79,8 @@ func (j *jsiiProxy_IKeyValueStore) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IKeyValueStore) KeyValueStoreRef() *KeyValueStoreReference {
-	var returns *KeyValueStoreReference
+func (j *jsiiProxy_IKeyValueStore) KeyValueStoreRef() *interfacesawscloudfront.KeyValueStoreReference {
+	var returns *interfacesawscloudfront.KeyValueStoreReference
 	_jsii_.Get(
 		j,
 		"keyValueStoreRef",

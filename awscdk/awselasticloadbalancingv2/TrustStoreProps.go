@@ -1,7 +1,7 @@
 package awselasticloadbalancingv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Properties used for the Trust Store.
@@ -40,7 +40,7 @@ import (
 //
 type TrustStoreProps struct {
 	// The bucket that the trust store is hosted in.
-	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket interfacesawss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
 	// The key in S3 to look at for the trust store.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The name of the trust store.

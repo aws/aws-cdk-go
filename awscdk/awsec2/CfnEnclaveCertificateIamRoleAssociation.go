@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnEnclaveCertificateIamRoleAssociation interface {
 	awscdk.CfnResource
-	IEnclaveCertificateIamRoleAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.IEnclaveCertificateIamRoleAssociationRef
 	// The name of the Amazon S3 bucket to which the certificate was uploaded.
 	AttrCertificateS3BucketName() *string
 	// The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored.
@@ -54,8 +56,8 @@ type CfnEnclaveCertificateIamRoleAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EnclaveCertificateIamRoleAssociation resource.
-	EnclaveCertificateIamRoleAssociationRef() *EnclaveCertificateIamRoleAssociationReference
-	Env() *awscdk.ResourceEnvironment
+	EnclaveCertificateIamRoleAssociationRef() *interfacesawsec2.EnclaveCertificateIamRoleAssociationReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnEnclaveCertificateIamRoleAssociation interface {
 // The jsii proxy struct for CfnEnclaveCertificateIamRoleAssociation
 type jsiiProxy_CfnEnclaveCertificateIamRoleAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnclaveCertificateIamRoleAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IEnclaveCertificateIamRoleAssociationRef
 }
 
 func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) AttrCertificateS3BucketName() *string {
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) CreationStack() *[]*
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) EnclaveCertificateIamRoleAssociationRef() *EnclaveCertificateIamRoleAssociationReference {
-	var returns *EnclaveCertificateIamRoleAssociationReference
+func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) EnclaveCertificateIamRoleAssociationRef() *interfacesawsec2.EnclaveCertificateIamRoleAssociationReference {
+	var returns *interfacesawsec2.EnclaveCertificateIamRoleAssociationReference
 	_jsii_.Get(
 		j,
 		"enclaveCertificateIamRoleAssociationRef",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) EnclaveCertificateIa
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) UpdatedProperties() 
 }
 
 
+// Create a new `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
 func NewCfnEnclaveCertificateIamRoleAssociation(scope constructs.Construct, id *string, props *CfnEnclaveCertificateIamRoleAssociationProps) CfnEnclaveCertificateIamRoleAssociation {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnEnclaveCertificateIamRoleAssociation(scope constructs.Construct, id *
 	return &j
 }
 
+// Create a new `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
 func NewCfnEnclaveCertificateIamRoleAssociation_Override(c CfnEnclaveCertificateIamRoleAssociation, scope constructs.Construct, id *string, props *CfnEnclaveCertificateIamRoleAssociationProps) {
 	_init_.Initialize()
 

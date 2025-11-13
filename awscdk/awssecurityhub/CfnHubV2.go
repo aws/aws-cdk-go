@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnHubV2 interface {
 	awscdk.CfnResource
-	IHubV2Ref
 	awscdk.IInspectable
+	interfacesawssecurityhub.IHubV2Ref
 	awscdk.ITaggableV2
 	// The ARN of the service resource.
 	AttrHubV2Arn() *string
@@ -46,9 +48,9 @@ type CfnHubV2 interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a HubV2 resource.
-	HubV2Ref() *HubV2Reference
+	HubV2Ref() *interfacesawssecurityhub.HubV2Reference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -216,8 +218,8 @@ type CfnHubV2 interface {
 // The jsii proxy struct for CfnHubV2
 type jsiiProxy_CfnHubV2 struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHubV2Ref
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIHubV2Ref
 	internal.Type__awscdkITaggableV2
 }
 
@@ -291,8 +293,8 @@ func (j *jsiiProxy_CfnHubV2) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHubV2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHubV2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnHubV2) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHubV2) HubV2Ref() *HubV2Reference {
-	var returns *HubV2Reference
+func (j *jsiiProxy_CfnHubV2) HubV2Ref() *interfacesawssecurityhub.HubV2Reference {
+	var returns *interfacesawssecurityhub.HubV2Reference
 	_jsii_.Get(
 		j,
 		"hubV2Ref",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnHubV2) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SecurityHub::HubV2`.
 func NewCfnHubV2(scope constructs.Construct, id *string, props *CfnHubV2Props) CfnHubV2 {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnHubV2(scope constructs.Construct, id *string, props *CfnHubV2Props) C
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::HubV2`.
 func NewCfnHubV2_Override(c CfnHubV2, scope constructs.Construct, id *string, props *CfnHubV2Props) {
 	_init_.Initialize()
 

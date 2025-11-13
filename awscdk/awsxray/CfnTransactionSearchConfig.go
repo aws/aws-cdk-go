@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsxray/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsxray"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,8 +26,8 @@ import (
 //
 type CfnTransactionSearchConfig interface {
 	awscdk.CfnResource
-	ITransactionSearchConfigRef
 	awscdk.IInspectable
+	interfacesawsxray.ITransactionSearchConfigRef
 	// User account id, used as the primary identifier for the resource.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -37,7 +39,7 @@ type CfnTransactionSearchConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Determines the percentage of traces indexed from CloudWatch Logs to X-Ray.
 	IndexingPercentage() *float64
 	SetIndexingPercentage(val *float64)
@@ -63,7 +65,7 @@ type CfnTransactionSearchConfig interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a TransactionSearchConfig resource.
-	TransactionSearchConfigRef() *TransactionSearchConfigReference
+	TransactionSearchConfigRef() *interfacesawsxray.TransactionSearchConfigReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -207,8 +209,8 @@ type CfnTransactionSearchConfig interface {
 // The jsii proxy struct for CfnTransactionSearchConfig
 type jsiiProxy_CfnTransactionSearchConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransactionSearchConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsxrayITransactionSearchConfigRef
 }
 
 func (j *jsiiProxy_CfnTransactionSearchConfig) AttrAccountId() *string {
@@ -261,8 +263,8 @@ func (j *jsiiProxy_CfnTransactionSearchConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransactionSearchConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransactionSearchConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnTransactionSearchConfig) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransactionSearchConfig) TransactionSearchConfigRef() *TransactionSearchConfigReference {
-	var returns *TransactionSearchConfigReference
+func (j *jsiiProxy_CfnTransactionSearchConfig) TransactionSearchConfigRef() *interfacesawsxray.TransactionSearchConfigReference {
+	var returns *interfacesawsxray.TransactionSearchConfigReference
 	_jsii_.Get(
 		j,
 		"transactionSearchConfigRef",
@@ -352,6 +354,7 @@ func (j *jsiiProxy_CfnTransactionSearchConfig) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::XRay::TransactionSearchConfig`.
 func NewCfnTransactionSearchConfig(scope constructs.Construct, id *string, props *CfnTransactionSearchConfigProps) CfnTransactionSearchConfig {
 	_init_.Initialize()
 
@@ -369,6 +372,7 @@ func NewCfnTransactionSearchConfig(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::XRay::TransactionSearchConfig`.
 func NewCfnTransactionSearchConfig_Override(c CfnTransactionSearchConfig, scope constructs.Construct, id *string, props *CfnTransactionSearchConfigProps) {
 	_init_.Initialize()
 

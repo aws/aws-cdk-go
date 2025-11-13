@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotthingsgraph/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotthingsgraph"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnFlowTemplate interface {
 	awscdk.CfnResource
-	IFlowTemplateRef
 	awscdk.IInspectable
+	interfacesawsiotthingsgraph.IFlowTemplateRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,9 +48,9 @@ type CfnFlowTemplate interface {
 	CreationStack() *[]*string
 	Definition() interface{}
 	SetDefinition(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FlowTemplate resource.
-	FlowTemplateRef() *FlowTemplateReference
+	FlowTemplateRef() *interfacesawsiotthingsgraph.FlowTemplateReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -213,8 +215,8 @@ type CfnFlowTemplate interface {
 // The jsii proxy struct for CfnFlowTemplate
 type jsiiProxy_CfnFlowTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotthingsgraphIFlowTemplateRef
 }
 
 func (j *jsiiProxy_CfnFlowTemplate) AttrId() *string {
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnFlowTemplate) Definition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlowTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnFlowTemplate) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowTemplate) FlowTemplateRef() *FlowTemplateReference {
-	var returns *FlowTemplateReference
+func (j *jsiiProxy_CfnFlowTemplate) FlowTemplateRef() *interfacesawsiotthingsgraph.FlowTemplateReference {
+	var returns *interfacesawsiotthingsgraph.FlowTemplateReference
 	_jsii_.Get(
 		j,
 		"flowTemplateRef",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnFlowTemplate) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::IoTThingsGraph::FlowTemplate`.
 func NewCfnFlowTemplate(scope constructs.Construct, id *string, props *CfnFlowTemplateProps) CfnFlowTemplate {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnFlowTemplate(scope constructs.Construct, id *string, props *CfnFlowTe
 	return &j
 }
 
+// Create a new `AWS::IoTThingsGraph::FlowTemplate`.
 func NewCfnFlowTemplate_Override(c CfnFlowTemplate, scope constructs.Construct, id *string, props *CfnFlowTemplateProps) {
 	_init_.Initialize()
 

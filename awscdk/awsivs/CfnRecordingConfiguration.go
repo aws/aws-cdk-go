@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnRecordingConfiguration interface {
 	awscdk.CfnResource
-	IRecordingConfigurationRef
 	awscdk.IInspectable
+	interfacesawsivs.IRecordingConfigurationRef
 	awscdk.ITaggable
 	// The recording configuration ARN.
 	//
@@ -77,7 +79,7 @@ type CfnRecordingConfiguration interface {
 	// A destination configuration describes an S3 bucket where recorded video will be stored.
 	DestinationConfiguration() interface{}
 	SetDestinationConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -94,7 +96,7 @@ type CfnRecordingConfiguration interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a RecordingConfiguration resource.
-	RecordingConfigurationRef() *RecordingConfigurationReference
+	RecordingConfigurationRef() *interfacesawsivs.RecordingConfigurationReference
 	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 	RecordingReconnectWindowSeconds() *float64
 	SetRecordingReconnectWindowSeconds(val *float64)
@@ -261,8 +263,8 @@ type CfnRecordingConfiguration interface {
 // The jsii proxy struct for CfnRecordingConfiguration
 type jsiiProxy_CfnRecordingConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRecordingConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivsIRecordingConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnRecordingConfiguration) DestinationConfiguration() interfa
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordingConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRecordingConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnRecordingConfiguration) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordingConfiguration) RecordingConfigurationRef() *RecordingConfigurationReference {
-	var returns *RecordingConfigurationReference
+func (j *jsiiProxy_CfnRecordingConfiguration) RecordingConfigurationRef() *interfacesawsivs.RecordingConfigurationReference {
+	var returns *interfacesawsivs.RecordingConfigurationReference
 	_jsii_.Get(
 		j,
 		"recordingConfigurationRef",
@@ -477,6 +479,7 @@ func (j *jsiiProxy_CfnRecordingConfiguration) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::IVS::RecordingConfiguration`.
 func NewCfnRecordingConfiguration(scope constructs.Construct, id *string, props *CfnRecordingConfigurationProps) CfnRecordingConfiguration {
 	_init_.Initialize()
 
@@ -494,6 +497,7 @@ func NewCfnRecordingConfiguration(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::IVS::RecordingConfiguration`.
 func NewCfnRecordingConfiguration_Override(c CfnRecordingConfiguration, scope constructs.Construct, id *string, props *CfnRecordingConfigurationProps) {
 	_init_.Initialize()
 

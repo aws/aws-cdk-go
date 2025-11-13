@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -81,8 +83,8 @@ import (
 //
 type CfnHttpApi interface {
 	awscdk.CfnResource
-	IHttpApiRef
 	awscdk.IInspectable
+	interfacesawssam.IHttpApiRef
 	awscdk.ITaggable
 	AccessLogSetting() interface{}
 	SetAccessLogSetting(val interface{})
@@ -111,11 +113,11 @@ type CfnHttpApi interface {
 	SetDisableExecuteApiEndpoint(val interface{})
 	Domain() interface{}
 	SetDomain(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
 	// A reference to a HttpApi resource.
-	HttpApiRef() *HttpApiReference
+	HttpApiRef() *interfacesawssam.HttpApiReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -290,8 +292,8 @@ type CfnHttpApi interface {
 // The jsii proxy struct for CfnHttpApi
 type jsiiProxy_CfnHttpApi struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHttpApiRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssamIHttpApiRef
 	internal.Type__awscdkITaggable
 }
 
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnHttpApi) Domain() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHttpApi) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHttpApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -445,8 +447,8 @@ func (j *jsiiProxy_CfnHttpApi) FailOnWarnings() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHttpApi) HttpApiRef() *HttpApiReference {
-	var returns *HttpApiReference
+func (j *jsiiProxy_CfnHttpApi) HttpApiRef() *interfacesawssam.HttpApiReference {
+	var returns *interfacesawssam.HttpApiReference
 	_jsii_.Get(
 		j,
 		"httpApiRef",
@@ -566,6 +568,7 @@ func (j *jsiiProxy_CfnHttpApi) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Serverless::HttpApi`.
 func NewCfnHttpApi(scope constructs.Construct, id *string, props *CfnHttpApiProps) CfnHttpApi {
 	_init_.Initialize()
 
@@ -583,6 +586,7 @@ func NewCfnHttpApi(scope constructs.Construct, id *string, props *CfnHttpApiProp
 	return &j
 }
 
+// Create a new `AWS::Serverless::HttpApi`.
 func NewCfnHttpApi_Override(c CfnHttpApi, scope constructs.Construct, id *string, props *CfnHttpApiProps) {
 	_init_.Initialize()
 

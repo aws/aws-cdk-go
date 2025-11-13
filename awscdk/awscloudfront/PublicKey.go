@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,7 +36,7 @@ type PublicKey interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -48,7 +50,7 @@ type PublicKey interface {
 	// The ID of the key group.
 	PublicKeyId() *string
 	// A reference to a PublicKey resource.
-	PublicKeyRef() *PublicKeyReference
+	PublicKeyRef() *interfacesawscloudfront.PublicKeyReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -85,8 +87,8 @@ type jsiiProxy_PublicKey struct {
 	jsiiProxy_IPublicKey
 }
 
-func (j *jsiiProxy_PublicKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_PublicKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -125,8 +127,8 @@ func (j *jsiiProxy_PublicKey) PublicKeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_PublicKey) PublicKeyRef() *PublicKeyReference {
-	var returns *PublicKeyReference
+func (j *jsiiProxy_PublicKey) PublicKeyRef() *interfacesawscloudfront.PublicKeyReference {
+	var returns *interfacesawscloudfront.PublicKeyReference
 	_jsii_.Get(
 		j,
 		"publicKeyRef",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrolesanywhere/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrolesanywhere"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnTrustAnchor interface {
 	awscdk.CfnResource
-	ITrustAnchorRef
 	awscdk.IInspectable
+	interfacesawsrolesanywhere.ITrustAnchorRef
 	awscdk.ITaggable
 	// The ARN of the trust anchor.
 	AttrTrustAnchorArn() *string
@@ -69,7 +71,7 @@ type CfnTrustAnchor interface {
 	// Indicates whether the trust anchor is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -106,7 +108,7 @@ type CfnTrustAnchor interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TrustAnchor resource.
-	TrustAnchorRef() *TrustAnchorReference
+	TrustAnchorRef() *interfacesawsrolesanywhere.TrustAnchorReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -250,8 +252,8 @@ type CfnTrustAnchor interface {
 // The jsii proxy struct for CfnTrustAnchor
 type jsiiProxy_CfnTrustAnchor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrustAnchorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrolesanywhereITrustAnchorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnTrustAnchor) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrustAnchor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrustAnchor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnTrustAnchor) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrustAnchor) TrustAnchorRef() *TrustAnchorReference {
-	var returns *TrustAnchorReference
+func (j *jsiiProxy_CfnTrustAnchor) TrustAnchorRef() *interfacesawsrolesanywhere.TrustAnchorReference {
+	var returns *interfacesawsrolesanywhere.TrustAnchorReference
 	_jsii_.Get(
 		j,
 		"trustAnchorRef",
@@ -456,6 +458,7 @@ func (j *jsiiProxy_CfnTrustAnchor) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RolesAnywhere::TrustAnchor`.
 func NewCfnTrustAnchor(scope constructs.Construct, id *string, props *CfnTrustAnchorProps) CfnTrustAnchor {
 	_init_.Initialize()
 
@@ -473,6 +476,7 @@ func NewCfnTrustAnchor(scope constructs.Construct, id *string, props *CfnTrustAn
 	return &j
 }
 
+// Create a new `AWS::RolesAnywhere::TrustAnchor`.
 func NewCfnTrustAnchor_Override(c CfnTrustAnchor, scope constructs.Construct, id *string, props *CfnTrustAnchorProps) {
 	_init_.Initialize()
 
@@ -539,13 +543,13 @@ func (j *jsiiProxy_CfnTrustAnchor)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ITrustAnchorRef from an ARN.
-func CfnTrustAnchor_FromTrustAnchorArn(scope constructs.Construct, id *string, arn *string) ITrustAnchorRef {
+func CfnTrustAnchor_FromTrustAnchorArn(scope constructs.Construct, id *string, arn *string) interfacesawsrolesanywhere.ITrustAnchorRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrustAnchor_FromTrustAnchorArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ITrustAnchorRef
+	var returns interfacesawsrolesanywhere.ITrustAnchorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rolesanywhere.CfnTrustAnchor",
@@ -558,13 +562,13 @@ func CfnTrustAnchor_FromTrustAnchorArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new ITrustAnchorRef from a trustAnchorId.
-func CfnTrustAnchor_FromTrustAnchorId(scope constructs.Construct, id *string, trustAnchorId *string) ITrustAnchorRef {
+func CfnTrustAnchor_FromTrustAnchorId(scope constructs.Construct, id *string, trustAnchorId *string) interfacesawsrolesanywhere.ITrustAnchorRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrustAnchor_FromTrustAnchorIdParameters(scope, id, trustAnchorId); err != nil {
 		panic(err)
 	}
-	var returns ITrustAnchorRef
+	var returns interfacesawsrolesanywhere.ITrustAnchorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rolesanywhere.CfnTrustAnchor",

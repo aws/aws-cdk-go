@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -158,8 +160,8 @@ import (
 //
 type CfnAgent interface {
 	awscdk.CfnResource
-	IAgentRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IAgentRef
 	awscdk.ITaggableV2
 	// The action groups that belong to an agent.
 	ActionGroups() interface{}
@@ -174,7 +176,7 @@ type CfnAgent interface {
 	AgentName() *string
 	SetAgentName(val *string)
 	// A reference to a Agent resource.
-	AgentRef() *AgentReference
+	AgentRef() *interfacesawsbedrock.AgentReference
 	// The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the agent.
 	AgentResourceRoleArn() *string
 	SetAgentResourceRoleArn(val *string)
@@ -227,7 +229,7 @@ type CfnAgent interface {
 	// The description of the agent.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The foundation model used for orchestration by the agent.
 	FoundationModel() *string
 	SetFoundationModel(val *string)
@@ -429,8 +431,8 @@ type CfnAgent interface {
 // The jsii proxy struct for CfnAgent
 type jsiiProxy_CfnAgent struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAgentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIAgentRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -474,8 +476,8 @@ func (j *jsiiProxy_CfnAgent) AgentName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgent) AgentRef() *AgentReference {
-	var returns *AgentReference
+func (j *jsiiProxy_CfnAgent) AgentRef() *interfacesawsbedrock.AgentReference {
+	var returns *interfacesawsbedrock.AgentReference
 	_jsii_.Get(
 		j,
 		"agentRef",
@@ -674,8 +676,8 @@ func (j *jsiiProxy_CfnAgent) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgent) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAgent) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -855,6 +857,7 @@ func (j *jsiiProxy_CfnAgent) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Bedrock::Agent`.
 func NewCfnAgent(scope constructs.Construct, id *string, props *CfnAgentProps) CfnAgent {
 	_init_.Initialize()
 
@@ -872,6 +875,7 @@ func NewCfnAgent(scope constructs.Construct, id *string, props *CfnAgentProps) C
 	return &j
 }
 
+// Create a new `AWS::Bedrock::Agent`.
 func NewCfnAgent_Override(c CfnAgent, scope constructs.Construct, id *string, props *CfnAgentProps) {
 	_init_.Initialize()
 
@@ -1076,13 +1080,13 @@ func (j *jsiiProxy_CfnAgent)SetTestAliasTags(val interface{}) {
 }
 
 // Creates a new IAgentRef from an ARN.
-func CfnAgent_FromAgentArn(scope constructs.Construct, id *string, arn *string) IAgentRef {
+func CfnAgent_FromAgentArn(scope constructs.Construct, id *string, arn *string) interfacesawsbedrock.IAgentRef {
 	_init_.Initialize()
 
 	if err := validateCfnAgent_FromAgentArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAgentRef
+	var returns interfacesawsbedrock.IAgentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrock.CfnAgent",
@@ -1095,13 +1099,13 @@ func CfnAgent_FromAgentArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IAgentRef from a agentId.
-func CfnAgent_FromAgentId(scope constructs.Construct, id *string, agentId *string) IAgentRef {
+func CfnAgent_FromAgentId(scope constructs.Construct, id *string, agentId *string) interfacesawsbedrock.IAgentRef {
 	_init_.Initialize()
 
 	if err := validateCfnAgent_FromAgentIdParameters(scope, id, agentId); err != nil {
 		panic(err)
 	}
-	var returns IAgentRef
+	var returns interfacesawsbedrock.IAgentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrock.CfnAgent",

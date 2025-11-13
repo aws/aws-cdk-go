@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdkcloud9alpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -46,7 +47,7 @@ type Ec2Environment interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The environment ID of this Cloud9 environment.
 	// Experimental.
 	EnvironmentId() *string
@@ -130,8 +131,8 @@ func (j *jsiiProxy_Ec2Environment) Ec2EnvironmentName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Ec2Environment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Ec2Environment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

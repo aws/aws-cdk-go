@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IRestApi interface {
 	awscdk.IResource
-	IRestApiRef
+	interfacesawsapigateway.IRestApiRef
 	// Gets the "execute-api" ARN.
 	//
 	// Returns: The "execute-api" ARN.
@@ -42,7 +44,7 @@ type IRestApi interface {
 // The jsii proxy for IRestApi
 type jsiiProxy_IRestApi struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IRestApiRef
+	internal.Type__interfacesawsapigatewayIRestApiRef
 }
 
 func (i *jsiiProxy_IRestApi) ArnForExecuteApi(method *string, path *string, stage *string) *string {
@@ -140,8 +142,8 @@ func (j *jsiiProxy_IRestApi) Root() IResource {
 	return returns
 }
 
-func (j *jsiiProxy_IRestApi) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IRestApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -160,8 +162,8 @@ func (j *jsiiProxy_IRestApi) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IRestApi) RestApiRef() *RestApiReference {
-	var returns *RestApiReference
+func (j *jsiiProxy_IRestApi) RestApiRef() *interfacesawsapigateway.RestApiReference {
+	var returns *interfacesawsapigateway.RestApiReference
 	_jsii_.Get(
 		j,
 		"restApiRef",

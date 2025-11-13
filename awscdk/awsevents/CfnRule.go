@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -200,8 +202,8 @@ import (
 //
 type CfnRule interface {
 	awscdk.CfnResource
-	IRuleRef
 	awscdk.IInspectable
+	interfacesawsevents.IRuleRef
 	awscdk.ITaggableV2
 	// The ARN of the rule, such as `arn:aws:events:us-east-2:123456789012:rule/example` .
 	AttrArn() *string
@@ -219,7 +221,7 @@ type CfnRule interface {
 	// The description of the rule.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name or ARN of the event bus associated with the rule.
 	EventBusName() *string
 	SetEventBusName(val *string)
@@ -250,7 +252,7 @@ type CfnRule interface {
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// A reference to a Rule resource.
-	RuleRef() *RuleReference
+	RuleRef() *interfacesawsevents.RuleReference
 	// The scheduling expression.
 	ScheduleExpression() *string
 	SetScheduleExpression(val *string)
@@ -410,8 +412,8 @@ type CfnRule interface {
 // The jsii proxy struct for CfnRule
 type jsiiProxy_CfnRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventsIRuleRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -485,8 +487,8 @@ func (j *jsiiProxy_CfnRule) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -565,8 +567,8 @@ func (j *jsiiProxy_CfnRule) RoleArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRule) RuleRef() *RuleReference {
-	var returns *RuleReference
+func (j *jsiiProxy_CfnRule) RuleRef() *interfacesawsevents.RuleReference {
+	var returns *interfacesawsevents.RuleReference
 	_jsii_.Get(
 		j,
 		"ruleRef",
@@ -646,6 +648,7 @@ func (j *jsiiProxy_CfnRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Events::Rule`.
 func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) CfnRule {
 	_init_.Initialize()
 
@@ -663,6 +666,7 @@ func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Events::Rule`.
 func NewCfnRule_Override(c CfnRule, scope constructs.Construct, id *string, props *CfnRuleProps) {
 	_init_.Initialize()
 

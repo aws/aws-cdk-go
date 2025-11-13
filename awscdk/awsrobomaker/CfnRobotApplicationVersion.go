@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrobomaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrobomaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnRobotApplicationVersion interface {
 	awscdk.CfnResource
-	IRobotApplicationVersionRef
 	awscdk.IInspectable
+	interfacesawsrobomaker.IRobotApplicationVersionRef
 	// The application information for the robot application.
 	Application() *string
 	SetApplication(val *string)
@@ -48,7 +50,7 @@ type CfnRobotApplicationVersion interface {
 	// The current revision id for the robot application.
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnRobotApplicationVersion interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RobotApplicationVersion resource.
-	RobotApplicationVersionRef() *RobotApplicationVersionReference
+	RobotApplicationVersionRef() *interfacesawsrobomaker.RobotApplicationVersionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -215,8 +217,8 @@ type CfnRobotApplicationVersion interface {
 // The jsii proxy struct for CfnRobotApplicationVersion
 type jsiiProxy_CfnRobotApplicationVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRobotApplicationVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrobomakerIRobotApplicationVersionRef
 }
 
 func (j *jsiiProxy_CfnRobotApplicationVersion) Application() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnRobotApplicationVersion) CurrentRevisionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRobotApplicationVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRobotApplicationVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnRobotApplicationVersion) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRobotApplicationVersion) RobotApplicationVersionRef() *RobotApplicationVersionReference {
-	var returns *RobotApplicationVersionReference
+func (j *jsiiProxy_CfnRobotApplicationVersion) RobotApplicationVersionRef() *interfacesawsrobomaker.RobotApplicationVersionReference {
+	var returns *interfacesawsrobomaker.RobotApplicationVersionReference
 	_jsii_.Get(
 		j,
 		"robotApplicationVersionRef",
@@ -380,6 +382,7 @@ func (j *jsiiProxy_CfnRobotApplicationVersion) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::RoboMaker::RobotApplicationVersion`.
 func NewCfnRobotApplicationVersion(scope constructs.Construct, id *string, props *CfnRobotApplicationVersionProps) CfnRobotApplicationVersion {
 	_init_.Initialize()
 
@@ -397,6 +400,7 @@ func NewCfnRobotApplicationVersion(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::RoboMaker::RobotApplicationVersion`.
 func NewCfnRobotApplicationVersion_Override(c CfnRobotApplicationVersion, scope constructs.Construct, id *string, props *CfnRobotApplicationVersionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnModuleVersion interface {
 	awscdk.CfnResource
-	IModuleVersionRef
 	awscdk.IInspectable
+	interfacesawscloudformation.IModuleVersionRef
 	// The Amazon Resource Name (ARN) of the module.
 	AttrArn() *string
 	// The description of the module.
@@ -63,7 +65,7 @@ type CfnModuleVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,7 +83,7 @@ type CfnModuleVersion interface {
 	ModulePackage() *string
 	SetModulePackage(val *string)
 	// A reference to a ModuleVersion resource.
-	ModuleVersionRef() *ModuleVersionReference
+	ModuleVersionRef() *interfacesawscloudformation.ModuleVersionReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -236,8 +238,8 @@ type CfnModuleVersion interface {
 // The jsii proxy struct for CfnModuleVersion
 type jsiiProxy_CfnModuleVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModuleVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationIModuleVersionRef
 }
 
 func (j *jsiiProxy_CfnModuleVersion) AttrArn() *string {
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnModuleVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModuleVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModuleVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnModuleVersion) ModulePackage() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModuleVersion) ModuleVersionRef() *ModuleVersionReference {
-	var returns *ModuleVersionReference
+func (j *jsiiProxy_CfnModuleVersion) ModuleVersionRef() *interfacesawscloudformation.ModuleVersionReference {
+	var returns *interfacesawscloudformation.ModuleVersionReference
 	_jsii_.Get(
 		j,
 		"moduleVersionRef",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnModuleVersion) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::CloudFormation::ModuleVersion`.
 func NewCfnModuleVersion(scope constructs.Construct, id *string, props *CfnModuleVersionProps) CfnModuleVersion {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnModuleVersion(scope constructs.Construct, id *string, props *CfnModul
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::ModuleVersion`.
 func NewCfnModuleVersion_Override(c CfnModuleVersion, scope constructs.Construct, id *string, props *CfnModuleVersionProps) {
 	_init_.Initialize()
 

@@ -1,7 +1,7 @@
 package awscdkmskalpha
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // SASL authentication properties.
@@ -35,7 +35,7 @@ type SaslAuthProps struct {
 	// Default: - CMK will be created with alias msk/{clusterName}/sasl/scram.
 	//
 	// Experimental.
-	Key awskms.IKeyRef `field:"optional" json:"key" yaml:"key"`
+	Key interfacesawskms.IKeyRef `field:"optional" json:"key" yaml:"key"`
 	// Enable SASL/SCRAM authentication.
 	// Default: false.
 	//

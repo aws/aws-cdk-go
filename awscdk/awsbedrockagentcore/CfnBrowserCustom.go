@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrockagentcore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,6 +39,9 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	BrowserSigning: &BrowserSigningProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	Description: jsii.String("description"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	RecordingConfig: &RecordingConfigProperty{
@@ -55,8 +60,8 @@ import (
 //
 type CfnBrowserCustom interface {
 	awscdk.CfnResource
-	IBrowserCustomRef
 	awscdk.IInspectable
+	interfacesawsbedrockagentcore.IBrowserCustomRef
 	awscdk.ITaggableV2
 	// The ARN for the custom browser.
 	AttrBrowserArn() *string
@@ -71,7 +76,10 @@ type CfnBrowserCustom interface {
 	// The status of the custom browser.
 	AttrStatus() *string
 	// A reference to a BrowserCustom resource.
-	BrowserCustomRef() *BrowserCustomReference
+	BrowserCustomRef() *interfacesawsbedrockagentcore.BrowserCustomReference
+	// Browser signing configuration.
+	BrowserSigning() interface{}
+	SetBrowserSigning(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -86,7 +94,7 @@ type CfnBrowserCustom interface {
 	// The custom browser.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the execution role.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -266,8 +274,8 @@ type CfnBrowserCustom interface {
 // The jsii proxy struct for CfnBrowserCustom
 type jsiiProxy_CfnBrowserCustom struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBrowserCustomRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockagentcoreIBrowserCustomRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -331,11 +339,21 @@ func (j *jsiiProxy_CfnBrowserCustom) AttrStatus() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBrowserCustom) BrowserCustomRef() *BrowserCustomReference {
-	var returns *BrowserCustomReference
+func (j *jsiiProxy_CfnBrowserCustom) BrowserCustomRef() *interfacesawsbedrockagentcore.BrowserCustomReference {
+	var returns *interfacesawsbedrockagentcore.BrowserCustomReference
 	_jsii_.Get(
 		j,
 		"browserCustomRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBrowserCustom) BrowserSigning() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"browserSigning",
 		&returns,
 	)
 	return returns
@@ -401,8 +419,8 @@ func (j *jsiiProxy_CfnBrowserCustom) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBrowserCustom) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBrowserCustom) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -522,6 +540,7 @@ func (j *jsiiProxy_CfnBrowserCustom) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::BedrockAgentCore::BrowserCustom`.
 func NewCfnBrowserCustom(scope constructs.Construct, id *string, props *CfnBrowserCustomProps) CfnBrowserCustom {
 	_init_.Initialize()
 
@@ -539,6 +558,7 @@ func NewCfnBrowserCustom(scope constructs.Construct, id *string, props *CfnBrows
 	return &j
 }
 
+// Create a new `AWS::BedrockAgentCore::BrowserCustom`.
 func NewCfnBrowserCustom_Override(c CfnBrowserCustom, scope constructs.Construct, id *string, props *CfnBrowserCustomProps) {
 	_init_.Initialize()
 
@@ -546,6 +566,17 @@ func NewCfnBrowserCustom_Override(c CfnBrowserCustom, scope constructs.Construct
 		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserCustom",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnBrowserCustom)SetBrowserSigning(val interface{}) {
+	if err := j.validateSetBrowserSigningParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"browserSigning",
+		val,
 	)
 }
 
@@ -607,13 +638,13 @@ func (j *jsiiProxy_CfnBrowserCustom)SetTags(val *map[string]*string) {
 }
 
 // Creates a new IBrowserCustomRef from a browserId.
-func CfnBrowserCustom_FromBrowserId(scope constructs.Construct, id *string, browserId *string) IBrowserCustomRef {
+func CfnBrowserCustom_FromBrowserId(scope constructs.Construct, id *string, browserId *string) interfacesawsbedrockagentcore.IBrowserCustomRef {
 	_init_.Initialize()
 
 	if err := validateCfnBrowserCustom_FromBrowserIdParameters(scope, id, browserId); err != nil {
 		panic(err)
 	}
-	var returns IBrowserCustomRef
+	var returns interfacesawsbedrockagentcore.IBrowserCustomRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserCustom",

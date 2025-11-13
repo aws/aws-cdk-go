@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,8 +78,8 @@ import (
 //
 type CfnStack interface {
 	awscdk.CfnResource
-	IStackRef
 	awscdk.IInspectable
+	interfacesawsappstream.IStackRef
 	awscdk.ITaggable
 	// The list of virtual private cloud (VPC) interface endpoint objects.
 	AccessEndpoints() interface{}
@@ -107,10 +109,10 @@ type CfnStack interface {
 	// The stack name to display.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+	// The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe.
 	EmbedHostDomains() *[]*string
 	SetEmbedHostDomains(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The URL that users are redirected to after they click the Send Feedback link.
 	FeedbackUrl() *string
 	SetFeedbackUrl(val *string)
@@ -142,7 +144,7 @@ type CfnStack interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Stack resource.
-	StackRef() *StackReference
+	StackRef() *interfacesawsappstream.StackReference
 	// The storage connectors to enable.
 	StorageConnectors() interface{}
 	SetStorageConnectors(val interface{})
@@ -300,8 +302,8 @@ type CfnStack interface {
 // The jsii proxy struct for CfnStack
 type jsiiProxy_CfnStack struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStackRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIStackRef
 	internal.Type__awscdkITaggable
 }
 
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnStack) EmbedHostDomains() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStack) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -505,8 +507,8 @@ func (j *jsiiProxy_CfnStack) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStack) StackRef() *StackReference {
-	var returns *StackReference
+func (j *jsiiProxy_CfnStack) StackRef() *interfacesawsappstream.StackReference {
+	var returns *interfacesawsappstream.StackReference
 	_jsii_.Get(
 		j,
 		"stackRef",
@@ -586,6 +588,7 @@ func (j *jsiiProxy_CfnStack) UserSettings() interface{} {
 }
 
 
+// Create a new `AWS::AppStream::Stack`.
 func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) CfnStack {
 	_init_.Initialize()
 
@@ -603,6 +606,7 @@ func NewCfnStack(scope constructs.Construct, id *string, props *CfnStackProps) C
 	return &j
 }
 
+// Create a new `AWS::AppStream::Stack`.
 func NewCfnStack_Override(c CfnStack, scope constructs.Construct, id *string, props *CfnStackProps) {
 	_init_.Initialize()
 

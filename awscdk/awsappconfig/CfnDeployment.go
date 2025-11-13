@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,8 +61,8 @@ import (
 //
 type CfnDeployment interface {
 	awscdk.CfnResource
-	IDeploymentRef
 	awscdk.IInspectable
+	interfacesawsappconfig.IDeploymentRef
 	awscdk.ITaggableV2
 	// The application ID.
 	ApplicationId() *string
@@ -87,7 +89,7 @@ type CfnDeployment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a Deployment resource.
-	DeploymentRef() *DeploymentReference
+	DeploymentRef() *interfacesawsappconfig.DeploymentReference
 	// The deployment strategy ID.
 	DeploymentStrategyId() *string
 	SetDeploymentStrategyId(val *string)
@@ -97,7 +99,7 @@ type CfnDeployment interface {
 	// A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
 	DynamicExtensionParameters() interface{}
 	SetDynamicExtensionParameters(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The environment ID.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
@@ -271,8 +273,8 @@ type CfnDeployment interface {
 // The jsii proxy struct for CfnDeployment
 type jsiiProxy_CfnDeployment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeploymentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappconfigIDeploymentRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnDeployment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) DeploymentRef() *DeploymentReference {
-	var returns *DeploymentReference
+func (j *jsiiProxy_CfnDeployment) DeploymentRef() *interfacesawsappconfig.DeploymentReference {
+	var returns *interfacesawsappconfig.DeploymentReference
 	_jsii_.Get(
 		j,
 		"deploymentRef",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnDeployment) DynamicExtensionParameters() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeployment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -517,6 +519,7 @@ func (j *jsiiProxy_CfnDeployment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppConfig::Deployment`.
 func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeploymentProps) CfnDeployment {
 	_init_.Initialize()
 
@@ -534,6 +537,7 @@ func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeployme
 	return &j
 }
 
+// Create a new `AWS::AppConfig::Deployment`.
 func NewCfnDeployment_Override(c CfnDeployment, scope constructs.Construct, id *string, props *CfnDeploymentProps) {
 	_init_.Initialize()
 

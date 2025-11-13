@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstimestream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstimestream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -104,8 +106,8 @@ import (
 //
 type CfnScheduledQuery interface {
 	awscdk.CfnResource
-	IScheduledQueryRef
 	awscdk.IInspectable
+	interfacesawstimestream.IScheduledQueryRef
 	awscdk.ITaggable
 	// The `ARN` of the scheduled query.
 	AttrArn() *string
@@ -137,7 +139,7 @@ type CfnScheduledQuery interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Configuration for error reporting.
 	ErrorReportConfiguration() interface{}
 	SetErrorReportConfiguration(val interface{})
@@ -177,7 +179,7 @@ type CfnScheduledQuery interface {
 	ScheduledQueryName() *string
 	SetScheduledQueryName(val *string)
 	// A reference to a ScheduledQuery resource.
-	ScheduledQueryRef() *ScheduledQueryReference
+	ScheduledQueryRef() *interfacesawstimestream.ScheduledQueryReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -333,8 +335,8 @@ type CfnScheduledQuery interface {
 // The jsii proxy struct for CfnScheduledQuery
 type jsiiProxy_CfnScheduledQuery struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScheduledQueryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstimestreamIScheduledQueryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -478,8 +480,8 @@ func (j *jsiiProxy_CfnScheduledQuery) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledQuery) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScheduledQuery) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -588,8 +590,8 @@ func (j *jsiiProxy_CfnScheduledQuery) ScheduledQueryName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledQuery) ScheduledQueryRef() *ScheduledQueryReference {
-	var returns *ScheduledQueryReference
+func (j *jsiiProxy_CfnScheduledQuery) ScheduledQueryRef() *interfacesawstimestream.ScheduledQueryReference {
+	var returns *interfacesawstimestream.ScheduledQueryReference
 	_jsii_.Get(
 		j,
 		"scheduledQueryRef",
@@ -659,6 +661,7 @@ func (j *jsiiProxy_CfnScheduledQuery) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Timestream::ScheduledQuery`.
 func NewCfnScheduledQuery(scope constructs.Construct, id *string, props *CfnScheduledQueryProps) CfnScheduledQuery {
 	_init_.Initialize()
 
@@ -676,6 +679,7 @@ func NewCfnScheduledQuery(scope constructs.Construct, id *string, props *CfnSche
 	return &j
 }
 
+// Create a new `AWS::Timestream::ScheduledQuery`.
 func NewCfnScheduledQuery_Override(c CfnScheduledQuery, scope constructs.Construct, id *string, props *CfnScheduledQueryProps) {
 	_init_.Initialize()
 

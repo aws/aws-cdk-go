@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmguiconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmguiconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnPreferences interface {
 	awscdk.CfnResource
-	IPreferencesRef
 	awscdk.IInspectable
+	interfacesawsssmguiconnect.IPreferencesRef
 	// The primary identifier for the AWS CloudFormation resource.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -50,7 +52,7 @@ type CfnPreferences interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -64,7 +66,7 @@ type CfnPreferences interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Preferences resource.
-	PreferencesRef() *PreferencesReference
+	PreferencesRef() *interfacesawsssmguiconnect.PreferencesReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -217,8 +219,8 @@ type CfnPreferences interface {
 // The jsii proxy struct for CfnPreferences
 type jsiiProxy_CfnPreferences struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPreferencesRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmguiconnectIPreferencesRef
 }
 
 func (j *jsiiProxy_CfnPreferences) AttrAccountId() *string {
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnPreferences) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPreferences) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPreferences) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnPreferences) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPreferences) PreferencesRef() *PreferencesReference {
-	var returns *PreferencesReference
+func (j *jsiiProxy_CfnPreferences) PreferencesRef() *interfacesawsssmguiconnect.PreferencesReference {
+	var returns *interfacesawsssmguiconnect.PreferencesReference
 	_jsii_.Get(
 		j,
 		"preferencesRef",
@@ -362,6 +364,7 @@ func (j *jsiiProxy_CfnPreferences) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SSMGuiConnect::Preferences`.
 func NewCfnPreferences(scope constructs.Construct, id *string, props *CfnPreferencesProps) CfnPreferences {
 	_init_.Initialize()
 
@@ -379,6 +382,7 @@ func NewCfnPreferences(scope constructs.Construct, id *string, props *CfnPrefere
 	return &j
 }
 
+// Create a new `AWS::SSMGuiConnect::Preferences`.
 func NewCfnPreferences_Override(c CfnPreferences, scope constructs.Construct, id *string, props *CfnPreferencesProps) {
 	_init_.Initialize()
 

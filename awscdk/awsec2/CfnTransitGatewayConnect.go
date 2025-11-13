@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnTransitGatewayConnect interface {
 	awscdk.CfnResource
-	ITransitGatewayConnectRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayConnectRef
 	awscdk.ITaggable
 	// The creation time.
 	AttrCreationTime() *string
@@ -59,7 +61,7 @@ type CfnTransitGatewayConnect interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -90,7 +92,7 @@ type CfnTransitGatewayConnect interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TransitGatewayConnect resource.
-	TransitGatewayConnectRef() *TransitGatewayConnectReference
+	TransitGatewayConnectRef() *interfacesawsec2.TransitGatewayConnectReference
 	// The ID of the attachment from which the Connect attachment was created.
 	TransportTransitGatewayAttachmentId() *string
 	SetTransportTransitGatewayAttachmentId(val *string)
@@ -237,8 +239,8 @@ type CfnTransitGatewayConnect interface {
 // The jsii proxy struct for CfnTransitGatewayConnect
 type jsiiProxy_CfnTransitGatewayConnect struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayConnectRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayConnectRef
 	internal.Type__awscdkITaggable
 }
 
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnTransitGatewayConnect) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayConnect) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayConnect) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,8 +404,8 @@ func (j *jsiiProxy_CfnTransitGatewayConnect) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayConnect) TransitGatewayConnectRef() *TransitGatewayConnectReference {
-	var returns *TransitGatewayConnectReference
+func (j *jsiiProxy_CfnTransitGatewayConnect) TransitGatewayConnectRef() *interfacesawsec2.TransitGatewayConnectReference {
+	var returns *interfacesawsec2.TransitGatewayConnectReference
 	_jsii_.Get(
 		j,
 		"transitGatewayConnectRef",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnTransitGatewayConnect) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayConnect`.
 func NewCfnTransitGatewayConnect(scope constructs.Construct, id *string, props *CfnTransitGatewayConnectProps) CfnTransitGatewayConnect {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnTransitGatewayConnect(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayConnect`.
 func NewCfnTransitGatewayConnect_Override(c CfnTransitGatewayConnect, scope constructs.Construct, id *string, props *CfnTransitGatewayConnectProps) {
 	_init_.Initialize()
 

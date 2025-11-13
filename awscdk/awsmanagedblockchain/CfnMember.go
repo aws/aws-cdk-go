@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmanagedblockchain/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmanagedblockchain"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnMember interface {
 	awscdk.CfnResource
-	IMemberRef
 	awscdk.IInspectable
+	interfacesawsmanagedblockchain.IMemberRef
 	// The unique identifier of the member.
 	AttrMemberId() *string
 	// The unique identifier of the network to which the member belongs.
@@ -76,7 +78,7 @@ type CfnMember interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the invitation to join the network sent to the account that creates the member.
 	InvitationId() *string
 	SetInvitationId(val *string)
@@ -94,7 +96,7 @@ type CfnMember interface {
 	MemberConfiguration() interface{}
 	SetMemberConfiguration(val interface{})
 	// A reference to a Member resource.
-	MemberRef() *MemberReference
+	MemberRef() *interfacesawsmanagedblockchain.MemberReference
 	// Configuration properties of the network to which the member belongs.
 	NetworkConfiguration() interface{}
 	SetNetworkConfiguration(val interface{})
@@ -255,8 +257,8 @@ type CfnMember interface {
 // The jsii proxy struct for CfnMember
 type jsiiProxy_CfnMember struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMemberRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmanagedblockchainIMemberRef
 }
 
 func (j *jsiiProxy_CfnMember) AttrMemberId() *string {
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnMember) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMember) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMember) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnMember) MemberConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMember) MemberRef() *MemberReference {
-	var returns *MemberReference
+func (j *jsiiProxy_CfnMember) MemberRef() *interfacesawsmanagedblockchain.MemberReference {
+	var returns *interfacesawsmanagedblockchain.MemberReference
 	_jsii_.Get(
 		j,
 		"memberRef",
@@ -440,6 +442,7 @@ func (j *jsiiProxy_CfnMember) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ManagedBlockchain::Member`.
 func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps) CfnMember {
 	_init_.Initialize()
 
@@ -457,6 +460,7 @@ func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps)
 	return &j
 }
 
+// Create a new `AWS::ManagedBlockchain::Member`.
 func NewCfnMember_Override(c CfnMember, scope constructs.Construct, id *string, props *CfnMemberProps) {
 	_init_.Initialize()
 
@@ -506,13 +510,13 @@ func (j *jsiiProxy_CfnMember)SetNetworkId(val *string) {
 }
 
 // Creates a new IMemberRef from a memberId.
-func CfnMember_FromMemberId(scope constructs.Construct, id *string, memberId *string) IMemberRef {
+func CfnMember_FromMemberId(scope constructs.Construct, id *string, memberId *string) interfacesawsmanagedblockchain.IMemberRef {
 	_init_.Initialize()
 
 	if err := validateCfnMember_FromMemberIdParameters(scope, id, memberId); err != nil {
 		panic(err)
 	}
-	var returns IMemberRef
+	var returns interfacesawsmanagedblockchain.IMemberRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_managedblockchain.CfnMember",

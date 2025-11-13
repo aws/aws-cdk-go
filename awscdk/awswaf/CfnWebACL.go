@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswaf/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswaf"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnWebACL interface {
 	awscdk.CfnResource
-	IWebACLRef
 	awscdk.IInspectable
+	interfacesawswaf.IWebACLRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -62,7 +64,7 @@ type CfnWebACL interface {
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction() interface{}
 	SetDefaultAction(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -107,7 +109,7 @@ type CfnWebACL interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WebACL resource.
-	WebAclRef() *WebACLReference
+	WebAclRef() *interfacesawswaf.WebACLReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -238,8 +240,8 @@ type CfnWebACL interface {
 // The jsii proxy struct for CfnWebACL
 type jsiiProxy_CfnWebACL struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWebACLRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafIWebACLRef
 }
 
 func (j *jsiiProxy_CfnWebACL) AttrId() *string {
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnWebACL) DefaultAction() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACL) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWebACL) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,8 +404,8 @@ func (j *jsiiProxy_CfnWebACL) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACL) WebAclRef() *WebACLReference {
-	var returns *WebACLReference
+func (j *jsiiProxy_CfnWebACL) WebAclRef() *interfacesawswaf.WebACLReference {
+	var returns *interfacesawswaf.WebACLReference
 	_jsii_.Get(
 		j,
 		"webAclRef",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnWebACL) WebAclRef() *WebACLReference {
 }
 
 
+// Create a new `AWS::WAF::WebACL`.
 func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps)
 	return &j
 }
 
+// Create a new `AWS::WAF::WebACL`.
 func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, props *CfnWebACLProps) {
 	_init_.Initialize()
 

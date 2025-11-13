@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslookoutmetrics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslookoutmetrics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnAlert interface {
 	awscdk.CfnResource
-	IAlertRef
 	awscdk.IInspectable
+	interfacesawslookoutmetrics.IAlertRef
 	// Action that will be triggered when there is an alert.
 	Action() interface{}
 	SetAction(val interface{})
@@ -55,7 +57,7 @@ type CfnAlert interface {
 	AlertName() *string
 	SetAlertName(val *string)
 	// A reference to a Alert resource.
-	AlertRef() *AlertReference
+	AlertRef() *interfacesawslookoutmetrics.AlertReference
 	// An integer from 0 to 100 specifying the alert sensitivity threshold.
 	AlertSensitivityThreshold() *float64
 	SetAlertSensitivityThreshold(val *float64)
@@ -75,7 +77,7 @@ type CfnAlert interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -240,8 +242,8 @@ type CfnAlert interface {
 // The jsii proxy struct for CfnAlert
 type jsiiProxy_CfnAlert struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAlertRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslookoutmetricsIAlertRef
 }
 
 func (j *jsiiProxy_CfnAlert) Action() interface{} {
@@ -274,8 +276,8 @@ func (j *jsiiProxy_CfnAlert) AlertName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlert) AlertRef() *AlertReference {
-	var returns *AlertReference
+func (j *jsiiProxy_CfnAlert) AlertRef() *interfacesawslookoutmetrics.AlertReference {
+	var returns *interfacesawslookoutmetrics.AlertReference
 	_jsii_.Get(
 		j,
 		"alertRef",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnAlert) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlert) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAlert) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -425,6 +427,7 @@ func (j *jsiiProxy_CfnAlert) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::LookoutMetrics::Alert`.
 func NewCfnAlert(scope constructs.Construct, id *string, props *CfnAlertProps) CfnAlert {
 	_init_.Initialize()
 
@@ -442,6 +445,7 @@ func NewCfnAlert(scope constructs.Construct, id *string, props *CfnAlertProps) C
 	return &j
 }
 
+// Create a new `AWS::LookoutMetrics::Alert`.
 func NewCfnAlert_Override(c CfnAlert, scope constructs.Construct, id *string, props *CfnAlertProps) {
 	_init_.Initialize()
 

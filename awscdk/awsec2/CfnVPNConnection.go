@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -109,8 +111,8 @@ import (
 //
 type CfnVPNConnection interface {
 	awscdk.CfnResource
-	IVPNConnectionRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPNConnectionRef
 	awscdk.ITaggable
 	// The ID of the VPN connection.
 	AttrVpnConnectionId() *string
@@ -129,7 +131,7 @@ type CfnVPNConnection interface {
 	// Indicate whether to enable acceleration for the VPN connection.
 	EnableAcceleration() interface{}
 	SetEnableAcceleration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv4NetworkCidr() *string
 	SetLocalIpv4NetworkCidr(val *string)
@@ -203,7 +205,7 @@ type CfnVPNConnection interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPNConnection resource.
-	VpnConnectionRef() *VPNConnectionReference
+	VpnConnectionRef() *interfacesawsec2.VPNConnectionReference
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	VpnGatewayId() *string
 	SetVpnGatewayId(val *string)
@@ -340,8 +342,8 @@ type CfnVPNConnection interface {
 // The jsii proxy struct for CfnVPNConnection
 type jsiiProxy_CfnVPNConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPNConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPNConnectionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -415,8 +417,8 @@ func (j *jsiiProxy_CfnVPNConnection) EnableAcceleration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPNConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPNConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -615,8 +617,8 @@ func (j *jsiiProxy_CfnVPNConnection) UpdatedProperties() *map[string]interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPNConnection) VpnConnectionRef() *VPNConnectionReference {
-	var returns *VPNConnectionReference
+func (j *jsiiProxy_CfnVPNConnection) VpnConnectionRef() *interfacesawsec2.VPNConnectionReference {
+	var returns *interfacesawsec2.VPNConnectionReference
 	_jsii_.Get(
 		j,
 		"vpnConnectionRef",
@@ -646,6 +648,7 @@ func (j *jsiiProxy_CfnVPNConnection) VpnTunnelOptionsSpecifications() interface{
 }
 
 
+// Create a new `AWS::EC2::VPNConnection`.
 func NewCfnVPNConnection(scope constructs.Construct, id *string, props *CfnVPNConnectionProps) CfnVPNConnection {
 	_init_.Initialize()
 
@@ -663,6 +666,7 @@ func NewCfnVPNConnection(scope constructs.Construct, id *string, props *CfnVPNCo
 	return &j
 }
 
+// Create a new `AWS::EC2::VPNConnection`.
 func NewCfnVPNConnection_Override(c CfnVPNConnection, scope constructs.Construct, id *string, props *CfnVPNConnectionProps) {
 	_init_.Initialize()
 
@@ -820,13 +824,13 @@ func (j *jsiiProxy_CfnVPNConnection)SetVpnTunnelOptionsSpecifications(val interf
 }
 
 // Creates a new IVPNConnectionRef from a vpnConnectionId.
-func CfnVPNConnection_FromVpnConnectionId(scope constructs.Construct, id *string, vpnConnectionId *string) IVPNConnectionRef {
+func CfnVPNConnection_FromVpnConnectionId(scope constructs.Construct, id *string, vpnConnectionId *string) interfacesawsec2.IVPNConnectionRef {
 	_init_.Initialize()
 
 	if err := validateCfnVPNConnection_FromVpnConnectionIdParameters(scope, id, vpnConnectionId); err != nil {
 		panic(err)
 	}
-	var returns IVPNConnectionRef
+	var returns interfacesawsec2.IVPNConnectionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVPNConnection",

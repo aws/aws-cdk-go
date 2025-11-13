@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsguardduty/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -66,8 +68,8 @@ import (
 //
 type CfnDetector interface {
 	awscdk.CfnResource
-	IDetectorRef
 	awscdk.IInspectable
+	interfacesawsguardduty.IDetectorRef
 	awscdk.ITaggable
 	// The unique ID of the detector.
 	AttrId() *string
@@ -84,11 +86,11 @@ type CfnDetector interface {
 	DataSources() interface{}
 	SetDataSources(val interface{})
 	// A reference to a Detector resource.
-	DetectorRef() *DetectorReference
+	DetectorRef() *interfacesawsguardduty.DetectorReference
 	// Specifies whether the detector is to be enabled on creation.
 	Enable() interface{}
 	SetEnable(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of features that will be configured for the detector.
 	Features() interface{}
 	SetFeatures(val interface{})
@@ -264,8 +266,8 @@ type CfnDetector interface {
 // The jsii proxy struct for CfnDetector
 type jsiiProxy_CfnDetector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDetectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsguarddutyIDetectorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnDetector) DataSources() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDetector) DetectorRef() *DetectorReference {
-	var returns *DetectorReference
+func (j *jsiiProxy_CfnDetector) DetectorRef() *interfacesawsguardduty.DetectorReference {
+	var returns *interfacesawsguardduty.DetectorReference
 	_jsii_.Get(
 		j,
 		"detectorRef",
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnDetector) Enable() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDetector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDetector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -460,6 +462,7 @@ func (j *jsiiProxy_CfnDetector) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GuardDuty::Detector`.
 func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorProps) CfnDetector {
 	_init_.Initialize()
 
@@ -477,6 +480,7 @@ func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorPr
 	return &j
 }
 
+// Create a new `AWS::GuardDuty::Detector`.
 func NewCfnDetector_Override(c CfnDetector, scope constructs.Construct, id *string, props *CfnDetectorProps) {
 	_init_.Initialize()
 
@@ -540,13 +544,13 @@ func (j *jsiiProxy_CfnDetector)SetTagsRaw(val *[]*CfnDetector_TagItemProperty) {
 }
 
 // Creates a new IDetectorRef from a detectorId.
-func CfnDetector_FromDetectorId(scope constructs.Construct, id *string, detectorId *string) IDetectorRef {
+func CfnDetector_FromDetectorId(scope constructs.Construct, id *string, detectorId *string) interfacesawsguardduty.IDetectorRef {
 	_init_.Initialize()
 
 	if err := validateCfnDetector_FromDetectorIdParameters(scope, id, detectorId); err != nil {
 		panic(err)
 	}
-	var returns IDetectorRef
+	var returns interfacesawsguardduty.IDetectorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_guardduty.CfnDetector",

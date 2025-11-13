@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a Key Group.
 type IKeyGroup interface {
-	IKeyGroupRef
+	interfacesawscloudfront.IKeyGroupRef
 	awscdk.IResource
 	// The ID of the key group.
 	KeyGroupId() *string
@@ -18,7 +20,7 @@ type IKeyGroup interface {
 
 // The jsii proxy for IKeyGroup
 type jsiiProxy_IKeyGroup struct {
-	jsiiProxy_IKeyGroupRef
+	internal.Type__interfacesawscloudfrontIKeyGroupRef
 	internal.Type__awscdkIResource
 }
 
@@ -43,8 +45,8 @@ func (j *jsiiProxy_IKeyGroup) KeyGroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IKeyGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IKeyGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -53,8 +55,8 @@ func (j *jsiiProxy_IKeyGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IKeyGroup) KeyGroupRef() *KeyGroupReference {
-	var returns *KeyGroupReference
+func (j *jsiiProxy_IKeyGroup) KeyGroupRef() *interfacesawscloudfront.KeyGroupReference {
+	var returns *interfacesawscloudfront.KeyGroupReference
 	_jsii_.Get(
 		j,
 		"keyGroupRef",

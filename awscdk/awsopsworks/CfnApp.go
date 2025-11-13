@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -66,10 +68,10 @@ import (
 //
 type CfnApp interface {
 	awscdk.CfnResource
-	IAppRef
 	awscdk.IInspectable
+	interfacesawsopsworks.IAppRef
 	// A reference to a App resource.
-	AppRef() *AppReference
+	AppRef() *interfacesawsopsworks.AppReference
 	// A `Source` object that specifies the app repository.
 	AppSource() interface{}
 	SetAppSource(val interface{})
@@ -98,7 +100,7 @@ type CfnApp interface {
 	// Whether to enable SSL for the app.
 	EnableSsl() interface{}
 	SetEnableSsl(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An array of `EnvironmentVariable` objects that specify environment variables to be associated with the app.
 	Environment() interface{}
 	SetEnvironment(val interface{})
@@ -281,12 +283,12 @@ type CfnApp interface {
 // The jsii proxy struct for CfnApp
 type jsiiProxy_CfnApp struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAppRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopsworksIAppRef
 }
 
-func (j *jsiiProxy_CfnApp) AppRef() *AppReference {
-	var returns *AppReference
+func (j *jsiiProxy_CfnApp) AppRef() *interfacesawsopsworks.AppReference {
+	var returns *interfacesawsopsworks.AppReference
 	_jsii_.Get(
 		j,
 		"appRef",
@@ -405,8 +407,8 @@ func (j *jsiiProxy_CfnApp) EnableSsl() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApp) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApp) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -536,6 +538,7 @@ func (j *jsiiProxy_CfnApp) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::OpsWorks::App`.
 func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnApp {
 	_init_.Initialize()
 
@@ -553,6 +556,7 @@ func NewCfnApp(scope constructs.Construct, id *string, props *CfnAppProps) CfnAp
 	return &j
 }
 
+// Create a new `AWS::OpsWorks::App`.
 func NewCfnApp_Override(c CfnApp, scope constructs.Construct, id *string, props *CfnAppProps) {
 	_init_.Initialize()
 

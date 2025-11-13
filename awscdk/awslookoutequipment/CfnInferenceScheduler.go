@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslookoutequipment/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslookoutequipment"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnInferenceScheduler interface {
 	awscdk.CfnResource
-	IInferenceSchedulerRef
 	awscdk.IInspectable
+	interfacesawslookoutequipment.IInferenceSchedulerRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the inference scheduler being created.
 	AttrInferenceSchedulerArn() *string
@@ -72,12 +74,12 @@ type CfnInferenceScheduler interface {
 	// How often data is uploaded to the source S3 bucket for the input data.
 	DataUploadFrequency() *string
 	SetDataUploadFrequency(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the inference scheduler.
 	InferenceSchedulerName() *string
 	SetInferenceSchedulerName(val *string)
 	// A reference to a InferenceScheduler resource.
-	InferenceSchedulerRef() *InferenceSchedulerReference
+	InferenceSchedulerRef() *interfacesawslookoutequipment.InferenceSchedulerReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -256,8 +258,8 @@ type CfnInferenceScheduler interface {
 // The jsii proxy struct for CfnInferenceScheduler
 type jsiiProxy_CfnInferenceScheduler struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInferenceSchedulerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslookoutequipmentIInferenceSchedulerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnInferenceScheduler) DataUploadFrequency() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInferenceScheduler) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInferenceScheduler) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnInferenceScheduler) InferenceSchedulerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInferenceScheduler) InferenceSchedulerRef() *InferenceSchedulerReference {
-	var returns *InferenceSchedulerReference
+func (j *jsiiProxy_CfnInferenceScheduler) InferenceSchedulerRef() *interfacesawslookoutequipment.InferenceSchedulerReference {
+	var returns *interfacesawslookoutequipment.InferenceSchedulerReference
 	_jsii_.Get(
 		j,
 		"inferenceSchedulerRef",
@@ -492,6 +494,7 @@ func (j *jsiiProxy_CfnInferenceScheduler) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::LookoutEquipment::InferenceScheduler`.
 func NewCfnInferenceScheduler(scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) CfnInferenceScheduler {
 	_init_.Initialize()
 
@@ -509,6 +512,7 @@ func NewCfnInferenceScheduler(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::LookoutEquipment::InferenceScheduler`.
 func NewCfnInferenceScheduler_Override(c CfnInferenceScheduler, scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) {
 	_init_.Initialize()
 

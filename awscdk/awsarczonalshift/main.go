@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_arczonalshift.AutoshiftObserverNotificationStatusReference",
-		reflect.TypeOf((*AutoshiftObserverNotificationStatusReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_arczonalshift.CfnAutoshiftObserverNotificationStatus",
 		reflect.TypeOf((*CfnAutoshiftObserverNotificationStatus)(nil)).Elem(),
@@ -54,8 +50,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAutoshiftObserverNotificationStatus{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAutoshiftObserverNotificationStatusRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsarczonalshiftIAutoshiftObserverNotificationStatusRef)
 			return &j
 		},
 	)
@@ -106,8 +102,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnZonalAutoshiftConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IZonalAutoshiftConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsarczonalshiftIZonalAutoshiftConfigurationRef)
 			return &j
 		},
 	)
@@ -122,39 +118,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arczonalshift.CfnZonalAutoshiftConfigurationProps",
 		reflect.TypeOf((*CfnZonalAutoshiftConfigurationProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_arczonalshift.IAutoshiftObserverNotificationStatusRef",
-		reflect.TypeOf((*IAutoshiftObserverNotificationStatusRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "autoshiftObserverNotificationStatusRef", GoGetter: "AutoshiftObserverNotificationStatusRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAutoshiftObserverNotificationStatusRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_arczonalshift.IZonalAutoshiftConfigurationRef",
-		reflect.TypeOf((*IZonalAutoshiftConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "zonalAutoshiftConfigurationRef", GoGetter: "ZonalAutoshiftConfigurationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IZonalAutoshiftConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_arczonalshift.ZonalAutoshiftConfigurationReference",
-		reflect.TypeOf((*ZonalAutoshiftConfigurationReference)(nil)).Elem(),
 	)
 }

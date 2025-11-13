@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnPublicDnsNamespace interface {
 	awscdk.CfnResource
-	IPublicDnsNamespaceRef
 	awscdk.IInspectable
+	interfacesawsservicediscovery.IPublicDnsNamespaceRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the public namespace.
 	AttrArn() *string
@@ -65,7 +67,7 @@ type CfnPublicDnsNamespace interface {
 	// A description for the namespace.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +87,7 @@ type CfnPublicDnsNamespace interface {
 	Properties() interface{}
 	SetProperties(val interface{})
 	// A reference to a PublicDnsNamespace resource.
-	PublicDnsNamespaceRef() *PublicDnsNamespaceReference
+	PublicDnsNamespaceRef() *interfacesawsservicediscovery.PublicDnsNamespaceReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -243,8 +245,8 @@ type CfnPublicDnsNamespace interface {
 // The jsii proxy struct for CfnPublicDnsNamespace
 type jsiiProxy_CfnPublicDnsNamespace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPublicDnsNamespaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicediscoveryIPublicDnsNamespaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicDnsNamespace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPublicDnsNamespace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -378,8 +380,8 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) Properties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicDnsNamespace) PublicDnsNamespaceRef() *PublicDnsNamespaceReference {
-	var returns *PublicDnsNamespaceReference
+func (j *jsiiProxy_CfnPublicDnsNamespace) PublicDnsNamespaceRef() *interfacesawsservicediscovery.PublicDnsNamespaceReference {
+	var returns *interfacesawsservicediscovery.PublicDnsNamespaceReference
 	_jsii_.Get(
 		j,
 		"publicDnsNamespaceRef",
@@ -449,6 +451,7 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::ServiceDiscovery::PublicDnsNamespace`.
 func NewCfnPublicDnsNamespace(scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) CfnPublicDnsNamespace {
 	_init_.Initialize()
 
@@ -466,6 +469,7 @@ func NewCfnPublicDnsNamespace(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::ServiceDiscovery::PublicDnsNamespace`.
 func NewCfnPublicDnsNamespace_Override(c CfnPublicDnsNamespace, scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) {
 	_init_.Initialize()
 

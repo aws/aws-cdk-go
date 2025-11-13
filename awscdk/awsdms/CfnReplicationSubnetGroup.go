@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnReplicationSubnetGroup interface {
 	awscdk.CfnResource
-	IReplicationSubnetGroupRef
 	awscdk.IInspectable
+	interfacesawsdms.IReplicationSubnetGroupRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -53,7 +55,7 @@ type CfnReplicationSubnetGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -78,7 +80,7 @@ type CfnReplicationSubnetGroup interface {
 	ReplicationSubnetGroupIdentifier() *string
 	SetReplicationSubnetGroupIdentifier(val *string)
 	// A reference to a ReplicationSubnetGroup resource.
-	ReplicationSubnetGroupRef() *ReplicationSubnetGroupReference
+	ReplicationSubnetGroupRef() *interfacesawsdms.ReplicationSubnetGroupReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -234,8 +236,8 @@ type CfnReplicationSubnetGroup interface {
 // The jsii proxy struct for CfnReplicationSubnetGroup
 type jsiiProxy_CfnReplicationSubnetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicationSubnetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIReplicationSubnetGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationSubnetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicationSubnetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) ReplicationSubnetGroupIdentifier()
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationSubnetGroup) ReplicationSubnetGroupRef() *ReplicationSubnetGroupReference {
-	var returns *ReplicationSubnetGroupReference
+func (j *jsiiProxy_CfnReplicationSubnetGroup) ReplicationSubnetGroupRef() *interfacesawsdms.ReplicationSubnetGroupReference {
+	var returns *interfacesawsdms.ReplicationSubnetGroupReference
 	_jsii_.Get(
 		j,
 		"replicationSubnetGroupRef",
@@ -420,6 +422,7 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::DMS::ReplicationSubnetGroup`.
 func NewCfnReplicationSubnetGroup(scope constructs.Construct, id *string, props *CfnReplicationSubnetGroupProps) CfnReplicationSubnetGroup {
 	_init_.Initialize()
 
@@ -437,6 +440,7 @@ func NewCfnReplicationSubnetGroup(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::DMS::ReplicationSubnetGroup`.
 func NewCfnReplicationSubnetGroup_Override(c CfnReplicationSubnetGroup, scope constructs.Construct, id *string, props *CfnReplicationSubnetGroupProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -111,8 +113,8 @@ import (
 //
 type CfnReplicationGroup interface {
 	awscdk.CfnResource
-	IReplicationGroupRef
 	awscdk.IInspectable
+	interfacesawselasticache.IReplicationGroupRef
 	awscdk.ITaggable
 	// A flag that enables encryption at rest when set to `true` .
 	AtRestEncryptionEnabled() interface{}
@@ -189,7 +191,7 @@ type CfnReplicationGroup interface {
 	// The version number of the cache engine to be used for the clusters in this replication group.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the Global datastore.
 	GlobalReplicationGroupId() *string
 	SetGlobalReplicationGroupId(val *string)
@@ -261,7 +263,7 @@ type CfnReplicationGroup interface {
 	ReplicationGroupId() *string
 	SetReplicationGroupId(val *string)
 	// A reference to a ReplicationGroup resource.
-	ReplicationGroupRef() *ReplicationGroupReference
+	ReplicationGroupRef() *interfacesawselasticache.ReplicationGroupReference
 	// One or more Amazon VPC security groups associated with this replication group.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
@@ -441,8 +443,8 @@ type CfnReplicationGroup interface {
 // The jsii proxy struct for CfnReplicationGroup
 type jsiiProxy_CfnReplicationGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicationGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheIReplicationGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -706,8 +708,8 @@ func (j *jsiiProxy_CfnReplicationGroup) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicationGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -916,8 +918,8 @@ func (j *jsiiProxy_CfnReplicationGroup) ReplicationGroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationGroup) ReplicationGroupRef() *ReplicationGroupReference {
-	var returns *ReplicationGroupReference
+func (j *jsiiProxy_CfnReplicationGroup) ReplicationGroupRef() *interfacesawselasticache.ReplicationGroupReference {
+	var returns *interfacesawselasticache.ReplicationGroupReference
 	_jsii_.Get(
 		j,
 		"replicationGroupRef",
@@ -1067,6 +1069,7 @@ func (j *jsiiProxy_CfnReplicationGroup) UserGroupIds() *[]*string {
 }
 
 
+// Create a new `AWS::ElastiCache::ReplicationGroup`.
 func NewCfnReplicationGroup(scope constructs.Construct, id *string, props *CfnReplicationGroupProps) CfnReplicationGroup {
 	_init_.Initialize()
 
@@ -1084,6 +1087,7 @@ func NewCfnReplicationGroup(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::ReplicationGroup`.
 func NewCfnReplicationGroup_Override(c CfnReplicationGroup, scope constructs.Construct, id *string, props *CfnReplicationGroupProps) {
 	_init_.Initialize()
 
@@ -1437,13 +1441,13 @@ func (j *jsiiProxy_CfnReplicationGroup)SetUserGroupIds(val *[]*string) {
 }
 
 // Creates a new IReplicationGroupRef from a replicationGroupId.
-func CfnReplicationGroup_FromReplicationGroupId(scope constructs.Construct, id *string, replicationGroupId *string) IReplicationGroupRef {
+func CfnReplicationGroup_FromReplicationGroupId(scope constructs.Construct, id *string, replicationGroupId *string) interfacesawselasticache.IReplicationGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnReplicationGroup_FromReplicationGroupIdParameters(scope, id, replicationGroupId); err != nil {
 		panic(err)
 	}
-	var returns IReplicationGroupRef
+	var returns interfacesawselasticache.IReplicationGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",

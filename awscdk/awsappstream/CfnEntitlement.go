@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnEntitlement interface {
 	awscdk.CfnResource
-	IEntitlementRef
 	awscdk.IInspectable
+	interfacesawsappstream.IEntitlementRef
 	// Specifies whether to entitle all apps or only selected apps.
 	AppVisibility() *string
 	SetAppVisibility(val *string)
@@ -62,8 +64,8 @@ type CfnEntitlement interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a Entitlement resource.
-	EntitlementRef() *EntitlementReference
-	Env() *awscdk.ResourceEnvironment
+	EntitlementRef() *interfacesawsappstream.EntitlementReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -234,8 +236,8 @@ type CfnEntitlement interface {
 // The jsii proxy struct for CfnEntitlement
 type jsiiProxy_CfnEntitlement struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEntitlementRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIEntitlementRef
 }
 
 func (j *jsiiProxy_CfnEntitlement) AppVisibility() *string {
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnEntitlement) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntitlement) EntitlementRef() *EntitlementReference {
-	var returns *EntitlementReference
+func (j *jsiiProxy_CfnEntitlement) EntitlementRef() *interfacesawsappstream.EntitlementReference {
+	var returns *interfacesawsappstream.EntitlementReference
 	_jsii_.Get(
 		j,
 		"entitlementRef",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnEntitlement) EntitlementRef() *EntitlementReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntitlement) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEntitlement) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnEntitlement) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppStream::Entitlement`.
 func NewCfnEntitlement(scope constructs.Construct, id *string, props *CfnEntitlementProps) CfnEntitlement {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnEntitlement(scope constructs.Construct, id *string, props *CfnEntitle
 	return &j
 }
 
+// Create a new `AWS::AppStream::Entitlement`.
 func NewCfnEntitlement_Override(c CfnEntitlement, scope constructs.Construct, id *string, props *CfnEntitlementProps) {
 	_init_.Initialize()
 

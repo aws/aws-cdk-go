@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappintegrations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappintegrations"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,13 +64,13 @@ import (
 //
 type CfnApplication interface {
 	awscdk.CfnResource
-	IApplicationRef
 	awscdk.IInspectable
+	interfacesawsappintegrations.IApplicationRef
 	awscdk.ITaggableV2
 	ApplicationConfig() interface{}
 	SetApplicationConfig(val interface{})
 	// A reference to a Application resource.
-	ApplicationRef() *ApplicationReference
+	ApplicationRef() *interfacesawsappintegrations.ApplicationReference
 	// The configuration for where the application should be loaded from.
 	ApplicationSourceConfig() interface{}
 	SetApplicationSourceConfig(val interface{})
@@ -90,7 +92,7 @@ type CfnApplication interface {
 	// The description of the application.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	IframeConfig() interface{}
 	SetIframeConfig(val interface{})
 	// The initialization timeout in milliseconds.
@@ -275,8 +277,8 @@ type CfnApplication interface {
 // The jsii proxy struct for CfnApplication
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappintegrationsIApplicationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnApplication) ApplicationConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) ApplicationRef() *ApplicationReference {
-	var returns *ApplicationReference
+func (j *jsiiProxy_CfnApplication) ApplicationRef() *interfacesawsappintegrations.ApplicationReference {
+	var returns *interfacesawsappintegrations.ApplicationReference
 	_jsii_.Get(
 		j,
 		"applicationRef",
@@ -390,8 +392,8 @@ func (j *jsiiProxy_CfnApplication) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -531,6 +533,7 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppIntegrations::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -548,6 +551,7 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
+// Create a new `AWS::AppIntegrations::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappflow/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappflow"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnConnector interface {
 	awscdk.CfnResource
-	IConnectorRef
 	awscdk.IInspectable
+	interfacesawsappflow.IConnectorRef
 	// The arn of the connector.
 	//
 	// The arn is unique for each ConnectorRegistration in your AWS account.
@@ -56,7 +58,7 @@ type CfnConnector interface {
 	ConnectorProvisioningType() *string
 	SetConnectorProvisioningType(val *string)
 	// A reference to a Connector resource.
-	ConnectorRef() *ConnectorReference
+	ConnectorRef() *interfacesawsappflow.ConnectorReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -64,7 +66,7 @@ type CfnConnector interface {
 	// A description about the connector runtime setting.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -229,8 +231,8 @@ type CfnConnector interface {
 // The jsii proxy struct for CfnConnector
 type jsiiProxy_CfnConnector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappflowIConnectorRef
 }
 
 func (j *jsiiProxy_CfnConnector) AttrConnectorArn() *string {
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnConnector) ConnectorProvisioningType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) ConnectorRef() *ConnectorReference {
-	var returns *ConnectorReference
+func (j *jsiiProxy_CfnConnector) ConnectorRef() *interfacesawsappflow.ConnectorReference {
+	var returns *interfacesawsappflow.ConnectorReference
 	_jsii_.Get(
 		j,
 		"connectorRef",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnConnector) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -404,6 +406,7 @@ func (j *jsiiProxy_CfnConnector) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppFlow::Connector`.
 func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
 	_init_.Initialize()
 
@@ -421,6 +424,7 @@ func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnector
 	return &j
 }
 
+// Create a new `AWS::AppFlow::Connector`.
 func NewCfnConnector_Override(c CfnConnector, scope constructs.Construct, id *string, props *CfnConnectorProps) {
 	_init_.Initialize()
 
@@ -470,13 +474,13 @@ func (j *jsiiProxy_CfnConnector)SetDescription(val *string) {
 }
 
 // Creates a new IConnectorRef from an ARN.
-func CfnConnector_FromConnectorArn(scope constructs.Construct, id *string, arn *string) IConnectorRef {
+func CfnConnector_FromConnectorArn(scope constructs.Construct, id *string, arn *string) interfacesawsappflow.IConnectorRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnector_FromConnectorArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IConnectorRef
+	var returns interfacesawsappflow.IConnectorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appflow.CfnConnector",
@@ -489,13 +493,13 @@ func CfnConnector_FromConnectorArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IConnectorRef from a connectorLabel.
-func CfnConnector_FromConnectorLabel(scope constructs.Construct, id *string, connectorLabel *string) IConnectorRef {
+func CfnConnector_FromConnectorLabel(scope constructs.Construct, id *string, connectorLabel *string) interfacesawsappflow.IConnectorRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnector_FromConnectorLabelParameters(scope, id, connectorLabel); err != nil {
 		panic(err)
 	}
-	var returns IConnectorRef
+	var returns interfacesawsappflow.IConnectorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appflow.CfnConnector",

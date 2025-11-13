@@ -6,10 +6,12 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrtbfabric/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrtbfabric"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::RTBFabric::RequesterGateway Resource Type.
+// Creates a requester gateway.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,8 +41,8 @@ import (
 //
 type CfnRequesterGateway interface {
 	awscdk.CfnResource
-	IRequesterGatewayRef
 	awscdk.IInspectable
+	interfacesawsrtbfabric.IRequesterGatewayRef
 	awscdk.ITaggableV2
 	AttrActiveLinksCount() *float64
 	AttrArn() *string
@@ -61,9 +63,10 @@ type CfnRequesterGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// An optional description for the requester gateway.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,18 +85,18 @@ type CfnRequesterGateway interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RequesterGateway resource.
-	RequesterGatewayRef() *RequesterGatewayReference
-	// The ID of one or more security groups in order to create a requester gateway.
+	RequesterGatewayRef() *interfacesawsrtbfabric.RequesterGatewayReference
+	// The unique identifiers of the security groups.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ID of one or more subnets in order to create a requester gateway.
+	// The unique identifiers of the subnets.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// Tags to assign to the Requester Gateway.
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -109,6 +112,7 @@ type CfnRequesterGateway interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The unique identifier of the Virtual Private Cloud (VPC).
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -241,8 +245,8 @@ type CfnRequesterGateway interface {
 // The jsii proxy struct for CfnRequesterGateway
 type jsiiProxy_CfnRequesterGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRequesterGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrtbfabricIRequesterGatewayRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -386,8 +390,8 @@ func (j *jsiiProxy_CfnRequesterGateway) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRequesterGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRequesterGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -426,8 +430,8 @@ func (j *jsiiProxy_CfnRequesterGateway) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRequesterGateway) RequesterGatewayRef() *RequesterGatewayReference {
-	var returns *RequesterGatewayReference
+func (j *jsiiProxy_CfnRequesterGateway) RequesterGatewayRef() *interfacesawsrtbfabric.RequesterGatewayReference {
+	var returns *interfacesawsrtbfabric.RequesterGatewayReference
 	_jsii_.Get(
 		j,
 		"requesterGatewayRef",
@@ -507,6 +511,7 @@ func (j *jsiiProxy_CfnRequesterGateway) VpcId() *string {
 }
 
 
+// Create a new `AWS::RTBFabric::RequesterGateway`.
 func NewCfnRequesterGateway(scope constructs.Construct, id *string, props *CfnRequesterGatewayProps) CfnRequesterGateway {
 	_init_.Initialize()
 
@@ -524,6 +529,7 @@ func NewCfnRequesterGateway(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
+// Create a new `AWS::RTBFabric::RequesterGateway`.
 func NewCfnRequesterGateway_Override(c CfnRequesterGateway, scope constructs.Construct, id *string, props *CfnRequesterGatewayProps) {
 	_init_.Initialize()
 

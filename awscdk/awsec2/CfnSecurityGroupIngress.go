@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnSecurityGroupIngress interface {
 	awscdk.CfnResource
-	ISecurityGroupIngressRef
 	awscdk.IInspectable
+	interfacesawsec2.ISecurityGroupIngressRef
 	// The Security Group Rule Id.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -67,7 +69,7 @@ type CfnSecurityGroupIngress interface {
 	// Updates the description of an ingress (inbound) security group rule.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	FromPort() *float64
 	SetFromPort(val *float64)
@@ -98,7 +100,7 @@ type CfnSecurityGroupIngress interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SecurityGroupIngress resource.
-	SecurityGroupIngressRef() *SecurityGroupIngressReference
+	SecurityGroupIngressRef() *interfacesawsec2.SecurityGroupIngressReference
 	// The ID of a prefix list.
 	SourcePrefixListId() *string
 	SetSourcePrefixListId(val *string)
@@ -261,8 +263,8 @@ type CfnSecurityGroupIngress interface {
 // The jsii proxy struct for CfnSecurityGroupIngress
 type jsiiProxy_CfnSecurityGroupIngress struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityGroupIngressRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISecurityGroupIngressRef
 }
 
 func (j *jsiiProxy_CfnSecurityGroupIngress) AttrId() *string {
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroupIngress) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityGroupIngress) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroupIngress) SecurityGroupIngressRef() *SecurityGroupIngressReference {
-	var returns *SecurityGroupIngressReference
+func (j *jsiiProxy_CfnSecurityGroupIngress) SecurityGroupIngressRef() *interfacesawsec2.SecurityGroupIngressReference {
+	var returns *interfacesawsec2.SecurityGroupIngressReference
 	_jsii_.Get(
 		j,
 		"securityGroupIngressRef",
@@ -516,6 +518,7 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::EC2::SecurityGroupIngress`.
 func NewCfnSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnSecurityGroupIngressProps) CfnSecurityGroupIngress {
 	_init_.Initialize()
 
@@ -533,6 +536,7 @@ func NewCfnSecurityGroupIngress(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::EC2::SecurityGroupIngress`.
 func NewCfnSecurityGroupIngress_Override(c CfnSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnSecurityGroupIngressProps) {
 	_init_.Initialize()
 

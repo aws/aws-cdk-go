@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnFunction interface {
 	awscdk.CfnResource
-	IFunctionRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IFunctionRef
 	// The ARN of the function. For example:.
 	//
 	// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
@@ -77,7 +79,7 @@ type CfnFunction interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The function code.
 	FunctionCode() *string
 	SetFunctionCode(val *string)
@@ -88,7 +90,7 @@ type CfnFunction interface {
 	FunctionMetadata() interface{}
 	SetFunctionMetadata(val interface{})
 	// A reference to a Function resource.
-	FunctionRef() *FunctionReference
+	FunctionRef() *interfacesawscloudfront.FunctionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -256,8 +258,8 @@ type CfnFunction interface {
 // The jsii proxy struct for CfnFunction
 type jsiiProxy_CfnFunction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFunctionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIFunctionRef
 }
 
 func (j *jsiiProxy_CfnFunction) AttrFunctionArn() *string {
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnFunction) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFunction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnFunction) FunctionMetadata() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunction) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_CfnFunction) FunctionRef() *interfacesawscloudfront.FunctionReference {
+	var returns *interfacesawscloudfront.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnFunction) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFront::Function`.
 func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionProps) CfnFunction {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionPr
 	return &j
 }
 
+// Create a new `AWS::CloudFront::Function`.
 func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *string, props *CfnFunctionProps) {
 	_init_.Initialize()
 

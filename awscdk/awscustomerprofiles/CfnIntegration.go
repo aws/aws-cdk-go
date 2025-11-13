@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscustomerprofiles/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscustomerprofiles"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -125,8 +127,8 @@ import (
 //
 type CfnIntegration interface {
 	awscdk.CfnResource
-	IIntegrationRef
 	awscdk.IInspectable
+	interfacesawscustomerprofiles.IIntegrationRef
 	awscdk.ITaggable
 	// The timestamp of when the integration was created.
 	AttrCreatedAt() *string
@@ -144,7 +146,7 @@ type CfnIntegration interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of unique names for active event triggers associated with the integration.
 	EventTriggerNames() *[]*string
 	SetEventTriggerNames(val *[]*string)
@@ -152,7 +154,7 @@ type CfnIntegration interface {
 	FlowDefinition() interface{}
 	SetFlowDefinition(val interface{})
 	// A reference to a Integration resource.
-	IntegrationRef() *IntegrationReference
+	IntegrationRef() *interfacesawscustomerprofiles.IntegrationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -331,8 +333,8 @@ type CfnIntegration interface {
 // The jsii proxy struct for CfnIntegration
 type jsiiProxy_CfnIntegration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIntegrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscustomerprofilesIIntegrationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnIntegration) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIntegration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -436,8 +438,8 @@ func (j *jsiiProxy_CfnIntegration) FlowDefinition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) IntegrationRef() *IntegrationReference {
-	var returns *IntegrationReference
+func (j *jsiiProxy_CfnIntegration) IntegrationRef() *interfacesawscustomerprofiles.IntegrationReference {
+	var returns *interfacesawscustomerprofiles.IntegrationReference
 	_jsii_.Get(
 		j,
 		"integrationRef",
@@ -557,6 +559,7 @@ func (j *jsiiProxy_CfnIntegration) Uri() *string {
 }
 
 
+// Create a new `AWS::CustomerProfiles::Integration`.
 func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegrationProps) CfnIntegration {
 	_init_.Initialize()
 
@@ -574,6 +577,7 @@ func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegra
 	return &j
 }
 
+// Create a new `AWS::CustomerProfiles::Integration`.
 func NewCfnIntegration_Override(c CfnIntegration, scope constructs.Construct, id *string, props *CfnIntegrationProps) {
 	_init_.Initialize()
 

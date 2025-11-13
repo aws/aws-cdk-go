@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsqldb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsqldb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnStream interface {
 	awscdk.CfnResource
-	IStreamRef
 	awscdk.IInspectable
+	interfacesawsqldb.IStreamRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the QLDB journal stream.
 	//
@@ -64,7 +66,7 @@ type CfnStream interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The exclusive date and time that specifies when the stream ends.
 	ExclusiveEndTime() *string
 	SetExclusiveEndTime(val *string)
@@ -105,7 +107,7 @@ type CfnStream interface {
 	StreamName() *string
 	SetStreamName(val *string)
 	// A reference to a Stream resource.
-	StreamRef() *StreamReference
+	StreamRef() *interfacesawsqldb.StreamReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An array of key-value pairs to apply to this resource.
@@ -254,8 +256,8 @@ type CfnStream interface {
 // The jsii proxy struct for CfnStream
 type jsiiProxy_CfnStream struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsqldbIStreamRef
 	internal.Type__awscdkITaggable
 }
 
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnStream) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStream) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -429,8 +431,8 @@ func (j *jsiiProxy_CfnStream) StreamName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStream) StreamRef() *StreamReference {
-	var returns *StreamReference
+func (j *jsiiProxy_CfnStream) StreamRef() *interfacesawsqldb.StreamReference {
+	var returns *interfacesawsqldb.StreamReference
 	_jsii_.Get(
 		j,
 		"streamRef",
@@ -480,6 +482,7 @@ func (j *jsiiProxy_CfnStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::QLDB::Stream`.
 func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps) CfnStream {
 	_init_.Initialize()
 
@@ -497,6 +500,7 @@ func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps)
 	return &j
 }
 
+// Create a new `AWS::QLDB::Stream`.
 func NewCfnStream_Override(c CfnStream, scope constructs.Construct, id *string, props *CfnStreamProps) {
 	_init_.Initialize()
 

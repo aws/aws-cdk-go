@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnVPCGatewayAttachment interface {
 	awscdk.CfnResource
-	IVPCGatewayAttachmentRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCGatewayAttachmentRef
 	// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment.
 	AttrAttachmentType() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -41,7 +43,7 @@ type CfnVPCGatewayAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the internet gateway.
 	InternetGatewayId() *string
 	SetInternetGatewayId(val *string)
@@ -80,7 +82,7 @@ type CfnVPCGatewayAttachment interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPCGatewayAttachment resource.
-	VpcGatewayAttachmentRef() *VPCGatewayAttachmentReference
+	VpcGatewayAttachmentRef() *interfacesawsec2.VPCGatewayAttachmentReference
 	// The ID of the VPC.
 	VpcId() *string
 	SetVpcId(val *string)
@@ -217,8 +219,8 @@ type CfnVPCGatewayAttachment interface {
 // The jsii proxy struct for CfnVPCGatewayAttachment
 type jsiiProxy_CfnVPCGatewayAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCGatewayAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCGatewayAttachmentRef
 }
 
 func (j *jsiiProxy_CfnVPCGatewayAttachment) AttrAttachmentType() *string {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnVPCGatewayAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCGatewayAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCGatewayAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnVPCGatewayAttachment) UpdatedProperties() *map[string]inte
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCGatewayAttachment) VpcGatewayAttachmentRef() *VPCGatewayAttachmentReference {
-	var returns *VPCGatewayAttachmentReference
+func (j *jsiiProxy_CfnVPCGatewayAttachment) VpcGatewayAttachmentRef() *interfacesawsec2.VPCGatewayAttachmentReference {
+	var returns *interfacesawsec2.VPCGatewayAttachmentReference
 	_jsii_.Get(
 		j,
 		"vpcGatewayAttachmentRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnVPCGatewayAttachment) VpnGatewayId() *string {
 }
 
 
+// Create a new `AWS::EC2::VPCGatewayAttachment`.
 func NewCfnVPCGatewayAttachment(scope constructs.Construct, id *string, props *CfnVPCGatewayAttachmentProps) CfnVPCGatewayAttachment {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnVPCGatewayAttachment(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCGatewayAttachment`.
 func NewCfnVPCGatewayAttachment_Override(c CfnVPCGatewayAttachment, scope constructs.Construct, id *string, props *CfnVPCGatewayAttachmentProps) {
 	_init_.Initialize()
 

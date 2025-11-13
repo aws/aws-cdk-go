@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalytics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisanalytics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -82,8 +84,8 @@ import (
 //
 type CfnApplication interface {
 	awscdk.CfnResource
-	IApplicationRef
 	awscdk.IInspectable
+	interfacesawskinesisanalytics.IApplicationRef
 	// One or more SQL statements that read input data, transform it, and generate output.
 	ApplicationCode() *string
 	SetApplicationCode(val *string)
@@ -94,7 +96,7 @@ type CfnApplication interface {
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// A reference to a Application resource.
-	ApplicationRef() *ApplicationReference
+	ApplicationRef() *interfacesawskinesisanalytics.ApplicationReference
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -105,7 +107,7 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Use this parameter to configure the application input.
 	Inputs() interface{}
 	SetInputs(val interface{})
@@ -273,8 +275,8 @@ type CfnApplication interface {
 // The jsii proxy struct for CfnApplication
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisanalyticsIApplicationRef
 }
 
 func (j *jsiiProxy_CfnApplication) ApplicationCode() *string {
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnApplication) ApplicationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) ApplicationRef() *ApplicationReference {
-	var returns *ApplicationReference
+func (j *jsiiProxy_CfnApplication) ApplicationRef() *interfacesawskinesisanalytics.ApplicationReference {
+	var returns *interfacesawskinesisanalytics.ApplicationReference
 	_jsii_.Get(
 		j,
 		"applicationRef",
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnApplication) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -448,6 +450,7 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::KinesisAnalytics::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -465,6 +468,7 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
+// Create a new `AWS::KinesisAnalytics::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 

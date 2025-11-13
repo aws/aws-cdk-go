@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,13 +34,13 @@ type KeyValueStore interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the Key Value Store.
 	KeyValueStoreArn() *string
 	// The Unique ID of the Key Value Store.
 	KeyValueStoreId() *string
 	// A reference to a KeyValueStore resource.
-	KeyValueStoreRef() *KeyValueStoreReference
+	KeyValueStoreRef() *interfacesawscloudfront.KeyValueStoreReference
 	// The status of the Key Value Store.
 	KeyValueStoreStatus() *string
 	// The tree node.
@@ -87,8 +89,8 @@ type jsiiProxy_KeyValueStore struct {
 	jsiiProxy_IKeyValueStore
 }
 
-func (j *jsiiProxy_KeyValueStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_KeyValueStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -117,8 +119,8 @@ func (j *jsiiProxy_KeyValueStore) KeyValueStoreId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_KeyValueStore) KeyValueStoreRef() *KeyValueStoreReference {
-	var returns *KeyValueStoreReference
+func (j *jsiiProxy_KeyValueStore) KeyValueStoreRef() *interfacesawscloudfront.KeyValueStoreReference {
+	var returns *interfacesawscloudfront.KeyValueStoreReference
 	_jsii_.Get(
 		j,
 		"keyValueStoreRef",

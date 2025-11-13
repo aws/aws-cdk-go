@@ -2,7 +2,7 @@ package awsstepfunctionstasks
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // ML compute instances for the transform job.
@@ -41,6 +41,6 @@ type TransformResources struct {
 	// AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s).
 	// Default: - None.
 	//
-	VolumeEncryptionKey awskms.IKeyRef `field:"optional" json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
+	VolumeEncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 

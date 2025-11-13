@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Code Signing Config.
 type ICodeSigningConfig interface {
-	ICodeSigningConfigRef
+	interfacesawslambda.ICodeSigningConfigRef
 	awscdk.IResource
 	// The ARN of Code Signing Config.
 	CodeSigningConfigArn() *string
@@ -20,7 +22,7 @@ type ICodeSigningConfig interface {
 
 // The jsii proxy for ICodeSigningConfig
 type jsiiProxy_ICodeSigningConfig struct {
-	jsiiProxy_ICodeSigningConfigRef
+	internal.Type__interfacesawslambdaICodeSigningConfigRef
 	internal.Type__awscdkIResource
 }
 
@@ -55,8 +57,8 @@ func (j *jsiiProxy_ICodeSigningConfig) CodeSigningConfigId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ICodeSigningConfig) CodeSigningConfigRef() *CodeSigningConfigReference {
-	var returns *CodeSigningConfigReference
+func (j *jsiiProxy_ICodeSigningConfig) CodeSigningConfigRef() *interfacesawslambda.CodeSigningConfigReference {
+	var returns *interfacesawslambda.CodeSigningConfigReference
 	_jsii_.Get(
 		j,
 		"codeSigningConfigRef",
@@ -65,8 +67,8 @@ func (j *jsiiProxy_ICodeSigningConfig) CodeSigningConfigRef() *CodeSigningConfig
 	return returns
 }
 
-func (j *jsiiProxy_ICodeSigningConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ICodeSigningConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

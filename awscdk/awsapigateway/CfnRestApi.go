@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -68,8 +70,8 @@ import (
 //
 type CfnRestApi interface {
 	awscdk.CfnResource
-	IRestApiRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IRestApiRef
 	awscdk.ITaggable
 	// The source of the API key for metering requests according to a usage plan.
 	ApiKeySourceType() *string
@@ -108,7 +110,7 @@ type CfnRestApi interface {
 	// A list of the endpoint types and IP address types of the API.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered.
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
@@ -145,7 +147,7 @@ type CfnRestApi interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RestApi resource.
-	RestApiRef() *RestApiReference
+	RestApiRef() *interfacesawsapigateway.RestApiReference
 	SecurityPolicy() *string
 	SetSecurityPolicy(val *string)
 	// The stack in which this element is defined.
@@ -300,8 +302,8 @@ type CfnRestApi interface {
 // The jsii proxy struct for CfnRestApi
 type jsiiProxy_CfnRestApi struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRestApiRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIRestApiRef
 	internal.Type__awscdkITaggable
 }
 
@@ -445,8 +447,8 @@ func (j *jsiiProxy_CfnRestApi) EndpointConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRestApi) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRestApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -545,8 +547,8 @@ func (j *jsiiProxy_CfnRestApi) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRestApi) RestApiRef() *RestApiReference {
-	var returns *RestApiReference
+func (j *jsiiProxy_CfnRestApi) RestApiRef() *interfacesawsapigateway.RestApiReference {
+	var returns *interfacesawsapigateway.RestApiReference
 	_jsii_.Get(
 		j,
 		"restApiRef",
@@ -616,6 +618,7 @@ func (j *jsiiProxy_CfnRestApi) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGateway::RestApi`.
 func NewCfnRestApi(scope constructs.Construct, id *string, props *CfnRestApiProps) CfnRestApi {
 	_init_.Initialize()
 
@@ -633,6 +636,7 @@ func NewCfnRestApi(scope constructs.Construct, id *string, props *CfnRestApiProp
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::RestApi`.
 func NewCfnRestApi_Override(c CfnRestApi, scope constructs.Construct, id *string, props *CfnRestApiProps) {
 	_init_.Initialize()
 
@@ -790,13 +794,13 @@ func (j *jsiiProxy_CfnRestApi)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IRestApiRef from a restApiId.
-func CfnRestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) IRestApiRef {
+func CfnRestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) interfacesawsapigateway.IRestApiRef {
 	_init_.Initialize()
 
 	if err := validateCfnRestApi_FromRestApiIdParameters(scope, id, restApiId); err != nil {
 		panic(err)
 	}
-	var returns IRestApiRef
+	var returns interfacesawsapigateway.IRestApiRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigateway.CfnRestApi",

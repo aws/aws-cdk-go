@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisvideo/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisvideo"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnSignalingChannel interface {
 	awscdk.CfnResource
-	ISignalingChannelRef
 	awscdk.IInspectable
+	interfacesawskinesisvideo.ISignalingChannelRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the signaling channel.
 	AttrArn() *string
@@ -48,7 +50,7 @@ type CfnSignalingChannel interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,7 +75,7 @@ type CfnSignalingChannel interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SignalingChannel resource.
-	SignalingChannelRef() *SignalingChannelReference
+	SignalingChannelRef() *interfacesawskinesisvideo.SignalingChannelReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -229,8 +231,8 @@ type CfnSignalingChannel interface {
 // The jsii proxy struct for CfnSignalingChannel
 type jsiiProxy_CfnSignalingChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISignalingChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisvideoISignalingChannelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnSignalingChannel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSignalingChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSignalingChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnSignalingChannel) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSignalingChannel) SignalingChannelRef() *SignalingChannelReference {
-	var returns *SignalingChannelReference
+func (j *jsiiProxy_CfnSignalingChannel) SignalingChannelRef() *interfacesawskinesisvideo.SignalingChannelReference {
+	var returns *interfacesawskinesisvideo.SignalingChannelReference
 	_jsii_.Get(
 		j,
 		"signalingChannelRef",
@@ -415,6 +417,7 @@ func (j *jsiiProxy_CfnSignalingChannel) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::KinesisVideo::SignalingChannel`.
 func NewCfnSignalingChannel(scope constructs.Construct, id *string, props *CfnSignalingChannelProps) CfnSignalingChannel {
 	_init_.Initialize()
 
@@ -432,6 +435,7 @@ func NewCfnSignalingChannel(scope constructs.Construct, id *string, props *CfnSi
 	return &j
 }
 
+// Create a new `AWS::KinesisVideo::SignalingChannel`.
 func NewCfnSignalingChannel_Override(c CfnSignalingChannel, scope constructs.Construct, id *string, props *CfnSignalingChannelProps) {
 	_init_.Initialize()
 

@@ -25,10 +25,14 @@ import (
 //
 //   			// the properties below are optional
 //   			OutputLocation: jsii.String("outputLocation"),
+//   			Region: jsii.String("region"),
 //   		},
 //   		Glue: &GlueTableReferenceProperty{
 //   			DatabaseName: jsii.String("databaseName"),
 //   			TableName: jsii.String("tableName"),
+//
+//   			// the properties below are optional
+//   			Region: jsii.String("region"),
 //   		},
 //   		Snowflake: &SnowflakeTableReferenceProperty{
 //   			AccountIdentifier: jsii.String("accountIdentifier"),
@@ -140,7 +144,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html
 //
 type CfnConfiguredTableProps struct {
-	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	// The columns within the underlying AWS Glue table that can be used within collaborations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-allowedcolumns
 	//
 	AllowedColumns *[]*string `field:"required" json:"allowedColumns" yaml:"allowedColumns"`

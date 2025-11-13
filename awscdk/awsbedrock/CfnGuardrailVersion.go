@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnGuardrailVersion interface {
 	awscdk.CfnResource
-	IGuardrailVersionRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IGuardrailVersionRef
 	// The ARN of the guardrail.
 	AttrGuardrailArn() *string
 	// The unique identifier of the guardrail.
@@ -49,12 +51,12 @@ type CfnGuardrailVersion interface {
 	// A description of the guardrail version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the guardrail.
 	GuardrailIdentifier() *string
 	SetGuardrailIdentifier(val *string)
 	// A reference to a GuardrailVersion resource.
-	GuardrailVersionRef() *GuardrailVersionReference
+	GuardrailVersionRef() *interfacesawsbedrock.GuardrailVersionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -219,8 +221,8 @@ type CfnGuardrailVersion interface {
 // The jsii proxy struct for CfnGuardrailVersion
 type jsiiProxy_CfnGuardrailVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGuardrailVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIGuardrailVersionRef
 }
 
 func (j *jsiiProxy_CfnGuardrailVersion) AttrGuardrailArn() *string {
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnGuardrailVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGuardrailVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGuardrailVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnGuardrailVersion) GuardrailIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGuardrailVersion) GuardrailVersionRef() *GuardrailVersionReference {
-	var returns *GuardrailVersionReference
+func (j *jsiiProxy_CfnGuardrailVersion) GuardrailVersionRef() *interfacesawsbedrock.GuardrailVersionReference {
+	var returns *interfacesawsbedrock.GuardrailVersionReference
 	_jsii_.Get(
 		j,
 		"guardrailVersionRef",
@@ -394,6 +396,7 @@ func (j *jsiiProxy_CfnGuardrailVersion) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Bedrock::GuardrailVersion`.
 func NewCfnGuardrailVersion(scope constructs.Construct, id *string, props *CfnGuardrailVersionProps) CfnGuardrailVersion {
 	_init_.Initialize()
 
@@ -411,6 +414,7 @@ func NewCfnGuardrailVersion(scope constructs.Construct, id *string, props *CfnGu
 	return &j
 }
 
+// Create a new `AWS::Bedrock::GuardrailVersion`.
 func NewCfnGuardrailVersion_Override(c CfnGuardrailVersion, scope constructs.Construct, id *string, props *CfnGuardrailVersionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsomics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnReferenceStore interface {
 	awscdk.CfnResource
-	IReferenceStoreRef
 	awscdk.IInspectable
+	interfacesawsomics.IReferenceStoreRef
 	awscdk.ITaggable
 	// The store's ARN.
 	AttrArn() *string
@@ -57,7 +59,7 @@ type CfnReferenceStore interface {
 	// A description for the store.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -79,7 +81,7 @@ type CfnReferenceStore interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ReferenceStore resource.
-	ReferenceStoreRef() *ReferenceStoreReference
+	ReferenceStoreRef() *interfacesawsomics.ReferenceStoreReference
 	// Server-side encryption (SSE) settings for the store.
 	SseConfig() interface{}
 	SetSseConfig(val interface{})
@@ -235,8 +237,8 @@ type CfnReferenceStore interface {
 // The jsii proxy struct for CfnReferenceStore
 type jsiiProxy_CfnReferenceStore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReferenceStoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsomicsIReferenceStoreRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnReferenceStore) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReferenceStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReferenceStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnReferenceStore) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReferenceStore) ReferenceStoreRef() *ReferenceStoreReference {
-	var returns *ReferenceStoreReference
+func (j *jsiiProxy_CfnReferenceStore) ReferenceStoreRef() *interfacesawsomics.ReferenceStoreReference {
+	var returns *interfacesawsomics.ReferenceStoreReference
 	_jsii_.Get(
 		j,
 		"referenceStoreRef",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnReferenceStore) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Omics::ReferenceStore`.
 func NewCfnReferenceStore(scope constructs.Construct, id *string, props *CfnReferenceStoreProps) CfnReferenceStore {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnReferenceStore(scope constructs.Construct, id *string, props *CfnRefe
 	return &j
 }
 
+// Create a new `AWS::Omics::ReferenceStore`.
 func NewCfnReferenceStore_Override(c CfnReferenceStore, scope constructs.Construct, id *string, props *CfnReferenceStoreProps) {
 	_init_.Initialize()
 
@@ -507,13 +511,13 @@ func (j *jsiiProxy_CfnReferenceStore)SetTagsRaw(val *map[string]*string) {
 }
 
 // Creates a new IReferenceStoreRef from an ARN.
-func CfnReferenceStore_FromReferenceStoreArn(scope constructs.Construct, id *string, arn *string) IReferenceStoreRef {
+func CfnReferenceStore_FromReferenceStoreArn(scope constructs.Construct, id *string, arn *string) interfacesawsomics.IReferenceStoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnReferenceStore_FromReferenceStoreArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IReferenceStoreRef
+	var returns interfacesawsomics.IReferenceStoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_omics.CfnReferenceStore",
@@ -526,13 +530,13 @@ func CfnReferenceStore_FromReferenceStoreArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IReferenceStoreRef from a referenceStoreId.
-func CfnReferenceStore_FromReferenceStoreId(scope constructs.Construct, id *string, referenceStoreId *string) IReferenceStoreRef {
+func CfnReferenceStore_FromReferenceStoreId(scope constructs.Construct, id *string, referenceStoreId *string) interfacesawsomics.IReferenceStoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnReferenceStore_FromReferenceStoreIdParameters(scope, id, referenceStoreId); err != nil {
 		panic(err)
 	}
-	var returns IReferenceStoreRef
+	var returns interfacesawsomics.IReferenceStoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_omics.CfnReferenceStore",

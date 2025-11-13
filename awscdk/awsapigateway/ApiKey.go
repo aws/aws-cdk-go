@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,7 +28,7 @@ type ApiKey interface {
 	awscdk.Resource
 	IApiKey
 	// A reference to a ApiKey resource.
-	ApiKeyRef() *ApiKeyReference
+	ApiKeyRef() *interfacesawsapigateway.ApiKeyReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -36,7 +38,7 @@ type ApiKey interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The API key ARN.
 	KeyArn() *string
 	// The API key ID.
@@ -93,8 +95,8 @@ type jsiiProxy_ApiKey struct {
 	jsiiProxy_IApiKey
 }
 
-func (j *jsiiProxy_ApiKey) ApiKeyRef() *ApiKeyReference {
-	var returns *ApiKeyReference
+func (j *jsiiProxy_ApiKey) ApiKeyRef() *interfacesawsapigateway.ApiKeyReference {
+	var returns *interfacesawsapigateway.ApiKeyReference
 	_jsii_.Get(
 		j,
 		"apiKeyRef",
@@ -103,8 +105,8 @@ func (j *jsiiProxy_ApiKey) ApiKeyRef() *ApiKeyReference {
 	return returns
 }
 
-func (j *jsiiProxy_ApiKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ApiKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

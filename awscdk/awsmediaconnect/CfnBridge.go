@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -82,8 +84,8 @@ import (
 //
 type CfnBridge interface {
 	awscdk.CfnResource
-	IBridgeRef
 	awscdk.IInspectable
+	interfacesawsmediaconnect.IBridgeRef
 	// The Amazon Resource Name (ARN) of the bridge.
 	AttrBridgeArn() *string
 	// The current status of the bridge.
@@ -91,7 +93,7 @@ type CfnBridge interface {
 	// Possible values are: ACTIVE or STANDBY.
 	AttrBridgeState() *string
 	// A reference to a Bridge resource.
-	BridgeRef() *BridgeReference
+	BridgeRef() *interfacesawsmediaconnect.BridgeReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -104,7 +106,7 @@ type CfnBridge interface {
 	// An egress bridge is a cloud-to-ground bridge.
 	EgressGatewayBridge() interface{}
 	SetEgressGatewayBridge(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An ingress bridge is a ground-to-cloud bridge.
 	IngressGatewayBridge() interface{}
 	SetIngressGatewayBridge(val interface{})
@@ -287,8 +289,8 @@ type CfnBridge interface {
 // The jsii proxy struct for CfnBridge
 type jsiiProxy_CfnBridge struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBridgeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconnectIBridgeRef
 }
 
 func (j *jsiiProxy_CfnBridge) AttrBridgeArn() *string {
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnBridge) AttrBridgeState() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBridge) BridgeRef() *BridgeReference {
-	var returns *BridgeReference
+func (j *jsiiProxy_CfnBridge) BridgeRef() *interfacesawsmediaconnect.BridgeReference {
+	var returns *interfacesawsmediaconnect.BridgeReference
 	_jsii_.Get(
 		j,
 		"bridgeRef",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnBridge) EgressGatewayBridge() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBridge) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBridge) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -502,6 +504,7 @@ func (j *jsiiProxy_CfnBridge) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaConnect::Bridge`.
 func NewCfnBridge(scope constructs.Construct, id *string, props *CfnBridgeProps) CfnBridge {
 	_init_.Initialize()
 
@@ -519,6 +522,7 @@ func NewCfnBridge(scope constructs.Construct, id *string, props *CfnBridgeProps)
 	return &j
 }
 
+// Create a new `AWS::MediaConnect::Bridge`.
 func NewCfnBridge_Override(c CfnBridge, scope constructs.Construct, id *string, props *CfnBridgeProps) {
 	_init_.Initialize()
 

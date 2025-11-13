@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsathena/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsathena"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnNamedQuery interface {
 	awscdk.CfnResource
-	INamedQueryRef
 	awscdk.IInspectable
+	interfacesawsathena.INamedQueryRef
 	// The unique ID of the query.
 	AttrNamedQueryId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -49,7 +51,7 @@ type CfnNamedQuery interface {
 	// The query description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -64,7 +66,7 @@ type CfnNamedQuery interface {
 	Name() *string
 	SetName(val *string)
 	// A reference to a NamedQuery resource.
-	NamedQueryRef() *NamedQueryReference
+	NamedQueryRef() *interfacesawsathena.NamedQueryReference
 	// The tree node.
 	Node() constructs.Node
 	// The SQL statements that make up the query.
@@ -225,8 +227,8 @@ type CfnNamedQuery interface {
 // The jsii proxy struct for CfnNamedQuery
 type jsiiProxy_CfnNamedQuery struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INamedQueryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsathenaINamedQueryRef
 }
 
 func (j *jsiiProxy_CfnNamedQuery) AttrNamedQueryId() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnNamedQuery) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNamedQuery) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNamedQuery) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnNamedQuery) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNamedQuery) NamedQueryRef() *NamedQueryReference {
-	var returns *NamedQueryReference
+func (j *jsiiProxy_CfnNamedQuery) NamedQueryRef() *interfacesawsathena.NamedQueryReference {
+	var returns *interfacesawsathena.NamedQueryReference
 	_jsii_.Get(
 		j,
 		"namedQueryRef",
@@ -410,6 +412,7 @@ func (j *jsiiProxy_CfnNamedQuery) WorkGroup() *string {
 }
 
 
+// Create a new `AWS::Athena::NamedQuery`.
 func NewCfnNamedQuery(scope constructs.Construct, id *string, props *CfnNamedQueryProps) CfnNamedQuery {
 	_init_.Initialize()
 
@@ -427,6 +430,7 @@ func NewCfnNamedQuery(scope constructs.Construct, id *string, props *CfnNamedQue
 	return &j
 }
 
+// Create a new `AWS::Athena::NamedQuery`.
 func NewCfnNamedQuery_Override(c CfnNamedQuery, scope constructs.Construct, id *string, props *CfnNamedQueryProps) {
 	_init_.Initialize()
 

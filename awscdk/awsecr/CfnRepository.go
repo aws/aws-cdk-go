@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnRepository interface {
 	awscdk.CfnResource
-	IRepositoryRef
 	awscdk.IInspectable
+	interfacesawsecr.IRepositoryRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource.
 	//
@@ -82,7 +84,7 @@ type CfnRepository interface {
 	// The encryption configuration for the repository.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// > The `imageScanningConfiguration` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
@@ -119,7 +121,7 @@ type CfnRepository interface {
 	RepositoryPolicyText() interface{}
 	SetRepositoryPolicyText(val interface{})
 	// A reference to a Repository resource.
-	RepositoryRef() *RepositoryReference
+	RepositoryRef() *interfacesawsecr.RepositoryReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -272,8 +274,8 @@ type CfnRepository interface {
 // The jsii proxy struct for CfnRepository
 type jsiiProxy_CfnRepository struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRepositoryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecrIRepositoryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnRepository) EncryptionConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepository) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRepository) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -457,8 +459,8 @@ func (j *jsiiProxy_CfnRepository) RepositoryPolicyText() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepository) RepositoryRef() *RepositoryReference {
-	var returns *RepositoryReference
+func (j *jsiiProxy_CfnRepository) RepositoryRef() *interfacesawsecr.RepositoryReference {
+	var returns *interfacesawsecr.RepositoryReference
 	_jsii_.Get(
 		j,
 		"repositoryRef",
@@ -518,6 +520,7 @@ func (j *jsiiProxy_CfnRepository) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ECR::Repository`.
 func NewCfnRepository(scope constructs.Construct, id *string, props *CfnRepositoryProps) CfnRepository {
 	_init_.Initialize()
 
@@ -535,6 +538,7 @@ func NewCfnRepository(scope constructs.Construct, id *string, props *CfnReposito
 	return &j
 }
 
+// Create a new `AWS::ECR::Repository`.
 func NewCfnRepository_Override(c CfnRepository, scope constructs.Construct, id *string, props *CfnRepositoryProps) {
 	_init_.Initialize()
 
@@ -636,13 +640,13 @@ func (j *jsiiProxy_CfnRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IRepositoryRef from an ARN.
-func CfnRepository_FromRepositoryArn(scope constructs.Construct, id *string, arn *string) IRepositoryRef {
+func CfnRepository_FromRepositoryArn(scope constructs.Construct, id *string, arn *string) interfacesawsecr.IRepositoryRef {
 	_init_.Initialize()
 
 	if err := validateCfnRepository_FromRepositoryArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IRepositoryRef
+	var returns interfacesawsecr.IRepositoryRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecr.CfnRepository",
@@ -655,13 +659,13 @@ func CfnRepository_FromRepositoryArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IRepositoryRef from a repositoryName.
-func CfnRepository_FromRepositoryName(scope constructs.Construct, id *string, repositoryName *string) IRepositoryRef {
+func CfnRepository_FromRepositoryName(scope constructs.Construct, id *string, repositoryName *string) interfacesawsecr.IRepositoryRef {
 	_init_.Initialize()
 
 	if err := validateCfnRepository_FromRepositoryNameParameters(scope, id, repositoryName); err != nil {
 		panic(err)
 	}
-	var returns IRepositoryRef
+	var returns interfacesawsecr.IRepositoryRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecr.CfnRepository",

@@ -94,25 +94,30 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-link.html
 //
 type CfnLinkProps struct {
+	// The unique identifier of the gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-link.html#cfn-rtbfabric-link-gatewayid
 	//
 	GatewayId *string `field:"required" json:"gatewayId" yaml:"gatewayId"`
+	// Settings for the application logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-link.html#cfn-rtbfabric-link-linklogsettings
 	//
 	LinkLogSettings interface{} `field:"required" json:"linkLogSettings" yaml:"linkLogSettings"`
+	// The unique identifier of the peer gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-link.html#cfn-rtbfabric-link-peergatewayid
 	//
 	PeerGatewayId *string `field:"required" json:"peerGatewayId" yaml:"peerGatewayId"`
+	// Boolean to specify if an HTTP responder is allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-link.html#cfn-rtbfabric-link-httpresponderallowed
 	//
 	HttpResponderAllowed interface{} `field:"optional" json:"httpResponderAllowed" yaml:"httpResponderAllowed"`
+	// Attributes of the link.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-link.html#cfn-rtbfabric-link-linkattributes
 	//
 	LinkAttributes interface{} `field:"optional" json:"linkAttributes" yaml:"linkAttributes"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-link.html#cfn-rtbfabric-link-moduleconfigurationlist
 	//
 	ModuleConfigurationList interface{} `field:"optional" json:"moduleConfigurationList" yaml:"moduleConfigurationList"`
-	// Tags to assign to the Link.
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-link.html#cfn-rtbfabric-link-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

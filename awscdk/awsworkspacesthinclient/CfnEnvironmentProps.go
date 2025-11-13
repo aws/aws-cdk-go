@@ -51,7 +51,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html
 //
 type CfnEnvironmentProps struct {
-	// The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Secure Browser, or AppStream 2.0.
+	// The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Secure Browser, or WorkSpaces Applications.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html#cfn-workspacesthinclient-environment-desktoparn
 	//
 	DesktopArn *string `field:"required" json:"desktopArn" yaml:"desktopArn"`
@@ -59,7 +59,7 @@ type CfnEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html#cfn-workspacesthinclient-environment-desiredsoftwaresetid
 	//
 	DesiredSoftwareSetId *string `field:"optional" json:"desiredSoftwareSetId" yaml:"desiredSoftwareSetId"`
-	// The URL for the identity provider login (only for environments that use AppStream 2.0).
+	// The URL for the identity provider login (only for environments that use WorkSpaces Applications).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html#cfn-workspacesthinclient-environment-desktopendpoint
 	//
 	DesktopEndpoint *string `field:"optional" json:"desktopEndpoint" yaml:"desktopEndpoint"`

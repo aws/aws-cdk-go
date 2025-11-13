@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotcoredeviceadvisor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotcoredeviceadvisor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnSuiteDefinition interface {
 	awscdk.CfnResource
-	ISuiteDefinitionRef
 	awscdk.IInspectable
+	interfacesawsiotcoredeviceadvisor.ISuiteDefinitionRef
 	awscdk.ITaggable
 	// The Arn of the Suite Definition.
 	AttrSuiteDefinitionArn() *string
@@ -54,7 +56,7 @@ type CfnSuiteDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,7 +82,7 @@ type CfnSuiteDefinition interface {
 	SuiteDefinitionConfiguration() interface{}
 	SetSuiteDefinitionConfiguration(val interface{})
 	// A reference to a SuiteDefinition resource.
-	SuiteDefinitionRef() *SuiteDefinitionReference
+	SuiteDefinitionRef() *interfacesawsiotcoredeviceadvisor.SuiteDefinitionReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Metadata that can be used to manage the the Suite Definition.
@@ -229,8 +231,8 @@ type CfnSuiteDefinition interface {
 // The jsii proxy struct for CfnSuiteDefinition
 type jsiiProxy_CfnSuiteDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISuiteDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotcoredeviceadvisorISuiteDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnSuiteDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSuiteDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSuiteDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnSuiteDefinition) SuiteDefinitionConfiguration() interface{
 	return returns
 }
 
-func (j *jsiiProxy_CfnSuiteDefinition) SuiteDefinitionRef() *SuiteDefinitionReference {
-	var returns *SuiteDefinitionReference
+func (j *jsiiProxy_CfnSuiteDefinition) SuiteDefinitionRef() *interfacesawsiotcoredeviceadvisor.SuiteDefinitionReference {
+	var returns *interfacesawsiotcoredeviceadvisor.SuiteDefinitionReference
 	_jsii_.Get(
 		j,
 		"suiteDefinitionRef",
@@ -415,6 +417,7 @@ func (j *jsiiProxy_CfnSuiteDefinition) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
 func NewCfnSuiteDefinition(scope constructs.Construct, id *string, props *CfnSuiteDefinitionProps) CfnSuiteDefinition {
 	_init_.Initialize()
 
@@ -432,6 +435,7 @@ func NewCfnSuiteDefinition(scope constructs.Construct, id *string, props *CfnSui
 	return &j
 }
 
+// Create a new `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
 func NewCfnSuiteDefinition_Override(c CfnSuiteDefinition, scope constructs.Construct, id *string, props *CfnSuiteDefinitionProps) {
 	_init_.Initialize()
 
@@ -465,13 +469,13 @@ func (j *jsiiProxy_CfnSuiteDefinition)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ISuiteDefinitionRef from an ARN.
-func CfnSuiteDefinition_FromSuiteDefinitionArn(scope constructs.Construct, id *string, arn *string) ISuiteDefinitionRef {
+func CfnSuiteDefinition_FromSuiteDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotcoredeviceadvisor.ISuiteDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnSuiteDefinition_FromSuiteDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ISuiteDefinitionRef
+	var returns interfacesawsiotcoredeviceadvisor.ISuiteDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
@@ -484,13 +488,13 @@ func CfnSuiteDefinition_FromSuiteDefinitionArn(scope constructs.Construct, id *s
 }
 
 // Creates a new ISuiteDefinitionRef from a suiteDefinitionId.
-func CfnSuiteDefinition_FromSuiteDefinitionId(scope constructs.Construct, id *string, suiteDefinitionId *string) ISuiteDefinitionRef {
+func CfnSuiteDefinition_FromSuiteDefinitionId(scope constructs.Construct, id *string, suiteDefinitionId *string) interfacesawsiotcoredeviceadvisor.ISuiteDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnSuiteDefinition_FromSuiteDefinitionIdParameters(scope, id, suiteDefinitionId); err != nil {
 		panic(err)
 	}
-	var returns ISuiteDefinitionRef
+	var returns interfacesawsiotcoredeviceadvisor.ISuiteDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",

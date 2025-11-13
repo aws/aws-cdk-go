@@ -1,7 +1,7 @@
 package awsopensearchservice
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service (KMS) key to use.
@@ -42,6 +42,6 @@ type EncryptionAtRestOptions struct {
 	// Supply if using KMS key for encryption at rest.
 	// Default: - uses default aws/es KMS key.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

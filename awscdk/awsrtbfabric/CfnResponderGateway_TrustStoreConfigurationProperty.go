@@ -1,6 +1,8 @@
 package awsrtbfabric
 
 
+// Describes the configuration of a trust store.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,6 +17,7 @@ package awsrtbfabric
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-truststoreconfiguration.html
 //
 type CfnResponderGateway_TrustStoreConfigurationProperty struct {
+	// The certificate authority certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-truststoreconfiguration.html#cfn-rtbfabric-respondergateway-truststoreconfiguration-certificateauthoritycertificates
 	//
 	CertificateAuthorityCertificates *[]*string `field:"required" json:"certificateAuthorityCertificates" yaml:"certificateAuthorityCertificates"`

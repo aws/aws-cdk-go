@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnIPSet interface {
 	awscdk.CfnResource
-	IIPSetRef
 	awscdk.IInspectable
+	interfacesawswafregional.IIPSetRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,12 +55,12 @@ type CfnIPSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IP address type ( `IPV4` or `IPV6` ) and the IP address range (in CIDR notation) that web requests originate from.
 	IpSetDescriptors() interface{}
 	SetIpSetDescriptors(val interface{})
 	// A reference to a IPSet resource.
-	IpSetRef() *IPSetReference
+	IpSetRef() *interfacesawswafregional.IPSetReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -226,8 +228,8 @@ type CfnIPSet interface {
 // The jsii proxy struct for CfnIPSet
 type jsiiProxy_CfnIPSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIPSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalIIPSetRef
 }
 
 func (j *jsiiProxy_CfnIPSet) AttrId() *string {
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnIPSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIPSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnIPSet) IpSetDescriptors() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPSet) IpSetRef() *IPSetReference {
-	var returns *IPSetReference
+func (j *jsiiProxy_CfnIPSet) IpSetRef() *interfacesawswafregional.IPSetReference {
+	var returns *interfacesawswafregional.IPSetReference
 	_jsii_.Get(
 		j,
 		"ipSetRef",
@@ -381,6 +383,7 @@ func (j *jsiiProxy_CfnIPSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::WAFRegional::IPSet`.
 func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
 	_init_.Initialize()
 
@@ -398,6 +401,7 @@ func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) C
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::IPSet`.
 func NewCfnIPSet_Override(c CfnIPSet, scope constructs.Construct, id *string, props *CfnIPSetProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnIntegration interface {
 	awscdk.CfnResource
-	IIntegrationRef
 	awscdk.IInspectable
+	interfacesawsrds.IIntegrationRef
 	awscdk.ITaggableV2
 	// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
 	AdditionalEncryptionContext() interface{}
@@ -67,12 +69,12 @@ type CfnIntegration interface {
 	// A description of the integration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the integration.
 	IntegrationName() *string
 	SetIntegrationName(val *string)
 	// A reference to a Integration resource.
-	IntegrationRef() *IntegrationReference
+	IntegrationRef() *interfacesawsrds.IntegrationReference
 	// The AWS Key Management System ( AWS KMS) key identifier for the key to use to encrypt the integration.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -249,8 +251,8 @@ type CfnIntegration interface {
 // The jsii proxy struct for CfnIntegration
 type jsiiProxy_CfnIntegration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIntegrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIIntegrationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnIntegration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIntegration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnIntegration) IntegrationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) IntegrationRef() *IntegrationReference {
-	var returns *IntegrationReference
+func (j *jsiiProxy_CfnIntegration) IntegrationRef() *interfacesawsrds.IntegrationReference {
+	var returns *interfacesawsrds.IntegrationReference
 	_jsii_.Get(
 		j,
 		"integrationRef",
@@ -485,6 +487,7 @@ func (j *jsiiProxy_CfnIntegration) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RDS::Integration`.
 func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegrationProps) CfnIntegration {
 	_init_.Initialize()
 
@@ -502,6 +505,7 @@ func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegra
 	return &j
 }
 
+// Create a new `AWS::RDS::Integration`.
 func NewCfnIntegration_Override(c CfnIntegration, scope constructs.Construct, id *string, props *CfnIntegrationProps) {
 	_init_.Initialize()
 

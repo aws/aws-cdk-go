@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -85,8 +87,8 @@ import (
 //
 type CfnCloudVmCluster interface {
 	awscdk.CfnResource
-	ICloudVmClusterRef
 	awscdk.IInspectable
+	interfacesawsodb.ICloudVmClusterRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the VM cluster.
 	AttrCloudVmClusterArn() *string
@@ -135,7 +137,7 @@ type CfnCloudVmCluster interface {
 	CloudExadataInfrastructureId() *string
 	SetCloudExadataInfrastructureId(val *string)
 	// A reference to a CloudVmCluster resource.
-	CloudVmClusterRef() *CloudVmClusterReference
+	CloudVmClusterRef() *interfacesawsodb.CloudVmClusterReference
 	// The name of the Grid Infrastructure (GI) cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
@@ -164,7 +166,7 @@ type CfnCloudVmCluster interface {
 	// The user-friendly name for the VM cluster.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
 	GiVersion() *string
 	SetGiVersion(val *string)
@@ -365,8 +367,8 @@ type CfnCloudVmCluster interface {
 // The jsii proxy struct for CfnCloudVmCluster
 type jsiiProxy_CfnCloudVmCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICloudVmClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsodbICloudVmClusterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -570,8 +572,8 @@ func (j *jsiiProxy_CfnCloudVmCluster) CloudExadataInfrastructureId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudVmCluster) CloudVmClusterRef() *CloudVmClusterReference {
-	var returns *CloudVmClusterReference
+func (j *jsiiProxy_CfnCloudVmCluster) CloudVmClusterRef() *interfacesawsodb.CloudVmClusterReference {
+	var returns *interfacesawsodb.CloudVmClusterReference
 	_jsii_.Get(
 		j,
 		"cloudVmClusterRef",
@@ -670,8 +672,8 @@ func (j *jsiiProxy_CfnCloudVmCluster) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudVmCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCloudVmCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -861,6 +863,7 @@ func (j *jsiiProxy_CfnCloudVmCluster) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::ODB::CloudVmCluster`.
 func NewCfnCloudVmCluster(scope constructs.Construct, id *string, props *CfnCloudVmClusterProps) CfnCloudVmCluster {
 	_init_.Initialize()
 
@@ -878,6 +881,7 @@ func NewCfnCloudVmCluster(scope constructs.Construct, id *string, props *CfnClou
 	return &j
 }
 
+// Create a new `AWS::ODB::CloudVmCluster`.
 func NewCfnCloudVmCluster_Override(c CfnCloudVmCluster, scope constructs.Construct, id *string, props *CfnCloudVmClusterProps) {
 	_init_.Initialize()
 

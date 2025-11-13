@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnTableOptimizer interface {
 	awscdk.CfnResource
-	ITableOptimizerRef
 	awscdk.IInspectable
+	interfacesawsglue.ITableOptimizerRef
 	AttrId() *string
 	// The catalog ID of the table.
 	CatalogId() *string
@@ -67,7 +69,7 @@ type CfnTableOptimizer interface {
 	// The name of the database.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -96,7 +98,7 @@ type CfnTableOptimizer interface {
 	TableOptimizerConfiguration() interface{}
 	SetTableOptimizerConfiguration(val interface{})
 	// A reference to a TableOptimizer resource.
-	TableOptimizerRef() *TableOptimizerReference
+	TableOptimizerRef() *interfacesawsglue.TableOptimizerReference
 	// The type of table optimizer.
 	//
 	// The valid values are:.
@@ -245,8 +247,8 @@ type CfnTableOptimizer interface {
 // The jsii proxy struct for CfnTableOptimizer
 type jsiiProxy_CfnTableOptimizer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITableOptimizerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueITableOptimizerRef
 }
 
 func (j *jsiiProxy_CfnTableOptimizer) AttrId() *string {
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnTableOptimizer) DatabaseName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTableOptimizer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTableOptimizer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -389,8 +391,8 @@ func (j *jsiiProxy_CfnTableOptimizer) TableOptimizerConfiguration() interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnTableOptimizer) TableOptimizerRef() *TableOptimizerReference {
-	var returns *TableOptimizerReference
+func (j *jsiiProxy_CfnTableOptimizer) TableOptimizerRef() *interfacesawsglue.TableOptimizerReference {
+	var returns *interfacesawsglue.TableOptimizerReference
 	_jsii_.Get(
 		j,
 		"tableOptimizerRef",
@@ -430,6 +432,7 @@ func (j *jsiiProxy_CfnTableOptimizer) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Glue::TableOptimizer`.
 func NewCfnTableOptimizer(scope constructs.Construct, id *string, props *CfnTableOptimizerProps) CfnTableOptimizer {
 	_init_.Initialize()
 
@@ -447,6 +450,7 @@ func NewCfnTableOptimizer(scope constructs.Construct, id *string, props *CfnTabl
 	return &j
 }
 
+// Create a new `AWS::Glue::TableOptimizer`.
 func NewCfnTableOptimizer_Override(c CfnTableOptimizer, scope constructs.Construct, id *string, props *CfnTableOptimizerProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoveryreadiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoveryreadiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnResourceSet interface {
 	awscdk.CfnResource
-	IResourceSetRef
 	awscdk.IInspectable
+	interfacesawsroute53recoveryreadiness.IResourceSetRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resource set.
 	AttrResourceSetArn() *string
@@ -79,7 +81,7 @@ type CfnResourceSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -104,7 +106,7 @@ type CfnResourceSet interface {
 	ResourceSetName() *string
 	SetResourceSetName(val *string)
 	// A reference to a ResourceSet resource.
-	ResourceSetRef() *ResourceSetReference
+	ResourceSetRef() *interfacesawsroute53recoveryreadiness.ResourceSetReference
 	// The resource type of the resources in the resource set.
 	//
 	// Enter one of the following values for resource type:.
@@ -262,8 +264,8 @@ type CfnResourceSet interface {
 // The jsii proxy struct for CfnResourceSet
 type jsiiProxy_CfnResourceSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53recoveryreadinessIResourceSetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnResourceSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnResourceSet) ResourceSetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceSet) ResourceSetRef() *ResourceSetReference {
-	var returns *ResourceSetReference
+func (j *jsiiProxy_CfnResourceSet) ResourceSetRef() *interfacesawsroute53recoveryreadiness.ResourceSetReference {
+	var returns *interfacesawsroute53recoveryreadiness.ResourceSetReference
 	_jsii_.Get(
 		j,
 		"resourceSetRef",
@@ -448,6 +450,7 @@ func (j *jsiiProxy_CfnResourceSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Route53RecoveryReadiness::ResourceSet`.
 func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourceSetProps) CfnResourceSet {
 	_init_.Initialize()
 
@@ -465,6 +468,7 @@ func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourc
 	return &j
 }
 
+// Create a new `AWS::Route53RecoveryReadiness::ResourceSet`.
 func NewCfnResourceSet_Override(c CfnResourceSet, scope constructs.Construct, id *string, props *CfnResourceSetProps) {
 	_init_.Initialize()
 

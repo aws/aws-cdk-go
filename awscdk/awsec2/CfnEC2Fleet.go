@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -204,8 +206,8 @@ import (
 //
 type CfnEC2Fleet interface {
 	awscdk.CfnResource
-	IEC2FleetRef
 	awscdk.IInspectable
+	interfacesawsec2.IEC2FleetRef
 	// The ID of the EC2 Fleet.
 	AttrFleetId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -221,8 +223,8 @@ type CfnEC2Fleet interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EC2Fleet resource.
-	Ec2FleetRef() *EC2FleetReference
-	Env() *awscdk.ResourceEnvironment
+	Ec2FleetRef() *interfacesawsec2.EC2FleetReference
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
 	ExcessCapacityTerminationPolicy() *string
 	SetExcessCapacityTerminationPolicy(val *string)
@@ -424,8 +426,8 @@ type CfnEC2Fleet interface {
 // The jsii proxy struct for CfnEC2Fleet
 type jsiiProxy_CfnEC2Fleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEC2FleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IEC2FleetRef
 }
 
 func (j *jsiiProxy_CfnEC2Fleet) AttrFleetId() *string {
@@ -488,8 +490,8 @@ func (j *jsiiProxy_CfnEC2Fleet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEC2Fleet) Ec2FleetRef() *EC2FleetReference {
-	var returns *EC2FleetReference
+func (j *jsiiProxy_CfnEC2Fleet) Ec2FleetRef() *interfacesawsec2.EC2FleetReference {
+	var returns *interfacesawsec2.EC2FleetReference
 	_jsii_.Get(
 		j,
 		"ec2FleetRef",
@@ -498,8 +500,8 @@ func (j *jsiiProxy_CfnEC2Fleet) Ec2FleetRef() *EC2FleetReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEC2Fleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEC2Fleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -679,6 +681,7 @@ func (j *jsiiProxy_CfnEC2Fleet) ValidUntil() *string {
 }
 
 
+// Create a new `AWS::EC2::EC2Fleet`.
 func NewCfnEC2Fleet(scope constructs.Construct, id *string, props *CfnEC2FleetProps) CfnEC2Fleet {
 	_init_.Initialize()
 
@@ -696,6 +699,7 @@ func NewCfnEC2Fleet(scope constructs.Construct, id *string, props *CfnEC2FleetPr
 	return &j
 }
 
+// Create a new `AWS::EC2::EC2Fleet`.
 func NewCfnEC2Fleet_Override(c CfnEC2Fleet, scope constructs.Construct, id *string, props *CfnEC2FleetProps) {
 	_init_.Initialize()
 
@@ -824,13 +828,13 @@ func (j *jsiiProxy_CfnEC2Fleet)SetValidUntil(val *string) {
 }
 
 // Creates a new IEC2FleetRef from a fleetId.
-func CfnEC2Fleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IEC2FleetRef {
+func CfnEC2Fleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) interfacesawsec2.IEC2FleetRef {
 	_init_.Initialize()
 
 	if err := validateCfnEC2Fleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
 		panic(err)
 	}
-	var returns IEC2FleetRef
+	var returns interfacesawsec2.IEC2FleetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet",

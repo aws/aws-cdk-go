@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnCACertificate interface {
 	awscdk.CfnResource
-	ICACertificateRef
 	awscdk.IInspectable
+	interfacesawsiot.ICACertificateRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:.
 	//
@@ -62,7 +64,7 @@ type CfnCACertificate interface {
 	CaCertificatePem() *string
 	SetCaCertificatePem(val *string)
 	// A reference to a CACertificate resource.
-	CaCertificateRef() *CACertificateReference
+	CaCertificateRef() *interfacesawsiot.CACertificateReference
 	// The mode of the CA.
 	CertificateMode() *string
 	SetCertificateMode(val *string)
@@ -75,7 +77,7 @@ type CfnCACertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -257,8 +259,8 @@ type CfnCACertificate interface {
 // The jsii proxy struct for CfnCACertificate
 type jsiiProxy_CfnCACertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICACertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotICACertificateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnCACertificate) CaCertificatePem() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCACertificate) CaCertificateRef() *CACertificateReference {
-	var returns *CACertificateReference
+func (j *jsiiProxy_CfnCACertificate) CaCertificateRef() *interfacesawsiot.CACertificateReference {
+	var returns *interfacesawsiot.CACertificateReference
 	_jsii_.Get(
 		j,
 		"caCertificateRef",
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnCACertificate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCACertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCACertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -493,6 +495,7 @@ func (j *jsiiProxy_CfnCACertificate) VerificationCertificatePem() *string {
 }
 
 
+// Create a new `AWS::IoT::CACertificate`.
 func NewCfnCACertificate(scope constructs.Construct, id *string, props *CfnCACertificateProps) CfnCACertificate {
 	_init_.Initialize()
 
@@ -510,6 +513,7 @@ func NewCfnCACertificate(scope constructs.Construct, id *string, props *CfnCACer
 	return &j
 }
 
+// Create a new `AWS::IoT::CACertificate`.
 func NewCfnCACertificate_Override(c CfnCACertificate, scope constructs.Construct, id *string, props *CfnCACertificateProps) {
 	_init_.Initialize()
 

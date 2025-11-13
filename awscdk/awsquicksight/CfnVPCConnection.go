@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnVPCConnection interface {
 	awscdk.CfnResource
-	IVPCConnectionRef
 	awscdk.IInspectable
+	interfacesawsquicksight.IVPCConnectionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the VPC connection.
 	AttrArn() *string
@@ -76,7 +78,7 @@ type CfnVPCConnection interface {
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers() *[]*string
 	SetDnsResolvers(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -132,7 +134,7 @@ type CfnVPCConnection interface {
 	VpcConnectionId() *string
 	SetVpcConnectionId(val *string)
 	// A reference to a VPCConnection resource.
-	VpcConnectionRef() *VPCConnectionReference
+	VpcConnectionRef() *interfacesawsquicksight.VPCConnectionReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -263,8 +265,8 @@ type CfnVPCConnection interface {
 // The jsii proxy struct for CfnVPCConnection
 type jsiiProxy_CfnVPCConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightIVPCConnectionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -398,8 +400,8 @@ func (j *jsiiProxy_CfnVPCConnection) DnsResolvers() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -538,8 +540,8 @@ func (j *jsiiProxy_CfnVPCConnection) VpcConnectionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCConnection) VpcConnectionRef() *VPCConnectionReference {
-	var returns *VPCConnectionReference
+func (j *jsiiProxy_CfnVPCConnection) VpcConnectionRef() *interfacesawsquicksight.VPCConnectionReference {
+	var returns *interfacesawsquicksight.VPCConnectionReference
 	_jsii_.Get(
 		j,
 		"vpcConnectionRef",
@@ -549,6 +551,7 @@ func (j *jsiiProxy_CfnVPCConnection) VpcConnectionRef() *VPCConnectionReference 
 }
 
 
+// Create a new `AWS::QuickSight::VPCConnection`.
 func NewCfnVPCConnection(scope constructs.Construct, id *string, props *CfnVPCConnectionProps) CfnVPCConnection {
 	_init_.Initialize()
 
@@ -566,6 +569,7 @@ func NewCfnVPCConnection(scope constructs.Construct, id *string, props *CfnVPCCo
 	return &j
 }
 
+// Create a new `AWS::QuickSight::VPCConnection`.
 func NewCfnVPCConnection_Override(c CfnVPCConnection, scope constructs.Construct, id *string, props *CfnVPCConnectionProps) {
 	_init_.Initialize()
 

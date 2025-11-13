@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,8 +26,8 @@ import (
 //
 type CfnRuleGroup interface {
 	awscdk.CfnResource
-	IRuleGroupRef
 	awscdk.IInspectable
+	interfacesawswafv2.IRuleGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the rule group.
 	AttrArn() *string
@@ -63,7 +65,7 @@ type CfnRuleGroup interface {
 	// A description of the rule group that helps with identification.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +87,7 @@ type CfnRuleGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RuleGroup resource.
-	RuleGroupRef() *RuleGroupReference
+	RuleGroupRef() *interfacesawswafv2.RuleGroupReference
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
 	Rules() interface{}
 	SetRules(val interface{})
@@ -247,8 +249,8 @@ type CfnRuleGroup interface {
 // The jsii proxy struct for CfnRuleGroup
 type jsiiProxy_CfnRuleGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRuleGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafv2IRuleGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnRuleGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRuleGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnRuleGroup) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroup) RuleGroupRef() *RuleGroupReference {
-	var returns *RuleGroupReference
+func (j *jsiiProxy_CfnRuleGroup) RuleGroupRef() *interfacesawswafv2.RuleGroupReference {
+	var returns *interfacesawswafv2.RuleGroupReference
 	_jsii_.Get(
 		j,
 		"ruleGroupRef",
@@ -513,6 +515,7 @@ func (j *jsiiProxy_CfnRuleGroup) VisibilityConfig() interface{} {
 }
 
 
+// Create a new `AWS::WAFv2::RuleGroup`.
 func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
 	_init_.Initialize()
 
@@ -530,6 +533,7 @@ func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroup
 	return &j
 }
 
+// Create a new `AWS::WAFv2::RuleGroup`.
 func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *string, props *CfnRuleGroupProps) {
 	_init_.Initialize()
 

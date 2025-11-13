@@ -1,11 +1,39 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsiotIAccountAuditConfigurationRef = interfacesawsiot.IAccountAuditConfigurationRef
+type Type__interfacesawsiotIAuthorizerRef = interfacesawsiot.IAuthorizerRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsiotIBillingGroupRef = interfacesawsiot.IBillingGroupRef
+type Type__interfacesawsiotICACertificateRef = interfacesawsiot.ICACertificateRef
+type Type__interfacesawsiotICertificateRef = interfacesawsiot.ICertificateRef
+type Type__interfacesawsiotICertificateProviderRef = interfacesawsiot.ICertificateProviderRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsiotICommandRef = interfacesawsiot.ICommandRef
+type Type__interfacesawsiotICustomMetricRef = interfacesawsiot.ICustomMetricRef
+type Type__interfacesawsiotIDimensionRef = interfacesawsiot.IDimensionRef
+type Type__interfacesawsiotIDomainConfigurationRef = interfacesawsiot.IDomainConfigurationRef
+type Type__interfacesawsiotIEncryptionConfigurationRef = interfacesawsiot.IEncryptionConfigurationRef
+type Type__interfacesawsiotIFleetMetricRef = interfacesawsiot.IFleetMetricRef
+type Type__interfacesawsiotIJobTemplateRef = interfacesawsiot.IJobTemplateRef
+type Type__interfacesawsiotILoggingRef = interfacesawsiot.ILoggingRef
+type Type__interfacesawsiotIMitigationActionRef = interfacesawsiot.IMitigationActionRef
+type Type__interfacesawsiotIPolicyRef = interfacesawsiot.IPolicyRef
+type Type__interfacesawsiotIPolicyPrincipalAttachmentRef = interfacesawsiot.IPolicyPrincipalAttachmentRef
+type Type__interfacesawsiotIProvisioningTemplateRef = interfacesawsiot.IProvisioningTemplateRef
+type Type__interfacesawsiotIResourceSpecificLoggingRef = interfacesawsiot.IResourceSpecificLoggingRef
+type Type__interfacesawsiotIRoleAliasRef = interfacesawsiot.IRoleAliasRef
+type Type__interfacesawsiotIScheduledAuditRef = interfacesawsiot.IScheduledAuditRef
+type Type__interfacesawsiotISecurityProfileRef = interfacesawsiot.ISecurityProfileRef
+type Type__interfacesawsiotISoftwarePackageRef = interfacesawsiot.ISoftwarePackageRef
+type Type__interfacesawsiotISoftwarePackageVersionRef = interfacesawsiot.ISoftwarePackageVersionRef
+type Type__interfacesawsiotIThingRef = interfacesawsiot.IThingRef
+type Type__interfacesawsiotIThingGroupRef = interfacesawsiot.IThingGroupRef
+type Type__interfacesawsiotIThingPrincipalAttachmentRef = interfacesawsiot.IThingPrincipalAttachmentRef
+type Type__interfacesawsiotIThingTypeRef = interfacesawsiot.IThingTypeRef
+type Type__interfacesawsiotITopicRuleRef = interfacesawsiot.ITopicRuleRef
+type Type__interfacesawsiotITopicRuleDestinationRef = interfacesawsiot.ITopicRuleDestinationRef

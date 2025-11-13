@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsverifiedpermissions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsverifiedpermissions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,8 +78,8 @@ import (
 //
 type CfnIdentitySource interface {
 	awscdk.CfnResource
-	IIdentitySourceRef
 	awscdk.IInspectable
+	interfacesawsverifiedpermissions.IIdentitySourceRef
 	AttrDetails() awscdk.IResolvable
 	AttrDetailsClientIds() *[]*string
 	AttrDetailsDiscoveryUrl() *string
@@ -97,9 +99,9 @@ type CfnIdentitySource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IdentitySource resource.
-	IdentitySourceRef() *IdentitySourceReference
+	IdentitySourceRef() *interfacesawsverifiedpermissions.IdentitySourceReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -270,8 +272,8 @@ type CfnIdentitySource interface {
 // The jsii proxy struct for CfnIdentitySource
 type jsiiProxy_CfnIdentitySource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdentitySourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsverifiedpermissionsIIdentitySourceRef
 }
 
 func (j *jsiiProxy_CfnIdentitySource) AttrDetails() awscdk.IResolvable {
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnIdentitySource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentitySource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdentitySource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnIdentitySource) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentitySource) IdentitySourceRef() *IdentitySourceReference {
-	var returns *IdentitySourceReference
+func (j *jsiiProxy_CfnIdentitySource) IdentitySourceRef() *interfacesawsverifiedpermissions.IdentitySourceReference {
+	var returns *interfacesawsverifiedpermissions.IdentitySourceReference
 	_jsii_.Get(
 		j,
 		"identitySourceRef",
@@ -485,6 +487,7 @@ func (j *jsiiProxy_CfnIdentitySource) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::VerifiedPermissions::IdentitySource`.
 func NewCfnIdentitySource(scope constructs.Construct, id *string, props *CfnIdentitySourceProps) CfnIdentitySource {
 	_init_.Initialize()
 
@@ -502,6 +505,7 @@ func NewCfnIdentitySource(scope constructs.Construct, id *string, props *CfnIden
 	return &j
 }
 
+// Create a new `AWS::VerifiedPermissions::IdentitySource`.
 func NewCfnIdentitySource_Override(c CfnIdentitySource, scope constructs.Construct, id *string, props *CfnIdentitySourceProps) {
 	_init_.Initialize()
 

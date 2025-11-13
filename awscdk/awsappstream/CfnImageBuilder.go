@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,13 +62,13 @@ import (
 //
 type CfnImageBuilder interface {
 	awscdk.CfnResource
-	IImageBuilderRef
 	awscdk.IInspectable
+	interfacesawsappstream.IImageBuilderRef
 	awscdk.ITaggable
 	// The list of virtual private cloud (VPC) interface endpoint objects.
 	AccessEndpoints() interface{}
 	SetAccessEndpoints(val interface{})
-	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	// The version of the WorkSpaces Applications agent to use for this image builder.
 	AppstreamAgentVersion() *string
 	SetAppstreamAgentVersion(val *string)
 	// The URL to start an image builder streaming session, returned as a string.
@@ -92,7 +94,7 @@ type CfnImageBuilder interface {
 	// Enables or disables default internet access for the image builder.
 	EnableDefaultInternetAccess() interface{}
 	SetEnableDefaultInternetAccess(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the IAM role that is applied to the image builder.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
@@ -100,7 +102,7 @@ type CfnImageBuilder interface {
 	ImageArn() *string
 	SetImageArn(val *string)
 	// A reference to a ImageBuilder resource.
-	ImageBuilderRef() *ImageBuilderReference
+	ImageBuilderRef() *interfacesawsappstream.ImageBuilderReference
 	// The name of the image used to create the image builder.
 	ImageName() *string
 	SetImageName(val *string)
@@ -284,8 +286,8 @@ type CfnImageBuilder interface {
 // The jsii proxy struct for CfnImageBuilder
 type jsiiProxy_CfnImageBuilder struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IImageBuilderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIImageBuilderRef
 	internal.Type__awscdkITaggable
 }
 
@@ -399,8 +401,8 @@ func (j *jsiiProxy_CfnImageBuilder) EnableDefaultInternetAccess() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageBuilder) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnImageBuilder) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -429,8 +431,8 @@ func (j *jsiiProxy_CfnImageBuilder) ImageArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageBuilder) ImageBuilderRef() *ImageBuilderReference {
-	var returns *ImageBuilderReference
+func (j *jsiiProxy_CfnImageBuilder) ImageBuilderRef() *interfacesawsappstream.ImageBuilderReference {
+	var returns *interfacesawsappstream.ImageBuilderReference
 	_jsii_.Get(
 		j,
 		"imageBuilderRef",
@@ -560,6 +562,7 @@ func (j *jsiiProxy_CfnImageBuilder) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::AppStream::ImageBuilder`.
 func NewCfnImageBuilder(scope constructs.Construct, id *string, props *CfnImageBuilderProps) CfnImageBuilder {
 	_init_.Initialize()
 
@@ -577,6 +580,7 @@ func NewCfnImageBuilder(scope constructs.Construct, id *string, props *CfnImageB
 	return &j
 }
 
+// Create a new `AWS::AppStream::ImageBuilder`.
 func NewCfnImageBuilder_Override(c CfnImageBuilder, scope constructs.Construct, id *string, props *CfnImageBuilderProps) {
 	_init_.Initialize()
 
@@ -713,13 +717,13 @@ func (j *jsiiProxy_CfnImageBuilder)SetVpcConfig(val interface{}) {
 }
 
 // Creates a new IImageBuilderRef from a imageBuilderName.
-func CfnImageBuilder_FromImageBuilderName(scope constructs.Construct, id *string, imageBuilderName *string) IImageBuilderRef {
+func CfnImageBuilder_FromImageBuilderName(scope constructs.Construct, id *string, imageBuilderName *string) interfacesawsappstream.IImageBuilderRef {
 	_init_.Initialize()
 
 	if err := validateCfnImageBuilder_FromImageBuilderNameParameters(scope, id, imageBuilderName); err != nil {
 		panic(err)
 	}
-	var returns IImageBuilderRef
+	var returns interfacesawsappstream.IImageBuilderRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appstream.CfnImageBuilder",

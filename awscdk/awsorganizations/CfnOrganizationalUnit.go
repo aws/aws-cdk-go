@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsorganizations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsorganizations"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnOrganizationalUnit interface {
 	awscdk.CfnResource
-	IOrganizationalUnitRef
 	awscdk.IInspectable
+	interfacesawsorganizations.IOrganizationalUnitRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of this OU.
 	//
@@ -61,7 +63,7 @@ type CfnOrganizationalUnit interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -78,7 +80,7 @@ type CfnOrganizationalUnit interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a OrganizationalUnit resource.
-	OrganizationalUnitRef() *OrganizationalUnitReference
+	OrganizationalUnitRef() *interfacesawsorganizations.OrganizationalUnitReference
 	// The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
 	ParentId() *string
 	SetParentId(val *string)
@@ -239,8 +241,8 @@ type CfnOrganizationalUnit interface {
 // The jsii proxy struct for CfnOrganizationalUnit
 type jsiiProxy_CfnOrganizationalUnit struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOrganizationalUnitRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsorganizationsIOrganizationalUnitRef
 	internal.Type__awscdkITaggable
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnOrganizationalUnit) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationalUnit) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOrganizationalUnit) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnOrganizationalUnit) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationalUnit) OrganizationalUnitRef() *OrganizationalUnitReference {
-	var returns *OrganizationalUnitReference
+func (j *jsiiProxy_CfnOrganizationalUnit) OrganizationalUnitRef() *interfacesawsorganizations.OrganizationalUnitReference {
+	var returns *interfacesawsorganizations.OrganizationalUnitReference
 	_jsii_.Get(
 		j,
 		"organizationalUnitRef",
@@ -425,6 +427,7 @@ func (j *jsiiProxy_CfnOrganizationalUnit) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Organizations::OrganizationalUnit`.
 func NewCfnOrganizationalUnit(scope constructs.Construct, id *string, props *CfnOrganizationalUnitProps) CfnOrganizationalUnit {
 	_init_.Initialize()
 
@@ -442,6 +445,7 @@ func NewCfnOrganizationalUnit(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Organizations::OrganizationalUnit`.
 func NewCfnOrganizationalUnit_Override(c CfnOrganizationalUnit, scope constructs.Construct, id *string, props *CfnOrganizationalUnitProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsscheduler"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnScheduleGroup interface {
 	awscdk.CfnResource
-	IScheduleGroupRef
 	awscdk.IInspectable
+	interfacesawsscheduler.IScheduleGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the schedule group.
 	AttrArn() *string
@@ -56,7 +58,7 @@ type CfnScheduleGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -78,7 +80,7 @@ type CfnScheduleGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ScheduleGroup resource.
-	ScheduleGroupRef() *ScheduleGroupReference
+	ScheduleGroupRef() *interfacesawsscheduler.ScheduleGroupReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -231,8 +233,8 @@ type CfnScheduleGroup interface {
 // The jsii proxy struct for CfnScheduleGroup
 type jsiiProxy_CfnScheduleGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScheduleGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsschedulerIScheduleGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnScheduleGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduleGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScheduleGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnScheduleGroup) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduleGroup) ScheduleGroupRef() *ScheduleGroupReference {
-	var returns *ScheduleGroupReference
+func (j *jsiiProxy_CfnScheduleGroup) ScheduleGroupRef() *interfacesawsscheduler.ScheduleGroupReference {
+	var returns *interfacesawsscheduler.ScheduleGroupReference
 	_jsii_.Get(
 		j,
 		"scheduleGroupRef",
@@ -427,6 +429,7 @@ func (j *jsiiProxy_CfnScheduleGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Scheduler::ScheduleGroup`.
 func NewCfnScheduleGroup(scope constructs.Construct, id *string, props *CfnScheduleGroupProps) CfnScheduleGroup {
 	_init_.Initialize()
 
@@ -444,6 +447,7 @@ func NewCfnScheduleGroup(scope constructs.Construct, id *string, props *CfnSched
 	return &j
 }
 
+// Create a new `AWS::Scheduler::ScheduleGroup`.
 func NewCfnScheduleGroup_Override(c CfnScheduleGroup, scope constructs.Construct, id *string, props *CfnScheduleGroupProps) {
 	_init_.Initialize()
 

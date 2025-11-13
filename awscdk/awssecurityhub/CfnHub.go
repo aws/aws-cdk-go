@@ -6,10 +6,12 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::Hub` resource specifies the enablement of the AWS Security Hub service in your AWS account .
+// The `AWS::SecurityHub::Hub` resource specifies the enablement of the Security Hub service in your AWS account .
 //
 // The service is enabled in the current AWS Region or the specified Region. You create a separate `Hub` resource in each Region in which you want to enable Security Hub .
 //
@@ -37,8 +39,8 @@ import (
 //
 type CfnHub interface {
 	awscdk.CfnResource
-	IHubRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IHubRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `Hub` resource that was retrieved.
 	AttrArn() *string
@@ -62,9 +64,9 @@ type CfnHub interface {
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
 	EnableDefaultStandards() interface{}
 	SetEnableDefaultStandards(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Hub resource.
-	HubRef() *HubReference
+	HubRef() *interfacesawssecurityhub.HubReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -234,8 +236,8 @@ type CfnHub interface {
 // The jsii proxy struct for CfnHub
 type jsiiProxy_CfnHub struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHubRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIHubRef
 	internal.Type__awscdkITaggable
 }
 
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnHub) EnableDefaultStandards() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHub) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHub) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnHub) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHub) HubRef() *HubReference {
-	var returns *HubReference
+func (j *jsiiProxy_CfnHub) HubRef() *interfacesawssecurityhub.HubReference {
+	var returns *interfacesawssecurityhub.HubReference
 	_jsii_.Get(
 		j,
 		"hubRef",
@@ -430,6 +432,7 @@ func (j *jsiiProxy_CfnHub) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SecurityHub::Hub`.
 func NewCfnHub(scope constructs.Construct, id *string, props *CfnHubProps) CfnHub {
 	_init_.Initialize()
 
@@ -447,6 +450,7 @@ func NewCfnHub(scope constructs.Construct, id *string, props *CfnHubProps) CfnHu
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::Hub`.
 func NewCfnHub_Override(c CfnHub, scope constructs.Construct, id *string, props *CfnHubProps) {
 	_init_.Initialize()
 

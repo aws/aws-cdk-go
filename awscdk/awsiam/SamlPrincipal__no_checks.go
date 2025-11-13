@@ -20,7 +20,7 @@ func (s *jsiiProxy_SamlPrincipal) validateWithConditionsParameters(conditions *m
 	return nil
 }
 
-func validateNewSamlPrincipalParameters(samlProvider ISAMLProviderRef, conditions *map[string]interface{}) error {
+func validateNewSamlPrincipalParameters(samlProvider interfacesawsiam.ISAMLProviderRef, conditions *map[string]interface{}) error {
 	return nil
 }
 

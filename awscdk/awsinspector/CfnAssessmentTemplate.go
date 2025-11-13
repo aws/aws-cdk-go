@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsinspector/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspector"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnAssessmentTemplate interface {
 	awscdk.CfnResource
-	IAssessmentTemplateRef
 	awscdk.IInspectable
+	interfacesawsinspector.IAssessmentTemplateRef
 	// The ARN of the assessment target to be included in the assessment template.
 	AssessmentTargetArn() *string
 	SetAssessmentTargetArn(val *string)
@@ -37,7 +39,7 @@ type CfnAssessmentTemplate interface {
 	AssessmentTemplateName() *string
 	SetAssessmentTemplateName(val *string)
 	// A reference to a AssessmentTemplate resource.
-	AssessmentTemplateRef() *AssessmentTemplateReference
+	AssessmentTemplateRef() *interfacesawsinspector.AssessmentTemplateReference
 	// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -52,7 +54,7 @@ type CfnAssessmentTemplate interface {
 	// The duration of the assessment run in seconds.
 	DurationInSeconds() *float64
 	SetDurationInSeconds(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnAssessmentTemplate interface {
 // The jsii proxy struct for CfnAssessmentTemplate
 type jsiiProxy_CfnAssessmentTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssessmentTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsinspectorIAssessmentTemplateRef
 }
 
 func (j *jsiiProxy_CfnAssessmentTemplate) AssessmentTargetArn() *string {
@@ -247,8 +249,8 @@ func (j *jsiiProxy_CfnAssessmentTemplate) AssessmentTemplateName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssessmentTemplate) AssessmentTemplateRef() *AssessmentTemplateReference {
-	var returns *AssessmentTemplateReference
+func (j *jsiiProxy_CfnAssessmentTemplate) AssessmentTemplateRef() *interfacesawsinspector.AssessmentTemplateReference {
+	var returns *interfacesawsinspector.AssessmentTemplateReference
 	_jsii_.Get(
 		j,
 		"assessmentTemplateRef",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnAssessmentTemplate) DurationInSeconds() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssessmentTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAssessmentTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -408,6 +410,7 @@ func (j *jsiiProxy_CfnAssessmentTemplate) UserAttributesForFindings() interface{
 }
 
 
+// Create a new `AWS::Inspector::AssessmentTemplate`.
 func NewCfnAssessmentTemplate(scope constructs.Construct, id *string, props *CfnAssessmentTemplateProps) CfnAssessmentTemplate {
 	_init_.Initialize()
 
@@ -425,6 +428,7 @@ func NewCfnAssessmentTemplate(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Inspector::AssessmentTemplate`.
 func NewCfnAssessmentTemplate_Override(c CfnAssessmentTemplate, scope constructs.Construct, id *string, props *CfnAssessmentTemplateProps) {
 	_init_.Initialize()
 

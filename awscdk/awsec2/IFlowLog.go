@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A FlowLog.
 type IFlowLog interface {
-	IFlowLogRef
+	interfacesawsec2.IFlowLogRef
 	awscdk.IResource
 	// The Id of the VPC Flow Log.
 	FlowLogId() *string
@@ -18,7 +20,7 @@ type IFlowLog interface {
 
 // The jsii proxy for IFlowLog
 type jsiiProxy_IFlowLog struct {
-	jsiiProxy_IFlowLogRef
+	internal.Type__interfacesawsec2IFlowLogRef
 	internal.Type__awscdkIResource
 }
 
@@ -43,8 +45,8 @@ func (j *jsiiProxy_IFlowLog) FlowLogId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IFlowLog) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IFlowLog) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -53,8 +55,8 @@ func (j *jsiiProxy_IFlowLog) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IFlowLog) FlowLogRef() *FlowLogReference {
-	var returns *FlowLogReference
+func (j *jsiiProxy_IFlowLog) FlowLogRef() *interfacesawsec2.FlowLogReference {
+	var returns *interfacesawsec2.FlowLogReference
 	_jsii_.Get(
 		j,
 		"flowLogRef",

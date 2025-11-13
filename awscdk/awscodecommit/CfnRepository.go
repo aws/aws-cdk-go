@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodecommit"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnRepository interface {
 	awscdk.CfnResource
-	IRepositoryRef
 	awscdk.IInspectable
+	interfacesawscodecommit.IRepositoryRef
 	awscdk.ITaggable
 	// When you pass the logical ID of this resource, the function returns the Amazon Resource Name (ARN) of the repository.
 	AttrArn() *string
@@ -87,7 +89,7 @@ type CfnRepository interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the AWS Key Management Service encryption key used to encrypt and decrypt the repository.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -115,7 +117,7 @@ type CfnRepository interface {
 	RepositoryName() *string
 	SetRepositoryName(val *string)
 	// A reference to a Repository resource.
-	RepositoryRef() *RepositoryReference
+	RepositoryRef() *interfacesawscodecommit.RepositoryReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -271,8 +273,8 @@ type CfnRepository interface {
 // The jsii proxy struct for CfnRepository
 type jsiiProxy_CfnRepository struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRepositoryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodecommitIRepositoryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnRepository) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepository) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRepository) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -446,8 +448,8 @@ func (j *jsiiProxy_CfnRepository) RepositoryName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepository) RepositoryRef() *RepositoryReference {
-	var returns *RepositoryReference
+func (j *jsiiProxy_CfnRepository) RepositoryRef() *interfacesawscodecommit.RepositoryReference {
+	var returns *interfacesawscodecommit.RepositoryReference
 	_jsii_.Get(
 		j,
 		"repositoryRef",
@@ -517,6 +519,7 @@ func (j *jsiiProxy_CfnRepository) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CodeCommit::Repository`.
 func NewCfnRepository(scope constructs.Construct, id *string, props *CfnRepositoryProps) CfnRepository {
 	_init_.Initialize()
 
@@ -534,6 +537,7 @@ func NewCfnRepository(scope constructs.Construct, id *string, props *CfnReposito
 	return &j
 }
 
+// Create a new `AWS::CodeCommit::Repository`.
 func NewCfnRepository_Override(c CfnRepository, scope constructs.Construct, id *string, props *CfnRepositoryProps) {
 	_init_.Initialize()
 

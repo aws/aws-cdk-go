@@ -2,7 +2,7 @@ package awsroute53
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Construction properties for a CrossAccountZoneDelegationRecord.
@@ -36,7 +36,7 @@ type CrossAccountZoneDelegationRecordProps struct {
 	// The zone to be delegated.
 	DelegatedZone IHostedZone `field:"required" json:"delegatedZone" yaml:"delegatedZone"`
 	// The delegation role in the parent account.
-	DelegationRole awsiam.IRoleRef `field:"required" json:"delegationRole" yaml:"delegationRole"`
+	DelegationRole interfacesawsiam.IRoleRef `field:"required" json:"delegationRole" yaml:"delegationRole"`
 	// Region from which to obtain temporary credentials.
 	// Default: - the Route53 signing region in the current partition.
 	//

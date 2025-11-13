@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -182,8 +184,8 @@ import (
 //
 type CfnDataAutomationProject interface {
 	awscdk.CfnResource
-	IDataAutomationProjectRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IDataAutomationProjectRef
 	awscdk.ITaggableV2
 	// When the project was created.
 	AttrCreationTime() *string
@@ -210,8 +212,8 @@ type CfnDataAutomationProject interface {
 	CustomOutputConfiguration() interface{}
 	SetCustomOutputConfiguration(val interface{})
 	// A reference to a DataAutomationProject resource.
-	DataAutomationProjectRef() *DataAutomationProjectReference
-	Env() *awscdk.ResourceEnvironment
+	DataAutomationProjectRef() *interfacesawsbedrock.DataAutomationProjectReference
+	Env() *interfaces.ResourceEnvironment
 	// The AWS KMS encryption context to use for encryption.
 	KmsEncryptionContext() interface{}
 	SetKmsEncryptionContext(val interface{})
@@ -397,8 +399,8 @@ type CfnDataAutomationProject interface {
 // The jsii proxy struct for CfnDataAutomationProject
 type jsiiProxy_CfnDataAutomationProject struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataAutomationProjectRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIDataAutomationProjectRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -512,8 +514,8 @@ func (j *jsiiProxy_CfnDataAutomationProject) CustomOutputConfiguration() interfa
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataAutomationProject) DataAutomationProjectRef() *DataAutomationProjectReference {
-	var returns *DataAutomationProjectReference
+func (j *jsiiProxy_CfnDataAutomationProject) DataAutomationProjectRef() *interfacesawsbedrock.DataAutomationProjectReference {
+	var returns *interfacesawsbedrock.DataAutomationProjectReference
 	_jsii_.Get(
 		j,
 		"dataAutomationProjectRef",
@@ -522,8 +524,8 @@ func (j *jsiiProxy_CfnDataAutomationProject) DataAutomationProjectRef() *DataAut
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataAutomationProject) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataAutomationProject) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -663,6 +665,7 @@ func (j *jsiiProxy_CfnDataAutomationProject) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::Bedrock::DataAutomationProject`.
 func NewCfnDataAutomationProject(scope constructs.Construct, id *string, props *CfnDataAutomationProjectProps) CfnDataAutomationProject {
 	_init_.Initialize()
 
@@ -680,6 +683,7 @@ func NewCfnDataAutomationProject(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Bedrock::DataAutomationProject`.
 func NewCfnDataAutomationProject_Override(c CfnDataAutomationProject, scope constructs.Construct, id *string, props *CfnDataAutomationProjectProps) {
 	_init_.Initialize()
 

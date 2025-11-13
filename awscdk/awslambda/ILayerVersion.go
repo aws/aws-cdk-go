@@ -5,11 +5,13 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type ILayerVersion interface {
-	ILayerVersionRef
+	interfacesawslambda.ILayerVersionRef
 	awscdk.IResource
 	// Add permission for this layer version to specific entities.
 	//
@@ -30,7 +32,7 @@ type ILayerVersion interface {
 
 // The jsii proxy for ILayerVersion
 type jsiiProxy_ILayerVersion struct {
-	jsiiProxy_ILayerVersionRef
+	internal.Type__interfacesawslambdaILayerVersionRef
 	internal.Type__awscdkIResource
 }
 
@@ -76,8 +78,8 @@ func (j *jsiiProxy_ILayerVersion) LayerVersionArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ILayerVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ILayerVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -86,8 +88,8 @@ func (j *jsiiProxy_ILayerVersion) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ILayerVersion) LayerVersionRef() *LayerVersionReference {
-	var returns *LayerVersionReference
+func (j *jsiiProxy_ILayerVersion) LayerVersionRef() *interfacesawslambda.LayerVersionReference {
+	var returns *interfacesawslambda.LayerVersionReference
 	_jsii_.Get(
 		j,
 		"layerVersionRef",

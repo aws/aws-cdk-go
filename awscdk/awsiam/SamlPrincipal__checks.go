@@ -4,6 +4,8 @@ package awsiam
 
 import (
 	"fmt"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 func (s *jsiiProxy_SamlPrincipal) validateAddToAssumeRolePolicyParameters(document PolicyDocument) error {
@@ -38,7 +40,7 @@ func (s *jsiiProxy_SamlPrincipal) validateWithConditionsParameters(conditions *m
 	return nil
 }
 
-func validateNewSamlPrincipalParameters(samlProvider ISAMLProviderRef, conditions *map[string]interface{}) error {
+func validateNewSamlPrincipalParameters(samlProvider interfacesawsiam.ISAMLProviderRef, conditions *map[string]interface{}) error {
 	if samlProvider == nil {
 		return fmt.Errorf("parameter samlProvider is required, but nil was provided")
 	}

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnDBProxyTargetGroup interface {
 	awscdk.CfnResource
-	IDBProxyTargetGroupRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBProxyTargetGroupRef
 	// The Amazon Resource Name (ARN) representing the target group.
 	AttrTargetGroupArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -84,8 +86,8 @@ type CfnDBProxyTargetGroup interface {
 	DbProxyName() *string
 	SetDbProxyName(val *string)
 	// A reference to a DBProxyTargetGroup resource.
-	DbProxyTargetGroupRef() *DBProxyTargetGroupReference
-	Env() *awscdk.ResourceEnvironment
+	DbProxyTargetGroupRef() *interfacesawsrds.DBProxyTargetGroupReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnDBProxyTargetGroup interface {
 // The jsii proxy struct for CfnDBProxyTargetGroup
 type jsiiProxy_CfnDBProxyTargetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBProxyTargetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBProxyTargetGroupRef
 }
 
 func (j *jsiiProxy_CfnDBProxyTargetGroup) AttrTargetGroupArn() *string {
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) DbProxyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyTargetGroup) DbProxyTargetGroupRef() *DBProxyTargetGroupReference {
-	var returns *DBProxyTargetGroupReference
+func (j *jsiiProxy_CfnDBProxyTargetGroup) DbProxyTargetGroupRef() *interfacesawsrds.DBProxyTargetGroupReference {
+	var returns *interfacesawsrds.DBProxyTargetGroupReference
 	_jsii_.Get(
 		j,
 		"dbProxyTargetGroupRef",
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) DbProxyTargetGroupRef() *DBProxyTarget
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyTargetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBProxyTargetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -438,6 +440,7 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::RDS::DBProxyTargetGroup`.
 func NewCfnDBProxyTargetGroup(scope constructs.Construct, id *string, props *CfnDBProxyTargetGroupProps) CfnDBProxyTargetGroup {
 	_init_.Initialize()
 
@@ -455,6 +458,7 @@ func NewCfnDBProxyTargetGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::RDS::DBProxyTargetGroup`.
 func NewCfnDBProxyTargetGroup_Override(c CfnDBProxyTargetGroup, scope constructs.Construct, id *string, props *CfnDBProxyTargetGroupProps) {
 	_init_.Initialize()
 

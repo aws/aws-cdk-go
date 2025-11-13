@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnProjectProfile interface {
 	awscdk.CfnResource
-	IProjectProfileRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IProjectProfileRef
 	// The timestamp of when the project profile was created.
 	AttrCreatedAt() *string
 	// The user who created the project profile.
@@ -99,7 +101,7 @@ type CfnProjectProfile interface {
 	// A domain unit ID of the project profile.
 	DomainUnitIdentifier() *string
 	SetDomainUnitIdentifier(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Environment configurations of a project profile.
 	EnvironmentConfigurations() interface{}
 	SetEnvironmentConfigurations(val interface{})
@@ -119,7 +121,7 @@ type CfnProjectProfile interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a ProjectProfile resource.
-	ProjectProfileRef() *ProjectProfileReference
+	ProjectProfileRef() *interfacesawsdatazone.ProjectProfileReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -275,8 +277,8 @@ type CfnProjectProfile interface {
 // The jsii proxy struct for CfnProjectProfile
 type jsiiProxy_CfnProjectProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProjectProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIProjectProfileRef
 }
 
 func (j *jsiiProxy_CfnProjectProfile) AttrCreatedAt() *string {
@@ -419,8 +421,8 @@ func (j *jsiiProxy_CfnProjectProfile) DomainUnitIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProjectProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProjectProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -469,8 +471,8 @@ func (j *jsiiProxy_CfnProjectProfile) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProjectProfile) ProjectProfileRef() *ProjectProfileReference {
-	var returns *ProjectProfileReference
+func (j *jsiiProxy_CfnProjectProfile) ProjectProfileRef() *interfacesawsdatazone.ProjectProfileReference {
+	var returns *interfacesawsdatazone.ProjectProfileReference
 	_jsii_.Get(
 		j,
 		"projectProfileRef",
@@ -530,6 +532,7 @@ func (j *jsiiProxy_CfnProjectProfile) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::DataZone::ProjectProfile`.
 func NewCfnProjectProfile(scope constructs.Construct, id *string, props *CfnProjectProfileProps) CfnProjectProfile {
 	_init_.Initialize()
 
@@ -547,6 +550,7 @@ func NewCfnProjectProfile(scope constructs.Construct, id *string, props *CfnProj
 	return &j
 }
 
+// Create a new `AWS::DataZone::ProjectProfile`.
 func NewCfnProjectProfile_Override(c CfnProjectProfile, scope constructs.Construct, id *string, props *CfnProjectProfileProps) {
 	_init_.Initialize()
 

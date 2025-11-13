@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnScheduledAction interface {
 	awscdk.CfnResource
-	IScheduledActionRef
 	awscdk.IInspectable
+	interfacesawsredshift.IScheduledActionRef
 	// List of times when the scheduled action will run.
 	AttrNextInvocations() *[]*string
 	// The state of the scheduled action.
@@ -74,7 +76,7 @@ type CfnScheduledAction interface {
 	// The end time in UTC when the schedule is no longer active.
 	EndTime() *string
 	SetEndTime(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IAM role to assume to run the scheduled action.
 	IamRole() *string
 	SetIamRole(val *string)
@@ -105,7 +107,7 @@ type CfnScheduledAction interface {
 	ScheduledActionName() *string
 	SetScheduledActionName(val *string)
 	// A reference to a ScheduledAction resource.
-	ScheduledActionRef() *ScheduledActionReference
+	ScheduledActionRef() *interfacesawsredshift.ScheduledActionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -259,8 +261,8 @@ type CfnScheduledAction interface {
 // The jsii proxy struct for CfnScheduledAction
 type jsiiProxy_CfnScheduledAction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScheduledActionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIScheduledActionRef
 }
 
 func (j *jsiiProxy_CfnScheduledAction) AttrNextInvocations() *[]*string {
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnScheduledAction) EndTime() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledAction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScheduledAction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,8 +425,8 @@ func (j *jsiiProxy_CfnScheduledAction) ScheduledActionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledAction) ScheduledActionRef() *ScheduledActionReference {
-	var returns *ScheduledActionReference
+func (j *jsiiProxy_CfnScheduledAction) ScheduledActionRef() *interfacesawsredshift.ScheduledActionReference {
+	var returns *interfacesawsredshift.ScheduledActionReference
 	_jsii_.Get(
 		j,
 		"scheduledActionRef",
@@ -484,6 +486,7 @@ func (j *jsiiProxy_CfnScheduledAction) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Redshift::ScheduledAction`.
 func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnScheduledActionProps) CfnScheduledAction {
 	_init_.Initialize()
 
@@ -501,6 +504,7 @@ func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnSch
 	return &j
 }
 
+// Create a new `AWS::Redshift::ScheduledAction`.
 func NewCfnScheduledAction_Override(c CfnScheduledAction, scope constructs.Construct, id *string, props *CfnScheduledActionProps) {
 	_init_.Initialize()
 

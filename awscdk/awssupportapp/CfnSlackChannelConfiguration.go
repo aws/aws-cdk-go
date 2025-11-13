@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssupportapp/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssupportapp"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnSlackChannelConfiguration interface {
 	awscdk.CfnResource
-	ISlackChannelConfigurationRef
 	awscdk.IInspectable
+	interfacesawssupportapp.ISlackChannelConfigurationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -66,7 +68,7 @@ type CfnSlackChannelConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -97,7 +99,7 @@ type CfnSlackChannelConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SlackChannelConfiguration resource.
-	SlackChannelConfigurationRef() *SlackChannelConfigurationReference
+	SlackChannelConfigurationRef() *interfacesawssupportapp.SlackChannelConfigurationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -248,8 +250,8 @@ type CfnSlackChannelConfiguration interface {
 // The jsii proxy struct for CfnSlackChannelConfiguration
 type jsiiProxy_CfnSlackChannelConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISlackChannelConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssupportappISlackChannelConfigurationRef
 }
 
 func (j *jsiiProxy_CfnSlackChannelConfiguration) CfnOptions() awscdk.ICfnResourceOptions {
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSlackChannelConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,8 +404,8 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SlackChannelConfigurationRef() *SlackChannelConfigurationReference {
-	var returns *SlackChannelConfigurationReference
+func (j *jsiiProxy_CfnSlackChannelConfiguration) SlackChannelConfigurationRef() *interfacesawssupportapp.SlackChannelConfigurationReference {
+	var returns *interfacesawssupportapp.SlackChannelConfigurationReference
 	_jsii_.Get(
 		j,
 		"slackChannelConfigurationRef",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::SupportApp::SlackChannelConfiguration`.
 func NewCfnSlackChannelConfiguration(scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) CfnSlackChannelConfiguration {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnSlackChannelConfiguration(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::SupportApp::SlackChannelConfiguration`.
 func NewCfnSlackChannelConfiguration_Override(c CfnSlackChannelConfiguration, scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) {
 	_init_.Initialize()
 

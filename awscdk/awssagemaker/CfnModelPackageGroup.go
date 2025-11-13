@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnModelPackageGroup interface {
 	awscdk.CfnResource
-	IModelPackageGroupRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IModelPackageGroupRef
 	awscdk.ITaggable
 	// The time when the model group was created.
 	AttrCreationTime() *string
@@ -54,7 +56,7 @@ type CfnModelPackageGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -75,7 +77,7 @@ type CfnModelPackageGroup interface {
 	ModelPackageGroupPolicy() interface{}
 	SetModelPackageGroupPolicy(val interface{})
 	// A reference to a ModelPackageGroup resource.
-	ModelPackageGroupRef() *ModelPackageGroupReference
+	ModelPackageGroupRef() *interfacesawssagemaker.ModelPackageGroupReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -235,8 +237,8 @@ type CfnModelPackageGroup interface {
 // The jsii proxy struct for CfnModelPackageGroup
 type jsiiProxy_CfnModelPackageGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelPackageGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIModelPackageGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnModelPackageGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelPackageGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModelPackageGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnModelPackageGroup) ModelPackageGroupPolicy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelPackageGroup) ModelPackageGroupRef() *ModelPackageGroupReference {
-	var returns *ModelPackageGroupReference
+func (j *jsiiProxy_CfnModelPackageGroup) ModelPackageGroupRef() *interfacesawssagemaker.ModelPackageGroupReference {
+	var returns *interfacesawssagemaker.ModelPackageGroupReference
 	_jsii_.Get(
 		j,
 		"modelPackageGroupRef",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnModelPackageGroup) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::SageMaker::ModelPackageGroup`.
 func NewCfnModelPackageGroup(scope constructs.Construct, id *string, props *CfnModelPackageGroupProps) CfnModelPackageGroup {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnModelPackageGroup(scope constructs.Construct, id *string, props *CfnM
 	return &j
 }
 
+// Create a new `AWS::SageMaker::ModelPackageGroup`.
 func NewCfnModelPackageGroup_Override(c CfnModelPackageGroup, scope constructs.Construct, id *string, props *CfnModelPackageGroupProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbudgets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbudgets"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -77,8 +79,8 @@ import (
 //
 type CfnBudgetsAction interface {
 	awscdk.CfnResource
-	IBudgetsActionRef
 	awscdk.IInspectable
+	interfacesawsbudgets.IBudgetsActionRef
 	awscdk.ITaggableV2
 	// The trigger threshold of the action.
 	ActionThreshold() interface{}
@@ -95,7 +97,7 @@ type CfnBudgetsAction interface {
 	BudgetName() *string
 	SetBudgetName(val *string)
 	// A reference to a BudgetsAction resource.
-	BudgetsActionRef() *BudgetsActionReference
+	BudgetsActionRef() *interfacesawsbudgets.BudgetsActionReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -110,7 +112,7 @@ type CfnBudgetsAction interface {
 	// Specifies all of the type-specific parameters.
 	Definition() interface{}
 	SetDefinition(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The role passed for action execution and reversion.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -287,8 +289,8 @@ type CfnBudgetsAction interface {
 // The jsii proxy struct for CfnBudgetsAction
 type jsiiProxy_CfnBudgetsAction struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBudgetsActionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbudgetsIBudgetsActionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnBudgetsAction) BudgetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBudgetsAction) BudgetsActionRef() *BudgetsActionReference {
-	var returns *BudgetsActionReference
+func (j *jsiiProxy_CfnBudgetsAction) BudgetsActionRef() *interfacesawsbudgets.BudgetsActionReference {
+	var returns *interfacesawsbudgets.BudgetsActionReference
 	_jsii_.Get(
 		j,
 		"budgetsActionRef",
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnBudgetsAction) Definition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBudgetsAction) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBudgetsAction) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -523,6 +525,7 @@ func (j *jsiiProxy_CfnBudgetsAction) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Budgets::BudgetsAction`.
 func NewCfnBudgetsAction(scope constructs.Construct, id *string, props *CfnBudgetsActionProps) CfnBudgetsAction {
 	_init_.Initialize()
 
@@ -540,6 +543,7 @@ func NewCfnBudgetsAction(scope constructs.Construct, id *string, props *CfnBudge
 	return &j
 }
 
+// Create a new `AWS::Budgets::BudgetsAction`.
 func NewCfnBudgetsAction_Override(c CfnBudgetsAction, scope constructs.Construct, id *string, props *CfnBudgetsActionProps) {
 	_init_.Initialize()
 

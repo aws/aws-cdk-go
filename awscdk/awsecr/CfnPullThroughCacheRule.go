@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnPullThroughCacheRule interface {
 	awscdk.CfnResource
-	IPullThroughCacheRuleRef
 	awscdk.IInspectable
+	interfacesawsecr.IPullThroughCacheRuleRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -51,7 +53,7 @@ type CfnPullThroughCacheRule interface {
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
 	EcrRepositoryPrefix() *string
 	SetEcrRepositoryPrefix(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -65,7 +67,7 @@ type CfnPullThroughCacheRule interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PullThroughCacheRule resource.
-	PullThroughCacheRuleRef() *PullThroughCacheRuleReference
+	PullThroughCacheRuleRef() *interfacesawsecr.PullThroughCacheRuleReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -227,8 +229,8 @@ type CfnPullThroughCacheRule interface {
 // The jsii proxy struct for CfnPullThroughCacheRule
 type jsiiProxy_CfnPullThroughCacheRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPullThroughCacheRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecrIPullThroughCacheRuleRef
 }
 
 func (j *jsiiProxy_CfnPullThroughCacheRule) CfnOptions() awscdk.ICfnResourceOptions {
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) EcrRepositoryPrefix() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPullThroughCacheRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPullThroughCacheRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPullThroughCacheRule) PullThroughCacheRuleRef() *PullThroughCacheRuleReference {
-	var returns *PullThroughCacheRuleReference
+func (j *jsiiProxy_CfnPullThroughCacheRule) PullThroughCacheRuleRef() *interfacesawsecr.PullThroughCacheRuleReference {
+	var returns *interfacesawsecr.PullThroughCacheRuleReference
 	_jsii_.Get(
 		j,
 		"pullThroughCacheRuleRef",
@@ -412,6 +414,7 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) UpstreamRepositoryPrefix() *string {
 }
 
 
+// Create a new `AWS::ECR::PullThroughCacheRule`.
 func NewCfnPullThroughCacheRule(scope constructs.Construct, id *string, props *CfnPullThroughCacheRuleProps) CfnPullThroughCacheRule {
 	_init_.Initialize()
 
@@ -429,6 +432,7 @@ func NewCfnPullThroughCacheRule(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::ECR::PullThroughCacheRule`.
 func NewCfnPullThroughCacheRule_Override(c CfnPullThroughCacheRule, scope constructs.Construct, id *string, props *CfnPullThroughCacheRuleProps) {
 	_init_.Initialize()
 

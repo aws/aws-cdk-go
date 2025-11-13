@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -216,8 +217,8 @@ func (j *jsiiProxy_IPipeline) PipelineName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IPipeline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IPipeline) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

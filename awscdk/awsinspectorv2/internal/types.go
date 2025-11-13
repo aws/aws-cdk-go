@@ -1,10 +1,12 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspectorv2"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsinspectorv2ICisScanConfigurationRef = interfacesawsinspectorv2.ICisScanConfigurationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsinspectorv2ICodeSecurityIntegrationRef = interfacesawsinspectorv2.ICodeSecurityIntegrationRef
+type Type__interfacesawsinspectorv2ICodeSecurityScanConfigurationRef = interfacesawsinspectorv2.ICodeSecurityScanConfigurationRef
+type Type__interfacesawsinspectorv2IFilterRef = interfacesawsinspectorv2.IFilterRef

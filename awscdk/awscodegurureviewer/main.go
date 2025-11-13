@@ -55,8 +55,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRepositoryAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRepositoryAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodegurureviewerIRepositoryAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -64,24 +64,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codegurureviewer.CfnRepositoryAssociationProps",
 		reflect.TypeOf((*CfnRepositoryAssociationProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codegurureviewer.IRepositoryAssociationRef",
-		reflect.TypeOf((*IRepositoryAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "repositoryAssociationRef", GoGetter: "RepositoryAssociationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRepositoryAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codegurureviewer.RepositoryAssociationReference",
-		reflect.TypeOf((*RepositoryAssociationReference)(nil)).Elem(),
 	)
 }

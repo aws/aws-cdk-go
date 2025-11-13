@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,10 +28,10 @@ import (
 //
 type CfnAccount interface {
 	awscdk.CfnResource
-	IAccountRef
 	awscdk.IInspectable
+	interfacesawscertificatemanager.IAccountRef
 	// A reference to a Account resource.
-	AccountRef() *AccountReference
+	AccountRef() *interfacesawscertificatemanager.AccountReference
 	// ID of the AWS account that owns the certificate.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -41,7 +43,7 @@ type CfnAccount interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Object containing expiration events options associated with an AWS account .
 	ExpiryEventsConfiguration() interface{}
 	SetExpiryEventsConfiguration(val interface{})
@@ -209,12 +211,12 @@ type CfnAccount interface {
 // The jsii proxy struct for CfnAccount
 type jsiiProxy_CfnAccount struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccountRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscertificatemanagerIAccountRef
 }
 
-func (j *jsiiProxy_CfnAccount) AccountRef() *AccountReference {
-	var returns *AccountReference
+func (j *jsiiProxy_CfnAccount) AccountRef() *interfacesawscertificatemanager.AccountReference {
+	var returns *interfacesawscertificatemanager.AccountReference
 	_jsii_.Get(
 		j,
 		"accountRef",
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnAccount) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccount) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccount) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,6 +356,7 @@ func (j *jsiiProxy_CfnAccount) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CertificateManager::Account`.
 func NewCfnAccount(scope constructs.Construct, id *string, props *CfnAccountProps) CfnAccount {
 	_init_.Initialize()
 
@@ -371,6 +374,7 @@ func NewCfnAccount(scope constructs.Construct, id *string, props *CfnAccountProp
 	return &j
 }
 
+// Create a new `AWS::CertificateManager::Account`.
 func NewCfnAccount_Override(c CfnAccount, scope constructs.Construct, id *string, props *CfnAccountProps) {
 	_init_.Initialize()
 

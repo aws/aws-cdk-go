@@ -2,7 +2,7 @@ package awscdkcodestaralpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Construction properties of `GitHubRepository`.
@@ -29,7 +29,7 @@ type GitHubRepositoryProps struct {
 	AccessToken awscdk.SecretValue `field:"required" json:"accessToken" yaml:"accessToken"`
 	// The name of the Amazon S3 bucket that contains the ZIP file with the content to be committed to the new repository.
 	// Experimental.
-	ContentsBucket awss3.IBucketRef `field:"required" json:"contentsBucket" yaml:"contentsBucket"`
+	ContentsBucket interfacesawss3.IBucketRef `field:"required" json:"contentsBucket" yaml:"contentsBucket"`
 	// The S3 object key or file name for the ZIP file.
 	// Experimental.
 	ContentsKey *string `field:"required" json:"contentsKey" yaml:"contentsKey"`

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstransfer/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstransfer"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnConnector interface {
 	awscdk.CfnResource
-	IConnectorRef
 	awscdk.IInspectable
+	interfacesawstransfer.IConnectorRef
 	awscdk.ITaggable
 	// Connectors are used to send files using either the AS2 or SFTP protocol.
 	AccessRole() *string
@@ -85,7 +87,7 @@ type CfnConnector interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Connector resource.
-	ConnectorRef() *ConnectorReference
+	ConnectorRef() *interfacesawstransfer.ConnectorReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -96,7 +98,7 @@ type CfnConnector interface {
 	// Type of egress configuration for the connector.
 	EgressType() *string
 	SetEgressType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole() *string
 	SetLoggingRole(val *string)
@@ -278,8 +280,8 @@ type CfnConnector interface {
 // The jsii proxy struct for CfnConnector
 type jsiiProxy_CfnConnector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstransferIConnectorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnConnector) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) ConnectorRef() *ConnectorReference {
-	var returns *ConnectorReference
+func (j *jsiiProxy_CfnConnector) ConnectorRef() *interfacesawstransfer.ConnectorReference {
+	var returns *interfacesawstransfer.ConnectorReference
 	_jsii_.Get(
 		j,
 		"connectorRef",
@@ -413,8 +415,8 @@ func (j *jsiiProxy_CfnConnector) EgressType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -544,6 +546,7 @@ func (j *jsiiProxy_CfnConnector) Url() *string {
 }
 
 
+// Create a new `AWS::Transfer::Connector`.
 func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
 	_init_.Initialize()
 
@@ -561,6 +564,7 @@ func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnector
 	return &j
 }
 
+// Create a new `AWS::Transfer::Connector`.
 func NewCfnConnector_Override(c CfnConnector, scope constructs.Construct, id *string, props *CfnConnectorProps) {
 	_init_.Initialize()
 
@@ -656,13 +660,13 @@ func (j *jsiiProxy_CfnConnector)SetUrl(val *string) {
 }
 
 // Creates a new IConnectorRef from an ARN.
-func CfnConnector_FromConnectorArn(scope constructs.Construct, id *string, arn *string) IConnectorRef {
+func CfnConnector_FromConnectorArn(scope constructs.Construct, id *string, arn *string) interfacesawstransfer.IConnectorRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnector_FromConnectorArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IConnectorRef
+	var returns interfacesawstransfer.IConnectorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_transfer.CfnConnector",
@@ -675,13 +679,13 @@ func CfnConnector_FromConnectorArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IConnectorRef from a connectorId.
-func CfnConnector_FromConnectorId(scope constructs.Construct, id *string, connectorId *string) IConnectorRef {
+func CfnConnector_FromConnectorId(scope constructs.Construct, id *string, connectorId *string) interfacesawstransfer.IConnectorRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnector_FromConnectorIdParameters(scope, id, connectorId); err != nil {
 		panic(err)
 	}
-	var returns IConnectorRef
+	var returns interfacesawstransfer.IConnectorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_transfer.CfnConnector",

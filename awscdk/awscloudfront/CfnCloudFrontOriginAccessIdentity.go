@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnCloudFrontOriginAccessIdentity interface {
 	awscdk.CfnResource
-	ICloudFrontOriginAccessIdentityRef
 	awscdk.IInspectable
+	interfacesawscloudfront.ICloudFrontOriginAccessIdentityRef
 	// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
 	AttrId() *string
 	// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3.
@@ -45,12 +47,12 @@ type CfnCloudFrontOriginAccessIdentity interface {
 	CloudFrontOriginAccessIdentityConfig() interface{}
 	SetCloudFrontOriginAccessIdentityConfig(val interface{})
 	// A reference to a CloudFrontOriginAccessIdentity resource.
-	CloudFrontOriginAccessIdentityRef() *CloudFrontOriginAccessIdentityReference
+	CloudFrontOriginAccessIdentityRef() *interfacesawscloudfront.CloudFrontOriginAccessIdentityReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -215,8 +217,8 @@ type CfnCloudFrontOriginAccessIdentity interface {
 // The jsii proxy struct for CfnCloudFrontOriginAccessIdentity
 type jsiiProxy_CfnCloudFrontOriginAccessIdentity struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICloudFrontOriginAccessIdentityRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontICloudFrontOriginAccessIdentityRef
 }
 
 func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) AttrId() *string {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) CloudFrontOriginAccessIden
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) CloudFrontOriginAccessIdentityRef() *CloudFrontOriginAccessIdentityReference {
-	var returns *CloudFrontOriginAccessIdentityReference
+func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) CloudFrontOriginAccessIdentityRef() *interfacesawscloudfront.CloudFrontOriginAccessIdentityReference {
+	var returns *interfacesawscloudfront.CloudFrontOriginAccessIdentityReference
 	_jsii_.Get(
 		j,
 		"cloudFrontOriginAccessIdentityRef",
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) CreationStack() *[]*string
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) UpdatedProperties() *map[s
 }
 
 
+// Create a new `AWS::CloudFront::CloudFrontOriginAccessIdentity`.
 func NewCfnCloudFrontOriginAccessIdentity(scope constructs.Construct, id *string, props *CfnCloudFrontOriginAccessIdentityProps) CfnCloudFrontOriginAccessIdentity {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnCloudFrontOriginAccessIdentity(scope constructs.Construct, id *string
 	return &j
 }
 
+// Create a new `AWS::CloudFront::CloudFrontOriginAccessIdentity`.
 func NewCfnCloudFrontOriginAccessIdentity_Override(c CfnCloudFrontOriginAccessIdentity, scope constructs.Construct, id *string, props *CfnCloudFrontOriginAccessIdentityProps) {
 	_init_.Initialize()
 

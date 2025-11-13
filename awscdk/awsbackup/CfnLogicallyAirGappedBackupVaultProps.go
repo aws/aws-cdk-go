@@ -20,6 +20,7 @@ package awsbackup
 //   	BackupVaultTags: map[string]*string{
 //   		"backupVaultTagsKey": jsii.String("backupVaultTags"),
 //   	},
+//   	MpaApprovalTeamArn: jsii.String("mpaApprovalTeamArn"),
 //   	Notifications: &NotificationObjectTypeProperty{
 //   		BackupVaultEvents: []*string{
 //   			jsii.String("backupVaultEvents"),
@@ -55,6 +56,9 @@ type CfnLogicallyAirGappedBackupVaultProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-backupvaulttags
 	//
 	BackupVaultTags *map[string]*string `field:"optional" json:"backupVaultTags" yaml:"backupVaultTags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-mpaapprovalteamarn
+	//
+	MpaApprovalTeamArn *string `field:"optional" json:"mpaApprovalTeamArn" yaml:"mpaApprovalTeamArn"`
 	// Returns event notifications for the specified backup vault.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-notifications
 	//

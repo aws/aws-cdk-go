@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnReceiptFilter interface {
 	awscdk.CfnResource
-	IReceiptFilterRef
 	awscdk.IInspectable
+	interfacesawsses.IReceiptFilterRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,7 +48,7 @@ type CfnReceiptFilter interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
 	Filter() interface{}
 	SetFilter(val interface{})
@@ -63,7 +65,7 @@ type CfnReceiptFilter interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a ReceiptFilter resource.
-	ReceiptFilterRef() *ReceiptFilterReference
+	ReceiptFilterRef() *interfacesawsses.ReceiptFilterReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -216,8 +218,8 @@ type CfnReceiptFilter interface {
 // The jsii proxy struct for CfnReceiptFilter
 type jsiiProxy_CfnReceiptFilter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReceiptFilterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIReceiptFilterRef
 }
 
 func (j *jsiiProxy_CfnReceiptFilter) AttrId() *string {
@@ -270,8 +272,8 @@ func (j *jsiiProxy_CfnReceiptFilter) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReceiptFilter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReceiptFilter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnReceiptFilter) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReceiptFilter) ReceiptFilterRef() *ReceiptFilterReference {
-	var returns *ReceiptFilterReference
+func (j *jsiiProxy_CfnReceiptFilter) ReceiptFilterRef() *interfacesawsses.ReceiptFilterReference {
+	var returns *interfacesawsses.ReceiptFilterReference
 	_jsii_.Get(
 		j,
 		"receiptFilterRef",
@@ -361,6 +363,7 @@ func (j *jsiiProxy_CfnReceiptFilter) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::SES::ReceiptFilter`.
 func NewCfnReceiptFilter(scope constructs.Construct, id *string, props *CfnReceiptFilterProps) CfnReceiptFilter {
 	_init_.Initialize()
 
@@ -378,6 +381,7 @@ func NewCfnReceiptFilter(scope constructs.Construct, id *string, props *CfnRecei
 	return &j
 }
 
+// Create a new `AWS::SES::ReceiptFilter`.
 func NewCfnReceiptFilter_Override(c CfnReceiptFilter, scope constructs.Construct, id *string, props *CfnReceiptFilterProps) {
 	_init_.Initialize()
 

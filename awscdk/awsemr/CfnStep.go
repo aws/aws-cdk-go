@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnStep interface {
 	awscdk.CfnResource
-	IStepRef
 	awscdk.IInspectable
+	interfacesawsemr.IStepRef
 	// This specifies what action to take when the cluster step fails.
 	ActionOnFailure() *string
 	SetActionOnFailure(val *string)
@@ -59,7 +61,7 @@ type CfnStep interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The `HadoopJarStepConfig` property type specifies a job flow step consisting of a JAR file whose main function will be executed.
 	HadoopJarStep() interface{}
 	SetHadoopJarStep(val interface{})
@@ -91,7 +93,7 @@ type CfnStep interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Step resource.
-	StepRef() *StepReference
+	StepRef() *interfacesawsemr.StepReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -235,8 +237,8 @@ type CfnStep interface {
 // The jsii proxy struct for CfnStep
 type jsiiProxy_CfnStep struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStepRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrIStepRef
 }
 
 func (j *jsiiProxy_CfnStep) ActionOnFailure() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnStep) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStep) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStep) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnStep) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStep) StepRef() *StepReference {
-	var returns *StepReference
+func (j *jsiiProxy_CfnStep) StepRef() *interfacesawsemr.StepReference {
+	var returns *interfacesawsemr.StepReference
 	_jsii_.Get(
 		j,
 		"stepRef",
@@ -410,6 +412,7 @@ func (j *jsiiProxy_CfnStep) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EMR::Step`.
 func NewCfnStep(scope constructs.Construct, id *string, props *CfnStepProps) CfnStep {
 	_init_.Initialize()
 
@@ -427,6 +430,7 @@ func NewCfnStep(scope constructs.Construct, id *string, props *CfnStepProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::EMR::Step`.
 func NewCfnStep_Override(c CfnStep, scope constructs.Construct, id *string, props *CfnStepProps) {
 	_init_.Initialize()
 

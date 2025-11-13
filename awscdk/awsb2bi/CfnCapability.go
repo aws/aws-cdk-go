@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsb2bi/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsb2bi"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnCapability interface {
 	awscdk.CfnResource
-	ICapabilityRef
 	awscdk.IInspectable
+	interfacesawsb2bi.ICapabilityRef
 	awscdk.ITaggableV2
 	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 	AttrCapabilityArn() *string
@@ -75,7 +77,7 @@ type CfnCapability interface {
 	// Returns a timestamp that identifies the most recent date and time that the capability was modified.
 	AttrModifiedAt() *string
 	// A reference to a Capability resource.
-	CapabilityRef() *CapabilityReference
+	CapabilityRef() *interfacesawsb2bi.CapabilityReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -90,7 +92,7 @@ type CfnCapability interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability.
 	InstructionsDocuments() interface{}
 	SetInstructionsDocuments(val interface{})
@@ -267,8 +269,8 @@ type CfnCapability interface {
 // The jsii proxy struct for CfnCapability
 type jsiiProxy_CfnCapability struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICapabilityRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsb2biICapabilityRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnCapability) AttrModifiedAt() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapability) CapabilityRef() *CapabilityReference {
-	var returns *CapabilityReference
+func (j *jsiiProxy_CfnCapability) CapabilityRef() *interfacesawsb2bi.CapabilityReference {
+	var returns *interfacesawsb2bi.CapabilityReference
 	_jsii_.Get(
 		j,
 		"capabilityRef",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnCapability) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapability) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCapability) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -493,6 +495,7 @@ func (j *jsiiProxy_CfnCapability) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::B2BI::Capability`.
 func NewCfnCapability(scope constructs.Construct, id *string, props *CfnCapabilityProps) CfnCapability {
 	_init_.Initialize()
 
@@ -510,6 +513,7 @@ func NewCfnCapability(scope constructs.Construct, id *string, props *CfnCapabili
 	return &j
 }
 
+// Create a new `AWS::B2BI::Capability`.
 func NewCfnCapability_Override(c CfnCapability, scope constructs.Construct, id *string, props *CfnCapabilityProps) {
 	_init_.Initialize()
 

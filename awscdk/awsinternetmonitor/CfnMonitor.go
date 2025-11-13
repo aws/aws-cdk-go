@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsinternetmonitor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinternetmonitor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -73,8 +75,8 @@ import (
 //
 type CfnMonitor interface {
 	awscdk.CfnResource
-	IMonitorRef
 	awscdk.IInspectable
+	interfacesawsinternetmonitor.IMonitorRef
 	awscdk.ITaggable
 	// The time when the monitor was created.
 	AttrCreatedAt() *string
@@ -97,7 +99,7 @@ type CfnMonitor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
 	HealthEventsConfig() interface{}
 	SetHealthEventsConfig(val interface{})
@@ -127,7 +129,7 @@ type CfnMonitor interface {
 	MonitorName() *string
 	SetMonitorName(val *string)
 	// A reference to a Monitor resource.
-	MonitorRef() *MonitorReference
+	MonitorRef() *interfacesawsinternetmonitor.MonitorReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -302,8 +304,8 @@ type CfnMonitor interface {
 // The jsii proxy struct for CfnMonitor
 type jsiiProxy_CfnMonitor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMonitorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsinternetmonitorIMonitorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnMonitor) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMonitor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMonitor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -477,8 +479,8 @@ func (j *jsiiProxy_CfnMonitor) MonitorName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMonitor) MonitorRef() *MonitorReference {
-	var returns *MonitorReference
+func (j *jsiiProxy_CfnMonitor) MonitorRef() *interfacesawsinternetmonitor.MonitorReference {
+	var returns *interfacesawsinternetmonitor.MonitorReference
 	_jsii_.Get(
 		j,
 		"monitorRef",
@@ -608,6 +610,7 @@ func (j *jsiiProxy_CfnMonitor) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::InternetMonitor::Monitor`.
 func NewCfnMonitor(scope constructs.Construct, id *string, props *CfnMonitorProps) CfnMonitor {
 	_init_.Initialize()
 
@@ -625,6 +628,7 @@ func NewCfnMonitor(scope constructs.Construct, id *string, props *CfnMonitorProp
 	return &j
 }
 
+// Create a new `AWS::InternetMonitor::Monitor`.
 func NewCfnMonitor_Override(c CfnMonitor, scope constructs.Construct, id *string, props *CfnMonitorProps) {
 	_init_.Initialize()
 
@@ -747,13 +751,13 @@ func (j *jsiiProxy_CfnMonitor)SetTrafficPercentageToMonitor(val *float64) {
 }
 
 // Creates a new IMonitorRef from an ARN.
-func CfnMonitor_FromMonitorArn(scope constructs.Construct, id *string, arn *string) IMonitorRef {
+func CfnMonitor_FromMonitorArn(scope constructs.Construct, id *string, arn *string) interfacesawsinternetmonitor.IMonitorRef {
 	_init_.Initialize()
 
 	if err := validateCfnMonitor_FromMonitorArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IMonitorRef
+	var returns interfacesawsinternetmonitor.IMonitorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_internetmonitor.CfnMonitor",
@@ -766,13 +770,13 @@ func CfnMonitor_FromMonitorArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IMonitorRef from a monitorName.
-func CfnMonitor_FromMonitorName(scope constructs.Construct, id *string, monitorName *string) IMonitorRef {
+func CfnMonitor_FromMonitorName(scope constructs.Construct, id *string, monitorName *string) interfacesawsinternetmonitor.IMonitorRef {
 	_init_.Initialize()
 
 	if err := validateCfnMonitor_FromMonitorNameParameters(scope, id, monitorName); err != nil {
 		panic(err)
 	}
-	var returns IMonitorRef
+	var returns interfacesawsinternetmonitor.IMonitorRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_internetmonitor.CfnMonitor",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,10 +44,10 @@ import (
 //
 type CfnApiDestination interface {
 	awscdk.CfnResource
-	IApiDestinationRef
 	awscdk.IInspectable
+	interfacesawsevents.IApiDestinationRef
 	// A reference to a ApiDestination resource.
-	ApiDestinationRef() *ApiDestinationReference
+	ApiDestinationRef() *interfacesawsevents.ApiDestinationReference
 	// The ARN of the API destination that was created by the request.
 	AttrArn() *string
 	// Returns the Amazon Resource Name (ARN) of an API destination in resource format, so it can be used in the `Resource` element of IAM permission policy statements.
@@ -71,7 +73,7 @@ type CfnApiDestination interface {
 	// A description for the API destination to create.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The method to use for the request to the HTTP invocation endpoint.
 	HttpMethod() *string
 	SetHttpMethod(val *string)
@@ -248,12 +250,12 @@ type CfnApiDestination interface {
 // The jsii proxy struct for CfnApiDestination
 type jsiiProxy_CfnApiDestination struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApiDestinationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventsIApiDestinationRef
 }
 
-func (j *jsiiProxy_CfnApiDestination) ApiDestinationRef() *ApiDestinationReference {
-	var returns *ApiDestinationReference
+func (j *jsiiProxy_CfnApiDestination) ApiDestinationRef() *interfacesawsevents.ApiDestinationReference {
+	var returns *interfacesawsevents.ApiDestinationReference
 	_jsii_.Get(
 		j,
 		"apiDestinationRef",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnApiDestination) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApiDestination) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApiDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnApiDestination) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Events::ApiDestination`.
 func NewCfnApiDestination(scope constructs.Construct, id *string, props *CfnApiDestinationProps) CfnApiDestination {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnApiDestination(scope constructs.Construct, id *string, props *CfnApiD
 	return &j
 }
 
+// Create a new `AWS::Events::ApiDestination`.
 func NewCfnApiDestination_Override(c CfnApiDestination, scope constructs.Construct, id *string, props *CfnApiDestinationProps) {
 	_init_.Initialize()
 
@@ -538,13 +542,13 @@ func (j *jsiiProxy_CfnApiDestination)SetName(val *string) {
 }
 
 // Creates a new IApiDestinationRef from an ARN.
-func CfnApiDestination_FromApiDestinationArn(scope constructs.Construct, id *string, arn *string) IApiDestinationRef {
+func CfnApiDestination_FromApiDestinationArn(scope constructs.Construct, id *string, arn *string) interfacesawsevents.IApiDestinationRef {
 	_init_.Initialize()
 
 	if err := validateCfnApiDestination_FromApiDestinationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IApiDestinationRef
+	var returns interfacesawsevents.IApiDestinationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnApiDestination",
@@ -557,13 +561,13 @@ func CfnApiDestination_FromApiDestinationArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IApiDestinationRef from a apiDestinationName.
-func CfnApiDestination_FromApiDestinationName(scope constructs.Construct, id *string, apiDestinationName *string) IApiDestinationRef {
+func CfnApiDestination_FromApiDestinationName(scope constructs.Construct, id *string, apiDestinationName *string) interfacesawsevents.IApiDestinationRef {
 	_init_.Initialize()
 
 	if err := validateCfnApiDestination_FromApiDestinationNameParameters(scope, id, apiDestinationName); err != nil {
 		panic(err)
 	}
-	var returns IApiDestinationRef
+	var returns interfacesawsevents.IApiDestinationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnApiDestination",

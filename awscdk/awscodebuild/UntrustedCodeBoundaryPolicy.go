@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,7 +48,7 @@ type UntrustedCodeBoundaryPolicy interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal
 	// Returns the ARN of this managed policy.
@@ -54,7 +56,7 @@ type UntrustedCodeBoundaryPolicy interface {
 	// The name of this policy.
 	ManagedPolicyName() *string
 	// A reference to a ManagedPolicy resource.
-	ManagedPolicyRef() *awsiam.ManagedPolicyReference
+	ManagedPolicyRef() *interfacesawsiam.ManagedPolicyReference
 	// The tree node.
 	Node() constructs.Node
 	// The path of this policy.
@@ -82,11 +84,11 @@ type UntrustedCodeBoundaryPolicy interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attaches this policy to a group.
-	AttachToGroup(group awsiam.IGroupRef)
+	AttachToGroup(group interfacesawsiam.IGroupRef)
 	// Attaches this policy to a role.
 	AttachToRole(role awsiam.IRole)
 	// Attaches this policy to a user.
-	AttachToUser(user awsiam.IUserRef)
+	AttachToUser(user interfacesawsiam.IUserRef)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -130,8 +132,8 @@ func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) Document() awsiam.PolicyDocument
 	return returns
 }
 
-func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -170,8 +172,8 @@ func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) ManagedPolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) ManagedPolicyRef() *awsiam.ManagedPolicyReference {
-	var returns *awsiam.ManagedPolicyReference
+func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) ManagedPolicyRef() *interfacesawsiam.ManagedPolicyReference {
+	var returns *interfacesawsiam.ManagedPolicyReference
 	_jsii_.Get(
 		j,
 		"managedPolicyRef",
@@ -433,7 +435,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) ApplyRemovalPolicy(policy awscdk
 	)
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToGroup(group awsiam.IGroupRef) {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToGroup(group interfacesawsiam.IGroupRef) {
 	if err := u.validateAttachToGroupParameters(group); err != nil {
 		panic(err)
 	}
@@ -455,7 +457,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToRole(role awsiam.IRole) 
 	)
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToUser(user awsiam.IUserRef) {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToUser(user interfacesawsiam.IUserRef) {
 	if err := u.validateAttachToUserParameters(user); err != nil {
 		panic(err)
 	}

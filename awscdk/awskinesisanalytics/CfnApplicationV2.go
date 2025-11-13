@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalytics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisanalyticsv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -214,8 +216,8 @@ import (
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 type CfnApplicationV2 interface {
 	awscdk.CfnResource
-	IApplicationV2Ref
 	awscdk.IInspectable
+	interfacesawskinesisanalyticsv2.IApplicationRef
 	awscdk.ITaggable
 	// Use this parameter to configure the application.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
@@ -244,7 +246,7 @@ type CfnApplicationV2 interface {
 	SetApplicationName(val *string)
 	// A reference to a Application resource.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
-	ApplicationRef() *ApplicationV2Reference
+	ApplicationRef() *interfacesawskinesisanalyticsv2.ApplicationReference
 	// Options for this resource, such as condition, update policy etc.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -259,7 +261,7 @@ type CfnApplicationV2 interface {
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CreationStack() *[]*string
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -471,8 +473,8 @@ type CfnApplicationV2 interface {
 // The jsii proxy struct for CfnApplicationV2
 type jsiiProxy_CfnApplicationV2 struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationV2Ref
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisanalyticsv2IApplicationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -526,8 +528,8 @@ func (j *jsiiProxy_CfnApplicationV2) ApplicationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationV2) ApplicationRef() *ApplicationV2Reference {
-	var returns *ApplicationV2Reference
+func (j *jsiiProxy_CfnApplicationV2) ApplicationRef() *interfacesawskinesisanalyticsv2.ApplicationReference {
+	var returns *interfacesawskinesisanalyticsv2.ApplicationReference
 	_jsii_.Get(
 		j,
 		"applicationRef",
@@ -576,8 +578,8 @@ func (j *jsiiProxy_CfnApplicationV2) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationV2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationV2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -697,6 +699,7 @@ func (j *jsiiProxy_CfnApplicationV2) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::KinesisAnalyticsV2::Application`.
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 func NewCfnApplicationV2(scope constructs.Construct, id *string, props *CfnApplicationV2Props) CfnApplicationV2 {
 	_init_.Initialize()
@@ -715,6 +718,7 @@ func NewCfnApplicationV2(scope constructs.Construct, id *string, props *CfnAppli
 	return &j
 }
 
+// Create a new `AWS::KinesisAnalyticsV2::Application`.
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 func NewCfnApplicationV2_Override(c CfnApplicationV2, scope constructs.Construct, id *string, props *CfnApplicationV2Props) {
 	_init_.Initialize()
@@ -816,15 +820,15 @@ func (j *jsiiProxy_CfnApplicationV2)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IApplicationV2Ref from a applicationName.
+// Creates a new IApplicationRef from a applicationName.
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
-func CfnApplicationV2_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) IApplicationV2Ref {
+func CfnApplicationV2_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) interfacesawskinesisanalyticsv2.IApplicationRef {
 	_init_.Initialize()
 
 	if err := validateCfnApplicationV2_FromApplicationNameParameters(scope, id, applicationName); err != nil {
 		panic(err)
 	}
-	var returns IApplicationV2Ref
+	var returns interfacesawskinesisanalyticsv2.IApplicationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2",

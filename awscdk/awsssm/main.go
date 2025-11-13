@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.AssociationReference",
-		reflect.TypeOf((*AssociationReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ssm.CfnAssociation",
 		reflect.TypeOf((*CfnAssociation)(nil)).Elem(),
@@ -69,8 +65,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIAssociationRef)
 			return &j
 		},
 	)
@@ -141,8 +137,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnDocument{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDocumentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIDocumentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -212,8 +208,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMaintenanceWindow{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMaintenanceWindowRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIMaintenanceWindowRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -269,8 +265,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMaintenanceWindowTarget{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMaintenanceWindowTargetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIMaintenanceWindowTargetRef)
 			return &j
 		},
 	)
@@ -337,8 +333,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMaintenanceWindowTask{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMaintenanceWindowTaskRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIMaintenanceWindowTaskRef)
 			return &j
 		},
 	)
@@ -434,8 +430,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnParameter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IParameterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIParameterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -501,8 +497,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPatchBaseline{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPatchBaselineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIPatchBaselineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -581,8 +577,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourceDataSync{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceDataSyncRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIResourceDataSyncRef)
 			return &j
 		},
 	)
@@ -646,8 +642,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourcePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourcePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIResourcePolicyRef)
 			return &j
 		},
 	)
@@ -658,85 +654,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ssm.CommonStringParameterAttributes",
 		reflect.TypeOf((*CommonStringParameterAttributes)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.DocumentReference",
-		reflect.TypeOf((*DocumentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IAssociationRef",
-		reflect.TypeOf((*IAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "associationRef", GoGetter: "AssociationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IDocumentRef",
-		reflect.TypeOf((*IDocumentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "documentRef", GoGetter: "DocumentRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDocumentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IMaintenanceWindowRef",
-		reflect.TypeOf((*IMaintenanceWindowRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "maintenanceWindowRef", GoGetter: "MaintenanceWindowRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMaintenanceWindowRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IMaintenanceWindowTargetRef",
-		reflect.TypeOf((*IMaintenanceWindowTargetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "maintenanceWindowTargetRef", GoGetter: "MaintenanceWindowTargetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMaintenanceWindowTargetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IMaintenanceWindowTaskRef",
-		reflect.TypeOf((*IMaintenanceWindowTaskRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "maintenanceWindowTaskRef", GoGetter: "MaintenanceWindowTaskRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMaintenanceWindowTaskRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ssm.IParameter",
@@ -755,66 +672,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IParameter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IParameterRef",
-		reflect.TypeOf((*IParameterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "parameterRef", GoGetter: "ParameterRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IParameterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IPatchBaselineRef",
-		reflect.TypeOf((*IPatchBaselineRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "patchBaselineRef", GoGetter: "PatchBaselineRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPatchBaselineRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IResourceDataSyncRef",
-		reflect.TypeOf((*IResourceDataSyncRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceDataSyncRef", GoGetter: "ResourceDataSyncRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourceDataSyncRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssm.IResourcePolicyRef",
-		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourcePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -864,18 +721,6 @@ func init() {
 		"aws-cdk-lib.aws_ssm.ListParameterAttributes",
 		reflect.TypeOf((*ListParameterAttributes)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.MaintenanceWindowReference",
-		reflect.TypeOf((*MaintenanceWindowReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.MaintenanceWindowTargetReference",
-		reflect.TypeOf((*MaintenanceWindowTargetReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.MaintenanceWindowTaskReference",
-		reflect.TypeOf((*MaintenanceWindowTaskReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ssm.ParameterDataType",
 		reflect.TypeOf((*ParameterDataType)(nil)).Elem(),
@@ -887,10 +732,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ssm.ParameterOptions",
 		reflect.TypeOf((*ParameterOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.ParameterReference",
-		reflect.TypeOf((*ParameterReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ssm.ParameterTier",
@@ -927,18 +768,6 @@ func init() {
 			"AWS_EC2_VPC_ID": ParameterValueType_AWS_EC2_VPC_ID,
 			"AWS_ROUTE53_HOSTEDZONE_ID": ParameterValueType_AWS_ROUTE53_HOSTEDZONE_ID,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.PatchBaselineReference",
-		reflect.TypeOf((*PatchBaselineReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.ResourceDataSyncReference",
-		reflect.TypeOf((*ResourceDataSyncReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssm.ResourcePolicyReference",
-		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ssm.SecureStringParameterAttributes",

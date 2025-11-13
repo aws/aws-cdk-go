@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiottwinmaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiottwinmaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnScene interface {
 	awscdk.CfnResource
-	ISceneRef
 	awscdk.IInspectable
+	interfacesawsiottwinmaker.ISceneRef
 	awscdk.ITaggable
 	// The scene ARN.
 	AttrArn() *string
@@ -67,7 +69,7 @@ type CfnScene interface {
 	// The description of this scene.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -92,7 +94,7 @@ type CfnScene interface {
 	SceneMetadata() interface{}
 	SetSceneMetadata(val interface{})
 	// A reference to a Scene resource.
-	SceneRef() *SceneReference
+	SceneRef() *interfacesawsiottwinmaker.SceneReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -248,8 +250,8 @@ type CfnScene interface {
 // The jsii proxy struct for CfnScene
 type jsiiProxy_CfnScene struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISceneRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiottwinmakerISceneRef
 	internal.Type__awscdkITaggable
 }
 
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnScene) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScene) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScene) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,8 +425,8 @@ func (j *jsiiProxy_CfnScene) SceneMetadata() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScene) SceneRef() *SceneReference {
-	var returns *SceneReference
+func (j *jsiiProxy_CfnScene) SceneRef() *interfacesawsiottwinmaker.SceneReference {
+	var returns *interfacesawsiottwinmaker.SceneReference
 	_jsii_.Get(
 		j,
 		"sceneRef",
@@ -494,6 +496,7 @@ func (j *jsiiProxy_CfnScene) WorkspaceId() *string {
 }
 
 
+// Create a new `AWS::IoTTwinMaker::Scene`.
 func NewCfnScene(scope constructs.Construct, id *string, props *CfnSceneProps) CfnScene {
 	_init_.Initialize()
 
@@ -511,6 +514,7 @@ func NewCfnScene(scope constructs.Construct, id *string, props *CfnSceneProps) C
 	return &j
 }
 
+// Create a new `AWS::IoTTwinMaker::Scene`.
 func NewCfnScene_Override(c CfnScene, scope constructs.Construct, id *string, props *CfnSceneProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnComponent interface {
 	awscdk.CfnResource
-	IComponentRef
 	awscdk.IInspectable
+	interfacesawsimagebuilder.IComponentRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the component.
 	//
@@ -80,7 +82,7 @@ type CfnComponent interface {
 	ChangeDescription() *string
 	SetChangeDescription(val *string)
 	// A reference to a Component resource.
-	ComponentRef() *ComponentReference
+	ComponentRef() *interfacesawsimagebuilder.ComponentReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -91,7 +93,7 @@ type CfnComponent interface {
 	// Describes the contents of the component.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this component.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -279,8 +281,8 @@ type CfnComponent interface {
 // The jsii proxy struct for CfnComponent
 type jsiiProxy_CfnComponent struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IComponentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsimagebuilderIComponentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnComponent) ChangeDescription() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponent) ComponentRef() *ComponentReference {
-	var returns *ComponentReference
+func (j *jsiiProxy_CfnComponent) ComponentRef() *interfacesawsimagebuilder.ComponentReference {
+	var returns *interfacesawsimagebuilder.ComponentReference
 	_jsii_.Get(
 		j,
 		"componentRef",
@@ -454,8 +456,8 @@ func (j *jsiiProxy_CfnComponent) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponent) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnComponent) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -605,6 +607,7 @@ func (j *jsiiProxy_CfnComponent) Version() *string {
 }
 
 
+// Create a new `AWS::ImageBuilder::Component`.
 func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponentProps) CfnComponent {
 	_init_.Initialize()
 
@@ -622,6 +625,7 @@ func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponent
 	return &j
 }
 
+// Create a new `AWS::ImageBuilder::Component`.
 func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *string, props *CfnComponentProps) {
 	_init_.Initialize()
 

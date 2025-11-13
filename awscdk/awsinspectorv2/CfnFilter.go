@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsinspectorv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspectorv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -318,8 +320,8 @@ import (
 //
 type CfnFilter interface {
 	awscdk.CfnResource
-	IFilterRef
 	awscdk.IInspectable
+	interfacesawsinspectorv2.IFilterRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Number (ARN) associated with this filter.
 	AttrArn() *string
@@ -337,7 +339,7 @@ type CfnFilter interface {
 	// A description of the filter.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The action that is to be applied to the findings that match the filter.
 	FilterAction() *string
 	SetFilterAction(val *string)
@@ -345,7 +347,7 @@ type CfnFilter interface {
 	FilterCriteria() interface{}
 	SetFilterCriteria(val interface{})
 	// A reference to a Filter resource.
-	FilterRef() *FilterReference
+	FilterRef() *interfacesawsinspectorv2.FilterReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -516,8 +518,8 @@ type CfnFilter interface {
 // The jsii proxy struct for CfnFilter
 type jsiiProxy_CfnFilter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFilterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsinspectorv2IFilterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -591,8 +593,8 @@ func (j *jsiiProxy_CfnFilter) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFilter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFilter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -621,8 +623,8 @@ func (j *jsiiProxy_CfnFilter) FilterCriteria() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFilter) FilterRef() *FilterReference {
-	var returns *FilterReference
+func (j *jsiiProxy_CfnFilter) FilterRef() *interfacesawsinspectorv2.FilterReference {
+	var returns *interfacesawsinspectorv2.FilterReference
 	_jsii_.Get(
 		j,
 		"filterRef",
@@ -712,6 +714,7 @@ func (j *jsiiProxy_CfnFilter) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::InspectorV2::Filter`.
 func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps) CfnFilter {
 	_init_.Initialize()
 
@@ -729,6 +732,7 @@ func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps)
 	return &j
 }
 
+// Create a new `AWS::InspectorV2::Filter`.
 func NewCfnFilter_Override(c CfnFilter, scope constructs.Construct, id *string, props *CfnFilterProps) {
 	_init_.Initialize()
 

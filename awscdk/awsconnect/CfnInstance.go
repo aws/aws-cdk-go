@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnInstance interface {
 	awscdk.CfnResource
-	IInstanceRef
 	awscdk.IInspectable
+	interfacesawsconnect.IInstanceRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the instance.
 	AttrArn() *string
@@ -86,7 +88,7 @@ type CfnInstance interface {
 	// The identifier for the directory.
 	DirectoryId() *string
 	SetDirectoryId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identity management type.
 	IdentityManagementType() *string
 	SetIdentityManagementType(val *string)
@@ -94,7 +96,7 @@ type CfnInstance interface {
 	InstanceAlias() *string
 	SetInstanceAlias(val *string)
 	// A reference to a Instance resource.
-	InstanceRef() *InstanceReference
+	InstanceRef() *interfacesawsconnect.InstanceReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -262,8 +264,8 @@ type CfnInstance interface {
 // The jsii proxy struct for CfnInstance
 type jsiiProxy_CfnInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIInstanceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnInstance) DirectoryId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -417,8 +419,8 @@ func (j *jsiiProxy_CfnInstance) InstanceAlias() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) InstanceRef() *InstanceReference {
-	var returns *InstanceReference
+func (j *jsiiProxy_CfnInstance) InstanceRef() *interfacesawsconnect.InstanceReference {
+	var returns *interfacesawsconnect.InstanceReference
 	_jsii_.Get(
 		j,
 		"instanceRef",
@@ -498,6 +500,7 @@ func (j *jsiiProxy_CfnInstance) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Connect::Instance`.
 func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
@@ -515,6 +518,7 @@ func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstancePr
 	return &j
 }
 
+// Create a new `AWS::Connect::Instance`.
 func NewCfnInstance_Override(c CfnInstance, scope constructs.Construct, id *string, props *CfnInstanceProps) {
 	_init_.Initialize()
 

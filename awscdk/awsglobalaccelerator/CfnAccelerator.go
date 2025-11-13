@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,11 +41,11 @@ import (
 //
 type CfnAccelerator interface {
 	awscdk.CfnResource
-	IAcceleratorRef
 	awscdk.IInspectable
+	interfacesawsglobalaccelerator.IAcceleratorRef
 	awscdk.ITaggable
 	// A reference to a Accelerator resource.
-	AcceleratorRef() *AcceleratorReference
+	AcceleratorRef() *interfacesawsglobalaccelerator.AcceleratorReference
 	// The ARN of the accelerator, such as `arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh` .
 	AttrAcceleratorArn() *string
 	// The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses.
@@ -72,7 +74,7 @@ type CfnAccelerator interface {
 	// The value is true or false. The default value is true.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator.
 	IpAddresses() *[]*string
 	SetIpAddresses(val *[]*string)
@@ -251,13 +253,13 @@ type CfnAccelerator interface {
 // The jsii proxy struct for CfnAccelerator
 type jsiiProxy_CfnAccelerator struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAcceleratorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglobalacceleratorIAcceleratorRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnAccelerator) AcceleratorRef() *AcceleratorReference {
-	var returns *AcceleratorReference
+func (j *jsiiProxy_CfnAccelerator) AcceleratorRef() *interfacesawsglobalaccelerator.AcceleratorReference {
+	var returns *interfacesawsglobalaccelerator.AcceleratorReference
 	_jsii_.Get(
 		j,
 		"acceleratorRef",
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnAccelerator) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccelerator) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccelerator) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -487,6 +489,7 @@ func (j *jsiiProxy_CfnAccelerator) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GlobalAccelerator::Accelerator`.
 func NewCfnAccelerator(scope constructs.Construct, id *string, props *CfnAcceleratorProps) CfnAccelerator {
 	_init_.Initialize()
 
@@ -504,6 +507,7 @@ func NewCfnAccelerator(scope constructs.Construct, id *string, props *CfnAcceler
 	return &j
 }
 
+// Create a new `AWS::GlobalAccelerator::Accelerator`.
 func NewCfnAccelerator_Override(c CfnAccelerator, scope constructs.Construct, id *string, props *CfnAcceleratorProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspcaconnectorad/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspcaconnectorad"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -308,8 +310,8 @@ import (
 //
 type CfnTemplate interface {
 	awscdk.CfnResource
-	ITemplateRef
 	awscdk.IInspectable
+	interfacesawspcaconnectorad.ITemplateRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 	AttrTemplateArn() *string
@@ -330,7 +332,7 @@ type CfnTemplate interface {
 	// Template configuration to define the information included in certificates.
 	Definition() interface{}
 	SetDefinition(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -362,7 +364,7 @@ type CfnTemplate interface {
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// A reference to a Template resource.
-	TemplateRef() *TemplateReference
+	TemplateRef() *interfacesawspcaconnectorad.TemplateReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -506,8 +508,8 @@ type CfnTemplate interface {
 // The jsii proxy struct for CfnTemplate
 type jsiiProxy_CfnTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspcaconnectoradITemplateRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -591,8 +593,8 @@ func (j *jsiiProxy_CfnTemplate) Definition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -671,8 +673,8 @@ func (j *jsiiProxy_CfnTemplate) Tags() *map[string]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) TemplateRef() *TemplateReference {
-	var returns *TemplateReference
+func (j *jsiiProxy_CfnTemplate) TemplateRef() *interfacesawspcaconnectorad.TemplateReference {
+	var returns *interfacesawspcaconnectorad.TemplateReference
 	_jsii_.Get(
 		j,
 		"templateRef",
@@ -702,6 +704,7 @@ func (j *jsiiProxy_CfnTemplate) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::PCAConnectorAD::Template`.
 func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
@@ -719,6 +722,7 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 	return &j
 }
 
+// Create a new `AWS::PCAConnectorAD::Template`.
 func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 

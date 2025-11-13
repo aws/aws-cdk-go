@@ -1,13 +1,21 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 type Type__awscdkResource = awscdk.Resource
+type Type__interfacesawss3IBucketPolicyRef = interfacesawss3.IBucketPolicyRef
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawss3IAccessGrantRef = interfacesawss3.IAccessGrantRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawss3IAccessGrantsInstanceRef = interfacesawss3.IAccessGrantsInstanceRef
+type Type__interfacesawss3IAccessGrantsLocationRef = interfacesawss3.IAccessGrantsLocationRef
+type Type__interfacesawss3IAccessPointRef = interfacesawss3.IAccessPointRef
+type Type__interfacesawss3IBucketRef = interfacesawss3.IBucketRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawss3IMultiRegionAccessPointRef = interfacesawss3.IMultiRegionAccessPointRef
+type Type__interfacesawss3IMultiRegionAccessPointPolicyRef = interfacesawss3.IMultiRegionAccessPointPolicyRef
+type Type__interfacesawss3IStorageLensRef = interfacesawss3.IStorageLensRef
+type Type__interfacesawss3IStorageLensGroupRef = interfacesawss3.IStorageLensGroupRef
 type Type__awscdkIResource = awscdk.IResource

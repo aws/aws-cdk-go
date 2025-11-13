@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,7 +37,7 @@ type VpnGateway interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The virtual private gateway Id.
 	GatewayId() *string
 	// The tree node.
@@ -51,7 +53,7 @@ type VpnGateway interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// A reference to a VPNGateway resource.
-	VpnGatewayRef() *VPNGatewayReference
+	VpnGatewayRef() *interfacesawsec2.VPNGatewayReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -86,8 +88,8 @@ type jsiiProxy_VpnGateway struct {
 	jsiiProxy_IVpnGateway
 }
 
-func (j *jsiiProxy_VpnGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_VpnGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -136,8 +138,8 @@ func (j *jsiiProxy_VpnGateway) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_VpnGateway) VpnGatewayRef() *VPNGatewayReference {
-	var returns *VPNGatewayReference
+func (j *jsiiProxy_VpnGateway) VpnGatewayRef() *interfacesawsec2.VPNGatewayReference {
+	var returns *interfacesawsec2.VPNGatewayReference
 	_jsii_.Get(
 		j,
 		"vpnGatewayRef",

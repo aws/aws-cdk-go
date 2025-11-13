@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,7 +36,7 @@ type PrefixList interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// The owner ID of the prefix list.
@@ -54,7 +56,7 @@ type PrefixList interface {
 	// The name of the prefix list.
 	PrefixListName() *string
 	// A reference to a PrefixList resource.
-	PrefixListRef() *PrefixListReference
+	PrefixListRef() *interfacesawsec2.PrefixListReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// A unique identifier for this connection peer.
@@ -129,8 +131,8 @@ func (j *jsiiProxy_PrefixList) Connections() Connections {
 	return returns
 }
 
-func (j *jsiiProxy_PrefixList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_PrefixList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -199,8 +201,8 @@ func (j *jsiiProxy_PrefixList) PrefixListName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_PrefixList) PrefixListRef() *PrefixListReference {
-	var returns *PrefixListReference
+func (j *jsiiProxy_PrefixList) PrefixListRef() *interfacesawsec2.PrefixListReference {
+	var returns *interfacesawsec2.PrefixListReference
 	_jsii_.Get(
 		j,
 		"prefixListRef",

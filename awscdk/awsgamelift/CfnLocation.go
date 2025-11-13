@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnLocation interface {
 	awscdk.CfnResource
-	ILocationRef
 	awscdk.IInspectable
+	interfacesawsgamelift.ILocationRef
 	awscdk.ITaggable
 	// A unique identifier for the custom location.
 	//
@@ -48,12 +50,12 @@ type CfnLocation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A descriptive name for the custom location.
 	LocationName() *string
 	SetLocationName(val *string)
 	// A reference to a Location resource.
-	LocationRef() *LocationReference
+	LocationRef() *interfacesawsgamelift.LocationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnLocation interface {
 // The jsii proxy struct for CfnLocation
 type jsiiProxy_CfnLocation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftILocationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnLocation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnLocation) LocationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocation) LocationRef() *LocationReference {
-	var returns *LocationReference
+func (j *jsiiProxy_CfnLocation) LocationRef() *interfacesawsgamelift.LocationReference {
+	var returns *interfacesawsgamelift.LocationReference
 	_jsii_.Get(
 		j,
 		"locationRef",
@@ -389,6 +391,7 @@ func (j *jsiiProxy_CfnLocation) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GameLift::Location`.
 func NewCfnLocation(scope constructs.Construct, id *string, props *CfnLocationProps) CfnLocation {
 	_init_.Initialize()
 
@@ -406,6 +409,7 @@ func NewCfnLocation(scope constructs.Construct, id *string, props *CfnLocationPr
 	return &j
 }
 
+// Create a new `AWS::GameLift::Location`.
 func NewCfnLocation_Override(c CfnLocation, scope constructs.Construct, id *string, props *CfnLocationProps) {
 	_init_.Initialize()
 

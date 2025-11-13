@@ -54,10 +54,6 @@ func init() {
 		"aws-cdk-lib.aws_kms.AliasProps",
 		reflect.TypeOf((*AliasProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kms.AliasReference",
-		reflect.TypeOf((*AliasReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kms.CfnAlias",
 		reflect.TypeOf((*CfnAlias)(nil)).Elem(),
@@ -100,8 +96,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAlias{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAliasRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskmsIAliasRef)
 			return &j
 		},
 	)
@@ -164,8 +160,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnKey{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskmsIKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -223,8 +219,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReplicaKey{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReplicaKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskmsIReplicaKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -261,23 +257,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAlias{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAliasRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskmsIAliasRef)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKey)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kms.IAliasRef",
-		reflect.TypeOf((*IAliasRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "aliasRef", GoGetter: "AliasRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAliasRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -306,38 +287,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IKey{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKeyRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskmsIKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kms.IKeyRef",
-		reflect.TypeOf((*IKeyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "keyRef", GoGetter: "KeyRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IKeyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_kms.IReplicaKeyRef",
-		reflect.TypeOf((*IReplicaKeyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "replicaKeyRef", GoGetter: "ReplicaKeyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReplicaKeyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -387,10 +338,6 @@ func init() {
 		"aws-cdk-lib.aws_kms.KeyProps",
 		reflect.TypeOf((*KeyProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kms.KeyReference",
-		reflect.TypeOf((*KeyReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_kms.KeySpec",
 		reflect.TypeOf((*KeySpec)(nil)).Elem(),
@@ -422,10 +369,6 @@ func init() {
 			"GENERATE_VERIFY_MAC": KeyUsage_GENERATE_VERIFY_MAC,
 			"KEY_AGREEMENT": KeyUsage_KEY_AGREEMENT,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_kms.ReplicaKeyReference",
-		reflect.TypeOf((*ReplicaKeyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kms.ViaServicePrincipal",

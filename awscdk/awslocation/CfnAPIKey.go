@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslocation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslocation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,6 +29,17 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		AllowAndroidApps: []interface{}{
+//   			&AndroidAppProperty{
+//   				CertificateFingerprint: jsii.String("certificateFingerprint"),
+//   				Package: jsii.String("package"),
+//   			},
+//   		},
+//   		AllowAppleApps: []interface{}{
+//   			&AppleAppProperty{
+//   				BundleId: jsii.String("bundleId"),
+//   			},
+//   		},
 //   		AllowReferers: []*string{
 //   			jsii.String("allowReferers"),
 //   		},
@@ -50,11 +63,11 @@ import (
 //
 type CfnAPIKey interface {
 	awscdk.CfnResource
-	IAPIKeyRef
 	awscdk.IInspectable
+	interfacesawslocation.IAPIKeyRef
 	awscdk.ITaggableV2
 	// A reference to a APIKey resource.
-	ApiKeyRef() *APIKeyReference
+	ApiKeyRef() *interfacesawslocation.APIKeyReference
 	// The Amazon Resource Name (ARN) for the resource.
 	//
 	// Used when you need to specify a resource across all AWS .
@@ -81,7 +94,7 @@ type CfnAPIKey interface {
 	// Updates the description for the API key resource.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
 	ExpireTime() *string
 	SetExpireTime(val *string)
@@ -267,13 +280,13 @@ type CfnAPIKey interface {
 // The jsii proxy struct for CfnAPIKey
 type jsiiProxy_CfnAPIKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAPIKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslocationIAPIKeyRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAPIKey) ApiKeyRef() *APIKeyReference {
-	var returns *APIKeyReference
+func (j *jsiiProxy_CfnAPIKey) ApiKeyRef() *interfacesawslocation.APIKeyReference {
+	var returns *interfacesawslocation.APIKeyReference
 	_jsii_.Get(
 		j,
 		"apiKeyRef",
@@ -382,8 +395,8 @@ func (j *jsiiProxy_CfnAPIKey) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAPIKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAPIKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -523,6 +536,7 @@ func (j *jsiiProxy_CfnAPIKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Location::APIKey`.
 func NewCfnAPIKey(scope constructs.Construct, id *string, props *CfnAPIKeyProps) CfnAPIKey {
 	_init_.Initialize()
 
@@ -540,6 +554,7 @@ func NewCfnAPIKey(scope constructs.Construct, id *string, props *CfnAPIKeyProps)
 	return &j
 }
 
+// Create a new `AWS::Location::APIKey`.
 func NewCfnAPIKey_Override(c CfnAPIKey, scope constructs.Construct, id *string, props *CfnAPIKeyProps) {
 	_init_.Initialize()
 
@@ -633,13 +648,13 @@ func (j *jsiiProxy_CfnAPIKey)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IAPIKeyRef from an ARN.
-func CfnAPIKey_FromAPIKeyArn(scope constructs.Construct, id *string, arn *string) IAPIKeyRef {
+func CfnAPIKey_FromAPIKeyArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.IAPIKeyRef {
 	_init_.Initialize()
 
 	if err := validateCfnAPIKey_FromAPIKeyArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAPIKeyRef
+	var returns interfacesawslocation.IAPIKeyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnAPIKey",
@@ -652,13 +667,13 @@ func CfnAPIKey_FromAPIKeyArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IAPIKeyRef from a keyName.
-func CfnAPIKey_FromKeyName(scope constructs.Construct, id *string, keyName *string) IAPIKeyRef {
+func CfnAPIKey_FromKeyName(scope constructs.Construct, id *string, keyName *string) interfacesawslocation.IAPIKeyRef {
 	_init_.Initialize()
 
 	if err := validateCfnAPIKey_FromKeyNameParameters(scope, id, keyName); err != nil {
 		panic(err)
 	}
-	var returns IAPIKeyRef
+	var returns interfacesawslocation.IAPIKeyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnAPIKey",

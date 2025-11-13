@@ -1,6 +1,8 @@
 package awsrtbfabric
 
 
+// Describes a link application log sample.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,11 @@ package awsrtbfabric
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-linkapplicationlogsampling.html
 //
 type CfnLink_LinkApplicationLogSamplingProperty struct {
+	// An error log entry.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-linkapplicationlogsampling.html#cfn-rtbfabric-link-linkapplicationlogsampling-errorlog
 	//
 	ErrorLog *float64 `field:"required" json:"errorLog" yaml:"errorLog"`
+	// A filter log entry.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-linkapplicationlogsampling.html#cfn-rtbfabric-link-linkapplicationlogsampling-filterlog
 	//
 	FilterLog *float64 `field:"required" json:"filterLog" yaml:"filterLog"`

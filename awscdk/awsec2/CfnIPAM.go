@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnIPAM interface {
 	awscdk.CfnResource
-	IIPAMRef
 	awscdk.IInspectable
+	interfacesawsec2.IIPAMRef
 	awscdk.ITaggable
 	// The ARN of the IPAM.
 	AttrArn() *string
@@ -84,9 +86,9 @@ type CfnIPAM interface {
 	// Enable this option to use your own GUA ranges as private IPv6 addresses.
 	EnablePrivateGua() interface{}
 	SetEnablePrivateGua(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IPAM resource.
-	IpamRef() *IPAMReference
+	IpamRef() *interfacesawsec2.IPAMReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -265,8 +267,8 @@ type CfnIPAM interface {
 // The jsii proxy struct for CfnIPAM
 type jsiiProxy_CfnIPAM struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIPAMRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IIPAMRef
 	internal.Type__awscdkITaggable
 }
 
@@ -420,8 +422,8 @@ func (j *jsiiProxy_CfnIPAM) EnablePrivateGua() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAM) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIPAM) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnIPAM) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPAM) IpamRef() *IPAMReference {
-	var returns *IPAMReference
+func (j *jsiiProxy_CfnIPAM) IpamRef() *interfacesawsec2.IPAMReference {
+	var returns *interfacesawsec2.IPAMReference
 	_jsii_.Get(
 		j,
 		"ipamRef",
@@ -551,6 +553,7 @@ func (j *jsiiProxy_CfnIPAM) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::IPAM`.
 func NewCfnIPAM(scope constructs.Construct, id *string, props *CfnIPAMProps) CfnIPAM {
 	_init_.Initialize()
 
@@ -568,6 +571,7 @@ func NewCfnIPAM(scope constructs.Construct, id *string, props *CfnIPAMProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::EC2::IPAM`.
 func NewCfnIPAM_Override(c CfnIPAM, scope constructs.Construct, id *string, props *CfnIPAMProps) {
 	_init_.Initialize()
 
@@ -647,13 +651,13 @@ func (j *jsiiProxy_CfnIPAM)SetTier(val *string) {
 }
 
 // Creates a new IIPAMRef from an ARN.
-func CfnIPAM_FromIPAMArn(scope constructs.Construct, id *string, arn *string) IIPAMRef {
+func CfnIPAM_FromIPAMArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IIPAMRef {
 	_init_.Initialize()
 
 	if err := validateCfnIPAM_FromIPAMArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IIPAMRef
+	var returns interfacesawsec2.IIPAMRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAM",
@@ -666,13 +670,13 @@ func CfnIPAM_FromIPAMArn(scope constructs.Construct, id *string, arn *string) II
 }
 
 // Creates a new IIPAMRef from a ipamId.
-func CfnIPAM_FromIpamId(scope constructs.Construct, id *string, ipamId *string) IIPAMRef {
+func CfnIPAM_FromIpamId(scope constructs.Construct, id *string, ipamId *string) interfacesawsec2.IIPAMRef {
 	_init_.Initialize()
 
 	if err := validateCfnIPAM_FromIpamIdParameters(scope, id, ipamId); err != nil {
 		panic(err)
 	}
-	var returns IIPAMRef
+	var returns interfacesawsec2.IIPAMRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAM",

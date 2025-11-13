@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -285,8 +287,8 @@ import (
 //
 type CfnFlow interface {
 	awscdk.CfnResource
-	IFlowRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IFlowRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the flow.
 	AttrArn() *string
@@ -336,12 +338,12 @@ type CfnFlow interface {
 	// A description of the flow.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the service role with permissions to create a flow.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// A reference to a Flow resource.
-	FlowRef() *FlowReference
+	FlowRef() *interfacesawsbedrock.FlowReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -517,8 +519,8 @@ type CfnFlow interface {
 // The jsii proxy struct for CfnFlow
 type jsiiProxy_CfnFlow struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIFlowRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -702,8 +704,8 @@ func (j *jsiiProxy_CfnFlow) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlow) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -722,8 +724,8 @@ func (j *jsiiProxy_CfnFlow) ExecutionRoleArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) FlowRef() *FlowReference {
-	var returns *FlowReference
+func (j *jsiiProxy_CfnFlow) FlowRef() *interfacesawsbedrock.FlowReference {
+	var returns *interfacesawsbedrock.FlowReference
 	_jsii_.Get(
 		j,
 		"flowRef",
@@ -823,6 +825,7 @@ func (j *jsiiProxy_CfnFlow) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Bedrock::Flow`.
 func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) CfnFlow {
 	_init_.Initialize()
 
@@ -840,6 +843,7 @@ func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Bedrock::Flow`.
 func NewCfnFlow_Override(c CfnFlow, scope constructs.Construct, id *string, props *CfnFlowProps) {
 	_init_.Initialize()
 

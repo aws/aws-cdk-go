@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscassandra/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscassandra"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnKeyspace interface {
 	awscdk.CfnResource
-	IKeyspaceRef
 	awscdk.IInspectable
+	interfacesawscassandra.IKeyspaceRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,12 +56,12 @@ type CfnKeyspace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the keyspace to be created.
 	KeyspaceName() *string
 	SetKeyspaceName(val *string)
 	// A reference to a Keyspace resource.
-	KeyspaceRef() *KeyspaceReference
+	KeyspaceRef() *interfacesawscassandra.KeyspaceReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -234,8 +236,8 @@ type CfnKeyspace interface {
 // The jsii proxy struct for CfnKeyspace
 type jsiiProxy_CfnKeyspace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKeyspaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscassandraIKeyspaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnKeyspace) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyspace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKeyspace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnKeyspace) KeyspaceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyspace) KeyspaceRef() *KeyspaceReference {
-	var returns *KeyspaceReference
+func (j *jsiiProxy_CfnKeyspace) KeyspaceRef() *interfacesawscassandra.KeyspaceReference {
+	var returns *interfacesawscassandra.KeyspaceReference
 	_jsii_.Get(
 		j,
 		"keyspaceRef",
@@ -410,6 +412,7 @@ func (j *jsiiProxy_CfnKeyspace) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Cassandra::Keyspace`.
 func NewCfnKeyspace(scope constructs.Construct, id *string, props *CfnKeyspaceProps) CfnKeyspace {
 	_init_.Initialize()
 
@@ -427,6 +430,7 @@ func NewCfnKeyspace(scope constructs.Construct, id *string, props *CfnKeyspacePr
 	return &j
 }
 
+// Create a new `AWS::Cassandra::Keyspace`.
 func NewCfnKeyspace_Override(c CfnKeyspace, scope constructs.Construct, id *string, props *CfnKeyspaceProps) {
 	_init_.Initialize()
 
@@ -479,13 +483,13 @@ func (j *jsiiProxy_CfnKeyspace)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IKeyspaceRef from a keyspaceName.
-func CfnKeyspace_FromKeyspaceName(scope constructs.Construct, id *string, keyspaceName *string) IKeyspaceRef {
+func CfnKeyspace_FromKeyspaceName(scope constructs.Construct, id *string, keyspaceName *string) interfacesawscassandra.IKeyspaceRef {
 	_init_.Initialize()
 
 	if err := validateCfnKeyspace_FromKeyspaceNameParameters(scope, id, keyspaceName); err != nil {
 		panic(err)
 	}
-	var returns IKeyspaceRef
+	var returns interfacesawscassandra.IKeyspaceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cassandra.CfnKeyspace",

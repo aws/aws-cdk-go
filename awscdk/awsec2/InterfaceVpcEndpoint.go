@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,7 +43,7 @@ type InterfaceVpcEndpoint interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -78,7 +80,7 @@ type InterfaceVpcEndpoint interface {
 	// One or more network interfaces for the interface VPC endpoint.
 	VpcEndpointNetworkInterfaceIds() *[]*string
 	// A reference to a VPCEndpoint resource.
-	VpcEndpointRef() *VPCEndpointReference
+	VpcEndpointRef() *interfacesawsec2.VPCEndpointReference
 	// Adds a statement to the policy document of the VPC endpoint. The statement must have a Principal.
 	//
 	// Not all interface VPC endpoints support policy. For more information
@@ -128,8 +130,8 @@ func (j *jsiiProxy_InterfaceVpcEndpoint) Connections() Connections {
 	return returns
 }
 
-func (j *jsiiProxy_InterfaceVpcEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_InterfaceVpcEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -218,8 +220,8 @@ func (j *jsiiProxy_InterfaceVpcEndpoint) VpcEndpointNetworkInterfaceIds() *[]*st
 	return returns
 }
 
-func (j *jsiiProxy_InterfaceVpcEndpoint) VpcEndpointRef() *VPCEndpointReference {
-	var returns *VPCEndpointReference
+func (j *jsiiProxy_InterfaceVpcEndpoint) VpcEndpointRef() *interfacesawsec2.VPCEndpointReference {
+	var returns *interfacesawsec2.VPCEndpointReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointRef",

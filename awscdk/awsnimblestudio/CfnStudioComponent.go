@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnimblestudio/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnimblestudio"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,8 +78,8 @@ import (
 //
 type CfnStudioComponent interface {
 	awscdk.CfnResource
-	IStudioComponentRef
 	awscdk.IInspectable
+	interfacesawsnimblestudio.IStudioComponentRef
 	awscdk.ITaggable
 	AttrStudioComponentId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -95,7 +97,7 @@ type CfnStudioComponent interface {
 	SetDescription(val *string)
 	Ec2SecurityGroupIds() *[]*string
 	SetEc2SecurityGroupIds(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	InitializationScripts() interface{}
 	SetInitializationScripts(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -124,7 +126,7 @@ type CfnStudioComponent interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StudioComponent resource.
-	StudioComponentRef() *StudioComponentReference
+	StudioComponentRef() *interfacesawsnimblestudio.StudioComponentReference
 	StudioId() *string
 	SetStudioId(val *string)
 	Subtype() *string
@@ -278,8 +280,8 @@ type CfnStudioComponent interface {
 // The jsii proxy struct for CfnStudioComponent
 type jsiiProxy_CfnStudioComponent struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStudioComponentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnimblestudioIStudioComponentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnStudioComponent) Ec2SecurityGroupIds() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudioComponent) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStudioComponent) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -443,8 +445,8 @@ func (j *jsiiProxy_CfnStudioComponent) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudioComponent) StudioComponentRef() *StudioComponentReference {
-	var returns *StudioComponentReference
+func (j *jsiiProxy_CfnStudioComponent) StudioComponentRef() *interfacesawsnimblestudio.StudioComponentReference {
+	var returns *interfacesawsnimblestudio.StudioComponentReference
 	_jsii_.Get(
 		j,
 		"studioComponentRef",
@@ -524,6 +526,7 @@ func (j *jsiiProxy_CfnStudioComponent) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::NimbleStudio::StudioComponent`.
 func NewCfnStudioComponent(scope constructs.Construct, id *string, props *CfnStudioComponentProps) CfnStudioComponent {
 	_init_.Initialize()
 
@@ -541,6 +544,7 @@ func NewCfnStudioComponent(scope constructs.Construct, id *string, props *CfnStu
 	return &j
 }
 
+// Create a new `AWS::NimbleStudio::StudioComponent`.
 func NewCfnStudioComponent_Override(c CfnStudioComponent, scope constructs.Construct, id *string, props *CfnStudioComponentProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnDevEndpoint interface {
 	awscdk.CfnResource
-	IDevEndpointRef
 	awscdk.IInspectable
+	interfacesawsglue.IDevEndpointRef
 	awscdk.ITaggable
 	// A map of arguments used to configure the `DevEndpoint` .
 	Arguments() interface{}
@@ -66,11 +68,11 @@ type CfnDevEndpoint interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DevEndpoint resource.
-	DevEndpointRef() *DevEndpointReference
+	DevEndpointRef() *interfacesawsglue.DevEndpointReference
 	// The name of the `DevEndpoint` .
 	EndpointName() *string
 	SetEndpointName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The path to one or more Java `.jar` files in an S3 bucket that should be loaded in your `DevEndpoint` .
 	ExtraJarsS3Path() *string
 	SetExtraJarsS3Path(val *string)
@@ -276,8 +278,8 @@ type CfnDevEndpoint interface {
 // The jsii proxy struct for CfnDevEndpoint
 type jsiiProxy_CfnDevEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDevEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIDevEndpointRef
 	internal.Type__awscdkITaggable
 }
 
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnDevEndpoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevEndpoint) DevEndpointRef() *DevEndpointReference {
-	var returns *DevEndpointReference
+func (j *jsiiProxy_CfnDevEndpoint) DevEndpointRef() *interfacesawsglue.DevEndpointReference {
+	var returns *interfacesawsglue.DevEndpointReference
 	_jsii_.Get(
 		j,
 		"devEndpointRef",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnDevEndpoint) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDevEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -572,6 +574,7 @@ func (j *jsiiProxy_CfnDevEndpoint) WorkerType() *string {
 }
 
 
+// Create a new `AWS::Glue::DevEndpoint`.
 func NewCfnDevEndpoint(scope constructs.Construct, id *string, props *CfnDevEndpointProps) CfnDevEndpoint {
 	_init_.Initialize()
 
@@ -589,6 +592,7 @@ func NewCfnDevEndpoint(scope constructs.Construct, id *string, props *CfnDevEndp
 	return &j
 }
 
+// Create a new `AWS::Glue::DevEndpoint`.
 func NewCfnDevEndpoint_Override(c CfnDevEndpoint, scope constructs.Construct, id *string, props *CfnDevEndpointProps) {
 	_init_.Initialize()
 

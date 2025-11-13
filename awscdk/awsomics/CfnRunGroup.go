@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsomics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnRunGroup interface {
 	awscdk.CfnResource
-	IRunGroupRef
 	awscdk.IInspectable
+	interfacesawsomics.IRunGroupRef
 	awscdk.ITaggable
 	// The run group's ARN.
 	AttrArn() *string
@@ -51,7 +53,7 @@ type CfnRunGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +87,7 @@ type CfnRunGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RunGroup resource.
-	RunGroupRef() *RunGroupReference
+	RunGroupRef() *interfacesawsomics.RunGroupReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -238,8 +240,8 @@ type CfnRunGroup interface {
 // The jsii proxy struct for CfnRunGroup
 type jsiiProxy_CfnRunGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRunGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsomicsIRunGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnRunGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRunGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRunGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnRunGroup) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRunGroup) RunGroupRef() *RunGroupReference {
-	var returns *RunGroupReference
+func (j *jsiiProxy_CfnRunGroup) RunGroupRef() *interfacesawsomics.RunGroupReference {
+	var returns *interfacesawsomics.RunGroupReference
 	_jsii_.Get(
 		j,
 		"runGroupRef",
@@ -464,6 +466,7 @@ func (j *jsiiProxy_CfnRunGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Omics::RunGroup`.
 func NewCfnRunGroup(scope constructs.Construct, id *string, props *CfnRunGroupProps) CfnRunGroup {
 	_init_.Initialize()
 
@@ -481,6 +484,7 @@ func NewCfnRunGroup(scope constructs.Construct, id *string, props *CfnRunGroupPr
 	return &j
 }
 
+// Create a new `AWS::Omics::RunGroup`.
 func NewCfnRunGroup_Override(c CfnRunGroup, scope constructs.Construct, id *string, props *CfnRunGroupProps) {
 	_init_.Initialize()
 

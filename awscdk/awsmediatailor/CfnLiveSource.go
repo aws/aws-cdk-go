@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediatailor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediatailor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnLiveSource interface {
 	awscdk.CfnResource
-	ILiveSourceRef
 	awscdk.IInspectable
+	interfacesawsmediatailor.ILiveSourceRef
 	awscdk.ITaggableV2
 	// <p>The ARN of the live source.</p>.
 	AttrArn() *string
@@ -56,7 +58,7 @@ type CfnLiveSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The HTTP package configurations for the live source.
 	HttpPackageConfigurations() interface{}
 	SetHttpPackageConfigurations(val interface{})
@@ -64,7 +66,7 @@ type CfnLiveSource interface {
 	LiveSourceName() *string
 	SetLiveSourceName(val *string)
 	// A reference to a LiveSource resource.
-	LiveSourceRef() *LiveSourceReference
+	LiveSourceRef() *interfacesawsmediatailor.LiveSourceReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnLiveSource interface {
 // The jsii proxy struct for CfnLiveSource
 type jsiiProxy_CfnLiveSource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILiveSourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediatailorILiveSourceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnLiveSource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLiveSource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLiveSource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnLiveSource) LiveSourceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLiveSource) LiveSourceRef() *LiveSourceReference {
-	var returns *LiveSourceReference
+func (j *jsiiProxy_CfnLiveSource) LiveSourceRef() *interfacesawsmediatailor.LiveSourceReference {
+	var returns *interfacesawsmediatailor.LiveSourceReference
 	_jsii_.Get(
 		j,
 		"liveSourceRef",
@@ -421,6 +423,7 @@ func (j *jsiiProxy_CfnLiveSource) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaTailor::LiveSource`.
 func NewCfnLiveSource(scope constructs.Construct, id *string, props *CfnLiveSourceProps) CfnLiveSource {
 	_init_.Initialize()
 
@@ -438,6 +441,7 @@ func NewCfnLiveSource(scope constructs.Construct, id *string, props *CfnLiveSour
 	return &j
 }
 
+// Create a new `AWS::MediaTailor::LiveSource`.
 func NewCfnLiveSource_Override(c CfnLiveSource, scope constructs.Construct, id *string, props *CfnLiveSourceProps) {
 	_init_.Initialize()
 

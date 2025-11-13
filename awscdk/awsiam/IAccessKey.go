@@ -5,6 +5,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -12,7 +14,7 @@ import (
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
 //
 type IAccessKey interface {
-	IAccessKeyRef
+	interfacesawsiam.IAccessKeyRef
 	awscdk.IResource
 	// The Access Key ID.
 	AccessKeyId() *string
@@ -22,7 +24,7 @@ type IAccessKey interface {
 
 // The jsii proxy for IAccessKey
 type jsiiProxy_IAccessKey struct {
-	jsiiProxy_IAccessKeyRef
+	internal.Type__interfacesawsiamIAccessKeyRef
 	internal.Type__awscdkIResource
 }
 
@@ -57,8 +59,8 @@ func (j *jsiiProxy_IAccessKey) SecretAccessKey() awscdk.SecretValue {
 	return returns
 }
 
-func (j *jsiiProxy_IAccessKey) AccessKeyRef() *AccessKeyReference {
-	var returns *AccessKeyReference
+func (j *jsiiProxy_IAccessKey) AccessKeyRef() *interfacesawsiam.AccessKeyReference {
+	var returns *interfacesawsiam.AccessKeyReference
 	_jsii_.Get(
 		j,
 		"accessKeyRef",
@@ -67,8 +69,8 @@ func (j *jsiiProxy_IAccessKey) AccessKeyRef() *AccessKeyReference {
 	return returns
 }
 
-func (j *jsiiProxy_IAccessKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IAccessKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

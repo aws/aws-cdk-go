@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,19 +21,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnImageRecipe := awscdk.Aws_imagebuilder.NewCfnImageRecipe(this, jsii.String("MyCfnImageRecipe"), &CfnImageRecipeProps{
-//   	Components: []interface{}{
-//   		&ComponentConfigurationProperty{
-//   			ComponentArn: jsii.String("componentArn"),
-//   			Parameters: []interface{}{
-//   				&ComponentParameterProperty{
-//   					Name: jsii.String("name"),
-//   					Value: []*string{
-//   						jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
 //   	Name: jsii.String("name"),
 //   	ParentImage: jsii.String("parentImage"),
 //   	Version: jsii.String("version"),
@@ -63,6 +52,19 @@ import (
 //   			VirtualName: jsii.String("virtualName"),
 //   		},
 //   	},
+//   	Components: []interface{}{
+//   		&ComponentConfigurationProperty{
+//   			ComponentArn: jsii.String("componentArn"),
+//   			Parameters: []interface{}{
+//   				&ComponentParameterProperty{
+//   					Name: jsii.String("name"),
+//   					Value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -74,8 +76,8 @@ import (
 //
 type CfnImageRecipe interface {
 	awscdk.CfnResource
-	IImageRecipeRef
 	awscdk.IInspectable
+	interfacesawsimagebuilder.IImageRecipeRef
 	awscdk.ITaggable
 	// Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration.
 	AdditionalInstanceConfiguration() interface{}
@@ -107,9 +109,9 @@ type CfnImageRecipe interface {
 	// The description of the image recipe.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a ImageRecipe resource.
-	ImageRecipeRef() *ImageRecipeReference
+	ImageRecipeRef() *interfacesawsimagebuilder.ImageRecipeReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -291,8 +293,8 @@ type CfnImageRecipe interface {
 // The jsii proxy struct for CfnImageRecipe
 type jsiiProxy_CfnImageRecipe struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IImageRecipeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsimagebuilderIImageRecipeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnImageRecipe) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageRecipe) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnImageRecipe) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnImageRecipe) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageRecipe) ImageRecipeRef() *ImageRecipeReference {
-	var returns *ImageRecipeReference
+func (j *jsiiProxy_CfnImageRecipe) ImageRecipeRef() *interfacesawsimagebuilder.ImageRecipeReference {
+	var returns *interfacesawsimagebuilder.ImageRecipeReference
 	_jsii_.Get(
 		j,
 		"imageRecipeRef",
@@ -547,6 +549,7 @@ func (j *jsiiProxy_CfnImageRecipe) WorkingDirectory() *string {
 }
 
 
+// Create a new `AWS::ImageBuilder::ImageRecipe`.
 func NewCfnImageRecipe(scope constructs.Construct, id *string, props *CfnImageRecipeProps) CfnImageRecipe {
 	_init_.Initialize()
 
@@ -564,6 +567,7 @@ func NewCfnImageRecipe(scope constructs.Construct, id *string, props *CfnImageRe
 	return &j
 }
 
+// Create a new `AWS::ImageBuilder::ImageRecipe`.
 func NewCfnImageRecipe_Override(c CfnImageRecipe, scope constructs.Construct, id *string, props *CfnImageRecipeProps) {
 	_init_.Initialize()
 

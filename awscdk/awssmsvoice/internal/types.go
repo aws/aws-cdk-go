@@ -1,10 +1,15 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssmsvoice"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawssmsvoiceIConfigurationSetRef = interfacesawssmsvoice.IConfigurationSetRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawssmsvoiceIOptOutListRef = interfacesawssmsvoice.IOptOutListRef
+type Type__interfacesawssmsvoiceIPhoneNumberRef = interfacesawssmsvoice.IPhoneNumberRef
+type Type__interfacesawssmsvoiceIPoolRef = interfacesawssmsvoice.IPoolRef
+type Type__interfacesawssmsvoiceIProtectConfigurationRef = interfacesawssmsvoice.IProtectConfigurationRef
+type Type__interfacesawssmsvoiceIResourcePolicyRef = interfacesawssmsvoice.IResourcePolicyRef
+type Type__interfacesawssmsvoiceISenderIdRef = interfacesawssmsvoice.ISenderIdRef

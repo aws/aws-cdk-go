@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,8 +78,8 @@ import (
 //
 type CfnFunctionDefinitionVersion interface {
 	awscdk.CfnResource
-	IFunctionDefinitionVersionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IFunctionDefinitionVersionRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -91,12 +93,12 @@ type CfnFunctionDefinitionVersion interface {
 	// The default configuration that applies to all Lambda functions in the group.
 	DefaultConfig() interface{}
 	SetDefaultConfig(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the function definition associated with this version.
 	FunctionDefinitionId() *string
 	SetFunctionDefinitionId(val *string)
 	// A reference to a FunctionDefinitionVersion resource.
-	FunctionDefinitionVersionRef() *FunctionDefinitionVersionReference
+	FunctionDefinitionVersionRef() *interfacesawsgreengrass.FunctionDefinitionVersionReference
 	// The functions in this version.
 	Functions() interface{}
 	SetFunctions(val interface{})
@@ -264,8 +266,8 @@ type CfnFunctionDefinitionVersion interface {
 // The jsii proxy struct for CfnFunctionDefinitionVersion
 type jsiiProxy_CfnFunctionDefinitionVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFunctionDefinitionVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIFunctionDefinitionVersionRef
 }
 
 func (j *jsiiProxy_CfnFunctionDefinitionVersion) AttrId() *string {
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnFunctionDefinitionVersion) DefaultConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunctionDefinitionVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFunctionDefinitionVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnFunctionDefinitionVersion) FunctionDefinitionId() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunctionDefinitionVersion) FunctionDefinitionVersionRef() *FunctionDefinitionVersionReference {
-	var returns *FunctionDefinitionVersionReference
+func (j *jsiiProxy_CfnFunctionDefinitionVersion) FunctionDefinitionVersionRef() *interfacesawsgreengrass.FunctionDefinitionVersionReference {
+	var returns *interfacesawsgreengrass.FunctionDefinitionVersionReference
 	_jsii_.Get(
 		j,
 		"functionDefinitionVersionRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnFunctionDefinitionVersion) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::Greengrass::FunctionDefinitionVersion`.
 func NewCfnFunctionDefinitionVersion(scope constructs.Construct, id *string, props *CfnFunctionDefinitionVersionProps) CfnFunctionDefinitionVersion {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnFunctionDefinitionVersion(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::Greengrass::FunctionDefinitionVersion`.
 func NewCfnFunctionDefinitionVersion_Override(c CfnFunctionDefinitionVersion, scope constructs.Construct, id *string, props *CfnFunctionDefinitionVersionProps) {
 	_init_.Initialize()
 

@@ -16,6 +16,10 @@ func validateSecretValue_CfnDynamicReferenceParameters(ref CfnDynamicReference) 
 	return nil
 }
 
+func validateSecretValue_CfnDynamicReferenceKeyParameters(secretId *string, options *SecretsManagerSecretOptions) error {
+	return nil
+}
+
 func validateSecretValue_CfnParameterParameters(param CfnParameter) error {
 	return nil
 }

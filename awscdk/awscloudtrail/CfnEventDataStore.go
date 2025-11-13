@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudtrail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudtrail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -86,8 +88,8 @@ import (
 //
 type CfnEventDataStore interface {
 	awscdk.CfnResource
-	IEventDataStoreRef
 	awscdk.IInspectable
+	interfacesawscloudtrail.IEventDataStoreRef
 	awscdk.ITaggable
 	// The advanced event selectors to use to select the events for the data store.
 	AdvancedEventSelectors() interface{}
@@ -115,9 +117,9 @@ type CfnEventDataStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EventDataStore resource.
-	EventDataStoreRef() *EventDataStoreReference
+	EventDataStoreRef() *interfacesawscloudtrail.EventDataStoreReference
 	// Indicates if [Lake query federation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html) is enabled. By default, Lake query federation is disabled. You cannot delete an event data store if Lake query federation is enabled.
 	FederationEnabled() interface{}
 	SetFederationEnabled(val interface{})
@@ -323,8 +325,8 @@ type CfnEventDataStore interface {
 // The jsii proxy struct for CfnEventDataStore
 type jsiiProxy_CfnEventDataStore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventDataStoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudtrailIEventDataStoreRef
 	internal.Type__awscdkITaggable
 }
 
@@ -438,8 +440,8 @@ func (j *jsiiProxy_CfnEventDataStore) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventDataStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventDataStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -448,8 +450,8 @@ func (j *jsiiProxy_CfnEventDataStore) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventDataStore) EventDataStoreRef() *EventDataStoreReference {
-	var returns *EventDataStoreReference
+func (j *jsiiProxy_CfnEventDataStore) EventDataStoreRef() *interfacesawscloudtrail.EventDataStoreReference {
+	var returns *interfacesawscloudtrail.EventDataStoreReference
 	_jsii_.Get(
 		j,
 		"eventDataStoreRef",
@@ -659,6 +661,7 @@ func (j *jsiiProxy_CfnEventDataStore) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::CloudTrail::EventDataStore`.
 func NewCfnEventDataStore(scope constructs.Construct, id *string, props *CfnEventDataStoreProps) CfnEventDataStore {
 	_init_.Initialize()
 
@@ -676,6 +679,7 @@ func NewCfnEventDataStore(scope constructs.Construct, id *string, props *CfnEven
 	return &j
 }
 
+// Create a new `AWS::CloudTrail::EventDataStore`.
 func NewCfnEventDataStore_Override(c CfnEventDataStore, scope constructs.Construct, id *string, props *CfnEventDataStoreProps) {
 	_init_.Initialize()
 

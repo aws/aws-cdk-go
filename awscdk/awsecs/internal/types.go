@@ -5,6 +5,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
 )
 type Type__constructsConstruct = constructs.Construct
@@ -15,10 +16,15 @@ type Type__awselasticloadbalancingv2INetworkLoadBalancerTarget = awselasticloadb
 type Type__awsec2IMachineImage = awsec2.IMachineImage
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsecsICapacityProviderRef = interfacesawsecs.ICapacityProviderRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsecsIClusterRef = interfacesawsecs.IClusterRef
+type Type__interfacesawsecsIClusterCapacityProviderAssociationsRef = interfacesawsecs.IClusterCapacityProviderAssociationsRef
+type Type__interfacesawsecsIPrimaryTaskSetRef = interfacesawsecs.IPrimaryTaskSetRef
+type Type__interfacesawsecsIServiceRef = interfacesawsecs.IServiceRef
+type Type__interfacesawsecsITaskDefinitionRef = interfacesawsecs.ITaskDefinitionRef
+type Type__interfacesawsecsITaskSetRef = interfacesawsecs.ITaskSetRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awscdkIResource = awscdk.IResource
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awsapplicationautoscalingBaseScalableAttribute = awsapplicationautoscaling.BaseScalableAttribute

@@ -6,13 +6,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IInstance interface {
 	IConnectable
 	awsiam.IGrantable
-	IInstanceRef
+	interfacesawsec2.IInstanceRef
 	awscdk.IResource
 	// The availability zone the instance was launched in.
 	InstanceAvailabilityZone() *string
@@ -36,7 +38,7 @@ type IInstance interface {
 type jsiiProxy_IInstance struct {
 	jsiiProxy_IConnectable
 	internal.Type__awsiamIGrantable
-	jsiiProxy_IInstanceRef
+	internal.Type__interfacesawsec2IInstanceRef
 	internal.Type__awscdkIResource
 }
 
@@ -121,8 +123,8 @@ func (j *jsiiProxy_IInstance) Connections() Connections {
 	return returns
 }
 
-func (j *jsiiProxy_IInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -141,8 +143,8 @@ func (j *jsiiProxy_IInstance) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IInstance) InstanceRef() *InstanceReference {
-	var returns *InstanceReference
+func (j *jsiiProxy_IInstance) InstanceRef() *interfacesawsec2.InstanceReference {
+	var returns *interfacesawsec2.InstanceReference
 	_jsii_.Get(
 		j,
 		"instanceRef",

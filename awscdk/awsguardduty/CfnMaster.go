@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsguardduty/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnMaster interface {
 	awscdk.CfnResource
-	IMasterRef
 	awscdk.IInspectable
+	interfacesawsguardduty.IMasterRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -44,7 +46,7 @@ type CfnMaster interface {
 	// The unique ID of the detector of the GuardDuty member account.
 	DetectorId() *string
 	SetDetectorId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the invitation that is sent to the account designated as a member account.
 	InvitationId() *string
 	SetInvitationId(val *string)
@@ -62,7 +64,7 @@ type CfnMaster interface {
 	MasterId() *string
 	SetMasterId(val *string)
 	// A reference to a Master resource.
-	MasterRef() *MasterReference
+	MasterRef() *interfacesawsguardduty.MasterReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -217,8 +219,8 @@ type CfnMaster interface {
 // The jsii proxy struct for CfnMaster
 type jsiiProxy_CfnMaster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMasterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsguarddutyIMasterRef
 }
 
 func (j *jsiiProxy_CfnMaster) CfnOptions() awscdk.ICfnResourceOptions {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnMaster) DetectorId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMaster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMaster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnMaster) MasterId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMaster) MasterRef() *MasterReference {
-	var returns *MasterReference
+func (j *jsiiProxy_CfnMaster) MasterRef() *interfacesawsguardduty.MasterReference {
+	var returns *interfacesawsguardduty.MasterReference
 	_jsii_.Get(
 		j,
 		"masterRef",
@@ -372,6 +374,7 @@ func (j *jsiiProxy_CfnMaster) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GuardDuty::Master`.
 func NewCfnMaster(scope constructs.Construct, id *string, props *CfnMasterProps) CfnMaster {
 	_init_.Initialize()
 
@@ -389,6 +392,7 @@ func NewCfnMaster(scope constructs.Construct, id *string, props *CfnMasterProps)
 	return &j
 }
 
+// Create a new `AWS::GuardDuty::Master`.
 func NewCfnMaster_Override(c CfnMaster, scope constructs.Construct, id *string, props *CfnMasterProps) {
 	_init_.Initialize()
 

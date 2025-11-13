@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsqbusiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsqbusiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -146,8 +148,8 @@ import (
 //
 type CfnDataAccessor interface {
 	awscdk.CfnResource
-	IDataAccessorRef
 	awscdk.IInspectable
+	interfacesawsqbusiness.IDataAccessorRef
 	awscdk.ITaggableV2
 	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations() interface{}
@@ -180,11 +182,11 @@ type CfnDataAccessor interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataAccessor resource.
-	DataAccessorRef() *DataAccessorReference
+	DataAccessorRef() *interfacesawsqbusiness.DataAccessorReference
 	// The friendly name of the data accessor.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -355,8 +357,8 @@ type CfnDataAccessor interface {
 // The jsii proxy struct for CfnDataAccessor
 type jsiiProxy_CfnDataAccessor struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataAccessorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsqbusinessIDataAccessorRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -490,8 +492,8 @@ func (j *jsiiProxy_CfnDataAccessor) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataAccessor) DataAccessorRef() *DataAccessorReference {
-	var returns *DataAccessorReference
+func (j *jsiiProxy_CfnDataAccessor) DataAccessorRef() *interfacesawsqbusiness.DataAccessorReference {
+	var returns *interfacesawsqbusiness.DataAccessorReference
 	_jsii_.Get(
 		j,
 		"dataAccessorRef",
@@ -510,8 +512,8 @@ func (j *jsiiProxy_CfnDataAccessor) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataAccessor) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataAccessor) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -601,6 +603,7 @@ func (j *jsiiProxy_CfnDataAccessor) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::QBusiness::DataAccessor`.
 func NewCfnDataAccessor(scope constructs.Construct, id *string, props *CfnDataAccessorProps) CfnDataAccessor {
 	_init_.Initialize()
 
@@ -618,6 +621,7 @@ func NewCfnDataAccessor(scope constructs.Construct, id *string, props *CfnDataAc
 	return &j
 }
 
+// Create a new `AWS::QBusiness::DataAccessor`.
 func NewCfnDataAccessor_Override(c CfnDataAccessor, scope constructs.Construct, id *string, props *CfnDataAccessorProps) {
 	_init_.Initialize()
 

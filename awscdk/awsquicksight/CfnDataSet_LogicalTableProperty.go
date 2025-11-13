@@ -1,9 +1,11 @@
 package awsquicksight
 
 
-// A *logical table* is a unit that joins and that data transformations operate on.
+// <p>A <i>logical table</i> is a unit that joins and that data             transformations operate on.
 //
-// A logical table has a source, which can be either a physical table or result of a join. When a logical table points to a physical table, the logical table acts as a mutable copy of that physical table through transform operations.
+// A logical table has a source, which can be either a physical
+//             table or result of a join. When a logical table points to a physical table, the logical
+//             table acts as a mutable copy of that physical table through transform operations.</p>
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -12,15 +14,33 @@ package awsquicksight
 //
 //   logicalTableProperty := &LogicalTableProperty{
 //   	Alias: jsii.String("alias"),
+//   	Source: &LogicalTableSourceProperty{
+//   		DataSetArn: jsii.String("dataSetArn"),
+//   		JoinInstruction: &JoinInstructionProperty{
+//   			LeftOperand: jsii.String("leftOperand"),
+//   			OnClause: jsii.String("onClause"),
+//   			RightOperand: jsii.String("rightOperand"),
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			LeftJoinKeyProperties: &JoinKeyPropertiesProperty{
+//   				UniqueKey: jsii.Boolean(false),
+//   			},
+//   			RightJoinKeyProperties: &JoinKeyPropertiesProperty{
+//   				UniqueKey: jsii.Boolean(false),
+//   			},
+//   		},
+//   		PhysicalTableId: jsii.String("physicalTableId"),
+//   	},
 //
 //   	// the properties below are optional
 //   	DataTransforms: []interface{}{
 //   		&TransformOperationProperty{
 //   			CastColumnTypeOperation: &CastColumnTypeOperationProperty{
+//   				ColumnName: jsii.String("columnName"),
 //   				NewColumnType: jsii.String("newColumnType"),
 //
 //   				// the properties below are optional
-//   				ColumnName: jsii.String("columnName"),
 //   				Format: jsii.String("format"),
 //   				SubType: jsii.String("subType"),
 //   			},
@@ -32,9 +52,86 @@ package awsquicksight
 //   						Expression: jsii.String("expression"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				Alias: jsii.String("alias"),
+//   				Source: &TransformOperationSourceProperty{
+//   					TransformOperationId: jsii.String("transformOperationId"),
+//
+//   					// the properties below are optional
+//   					ColumnIdMappings: []interface{}{
+//   						&DataSetColumnIdMappingProperty{
+//   							SourceColumnId: jsii.String("sourceColumnId"),
+//   							TargetColumnId: jsii.String("targetColumnId"),
+//   						},
+//   					},
+//   				},
 //   			},
 //   			FilterOperation: &FilterOperationProperty{
 //   				ConditionExpression: jsii.String("conditionExpression"),
+//   				DateFilterCondition: &DataSetDateFilterConditionProperty{
+//   					ColumnName: jsii.String("columnName"),
+//   					ComparisonFilterCondition: &DataSetDateComparisonFilterConditionProperty{
+//   						Operator: jsii.String("operator"),
+//
+//   						// the properties below are optional
+//   						Value: &DataSetDateFilterValueProperty{
+//   							StaticValue: jsii.String("staticValue"),
+//   						},
+//   					},
+//   					RangeFilterCondition: &DataSetDateRangeFilterConditionProperty{
+//   						IncludeMaximum: jsii.Boolean(false),
+//   						IncludeMinimum: jsii.Boolean(false),
+//   						RangeMaximum: &DataSetDateFilterValueProperty{
+//   							StaticValue: jsii.String("staticValue"),
+//   						},
+//   						RangeMinimum: &DataSetDateFilterValueProperty{
+//   							StaticValue: jsii.String("staticValue"),
+//   						},
+//   					},
+//   				},
+//   				NumericFilterCondition: &DataSetNumericFilterConditionProperty{
+//   					ColumnName: jsii.String("columnName"),
+//   					ComparisonFilterCondition: &DataSetNumericComparisonFilterConditionProperty{
+//   						Operator: jsii.String("operator"),
+//
+//   						// the properties below are optional
+//   						Value: &DataSetNumericFilterValueProperty{
+//   							StaticValue: jsii.Number(123),
+//   						},
+//   					},
+//   					RangeFilterCondition: &DataSetNumericRangeFilterConditionProperty{
+//   						IncludeMaximum: jsii.Boolean(false),
+//   						IncludeMinimum: jsii.Boolean(false),
+//   						RangeMaximum: &DataSetNumericFilterValueProperty{
+//   							StaticValue: jsii.Number(123),
+//   						},
+//   						RangeMinimum: &DataSetNumericFilterValueProperty{
+//   							StaticValue: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   				StringFilterCondition: &DataSetStringFilterConditionProperty{
+//   					ColumnName: jsii.String("columnName"),
+//   					ComparisonFilterCondition: &DataSetStringComparisonFilterConditionProperty{
+//   						Operator: jsii.String("operator"),
+//
+//   						// the properties below are optional
+//   						Value: &DataSetStringFilterValueProperty{
+//   							StaticValue: jsii.String("staticValue"),
+//   						},
+//   					},
+//   					ListFilterCondition: &DataSetStringListFilterConditionProperty{
+//   						Operator: jsii.String("operator"),
+//
+//   						// the properties below are optional
+//   						Values: &DataSetStringListFilterValueProperty{
+//   							StaticValues: []*string{
+//   								jsii.String("staticValues"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   			},
 //   			OverrideDatasetParameterOperation: &OverrideDatasetParameterOperationProperty{
 //   				ParameterName: jsii.String("parameterName"),
@@ -57,8 +154,20 @@ package awsquicksight
 //   				NewParameterName: jsii.String("newParameterName"),
 //   			},
 //   			ProjectOperation: &ProjectOperationProperty{
+//   				Alias: jsii.String("alias"),
 //   				ProjectedColumns: []*string{
 //   					jsii.String("projectedColumns"),
+//   				},
+//   				Source: &TransformOperationSourceProperty{
+//   					TransformOperationId: jsii.String("transformOperationId"),
+//
+//   					// the properties below are optional
+//   					ColumnIdMappings: []interface{}{
+//   						&DataSetColumnIdMappingProperty{
+//   							SourceColumnId: jsii.String("sourceColumnId"),
+//   							TargetColumnId: jsii.String("targetColumnId"),
+//   						},
+//   					},
 //   				},
 //   			},
 //   			RenameColumnOperation: &RenameColumnOperationProperty{
@@ -84,42 +193,27 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
-//   	Source: &LogicalTableSourceProperty{
-//   		DataSetArn: jsii.String("dataSetArn"),
-//   		JoinInstruction: &JoinInstructionProperty{
-//   			LeftOperand: jsii.String("leftOperand"),
-//   			OnClause: jsii.String("onClause"),
-//   			RightOperand: jsii.String("rightOperand"),
-//   			Type: jsii.String("type"),
-//
-//   			// the properties below are optional
-//   			LeftJoinKeyProperties: &JoinKeyPropertiesProperty{
-//   				UniqueKey: jsii.Boolean(false),
-//   			},
-//   			RightJoinKeyProperties: &JoinKeyPropertiesProperty{
-//   				UniqueKey: jsii.Boolean(false),
-//   			},
-//   		},
-//   		PhysicalTableId: jsii.String("physicalTableId"),
-//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html
 //
 type CfnDataSet_LogicalTableProperty struct {
-	// A display name for the logical table.
+	// <p>A display name for the logical table.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
 	//
 	Alias *string `field:"required" json:"alias" yaml:"alias"`
-	// Transform operations that act on this logical table.
+	// <p>Information about the source of a logical table.
 	//
-	// For this structure to be valid, only one of the attributes can be non-null.
+	// This is a variant type structure. For
+	//             this structure to be valid, only one of the attributes can be non-null.</p>
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
+	//
+	Source interface{} `field:"required" json:"source" yaml:"source"`
+	// <p>Transform operations that act on this logical table.
+	//
+	// For this structure to be valid, only one of the attributes can be non-null. </p>
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
 	//
 	DataTransforms interface{} `field:"optional" json:"dataTransforms" yaml:"dataTransforms"`
-	// Source of this logical table.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-	//
-	Source interface{} `field:"optional" json:"source" yaml:"source"`
 }
 

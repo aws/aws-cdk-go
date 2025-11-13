@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnInstanceConnectEndpoint interface {
 	awscdk.CfnResource
-	IInstanceConnectEndpointRef
 	awscdk.IInspectable
+	interfacesawsec2.IInstanceConnectEndpointRef
 	awscdk.ITaggableV2
 	// The ID of the EC2 Instance Connect Endpoint.
 	AttrId() *string
@@ -60,9 +62,9 @@ type CfnInstanceConnectEndpoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InstanceConnectEndpoint resource.
-	InstanceConnectEndpointRef() *InstanceConnectEndpointReference
+	InstanceConnectEndpointRef() *interfacesawsec2.InstanceConnectEndpointReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,8 +243,8 @@ type CfnInstanceConnectEndpoint interface {
 // The jsii proxy struct for CfnInstanceConnectEndpoint
 type jsiiProxy_CfnInstanceConnectEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceConnectEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IInstanceConnectEndpointRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnInstanceConnectEndpoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceConnectEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnInstanceConnectEndpoint) Env() *awscdk.ResourceEnvironment
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceConnectEndpoint) InstanceConnectEndpointRef() *InstanceConnectEndpointReference {
-	var returns *InstanceConnectEndpointReference
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) InstanceConnectEndpointRef() *interfacesawsec2.InstanceConnectEndpointReference {
+	var returns *interfacesawsec2.InstanceConnectEndpointReference
 	_jsii_.Get(
 		j,
 		"instanceConnectEndpointRef",
@@ -437,6 +439,7 @@ func (j *jsiiProxy_CfnInstanceConnectEndpoint) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::EC2::InstanceConnectEndpoint`.
 func NewCfnInstanceConnectEndpoint(scope constructs.Construct, id *string, props *CfnInstanceConnectEndpointProps) CfnInstanceConnectEndpoint {
 	_init_.Initialize()
 
@@ -454,6 +457,7 @@ func NewCfnInstanceConnectEndpoint(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::EC2::InstanceConnectEndpoint`.
 func NewCfnInstanceConnectEndpoint_Override(c CfnInstanceConnectEndpoint, scope constructs.Construct, id *string, props *CfnInstanceConnectEndpointProps) {
 	_init_.Initialize()
 
@@ -514,13 +518,13 @@ func (j *jsiiProxy_CfnInstanceConnectEndpoint)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IInstanceConnectEndpointRef from a instanceConnectEndpointId.
-func CfnInstanceConnectEndpoint_FromInstanceConnectEndpointId(scope constructs.Construct, id *string, instanceConnectEndpointId *string) IInstanceConnectEndpointRef {
+func CfnInstanceConnectEndpoint_FromInstanceConnectEndpointId(scope constructs.Construct, id *string, instanceConnectEndpointId *string) interfacesawsec2.IInstanceConnectEndpointRef {
 	_init_.Initialize()
 
 	if err := validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointIdParameters(scope, id, instanceConnectEndpointId); err != nil {
 		panic(err)
 	}
-	var returns IInstanceConnectEndpointRef
+	var returns interfacesawsec2.IInstanceConnectEndpointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnInstanceConnectEndpoint",

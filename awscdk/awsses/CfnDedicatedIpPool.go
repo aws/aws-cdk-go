@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnDedicatedIpPool interface {
 	awscdk.CfnResource
-	IDedicatedIpPoolRef
 	awscdk.IInspectable
+	interfacesawsses.IDedicatedIpPoolRef
 	awscdk.ITaggableV2
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -50,8 +52,8 @@ type CfnDedicatedIpPool interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DedicatedIpPool resource.
-	DedicatedIpPoolRef() *DedicatedIpPoolReference
-	Env() *awscdk.ResourceEnvironment
+	DedicatedIpPoolRef() *interfacesawsses.DedicatedIpPoolReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,8 +227,8 @@ type CfnDedicatedIpPool interface {
 // The jsii proxy struct for CfnDedicatedIpPool
 type jsiiProxy_CfnDedicatedIpPool struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDedicatedIpPoolRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIDedicatedIpPoolRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnDedicatedIpPool) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDedicatedIpPool) DedicatedIpPoolRef() *DedicatedIpPoolReference {
-	var returns *DedicatedIpPoolReference
+func (j *jsiiProxy_CfnDedicatedIpPool) DedicatedIpPoolRef() *interfacesawsses.DedicatedIpPoolReference {
+	var returns *interfacesawsses.DedicatedIpPoolReference
 	_jsii_.Get(
 		j,
 		"dedicatedIpPoolRef",
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnDedicatedIpPool) DedicatedIpPoolRef() *DedicatedIpPoolRefe
 	return returns
 }
 
-func (j *jsiiProxy_CfnDedicatedIpPool) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDedicatedIpPool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -391,6 +393,7 @@ func (j *jsiiProxy_CfnDedicatedIpPool) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::SES::DedicatedIpPool`.
 func NewCfnDedicatedIpPool(scope constructs.Construct, id *string, props *CfnDedicatedIpPoolProps) CfnDedicatedIpPool {
 	_init_.Initialize()
 
@@ -408,6 +411,7 @@ func NewCfnDedicatedIpPool(scope constructs.Construct, id *string, props *CfnDed
 	return &j
 }
 
+// Create a new `AWS::SES::DedicatedIpPool`.
 func NewCfnDedicatedIpPool_Override(c CfnDedicatedIpPool, scope constructs.Construct, id *string, props *CfnDedicatedIpPoolProps) {
 	_init_.Initialize()
 

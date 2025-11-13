@@ -52,8 +52,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnProfilePermission{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IProfilePermissionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssignerIProfilePermissionRef)
 			return &j
 		},
 	)
@@ -110,8 +110,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSigningProfile{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISigningProfileRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssignerISigningProfileRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -123,21 +123,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_signer.CfnSigningProfileProps",
 		reflect.TypeOf((*CfnSigningProfileProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_signer.IProfilePermissionRef",
-		reflect.TypeOf((*IProfilePermissionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "profilePermissionRef", GoGetter: "ProfilePermissionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IProfilePermissionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_signer.ISigningProfile",
@@ -158,21 +143,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_signer.ISigningProfileRef",
-		reflect.TypeOf((*ISigningProfileRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "signingProfileRef", GoGetter: "SigningProfileRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISigningProfileRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_signer.Platform",
 		reflect.TypeOf((*Platform)(nil)).Elem(),
@@ -182,10 +152,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_Platform{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_signer.ProfilePermissionReference",
-		reflect.TypeOf((*ProfilePermissionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_signer.SigningProfile",
@@ -219,9 +185,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_signer.SigningProfileProps",
 		reflect.TypeOf((*SigningProfileProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_signer.SigningProfileReference",
-		reflect.TypeOf((*SigningProfileReference)(nil)).Elem(),
 	)
 }

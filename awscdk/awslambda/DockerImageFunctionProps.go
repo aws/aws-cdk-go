@@ -5,10 +5,11 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 )
 
 // Properties to configure a new DockerImageFunction construct.
@@ -92,7 +93,7 @@ type DockerImageFunctionProps struct {
 	// Code signing config associated with this function.
 	// Default: - Not Sign the Code.
 	//
-	CodeSigningConfig ICodeSigningConfigRef `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig interfacesawslambda.ICodeSigningConfigRef `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Default: - default options as described in `VersionOptions`.
 	//
@@ -132,7 +133,7 @@ type DockerImageFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Default: - AWS Lambda creates and uses an AWS managed customer master key (CMK).
 	//
-	EnvironmentEncryption awskms.IKeyRef `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption interfacesawskms.IKeyRef `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Default: 512 MiB.
 	//

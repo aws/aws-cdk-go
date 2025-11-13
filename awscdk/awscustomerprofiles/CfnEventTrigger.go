@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscustomerprofiles/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscustomerprofiles"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,8 +72,8 @@ import (
 //
 type CfnEventTrigger interface {
 	awscdk.CfnResource
-	IEventTriggerRef
 	awscdk.IInspectable
+	interfacesawscustomerprofiles.IEventTriggerRef
 	awscdk.ITaggableV2
 	// The timestamp of when the event trigger was created.
 	AttrCreatedAt() *string
@@ -94,7 +96,7 @@ type CfnEventTrigger interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of conditions that determine when an event should trigger the destination.
 	EventTriggerConditions() interface{}
 	SetEventTriggerConditions(val interface{})
@@ -105,7 +107,7 @@ type CfnEventTrigger interface {
 	EventTriggerName() *string
 	SetEventTriggerName(val *string)
 	// A reference to a EventTrigger resource.
-	EventTriggerRef() *EventTriggerReference
+	EventTriggerRef() *interfacesawscustomerprofiles.EventTriggerReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -279,8 +281,8 @@ type CfnEventTrigger interface {
 // The jsii proxy struct for CfnEventTrigger
 type jsiiProxy_CfnEventTrigger struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventTriggerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscustomerprofilesIEventTriggerRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnEventTrigger) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventTrigger) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventTrigger) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnEventTrigger) EventTriggerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventTrigger) EventTriggerRef() *EventTriggerReference {
-	var returns *EventTriggerReference
+func (j *jsiiProxy_CfnEventTrigger) EventTriggerRef() *interfacesawscustomerprofiles.EventTriggerReference {
+	var returns *interfacesawscustomerprofiles.EventTriggerReference
 	_jsii_.Get(
 		j,
 		"eventTriggerRef",
@@ -515,6 +517,7 @@ func (j *jsiiProxy_CfnEventTrigger) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::CustomerProfiles::EventTrigger`.
 func NewCfnEventTrigger(scope constructs.Construct, id *string, props *CfnEventTriggerProps) CfnEventTrigger {
 	_init_.Initialize()
 
@@ -532,6 +535,7 @@ func NewCfnEventTrigger(scope constructs.Construct, id *string, props *CfnEventT
 	return &j
 }
 
+// Create a new `AWS::CustomerProfiles::EventTrigger`.
 func NewCfnEventTrigger_Override(c CfnEventTrigger, scope constructs.Construct, id *string, props *CfnEventTriggerProps) {
 	_init_.Initialize()
 

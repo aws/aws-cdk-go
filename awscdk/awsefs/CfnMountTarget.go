@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnMountTarget interface {
 	awscdk.CfnResource
-	IMountTargetRef
 	awscdk.IInspectable
+	interfacesawsefs.IMountTargetRef
 	// The ID of the Amazon EFS file system that the mount target provides access to.
 	//
 	// Example: `fs-0123456789111222a`.
@@ -54,7 +56,7 @@ type CfnMountTarget interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the file system for which to create the mount target.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
@@ -78,7 +80,7 @@ type CfnMountTarget interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MountTarget resource.
-	MountTargetRef() *MountTargetReference
+	MountTargetRef() *interfacesawsefs.MountTargetReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -239,8 +241,8 @@ type CfnMountTarget interface {
 // The jsii proxy struct for CfnMountTarget
 type jsiiProxy_CfnMountTarget struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMountTargetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsefsIMountTargetRef
 }
 
 func (j *jsiiProxy_CfnMountTarget) AttrId() *string {
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnMountTarget) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMountTarget) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMountTarget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnMountTarget) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMountTarget) MountTargetRef() *MountTargetReference {
-	var returns *MountTargetReference
+func (j *jsiiProxy_CfnMountTarget) MountTargetRef() *interfacesawsefs.MountTargetReference {
+	var returns *interfacesawsefs.MountTargetReference
 	_jsii_.Get(
 		j,
 		"mountTargetRef",
@@ -444,6 +446,7 @@ func (j *jsiiProxy_CfnMountTarget) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EFS::MountTarget`.
 func NewCfnMountTarget(scope constructs.Construct, id *string, props *CfnMountTargetProps) CfnMountTarget {
 	_init_.Initialize()
 
@@ -461,6 +464,7 @@ func NewCfnMountTarget(scope constructs.Construct, id *string, props *CfnMountTa
 	return &j
 }
 
+// Create a new `AWS::EFS::MountTarget`.
 func NewCfnMountTarget_Override(c CfnMountTarget, scope constructs.Construct, id *string, props *CfnMountTargetProps) {
 	_init_.Initialize()
 

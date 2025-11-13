@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnConfigurationAggregator interface {
 	awscdk.CfnResource
-	IConfigurationAggregatorRef
 	awscdk.IInspectable
+	interfacesawsconfig.IConfigurationAggregatorRef
 	awscdk.ITaggable
 	// Provides a list of source accounts and regions to be aggregated.
 	AccountAggregationSources() interface{}
@@ -69,12 +71,12 @@ type CfnConfigurationAggregator interface {
 	ConfigurationAggregatorName() *string
 	SetConfigurationAggregatorName(val *string)
 	// A reference to a ConfigurationAggregator resource.
-	ConfigurationAggregatorRef() *ConfigurationAggregatorReference
+	ConfigurationAggregatorRef() *interfacesawsconfig.ConfigurationAggregatorReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,8 +249,8 @@ type CfnConfigurationAggregator interface {
 // The jsii proxy struct for CfnConfigurationAggregator
 type jsiiProxy_CfnConfigurationAggregator struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationAggregatorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIConfigurationAggregatorRef
 	internal.Type__awscdkITaggable
 }
 
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnConfigurationAggregator) ConfigurationAggregatorName() *st
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationAggregator) ConfigurationAggregatorRef() *ConfigurationAggregatorReference {
-	var returns *ConfigurationAggregatorReference
+func (j *jsiiProxy_CfnConfigurationAggregator) ConfigurationAggregatorRef() *interfacesawsconfig.ConfigurationAggregatorReference {
+	var returns *interfacesawsconfig.ConfigurationAggregatorReference
 	_jsii_.Get(
 		j,
 		"configurationAggregatorRef",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnConfigurationAggregator) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationAggregator) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationAggregator) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnConfigurationAggregator) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::Config::ConfigurationAggregator`.
 func NewCfnConfigurationAggregator(scope constructs.Construct, id *string, props *CfnConfigurationAggregatorProps) CfnConfigurationAggregator {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnConfigurationAggregator(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::Config::ConfigurationAggregator`.
 func NewCfnConfigurationAggregator_Override(c CfnConfigurationAggregator, scope constructs.Construct, id *string, props *CfnConfigurationAggregatorProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,11 +48,11 @@ import (
 //
 type CfnAccessPoint interface {
 	awscdk.CfnResource
-	IAccessPointRef
 	awscdk.IInspectable
+	interfacesawss3.IAccessPointRef
 	awscdk.ITaggableV2
 	// A reference to a AccessPoint resource.
-	AccessPointRef() *AccessPointReference
+	AccessPointRef() *interfacesawss3.AccessPointReference
 	// The alias for this access point.
 	AttrAlias() *string
 	// This property contains the details of the ARN for the access point.
@@ -80,7 +82,7 @@ type CfnAccessPoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -260,13 +262,13 @@ type CfnAccessPoint interface {
 // The jsii proxy struct for CfnAccessPoint
 type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessPointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IAccessPointRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAccessPoint) AccessPointRef() *AccessPointReference {
-	var returns *AccessPointReference
+func (j *jsiiProxy_CfnAccessPoint) AccessPointRef() *interfacesawss3.AccessPointReference {
+	var returns *interfacesawss3.AccessPointReference
 	_jsii_.Get(
 		j,
 		"accessPointRef",
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnAccessPoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessPoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -506,6 +508,7 @@ func (j *jsiiProxy_CfnAccessPoint) VpcConfiguration() interface{} {
 }
 
 
+// Create a new `AWS::S3::AccessPoint`.
 func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
@@ -523,6 +526,7 @@ func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessP
 	return &j
 }
 
+// Create a new `AWS::S3::AccessPoint`.
 func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
@@ -602,13 +606,13 @@ func (j *jsiiProxy_CfnAccessPoint)SetVpcConfiguration(val interface{}) {
 }
 
 // Creates a new IAccessPointRef from an ARN.
-func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, arn *string) IAccessPointRef {
+func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, arn *string) interfacesawss3.IAccessPointRef {
 	_init_.Initialize()
 
 	if err := validateCfnAccessPoint_FromAccessPointArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAccessPointRef
+	var returns interfacesawss3.IAccessPointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3.CfnAccessPoint",
@@ -621,13 +625,13 @@ func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IAccessPointRef from a accessPointName.
-func CfnAccessPoint_FromAccessPointName(scope constructs.Construct, id *string, accessPointName *string) IAccessPointRef {
+func CfnAccessPoint_FromAccessPointName(scope constructs.Construct, id *string, accessPointName *string) interfacesawss3.IAccessPointRef {
 	_init_.Initialize()
 
 	if err := validateCfnAccessPoint_FromAccessPointNameParameters(scope, id, accessPointName); err != nil {
 		panic(err)
 	}
-	var returns IAccessPointRef
+	var returns interfacesawss3.IAccessPointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3.CfnAccessPoint",

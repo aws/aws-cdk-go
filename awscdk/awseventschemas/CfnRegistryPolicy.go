@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventschemas/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseventschemas"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnRegistryPolicy interface {
 	awscdk.CfnResource
-	IRegistryPolicyRef
 	awscdk.IInspectable
+	interfacesawseventschemas.IRegistryPolicyRef
 	// The ID of the policy.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -43,7 +45,7 @@ type CfnRegistryPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -68,7 +70,7 @@ type CfnRegistryPolicy interface {
 	RegistryName() *string
 	SetRegistryName(val *string)
 	// A reference to a RegistryPolicy resource.
-	RegistryPolicyRef() *RegistryPolicyReference
+	RegistryPolicyRef() *interfacesawseventschemas.RegistryPolicyReference
 	// The revision ID of the policy.
 	RevisionId() *string
 	SetRevisionId(val *string)
@@ -219,8 +221,8 @@ type CfnRegistryPolicy interface {
 // The jsii proxy struct for CfnRegistryPolicy
 type jsiiProxy_CfnRegistryPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRegistryPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventschemasIRegistryPolicyRef
 }
 
 func (j *jsiiProxy_CfnRegistryPolicy) AttrId() *string {
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnRegistryPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegistryPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRegistryPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnRegistryPolicy) RegistryName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegistryPolicy) RegistryPolicyRef() *RegistryPolicyReference {
-	var returns *RegistryPolicyReference
+func (j *jsiiProxy_CfnRegistryPolicy) RegistryPolicyRef() *interfacesawseventschemas.RegistryPolicyReference {
+	var returns *interfacesawseventschemas.RegistryPolicyReference
 	_jsii_.Get(
 		j,
 		"registryPolicyRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnRegistryPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::EventSchemas::RegistryPolicy`.
 func NewCfnRegistryPolicy(scope constructs.Construct, id *string, props *CfnRegistryPolicyProps) CfnRegistryPolicy {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnRegistryPolicy(scope constructs.Construct, id *string, props *CfnRegi
 	return &j
 }
 
+// Create a new `AWS::EventSchemas::RegistryPolicy`.
 func NewCfnRegistryPolicy_Override(c CfnRegistryPolicy, scope constructs.Construct, id *string, props *CfnRegistryPolicyProps) {
 	_init_.Initialize()
 

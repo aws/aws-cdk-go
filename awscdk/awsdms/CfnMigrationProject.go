@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,8 +61,8 @@ import (
 //
 type CfnMigrationProject interface {
 	awscdk.CfnResource
-	IMigrationProjectRef
 	awscdk.IInspectable
+	interfacesawsdms.IMigrationProjectRef
 	awscdk.ITaggableV2
 	// The ARN string that uniquely identifies the migration project.
 	AttrMigrationProjectArn() *string
@@ -78,7 +80,7 @@ type CfnMigrationProject interface {
 	// A user-friendly description of the migration project.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance profile for your migration project.
 	InstanceProfileArn() *string
 	SetInstanceProfileArn(val *string)
@@ -110,7 +112,7 @@ type CfnMigrationProject interface {
 	MigrationProjectName() *string
 	SetMigrationProjectName(val *string)
 	// A reference to a MigrationProject resource.
-	MigrationProjectRef() *MigrationProjectReference
+	MigrationProjectRef() *interfacesawsdms.MigrationProjectReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -280,8 +282,8 @@ type CfnMigrationProject interface {
 // The jsii proxy struct for CfnMigrationProject
 type jsiiProxy_CfnMigrationProject struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMigrationProjectRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIMigrationProjectRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnMigrationProject) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMigrationProject) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMigrationProject) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -435,8 +437,8 @@ func (j *jsiiProxy_CfnMigrationProject) MigrationProjectName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMigrationProject) MigrationProjectRef() *MigrationProjectReference {
-	var returns *MigrationProjectReference
+func (j *jsiiProxy_CfnMigrationProject) MigrationProjectRef() *interfacesawsdms.MigrationProjectReference {
+	var returns *interfacesawsdms.MigrationProjectReference
 	_jsii_.Get(
 		j,
 		"migrationProjectRef",
@@ -546,6 +548,7 @@ func (j *jsiiProxy_CfnMigrationProject) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::DMS::MigrationProject`.
 func NewCfnMigrationProject(scope constructs.Construct, id *string, props *CfnMigrationProjectProps) CfnMigrationProject {
 	_init_.Initialize()
 
@@ -563,6 +566,7 @@ func NewCfnMigrationProject(scope constructs.Construct, id *string, props *CfnMi
 	return &j
 }
 
+// Create a new `AWS::DMS::MigrationProject`.
 func NewCfnMigrationProject_Override(c CfnMigrationProject, scope constructs.Construct, id *string, props *CfnMigrationProjectProps) {
 	_init_.Initialize()
 

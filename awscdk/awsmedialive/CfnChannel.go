@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,8 +22,8 @@ import (
 //
 type CfnChannel interface {
 	awscdk.CfnResource
-	IChannelRef
 	awscdk.IInspectable
+	interfacesawsmedialive.IChannelRef
 	awscdk.ITaggable
 	AnywhereSettings() interface{}
 	SetAnywhereSettings(val interface{})
@@ -51,7 +53,7 @@ type CfnChannel interface {
 	ChannelEngineVersion() interface{}
 	SetChannelEngineVersion(val interface{})
 	// A reference to a Channel resource.
-	ChannelRef() *ChannelReference
+	ChannelRef() *interfacesawsmedialive.ChannelReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -64,7 +66,7 @@ type CfnChannel interface {
 	// The encoding configuration for the output content.
 	EncoderSettings() interface{}
 	SetEncoderSettings(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The list of input attachments for the channel.
 	InputAttachments() interface{}
 	SetInputAttachments(val interface{})
@@ -255,8 +257,8 @@ type CfnChannel interface {
 // The jsii proxy struct for CfnChannel
 type jsiiProxy_CfnChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveIChannelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnChannel) ChannelEngineVersion() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) ChannelRef() *ChannelReference {
-	var returns *ChannelReference
+func (j *jsiiProxy_CfnChannel) ChannelRef() *interfacesawsmedialive.ChannelReference {
+	var returns *interfacesawsmedialive.ChannelReference
 	_jsii_.Get(
 		j,
 		"channelRef",
@@ -410,8 +412,8 @@ func (j *jsiiProxy_CfnChannel) EncoderSettings() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -571,6 +573,7 @@ func (j *jsiiProxy_CfnChannel) Vpc() interface{} {
 }
 
 
+// Create a new `AWS::MediaLive::Channel`.
 func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
@@ -588,6 +591,7 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 	return &j
 }
 
+// Create a new `AWS::MediaLive::Channel`.
 func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
@@ -749,13 +753,13 @@ func (j *jsiiProxy_CfnChannel)SetVpc(val interface{}) {
 }
 
 // Creates a new IChannelRef from an ARN.
-func CfnChannel_FromChannelArn(scope constructs.Construct, id *string, arn *string) IChannelRef {
+func CfnChannel_FromChannelArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IChannelRef {
 	_init_.Initialize()
 
 	if err := validateCfnChannel_FromChannelArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IChannelRef
+	var returns interfacesawsmedialive.IChannelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnChannel",
@@ -768,13 +772,13 @@ func CfnChannel_FromChannelArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IChannelRef from a channelId.
-func CfnChannel_FromChannelId(scope constructs.Construct, id *string, channelId *string) IChannelRef {
+func CfnChannel_FromChannelId(scope constructs.Construct, id *string, channelId *string) interfacesawsmedialive.IChannelRef {
 	_init_.Initialize()
 
 	if err := validateCfnChannel_FromChannelIdParameters(scope, id, channelId); err != nil {
 		panic(err)
 	}
-	var returns IChannelRef
+	var returns interfacesawsmedialive.IChannelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnChannel",

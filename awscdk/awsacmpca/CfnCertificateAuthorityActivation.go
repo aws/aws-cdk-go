@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsacmpca"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,15 +33,15 @@ import (
 //
 type CfnCertificateAuthorityActivation interface {
 	awscdk.CfnResource
-	ICertificateAuthorityActivationRef
 	awscdk.IInspectable
+	interfacesawsacmpca.ICertificateAuthorityActivationRef
 	// The complete Base64 PEM-encoded certificate chain, including the certificate authority certificate.
 	AttrCompleteCertificateChain() *string
 	// The Base64 PEM-encoded certificate authority certificate.
 	Certificate() *string
 	SetCertificate(val *string)
 	// A reference to a CertificateAuthorityActivation resource.
-	CertificateAuthorityActivationRef() *CertificateAuthorityActivationReference
+	CertificateAuthorityActivationRef() *interfacesawsacmpca.CertificateAuthorityActivationReference
 	// The Amazon Resource Name (ARN) of your private CA.
 	CertificateAuthorityArn() *string
 	SetCertificateAuthorityArn(val *string)
@@ -55,7 +57,7 @@ type CfnCertificateAuthorityActivation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -223,8 +225,8 @@ type CfnCertificateAuthorityActivation interface {
 // The jsii proxy struct for CfnCertificateAuthorityActivation
 type jsiiProxy_CfnCertificateAuthorityActivation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICertificateAuthorityActivationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsacmpcaICertificateAuthorityActivationRef
 }
 
 func (j *jsiiProxy_CfnCertificateAuthorityActivation) AttrCompleteCertificateChain() *string {
@@ -247,8 +249,8 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) Certificate() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificateAuthorityActivation) CertificateAuthorityActivationRef() *CertificateAuthorityActivationReference {
-	var returns *CertificateAuthorityActivationReference
+func (j *jsiiProxy_CfnCertificateAuthorityActivation) CertificateAuthorityActivationRef() *interfacesawsacmpca.CertificateAuthorityActivationReference {
+	var returns *interfacesawsacmpca.CertificateAuthorityActivationReference
 	_jsii_.Get(
 		j,
 		"certificateAuthorityActivationRef",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) CreationStack() *[]*string
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificateAuthorityActivation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCertificateAuthorityActivation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) UpdatedProperties() *map[s
 }
 
 
+// Create a new `AWS::ACMPCA::CertificateAuthorityActivation`.
 func NewCfnCertificateAuthorityActivation(scope constructs.Construct, id *string, props *CfnCertificateAuthorityActivationProps) CfnCertificateAuthorityActivation {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnCertificateAuthorityActivation(scope constructs.Construct, id *string
 	return &j
 }
 
+// Create a new `AWS::ACMPCA::CertificateAuthorityActivation`.
 func NewCfnCertificateAuthorityActivation_Override(c CfnCertificateAuthorityActivation, scope constructs.Construct, id *string, props *CfnCertificateAuthorityActivationProps) {
 	_init_.Initialize()
 

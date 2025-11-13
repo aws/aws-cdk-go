@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,13 +29,13 @@ import (
 //
 type CfnApplicationFleetAssociation interface {
 	awscdk.CfnResource
-	IApplicationFleetAssociationRef
 	awscdk.IInspectable
+	interfacesawsappstream.IApplicationFleetAssociationRef
 	// The ARN of the application.
 	ApplicationArn() *string
 	SetApplicationArn(val *string)
 	// A reference to a ApplicationFleetAssociation resource.
-	ApplicationFleetAssociationRef() *ApplicationFleetAssociationReference
+	ApplicationFleetAssociationRef() *interfacesawsappstream.ApplicationFleetAssociationReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -43,7 +45,7 @@ type CfnApplicationFleetAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the fleet.
 	FleetName() *string
 	SetFleetName(val *string)
@@ -211,8 +213,8 @@ type CfnApplicationFleetAssociation interface {
 // The jsii proxy struct for CfnApplicationFleetAssociation
 type jsiiProxy_CfnApplicationFleetAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationFleetAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIApplicationFleetAssociationRef
 }
 
 func (j *jsiiProxy_CfnApplicationFleetAssociation) ApplicationArn() *string {
@@ -225,8 +227,8 @@ func (j *jsiiProxy_CfnApplicationFleetAssociation) ApplicationArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationFleetAssociation) ApplicationFleetAssociationRef() *ApplicationFleetAssociationReference {
-	var returns *ApplicationFleetAssociationReference
+func (j *jsiiProxy_CfnApplicationFleetAssociation) ApplicationFleetAssociationRef() *interfacesawsappstream.ApplicationFleetAssociationReference {
+	var returns *interfacesawsappstream.ApplicationFleetAssociationReference
 	_jsii_.Get(
 		j,
 		"applicationFleetAssociationRef",
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnApplicationFleetAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationFleetAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplicationFleetAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnApplicationFleetAssociation) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::AppStream::ApplicationFleetAssociation`.
 func NewCfnApplicationFleetAssociation(scope constructs.Construct, id *string, props *CfnApplicationFleetAssociationProps) CfnApplicationFleetAssociation {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnApplicationFleetAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::AppStream::ApplicationFleetAssociation`.
 func NewCfnApplicationFleetAssociation_Override(c CfnApplicationFleetAssociation, scope constructs.Construct, id *string, props *CfnApplicationFleetAssociationProps) {
 	_init_.Initialize()
 

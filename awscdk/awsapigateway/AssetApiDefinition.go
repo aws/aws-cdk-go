@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,7 +37,7 @@ type AssetApiDefinition interface {
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	BindAfterCreate(_scope constructs.Construct, _restApi IRestApiRef)
+	BindAfterCreate(_scope constructs.Construct, _restApi interfacesawsapigateway.IRestApiRef)
 }
 
 // The jsii proxy struct for AssetApiDefinition
@@ -190,7 +191,7 @@ func (a *jsiiProxy_AssetApiDefinition) Bind(scope constructs.Construct) *ApiDefi
 	return returns
 }
 
-func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi IRestApiRef) {
+func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi interfacesawsapigateway.IRestApiRef) {
 	if err := a.validateBindAfterCreateParameters(_scope, _restApi); err != nil {
 		panic(err)
 	}

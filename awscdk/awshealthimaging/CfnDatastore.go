@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awshealthimaging/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawshealthimaging"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnDatastore interface {
 	awscdk.CfnResource
-	IDatastoreRef
 	awscdk.IInspectable
+	interfacesawshealthimaging.IDatastoreRef
 	awscdk.ITaggableV2
 	// The timestamp when the data store was created.
 	AttrCreatedAt() *string
@@ -56,8 +58,8 @@ type CfnDatastore interface {
 	DatastoreName() *string
 	SetDatastoreName(val *string)
 	// A reference to a Datastore resource.
-	DatastoreRef() *DatastoreReference
-	Env() *awscdk.ResourceEnvironment
+	DatastoreRef() *interfacesawshealthimaging.DatastoreReference
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -228,8 +230,8 @@ type CfnDatastore interface {
 // The jsii proxy struct for CfnDatastore
 type jsiiProxy_CfnDatastore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatastoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawshealthimagingIDatastoreRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnDatastore) DatastoreName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatastore) DatastoreRef() *DatastoreReference {
-	var returns *DatastoreReference
+func (j *jsiiProxy_CfnDatastore) DatastoreRef() *interfacesawshealthimaging.DatastoreReference {
+	var returns *interfacesawshealthimaging.DatastoreReference
 	_jsii_.Get(
 		j,
 		"datastoreRef",
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnDatastore) DatastoreRef() *DatastoreReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatastore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDatastore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -444,6 +446,7 @@ func (j *jsiiProxy_CfnDatastore) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::HealthImaging::Datastore`.
 func NewCfnDatastore(scope constructs.Construct, id *string, props *CfnDatastoreProps) CfnDatastore {
 	_init_.Initialize()
 
@@ -461,6 +464,7 @@ func NewCfnDatastore(scope constructs.Construct, id *string, props *CfnDatastore
 	return &j
 }
 
+// Create a new `AWS::HealthImaging::Datastore`.
 func NewCfnDatastore_Override(c CfnDatastore, scope constructs.Construct, id *string, props *CfnDatastoreProps) {
 	_init_.Initialize()
 
@@ -496,13 +500,13 @@ func (j *jsiiProxy_CfnDatastore)SetTags(val *map[string]*string) {
 }
 
 // Creates a new IDatastoreRef from an ARN.
-func CfnDatastore_FromDatastoreArn(scope constructs.Construct, id *string, arn *string) IDatastoreRef {
+func CfnDatastore_FromDatastoreArn(scope constructs.Construct, id *string, arn *string) interfacesawshealthimaging.IDatastoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnDatastore_FromDatastoreArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDatastoreRef
+	var returns interfacesawshealthimaging.IDatastoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_healthimaging.CfnDatastore",
@@ -515,13 +519,13 @@ func CfnDatastore_FromDatastoreArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IDatastoreRef from a datastoreId.
-func CfnDatastore_FromDatastoreId(scope constructs.Construct, id *string, datastoreId *string) IDatastoreRef {
+func CfnDatastore_FromDatastoreId(scope constructs.Construct, id *string, datastoreId *string) interfacesawshealthimaging.IDatastoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnDatastore_FromDatastoreIdParameters(scope, id, datastoreId); err != nil {
 		panic(err)
 	}
-	var returns IDatastoreRef
+	var returns interfacesawshealthimaging.IDatastoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_healthimaging.CfnDatastore",

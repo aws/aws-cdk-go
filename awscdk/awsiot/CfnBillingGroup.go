@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnBillingGroup interface {
 	awscdk.CfnResource
-	IBillingGroupRef
 	awscdk.IInspectable
+	interfacesawsiot.IBillingGroupRef
 	awscdk.ITaggable
 	// The ARN of the billing group.
 	AttrArn() *string
@@ -49,7 +51,7 @@ type CfnBillingGroup interface {
 	BillingGroupProperties() interface{}
 	SetBillingGroupProperties(val interface{})
 	// A reference to a BillingGroup resource.
-	BillingGroupRef() *BillingGroupReference
+	BillingGroupRef() *interfacesawsiot.BillingGroupReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -59,7 +61,7 @@ type CfnBillingGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -229,8 +231,8 @@ type CfnBillingGroup interface {
 // The jsii proxy struct for CfnBillingGroup
 type jsiiProxy_CfnBillingGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBillingGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIBillingGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -274,8 +276,8 @@ func (j *jsiiProxy_CfnBillingGroup) BillingGroupProperties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBillingGroup) BillingGroupRef() *BillingGroupReference {
-	var returns *BillingGroupReference
+func (j *jsiiProxy_CfnBillingGroup) BillingGroupRef() *interfacesawsiot.BillingGroupReference {
+	var returns *interfacesawsiot.BillingGroupReference
 	_jsii_.Get(
 		j,
 		"billingGroupRef",
@@ -324,8 +326,8 @@ func (j *jsiiProxy_CfnBillingGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBillingGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBillingGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -415,6 +417,7 @@ func (j *jsiiProxy_CfnBillingGroup) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::IoT::BillingGroup`.
 func NewCfnBillingGroup(scope constructs.Construct, id *string, props *CfnBillingGroupProps) CfnBillingGroup {
 	_init_.Initialize()
 
@@ -432,6 +435,7 @@ func NewCfnBillingGroup(scope constructs.Construct, id *string, props *CfnBillin
 	return &j
 }
 
+// Create a new `AWS::IoT::BillingGroup`.
 func NewCfnBillingGroup_Override(c CfnBillingGroup, scope constructs.Construct, id *string, props *CfnBillingGroupProps) {
 	_init_.Initialize()
 
@@ -473,13 +477,13 @@ func (j *jsiiProxy_CfnBillingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IBillingGroupRef from an ARN.
-func CfnBillingGroup_FromBillingGroupArn(scope constructs.Construct, id *string, arn *string) IBillingGroupRef {
+func CfnBillingGroup_FromBillingGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IBillingGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnBillingGroup_FromBillingGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IBillingGroupRef
+	var returns interfacesawsiot.IBillingGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnBillingGroup",
@@ -492,13 +496,13 @@ func CfnBillingGroup_FromBillingGroupArn(scope constructs.Construct, id *string,
 }
 
 // Creates a new IBillingGroupRef from a billingGroupName.
-func CfnBillingGroup_FromBillingGroupName(scope constructs.Construct, id *string, billingGroupName *string) IBillingGroupRef {
+func CfnBillingGroup_FromBillingGroupName(scope constructs.Construct, id *string, billingGroupName *string) interfacesawsiot.IBillingGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnBillingGroup_FromBillingGroupNameParameters(scope, id, billingGroupName); err != nil {
 		panic(err)
 	}
-	var returns IBillingGroupRef
+	var returns interfacesawsiot.IBillingGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnBillingGroup",

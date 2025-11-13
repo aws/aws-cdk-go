@@ -6,10 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrtbfabric/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrtbfabric"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::RTBFabric::Link Resource Type.
+// Creates a new link between gateways.
+//
+// Establishes a connection that allows gateways to communicate and exchange bid requests and responses.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -100,12 +104,13 @@ import (
 //
 type CfnLink interface {
 	awscdk.CfnResource
-	ILinkRef
 	awscdk.IInspectable
+	interfacesawsrtbfabric.ILinkRef
 	awscdk.ITaggableV2
 	AttrArn() *string
 	AttrCreatedTimestamp() *string
 	AttrLinkDirection() *string
+	// The unique identifier of the link.
 	AttrLinkId() *string
 	AttrLinkStatus() *string
 	AttrUpdatedTimestamp() *string
@@ -120,17 +125,21 @@ type CfnLink interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
+	// The unique identifier of the gateway.
 	GatewayId() *string
 	SetGatewayId(val *string)
+	// Boolean to specify if an HTTP responder is allowed.
 	HttpResponderAllowed() interface{}
 	SetHttpResponderAllowed(val interface{})
+	// Attributes of the link.
 	LinkAttributes() interface{}
 	SetLinkAttributes(val interface{})
+	// Settings for the application logs.
 	LinkLogSettings() interface{}
 	SetLinkLogSettings(val interface{})
 	// A reference to a Link resource.
-	LinkRef() *LinkReference
+	LinkRef() *interfacesawsrtbfabric.LinkReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -145,6 +154,7 @@ type CfnLink interface {
 	SetModuleConfigurationList(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// The unique identifier of the peer gateway.
 	PeerGatewayId() *string
 	SetPeerGatewayId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -156,7 +166,7 @@ type CfnLink interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags to assign to the Link.
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -302,8 +312,8 @@ type CfnLink interface {
 // The jsii proxy struct for CfnLink
 type jsiiProxy_CfnLink struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILinkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrtbfabricILinkRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -417,8 +427,8 @@ func (j *jsiiProxy_CfnLink) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLink) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLink) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -467,8 +477,8 @@ func (j *jsiiProxy_CfnLink) LinkLogSettings() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLink) LinkRef() *LinkReference {
-	var returns *LinkReference
+func (j *jsiiProxy_CfnLink) LinkRef() *interfacesawsrtbfabric.LinkReference {
+	var returns *interfacesawsrtbfabric.LinkReference
 	_jsii_.Get(
 		j,
 		"linkRef",
@@ -568,6 +578,7 @@ func (j *jsiiProxy_CfnLink) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RTBFabric::Link`.
 func NewCfnLink(scope constructs.Construct, id *string, props *CfnLinkProps) CfnLink {
 	_init_.Initialize()
 
@@ -585,6 +596,7 @@ func NewCfnLink(scope constructs.Construct, id *string, props *CfnLinkProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::RTBFabric::Link`.
 func NewCfnLink_Override(c CfnLink, scope constructs.Construct, id *string, props *CfnLinkProps) {
 	_init_.Initialize()
 

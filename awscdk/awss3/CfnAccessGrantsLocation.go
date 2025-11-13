@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,11 +46,11 @@ import (
 //
 type CfnAccessGrantsLocation interface {
 	awscdk.CfnResource
-	IAccessGrantsLocationRef
 	awscdk.IInspectable
+	interfacesawss3.IAccessGrantsLocationRef
 	awscdk.ITaggableV2
 	// A reference to a AccessGrantsLocation resource.
-	AccessGrantsLocationRef() *AccessGrantsLocationReference
+	AccessGrantsLocationRef() *interfacesawss3.AccessGrantsLocationReference
 	// The ARN of the location you are registering.
 	AttrAccessGrantsLocationArn() *string
 	// The ID of the registered location to which you are granting access.
@@ -66,7 +68,7 @@ type CfnAccessGrantsLocation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role for the registered location.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
@@ -240,13 +242,13 @@ type CfnAccessGrantsLocation interface {
 // The jsii proxy struct for CfnAccessGrantsLocation
 type jsiiProxy_CfnAccessGrantsLocation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessGrantsLocationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IAccessGrantsLocationRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAccessGrantsLocation) AccessGrantsLocationRef() *AccessGrantsLocationReference {
-	var returns *AccessGrantsLocationReference
+func (j *jsiiProxy_CfnAccessGrantsLocation) AccessGrantsLocationRef() *interfacesawss3.AccessGrantsLocationReference {
+	var returns *interfacesawss3.AccessGrantsLocationReference
 	_jsii_.Get(
 		j,
 		"accessGrantsLocationRef",
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnAccessGrantsLocation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessGrantsLocation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessGrantsLocation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -426,6 +428,7 @@ func (j *jsiiProxy_CfnAccessGrantsLocation) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::S3::AccessGrantsLocation`.
 func NewCfnAccessGrantsLocation(scope constructs.Construct, id *string, props *CfnAccessGrantsLocationProps) CfnAccessGrantsLocation {
 	_init_.Initialize()
 
@@ -443,6 +446,7 @@ func NewCfnAccessGrantsLocation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::S3::AccessGrantsLocation`.
 func NewCfnAccessGrantsLocation_Override(c CfnAccessGrantsLocation, scope constructs.Construct, id *string, props *CfnAccessGrantsLocationProps) {
 	_init_.Initialize()
 

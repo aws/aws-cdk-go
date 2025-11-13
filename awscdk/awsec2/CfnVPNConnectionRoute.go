@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnVPNConnectionRoute interface {
 	awscdk.CfnResource
-	IVPNConnectionRouteRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPNConnectionRouteRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -43,7 +45,7 @@ type CfnVPNConnectionRoute interface {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnVPNConnectionRoute interface {
 	VpnConnectionId() *string
 	SetVpnConnectionId(val *string)
 	// A reference to a VPNConnectionRoute resource.
-	VpnConnectionRouteRef() *VPNConnectionRouteReference
+	VpnConnectionRouteRef() *interfacesawsec2.VPNConnectionRouteReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -213,8 +215,8 @@ type CfnVPNConnectionRoute interface {
 // The jsii proxy struct for CfnVPNConnectionRoute
 type jsiiProxy_CfnVPNConnectionRoute struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPNConnectionRouteRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPNConnectionRouteRef
 }
 
 func (j *jsiiProxy_CfnVPNConnectionRoute) CfnOptions() awscdk.ICfnResourceOptions {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnVPNConnectionRoute) DestinationCidrBlock() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPNConnectionRoute) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPNConnectionRoute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -347,8 +349,8 @@ func (j *jsiiProxy_CfnVPNConnectionRoute) VpnConnectionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPNConnectionRoute) VpnConnectionRouteRef() *VPNConnectionRouteReference {
-	var returns *VPNConnectionRouteReference
+func (j *jsiiProxy_CfnVPNConnectionRoute) VpnConnectionRouteRef() *interfacesawsec2.VPNConnectionRouteReference {
+	var returns *interfacesawsec2.VPNConnectionRouteReference
 	_jsii_.Get(
 		j,
 		"vpnConnectionRouteRef",
@@ -358,6 +360,7 @@ func (j *jsiiProxy_CfnVPNConnectionRoute) VpnConnectionRouteRef() *VPNConnection
 }
 
 
+// Create a new `AWS::EC2::VPNConnectionRoute`.
 func NewCfnVPNConnectionRoute(scope constructs.Construct, id *string, props *CfnVPNConnectionRouteProps) CfnVPNConnectionRoute {
 	_init_.Initialize()
 
@@ -375,6 +378,7 @@ func NewCfnVPNConnectionRoute(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::EC2::VPNConnectionRoute`.
 func NewCfnVPNConnectionRoute_Override(c CfnVPNConnectionRoute, scope constructs.Construct, id *string, props *CfnVPNConnectionRouteProps) {
 	_init_.Initialize()
 

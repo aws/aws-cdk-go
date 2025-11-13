@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -85,8 +87,8 @@ import (
 //
 type CfnEndpoint interface {
 	awscdk.CfnResource
-	IEndpointRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IEndpointRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the endpoint.
 	AttrEndpointArn() *string
@@ -112,8 +114,8 @@ type CfnEndpoint interface {
 	EndpointName() *string
 	SetEndpointName(val *string)
 	// A reference to a Endpoint resource.
-	EndpointRef() *EndpointReference
-	Env() *awscdk.ResourceEnvironment
+	EndpointRef() *interfacesawssagemaker.EndpointReference
+	Env() *interfaces.ResourceEnvironment
 	// When you are updating endpoint resources with [RetainAllVariantProperties](https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-RetainAllVariantProperties) whose value is set to `true` , `ExcludeRetainedVariantProperties` specifies the list of type [VariantProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html) to override with the values provided by `EndpointConfig` . If you don't specify a value for `ExcludeAllVariantProperties` , no variant properties are overridden. Don't use this property when creating new endpoint resources or when `RetainAllVariantProperties` is set to `false` .
 	ExcludeRetainedVariantProperties() interface{}
 	SetExcludeRetainedVariantProperties(val interface{})
@@ -292,8 +294,8 @@ type CfnEndpoint interface {
 // The jsii proxy struct for CfnEndpoint
 type jsiiProxy_CfnEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIEndpointRef
 	internal.Type__awscdkITaggable
 }
 
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnEndpoint) EndpointName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
-	var returns *EndpointReference
+func (j *jsiiProxy_CfnEndpoint) EndpointRef() *interfacesawssagemaker.EndpointReference {
+	var returns *interfacesawssagemaker.EndpointReference
 	_jsii_.Get(
 		j,
 		"endpointRef",
@@ -407,8 +409,8 @@ func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -528,6 +530,7 @@ func (j *jsiiProxy_CfnEndpoint) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::Endpoint`.
 func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
@@ -545,6 +548,7 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Endpoint`.
 func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 

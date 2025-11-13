@@ -192,6 +192,7 @@ type CfnEvaluationFormProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-title
 	//
 	Title *string `field:"required" json:"title" yaml:"title"`
+	// The automatic evaluation configuration of an evaluation form.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-autoevaluationconfiguration
 	//
 	AutoEvaluationConfiguration interface{} `field:"optional" json:"autoEvaluationConfiguration" yaml:"autoEvaluationConfiguration"`

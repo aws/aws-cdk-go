@@ -10,17 +10,18 @@ package awsquicksight
 //
 //   s3SourceProperty := &S3SourceProperty{
 //   	DataSourceArn: jsii.String("dataSourceArn"),
-//
-//   	// the properties below are optional
 //   	InputColumns: []interface{}{
 //   		&InputColumnProperty{
 //   			Name: jsii.String("name"),
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional
+//   			Id: jsii.String("id"),
 //   			SubType: jsii.String("subType"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
 //   	UploadSettings: &UploadSettingsProperty{
 //   		ContainsHeader: jsii.Boolean(false),
 //   		Delimiter: jsii.String("delimiter"),
@@ -42,7 +43,7 @@ type CfnDataSet_S3SourceProperty struct {
 	// > For files that aren't JSON, only `STRING` data types are supported in input columns.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
 	//
-	InputColumns interface{} `field:"optional" json:"inputColumns" yaml:"inputColumns"`
+	InputColumns interface{} `field:"required" json:"inputColumns" yaml:"inputColumns"`
 	// Information about the format for the S3 source file or files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
 	//

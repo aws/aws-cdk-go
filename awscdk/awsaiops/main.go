@@ -63,8 +63,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnInvestigationGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInvestigationGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsaiopsIInvestigationGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -84,24 +84,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aiops.CfnInvestigationGroupProps",
 		reflect.TypeOf((*CfnInvestigationGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_aiops.IInvestigationGroupRef",
-		reflect.TypeOf((*IInvestigationGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "investigationGroupRef", GoGetter: "InvestigationGroupRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IInvestigationGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_aiops.InvestigationGroupReference",
-		reflect.TypeOf((*InvestigationGroupReference)(nil)).Elem(),
 	)
 }

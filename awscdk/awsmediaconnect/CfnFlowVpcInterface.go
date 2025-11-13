@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnFlowVpcInterface interface {
 	awscdk.CfnResource
-	IFlowVpcInterfaceRef
 	awscdk.IInspectable
+	interfacesawsmediaconnect.IFlowVpcInterfaceRef
 	// The IDs of the network interfaces that MediaConnect created in your account.
 	AttrNetworkInterfaceIds() *[]*string
 	// Options for this resource, such as condition, update policy etc.
@@ -53,12 +55,12 @@ type CfnFlowVpcInterface interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow.
 	FlowArn() *string
 	SetFlowArn(val *string)
 	// A reference to a FlowVpcInterface resource.
-	FlowVpcInterfaceRef() *FlowVpcInterfaceReference
+	FlowVpcInterfaceRef() *interfacesawsmediaconnect.FlowVpcInterfaceReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnFlowVpcInterface interface {
 // The jsii proxy struct for CfnFlowVpcInterface
 type jsiiProxy_CfnFlowVpcInterface struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowVpcInterfaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconnectIFlowVpcInterfaceRef
 }
 
 func (j *jsiiProxy_CfnFlowVpcInterface) AttrNetworkInterfaceIds() *[]*string {
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnFlowVpcInterface) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowVpcInterface) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlowVpcInterface) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnFlowVpcInterface) FlowArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowVpcInterface) FlowVpcInterfaceRef() *FlowVpcInterfaceReference {
-	var returns *FlowVpcInterfaceReference
+func (j *jsiiProxy_CfnFlowVpcInterface) FlowVpcInterfaceRef() *interfacesawsmediaconnect.FlowVpcInterfaceReference {
+	var returns *interfacesawsmediaconnect.FlowVpcInterfaceReference
 	_jsii_.Get(
 		j,
 		"flowVpcInterfaceRef",
@@ -420,6 +422,7 @@ func (j *jsiiProxy_CfnFlowVpcInterface) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::MediaConnect::FlowVpcInterface`.
 func NewCfnFlowVpcInterface(scope constructs.Construct, id *string, props *CfnFlowVpcInterfaceProps) CfnFlowVpcInterface {
 	_init_.Initialize()
 
@@ -437,6 +440,7 @@ func NewCfnFlowVpcInterface(scope constructs.Construct, id *string, props *CfnFl
 	return &j
 }
 
+// Create a new `AWS::MediaConnect::FlowVpcInterface`.
 func NewCfnFlowVpcInterface_Override(c CfnFlowVpcInterface, scope constructs.Construct, id *string, props *CfnFlowVpcInterfaceProps) {
 	_init_.Initialize()
 

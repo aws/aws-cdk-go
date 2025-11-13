@@ -3,14 +3,14 @@ package awscdkeksv2alpha
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Configuration props for EKS Fargate.
 //
 // Example:
 //   cluster := eks.NewFargateCluster(this, jsii.String("FargateCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   })
 //
 // Experimental.
@@ -88,7 +88,7 @@ type FargateClusterProps struct {
 	//   using AWS-Managed encryption keys.
 	//
 	// Experimental.
-	SecretsEncryptionKey awskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
+	SecretsEncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// Security Group to use for Control Plane ENIs.
 	// Default: - A security group is automatically created.
 	//

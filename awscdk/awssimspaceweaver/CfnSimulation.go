@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssimspaceweaver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssimspaceweaver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnSimulation interface {
 	awscdk.CfnResource
-	ISimulationRef
 	awscdk.IInspectable
+	interfacesawssimspaceweaver.ISimulationRef
 	// The JSON blob that the [DescribeSimulation](https://docs.aws.amazon.com/simspaceweaver/latest/APIReference/API_DescribeSimulation.html) action returns.
 	AttrDescribePayload() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -53,7 +55,7 @@ type CfnSimulation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnSimulation interface {
 	SchemaS3Location() interface{}
 	SetSchemaS3Location(val interface{})
 	// A reference to a Simulation resource.
-	SimulationRef() *SimulationReference
+	SimulationRef() *interfacesawssimspaceweaver.SimulationReference
 	// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ).
 	SnapshotS3Location() interface{}
 	SetSnapshotS3Location(val interface{})
@@ -235,8 +237,8 @@ type CfnSimulation interface {
 // The jsii proxy struct for CfnSimulation
 type jsiiProxy_CfnSimulation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISimulationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssimspaceweaverISimulationRef
 }
 
 func (j *jsiiProxy_CfnSimulation) AttrDescribePayload() *string {
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnSimulation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimulation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSimulation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnSimulation) SchemaS3Location() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimulation) SimulationRef() *SimulationReference {
-	var returns *SimulationReference
+func (j *jsiiProxy_CfnSimulation) SimulationRef() *interfacesawssimspaceweaver.SimulationReference {
+	var returns *interfacesawssimspaceweaver.SimulationReference
 	_jsii_.Get(
 		j,
 		"simulationRef",
@@ -420,6 +422,7 @@ func (j *jsiiProxy_CfnSimulation) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SimSpaceWeaver::Simulation`.
 func NewCfnSimulation(scope constructs.Construct, id *string, props *CfnSimulationProps) CfnSimulation {
 	_init_.Initialize()
 
@@ -437,6 +440,7 @@ func NewCfnSimulation(scope constructs.Construct, id *string, props *CfnSimulati
 	return &j
 }
 
+// Create a new `AWS::SimSpaceWeaver::Simulation`.
 func NewCfnSimulation_Override(c CfnSimulation, scope constructs.Construct, id *string, props *CfnSimulationProps) {
 	_init_.Initialize()
 
@@ -500,13 +504,13 @@ func (j *jsiiProxy_CfnSimulation)SetSnapshotS3Location(val interface{}) {
 }
 
 // Creates a new ISimulationRef from a simulationName.
-func CfnSimulation_FromSimulationName(scope constructs.Construct, id *string, simulationName *string) ISimulationRef {
+func CfnSimulation_FromSimulationName(scope constructs.Construct, id *string, simulationName *string) interfacesawssimspaceweaver.ISimulationRef {
 	_init_.Initialize()
 
 	if err := validateCfnSimulation_FromSimulationNameParameters(scope, id, simulationName); err != nil {
 		panic(err)
 	}
-	var returns ISimulationRef
+	var returns interfacesawssimspaceweaver.ISimulationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_simspaceweaver.CfnSimulation",

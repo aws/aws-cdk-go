@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnDeliveryStream interface {
 	awscdk.CfnResource
-	IDeliveryStreamRef
 	awscdk.IInspectable
+	interfacesawskinesisfirehose.IDeliveryStreamRef
 	awscdk.ITaggable
 	// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
 	AmazonOpenSearchServerlessDestinationConfiguration() interface{}
@@ -68,7 +70,7 @@ type CfnDeliveryStream interface {
 	DeliveryStreamName() *string
 	SetDeliveryStreamName(val *string)
 	// A reference to a DeliveryStream resource.
-	DeliveryStreamRef() *DeliveryStreamReference
+	DeliveryStreamRef() *interfacesawskinesisfirehose.DeliveryStreamReference
 	// The Firehose stream type.
 	//
 	// This can be one of the following values:.
@@ -80,7 +82,7 @@ type CfnDeliveryStream interface {
 	// An Amazon ES destination for the delivery stream.
 	ElasticsearchDestinationConfiguration() interface{}
 	SetElasticsearchDestinationConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An Amazon S3 destination for the delivery stream.
 	ExtendedS3DestinationConfiguration() interface{}
 	SetExtendedS3DestinationConfiguration(val interface{})
@@ -277,8 +279,8 @@ type CfnDeliveryStream interface {
 // The jsii proxy struct for CfnDeliveryStream
 type jsiiProxy_CfnDeliveryStream struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeliveryStreamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisfirehoseIDeliveryStreamRef
 	internal.Type__awscdkITaggable
 }
 
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnDeliveryStream) DeliveryStreamName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliveryStream) DeliveryStreamRef() *DeliveryStreamReference {
-	var returns *DeliveryStreamReference
+func (j *jsiiProxy_CfnDeliveryStream) DeliveryStreamRef() *interfacesawskinesisfirehose.DeliveryStreamReference {
+	var returns *interfacesawskinesisfirehose.DeliveryStreamReference
 	_jsii_.Get(
 		j,
 		"deliveryStreamRef",
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnDeliveryStream) ElasticsearchDestinationConfiguration() in
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliveryStream) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeliveryStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -603,6 +605,7 @@ func (j *jsiiProxy_CfnDeliveryStream) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::KinesisFirehose::DeliveryStream`.
 func NewCfnDeliveryStream(scope constructs.Construct, id *string, props *CfnDeliveryStreamProps) CfnDeliveryStream {
 	_init_.Initialize()
 
@@ -620,6 +623,7 @@ func NewCfnDeliveryStream(scope constructs.Construct, id *string, props *CfnDeli
 	return &j
 }
 
+// Create a new `AWS::KinesisFirehose::DeliveryStream`.
 func NewCfnDeliveryStream_Override(c CfnDeliveryStream, scope constructs.Construct, id *string, props *CfnDeliveryStreamProps) {
 	_init_.Initialize()
 
@@ -823,13 +827,13 @@ func (j *jsiiProxy_CfnDeliveryStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDeliveryStreamRef from an ARN.
-func CfnDeliveryStream_FromDeliveryStreamArn(scope constructs.Construct, id *string, arn *string) IDeliveryStreamRef {
+func CfnDeliveryStream_FromDeliveryStreamArn(scope constructs.Construct, id *string, arn *string) interfacesawskinesisfirehose.IDeliveryStreamRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeliveryStream_FromDeliveryStreamArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDeliveryStreamRef
+	var returns interfacesawskinesisfirehose.IDeliveryStreamRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream",
@@ -842,13 +846,13 @@ func CfnDeliveryStream_FromDeliveryStreamArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IDeliveryStreamRef from a deliveryStreamName.
-func CfnDeliveryStream_FromDeliveryStreamName(scope constructs.Construct, id *string, deliveryStreamName *string) IDeliveryStreamRef {
+func CfnDeliveryStream_FromDeliveryStreamName(scope constructs.Construct, id *string, deliveryStreamName *string) interfacesawskinesisfirehose.IDeliveryStreamRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeliveryStream_FromDeliveryStreamNameParameters(scope, id, deliveryStreamName); err != nil {
 		panic(err)
 	}
-	var returns IDeliveryStreamRef
+	var returns interfacesawskinesisfirehose.IDeliveryStreamRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream",

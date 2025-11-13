@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -143,8 +145,8 @@ import (
 //
 type CfnDBCluster interface {
 	awscdk.CfnResource
-	IDBClusterRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBClusterRef
 	awscdk.ITaggable
 	// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
 	AllocatedStorage() *float64
@@ -233,7 +235,7 @@ type CfnDBCluster interface {
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
 	// A reference to a DBCluster resource.
-	DbClusterRef() *DBClusterReference
+	DbClusterRef() *interfacesawsrds.DBClusterReference
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
 	DbInstanceParameterGroupName() *string
 	SetDbInstanceParameterGroupName(val *string)
@@ -284,7 +286,7 @@ type CfnDBCluster interface {
 	// The version number of the database engine to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster.
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
@@ -551,8 +553,8 @@ type CfnDBCluster interface {
 // The jsii proxy struct for CfnDBCluster
 type jsiiProxy_CfnDBCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -816,8 +818,8 @@ func (j *jsiiProxy_CfnDBCluster) DbClusterParameterGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) DbClusterRef() *DBClusterReference {
-	var returns *DBClusterReference
+func (j *jsiiProxy_CfnDBCluster) DbClusterRef() *interfacesawsrds.DBClusterReference {
+	var returns *interfacesawsrds.DBClusterReference
 	_jsii_.Get(
 		j,
 		"dbClusterRef",
@@ -986,8 +988,8 @@ func (j *jsiiProxy_CfnDBCluster) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -1387,6 +1389,7 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 }
 
 
+// Create a new `AWS::RDS::DBCluster`.
 func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
 	_init_.Initialize()
 
@@ -1404,6 +1407,7 @@ func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBCluster
 	return &j
 }
 
+// Create a new `AWS::RDS::DBCluster`.
 func NewCfnDBCluster_Override(c CfnDBCluster, scope constructs.Construct, id *string, props *CfnDBClusterProps) {
 	_init_.Initialize()
 

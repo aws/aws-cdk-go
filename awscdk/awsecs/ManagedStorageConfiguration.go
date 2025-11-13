@@ -2,6 +2,7 @@ package awsecs
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Kms Keys for encryption ECS managed storage.
@@ -31,6 +32,6 @@ type ManagedStorageConfiguration struct {
 	//
 	// Default: - Encrypted using AWS-managed key.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

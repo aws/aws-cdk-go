@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsb2bi/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsb2bi"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnProfile interface {
 	awscdk.CfnResource
-	IProfileRef
 	awscdk.IInspectable
+	interfacesawsb2bi.IProfileRef
 	awscdk.ITaggableV2
 	// Returns the timestamp for creation date and time of the profile.
 	AttrCreatedAt() *string
@@ -66,7 +68,7 @@ type CfnProfile interface {
 	CreationStack() *[]*string
 	Email() *string
 	SetEmail(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies whether or not logging is enabled for this profile.
 	Logging() *string
 	SetLogging(val *string)
@@ -89,7 +91,7 @@ type CfnProfile interface {
 	Phone() *string
 	SetPhone(val *string)
 	// A reference to a Profile resource.
-	ProfileRef() *ProfileReference
+	ProfileRef() *interfacesawsb2bi.ProfileReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -245,8 +247,8 @@ type CfnProfile interface {
 // The jsii proxy struct for CfnProfile
 type jsiiProxy_CfnProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsb2biIProfileRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnProfile) Email() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnProfile) Phone() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfile) ProfileRef() *ProfileReference {
-	var returns *ProfileReference
+func (j *jsiiProxy_CfnProfile) ProfileRef() *interfacesawsb2bi.ProfileReference {
+	var returns *interfacesawsb2bi.ProfileReference
 	_jsii_.Get(
 		j,
 		"profileRef",
@@ -491,6 +493,7 @@ func (j *jsiiProxy_CfnProfile) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::B2BI::Profile`.
 func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProps) CfnProfile {
 	_init_.Initialize()
 
@@ -508,6 +511,7 @@ func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProp
 	return &j
 }
 
+// Create a new `AWS::B2BI::Profile`.
 func NewCfnProfile_Override(c CfnProfile, scope constructs.Construct, id *string, props *CfnProfileProps) {
 	_init_.Initialize()
 

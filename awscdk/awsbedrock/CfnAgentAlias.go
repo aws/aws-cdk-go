@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,14 +44,14 @@ import (
 //
 type CfnAgentAlias interface {
 	awscdk.CfnResource
-	IAgentAliasRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IAgentAliasRef
 	awscdk.ITaggableV2
 	// The name of the alias of the agent.
 	AgentAliasName() *string
 	SetAgentAliasName(val *string)
 	// A reference to a AgentAlias resource.
-	AgentAliasRef() *AgentAliasReference
+	AgentAliasRef() *interfacesawsbedrock.AgentAliasReference
 	// The unique identifier of the agent.
 	AgentId() *string
 	SetAgentId(val *string)
@@ -88,7 +90,7 @@ type CfnAgentAlias interface {
 	// The description of the alias of the agent.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -261,8 +263,8 @@ type CfnAgentAlias interface {
 // The jsii proxy struct for CfnAgentAlias
 type jsiiProxy_CfnAgentAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAgentAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIAgentAliasRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -276,8 +278,8 @@ func (j *jsiiProxy_CfnAgentAlias) AgentAliasName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgentAlias) AgentAliasRef() *AgentAliasReference {
-	var returns *AgentAliasReference
+func (j *jsiiProxy_CfnAgentAlias) AgentAliasRef() *interfacesawsbedrock.AgentAliasReference {
+	var returns *interfacesawsbedrock.AgentAliasReference
 	_jsii_.Get(
 		j,
 		"agentAliasRef",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnAgentAlias) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgentAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAgentAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -507,6 +509,7 @@ func (j *jsiiProxy_CfnAgentAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Bedrock::AgentAlias`.
 func NewCfnAgentAlias(scope constructs.Construct, id *string, props *CfnAgentAliasProps) CfnAgentAlias {
 	_init_.Initialize()
 
@@ -524,6 +527,7 @@ func NewCfnAgentAlias(scope constructs.Construct, id *string, props *CfnAgentAli
 	return &j
 }
 
+// Create a new `AWS::Bedrock::AgentAlias`.
 func NewCfnAgentAlias_Override(c CfnAgentAlias, scope constructs.Construct, id *string, props *CfnAgentAliasProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,10 +35,10 @@ import (
 //
 type CfnADMChannel interface {
 	awscdk.CfnResource
-	IADMChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IADMChannelRef
 	// A reference to a ADMChannel resource.
-	AdmChannelRef() *ADMChannelReference
+	AdmChannelRef() *interfacesawspinpoint.ADMChannelReference
 	// The unique identifier for the Amazon Pinpoint application that the ADM channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -62,7 +64,7 @@ type CfnADMChannel interface {
 	// Specifies whether to enable the ADM channel for the application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,12 +229,12 @@ type CfnADMChannel interface {
 // The jsii proxy struct for CfnADMChannel
 type jsiiProxy_CfnADMChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IADMChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIADMChannelRef
 }
 
-func (j *jsiiProxy_CfnADMChannel) AdmChannelRef() *ADMChannelReference {
-	var returns *ADMChannelReference
+func (j *jsiiProxy_CfnADMChannel) AdmChannelRef() *interfacesawspinpoint.ADMChannelReference {
+	var returns *interfacesawspinpoint.ADMChannelReference
 	_jsii_.Get(
 		j,
 		"admChannelRef",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnADMChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnADMChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnADMChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnADMChannel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pinpoint::ADMChannel`.
 func NewCfnADMChannel(scope constructs.Construct, id *string, props *CfnADMChannelProps) CfnADMChannel {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnADMChannel(scope constructs.Construct, id *string, props *CfnADMChann
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::ADMChannel`.
 func NewCfnADMChannel_Override(c CfnADMChannel, scope constructs.Construct, id *string, props *CfnADMChannelProps) {
 	_init_.Initialize()
 

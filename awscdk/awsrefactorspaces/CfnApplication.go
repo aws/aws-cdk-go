@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrefactorspaces/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrefactorspaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > AWS Migration Hub will no longer be open to new customers starting November 7, 2025.
+// > AWS Migration Hub is no longer open to new customers as of November 7, 2025.
 //
-// To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub , explore [AWS Migration Hub](https://docs.aws.amazon.com/https://aws.amazon.com/transform) .
+// For capabilities similar to AWS Migration Hub , explore [AWS Migration Hub](https://docs.aws.amazon.com/https://aws.amazon.com/transform) .
 //
 // Creates an AWS Migration Hub Refactor Spaces application. The account that owns the environment also owns the applications created inside the environment, regardless of the account that creates the application. Refactor Spaces provisions an Amazon API Gateway, API Gateway VPC link, and Network Load Balancer for the application proxy inside your account.
 //
@@ -45,14 +47,14 @@ import (
 //
 type CfnApplication interface {
 	awscdk.CfnResource
-	IApplicationRef
 	awscdk.IInspectable
+	interfacesawsrefactorspaces.IApplicationRef
 	awscdk.ITaggable
 	// The endpoint URL of the Amazon API Gateway proxy.
 	ApiGatewayProxy() interface{}
 	SetApiGatewayProxy(val interface{})
 	// A reference to a Application resource.
-	ApplicationRef() *ApplicationReference
+	ApplicationRef() *interfacesawsrefactorspaces.ApplicationReference
 	// The resource ID of the API Gateway for the proxy.
 	AttrApiGatewayId() *string
 	// The unique identifier of the application.
@@ -80,7 +82,7 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the environment.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -262,8 +264,8 @@ type CfnApplication interface {
 // The jsii proxy struct for CfnApplication
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrefactorspacesIApplicationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnApplication) ApiGatewayProxy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) ApplicationRef() *ApplicationReference {
-	var returns *ApplicationReference
+func (j *jsiiProxy_CfnApplication) ApplicationRef() *interfacesawsrefactorspaces.ApplicationReference {
+	var returns *interfacesawsrefactorspaces.ApplicationReference
 	_jsii_.Get(
 		j,
 		"applicationRef",
@@ -407,8 +409,8 @@ func (j *jsiiProxy_CfnApplication) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -538,6 +540,7 @@ func (j *jsiiProxy_CfnApplication) VpcId() *string {
 }
 
 
+// Create a new `AWS::RefactorSpaces::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -555,6 +558,7 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
+// Create a new `AWS::RefactorSpaces::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 

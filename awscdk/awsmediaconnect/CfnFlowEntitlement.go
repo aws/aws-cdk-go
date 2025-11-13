@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnFlowEntitlement interface {
 	awscdk.CfnResource
-	IFlowEntitlementRef
 	awscdk.IInspectable
+	interfacesawsmediaconnect.IFlowEntitlementRef
 	// The entitlement ARN.
 	AttrEntitlementArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -73,12 +75,12 @@ type CfnFlowEntitlement interface {
 	// An indication of whether the new entitlement should be enabled or disabled as soon as it is created.
 	EntitlementStatus() *string
 	SetEntitlementStatus(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow.
 	FlowArn() *string
 	SetFlowArn(val *string)
 	// A reference to a FlowEntitlement resource.
-	FlowEntitlementRef() *FlowEntitlementReference
+	FlowEntitlementRef() *interfacesawsmediaconnect.FlowEntitlementReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -249,8 +251,8 @@ type CfnFlowEntitlement interface {
 // The jsii proxy struct for CfnFlowEntitlement
 type jsiiProxy_CfnFlowEntitlement struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowEntitlementRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconnectIFlowEntitlementRef
 }
 
 func (j *jsiiProxy_CfnFlowEntitlement) AttrEntitlementArn() *string {
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnFlowEntitlement) EntitlementStatus() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowEntitlement) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlowEntitlement) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnFlowEntitlement) FlowArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowEntitlement) FlowEntitlementRef() *FlowEntitlementReference {
-	var returns *FlowEntitlementReference
+func (j *jsiiProxy_CfnFlowEntitlement) FlowEntitlementRef() *interfacesawsmediaconnect.FlowEntitlementReference {
+	var returns *interfacesawsmediaconnect.FlowEntitlementReference
 	_jsii_.Get(
 		j,
 		"flowEntitlementRef",
@@ -454,6 +456,7 @@ func (j *jsiiProxy_CfnFlowEntitlement) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::MediaConnect::FlowEntitlement`.
 func NewCfnFlowEntitlement(scope constructs.Construct, id *string, props *CfnFlowEntitlementProps) CfnFlowEntitlement {
 	_init_.Initialize()
 
@@ -471,6 +474,7 @@ func NewCfnFlowEntitlement(scope constructs.Construct, id *string, props *CfnFlo
 	return &j
 }
 
+// Create a new `AWS::MediaConnect::FlowEntitlement`.
 func NewCfnFlowEntitlement_Override(c CfnFlowEntitlement, scope constructs.Construct, id *string, props *CfnFlowEntitlementProps) {
 	_init_.Initialize()
 

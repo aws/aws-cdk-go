@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnBackupVault interface {
 	awscdk.CfnResource
-	IBackupVaultRef
 	awscdk.IInspectable
+	interfacesawsbackup.IBackupVaultRef
 	awscdk.ITaggableV2
 	// A resource-based policy that is used to manage access permissions on the target backup vault.
 	AccessPolicy() interface{}
@@ -70,7 +72,7 @@ type CfnBackupVault interface {
 	BackupVaultName() *string
 	SetBackupVaultName(val *string)
 	// A reference to a BackupVault resource.
-	BackupVaultRef() *BackupVaultReference
+	BackupVaultRef() *interfacesawsbackup.BackupVaultReference
 	// The tags to assign to the backup vault.
 	BackupVaultTags() *map[string]*string
 	SetBackupVaultTags(val *map[string]*string)
@@ -88,7 +90,7 @@ type CfnBackupVault interface {
 	// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management;.
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 	LockConfiguration() interface{}
 	SetLockConfiguration(val interface{})
@@ -259,8 +261,8 @@ type CfnBackupVault interface {
 // The jsii proxy struct for CfnBackupVault
 type jsiiProxy_CfnBackupVault struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBackupVaultRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupIBackupVaultRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -304,8 +306,8 @@ func (j *jsiiProxy_CfnBackupVault) BackupVaultName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupVault) BackupVaultRef() *BackupVaultReference {
-	var returns *BackupVaultReference
+func (j *jsiiProxy_CfnBackupVault) BackupVaultRef() *interfacesawsbackup.BackupVaultReference {
+	var returns *interfacesawsbackup.BackupVaultReference
 	_jsii_.Get(
 		j,
 		"backupVaultRef",
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnBackupVault) EncryptionKeyArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupVault) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBackupVault) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -475,6 +477,7 @@ func (j *jsiiProxy_CfnBackupVault) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Backup::BackupVault`.
 func NewCfnBackupVault(scope constructs.Construct, id *string, props *CfnBackupVaultProps) CfnBackupVault {
 	_init_.Initialize()
 
@@ -492,6 +495,7 @@ func NewCfnBackupVault(scope constructs.Construct, id *string, props *CfnBackupV
 	return &j
 }
 
+// Create a new `AWS::Backup::BackupVault`.
 func NewCfnBackupVault_Override(c CfnBackupVault, scope constructs.Construct, id *string, props *CfnBackupVaultProps) {
 	_init_.Initialize()
 
@@ -560,13 +564,13 @@ func (j *jsiiProxy_CfnBackupVault)SetNotifications(val interface{}) {
 }
 
 // Creates a new IBackupVaultRef from an ARN.
-func CfnBackupVault_FromBackupVaultArn(scope constructs.Construct, id *string, arn *string) IBackupVaultRef {
+func CfnBackupVault_FromBackupVaultArn(scope constructs.Construct, id *string, arn *string) interfacesawsbackup.IBackupVaultRef {
 	_init_.Initialize()
 
 	if err := validateCfnBackupVault_FromBackupVaultArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IBackupVaultRef
+	var returns interfacesawsbackup.IBackupVaultRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_backup.CfnBackupVault",
@@ -579,13 +583,13 @@ func CfnBackupVault_FromBackupVaultArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IBackupVaultRef from a backupVaultName.
-func CfnBackupVault_FromBackupVaultName(scope constructs.Construct, id *string, backupVaultName *string) IBackupVaultRef {
+func CfnBackupVault_FromBackupVaultName(scope constructs.Construct, id *string, backupVaultName *string) interfacesawsbackup.IBackupVaultRef {
 	_init_.Initialize()
 
 	if err := validateCfnBackupVault_FromBackupVaultNameParameters(scope, id, backupVaultName); err != nil {
 		panic(err)
 	}
-	var returns IBackupVaultRef
+	var returns interfacesawsbackup.IBackupVaultRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_backup.CfnBackupVault",

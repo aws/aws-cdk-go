@@ -1,10 +1,25 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsdatazoneIConnectionRef = interfacesawsdatazone.IConnectionRef
+type Type__interfacesawsdatazoneIDataSourceRef = interfacesawsdatazone.IDataSourceRef
+type Type__interfacesawsdatazoneIDomainRef = interfacesawsdatazone.IDomainRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsdatazoneIDomainUnitRef = interfacesawsdatazone.IDomainUnitRef
+type Type__interfacesawsdatazoneIEnvironmentRef = interfacesawsdatazone.IEnvironmentRef
+type Type__interfacesawsdatazoneIEnvironmentActionsRef = interfacesawsdatazone.IEnvironmentActionsRef
+type Type__interfacesawsdatazoneIEnvironmentBlueprintConfigurationRef = interfacesawsdatazone.IEnvironmentBlueprintConfigurationRef
+type Type__interfacesawsdatazoneIEnvironmentProfileRef = interfacesawsdatazone.IEnvironmentProfileRef
+type Type__interfacesawsdatazoneIFormTypeRef = interfacesawsdatazone.IFormTypeRef
+type Type__interfacesawsdatazoneIGroupProfileRef = interfacesawsdatazone.IGroupProfileRef
+type Type__interfacesawsdatazoneIOwnerRef = interfacesawsdatazone.IOwnerRef
+type Type__interfacesawsdatazoneIPolicyGrantRef = interfacesawsdatazone.IPolicyGrantRef
+type Type__interfacesawsdatazoneIProjectRef = interfacesawsdatazone.IProjectRef
+type Type__interfacesawsdatazoneIProjectMembershipRef = interfacesawsdatazone.IProjectMembershipRef
+type Type__interfacesawsdatazoneIProjectProfileRef = interfacesawsdatazone.IProjectProfileRef
+type Type__interfacesawsdatazoneISubscriptionTargetRef = interfacesawsdatazone.ISubscriptionTargetRef
+type Type__interfacesawsdatazoneIUserProfileRef = interfacesawsdatazone.IUserProfileRef

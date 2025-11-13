@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspanorama/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspanorama"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnPackageVersion interface {
 	awscdk.CfnResource
-	IPackageVersionRef
 	awscdk.IInspectable
+	interfacesawspanorama.IPackageVersionRef
 	// Whether the package version is the latest version.
 	AttrIsLatestPatch() awscdk.IResolvable
 	// The package version's ARN.
@@ -59,7 +61,7 @@ type CfnPackageVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +87,7 @@ type CfnPackageVersion interface {
 	PackageVersion() *string
 	SetPackageVersion(val *string)
 	// A reference to a PackageVersion resource.
-	PackageVersionRef() *PackageVersionReference
+	PackageVersionRef() *interfacesawspanorama.PackageVersionReference
 	// A patch version.
 	PatchVersion() *string
 	SetPatchVersion(val *string)
@@ -244,8 +246,8 @@ type CfnPackageVersion interface {
 // The jsii proxy struct for CfnPackageVersion
 type jsiiProxy_CfnPackageVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPackageVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspanoramaIPackageVersionRef
 }
 
 func (j *jsiiProxy_CfnPackageVersion) AttrIsLatestPatch() awscdk.IResolvable {
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnPackageVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackageVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPackageVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -418,8 +420,8 @@ func (j *jsiiProxy_CfnPackageVersion) PackageVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackageVersion) PackageVersionRef() *PackageVersionReference {
-	var returns *PackageVersionReference
+func (j *jsiiProxy_CfnPackageVersion) PackageVersionRef() *interfacesawspanorama.PackageVersionReference {
+	var returns *interfacesawspanorama.PackageVersionReference
 	_jsii_.Get(
 		j,
 		"packageVersionRef",
@@ -489,6 +491,7 @@ func (j *jsiiProxy_CfnPackageVersion) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Panorama::PackageVersion`.
 func NewCfnPackageVersion(scope constructs.Construct, id *string, props *CfnPackageVersionProps) CfnPackageVersion {
 	_init_.Initialize()
 
@@ -506,6 +509,7 @@ func NewCfnPackageVersion(scope constructs.Construct, id *string, props *CfnPack
 	return &j
 }
 
+// Create a new `AWS::Panorama::PackageVersion`.
 func NewCfnPackageVersion_Override(c CfnPackageVersion, scope constructs.Construct, id *string, props *CfnPackageVersionProps) {
 	_init_.Initialize()
 

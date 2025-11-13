@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnDeploymentStrategy interface {
 	awscdk.CfnResource
-	IDeploymentStrategyRef
 	awscdk.IInspectable
+	interfacesawsappconfig.IDeploymentStrategyRef
 	awscdk.ITaggableV2
 	// The deployment strategy ID.
 	AttrId() *string
@@ -70,11 +72,11 @@ type CfnDeploymentStrategy interface {
 	DeploymentDurationInMinutes() *float64
 	SetDeploymentDurationInMinutes(val *float64)
 	// A reference to a DeploymentStrategy resource.
-	DeploymentStrategyRef() *DeploymentStrategyReference
+	DeploymentStrategyRef() *interfacesawsappconfig.DeploymentStrategyReference
 	// A description of the deployment strategy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the amount of time AWS AppConfig monitors for Amazon CloudWatch alarms after the configuration has been deployed to 100% of its targets, before considering the deployment to be complete.
 	FinalBakeTimeInMinutes() *float64
 	SetFinalBakeTimeInMinutes(val *float64)
@@ -259,8 +261,8 @@ type CfnDeploymentStrategy interface {
 // The jsii proxy struct for CfnDeploymentStrategy
 type jsiiProxy_CfnDeploymentStrategy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeploymentStrategyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappconfigIDeploymentStrategyRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnDeploymentStrategy) DeploymentDurationInMinutes() *float64
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentStrategy) DeploymentStrategyRef() *DeploymentStrategyReference {
-	var returns *DeploymentStrategyReference
+func (j *jsiiProxy_CfnDeploymentStrategy) DeploymentStrategyRef() *interfacesawsappconfig.DeploymentStrategyReference {
+	var returns *interfacesawsappconfig.DeploymentStrategyReference
 	_jsii_.Get(
 		j,
 		"deploymentStrategyRef",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnDeploymentStrategy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentStrategy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeploymentStrategy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -485,6 +487,7 @@ func (j *jsiiProxy_CfnDeploymentStrategy) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::AppConfig::DeploymentStrategy`.
 func NewCfnDeploymentStrategy(scope constructs.Construct, id *string, props *CfnDeploymentStrategyProps) CfnDeploymentStrategy {
 	_init_.Initialize()
 
@@ -502,6 +505,7 @@ func NewCfnDeploymentStrategy(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::AppConfig::DeploymentStrategy`.
 func NewCfnDeploymentStrategy_Override(c CfnDeploymentStrategy, scope constructs.Construct, id *string, props *CfnDeploymentStrategyProps) {
 	_init_.Initialize()
 
@@ -592,13 +596,13 @@ func (j *jsiiProxy_CfnDeploymentStrategy)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDeploymentStrategyRef from a deploymentStrategyId.
-func CfnDeploymentStrategy_FromDeploymentStrategyId(scope constructs.Construct, id *string, deploymentStrategyId *string) IDeploymentStrategyRef {
+func CfnDeploymentStrategy_FromDeploymentStrategyId(scope constructs.Construct, id *string, deploymentStrategyId *string) interfacesawsappconfig.IDeploymentStrategyRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeploymentStrategy_FromDeploymentStrategyIdParameters(scope, id, deploymentStrategyId); err != nil {
 		panic(err)
 	}
-	var returns IDeploymentStrategyRef
+	var returns interfacesawsappconfig.IDeploymentStrategyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appconfig.CfnDeploymentStrategy",

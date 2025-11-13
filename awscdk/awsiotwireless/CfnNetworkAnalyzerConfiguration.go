@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnNetworkAnalyzerConfiguration interface {
 	awscdk.CfnResource
-	INetworkAnalyzerConfigurationRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.INetworkAnalyzerConfigurationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resource.
 	AttrArn() *string
@@ -59,7 +61,7 @@ type CfnNetworkAnalyzerConfiguration interface {
 	// The description of the resource.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnNetworkAnalyzerConfiguration interface {
 	Name() *string
 	SetName(val *string)
 	// A reference to a NetworkAnalyzerConfiguration resource.
-	NetworkAnalyzerConfigurationRef() *NetworkAnalyzerConfigurationReference
+	NetworkAnalyzerConfigurationRef() *interfacesawsiotwireless.NetworkAnalyzerConfigurationReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -243,8 +245,8 @@ type CfnNetworkAnalyzerConfiguration interface {
 // The jsii proxy struct for CfnNetworkAnalyzerConfiguration
 type jsiiProxy_CfnNetworkAnalyzerConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkAnalyzerConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessINetworkAnalyzerConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) NetworkAnalyzerConfigurationRef() *NetworkAnalyzerConfigurationReference {
-	var returns *NetworkAnalyzerConfigurationReference
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) NetworkAnalyzerConfigurationRef() *interfacesawsiotwireless.NetworkAnalyzerConfigurationReference {
+	var returns *interfacesawsiotwireless.NetworkAnalyzerConfigurationReference
 	_jsii_.Get(
 		j,
 		"networkAnalyzerConfigurationRef",
@@ -449,6 +451,7 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) WirelessGateways() *[]*strin
 }
 
 
+// Create a new `AWS::IoTWireless::NetworkAnalyzerConfiguration`.
 func NewCfnNetworkAnalyzerConfiguration(scope constructs.Construct, id *string, props *CfnNetworkAnalyzerConfigurationProps) CfnNetworkAnalyzerConfiguration {
 	_init_.Initialize()
 
@@ -466,6 +469,7 @@ func NewCfnNetworkAnalyzerConfiguration(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::NetworkAnalyzerConfiguration`.
 func NewCfnNetworkAnalyzerConfiguration_Override(c CfnNetworkAnalyzerConfiguration, scope constructs.Construct, id *string, props *CfnNetworkAnalyzerConfigurationProps) {
 	_init_.Initialize()
 
@@ -531,13 +535,13 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetWirelessGateways(val *[]*s
 }
 
 // Creates a new INetworkAnalyzerConfigurationRef from an ARN.
-func CfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationArn(scope constructs.Construct, id *string, arn *string) INetworkAnalyzerConfigurationRef {
+func CfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.INetworkAnalyzerConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns INetworkAnalyzerConfigurationRef
+	var returns interfacesawsiotwireless.INetworkAnalyzerConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnNetworkAnalyzerConfiguration",
@@ -550,13 +554,13 @@ func CfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationArn(scope c
 }
 
 // Creates a new INetworkAnalyzerConfigurationRef from a networkAnalyzerConfigurationName.
-func CfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationName(scope constructs.Construct, id *string, networkAnalyzerConfigurationName *string) INetworkAnalyzerConfigurationRef {
+func CfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationName(scope constructs.Construct, id *string, networkAnalyzerConfigurationName *string) interfacesawsiotwireless.INetworkAnalyzerConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationNameParameters(scope, id, networkAnalyzerConfigurationName); err != nil {
 		panic(err)
 	}
-	var returns INetworkAnalyzerConfigurationRef
+	var returns interfacesawsiotwireless.INetworkAnalyzerConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnNetworkAnalyzerConfiguration",

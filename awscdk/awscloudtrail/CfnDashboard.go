@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudtrail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudtrail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnDashboard interface {
 	awscdk.CfnResource
-	IDashboardRef
 	awscdk.IInspectable
+	interfacesawscloudtrail.IDashboardRef
 	awscdk.ITaggableV2
 	// The timestamp that shows when the dashboard was created.
 	AttrCreatedTimestamp() *string
@@ -86,8 +88,8 @@ type CfnDashboard interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a Dashboard resource.
-	DashboardRef() *DashboardReference
-	Env() *awscdk.ResourceEnvironment
+	DashboardRef() *interfacesawscloudtrail.DashboardReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -271,8 +273,8 @@ type CfnDashboard interface {
 // The jsii proxy struct for CfnDashboard
 type jsiiProxy_CfnDashboard struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDashboardRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudtrailIDashboardRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnDashboard) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboard) DashboardRef() *DashboardReference {
-	var returns *DashboardReference
+func (j *jsiiProxy_CfnDashboard) DashboardRef() *interfacesawscloudtrail.DashboardReference {
+	var returns *interfacesawscloudtrail.DashboardReference
 	_jsii_.Get(
 		j,
 		"dashboardRef",
@@ -386,8 +388,8 @@ func (j *jsiiProxy_CfnDashboard) DashboardRef() *DashboardReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboard) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDashboard) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -507,6 +509,7 @@ func (j *jsiiProxy_CfnDashboard) Widgets() interface{} {
 }
 
 
+// Create a new `AWS::CloudTrail::Dashboard`.
 func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
@@ -524,6 +527,7 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 	return &j
 }
 
+// Create a new `AWS::CloudTrail::Dashboard`.
 func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 

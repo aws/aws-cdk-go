@@ -5,6 +5,9 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -12,7 +15,7 @@ import (
 //
 // An alias can be used in all places that expect a key.
 type IAlias interface {
-	IAliasRef
+	interfacesawskms.IAliasRef
 	IKey
 	// The name of the alias.
 	AliasName() *string
@@ -22,7 +25,7 @@ type IAlias interface {
 
 // The jsii proxy for IAlias
 type jsiiProxy_IAlias struct {
-	jsiiProxy_IAliasRef
+	internal.Type__interfacesawskmsIAliasRef
 	jsiiProxy_IKey
 }
 
@@ -238,8 +241,8 @@ func (j *jsiiProxy_IAlias) AliasTargetKey() IKey {
 	return returns
 }
 
-func (j *jsiiProxy_IAlias) AliasRef() *AliasReference {
-	var returns *AliasReference
+func (j *jsiiProxy_IAlias) AliasRef() *interfacesawskms.AliasReference {
+	var returns *interfacesawskms.AliasReference
 	_jsii_.Get(
 		j,
 		"aliasRef",
@@ -248,8 +251,8 @@ func (j *jsiiProxy_IAlias) AliasRef() *AliasReference {
 	return returns
 }
 
-func (j *jsiiProxy_IAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -278,8 +281,8 @@ func (j *jsiiProxy_IAlias) KeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IAlias) KeyRef() *KeyReference {
-	var returns *KeyReference
+func (j *jsiiProxy_IAlias) KeyRef() *interfacesawskms.KeyReference {
+	var returns *interfacesawskms.KeyReference
 	_jsii_.Get(
 		j,
 		"keyRef",

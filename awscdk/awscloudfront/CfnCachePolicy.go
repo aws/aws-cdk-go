@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -69,8 +71,8 @@ import (
 //
 type CfnCachePolicy interface {
 	awscdk.CfnResource
-	ICachePolicyRef
 	awscdk.IInspectable
+	interfacesawscloudfront.ICachePolicyRef
 	// The unique identifier for the cache policy.
 	//
 	// For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
@@ -81,7 +83,7 @@ type CfnCachePolicy interface {
 	CachePolicyConfig() interface{}
 	SetCachePolicyConfig(val interface{})
 	// A reference to a CachePolicy resource.
-	CachePolicyRef() *CachePolicyReference
+	CachePolicyRef() *interfacesawscloudfront.CachePolicyReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -91,7 +93,7 @@ type CfnCachePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -256,8 +258,8 @@ type CfnCachePolicy interface {
 // The jsii proxy struct for CfnCachePolicy
 type jsiiProxy_CfnCachePolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICachePolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontICachePolicyRef
 }
 
 func (j *jsiiProxy_CfnCachePolicy) AttrId() *string {
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnCachePolicy) CachePolicyConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCachePolicy) CachePolicyRef() *CachePolicyReference {
-	var returns *CachePolicyReference
+func (j *jsiiProxy_CfnCachePolicy) CachePolicyRef() *interfacesawscloudfront.CachePolicyReference {
+	var returns *interfacesawscloudfront.CachePolicyReference
 	_jsii_.Get(
 		j,
 		"cachePolicyRef",
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnCachePolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCachePolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCachePolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -411,6 +413,7 @@ func (j *jsiiProxy_CfnCachePolicy) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFront::CachePolicy`.
 func NewCfnCachePolicy(scope constructs.Construct, id *string, props *CfnCachePolicyProps) CfnCachePolicy {
 	_init_.Initialize()
 
@@ -428,6 +431,7 @@ func NewCfnCachePolicy(scope constructs.Construct, id *string, props *CfnCachePo
 	return &j
 }
 
+// Create a new `AWS::CloudFront::CachePolicy`.
 func NewCfnCachePolicy_Override(c CfnCachePolicy, scope constructs.Construct, id *string, props *CfnCachePolicyProps) {
 	_init_.Initialize()
 

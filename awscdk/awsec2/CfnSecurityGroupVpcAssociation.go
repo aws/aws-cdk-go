@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,8 +27,8 @@ import (
 //
 type CfnSecurityGroupVpcAssociation interface {
 	awscdk.CfnResource
-	ISecurityGroupVpcAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.ISecurityGroupVpcAssociationRef
 	// The association's state.
 	AttrState() *string
 	// The association's state reason.
@@ -42,7 +44,7 @@ type CfnSecurityGroupVpcAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The association's security group ID.
 	GroupId() *string
 	SetGroupId(val *string)
@@ -64,7 +66,7 @@ type CfnSecurityGroupVpcAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SecurityGroupVpcAssociation resource.
-	SecurityGroupVpcAssociationRef() *SecurityGroupVpcAssociationReference
+	SecurityGroupVpcAssociationRef() *interfacesawsec2.SecurityGroupVpcAssociationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -215,8 +217,8 @@ type CfnSecurityGroupVpcAssociation interface {
 // The jsii proxy struct for CfnSecurityGroupVpcAssociation
 type jsiiProxy_CfnSecurityGroupVpcAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityGroupVpcAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISecurityGroupVpcAssociationRef
 }
 
 func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) AttrState() *string {
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) SecurityGroupVpcAssociationRef() *SecurityGroupVpcAssociationReference {
-	var returns *SecurityGroupVpcAssociationReference
+func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) SecurityGroupVpcAssociationRef() *interfacesawsec2.SecurityGroupVpcAssociationReference {
+	var returns *interfacesawsec2.SecurityGroupVpcAssociationReference
 	_jsii_.Get(
 		j,
 		"securityGroupVpcAssociationRef",
@@ -390,6 +392,7 @@ func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::SecurityGroupVpcAssociation`.
 func NewCfnSecurityGroupVpcAssociation(scope constructs.Construct, id *string, props *CfnSecurityGroupVpcAssociationProps) CfnSecurityGroupVpcAssociation {
 	_init_.Initialize()
 
@@ -407,6 +410,7 @@ func NewCfnSecurityGroupVpcAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::EC2::SecurityGroupVpcAssociation`.
 func NewCfnSecurityGroupVpcAssociation_Override(c CfnSecurityGroupVpcAssociation, scope constructs.Construct, id *string, props *CfnSecurityGroupVpcAssociationProps) {
 	_init_.Initialize()
 

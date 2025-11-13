@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsomics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnSequenceStore interface {
 	awscdk.CfnResource
-	ISequenceStoreRef
 	awscdk.IInspectable
+	interfacesawsomics.ISequenceStoreRef
 	awscdk.ITaggable
 	// Location of the access logs.
 	AccessLogLocation() *string
@@ -79,7 +81,7 @@ type CfnSequenceStore interface {
 	// A description for the store.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The algorithm family of the ETag.
 	ETagAlgorithmFamily() *string
 	SetETagAlgorithmFamily(val *string)
@@ -113,7 +115,7 @@ type CfnSequenceStore interface {
 	S3AccessPolicy() interface{}
 	SetS3AccessPolicy(val interface{})
 	// A reference to a SequenceStore resource.
-	SequenceStoreRef() *SequenceStoreReference
+	SequenceStoreRef() *interfacesawsomics.SequenceStoreReference
 	// Server-side encryption (SSE) settings for the store.
 	SseConfig() interface{}
 	SetSseConfig(val interface{})
@@ -269,8 +271,8 @@ type CfnSequenceStore interface {
 // The jsii proxy struct for CfnSequenceStore
 type jsiiProxy_CfnSequenceStore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISequenceStoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsomicsISequenceStoreRef
 	internal.Type__awscdkITaggable
 }
 
@@ -414,8 +416,8 @@ func (j *jsiiProxy_CfnSequenceStore) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSequenceStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSequenceStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -504,8 +506,8 @@ func (j *jsiiProxy_CfnSequenceStore) S3AccessPolicy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSequenceStore) SequenceStoreRef() *SequenceStoreReference {
-	var returns *SequenceStoreReference
+func (j *jsiiProxy_CfnSequenceStore) SequenceStoreRef() *interfacesawsomics.SequenceStoreReference {
+	var returns *interfacesawsomics.SequenceStoreReference
 	_jsii_.Get(
 		j,
 		"sequenceStoreRef",
@@ -575,6 +577,7 @@ func (j *jsiiProxy_CfnSequenceStore) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Omics::SequenceStore`.
 func NewCfnSequenceStore(scope constructs.Construct, id *string, props *CfnSequenceStoreProps) CfnSequenceStore {
 	_init_.Initialize()
 
@@ -592,6 +595,7 @@ func NewCfnSequenceStore(scope constructs.Construct, id *string, props *CfnSeque
 	return &j
 }
 
+// Create a new `AWS::Omics::SequenceStore`.
 func NewCfnSequenceStore_Override(c CfnSequenceStore, scope constructs.Construct, id *string, props *CfnSequenceStoreProps) {
 	_init_.Initialize()
 
@@ -681,13 +685,13 @@ func (j *jsiiProxy_CfnSequenceStore)SetTagsRaw(val *map[string]*string) {
 }
 
 // Creates a new ISequenceStoreRef from an ARN.
-func CfnSequenceStore_FromSequenceStoreArn(scope constructs.Construct, id *string, arn *string) ISequenceStoreRef {
+func CfnSequenceStore_FromSequenceStoreArn(scope constructs.Construct, id *string, arn *string) interfacesawsomics.ISequenceStoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnSequenceStore_FromSequenceStoreArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ISequenceStoreRef
+	var returns interfacesawsomics.ISequenceStoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_omics.CfnSequenceStore",
@@ -700,13 +704,13 @@ func CfnSequenceStore_FromSequenceStoreArn(scope constructs.Construct, id *strin
 }
 
 // Creates a new ISequenceStoreRef from a sequenceStoreId.
-func CfnSequenceStore_FromSequenceStoreId(scope constructs.Construct, id *string, sequenceStoreId *string) ISequenceStoreRef {
+func CfnSequenceStore_FromSequenceStoreId(scope constructs.Construct, id *string, sequenceStoreId *string) interfacesawsomics.ISequenceStoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnSequenceStore_FromSequenceStoreIdParameters(scope, id, sequenceStoreId); err != nil {
 		panic(err)
 	}
-	var returns ISequenceStoreRef
+	var returns interfacesawsomics.ISequenceStoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_omics.CfnSequenceStore",

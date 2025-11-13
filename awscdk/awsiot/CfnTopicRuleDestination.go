@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnTopicRuleDestination interface {
 	awscdk.CfnResource
-	ITopicRuleDestinationRef
 	awscdk.IInspectable
+	interfacesawsiot.ITopicRuleDestinationRef
 	// The topic rule destination URL.
 	AttrArn() *string
 	// Additional details or reason why the topic rule destination is in the current status.
@@ -52,7 +54,7 @@ type CfnTopicRuleDestination interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Properties of the HTTP URL.
 	HttpUrlProperties() interface{}
 	SetHttpUrlProperties(val interface{})
@@ -81,7 +83,7 @@ type CfnTopicRuleDestination interface {
 	Status() *string
 	SetStatus(val *string)
 	// A reference to a TopicRuleDestination resource.
-	TopicRuleDestinationRef() *TopicRuleDestinationReference
+	TopicRuleDestinationRef() *interfacesawsiot.TopicRuleDestinationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,8 +230,8 @@ type CfnTopicRuleDestination interface {
 // The jsii proxy struct for CfnTopicRuleDestination
 type jsiiProxy_CfnTopicRuleDestination struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITopicRuleDestinationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotITopicRuleDestinationRef
 }
 
 func (j *jsiiProxy_CfnTopicRuleDestination) AttrArn() *string {
@@ -292,8 +294,8 @@ func (j *jsiiProxy_CfnTopicRuleDestination) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicRuleDestination) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTopicRuleDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnTopicRuleDestination) Status() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicRuleDestination) TopicRuleDestinationRef() *TopicRuleDestinationReference {
-	var returns *TopicRuleDestinationReference
+func (j *jsiiProxy_CfnTopicRuleDestination) TopicRuleDestinationRef() *interfacesawsiot.TopicRuleDestinationReference {
+	var returns *interfacesawsiot.TopicRuleDestinationReference
 	_jsii_.Get(
 		j,
 		"topicRuleDestinationRef",
@@ -403,6 +405,7 @@ func (j *jsiiProxy_CfnTopicRuleDestination) VpcProperties() interface{} {
 }
 
 
+// Create a new `AWS::IoT::TopicRuleDestination`.
 func NewCfnTopicRuleDestination(scope constructs.Construct, id *string, props *CfnTopicRuleDestinationProps) CfnTopicRuleDestination {
 	_init_.Initialize()
 
@@ -420,6 +423,7 @@ func NewCfnTopicRuleDestination(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::IoT::TopicRuleDestination`.
 func NewCfnTopicRuleDestination_Override(c CfnTopicRuleDestination, scope constructs.Construct, id *string, props *CfnTopicRuleDestinationProps) {
 	_init_.Initialize()
 

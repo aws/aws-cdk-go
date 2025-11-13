@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -191,8 +193,8 @@ import (
 //
 type CfnInstance interface {
 	awscdk.CfnResource
-	IInstanceRef
 	awscdk.IInspectable
+	interfacesawsec2.IInstanceRef
 	awscdk.ITaggable
 	// This property is reserved for internal use.
 	AdditionalInfo() *string
@@ -259,7 +261,7 @@ type CfnInstance interface {
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 	EnclaveOptions() interface{}
 	SetEnclaveOptions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether an instance is enabled for hibernation.
 	HibernationOptions() interface{}
 	SetHibernationOptions(val interface{})
@@ -279,7 +281,7 @@ type CfnInstance interface {
 	InstanceInitiatedShutdownBehavior() *string
 	SetInstanceInitiatedShutdownBehavior(val *string)
 	// A reference to a Instance resource.
-	InstanceRef() *InstanceReference
+	InstanceRef() *interfacesawsec2.InstanceReference
 	// The instance type.
 	//
 	// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
@@ -526,8 +528,8 @@ type CfnInstance interface {
 // The jsii proxy struct for CfnInstance
 type jsiiProxy_CfnInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IInstanceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -761,8 +763,8 @@ func (j *jsiiProxy_CfnInstance) EnclaveOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -831,8 +833,8 @@ func (j *jsiiProxy_CfnInstance) InstanceInitiatedShutdownBehavior() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) InstanceRef() *InstanceReference {
-	var returns *InstanceReference
+func (j *jsiiProxy_CfnInstance) InstanceRef() *interfacesawsec2.InstanceReference {
+	var returns *interfacesawsec2.InstanceReference
 	_jsii_.Get(
 		j,
 		"instanceRef",
@@ -1152,6 +1154,7 @@ func (j *jsiiProxy_CfnInstance) Volumes() interface{} {
 }
 
 
+// Create a new `AWS::EC2::Instance`.
 func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
@@ -1169,6 +1172,7 @@ func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstancePr
 	return &j
 }
 
+// Create a new `AWS::EC2::Instance`.
 func NewCfnInstance_Override(c CfnInstance, scope constructs.Construct, id *string, props *CfnInstanceProps) {
 	_init_.Initialize()
 
@@ -1571,13 +1575,13 @@ func (j *jsiiProxy_CfnInstance)SetVolumes(val interface{}) {
 }
 
 // Creates a new IInstanceRef from a instanceId.
-func CfnInstance_FromInstanceId(scope constructs.Construct, id *string, instanceId *string) IInstanceRef {
+func CfnInstance_FromInstanceId(scope constructs.Construct, id *string, instanceId *string) interfacesawsec2.IInstanceRef {
 	_init_.Initialize()
 
 	if err := validateCfnInstance_FromInstanceIdParameters(scope, id, instanceId); err != nil {
 		panic(err)
 	}
-	var returns IInstanceRef
+	var returns interfacesawsec2.IInstanceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnInstance",

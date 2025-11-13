@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,9 +40,12 @@ import (
 //
 type CfnWebACL interface {
 	awscdk.CfnResource
-	IWebACLRef
 	awscdk.IInspectable
+	interfacesawswafv2.IWebACLRef
 	awscdk.ITaggable
+	// Returns a list of `ApplicationAttribute` s.
+	ApplicationConfig() interface{}
+	SetApplicationConfig(val interface{})
 	// Specifies custom configurations for the associations between the web ACL and protected resources.
 	AssociationConfig() interface{}
 	SetAssociationConfig(val interface{})
@@ -87,7 +92,7 @@ type CfnWebACL interface {
 	// A description of the web ACL that helps with identification.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -146,7 +151,7 @@ type CfnWebACL interface {
 	VisibilityConfig() interface{}
 	SetVisibilityConfig(val interface{})
 	// A reference to a WebACL resource.
-	WebAclRef() *WebACLReference
+	WebAclRef() *interfacesawswafv2.WebACLReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -277,9 +282,19 @@ type CfnWebACL interface {
 // The jsii proxy struct for CfnWebACL
 type jsiiProxy_CfnWebACL struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWebACLRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafv2IWebACLRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnWebACL) ApplicationConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"applicationConfig",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnWebACL) AssociationConfig() interface{} {
@@ -432,8 +447,8 @@ func (j *jsiiProxy_CfnWebACL) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACL) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWebACL) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -582,8 +597,8 @@ func (j *jsiiProxy_CfnWebACL) VisibilityConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACL) WebAclRef() *WebACLReference {
-	var returns *WebACLReference
+func (j *jsiiProxy_CfnWebACL) WebAclRef() *interfacesawswafv2.WebACLReference {
+	var returns *interfacesawswafv2.WebACLReference
 	_jsii_.Get(
 		j,
 		"webAclRef",
@@ -593,6 +608,7 @@ func (j *jsiiProxy_CfnWebACL) WebAclRef() *WebACLReference {
 }
 
 
+// Create a new `AWS::WAFv2::WebACL`.
 func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
 	_init_.Initialize()
 
@@ -610,6 +626,7 @@ func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps)
 	return &j
 }
 
+// Create a new `AWS::WAFv2::WebACL`.
 func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, props *CfnWebACLProps) {
 	_init_.Initialize()
 
@@ -617,6 +634,17 @@ func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, 
 		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnWebACL)SetApplicationConfig(val interface{}) {
+	if err := j.validateSetApplicationConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"applicationConfig",
+		val,
 	)
 }
 

@@ -48,8 +48,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLogAnomalyDetectionIntegration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogAnomalyDetectionIntegrationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdevopsguruILogAnomalyDetectionIntegrationRef)
 			return &j
 		},
 	)
@@ -99,8 +99,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnNotificationChannel{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_INotificationChannelRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdevopsguruINotificationChannelRef)
 			return &j
 		},
 	)
@@ -162,8 +162,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourceCollection{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceCollectionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdevopsguruIResourceCollectionRef)
 			return &j
 		},
 	)
@@ -182,62 +182,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsguru.CfnResourceCollectionProps",
 		reflect.TypeOf((*CfnResourceCollectionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_devopsguru.ILogAnomalyDetectionIntegrationRef",
-		reflect.TypeOf((*ILogAnomalyDetectionIntegrationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "logAnomalyDetectionIntegrationRef", GoGetter: "LogAnomalyDetectionIntegrationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILogAnomalyDetectionIntegrationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_devopsguru.INotificationChannelRef",
-		reflect.TypeOf((*INotificationChannelRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "notificationChannelRef", GoGetter: "NotificationChannelRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_INotificationChannelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_devopsguru.IResourceCollectionRef",
-		reflect.TypeOf((*IResourceCollectionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceCollectionRef", GoGetter: "ResourceCollectionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourceCollectionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_devopsguru.LogAnomalyDetectionIntegrationReference",
-		reflect.TypeOf((*LogAnomalyDetectionIntegrationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_devopsguru.NotificationChannelReference",
-		reflect.TypeOf((*NotificationChannelReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_devopsguru.ResourceCollectionReference",
-		reflect.TypeOf((*ResourceCollectionReference)(nil)).Elem(),
 	)
 }

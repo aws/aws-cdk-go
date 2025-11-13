@@ -12,10 +12,10 @@ package awsquicksight
 //
 //   transformOperationProperty := &TransformOperationProperty{
 //   	CastColumnTypeOperation: &CastColumnTypeOperationProperty{
+//   		ColumnName: jsii.String("columnName"),
 //   		NewColumnType: jsii.String("newColumnType"),
 //
 //   		// the properties below are optional
-//   		ColumnName: jsii.String("columnName"),
 //   		Format: jsii.String("format"),
 //   		SubType: jsii.String("subType"),
 //   	},
@@ -27,9 +27,86 @@ package awsquicksight
 //   				Expression: jsii.String("expression"),
 //   			},
 //   		},
+//
+//   		// the properties below are optional
+//   		Alias: jsii.String("alias"),
+//   		Source: &TransformOperationSourceProperty{
+//   			TransformOperationId: jsii.String("transformOperationId"),
+//
+//   			// the properties below are optional
+//   			ColumnIdMappings: []interface{}{
+//   				&DataSetColumnIdMappingProperty{
+//   					SourceColumnId: jsii.String("sourceColumnId"),
+//   					TargetColumnId: jsii.String("targetColumnId"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	FilterOperation: &FilterOperationProperty{
 //   		ConditionExpression: jsii.String("conditionExpression"),
+//   		DateFilterCondition: &DataSetDateFilterConditionProperty{
+//   			ColumnName: jsii.String("columnName"),
+//   			ComparisonFilterCondition: &DataSetDateComparisonFilterConditionProperty{
+//   				Operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				Value: &DataSetDateFilterValueProperty{
+//   					StaticValue: jsii.String("staticValue"),
+//   				},
+//   			},
+//   			RangeFilterCondition: &DataSetDateRangeFilterConditionProperty{
+//   				IncludeMaximum: jsii.Boolean(false),
+//   				IncludeMinimum: jsii.Boolean(false),
+//   				RangeMaximum: &DataSetDateFilterValueProperty{
+//   					StaticValue: jsii.String("staticValue"),
+//   				},
+//   				RangeMinimum: &DataSetDateFilterValueProperty{
+//   					StaticValue: jsii.String("staticValue"),
+//   				},
+//   			},
+//   		},
+//   		NumericFilterCondition: &DataSetNumericFilterConditionProperty{
+//   			ColumnName: jsii.String("columnName"),
+//   			ComparisonFilterCondition: &DataSetNumericComparisonFilterConditionProperty{
+//   				Operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				Value: &DataSetNumericFilterValueProperty{
+//   					StaticValue: jsii.Number(123),
+//   				},
+//   			},
+//   			RangeFilterCondition: &DataSetNumericRangeFilterConditionProperty{
+//   				IncludeMaximum: jsii.Boolean(false),
+//   				IncludeMinimum: jsii.Boolean(false),
+//   				RangeMaximum: &DataSetNumericFilterValueProperty{
+//   					StaticValue: jsii.Number(123),
+//   				},
+//   				RangeMinimum: &DataSetNumericFilterValueProperty{
+//   					StaticValue: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		StringFilterCondition: &DataSetStringFilterConditionProperty{
+//   			ColumnName: jsii.String("columnName"),
+//   			ComparisonFilterCondition: &DataSetStringComparisonFilterConditionProperty{
+//   				Operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				Value: &DataSetStringFilterValueProperty{
+//   					StaticValue: jsii.String("staticValue"),
+//   				},
+//   			},
+//   			ListFilterCondition: &DataSetStringListFilterConditionProperty{
+//   				Operator: jsii.String("operator"),
+//
+//   				// the properties below are optional
+//   				Values: &DataSetStringListFilterValueProperty{
+//   					StaticValues: []*string{
+//   						jsii.String("staticValues"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	OverrideDatasetParameterOperation: &OverrideDatasetParameterOperationProperty{
 //   		ParameterName: jsii.String("parameterName"),
@@ -52,8 +129,20 @@ package awsquicksight
 //   		NewParameterName: jsii.String("newParameterName"),
 //   	},
 //   	ProjectOperation: &ProjectOperationProperty{
+//   		Alias: jsii.String("alias"),
 //   		ProjectedColumns: []*string{
 //   			jsii.String("projectedColumns"),
+//   		},
+//   		Source: &TransformOperationSourceProperty{
+//   			TransformOperationId: jsii.String("transformOperationId"),
+//
+//   			// the properties below are optional
+//   			ColumnIdMappings: []interface{}{
+//   				&DataSetColumnIdMappingProperty{
+//   					SourceColumnId: jsii.String("sourceColumnId"),
+//   					TargetColumnId: jsii.String("targetColumnId"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	RenameColumnOperation: &RenameColumnOperationProperty{

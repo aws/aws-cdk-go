@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,11 +58,11 @@ type NetworkAcl interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the NetworkACL.
 	NetworkAclId() *string
 	// A reference to a NetworkAcl resource.
-	NetworkAclRef() *NetworkAclReference
+	NetworkAclRef() *interfacesawsec2.NetworkAclReference
 	// The VPC ID for this NetworkACL.
 	NetworkAclVpcId() *string
 	// The tree node.
@@ -113,8 +115,8 @@ type jsiiProxy_NetworkAcl struct {
 	jsiiProxy_INetworkAcl
 }
 
-func (j *jsiiProxy_NetworkAcl) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_NetworkAcl) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -133,8 +135,8 @@ func (j *jsiiProxy_NetworkAcl) NetworkAclId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_NetworkAcl) NetworkAclRef() *NetworkAclReference {
-	var returns *NetworkAclReference
+func (j *jsiiProxy_NetworkAcl) NetworkAclRef() *interfacesawsec2.NetworkAclReference {
+	var returns *interfacesawsec2.NetworkAclReference
 	_jsii_.Get(
 		j,
 		"networkAclRef",

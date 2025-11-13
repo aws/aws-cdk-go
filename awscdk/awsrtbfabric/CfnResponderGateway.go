@@ -6,10 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrtbfabric/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrtbfabric"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::RTBFabric::ResponderGateway Resource Type.
+// Creates a responder gateway.
+//
+// > A domain name or managed endpoint is required.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -63,8 +67,8 @@ import (
 //
 type CfnResponderGateway interface {
 	awscdk.CfnResource
-	IResponderGatewayRef
 	awscdk.IInspectable
+	interfacesawsrtbfabric.IResponderGatewayRef
 	awscdk.ITaggableV2
 	AttrArn() *string
 	AttrCreatedTimestamp() *string
@@ -82,11 +86,13 @@ type CfnResponderGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// An optional description for the responder gateway.
 	Description() *string
 	SetDescription(val *string)
+	// The domain name for the responder gateway.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -97,12 +103,15 @@ type CfnResponderGateway interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration() interface{}
 	SetManagedEndpointConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// The networking port to use.
 	Port() *float64
 	SetPort(val *float64)
+	// The networking protocol to use.
 	Protocol() *string
 	SetProtocol(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -111,20 +120,21 @@ type CfnResponderGateway interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResponderGateway resource.
-	ResponderGatewayRef() *ResponderGatewayReference
-	// The ID of one or more security groups in order to create a gateway.
+	ResponderGatewayRef() *interfacesawsrtbfabric.ResponderGatewayReference
+	// The unique identifiers of the security groups.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ID of one or more subnets in order to create a gateway.
+	// The unique identifiers of the subnets.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// Tags to assign to the Responder Gateway.
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The configuration of the trust store.
 	TrustStoreConfiguration() interface{}
 	SetTrustStoreConfiguration(val interface{})
 	// Deprecated.
@@ -140,6 +150,7 @@ type CfnResponderGateway interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The unique identifier of the Virtual Private Cloud (VPC).
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -272,8 +283,8 @@ type CfnResponderGateway interface {
 // The jsii proxy struct for CfnResponderGateway
 type jsiiProxy_CfnResponderGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResponderGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrtbfabricIResponderGatewayRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -397,8 +408,8 @@ func (j *jsiiProxy_CfnResponderGateway) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResponderGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResponderGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -467,8 +478,8 @@ func (j *jsiiProxy_CfnResponderGateway) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResponderGateway) ResponderGatewayRef() *ResponderGatewayReference {
-	var returns *ResponderGatewayReference
+func (j *jsiiProxy_CfnResponderGateway) ResponderGatewayRef() *interfacesawsrtbfabric.ResponderGatewayReference {
+	var returns *interfacesawsrtbfabric.ResponderGatewayReference
 	_jsii_.Get(
 		j,
 		"responderGatewayRef",
@@ -558,6 +569,7 @@ func (j *jsiiProxy_CfnResponderGateway) VpcId() *string {
 }
 
 
+// Create a new `AWS::RTBFabric::ResponderGateway`.
 func NewCfnResponderGateway(scope constructs.Construct, id *string, props *CfnResponderGatewayProps) CfnResponderGateway {
 	_init_.Initialize()
 
@@ -575,6 +587,7 @@ func NewCfnResponderGateway(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
+// Create a new `AWS::RTBFabric::ResponderGateway`.
 func NewCfnResponderGateway_Override(c CfnResponderGateway, scope constructs.Construct, id *string, props *CfnResponderGatewayProps) {
 	_init_.Initialize()
 

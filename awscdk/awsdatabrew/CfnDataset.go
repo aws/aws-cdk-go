@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatabrew/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatabrew"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -136,8 +138,8 @@ import (
 //
 type CfnDataset interface {
 	awscdk.CfnResource
-	IDatasetRef
 	awscdk.IInspectable
+	interfacesawsdatabrew.IDatasetRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -149,8 +151,8 @@ type CfnDataset interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a Dataset resource.
-	DatasetRef() *DatasetReference
-	Env() *awscdk.ResourceEnvironment
+	DatasetRef() *interfacesawsdatabrew.DatasetReference
+	Env() *interfaces.ResourceEnvironment
 	// The file format of a dataset that is created from an Amazon S3 file or folder.
 	Format() *string
 	SetFormat(val *string)
@@ -338,8 +340,8 @@ type CfnDataset interface {
 // The jsii proxy struct for CfnDataset
 type jsiiProxy_CfnDataset struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatasetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatabrewIDatasetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnDataset) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) DatasetRef() *DatasetReference {
-	var returns *DatasetReference
+func (j *jsiiProxy_CfnDataset) DatasetRef() *interfacesawsdatabrew.DatasetReference {
+	var returns *interfacesawsdatabrew.DatasetReference
 	_jsii_.Get(
 		j,
 		"datasetRef",
@@ -393,8 +395,8 @@ func (j *jsiiProxy_CfnDataset) DatasetRef() *DatasetReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataset) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -544,6 +546,7 @@ func (j *jsiiProxy_CfnDataset) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataBrew::Dataset`.
 func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
 	_init_.Initialize()
 
@@ -561,6 +564,7 @@ func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProp
 	return &j
 }
 
+// Create a new `AWS::DataBrew::Dataset`.
 func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string, props *CfnDatasetProps) {
 	_init_.Initialize()
 

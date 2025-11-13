@@ -5,6 +5,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -12,7 +14,7 @@ import (
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html
 //
 type IPolicy interface {
-	IPolicyRef
+	interfacesawsiam.IPolicyRef
 	awscdk.IResource
 	// The name of this policy.
 	PolicyName() *string
@@ -20,7 +22,7 @@ type IPolicy interface {
 
 // The jsii proxy for IPolicy
 type jsiiProxy_IPolicy struct {
-	jsiiProxy_IPolicyRef
+	internal.Type__interfacesawsiamIPolicyRef
 	internal.Type__awscdkIResource
 }
 
@@ -45,8 +47,8 @@ func (j *jsiiProxy_IPolicy) PolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -65,8 +67,8 @@ func (j *jsiiProxy_IPolicy) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IPolicy) PolicyRef() *PolicyReference {
-	var returns *PolicyReference
+func (j *jsiiProxy_IPolicy) PolicyRef() *interfacesawsiam.PolicyReference {
+	var returns *interfacesawsiam.PolicyReference
 	_jsii_.Get(
 		j,
 		"policyRef",

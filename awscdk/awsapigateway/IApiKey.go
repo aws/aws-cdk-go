@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // API keys are alphanumeric string values that you distribute to app developer customers to grant access to your API.
 type IApiKey interface {
-	IApiKeyRef
+	interfacesawsapigateway.IApiKeyRef
 	awscdk.IResource
 	// The API key ARN.
 	KeyArn() *string
@@ -20,7 +22,7 @@ type IApiKey interface {
 
 // The jsii proxy for IApiKey
 type jsiiProxy_IApiKey struct {
-	jsiiProxy_IApiKeyRef
+	internal.Type__interfacesawsapigatewayIApiKeyRef
 	internal.Type__awscdkIResource
 }
 
@@ -55,8 +57,8 @@ func (j *jsiiProxy_IApiKey) KeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IApiKey) ApiKeyRef() *ApiKeyReference {
-	var returns *ApiKeyReference
+func (j *jsiiProxy_IApiKey) ApiKeyRef() *interfacesawsapigateway.ApiKeyReference {
+	var returns *interfacesawsapigateway.ApiKeyReference
 	_jsii_.Get(
 		j,
 		"apiKeyRef",
@@ -65,8 +67,8 @@ func (j *jsiiProxy_IApiKey) ApiKeyRef() *ApiKeyReference {
 	return returns
 }
 
-func (j *jsiiProxy_IApiKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IApiKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

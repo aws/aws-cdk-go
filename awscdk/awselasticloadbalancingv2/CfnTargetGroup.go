@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,8 +67,8 @@ import (
 //
 type CfnTargetGroup interface {
 	awscdk.CfnResource
-	ITargetGroupRef
 	awscdk.IInspectable
+	interfacesawselasticloadbalancingv2.ITargetGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target group.
 	AttrLoadBalancerArns() *[]*string
@@ -89,7 +91,7 @@ type CfnTargetGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether health checks are enabled.
 	HealthCheckEnabled() interface{}
 	SetHealthCheckEnabled(val interface{})
@@ -159,7 +161,7 @@ type CfnTargetGroup interface {
 	TargetGroupAttributes() interface{}
 	SetTargetGroupAttributes(val interface{})
 	// A reference to a TargetGroup resource.
-	TargetGroupRef() *TargetGroupReference
+	TargetGroupRef() *interfacesawselasticloadbalancingv2.TargetGroupReference
 	// The targets.
 	Targets() interface{}
 	SetTargets(val interface{})
@@ -315,8 +317,8 @@ type CfnTargetGroup interface {
 // The jsii proxy struct for CfnTargetGroup
 type jsiiProxy_CfnTargetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITargetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticloadbalancingv2ITargetGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnTargetGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTargetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTargetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -610,8 +612,8 @@ func (j *jsiiProxy_CfnTargetGroup) TargetGroupAttributes() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTargetGroup) TargetGroupRef() *TargetGroupReference {
-	var returns *TargetGroupReference
+func (j *jsiiProxy_CfnTargetGroup) TargetGroupRef() *interfacesawselasticloadbalancingv2.TargetGroupReference {
+	var returns *interfacesawselasticloadbalancingv2.TargetGroupReference
 	_jsii_.Get(
 		j,
 		"targetGroupRef",
@@ -681,6 +683,7 @@ func (j *jsiiProxy_CfnTargetGroup) VpcId() *string {
 }
 
 
+// Create a new `AWS::ElasticLoadBalancingV2::TargetGroup`.
 func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetGroupProps) CfnTargetGroup {
 	_init_.Initialize()
 
@@ -698,6 +701,7 @@ func NewCfnTargetGroup(scope constructs.Construct, id *string, props *CfnTargetG
 	return &j
 }
 
+// Create a new `AWS::ElasticLoadBalancingV2::TargetGroup`.
 func NewCfnTargetGroup_Override(c CfnTargetGroup, scope constructs.Construct, id *string, props *CfnTargetGroupProps) {
 	_init_.Initialize()
 

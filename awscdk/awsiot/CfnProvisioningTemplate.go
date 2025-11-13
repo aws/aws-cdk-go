@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnProvisioningTemplate interface {
 	awscdk.CfnResource
-	IProvisioningTemplateRef
 	awscdk.IInspectable
+	interfacesawsiot.IProvisioningTemplateRef
 	awscdk.ITaggable
 	// The ARN that identifies the provisioning template.
 	AttrTemplateArn() *string
@@ -61,7 +63,7 @@ type CfnProvisioningTemplate interface {
 	// True to enable the fleet provisioning template, otherwise false.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,7 +83,7 @@ type CfnProvisioningTemplate interface {
 	ProvisioningRoleArn() *string
 	SetProvisioningRoleArn(val *string)
 	// A reference to a ProvisioningTemplate resource.
-	ProvisioningTemplateRef() *ProvisioningTemplateReference
+	ProvisioningTemplateRef() *interfacesawsiot.ProvisioningTemplateReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -248,8 +250,8 @@ type CfnProvisioningTemplate interface {
 // The jsii proxy struct for CfnProvisioningTemplate
 type jsiiProxy_CfnProvisioningTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProvisioningTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIProvisioningTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnProvisioningTemplate) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProvisioningTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProvisioningTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -373,8 +375,8 @@ func (j *jsiiProxy_CfnProvisioningTemplate) ProvisioningRoleArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProvisioningTemplate) ProvisioningTemplateRef() *ProvisioningTemplateReference {
-	var returns *ProvisioningTemplateReference
+func (j *jsiiProxy_CfnProvisioningTemplate) ProvisioningTemplateRef() *interfacesawsiot.ProvisioningTemplateReference {
+	var returns *interfacesawsiot.ProvisioningTemplateReference
 	_jsii_.Get(
 		j,
 		"provisioningTemplateRef",
@@ -474,6 +476,7 @@ func (j *jsiiProxy_CfnProvisioningTemplate) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::IoT::ProvisioningTemplate`.
 func NewCfnProvisioningTemplate(scope constructs.Construct, id *string, props *CfnProvisioningTemplateProps) CfnProvisioningTemplate {
 	_init_.Initialize()
 
@@ -491,6 +494,7 @@ func NewCfnProvisioningTemplate(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::IoT::ProvisioningTemplate`.
 func NewCfnProvisioningTemplate_Override(c CfnProvisioningTemplate, scope constructs.Construct, id *string, props *CfnProvisioningTemplateProps) {
 	_init_.Initialize()
 
@@ -581,13 +585,13 @@ func (j *jsiiProxy_CfnProvisioningTemplate)SetTemplateType(val *string) {
 }
 
 // Creates a new IProvisioningTemplateRef from a templateName.
-func CfnProvisioningTemplate_FromTemplateName(scope constructs.Construct, id *string, templateName *string) IProvisioningTemplateRef {
+func CfnProvisioningTemplate_FromTemplateName(scope constructs.Construct, id *string, templateName *string) interfacesawsiot.IProvisioningTemplateRef {
 	_init_.Initialize()
 
 	if err := validateCfnProvisioningTemplate_FromTemplateNameParameters(scope, id, templateName); err != nil {
 		panic(err)
 	}
-	var returns IProvisioningTemplateRef
+	var returns interfacesawsiot.IProvisioningTemplateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnProvisioningTemplate",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappflow/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappflow"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -359,8 +361,8 @@ import (
 //
 type CfnFlow interface {
 	awscdk.CfnResource
-	IFlowRef
 	awscdk.IInspectable
+	interfacesawsappflow.IFlowRef
 	awscdk.ITaggable
 	// The flow's Amazon Resource Name (ARN).
 	AttrFlowArn() *string
@@ -379,12 +381,12 @@ type CfnFlow interface {
 	// The configuration that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigList() interface{}
 	SetDestinationFlowConfigList(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The specified name of the flow.
 	FlowName() *string
 	SetFlowName(val *string)
 	// A reference to a Flow resource.
-	FlowRef() *FlowReference
+	FlowRef() *interfacesawsappflow.FlowReference
 	// Sets the status of the flow.
 	//
 	// You can specify one of the following values:.
@@ -574,8 +576,8 @@ type CfnFlow interface {
 // The jsii proxy struct for CfnFlow
 type jsiiProxy_CfnFlow struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappflowIFlowRef
 	internal.Type__awscdkITaggable
 }
 
@@ -649,8 +651,8 @@ func (j *jsiiProxy_CfnFlow) DestinationFlowConfigList() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlow) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -669,8 +671,8 @@ func (j *jsiiProxy_CfnFlow) FlowName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) FlowRef() *FlowReference {
-	var returns *FlowReference
+func (j *jsiiProxy_CfnFlow) FlowRef() *interfacesawsappflow.FlowReference {
+	var returns *interfacesawsappflow.FlowReference
 	_jsii_.Get(
 		j,
 		"flowRef",
@@ -820,6 +822,7 @@ func (j *jsiiProxy_CfnFlow) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppFlow::Flow`.
 func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) CfnFlow {
 	_init_.Initialize()
 
@@ -837,6 +840,7 @@ func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::AppFlow::Flow`.
 func NewCfnFlow_Override(c CfnFlow, scope constructs.Construct, id *string, props *CfnFlowProps) {
 	_init_.Initialize()
 
@@ -949,13 +953,13 @@ func (j *jsiiProxy_CfnFlow)SetTriggerConfig(val interface{}) {
 }
 
 // Creates a new IFlowRef from an ARN.
-func CfnFlow_FromFlowArn(scope constructs.Construct, id *string, arn *string) IFlowRef {
+func CfnFlow_FromFlowArn(scope constructs.Construct, id *string, arn *string) interfacesawsappflow.IFlowRef {
 	_init_.Initialize()
 
 	if err := validateCfnFlow_FromFlowArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IFlowRef
+	var returns interfacesawsappflow.IFlowRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appflow.CfnFlow",
@@ -968,13 +972,13 @@ func CfnFlow_FromFlowArn(scope constructs.Construct, id *string, arn *string) IF
 }
 
 // Creates a new IFlowRef from a flowName.
-func CfnFlow_FromFlowName(scope constructs.Construct, id *string, flowName *string) IFlowRef {
+func CfnFlow_FromFlowName(scope constructs.Construct, id *string, flowName *string) interfacesawsappflow.IFlowRef {
 	_init_.Initialize()
 
 	if err := validateCfnFlow_FromFlowNameParameters(scope, id, flowName); err != nil {
 		panic(err)
 	}
-	var returns IFlowRef
+	var returns interfacesawsappflow.IFlowRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appflow.CfnFlow",

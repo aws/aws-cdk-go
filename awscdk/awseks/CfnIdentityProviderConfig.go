@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnIdentityProviderConfig interface {
 	awscdk.CfnResource
-	IIdentityProviderConfigRef
 	awscdk.IInspectable
+	interfacesawseks.IIdentityProviderConfigRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) associated with the identity provider config.
 	AttrIdentityProviderConfigArn() *string
@@ -69,12 +71,12 @@ type CfnIdentityProviderConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the configuration.
 	IdentityProviderConfigName() *string
 	SetIdentityProviderConfigName(val *string)
 	// A reference to a IdentityProviderConfig resource.
-	IdentityProviderConfigRef() *IdentityProviderConfigReference
+	IdentityProviderConfigRef() *interfacesawseks.IdentityProviderConfigReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -250,8 +252,8 @@ type CfnIdentityProviderConfig interface {
 // The jsii proxy struct for CfnIdentityProviderConfig
 type jsiiProxy_CfnIdentityProviderConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdentityProviderConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseksIIdentityProviderConfigRef
 	internal.Type__awscdkITaggable
 }
 
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityProviderConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdentityProviderConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) IdentityProviderConfigName() *stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityProviderConfig) IdentityProviderConfigRef() *IdentityProviderConfigReference {
-	var returns *IdentityProviderConfigReference
+func (j *jsiiProxy_CfnIdentityProviderConfig) IdentityProviderConfigRef() *interfacesawseks.IdentityProviderConfigReference {
+	var returns *interfacesawseks.IdentityProviderConfigReference
 	_jsii_.Get(
 		j,
 		"identityProviderConfigRef",
@@ -446,6 +448,7 @@ func (j *jsiiProxy_CfnIdentityProviderConfig) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::EKS::IdentityProviderConfig`.
 func NewCfnIdentityProviderConfig(scope constructs.Construct, id *string, props *CfnIdentityProviderConfigProps) CfnIdentityProviderConfig {
 	_init_.Initialize()
 
@@ -463,6 +466,7 @@ func NewCfnIdentityProviderConfig(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::EKS::IdentityProviderConfig`.
 func NewCfnIdentityProviderConfig_Override(c CfnIdentityProviderConfig, scope constructs.Construct, id *string, props *CfnIdentityProviderConfigProps) {
 	_init_.Initialize()
 

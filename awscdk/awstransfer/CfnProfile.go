@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstransfer/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstransfer"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnProfile interface {
 	awscdk.CfnResource
-	IProfileRef
 	awscdk.IInspectable
+	interfacesawstransfer.IProfileRef
 	awscdk.ITaggable
 	// The `As2Id` is the *AS2-name* , as defined in the [RFC 4130](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc4130) . For inbound transfers, this is the `AS2-From` header for the AS2 messages sent from the partner. For outbound connectors, this is the `AS2-To` header for the AS2 messages sent to the partner using the `StartFileTransfer` API operation. This ID cannot include spaces.
 	As2Id() *string
@@ -58,7 +60,7 @@ type CfnProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -72,7 +74,7 @@ type CfnProfile interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Profile resource.
-	ProfileRef() *ProfileReference
+	ProfileRef() *interfacesawstransfer.ProfileReference
 	// Indicates whether to list only `LOCAL` type profiles or only `PARTNER` type profiles.
 	ProfileType() *string
 	SetProfileType(val *string)
@@ -233,8 +235,8 @@ type CfnProfile interface {
 // The jsii proxy struct for CfnProfile
 type jsiiProxy_CfnProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstransferIProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnProfile) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfile) ProfileRef() *ProfileReference {
-	var returns *ProfileReference
+func (j *jsiiProxy_CfnProfile) ProfileRef() *interfacesawstransfer.ProfileReference {
+	var returns *interfacesawstransfer.ProfileReference
 	_jsii_.Get(
 		j,
 		"profileRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnProfile) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Transfer::Profile`.
 func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProps) CfnProfile {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnProfile(scope constructs.Construct, id *string, props *CfnProfileProp
 	return &j
 }
 
+// Create a new `AWS::Transfer::Profile`.
 func NewCfnProfile_Override(c CfnProfile, scope constructs.Construct, id *string, props *CfnProfileProps) {
 	_init_.Initialize()
 
@@ -498,13 +502,13 @@ func (j *jsiiProxy_CfnProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IProfileRef from an ARN.
-func CfnProfile_FromProfileArn(scope constructs.Construct, id *string, arn *string) IProfileRef {
+func CfnProfile_FromProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawstransfer.IProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnProfile_FromProfileArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IProfileRef
+	var returns interfacesawstransfer.IProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_transfer.CfnProfile",
@@ -517,13 +521,13 @@ func CfnProfile_FromProfileArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IProfileRef from a profileId.
-func CfnProfile_FromProfileId(scope constructs.Construct, id *string, profileId *string) IProfileRef {
+func CfnProfile_FromProfileId(scope constructs.Construct, id *string, profileId *string) interfacesawstransfer.IProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnProfile_FromProfileIdParameters(scope, id, profileId); err != nil {
 		panic(err)
 	}
-	var returns IProfileRef
+	var returns interfacesawstransfer.IProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_transfer.CfnProfile",

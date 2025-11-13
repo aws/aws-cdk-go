@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnGlobalNetwork interface {
 	awscdk.CfnResource
-	IGlobalNetworkRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.IGlobalNetworkRef
 	awscdk.ITaggable
 	// The ARN of the global network.
 	//
@@ -58,9 +60,9 @@ type CfnGlobalNetwork interface {
 	// A description of the global network.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a GlobalNetwork resource.
-	GlobalNetworkRef() *GlobalNetworkReference
+	GlobalNetworkRef() *interfacesawsnetworkmanager.GlobalNetworkReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -233,8 +235,8 @@ type CfnGlobalNetwork interface {
 // The jsii proxy struct for CfnGlobalNetwork
 type jsiiProxy_CfnGlobalNetwork struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGlobalNetworkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerIGlobalNetworkRef
 	internal.Type__awscdkITaggable
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnGlobalNetwork) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalNetwork) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGlobalNetwork) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnGlobalNetwork) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalNetwork) GlobalNetworkRef() *GlobalNetworkReference {
-	var returns *GlobalNetworkReference
+func (j *jsiiProxy_CfnGlobalNetwork) GlobalNetworkRef() *interfacesawsnetworkmanager.GlobalNetworkReference {
+	var returns *interfacesawsnetworkmanager.GlobalNetworkReference
 	_jsii_.Get(
 		j,
 		"globalNetworkRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnGlobalNetwork) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::NetworkManager::GlobalNetwork`.
 func NewCfnGlobalNetwork(scope constructs.Construct, id *string, props *CfnGlobalNetworkProps) CfnGlobalNetwork {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnGlobalNetwork(scope constructs.Construct, id *string, props *CfnGloba
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::GlobalNetwork`.
 func NewCfnGlobalNetwork_Override(c CfnGlobalNetwork, scope constructs.Construct, id *string, props *CfnGlobalNetworkProps) {
 	_init_.Initialize()
 

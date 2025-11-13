@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspipes/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspipes"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -406,8 +408,8 @@ import (
 //
 type CfnPipe interface {
 	awscdk.CfnResource
-	IPipeRef
 	awscdk.IInspectable
+	interfacesawspipes.IPipeRef
 	awscdk.ITaggable
 	// The ARN of the pipe.
 	AttrArn() *string
@@ -440,7 +442,7 @@ type CfnPipe interface {
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters() interface{}
 	SetEnrichmentParameters(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
@@ -463,7 +465,7 @@ type CfnPipe interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Pipe resource.
-	PipeRef() *PipeReference
+	PipeRef() *interfacesawspipes.PipeReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -636,8 +638,8 @@ type CfnPipe interface {
 // The jsii proxy struct for CfnPipe
 type jsiiProxy_CfnPipe struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPipeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspipesIPipeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -771,8 +773,8 @@ func (j *jsiiProxy_CfnPipe) EnrichmentParameters() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipe) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPipe) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -831,8 +833,8 @@ func (j *jsiiProxy_CfnPipe) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipe) PipeRef() *PipeReference {
-	var returns *PipeReference
+func (j *jsiiProxy_CfnPipe) PipeRef() *interfacesawspipes.PipeReference {
+	var returns *interfacesawspipes.PipeReference
 	_jsii_.Get(
 		j,
 		"pipeRef",
@@ -952,6 +954,7 @@ func (j *jsiiProxy_CfnPipe) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Pipes::Pipe`.
 func NewCfnPipe(scope constructs.Construct, id *string, props *CfnPipeProps) CfnPipe {
 	_init_.Initialize()
 
@@ -969,6 +972,7 @@ func NewCfnPipe(scope constructs.Construct, id *string, props *CfnPipeProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Pipes::Pipe`.
 func NewCfnPipe_Override(c CfnPipe, scope constructs.Construct, id *string, props *CfnPipeProps) {
 	_init_.Initialize()
 

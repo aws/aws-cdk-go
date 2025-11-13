@@ -93,8 +93,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnHttpNamespace{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IHttpNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIHttpNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -146,8 +146,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnInstance{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInstanceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIInstanceRef)
 			return &j
 		},
 	)
@@ -204,8 +204,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPrivateDnsNamespace{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrivateDnsNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIPrivateDnsNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -274,8 +274,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPublicDnsNamespace{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPublicDnsNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIPublicDnsNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -349,8 +349,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IServiceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIServiceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -484,10 +484,6 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.HttpNamespaceProps",
 		reflect.TypeOf((*HttpNamespaceProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicediscovery.HttpNamespaceReference",
-		reflect.TypeOf((*HttpNamespaceReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_servicediscovery.IHttpNamespace",
 		reflect.TypeOf((*IHttpNamespace)(nil)).Elem(),
@@ -508,21 +504,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicediscovery.IHttpNamespaceRef",
-		reflect.TypeOf((*IHttpNamespaceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "httpNamespaceRef", GoGetter: "HttpNamespaceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IHttpNamespaceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_servicediscovery.IInstance",
 		reflect.TypeOf((*IInstance)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -536,21 +517,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IInstance{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicediscovery.IInstanceRef",
-		reflect.TypeOf((*IInstanceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IInstanceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -593,21 +559,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicediscovery.IPrivateDnsNamespaceRef",
-		reflect.TypeOf((*IPrivateDnsNamespaceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "privateDnsNamespaceRef", GoGetter: "PrivateDnsNamespaceRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPrivateDnsNamespaceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_servicediscovery.IPublicDnsNamespace",
 		reflect.TypeOf((*IPublicDnsNamespace)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -623,21 +574,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IPublicDnsNamespace{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_INamespace)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicediscovery.IPublicDnsNamespaceRef",
-		reflect.TypeOf((*IPublicDnsNamespaceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "publicDnsNamespaceRef", GoGetter: "PublicDnsNamespaceRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPublicDnsNamespaceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -660,21 +596,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicediscovery.IServiceRef",
-		reflect.TypeOf((*IServiceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceRef", GoGetter: "ServiceRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IServiceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -701,10 +622,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInstance)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicediscovery.InstanceReference",
-		reflect.TypeOf((*InstanceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_servicediscovery.IpInstance",
@@ -818,10 +735,6 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.PrivateDnsNamespaceProps",
 		reflect.TypeOf((*PrivateDnsNamespaceProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicediscovery.PrivateDnsNamespaceReference",
-		reflect.TypeOf((*PrivateDnsNamespaceReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespace",
 		reflect.TypeOf((*PublicDnsNamespace)(nil)).Elem(),
@@ -859,10 +772,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespaceProps",
 		reflect.TypeOf((*PublicDnsNamespaceProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespaceReference",
-		reflect.TypeOf((*PublicDnsNamespaceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_servicediscovery.RoutingPolicy",
@@ -911,9 +820,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_servicediscovery.ServiceProps",
 		reflect.TypeOf((*ServiceProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicediscovery.ServiceReference",
-		reflect.TypeOf((*ServiceReference)(nil)).Elem(),
 	)
 }

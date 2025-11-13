@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnPlaybackRestrictionPolicy interface {
 	awscdk.CfnResource
-	IPlaybackRestrictionPolicyRef
 	awscdk.IInspectable
+	interfacesawsivs.IPlaybackRestrictionPolicyRef
 	awscdk.ITaggableV2
 	// A list of country codes that control geoblocking restrictions.
 	AllowedCountries() *[]*string
@@ -66,7 +68,7 @@ type CfnPlaybackRestrictionPolicy interface {
 	// Whether channel playback is constrained by the origin site.
 	EnableStrictOriginEnforcement() interface{}
 	SetEnableStrictOriginEnforcement(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -83,7 +85,7 @@ type CfnPlaybackRestrictionPolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PlaybackRestrictionPolicy resource.
-	PlaybackRestrictionPolicyRef() *PlaybackRestrictionPolicyReference
+	PlaybackRestrictionPolicyRef() *interfacesawsivs.PlaybackRestrictionPolicyReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -239,8 +241,8 @@ type CfnPlaybackRestrictionPolicy interface {
 // The jsii proxy struct for CfnPlaybackRestrictionPolicy
 type jsiiProxy_CfnPlaybackRestrictionPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPlaybackRestrictionPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivsIPlaybackRestrictionPolicyRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) EnableStrictOriginEnforcement()
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) PlaybackRestrictionPolicyRef() *PlaybackRestrictionPolicyReference {
-	var returns *PlaybackRestrictionPolicyReference
+func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) PlaybackRestrictionPolicyRef() *interfacesawsivs.PlaybackRestrictionPolicyReference {
+	var returns *interfacesawsivs.PlaybackRestrictionPolicyReference
 	_jsii_.Get(
 		j,
 		"playbackRestrictionPolicyRef",
@@ -435,6 +437,7 @@ func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::IVS::PlaybackRestrictionPolicy`.
 func NewCfnPlaybackRestrictionPolicy(scope constructs.Construct, id *string, props *CfnPlaybackRestrictionPolicyProps) CfnPlaybackRestrictionPolicy {
 	_init_.Initialize()
 
@@ -452,6 +455,7 @@ func NewCfnPlaybackRestrictionPolicy(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::IVS::PlaybackRestrictionPolicy`.
 func NewCfnPlaybackRestrictionPolicy_Override(c CfnPlaybackRestrictionPolicy, scope constructs.Construct, id *string, props *CfnPlaybackRestrictionPolicyProps) {
 	_init_.Initialize()
 

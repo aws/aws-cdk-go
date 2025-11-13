@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,14 +55,14 @@ import (
 //
 type CfnApplication interface {
 	awscdk.CfnResource
-	IApplicationRef
 	awscdk.IInspectable
+	interfacesawsappstream.IApplicationRef
 	awscdk.ITaggable
 	// The app block ARN with which the application should be associated.
 	AppBlockArn() *string
 	SetAppBlockArn(val *string)
 	// A reference to a Application resource.
-	ApplicationRef() *ApplicationReference
+	ApplicationRef() *interfacesawsappstream.ApplicationReference
 	// The ARN of the application.
 	AttrArn() *string
 	// The time when the application was created.
@@ -83,7 +85,7 @@ type CfnApplication interface {
 	// The display name of the application.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The icon S3 location of the application.
 	IconS3Location() interface{}
 	SetIconS3Location(val interface{})
@@ -274,8 +276,8 @@ type CfnApplication interface {
 // The jsii proxy struct for CfnApplication
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIApplicationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnApplication) AppBlockArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) ApplicationRef() *ApplicationReference {
-	var returns *ApplicationReference
+func (j *jsiiProxy_CfnApplication) ApplicationRef() *interfacesawsappstream.ApplicationReference {
+	var returns *interfacesawsappstream.ApplicationReference
 	_jsii_.Get(
 		j,
 		"applicationRef",
@@ -389,8 +391,8 @@ func (j *jsiiProxy_CfnApplication) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -550,6 +552,7 @@ func (j *jsiiProxy_CfnApplication) WorkingDirectory() *string {
 }
 
 
+// Create a new `AWS::AppStream::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -567,6 +570,7 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
+// Create a new `AWS::AppStream::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 

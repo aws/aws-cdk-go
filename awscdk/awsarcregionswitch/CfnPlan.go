@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsarcregionswitch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsarcregionswitch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -238,17 +240,14 @@ import (
 //
 type CfnPlan interface {
 	awscdk.CfnResource
-	IPlanRef
 	awscdk.IInspectable
+	interfacesawsarcregionswitch.IPlanRef
 	awscdk.ITaggableV2
 	// The associated application health alarms for a plan.
 	AssociatedAlarms() interface{}
 	SetAssociatedAlarms(val interface{})
 	// The Amazon Resource Name (ARN) of the plan.
 	AttrArn() *string
-	// Represents a Region switch plan.
-	//
-	// A plan defines the steps required to shift traffic from one AWS Region to another.
 	AttrHealthChecksForPlan() awscdk.IResolvable
 	// The owner of a plan.
 	AttrOwner() *string
@@ -270,7 +269,7 @@ type CfnPlan interface {
 	// The description for a plan.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The execution role for a plan.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
@@ -290,7 +289,7 @@ type CfnPlan interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Plan resource.
-	PlanRef() *PlanReference
+	PlanRef() *interfacesawsarcregionswitch.PlanReference
 	// The primary Region for a plan.
 	PrimaryRegion() *string
 	SetPrimaryRegion(val *string)
@@ -463,8 +462,8 @@ type CfnPlan interface {
 // The jsii proxy struct for CfnPlan
 type jsiiProxy_CfnPlan struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPlanRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsarcregionswitchIPlanRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -598,8 +597,8 @@ func (j *jsiiProxy_CfnPlan) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -648,8 +647,8 @@ func (j *jsiiProxy_CfnPlan) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlan) PlanRef() *PlanReference {
-	var returns *PlanReference
+func (j *jsiiProxy_CfnPlan) PlanRef() *interfacesawsarcregionswitch.PlanReference {
+	var returns *interfacesawsarcregionswitch.PlanReference
 	_jsii_.Get(
 		j,
 		"planRef",
@@ -769,6 +768,7 @@ func (j *jsiiProxy_CfnPlan) Workflows() interface{} {
 }
 
 
+// Create a new `AWS::ARCRegionSwitch::Plan`.
 func NewCfnPlan(scope constructs.Construct, id *string, props *CfnPlanProps) CfnPlan {
 	_init_.Initialize()
 
@@ -786,6 +786,7 @@ func NewCfnPlan(scope constructs.Construct, id *string, props *CfnPlanProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::ARCRegionSwitch::Plan`.
 func NewCfnPlan_Override(c CfnPlan, scope constructs.Construct, id *string, props *CfnPlanProps) {
 	_init_.Initialize()
 

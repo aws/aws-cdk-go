@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnMailManagerAddonInstance interface {
 	awscdk.CfnResource
-	IMailManagerAddonInstanceRef
 	awscdk.IInspectable
+	interfacesawsses.IMailManagerAddonInstanceRef
 	awscdk.ITaggableV2
 	// The subscription ID for the instance.
 	AddonSubscriptionId() *string
@@ -57,7 +59,7 @@ type CfnMailManagerAddonInstance interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnMailManagerAddonInstance interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MailManagerAddonInstance resource.
-	MailManagerAddonInstanceRef() *MailManagerAddonInstanceReference
+	MailManagerAddonInstanceRef() *interfacesawsses.MailManagerAddonInstanceReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -227,8 +229,8 @@ type CfnMailManagerAddonInstance interface {
 // The jsii proxy struct for CfnMailManagerAddonInstance
 type jsiiProxy_CfnMailManagerAddonInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMailManagerAddonInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIMailManagerAddonInstanceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnMailManagerAddonInstance) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerAddonInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMailManagerAddonInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnMailManagerAddonInstance) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerAddonInstance) MailManagerAddonInstanceRef() *MailManagerAddonInstanceReference {
-	var returns *MailManagerAddonInstanceReference
+func (j *jsiiProxy_CfnMailManagerAddonInstance) MailManagerAddonInstanceRef() *interfacesawsses.MailManagerAddonInstanceReference {
+	var returns *interfacesawsses.MailManagerAddonInstanceReference
 	_jsii_.Get(
 		j,
 		"mailManagerAddonInstanceRef",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnMailManagerAddonInstance) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::SES::MailManagerAddonInstance`.
 func NewCfnMailManagerAddonInstance(scope constructs.Construct, id *string, props *CfnMailManagerAddonInstanceProps) CfnMailManagerAddonInstance {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnMailManagerAddonInstance(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::SES::MailManagerAddonInstance`.
 func NewCfnMailManagerAddonInstance_Override(c CfnMailManagerAddonInstance, scope constructs.Construct, id *string, props *CfnMailManagerAddonInstanceProps) {
 	_init_.Initialize()
 
@@ -463,13 +467,13 @@ func (j *jsiiProxy_CfnMailManagerAddonInstance)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMailManagerAddonInstanceRef from a addonInstanceId.
-func CfnMailManagerAddonInstance_FromAddonInstanceId(scope constructs.Construct, id *string, addonInstanceId *string) IMailManagerAddonInstanceRef {
+func CfnMailManagerAddonInstance_FromAddonInstanceId(scope constructs.Construct, id *string, addonInstanceId *string) interfacesawsses.IMailManagerAddonInstanceRef {
 	_init_.Initialize()
 
 	if err := validateCfnMailManagerAddonInstance_FromAddonInstanceIdParameters(scope, id, addonInstanceId); err != nil {
 		panic(err)
 	}
-	var returns IMailManagerAddonInstanceRef
+	var returns interfacesawsses.IMailManagerAddonInstanceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerAddonInstance",

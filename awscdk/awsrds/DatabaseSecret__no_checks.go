@@ -24,6 +24,10 @@ func (d *jsiiProxy_DatabaseSecret) validateAttachParameters(target awssecretsman
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseSecret) validateCfnDynamicReferenceKeyParameters(options *awscdk.SecretsManagerSecretOptions) error {
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseSecret) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

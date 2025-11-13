@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,7 +42,7 @@ type CodeSigningConfig interface {
 	// The id of Code Signing Config.
 	CodeSigningConfigId() *string
 	// A reference to a CodeSigningConfig resource.
-	CodeSigningConfigRef() *CodeSigningConfigReference
+	CodeSigningConfigRef() *interfacesawslambda.CodeSigningConfigReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -50,7 +52,7 @@ type CodeSigningConfig interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -117,8 +119,8 @@ func (j *jsiiProxy_CodeSigningConfig) CodeSigningConfigId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CodeSigningConfig) CodeSigningConfigRef() *CodeSigningConfigReference {
-	var returns *CodeSigningConfigReference
+func (j *jsiiProxy_CodeSigningConfig) CodeSigningConfigRef() *interfacesawslambda.CodeSigningConfigReference {
+	var returns *interfacesawslambda.CodeSigningConfigReference
 	_jsii_.Get(
 		j,
 		"codeSigningConfigRef",
@@ -127,8 +129,8 @@ func (j *jsiiProxy_CodeSigningConfig) CodeSigningConfigRef() *CodeSigningConfigR
 	return returns
 }
 
-func (j *jsiiProxy_CodeSigningConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CodeSigningConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

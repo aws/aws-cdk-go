@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,8 +55,8 @@ import (
 //
 type CfnLocationHDFS interface {
 	awscdk.CfnResource
-	ILocationHDFSRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationHDFSRef
 	awscdk.ITaggable
 	// The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.
 	AgentArns() *[]*string
@@ -78,7 +80,7 @@ type CfnLocationHDFS interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys.
 	KerberosKeytab() *string
 	SetKerberosKeytab(val *string)
@@ -92,7 +94,7 @@ type CfnLocationHDFS interface {
 	KmsKeyProviderUri() *string
 	SetKmsKeyProviderUri(val *string)
 	// A reference to a LocationHDFS resource.
-	LocationHdfsRef() *LocationHDFSReference
+	LocationHdfsRef() *interfacesawsdatasync.LocationHDFSReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -277,8 +279,8 @@ type CfnLocationHDFS interface {
 // The jsii proxy struct for CfnLocationHDFS
 type jsiiProxy_CfnLocationHDFS struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationHDFSRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationHDFSRef
 	internal.Type__awscdkITaggable
 }
 
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnLocationHDFS) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationHDFS) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationHDFS) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnLocationHDFS) KmsKeyProviderUri() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationHDFS) LocationHdfsRef() *LocationHDFSReference {
-	var returns *LocationHDFSReference
+func (j *jsiiProxy_CfnLocationHDFS) LocationHdfsRef() *interfacesawsdatasync.LocationHDFSReference {
+	var returns *interfacesawsdatasync.LocationHDFSReference
 	_jsii_.Get(
 		j,
 		"locationHdfsRef",
@@ -563,6 +565,7 @@ func (j *jsiiProxy_CfnLocationHDFS) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::DataSync::LocationHDFS`.
 func NewCfnLocationHDFS(scope constructs.Construct, id *string, props *CfnLocationHDFSProps) CfnLocationHDFS {
 	_init_.Initialize()
 
@@ -580,6 +583,7 @@ func NewCfnLocationHDFS(scope constructs.Construct, id *string, props *CfnLocati
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationHDFS`.
 func NewCfnLocationHDFS_Override(c CfnLocationHDFS, scope constructs.Construct, id *string, props *CfnLocationHDFSProps) {
 	_init_.Initialize()
 

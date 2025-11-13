@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnPublicKey interface {
 	awscdk.CfnResource
-	IPublicKeyRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IPublicKeyRef
 	// The date and time when the public key was uploaded.
 	AttrCreatedTime() *string
 	// The identifier of the public key.
@@ -48,7 +50,7 @@ type CfnPublicKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -65,7 +67,7 @@ type CfnPublicKey interface {
 	PublicKeyConfig() interface{}
 	SetPublicKeyConfig(val interface{})
 	// A reference to a PublicKey resource.
-	PublicKeyRef() *PublicKeyReference
+	PublicKeyRef() *interfacesawscloudfront.PublicKeyReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -218,8 +220,8 @@ type CfnPublicKey interface {
 // The jsii proxy struct for CfnPublicKey
 type jsiiProxy_CfnPublicKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPublicKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIPublicKeyRef
 }
 
 func (j *jsiiProxy_CfnPublicKey) AttrCreatedTime() *string {
@@ -282,8 +284,8 @@ func (j *jsiiProxy_CfnPublicKey) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPublicKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnPublicKey) PublicKeyConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicKey) PublicKeyRef() *PublicKeyReference {
-	var returns *PublicKeyReference
+func (j *jsiiProxy_CfnPublicKey) PublicKeyRef() *interfacesawscloudfront.PublicKeyReference {
+	var returns *interfacesawscloudfront.PublicKeyReference
 	_jsii_.Get(
 		j,
 		"publicKeyRef",
@@ -373,6 +375,7 @@ func (j *jsiiProxy_CfnPublicKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFront::PublicKey`.
 func NewCfnPublicKey(scope constructs.Construct, id *string, props *CfnPublicKeyProps) CfnPublicKey {
 	_init_.Initialize()
 
@@ -390,6 +393,7 @@ func NewCfnPublicKey(scope constructs.Construct, id *string, props *CfnPublicKey
 	return &j
 }
 
+// Create a new `AWS::CloudFront::PublicKey`.
 func NewCfnPublicKey_Override(c CfnPublicKey, scope constructs.Construct, id *string, props *CfnPublicKeyProps) {
 	_init_.Initialize()
 

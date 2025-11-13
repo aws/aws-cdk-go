@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnResourceSet interface {
 	awscdk.CfnResource
-	IResourceSetRef
 	awscdk.IInspectable
+	interfacesawsfms.IResourceSetRef
 	awscdk.ITaggable
 	// A unique identifier for the resource set.
 	//
@@ -58,7 +60,7 @@ type CfnResourceSet interface {
 	// A description of the resource set.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnResourceSet interface {
 	Resources() *[]*string
 	SetResources(val *[]*string)
 	// A reference to a ResourceSet resource.
-	ResourceSetRef() *ResourceSetReference
+	ResourceSetRef() *interfacesawsfms.ResourceSetReference
 	// Determines the resources that can be associated to the resource set.
 	ResourceTypeList() *[]*string
 	SetResourceTypeList(val *[]*string)
@@ -237,8 +239,8 @@ type CfnResourceSet interface {
 // The jsii proxy struct for CfnResourceSet
 type jsiiProxy_CfnResourceSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfmsIResourceSetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnResourceSet) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnResourceSet) Resources() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceSet) ResourceSetRef() *ResourceSetReference {
-	var returns *ResourceSetReference
+func (j *jsiiProxy_CfnResourceSet) ResourceSetRef() *interfacesawsfms.ResourceSetReference {
+	var returns *interfacesawsfms.ResourceSetReference
 	_jsii_.Get(
 		j,
 		"resourceSetRef",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnResourceSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::FMS::ResourceSet`.
 func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourceSetProps) CfnResourceSet {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourc
 	return &j
 }
 
+// Create a new `AWS::FMS::ResourceSet`.
 func NewCfnResourceSet_Override(c CfnResourceSet, scope constructs.Construct, id *string, props *CfnResourceSetProps) {
 	_init_.Initialize()
 

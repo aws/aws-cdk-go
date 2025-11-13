@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrockagentcore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnRuntimeEndpoint interface {
 	awscdk.CfnResource
-	IRuntimeEndpointRef
 	awscdk.IInspectable
+	interfacesawsbedrockagentcore.IRuntimeEndpointRef
 	awscdk.ITaggableV2
 	// The agent runtime ID.
 	AgentRuntimeId() *string
@@ -77,7 +79,7 @@ type CfnRuntimeEndpoint interface {
 	// Contains information about an agent runtime endpoint.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -99,7 +101,7 @@ type CfnRuntimeEndpoint interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RuntimeEndpoint resource.
-	RuntimeEndpointRef() *RuntimeEndpointReference
+	RuntimeEndpointRef() *interfacesawsbedrockagentcore.RuntimeEndpointReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -250,8 +252,8 @@ type CfnRuntimeEndpoint interface {
 // The jsii proxy struct for CfnRuntimeEndpoint
 type jsiiProxy_CfnRuntimeEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRuntimeEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockagentcoreIRuntimeEndpointRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnRuntimeEndpoint) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuntimeEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRuntimeEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -475,8 +477,8 @@ func (j *jsiiProxy_CfnRuntimeEndpoint) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuntimeEndpoint) RuntimeEndpointRef() *RuntimeEndpointReference {
-	var returns *RuntimeEndpointReference
+func (j *jsiiProxy_CfnRuntimeEndpoint) RuntimeEndpointRef() *interfacesawsbedrockagentcore.RuntimeEndpointReference {
+	var returns *interfacesawsbedrockagentcore.RuntimeEndpointReference
 	_jsii_.Get(
 		j,
 		"runtimeEndpointRef",
@@ -526,6 +528,7 @@ func (j *jsiiProxy_CfnRuntimeEndpoint) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::BedrockAgentCore::RuntimeEndpoint`.
 func NewCfnRuntimeEndpoint(scope constructs.Construct, id *string, props *CfnRuntimeEndpointProps) CfnRuntimeEndpoint {
 	_init_.Initialize()
 
@@ -543,6 +546,7 @@ func NewCfnRuntimeEndpoint(scope constructs.Construct, id *string, props *CfnRun
 	return &j
 }
 
+// Create a new `AWS::BedrockAgentCore::RuntimeEndpoint`.
 func NewCfnRuntimeEndpoint_Override(c CfnRuntimeEndpoint, scope constructs.Construct, id *string, props *CfnRuntimeEndpointProps) {
 	_init_.Initialize()
 

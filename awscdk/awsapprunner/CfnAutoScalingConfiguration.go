@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapprunner/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapprunner"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnAutoScalingConfiguration interface {
 	awscdk.CfnResource
-	IAutoScalingConfigurationRef
 	awscdk.IInspectable
+	interfacesawsapprunner.IAutoScalingConfigurationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of this auto scaling configuration.
 	AttrAutoScalingConfigurationArn() *string
@@ -60,7 +62,7 @@ type CfnAutoScalingConfiguration interface {
 	AutoScalingConfigurationName() *string
 	SetAutoScalingConfigurationName(val *string)
 	// A reference to a AutoScalingConfiguration resource.
-	AutoScalingConfigurationRef() *AutoScalingConfigurationReference
+	AutoScalingConfigurationRef() *interfacesawsapprunner.AutoScalingConfigurationReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -72,7 +74,7 @@ type CfnAutoScalingConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -249,8 +251,8 @@ type CfnAutoScalingConfiguration interface {
 // The jsii proxy struct for CfnAutoScalingConfiguration
 type jsiiProxy_CfnAutoScalingConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAutoScalingConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapprunnerIAutoScalingConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnAutoScalingConfiguration) AutoScalingConfigurationName() *
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutoScalingConfiguration) AutoScalingConfigurationRef() *AutoScalingConfigurationReference {
-	var returns *AutoScalingConfigurationReference
+func (j *jsiiProxy_CfnAutoScalingConfiguration) AutoScalingConfigurationRef() *interfacesawsapprunner.AutoScalingConfigurationReference {
+	var returns *interfacesawsapprunner.AutoScalingConfigurationReference
 	_jsii_.Get(
 		j,
 		"autoScalingConfigurationRef",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnAutoScalingConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutoScalingConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAutoScalingConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -465,6 +467,7 @@ func (j *jsiiProxy_CfnAutoScalingConfiguration) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::AppRunner::AutoScalingConfiguration`.
 func NewCfnAutoScalingConfiguration(scope constructs.Construct, id *string, props *CfnAutoScalingConfigurationProps) CfnAutoScalingConfiguration {
 	_init_.Initialize()
 
@@ -482,6 +485,7 @@ func NewCfnAutoScalingConfiguration(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::AppRunner::AutoScalingConfiguration`.
 func NewCfnAutoScalingConfiguration_Override(c CfnAutoScalingConfiguration, scope constructs.Construct, id *string, props *CfnAutoScalingConfigurationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnPublicRepository interface {
 	awscdk.CfnResource
-	IPublicRepositoryRef
 	awscdk.IInspectable
+	interfacesawsecr.IPublicRepositoryRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::PublicRepository` resource.
 	//
@@ -53,7 +55,7 @@ type CfnPublicRepository interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -67,7 +69,7 @@ type CfnPublicRepository interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PublicRepository resource.
-	PublicRepositoryRef() *PublicRepositoryReference
+	PublicRepositoryRef() *interfacesawsecr.PublicRepositoryReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -234,8 +236,8 @@ type CfnPublicRepository interface {
 // The jsii proxy struct for CfnPublicRepository
 type jsiiProxy_CfnPublicRepository struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPublicRepositoryRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecrIPublicRepositoryRef
 	internal.Type__awscdkITaggable
 }
 
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnPublicRepository) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicRepository) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPublicRepository) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnPublicRepository) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicRepository) PublicRepositoryRef() *PublicRepositoryReference {
-	var returns *PublicRepositoryReference
+func (j *jsiiProxy_CfnPublicRepository) PublicRepositoryRef() *interfacesawsecr.PublicRepositoryReference {
+	var returns *interfacesawsecr.PublicRepositoryReference
 	_jsii_.Get(
 		j,
 		"publicRepositoryRef",
@@ -420,6 +422,7 @@ func (j *jsiiProxy_CfnPublicRepository) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::ECR::PublicRepository`.
 func NewCfnPublicRepository(scope constructs.Construct, id *string, props *CfnPublicRepositoryProps) CfnPublicRepository {
 	_init_.Initialize()
 
@@ -437,6 +440,7 @@ func NewCfnPublicRepository(scope constructs.Construct, id *string, props *CfnPu
 	return &j
 }
 
+// Create a new `AWS::ECR::PublicRepository`.
 func NewCfnPublicRepository_Override(c CfnPublicRepository, scope constructs.Construct, id *string, props *CfnPublicRepositoryProps) {
 	_init_.Initialize()
 
@@ -483,13 +487,13 @@ func (j *jsiiProxy_CfnPublicRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IPublicRepositoryRef from an ARN.
-func CfnPublicRepository_FromPublicRepositoryArn(scope constructs.Construct, id *string, arn *string) IPublicRepositoryRef {
+func CfnPublicRepository_FromPublicRepositoryArn(scope constructs.Construct, id *string, arn *string) interfacesawsecr.IPublicRepositoryRef {
 	_init_.Initialize()
 
 	if err := validateCfnPublicRepository_FromPublicRepositoryArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IPublicRepositoryRef
+	var returns interfacesawsecr.IPublicRepositoryRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecr.CfnPublicRepository",
@@ -502,13 +506,13 @@ func CfnPublicRepository_FromPublicRepositoryArn(scope constructs.Construct, id 
 }
 
 // Creates a new IPublicRepositoryRef from a repositoryName.
-func CfnPublicRepository_FromRepositoryName(scope constructs.Construct, id *string, repositoryName *string) IPublicRepositoryRef {
+func CfnPublicRepository_FromRepositoryName(scope constructs.Construct, id *string, repositoryName *string) interfacesawsecr.IPublicRepositoryRef {
 	_init_.Initialize()
 
 	if err := validateCfnPublicRepository_FromRepositoryNameParameters(scope, id, repositoryName); err != nil {
 		panic(err)
 	}
-	var returns IPublicRepositoryRef
+	var returns interfacesawsecr.IPublicRepositoryRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecr.CfnPublicRepository",

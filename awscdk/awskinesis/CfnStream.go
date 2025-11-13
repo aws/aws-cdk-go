@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesis"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -22,6 +24,7 @@ import (
 //   	DesiredShardLevelMetrics: []*string{
 //   		jsii.String("desiredShardLevelMetrics"),
 //   	},
+//   	MaxRecordSizeInKiB: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	RetentionPeriodHours: jsii.Number(123),
 //   	ShardCount: jsii.Number(123),
@@ -44,8 +47,8 @@ import (
 //
 type CfnStream interface {
 	awscdk.CfnResource
-	IStreamRef
 	awscdk.IInspectable
+	interfacesawskinesis.IStreamRef
 	awscdk.ITaggable
 	// The Amazon resource name (ARN) of the Kinesis stream, such as `arn:aws:kinesis:us-east-2:123456789012:stream/mystream` .
 	AttrArn() *string
@@ -61,7 +64,7 @@ type CfnStream interface {
 	// A list of shard-level metrics in properties to enable enhanced monitoring mode.
 	DesiredShardLevelMetrics() *[]*string
 	SetDesiredShardLevelMetrics(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -72,6 +75,9 @@ type CfnStream interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The maximum record size of a single record in kibibyte (KiB) that you can write to, and read from a stream.
+	MaxRecordSizeInKiB() *float64
+	SetMaxRecordSizeInKiB(val *float64)
 	// The name of the Kinesis stream.
 	Name() *string
 	SetName(val *string)
@@ -99,7 +105,7 @@ type CfnStream interface {
 	StreamModeDetails() interface{}
 	SetStreamModeDetails(val interface{})
 	// A reference to a Stream resource.
-	StreamRef() *StreamReference
+	StreamRef() *interfacesawskinesis.StreamReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
@@ -248,8 +254,8 @@ type CfnStream interface {
 // The jsii proxy struct for CfnStream
 type jsiiProxy_CfnStream struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskinesisIStreamRef
 	internal.Type__awscdkITaggable
 }
 
@@ -313,8 +319,8 @@ func (j *jsiiProxy_CfnStream) DesiredShardLevelMetrics() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStream) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -328,6 +334,16 @@ func (j *jsiiProxy_CfnStream) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStream) MaxRecordSizeInKiB() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxRecordSizeInKiB",
 		&returns,
 	)
 	return returns
@@ -413,8 +429,8 @@ func (j *jsiiProxy_CfnStream) StreamModeDetails() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStream) StreamRef() *StreamReference {
-	var returns *StreamReference
+func (j *jsiiProxy_CfnStream) StreamRef() *interfacesawskinesis.StreamReference {
+	var returns *interfacesawskinesis.StreamReference
 	_jsii_.Get(
 		j,
 		"streamRef",
@@ -464,6 +480,7 @@ func (j *jsiiProxy_CfnStream) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Kinesis::Stream`.
 func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps) CfnStream {
 	_init_.Initialize()
 
@@ -481,6 +498,7 @@ func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps)
 	return &j
 }
 
+// Create a new `AWS::Kinesis::Stream`.
 func NewCfnStream_Override(c CfnStream, scope constructs.Construct, id *string, props *CfnStreamProps) {
 	_init_.Initialize()
 
@@ -495,6 +513,14 @@ func (j *jsiiProxy_CfnStream)SetDesiredShardLevelMetrics(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"desiredShardLevelMetrics",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStream)SetMaxRecordSizeInKiB(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxRecordSizeInKiB",
 		val,
 	)
 }
@@ -557,13 +583,13 @@ func (j *jsiiProxy_CfnStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IStreamRef from an ARN.
-func CfnStream_FromStreamArn(scope constructs.Construct, id *string, arn *string) IStreamRef {
+func CfnStream_FromStreamArn(scope constructs.Construct, id *string, arn *string) interfacesawskinesis.IStreamRef {
 	_init_.Initialize()
 
 	if err := validateCfnStream_FromStreamArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IStreamRef
+	var returns interfacesawskinesis.IStreamRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kinesis.CfnStream",
@@ -576,13 +602,13 @@ func CfnStream_FromStreamArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IStreamRef from a streamName.
-func CfnStream_FromStreamName(scope constructs.Construct, id *string, streamName *string) IStreamRef {
+func CfnStream_FromStreamName(scope constructs.Construct, id *string, streamName *string) interfacesawskinesis.IStreamRef {
 	_init_.Initialize()
 
 	if err := validateCfnStream_FromStreamNameParameters(scope, id, streamName); err != nil {
 		panic(err)
 	}
-	var returns IStreamRef
+	var returns interfacesawskinesis.IStreamRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kinesis.CfnStream",

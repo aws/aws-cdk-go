@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsentityresolution/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsentityresolution"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -77,8 +79,8 @@ import (
 //
 type CfnIdNamespace interface {
 	awscdk.CfnResource
-	IIdNamespaceRef
 	awscdk.IInspectable
+	interfacesawsentityresolution.IIdNamespaceRef
 	awscdk.ITaggableV2
 	// The date and time when the IdNamespace was created.
 	AttrCreatedAt() *string
@@ -100,7 +102,7 @@ type CfnIdNamespace interface {
 	// The description of the ID namespace.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
 	IdMappingWorkflowProperties() interface{}
 	SetIdMappingWorkflowProperties(val interface{})
@@ -108,7 +110,7 @@ type CfnIdNamespace interface {
 	IdNamespaceName() *string
 	SetIdNamespaceName(val *string)
 	// A reference to a IdNamespace resource.
-	IdNamespaceRef() *IdNamespaceReference
+	IdNamespaceRef() *interfacesawsentityresolution.IdNamespaceReference
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig() interface{}
 	SetInputSourceConfig(val interface{})
@@ -287,8 +289,8 @@ type CfnIdNamespace interface {
 // The jsii proxy struct for CfnIdNamespace
 type jsiiProxy_CfnIdNamespace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIdNamespaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsentityresolutionIIdNamespaceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnIdNamespace) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdNamespace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIdNamespace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnIdNamespace) IdNamespaceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdNamespace) IdNamespaceRef() *IdNamespaceReference {
-	var returns *IdNamespaceReference
+func (j *jsiiProxy_CfnIdNamespace) IdNamespaceRef() *interfacesawsentityresolution.IdNamespaceReference {
+	var returns *interfacesawsentityresolution.IdNamespaceReference
 	_jsii_.Get(
 		j,
 		"idNamespaceRef",
@@ -523,6 +525,7 @@ func (j *jsiiProxy_CfnIdNamespace) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EntityResolution::IdNamespace`.
 func NewCfnIdNamespace(scope constructs.Construct, id *string, props *CfnIdNamespaceProps) CfnIdNamespace {
 	_init_.Initialize()
 
@@ -540,6 +543,7 @@ func NewCfnIdNamespace(scope constructs.Construct, id *string, props *CfnIdNames
 	return &j
 }
 
+// Create a new `AWS::EntityResolution::IdNamespace`.
 func NewCfnIdNamespace_Override(c CfnIdNamespace, scope constructs.Construct, id *string, props *CfnIdNamespaceProps) {
 	_init_.Initialize()
 
@@ -622,13 +626,13 @@ func (j *jsiiProxy_CfnIdNamespace)SetType(val *string) {
 }
 
 // Creates a new IIdNamespaceRef from an ARN.
-func CfnIdNamespace_FromIdNamespaceArn(scope constructs.Construct, id *string, arn *string) IIdNamespaceRef {
+func CfnIdNamespace_FromIdNamespaceArn(scope constructs.Construct, id *string, arn *string) interfacesawsentityresolution.IIdNamespaceRef {
 	_init_.Initialize()
 
 	if err := validateCfnIdNamespace_FromIdNamespaceArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IIdNamespaceRef
+	var returns interfacesawsentityresolution.IIdNamespaceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace",
@@ -641,13 +645,13 @@ func CfnIdNamespace_FromIdNamespaceArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IIdNamespaceRef from a idNamespaceName.
-func CfnIdNamespace_FromIdNamespaceName(scope constructs.Construct, id *string, idNamespaceName *string) IIdNamespaceRef {
+func CfnIdNamespace_FromIdNamespaceName(scope constructs.Construct, id *string, idNamespaceName *string) interfacesawsentityresolution.IIdNamespaceRef {
 	_init_.Initialize()
 
 	if err := validateCfnIdNamespace_FromIdNamespaceNameParameters(scope, id, idNamespaceName); err != nil {
 		panic(err)
 	}
-	var returns IIdNamespaceRef
+	var returns interfacesawsentityresolution.IIdNamespaceRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace",

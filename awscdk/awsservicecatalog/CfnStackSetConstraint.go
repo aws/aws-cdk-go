@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnStackSetConstraint interface {
 	awscdk.CfnResource
-	IStackSetConstraintRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.IStackSetConstraintRef
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
@@ -62,7 +64,7 @@ type CfnStackSetConstraint interface {
 	// The description of the constraint.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// ExecutionRole name.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
@@ -100,7 +102,7 @@ type CfnStackSetConstraint interface {
 	StackInstanceControl() *string
 	SetStackInstanceControl(val *string)
 	// A reference to a StackSetConstraint resource.
-	StackSetConstraintRef() *StackSetConstraintReference
+	StackSetConstraintRef() *interfacesawsservicecatalog.StackSetConstraintReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -244,8 +246,8 @@ type CfnStackSetConstraint interface {
 // The jsii proxy struct for CfnStackSetConstraint
 type jsiiProxy_CfnStackSetConstraint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStackSetConstraintRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogIStackSetConstraintRef
 }
 
 func (j *jsiiProxy_CfnStackSetConstraint) AcceptLanguage() *string {
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnStackSetConstraint) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStackSetConstraint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -438,8 +440,8 @@ func (j *jsiiProxy_CfnStackSetConstraint) StackInstanceControl() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) StackSetConstraintRef() *StackSetConstraintReference {
-	var returns *StackSetConstraintReference
+func (j *jsiiProxy_CfnStackSetConstraint) StackSetConstraintRef() *interfacesawsservicecatalog.StackSetConstraintReference {
+	var returns *interfacesawsservicecatalog.StackSetConstraintReference
 	_jsii_.Get(
 		j,
 		"stackSetConstraintRef",
@@ -469,6 +471,7 @@ func (j *jsiiProxy_CfnStackSetConstraint) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::ServiceCatalog::StackSetConstraint`.
 func NewCfnStackSetConstraint(scope constructs.Construct, id *string, props *CfnStackSetConstraintProps) CfnStackSetConstraint {
 	_init_.Initialize()
 
@@ -486,6 +489,7 @@ func NewCfnStackSetConstraint(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::StackSetConstraint`.
 func NewCfnStackSetConstraint_Override(c CfnStackSetConstraint, scope constructs.Construct, id *string, props *CfnStackSetConstraintProps) {
 	_init_.Initialize()
 

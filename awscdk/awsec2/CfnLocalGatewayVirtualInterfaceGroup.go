@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnLocalGatewayVirtualInterfaceGroup interface {
 	awscdk.CfnResource
-	ILocalGatewayVirtualInterfaceGroupRef
 	awscdk.IInspectable
+	interfacesawsec2.ILocalGatewayVirtualInterfaceGroupRef
 	awscdk.ITaggableV2
 	// The current state of the local gateway virtual interface group.
 	AttrConfigurationState() *string
@@ -58,7 +60,7 @@ type CfnLocalGatewayVirtualInterfaceGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP).
 	LocalBgpAsn() *float64
 	SetLocalBgpAsn(val *float64)
@@ -69,7 +71,7 @@ type CfnLocalGatewayVirtualInterfaceGroup interface {
 	LocalGatewayId() *string
 	SetLocalGatewayId(val *string)
 	// A reference to a LocalGatewayVirtualInterfaceGroup resource.
-	LocalGatewayVirtualInterfaceGroupRef() *LocalGatewayVirtualInterfaceGroupReference
+	LocalGatewayVirtualInterfaceGroupRef() *interfacesawsec2.LocalGatewayVirtualInterfaceGroupReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,8 +239,8 @@ type CfnLocalGatewayVirtualInterfaceGroup interface {
 // The jsii proxy struct for CfnLocalGatewayVirtualInterfaceGroup
 type jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocalGatewayVirtualInterfaceGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ILocalGatewayVirtualInterfaceGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) CreationStack() *[]*str
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) LocalGatewayId() *strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) LocalGatewayVirtualInterfaceGroupRef() *LocalGatewayVirtualInterfaceGroupReference {
-	var returns *LocalGatewayVirtualInterfaceGroupReference
+func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) LocalGatewayVirtualInterfaceGroupRef() *interfacesawsec2.LocalGatewayVirtualInterfaceGroupReference {
+	var returns *interfacesawsec2.LocalGatewayVirtualInterfaceGroupReference
 	_jsii_.Get(
 		j,
 		"localGatewayVirtualInterfaceGroupRef",
@@ -463,6 +465,7 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) UpdatedProperties() *ma
 }
 
 
+// Create a new `AWS::EC2::LocalGatewayVirtualInterfaceGroup`.
 func NewCfnLocalGatewayVirtualInterfaceGroup(scope constructs.Construct, id *string, props *CfnLocalGatewayVirtualInterfaceGroupProps) CfnLocalGatewayVirtualInterfaceGroup {
 	_init_.Initialize()
 
@@ -480,6 +483,7 @@ func NewCfnLocalGatewayVirtualInterfaceGroup(scope constructs.Construct, id *str
 	return &j
 }
 
+// Create a new `AWS::EC2::LocalGatewayVirtualInterfaceGroup`.
 func NewCfnLocalGatewayVirtualInterfaceGroup_Override(c CfnLocalGatewayVirtualInterfaceGroup, scope constructs.Construct, id *string, props *CfnLocalGatewayVirtualInterfaceGroupProps) {
 	_init_.Initialize()
 
@@ -529,13 +533,13 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup)SetTags(val *[]*awscdk.C
 }
 
 // Creates a new ILocalGatewayVirtualInterfaceGroupRef from an ARN.
-func CfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupArn(scope constructs.Construct, id *string, arn *string) ILocalGatewayVirtualInterfaceGroupRef {
+func CfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.ILocalGatewayVirtualInterfaceGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ILocalGatewayVirtualInterfaceGroupRef
+	var returns interfacesawsec2.ILocalGatewayVirtualInterfaceGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterfaceGroup",
@@ -548,13 +552,13 @@ func CfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupA
 }
 
 // Creates a new ILocalGatewayVirtualInterfaceGroupRef from a localGatewayVirtualInterfaceGroupId.
-func CfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupId(scope constructs.Construct, id *string, localGatewayVirtualInterfaceGroupId *string) ILocalGatewayVirtualInterfaceGroupRef {
+func CfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupId(scope constructs.Construct, id *string, localGatewayVirtualInterfaceGroupId *string) interfacesawsec2.ILocalGatewayVirtualInterfaceGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupIdParameters(scope, id, localGatewayVirtualInterfaceGroupId); err != nil {
 		panic(err)
 	}
-	var returns ILocalGatewayVirtualInterfaceGroupRef
+	var returns interfacesawsec2.ILocalGatewayVirtualInterfaceGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterfaceGroup",

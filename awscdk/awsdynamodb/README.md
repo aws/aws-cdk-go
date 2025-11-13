@@ -1199,6 +1199,35 @@ table.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 TableV2 doesn’t support creating a replica and adding a resource-based policy to that replica in the same stack update in Regions other than the Region where you deploy the stack update.
 To incorporate a resource-based policy into a replica, you'll need to initially deploy the replica without the policy, followed by a subsequent update to include the desired policy.
 
+### Grant Methods and Resource Policies
+
+Grant methods like `grantReadData()`, `grantWriteData()`, and `grantReadWriteData()` automatically add permissions to resource policies when used with same-account principals (like `AccountRootPrincipal`). This happens transparently:
+
+```go
+// Adds to IAM user's policy (not resource policy)
+var user User
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+})
+
+// Automatically adds to table's resource policy (same account)
+table.GrantReadData(iam.NewAccountRootPrincipal())
+table.GrantReadData(user)
+```
+
+**How it works:**
+
+* **Same-account principals** (AccountRootPrincipal, AccountPrincipal): Grant adds statement to table's resource policy
+* **IAM identities** (User, Role, Group): Grant adds statement to the identity's IAM policy
+* **Resource policy statements**: Automatically use wildcard resources (`*`) to avoid circular dependencies
+
+This behavior follows the same pattern as other AWS services like KMS and S3, where grants intelligently choose between resource policies and identity policies based on the principal type.
+
+**To avoid wildcards in resource policies:** If you need scoped resource ARNs instead of wildcards, use `addToResourcePolicy()` directly with an explicit table name instead of grant methods. See the "Scoped Resource Policies (Advanced)" section above for details.
+
 ## Grants
 
 Using any of the `grant*` methods on an instance of the `TableV2` construct will only apply to the primary table, its indexes, and any associated `encryptionKey`. As an example, `grantReadData` used below will only apply the table in `us-west-2`:

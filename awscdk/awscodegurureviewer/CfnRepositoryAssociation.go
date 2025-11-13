@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodegurureviewer/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodegurureviewer"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnRepositoryAssociation interface {
 	awscdk.CfnResource
-	IRepositoryAssociationRef
 	awscdk.IInspectable
+	interfacesawscodegurureviewer.IRepositoryAssociationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the [`RepositoryAssociation`](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html) object. You can retrieve this ARN by calling `ListRepositories` .
 	AttrAssociationArn() *string
@@ -65,7 +67,7 @@ type CfnRepositoryAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -90,7 +92,7 @@ type CfnRepositoryAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a RepositoryAssociation resource.
-	RepositoryAssociationRef() *RepositoryAssociationReference
+	RepositoryAssociationRef() *interfacesawscodegurureviewer.RepositoryAssociationReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -248,8 +250,8 @@ type CfnRepositoryAssociation interface {
 // The jsii proxy struct for CfnRepositoryAssociation
 type jsiiProxy_CfnRepositoryAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRepositoryAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodegurureviewerIRepositoryAssociationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnRepositoryAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepositoryAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRepositoryAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnRepositoryAssociation) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepositoryAssociation) RepositoryAssociationRef() *RepositoryAssociationReference {
-	var returns *RepositoryAssociationReference
+func (j *jsiiProxy_CfnRepositoryAssociation) RepositoryAssociationRef() *interfacesawscodegurureviewer.RepositoryAssociationReference {
+	var returns *interfacesawscodegurureviewer.RepositoryAssociationReference
 	_jsii_.Get(
 		j,
 		"repositoryAssociationRef",
@@ -454,6 +456,7 @@ func (j *jsiiProxy_CfnRepositoryAssociation) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::CodeGuruReviewer::RepositoryAssociation`.
 func NewCfnRepositoryAssociation(scope constructs.Construct, id *string, props *CfnRepositoryAssociationProps) CfnRepositoryAssociation {
 	_init_.Initialize()
 
@@ -471,6 +474,7 @@ func NewCfnRepositoryAssociation(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::CodeGuruReviewer::RepositoryAssociation`.
 func NewCfnRepositoryAssociation_Override(c CfnRepositoryAssociation, scope constructs.Construct, id *string, props *CfnRepositoryAssociationProps) {
 	_init_.Initialize()
 

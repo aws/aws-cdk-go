@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnTrustStoreRevocation interface {
 	awscdk.CfnResource
-	ITrustStoreRevocationRef
 	awscdk.IInspectable
+	interfacesawselasticloadbalancingv2.ITrustStoreRevocationRef
 	// The revocation ID of the revocation file.
 	AttrRevocationId() *float64
 	// Information about the revocation file in the trust store.
@@ -51,7 +53,7 @@ type CfnTrustStoreRevocation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,7 +82,7 @@ type CfnTrustStoreRevocation interface {
 	TrustStoreArn() *string
 	SetTrustStoreArn(val *string)
 	// A reference to a TrustStoreRevocation resource.
-	TrustStoreRevocationRef() *TrustStoreRevocationReference
+	TrustStoreRevocationRef() *interfacesawselasticloadbalancingv2.TrustStoreRevocationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,8 +226,8 @@ type CfnTrustStoreRevocation interface {
 // The jsii proxy struct for CfnTrustStoreRevocation
 type jsiiProxy_CfnTrustStoreRevocation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrustStoreRevocationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticloadbalancingv2ITrustStoreRevocationRef
 }
 
 func (j *jsiiProxy_CfnTrustStoreRevocation) AttrRevocationId() *float64 {
@@ -288,8 +290,8 @@ func (j *jsiiProxy_CfnTrustStoreRevocation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrustStoreRevocation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrustStoreRevocation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnTrustStoreRevocation) TrustStoreArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrustStoreRevocation) TrustStoreRevocationRef() *TrustStoreRevocationReference {
-	var returns *TrustStoreRevocationReference
+func (j *jsiiProxy_CfnTrustStoreRevocation) TrustStoreRevocationRef() *interfacesawselasticloadbalancingv2.TrustStoreRevocationReference {
+	var returns *interfacesawselasticloadbalancingv2.TrustStoreRevocationReference
 	_jsii_.Get(
 		j,
 		"trustStoreRevocationRef",
@@ -389,6 +391,7 @@ func (j *jsiiProxy_CfnTrustStoreRevocation) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::ElasticLoadBalancingV2::TrustStoreRevocation`.
 func NewCfnTrustStoreRevocation(scope constructs.Construct, id *string, props *CfnTrustStoreRevocationProps) CfnTrustStoreRevocation {
 	_init_.Initialize()
 
@@ -406,6 +409,7 @@ func NewCfnTrustStoreRevocation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::ElasticLoadBalancingV2::TrustStoreRevocation`.
 func NewCfnTrustStoreRevocation_Override(c CfnTrustStoreRevocation, scope constructs.Construct, id *string, props *CfnTrustStoreRevocationProps) {
 	_init_.Initialize()
 

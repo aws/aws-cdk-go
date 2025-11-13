@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnSchedulingPolicy interface {
 	awscdk.CfnResource
-	ISchedulingPolicyRef
 	awscdk.IInspectable
+	interfacesawsbatch.ISchedulingPolicyRef
 	awscdk.ITaggable
 	// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
 	AttrArn() *string
@@ -53,7 +55,7 @@ type CfnSchedulingPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The fair-share scheduling policy details.
 	FairsharePolicy() interface{}
 	SetFairsharePolicy(val interface{})
@@ -78,7 +80,7 @@ type CfnSchedulingPolicy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SchedulingPolicy resource.
-	SchedulingPolicyRef() *SchedulingPolicyReference
+	SchedulingPolicyRef() *interfacesawsbatch.SchedulingPolicyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -231,8 +233,8 @@ type CfnSchedulingPolicy interface {
 // The jsii proxy struct for CfnSchedulingPolicy
 type jsiiProxy_CfnSchedulingPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISchedulingPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbatchISchedulingPolicyRef
 	internal.Type__awscdkITaggable
 }
 
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnSchedulingPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchedulingPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSchedulingPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnSchedulingPolicy) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchedulingPolicy) SchedulingPolicyRef() *SchedulingPolicyReference {
-	var returns *SchedulingPolicyReference
+func (j *jsiiProxy_CfnSchedulingPolicy) SchedulingPolicyRef() *interfacesawsbatch.SchedulingPolicyReference {
+	var returns *interfacesawsbatch.SchedulingPolicyReference
 	_jsii_.Get(
 		j,
 		"schedulingPolicyRef",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnSchedulingPolicy) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Batch::SchedulingPolicy`.
 func NewCfnSchedulingPolicy(scope constructs.Construct, id *string, props *CfnSchedulingPolicyProps) CfnSchedulingPolicy {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnSchedulingPolicy(scope constructs.Construct, id *string, props *CfnSc
 	return &j
 }
 
+// Create a new `AWS::Batch::SchedulingPolicy`.
 func NewCfnSchedulingPolicy_Override(c CfnSchedulingPolicy, scope constructs.Construct, id *string, props *CfnSchedulingPolicyProps) {
 	_init_.Initialize()
 

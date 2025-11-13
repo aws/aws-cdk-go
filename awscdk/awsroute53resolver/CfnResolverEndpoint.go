@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,8 +59,8 @@ import (
 //
 type CfnResolverEndpoint interface {
 	awscdk.CfnResource
-	IResolverEndpointRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IResolverEndpointRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the resolver endpoint, such as `arn:aws:route53resolver:us-east-1:123456789012:resolver-endpoint/resolver-endpoint-a1bzhi` .
 	AttrArn() *string
@@ -87,7 +89,7 @@ type CfnResolverEndpoint interface {
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:.
 	Direction() *string
 	SetDirection(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
 	IpAddresses() interface{}
 	SetIpAddresses(val interface{})
@@ -123,7 +125,7 @@ type CfnResolverEndpoint interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResolverEndpoint resource.
-	ResolverEndpointRef() *ResolverEndpointReference
+	ResolverEndpointRef() *interfacesawsroute53resolver.ResolverEndpointReference
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType() *string
 	SetResolverEndpointType(val *string)
@@ -282,8 +284,8 @@ type CfnResolverEndpoint interface {
 // The jsii proxy struct for CfnResolverEndpoint
 type jsiiProxy_CfnResolverEndpoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResolverEndpointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIResolverEndpointRef
 	internal.Type__awscdkITaggable
 }
 
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnResolverEndpoint) Direction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverEndpoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResolverEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -517,8 +519,8 @@ func (j *jsiiProxy_CfnResolverEndpoint) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverEndpoint) ResolverEndpointRef() *ResolverEndpointReference {
-	var returns *ResolverEndpointReference
+func (j *jsiiProxy_CfnResolverEndpoint) ResolverEndpointRef() *interfacesawsroute53resolver.ResolverEndpointReference {
+	var returns *interfacesawsroute53resolver.ResolverEndpointReference
 	_jsii_.Get(
 		j,
 		"resolverEndpointRef",
@@ -598,6 +600,7 @@ func (j *jsiiProxy_CfnResolverEndpoint) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Route53Resolver::ResolverEndpoint`.
 func NewCfnResolverEndpoint(scope constructs.Construct, id *string, props *CfnResolverEndpointProps) CfnResolverEndpoint {
 	_init_.Initialize()
 
@@ -615,6 +618,7 @@ func NewCfnResolverEndpoint(scope constructs.Construct, id *string, props *CfnRe
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::ResolverEndpoint`.
 func NewCfnResolverEndpoint_Override(c CfnResolverEndpoint, scope constructs.Construct, id *string, props *CfnResolverEndpointProps) {
 	_init_.Initialize()
 

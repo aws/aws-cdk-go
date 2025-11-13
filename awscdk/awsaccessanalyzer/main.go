@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_accessanalyzer.AnalyzerReference",
-		reflect.TypeOf((*AnalyzerReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
 		reflect.TypeOf((*CfnAnalyzer)(nil)).Elem(),
@@ -58,8 +54,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAnalyzer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAnalyzerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsaccessanalyzerIAnalyzerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -103,20 +99,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzerProps",
 		reflect.TypeOf((*CfnAnalyzerProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_accessanalyzer.IAnalyzerRef",
-		reflect.TypeOf((*IAnalyzerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "analyzerRef", GoGetter: "AnalyzerRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAnalyzerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 }

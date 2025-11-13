@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -102,8 +104,8 @@ import (
 //
 type CfnDistribution interface {
 	awscdk.CfnResource
-	IDistributionRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IDistributionRef
 	awscdk.ITaggable
 	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 	AttrDomainName() *string
@@ -124,8 +126,8 @@ type CfnDistribution interface {
 	DistributionConfig() interface{}
 	SetDistributionConfig(val interface{})
 	// A reference to a Distribution resource.
-	DistributionRef() *DistributionReference
-	Env() *awscdk.ResourceEnvironment
+	DistributionRef() *interfacesawscloudfront.DistributionReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -295,8 +297,8 @@ type CfnDistribution interface {
 // The jsii proxy struct for CfnDistribution
 type jsiiProxy_CfnDistribution struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDistributionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIDistributionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnDistribution) DistributionConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDistribution) DistributionRef() *DistributionReference {
-	var returns *DistributionReference
+func (j *jsiiProxy_CfnDistribution) DistributionRef() *interfacesawscloudfront.DistributionReference {
+	var returns *interfacesawscloudfront.DistributionReference
 	_jsii_.Get(
 		j,
 		"distributionRef",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnDistribution) DistributionRef() *DistributionReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDistribution) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDistribution) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnDistribution) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::CloudFront::Distribution`.
 func NewCfnDistribution(scope constructs.Construct, id *string, props *CfnDistributionProps) CfnDistribution {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnDistribution(scope constructs.Construct, id *string, props *CfnDistri
 	return &j
 }
 
+// Create a new `AWS::CloudFront::Distribution`.
 func NewCfnDistribution_Override(c CfnDistribution, scope constructs.Construct, id *string, props *CfnDistributionProps) {
 	_init_.Initialize()
 
@@ -521,13 +525,13 @@ func (j *jsiiProxy_CfnDistribution)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDistributionRef from a distributionId.
-func CfnDistribution_FromDistributionId(scope constructs.Construct, id *string, distributionId *string) IDistributionRef {
+func CfnDistribution_FromDistributionId(scope constructs.Construct, id *string, distributionId *string) interfacesawscloudfront.IDistributionRef {
 	_init_.Initialize()
 
 	if err := validateCfnDistribution_FromDistributionIdParameters(scope, id, distributionId); err != nil {
 		panic(err)
 	}
-	var returns IDistributionRef
+	var returns interfacesawscloudfront.IDistributionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudfront.CfnDistribution",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnEgressOnlyInternetGateway interface {
 	awscdk.CfnResource
-	IEgressOnlyInternetGatewayRef
 	awscdk.IInspectable
+	interfacesawsec2.IEgressOnlyInternetGatewayRef
 	awscdk.ITaggableV2
 	// The ID of the egress-only internet gateway.
 	AttrId() *string
@@ -53,8 +55,8 @@ type CfnEgressOnlyInternetGateway interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EgressOnlyInternetGateway resource.
-	EgressOnlyInternetGatewayRef() *EgressOnlyInternetGatewayReference
-	Env() *awscdk.ResourceEnvironment
+	EgressOnlyInternetGatewayRef() *interfacesawsec2.EgressOnlyInternetGatewayReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,8 +227,8 @@ type CfnEgressOnlyInternetGateway interface {
 // The jsii proxy struct for CfnEgressOnlyInternetGateway
 type jsiiProxy_CfnEgressOnlyInternetGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEgressOnlyInternetGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IEgressOnlyInternetGatewayRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEgressOnlyInternetGateway) EgressOnlyInternetGatewayRef() *EgressOnlyInternetGatewayReference {
-	var returns *EgressOnlyInternetGatewayReference
+func (j *jsiiProxy_CfnEgressOnlyInternetGateway) EgressOnlyInternetGatewayRef() *interfacesawsec2.EgressOnlyInternetGatewayReference {
+	var returns *interfacesawsec2.EgressOnlyInternetGatewayReference
 	_jsii_.Get(
 		j,
 		"egressOnlyInternetGatewayRef",
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway) EgressOnlyInternetGatewayRef() 
 	return returns
 }
 
-func (j *jsiiProxy_CfnEgressOnlyInternetGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEgressOnlyInternetGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -391,6 +393,7 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::EgressOnlyInternetGateway`.
 func NewCfnEgressOnlyInternetGateway(scope constructs.Construct, id *string, props *CfnEgressOnlyInternetGatewayProps) CfnEgressOnlyInternetGateway {
 	_init_.Initialize()
 
@@ -408,6 +411,7 @@ func NewCfnEgressOnlyInternetGateway(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::EC2::EgressOnlyInternetGateway`.
 func NewCfnEgressOnlyInternetGateway_Override(c CfnEgressOnlyInternetGateway, scope constructs.Construct, id *string, props *CfnEgressOnlyInternetGatewayProps) {
 	_init_.Initialize()
 
@@ -441,13 +445,13 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway)SetVpcId(val *string) {
 }
 
 // Creates a new IEgressOnlyInternetGatewayRef from a egressOnlyInternetGatewayId.
-func CfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayId(scope constructs.Construct, id *string, egressOnlyInternetGatewayId *string) IEgressOnlyInternetGatewayRef {
+func CfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayId(scope constructs.Construct, id *string, egressOnlyInternetGatewayId *string) interfacesawsec2.IEgressOnlyInternetGatewayRef {
 	_init_.Initialize()
 
 	if err := validateCfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayIdParameters(scope, id, egressOnlyInternetGatewayId); err != nil {
 		panic(err)
 	}
-	var returns IEgressOnlyInternetGatewayRef
+	var returns interfacesawsec2.IEgressOnlyInternetGatewayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnEgressOnlyInternetGateway",

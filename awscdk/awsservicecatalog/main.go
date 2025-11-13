@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.AcceptedPortfolioShareReference",
-		reflect.TypeOf((*AcceptedPortfolioShareReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_servicecatalog.CfnAcceptedPortfolioShare",
 		reflect.TypeOf((*CfnAcceptedPortfolioShare)(nil)).Elem(),
@@ -54,8 +50,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAcceptedPortfolioShare{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAcceptedPortfolioShareRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIAcceptedPortfolioShareRef)
 			return &j
 		},
 	)
@@ -121,8 +117,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCloudFormationProduct{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICloudFormationProductRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogICloudFormationProductRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -204,8 +200,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCloudFormationProvisionedProduct{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICloudFormationProvisionedProductRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogICloudFormationProvisionedProductRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -268,8 +264,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLaunchNotificationConstraint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILaunchNotificationConstraintRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogILaunchNotificationConstraintRef)
 			return &j
 		},
 	)
@@ -324,8 +320,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLaunchRoleConstraint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILaunchRoleConstraintRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogILaunchRoleConstraintRef)
 			return &j
 		},
 	)
@@ -379,8 +375,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLaunchTemplateConstraint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILaunchTemplateConstraintRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogILaunchTemplateConstraintRef)
 			return &j
 		},
 	)
@@ -436,8 +432,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPortfolio{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPortfolioRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIPortfolioRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -455,7 +451,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -487,8 +482,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPortfolioPrincipalAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPortfolioPrincipalAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIPortfolioPrincipalAssociationRef)
 			return &j
 		},
 	)
@@ -540,8 +535,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPortfolioProductAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPortfolioProductAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIPortfolioProductAssociationRef)
 			return &j
 		},
 	)
@@ -597,8 +592,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPortfolioShare{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPortfolioShareRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIPortfolioShareRef)
 			return &j
 		},
 	)
@@ -652,8 +647,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourceUpdateConstraint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceUpdateConstraintRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIResourceUpdateConstraintRef)
 			return &j
 		},
 	)
@@ -707,8 +702,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnServiceAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IServiceActionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIServiceActionRef)
 			return &j
 		},
 	)
@@ -759,8 +754,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnServiceActionAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IServiceActionAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIServiceActionAssociationRef)
 			return &j
 		},
 	)
@@ -822,8 +817,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnStackSetConstraint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStackSetConstraintRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIStackSetConstraintRef)
 			return &j
 		},
 	)
@@ -875,8 +870,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTagOption{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITagOptionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogITagOptionRef)
 			return &j
 		},
 	)
@@ -922,8 +917,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTagOptionAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITagOptionAssociationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogITagOptionAssociationRef)
 			return &j
 		},
 	)
@@ -964,16 +959,8 @@ func init() {
 		reflect.TypeOf((*CloudFormationProductProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.CloudFormationProductReference",
-		reflect.TypeOf((*CloudFormationProductReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_servicecatalog.CloudFormationProductVersion",
 		reflect.TypeOf((*CloudFormationProductVersion)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.CloudFormationProvisionedProductReference",
-		reflect.TypeOf((*CloudFormationProvisionedProductReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_servicecatalog.CloudFormationRuleConstraintOptions",
@@ -996,96 +983,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_servicecatalog.CommonConstraintOptions",
 		reflect.TypeOf((*CommonConstraintOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IAcceptedPortfolioShareRef",
-		reflect.TypeOf((*IAcceptedPortfolioShareRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "acceptedPortfolioShareRef", GoGetter: "AcceptedPortfolioShareRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAcceptedPortfolioShareRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.ICloudFormationProductRef",
-		reflect.TypeOf((*ICloudFormationProductRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cloudFormationProductRef", GoGetter: "CloudFormationProductRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICloudFormationProductRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.ICloudFormationProvisionedProductRef",
-		reflect.TypeOf((*ICloudFormationProvisionedProductRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cloudFormationProvisionedProductRef", GoGetter: "CloudFormationProvisionedProductRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICloudFormationProvisionedProductRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.ILaunchNotificationConstraintRef",
-		reflect.TypeOf((*ILaunchNotificationConstraintRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "launchNotificationConstraintRef", GoGetter: "LaunchNotificationConstraintRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILaunchNotificationConstraintRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.ILaunchRoleConstraintRef",
-		reflect.TypeOf((*ILaunchRoleConstraintRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "launchRoleConstraintRef", GoGetter: "LaunchRoleConstraintRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILaunchRoleConstraintRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.ILaunchTemplateConstraintRef",
-		reflect.TypeOf((*ILaunchTemplateConstraintRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "launchTemplateConstraintRef", GoGetter: "LaunchTemplateConstraintRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILaunchTemplateConstraintRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_servicecatalog.IPortfolio",
@@ -1118,66 +1015,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IPortfolioPrincipalAssociationRef",
-		reflect.TypeOf((*IPortfolioPrincipalAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "portfolioPrincipalAssociationRef", GoGetter: "PortfolioPrincipalAssociationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPortfolioPrincipalAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IPortfolioProductAssociationRef",
-		reflect.TypeOf((*IPortfolioProductAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "portfolioProductAssociationRef", GoGetter: "PortfolioProductAssociationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPortfolioProductAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IPortfolioRef",
-		reflect.TypeOf((*IPortfolioRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "portfolioRef", GoGetter: "PortfolioRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPortfolioRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IPortfolioShareRef",
-		reflect.TypeOf((*IPortfolioShareRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "portfolioShareRef", GoGetter: "PortfolioShareRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPortfolioShareRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_servicecatalog.IProduct",
 		reflect.TypeOf((*IProduct)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1195,108 +1032,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IResourceUpdateConstraintRef",
-		reflect.TypeOf((*IResourceUpdateConstraintRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceUpdateConstraintRef", GoGetter: "ResourceUpdateConstraintRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourceUpdateConstraintRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IServiceActionAssociationRef",
-		reflect.TypeOf((*IServiceActionAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceActionAssociationRef", GoGetter: "ServiceActionAssociationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IServiceActionAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IServiceActionRef",
-		reflect.TypeOf((*IServiceActionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceActionRef", GoGetter: "ServiceActionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IServiceActionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.IStackSetConstraintRef",
-		reflect.TypeOf((*IStackSetConstraintRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stackSetConstraintRef", GoGetter: "StackSetConstraintRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IStackSetConstraintRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.ITagOptionAssociationRef",
-		reflect.TypeOf((*ITagOptionAssociationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tagOptionAssociationRef", GoGetter: "TagOptionAssociationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITagOptionAssociationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_servicecatalog.ITagOptionRef",
-		reflect.TypeOf((*ITagOptionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tagOptionRef", GoGetter: "TagOptionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITagOptionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.LaunchNotificationConstraintReference",
-		reflect.TypeOf((*LaunchNotificationConstraintReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.LaunchRoleConstraintReference",
-		reflect.TypeOf((*LaunchRoleConstraintReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.LaunchTemplateConstraintReference",
-		reflect.TypeOf((*LaunchTemplateConstraintReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_servicecatalog.MessageLanguage",
@@ -1346,28 +1081,12 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.PortfolioPrincipalAssociationReference",
-		reflect.TypeOf((*PortfolioPrincipalAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.PortfolioProductAssociationReference",
-		reflect.TypeOf((*PortfolioProductAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_servicecatalog.PortfolioProps",
 		reflect.TypeOf((*PortfolioProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.PortfolioReference",
-		reflect.TypeOf((*PortfolioReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_servicecatalog.PortfolioShareOptions",
 		reflect.TypeOf((*PortfolioShareOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.PortfolioShareReference",
-		reflect.TypeOf((*PortfolioShareReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_servicecatalog.Product",
@@ -1468,32 +1187,8 @@ func init() {
 		reflect.TypeOf((*ProductStackProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.ResourceUpdateConstraintReference",
-		reflect.TypeOf((*ResourceUpdateConstraintReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.ServiceActionAssociationReference",
-		reflect.TypeOf((*ServiceActionAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.ServiceActionReference",
-		reflect.TypeOf((*ServiceActionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.StackSetConstraintReference",
-		reflect.TypeOf((*StackSetConstraintReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_servicecatalog.StackSetsConstraintOptions",
 		reflect.TypeOf((*StackSetsConstraintOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.TagOptionAssociationReference",
-		reflect.TypeOf((*TagOptionAssociationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_servicecatalog.TagOptionReference",
-		reflect.TypeOf((*TagOptionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_servicecatalog.TagOptions",

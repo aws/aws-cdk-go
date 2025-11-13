@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevicefarm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevicefarm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnVPCEConfiguration interface {
 	awscdk.CfnResource
-	IVPCEConfigurationRef
 	awscdk.IInspectable
+	interfacesawsdevicefarm.IVPCEConfigurationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the VPC endpoint.
 	//
@@ -51,7 +53,7 @@ type CfnVPCEConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,7 +103,7 @@ type CfnVPCEConfiguration interface {
 	VpceConfigurationName() *string
 	SetVpceConfigurationName(val *string)
 	// A reference to a VPCEConfiguration resource.
-	VpceConfigurationRef() *VPCEConfigurationReference
+	VpceConfigurationRef() *interfacesawsdevicefarm.VPCEConfigurationReference
 	// The name of the VPC endpoint service that you want to access from Device Farm.
 	VpceServiceName() *string
 	SetVpceServiceName(val *string)
@@ -235,8 +237,8 @@ type CfnVPCEConfiguration interface {
 // The jsii proxy struct for CfnVPCEConfiguration
 type jsiiProxy_CfnVPCEConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCEConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdevicefarmIVPCEConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnVPCEConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCEConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -410,8 +412,8 @@ func (j *jsiiProxy_CfnVPCEConfiguration) VpceConfigurationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEConfiguration) VpceConfigurationRef() *VPCEConfigurationReference {
-	var returns *VPCEConfigurationReference
+func (j *jsiiProxy_CfnVPCEConfiguration) VpceConfigurationRef() *interfacesawsdevicefarm.VPCEConfigurationReference {
+	var returns *interfacesawsdevicefarm.VPCEConfigurationReference
 	_jsii_.Get(
 		j,
 		"vpceConfigurationRef",
@@ -431,6 +433,7 @@ func (j *jsiiProxy_CfnVPCEConfiguration) VpceServiceName() *string {
 }
 
 
+// Create a new `AWS::DeviceFarm::VPCEConfiguration`.
 func NewCfnVPCEConfiguration(scope constructs.Construct, id *string, props *CfnVPCEConfigurationProps) CfnVPCEConfiguration {
 	_init_.Initialize()
 
@@ -448,6 +451,7 @@ func NewCfnVPCEConfiguration(scope constructs.Construct, id *string, props *CfnV
 	return &j
 }
 
+// Create a new `AWS::DeviceFarm::VPCEConfiguration`.
 func NewCfnVPCEConfiguration_Override(c CfnVPCEConfiguration, scope constructs.Construct, id *string, props *CfnVPCEConfigurationProps) {
 	_init_.Initialize()
 

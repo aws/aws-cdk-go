@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnEndpointGroup interface {
 	awscdk.CfnResource
-	IEndpointGroupRef
 	awscdk.IInspectable
+	interfacesawsglobalaccelerator.IEndpointGroupRef
 	// The ARN of the endpoint group, such as `arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh/listener/0123vxyz/endpoint-group/098765zyxwvu` .
 	AttrEndpointGroupArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -68,11 +70,11 @@ type CfnEndpointGroup interface {
 	EndpointConfigurations() interface{}
 	SetEndpointConfigurations(val interface{})
 	// A reference to a EndpointGroup resource.
-	EndpointGroupRef() *EndpointGroupReference
+	EndpointGroupRef() *interfacesawsglobalaccelerator.EndpointGroupReference
 	// The AWS Regions where the endpoint group is located.
 	EndpointGroupRegion() *string
 	SetEndpointGroupRegion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The time—10 seconds or 30 seconds—between health checks for each endpoint.
 	HealthCheckIntervalSeconds() *float64
 	SetHealthCheckIntervalSeconds(val *float64)
@@ -261,8 +263,8 @@ type CfnEndpointGroup interface {
 // The jsii proxy struct for CfnEndpointGroup
 type jsiiProxy_CfnEndpointGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEndpointGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglobalacceleratorIEndpointGroupRef
 }
 
 func (j *jsiiProxy_CfnEndpointGroup) AttrEndpointGroupArn() *string {
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnEndpointGroup) EndpointConfigurations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointGroup) EndpointGroupRef() *EndpointGroupReference {
-	var returns *EndpointGroupReference
+func (j *jsiiProxy_CfnEndpointGroup) EndpointGroupRef() *interfacesawsglobalaccelerator.EndpointGroupReference {
+	var returns *interfacesawsglobalaccelerator.EndpointGroupReference
 	_jsii_.Get(
 		j,
 		"endpointGroupRef",
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnEndpointGroup) EndpointGroupRegion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEndpointGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -496,6 +498,7 @@ func (j *jsiiProxy_CfnEndpointGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::GlobalAccelerator::EndpointGroup`.
 func NewCfnEndpointGroup(scope constructs.Construct, id *string, props *CfnEndpointGroupProps) CfnEndpointGroup {
 	_init_.Initialize()
 
@@ -513,6 +516,7 @@ func NewCfnEndpointGroup(scope constructs.Construct, id *string, props *CfnEndpo
 	return &j
 }
 
+// Create a new `AWS::GlobalAccelerator::EndpointGroup`.
 func NewCfnEndpointGroup_Override(c CfnEndpointGroup, scope constructs.Construct, id *string, props *CfnEndpointGroupProps) {
 	_init_.Initialize()
 

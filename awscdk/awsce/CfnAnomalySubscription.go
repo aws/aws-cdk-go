@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsce/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsce"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,11 +55,11 @@ import (
 //
 type CfnAnomalySubscription interface {
 	awscdk.CfnResource
-	IAnomalySubscriptionRef
 	awscdk.IInspectable
+	interfacesawsce.IAnomalySubscriptionRef
 	awscdk.ITaggableV2
 	// A reference to a AnomalySubscription resource.
-	AnomalySubscriptionRef() *AnomalySubscriptionReference
+	AnomalySubscriptionRef() *interfacesawsce.AnomalySubscriptionReference
 	// Your unique account identifier.
 	AttrAccountId() *string
 	// The `AnomalySubscription` Amazon Resource Name (ARN).
@@ -73,7 +75,7 @@ type CfnAnomalySubscription interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The frequency that anomaly notifications are sent.
 	Frequency() *string
 	SetFrequency(val *string)
@@ -259,13 +261,13 @@ type CfnAnomalySubscription interface {
 // The jsii proxy struct for CfnAnomalySubscription
 type jsiiProxy_CfnAnomalySubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnomalySubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsceIAnomalySubscriptionRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) AnomalySubscriptionRef() *AnomalySubscriptionReference {
-	var returns *AnomalySubscriptionReference
+func (j *jsiiProxy_CfnAnomalySubscription) AnomalySubscriptionRef() *interfacesawsce.AnomalySubscriptionReference {
+	var returns *interfacesawsce.AnomalySubscriptionReference
 	_jsii_.Get(
 		j,
 		"anomalySubscriptionRef",
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnAnomalySubscription) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnomalySubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -485,6 +487,7 @@ func (j *jsiiProxy_CfnAnomalySubscription) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::CE::AnomalySubscription`.
 func NewCfnAnomalySubscription(scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) CfnAnomalySubscription {
 	_init_.Initialize()
 
@@ -502,6 +505,7 @@ func NewCfnAnomalySubscription(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::CE::AnomalySubscription`.
 func NewCfnAnomalySubscription_Override(c CfnAnomalySubscription, scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsacmpca"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,15 +44,15 @@ import (
 //
 type CfnCertificateAuthority interface {
 	awscdk.CfnResource
-	ICertificateAuthorityRef
 	awscdk.IInspectable
+	interfacesawsacmpca.ICertificateAuthorityRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the private CA that issued the certificate.
 	AttrArn() *string
 	// The Base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
 	AttrCertificateSigningRequest() *string
 	// A reference to a CertificateAuthority resource.
-	CertificateAuthorityRef() *CertificateAuthorityReference
+	CertificateAuthorityRef() *interfacesawsacmpca.CertificateAuthorityReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -63,7 +65,7 @@ type CfnCertificateAuthority interface {
 	// Specifies information to be added to the extension section of the certificate signing request (CSR).
 	CsrExtensions() interface{}
 	SetCsrExtensions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
 	KeyAlgorithm() *string
 	SetKeyAlgorithm(val *string)
@@ -254,8 +256,8 @@ type CfnCertificateAuthority interface {
 // The jsii proxy struct for CfnCertificateAuthority
 type jsiiProxy_CfnCertificateAuthority struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICertificateAuthorityRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsacmpcaICertificateAuthorityRef
 	internal.Type__awscdkITaggable
 }
 
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnCertificateAuthority) AttrCertificateSigningRequest() *str
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificateAuthority) CertificateAuthorityRef() *CertificateAuthorityReference {
-	var returns *CertificateAuthorityReference
+func (j *jsiiProxy_CfnCertificateAuthority) CertificateAuthorityRef() *interfacesawsacmpca.CertificateAuthorityReference {
+	var returns *interfacesawsacmpca.CertificateAuthorityReference
 	_jsii_.Get(
 		j,
 		"certificateAuthorityRef",
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnCertificateAuthority) CsrExtensions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificateAuthority) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCertificateAuthority) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -500,6 +502,7 @@ func (j *jsiiProxy_CfnCertificateAuthority) UsageMode() *string {
 }
 
 
+// Create a new `AWS::ACMPCA::CertificateAuthority`.
 func NewCfnCertificateAuthority(scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) CfnCertificateAuthority {
 	_init_.Initialize()
 
@@ -517,6 +520,7 @@ func NewCfnCertificateAuthority(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::ACMPCA::CertificateAuthority`.
 func NewCfnCertificateAuthority_Override(c CfnCertificateAuthority, scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) {
 	_init_.Initialize()
 

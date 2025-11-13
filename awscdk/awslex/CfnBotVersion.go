@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslex/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslex"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnBotVersion interface {
 	awscdk.CfnResource
-	IBotVersionRef
 	awscdk.IInspectable
+	interfacesawslex.IBotVersionRef
 	// The version of the bot.
 	AttrBotVersion() *string
 	// The unique identifier of the bot.
@@ -50,7 +52,7 @@ type CfnBotVersion interface {
 	BotVersionLocaleSpecification() interface{}
 	SetBotVersionLocaleSpecification(val interface{})
 	// A reference to a BotVersion resource.
-	BotVersionRef() *BotVersionReference
+	BotVersionRef() *interfacesawslex.BotVersionReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -63,7 +65,7 @@ type CfnBotVersion interface {
 	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -228,8 +230,8 @@ type CfnBotVersion interface {
 // The jsii proxy struct for CfnBotVersion
 type jsiiProxy_CfnBotVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBotVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslexIBotVersionRef
 }
 
 func (j *jsiiProxy_CfnBotVersion) AttrBotVersion() *string {
@@ -262,8 +264,8 @@ func (j *jsiiProxy_CfnBotVersion) BotVersionLocaleSpecification() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotVersion) BotVersionRef() *BotVersionReference {
-	var returns *BotVersionReference
+func (j *jsiiProxy_CfnBotVersion) BotVersionRef() *interfacesawslex.BotVersionReference {
+	var returns *interfacesawslex.BotVersionReference
 	_jsii_.Get(
 		j,
 		"botVersionRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnBotVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBotVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -393,6 +395,7 @@ func (j *jsiiProxy_CfnBotVersion) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lex::BotVersion`.
 func NewCfnBotVersion(scope constructs.Construct, id *string, props *CfnBotVersionProps) CfnBotVersion {
 	_init_.Initialize()
 
@@ -410,6 +413,7 @@ func NewCfnBotVersion(scope constructs.Construct, id *string, props *CfnBotVersi
 	return &j
 }
 
+// Create a new `AWS::Lex::BotVersion`.
 func NewCfnBotVersion_Override(c CfnBotVersion, scope constructs.Construct, id *string, props *CfnBotVersionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnLimit interface {
 	awscdk.CfnResource
-	ILimitRef
 	awscdk.IInspectable
+	interfacesawsdeadline.ILimitRef
 	// The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
 	AmountRequirementName() *string
 	SetAmountRequirementName(val *string)
@@ -62,12 +64,12 @@ type CfnLimit interface {
 	// The name of the limit used in lists to identify the limit.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the farm that contains the limit.
 	FarmId() *string
 	SetFarmId(val *string)
 	// A reference to a Limit resource.
-	LimitRef() *LimitReference
+	LimitRef() *interfacesawsdeadline.LimitReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnLimit interface {
 // The jsii proxy struct for CfnLimit
 type jsiiProxy_CfnLimit struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILimitRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineILimitRef
 }
 
 func (j *jsiiProxy_CfnLimit) AmountRequirementName() *string {
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnLimit) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLimit) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLimit) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnLimit) FarmId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLimit) LimitRef() *LimitReference {
-	var returns *LimitReference
+func (j *jsiiProxy_CfnLimit) LimitRef() *interfacesawsdeadline.LimitReference {
+	var returns *interfacesawsdeadline.LimitReference
 	_jsii_.Get(
 		j,
 		"limitRef",
@@ -430,6 +432,7 @@ func (j *jsiiProxy_CfnLimit) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Deadline::Limit`.
 func NewCfnLimit(scope constructs.Construct, id *string, props *CfnLimitProps) CfnLimit {
 	_init_.Initialize()
 
@@ -447,6 +450,7 @@ func NewCfnLimit(scope constructs.Construct, id *string, props *CfnLimitProps) C
 	return &j
 }
 
+// Create a new `AWS::Deadline::Limit`.
 func NewCfnLimit_Override(c CfnLimit, scope constructs.Construct, id *string, props *CfnLimitProps) {
 	_init_.Initialize()
 

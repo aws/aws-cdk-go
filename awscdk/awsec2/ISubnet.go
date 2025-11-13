@@ -5,12 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type ISubnet interface {
 	awscdk.IResource
-	ISubnetRef
+	interfacesawsec2.ISubnetRef
 	// Associate a Network ACL with this subnet.
 	AssociateNetworkAcl(id *string, acl INetworkAcl)
 	// The Availability Zone the subnet is located in.
@@ -28,7 +30,7 @@ type ISubnet interface {
 // The jsii proxy for ISubnet
 type jsiiProxy_ISubnet struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_ISubnetRef
+	internal.Type__interfacesawsec2ISubnetRef
 }
 
 func (i *jsiiProxy_ISubnet) AssociateNetworkAcl(id *string, acl INetworkAcl) {
@@ -103,8 +105,8 @@ func (j *jsiiProxy_ISubnet) SubnetId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ISubnet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ISubnet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -133,8 +135,8 @@ func (j *jsiiProxy_ISubnet) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_ISubnet) SubnetRef() *SubnetReference {
-	var returns *SubnetReference
+func (j *jsiiProxy_ISubnet) SubnetRef() *interfacesawsec2.SubnetReference {
+	var returns *interfacesawsec2.SubnetReference
 	_jsii_.Get(
 		j,
 		"subnetRef",

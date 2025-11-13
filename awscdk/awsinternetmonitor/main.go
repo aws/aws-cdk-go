@@ -65,8 +65,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMonitor{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMonitorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsinternetmonitorIMonitorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -90,24 +90,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_internetmonitor.CfnMonitorProps",
 		reflect.TypeOf((*CfnMonitorProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_internetmonitor.IMonitorRef",
-		reflect.TypeOf((*IMonitorRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "monitorRef", GoGetter: "MonitorRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMonitorRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_internetmonitor.MonitorReference",
-		reflect.TypeOf((*MonitorReference)(nil)).Elem(),
 	)
 }

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnWorkflow interface {
 	awscdk.CfnResource
-	IWorkflowRef
 	awscdk.IInspectable
+	interfacesawsimagebuilder.IWorkflowRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the workflow resource.
 	AttrArn() *string
@@ -71,7 +73,7 @@ type CfnWorkflow interface {
 	// Describes the workflow.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this workflow resource.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -127,7 +129,7 @@ type CfnWorkflow interface {
 	Version() *string
 	SetVersion(val *string)
 	// A reference to a Workflow resource.
-	WorkflowRef() *WorkflowReference
+	WorkflowRef() *interfacesawsimagebuilder.WorkflowReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -258,8 +260,8 @@ type CfnWorkflow interface {
 // The jsii proxy struct for CfnWorkflow
 type jsiiProxy_CfnWorkflow struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkflowRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsimagebuilderIWorkflowRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnWorkflow) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkflow) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkflow) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -533,8 +535,8 @@ func (j *jsiiProxy_CfnWorkflow) Version() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkflow) WorkflowRef() *WorkflowReference {
-	var returns *WorkflowReference
+func (j *jsiiProxy_CfnWorkflow) WorkflowRef() *interfacesawsimagebuilder.WorkflowReference {
+	var returns *interfacesawsimagebuilder.WorkflowReference
 	_jsii_.Get(
 		j,
 		"workflowRef",
@@ -544,6 +546,7 @@ func (j *jsiiProxy_CfnWorkflow) WorkflowRef() *WorkflowReference {
 }
 
 
+// Create a new `AWS::ImageBuilder::Workflow`.
 func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowProps) CfnWorkflow {
 	_init_.Initialize()
 
@@ -561,6 +564,7 @@ func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowPr
 	return &j
 }
 
+// Create a new `AWS::ImageBuilder::Workflow`.
 func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *string, props *CfnWorkflowProps) {
 	_init_.Initialize()
 

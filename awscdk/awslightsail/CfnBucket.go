@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnBucket interface {
 	awscdk.CfnResource
-	IBucketRef
 	awscdk.IInspectable
+	interfacesawslightsail.IBucketRef
 	awscdk.ITaggable
 	// An object that describes the access rules for the bucket.
 	AccessRules() interface{}
@@ -60,7 +62,7 @@ type CfnBucket interface {
 	BucketName() *string
 	SetBucketName(val *string)
 	// A reference to a Bucket resource.
-	BucketRef() *BucketReference
+	BucketRef() *interfacesawslightsail.BucketReference
 	// The bundle ID for the bucket (for example, `small_1_0` ).
 	BundleId() *string
 	SetBundleId(val *string)
@@ -73,7 +75,7 @@ type CfnBucket interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -252,8 +254,8 @@ type CfnBucket interface {
 // The jsii proxy struct for CfnBucket
 type jsiiProxy_CfnBucket struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBucketRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIBucketRef
 	internal.Type__awscdkITaggable
 }
 
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnBucket) BucketName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) BucketRef() *BucketReference {
-	var returns *BucketReference
+func (j *jsiiProxy_CfnBucket) BucketRef() *interfacesawslightsail.BucketReference {
+	var returns *interfacesawslightsail.BucketReference
 	_jsii_.Get(
 		j,
 		"bucketRef",
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnBucket) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBucket) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -488,6 +490,7 @@ func (j *jsiiProxy_CfnBucket) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lightsail::Bucket`.
 func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps) CfnBucket {
 	_init_.Initialize()
 
@@ -505,6 +508,7 @@ func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps)
 	return &j
 }
 
+// Create a new `AWS::Lightsail::Bucket`.
 func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, props *CfnBucketProps) {
 	_init_.Initialize()
 

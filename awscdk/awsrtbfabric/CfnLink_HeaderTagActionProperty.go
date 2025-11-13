@@ -1,6 +1,8 @@
 package awsrtbfabric
 
 
+// Describes the header tag for a bid action.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,11 @@ package awsrtbfabric
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-headertagaction.html
 //
 type CfnLink_HeaderTagActionProperty struct {
+	// The name of the bid action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-headertagaction.html#cfn-rtbfabric-link-headertagaction-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The value of the bid action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-headertagaction.html#cfn-rtbfabric-link-headertagaction-value
 	//
 	Value *string `field:"required" json:"value" yaml:"value"`

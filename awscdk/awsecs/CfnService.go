@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -285,8 +287,8 @@ import (
 //
 type CfnService interface {
 	awscdk.CfnResource
-	IServiceRef
 	awscdk.IInspectable
+	interfacesawsecs.IServiceRef
 	awscdk.ITaggable
 	// The name of the Amazon ECS service, such as `sample-webapp` .
 	AttrName() *string
@@ -327,7 +329,7 @@ type CfnService interface {
 	// Determines whether the execute command functionality is turned on for the service.
 	EnableExecuteCommand() interface{}
 	SetEnableExecuteCommand(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Determines whether to force a new deployment of the service.
 	ForceNewDeployment() interface{}
 	SetForceNewDeployment(val interface{})
@@ -387,7 +389,7 @@ type CfnService interface {
 	ServiceName() *string
 	SetServiceName(val *string)
 	// A reference to a Service resource.
-	ServiceRef() *ServiceReference
+	ServiceRef() *interfacesawsecs.ServiceReference
 	// The details of the service discovery registry to associate with this service.
 	//
 	// For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) .
@@ -554,8 +556,8 @@ type CfnService interface {
 // The jsii proxy struct for CfnService
 type jsiiProxy_CfnService struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecsIServiceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -699,8 +701,8 @@ func (j *jsiiProxy_CfnService) EnableExecuteCommand() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnService) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -869,8 +871,8 @@ func (j *jsiiProxy_CfnService) ServiceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) ServiceRef() *ServiceReference {
-	var returns *ServiceReference
+func (j *jsiiProxy_CfnService) ServiceRef() *interfacesawsecs.ServiceReference {
+	var returns *interfacesawsecs.ServiceReference
 	_jsii_.Get(
 		j,
 		"serviceRef",
@@ -970,6 +972,7 @@ func (j *jsiiProxy_CfnService) VpcLatticeConfigurations() interface{} {
 }
 
 
+// Create a new `AWS::ECS::Service`.
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
@@ -987,6 +990,7 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 	return &j
 }
 
+// Create a new `AWS::ECS::Service`.
 func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 

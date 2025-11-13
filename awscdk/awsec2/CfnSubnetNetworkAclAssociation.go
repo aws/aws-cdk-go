@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnSubnetNetworkAclAssociation interface {
 	awscdk.CfnResource
-	ISubnetNetworkAclAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.ISubnetNetworkAclAssociationRef
 	// Returns the value of this object's AssociationId property.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -40,7 +42,7 @@ type CfnSubnetNetworkAclAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnSubnetNetworkAclAssociation interface {
 	SubnetId() *string
 	SetSubnetId(val *string)
 	// A reference to a SubnetNetworkAclAssociation resource.
-	SubnetNetworkAclAssociationRef() *SubnetNetworkAclAssociationReference
+	SubnetNetworkAclAssociationRef() *interfacesawsec2.SubnetNetworkAclAssociationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -213,8 +215,8 @@ type CfnSubnetNetworkAclAssociation interface {
 // The jsii proxy struct for CfnSubnetNetworkAclAssociation
 type jsiiProxy_CfnSubnetNetworkAclAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubnetNetworkAclAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISubnetNetworkAclAssociationRef
 }
 
 func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) AttrAssociationId() *string {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) SubnetId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) SubnetNetworkAclAssociationRef() *SubnetNetworkAclAssociationReference {
-	var returns *SubnetNetworkAclAssociationReference
+func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) SubnetNetworkAclAssociationRef() *interfacesawsec2.SubnetNetworkAclAssociationReference {
+	var returns *interfacesawsec2.SubnetNetworkAclAssociationReference
 	_jsii_.Get(
 		j,
 		"subnetNetworkAclAssociationRef",
@@ -368,6 +370,7 @@ func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::EC2::SubnetNetworkAclAssociation`.
 func NewCfnSubnetNetworkAclAssociation(scope constructs.Construct, id *string, props *CfnSubnetNetworkAclAssociationProps) CfnSubnetNetworkAclAssociation {
 	_init_.Initialize()
 
@@ -385,6 +388,7 @@ func NewCfnSubnetNetworkAclAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::EC2::SubnetNetworkAclAssociation`.
 func NewCfnSubnetNetworkAclAssociation_Override(c CfnSubnetNetworkAclAssociation, scope constructs.Construct, id *string, props *CfnSubnetNetworkAclAssociationProps) {
 	_init_.Initialize()
 

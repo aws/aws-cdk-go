@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnServiceNetwork interface {
 	awscdk.CfnResource
-	IServiceNetworkRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.IServiceNetworkRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the service network.
 	AttrArn() *string
@@ -61,7 +63,7 @@ type CfnServiceNetwork interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -83,7 +85,7 @@ type CfnServiceNetwork interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ServiceNetwork resource.
-	ServiceNetworkRef() *ServiceNetworkReference
+	ServiceNetworkRef() *interfacesawsvpclattice.ServiceNetworkReference
 	// Specify if the service network should be enabled for sharing.
 	SharingConfig() interface{}
 	SetSharingConfig(val interface{})
@@ -239,8 +241,8 @@ type CfnServiceNetwork interface {
 // The jsii proxy struct for CfnServiceNetwork
 type jsiiProxy_CfnServiceNetwork struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceNetworkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeIServiceNetworkRef
 	internal.Type__awscdkITaggable
 }
 
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnServiceNetwork) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceNetwork) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceNetwork) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnServiceNetwork) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceNetwork) ServiceNetworkRef() *ServiceNetworkReference {
-	var returns *ServiceNetworkReference
+func (j *jsiiProxy_CfnServiceNetwork) ServiceNetworkRef() *interfacesawsvpclattice.ServiceNetworkReference {
+	var returns *interfacesawsvpclattice.ServiceNetworkReference
 	_jsii_.Get(
 		j,
 		"serviceNetworkRef",
@@ -455,6 +457,7 @@ func (j *jsiiProxy_CfnServiceNetwork) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::VpcLattice::ServiceNetwork`.
 func NewCfnServiceNetwork(scope constructs.Construct, id *string, props *CfnServiceNetworkProps) CfnServiceNetwork {
 	_init_.Initialize()
 
@@ -472,6 +475,7 @@ func NewCfnServiceNetwork(scope constructs.Construct, id *string, props *CfnServ
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::ServiceNetwork`.
 func NewCfnServiceNetwork_Override(c CfnServiceNetwork, scope constructs.Construct, id *string, props *CfnServiceNetworkProps) {
 	_init_.Initialize()
 

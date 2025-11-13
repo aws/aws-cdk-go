@@ -3,14 +3,14 @@ package awscdkeksv2alpha
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for configuring a standard EKS cluster (non-Fargate).
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("ManagedNodeCluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
 //   })
 //
@@ -98,7 +98,7 @@ type ClusterProps struct {
 	//   using AWS-Managed encryption keys.
 	//
 	// Experimental.
-	SecretsEncryptionKey awskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
+	SecretsEncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// Security Group to use for Control Plane ENIs.
 	// Default: - A security group is automatically created.
 	//

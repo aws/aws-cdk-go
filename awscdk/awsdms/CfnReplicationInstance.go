@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnReplicationInstance interface {
 	awscdk.CfnResource
-	IReplicationInstanceRef
 	awscdk.IInspectable
+	interfacesawsdms.IReplicationInstanceRef
 	awscdk.ITaggable
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage() *float64
@@ -86,7 +88,7 @@ type CfnReplicationInstance interface {
 	// The engine version number of the replication instance.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An AWS KMS key identifier that is used to encrypt the data on the replication instance.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -128,7 +130,7 @@ type CfnReplicationInstance interface {
 	ReplicationInstanceIdentifier() *string
 	SetReplicationInstanceIdentifier(val *string)
 	// A reference to a ReplicationInstance resource.
-	ReplicationInstanceRef() *ReplicationInstanceReference
+	ReplicationInstanceRef() *interfacesawsdms.ReplicationInstanceReference
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupIdentifier() *string
 	SetReplicationSubnetGroupIdentifier(val *string)
@@ -290,8 +292,8 @@ type CfnReplicationInstance interface {
 // The jsii proxy struct for CfnReplicationInstance
 type jsiiProxy_CfnReplicationInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReplicationInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdmsIReplicationInstanceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnReplicationInstance) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReplicationInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -535,8 +537,8 @@ func (j *jsiiProxy_CfnReplicationInstance) ReplicationInstanceIdentifier() *stri
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationInstance) ReplicationInstanceRef() *ReplicationInstanceReference {
-	var returns *ReplicationInstanceReference
+func (j *jsiiProxy_CfnReplicationInstance) ReplicationInstanceRef() *interfacesawsdms.ReplicationInstanceReference {
+	var returns *interfacesawsdms.ReplicationInstanceReference
 	_jsii_.Get(
 		j,
 		"replicationInstanceRef",
@@ -626,6 +628,7 @@ func (j *jsiiProxy_CfnReplicationInstance) VpcSecurityGroupIds() *[]*string {
 }
 
 
+// Create a new `AWS::DMS::ReplicationInstance`.
 func NewCfnReplicationInstance(scope constructs.Construct, id *string, props *CfnReplicationInstanceProps) CfnReplicationInstance {
 	_init_.Initialize()
 
@@ -643,6 +646,7 @@ func NewCfnReplicationInstance(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::DMS::ReplicationInstance`.
 func NewCfnReplicationInstance_Override(c CfnReplicationInstance, scope constructs.Construct, id *string, props *CfnReplicationInstanceProps) {
 	_init_.Initialize()
 

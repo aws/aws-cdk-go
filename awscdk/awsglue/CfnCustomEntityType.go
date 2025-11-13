@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnCustomEntityType interface {
 	awscdk.CfnResource
-	ICustomEntityTypeRef
 	awscdk.IInspectable
+	interfacesawsglue.ICustomEntityTypeRef
 	awscdk.ITaggableV2
 	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
@@ -52,8 +54,8 @@ type CfnCustomEntityType interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomEntityType resource.
-	CustomEntityTypeRef() *CustomEntityTypeReference
-	Env() *awscdk.ResourceEnvironment
+	CustomEntityTypeRef() *interfacesawsglue.CustomEntityTypeReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,8 +229,8 @@ type CfnCustomEntityType interface {
 // The jsii proxy struct for CfnCustomEntityType
 type jsiiProxy_CfnCustomEntityType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomEntityTypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueICustomEntityTypeRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnCustomEntityType) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomEntityType) CustomEntityTypeRef() *CustomEntityTypeReference {
-	var returns *CustomEntityTypeReference
+func (j *jsiiProxy_CfnCustomEntityType) CustomEntityTypeRef() *interfacesawsglue.CustomEntityTypeReference {
+	var returns *interfacesawsglue.CustomEntityTypeReference
 	_jsii_.Get(
 		j,
 		"customEntityTypeRef",
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnCustomEntityType) CustomEntityTypeRef() *CustomEntityTypeR
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomEntityType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomEntityType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnCustomEntityType) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Glue::CustomEntityType`.
 func NewCfnCustomEntityType(scope constructs.Construct, id *string, props *CfnCustomEntityTypeProps) CfnCustomEntityType {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnCustomEntityType(scope constructs.Construct, id *string, props *CfnCu
 	return &j
 }
 
+// Create a new `AWS::Glue::CustomEntityType`.
 func NewCfnCustomEntityType_Override(c CfnCustomEntityType, scope constructs.Construct, id *string, props *CfnCustomEntityTypeProps) {
 	_init_.Initialize()
 
@@ -473,13 +477,13 @@ func (j *jsiiProxy_CfnCustomEntityType)SetTags(val interface{}) {
 }
 
 // Creates a new ICustomEntityTypeRef from a customEntityTypeId.
-func CfnCustomEntityType_FromCustomEntityTypeId(scope constructs.Construct, id *string, customEntityTypeId *string) ICustomEntityTypeRef {
+func CfnCustomEntityType_FromCustomEntityTypeId(scope constructs.Construct, id *string, customEntityTypeId *string) interfacesawsglue.ICustomEntityTypeRef {
 	_init_.Initialize()
 
 	if err := validateCfnCustomEntityType_FromCustomEntityTypeIdParameters(scope, id, customEntityTypeId); err != nil {
 		panic(err)
 	}
-	var returns ICustomEntityTypeRef
+	var returns interfacesawsglue.ICustomEntityTypeRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_glue.CfnCustomEntityType",

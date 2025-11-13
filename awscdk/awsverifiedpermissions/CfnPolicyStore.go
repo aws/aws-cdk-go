@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsverifiedpermissions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsverifiedpermissions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnPolicyStore interface {
 	awscdk.CfnResource
-	IPolicyStoreRef
 	awscdk.IInspectable
+	interfacesawsverifiedpermissions.IPolicyStoreRef
 	awscdk.ITaggableV2
 	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
 	AttrArn() *string
@@ -70,7 +72,7 @@ type CfnPolicyStore interface {
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnPolicyStore interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PolicyStore resource.
-	PolicyStoreRef() *PolicyStoreReference
+	PolicyStoreRef() *interfacesawsverifiedpermissions.PolicyStoreReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -246,8 +248,8 @@ type CfnPolicyStore interface {
 // The jsii proxy struct for CfnPolicyStore
 type jsiiProxy_CfnPolicyStore struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPolicyStoreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsverifiedpermissionsIPolicyStoreRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnPolicyStore) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPolicyStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnPolicyStore) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyStore) PolicyStoreRef() *PolicyStoreReference {
-	var returns *PolicyStoreReference
+func (j *jsiiProxy_CfnPolicyStore) PolicyStoreRef() *interfacesawsverifiedpermissions.PolicyStoreReference {
+	var returns *interfacesawsverifiedpermissions.PolicyStoreReference
 	_jsii_.Get(
 		j,
 		"policyStoreRef",
@@ -452,6 +454,7 @@ func (j *jsiiProxy_CfnPolicyStore) ValidationSettings() interface{} {
 }
 
 
+// Create a new `AWS::VerifiedPermissions::PolicyStore`.
 func NewCfnPolicyStore(scope constructs.Construct, id *string, props *CfnPolicyStoreProps) CfnPolicyStore {
 	_init_.Initialize()
 
@@ -469,6 +472,7 @@ func NewCfnPolicyStore(scope constructs.Construct, id *string, props *CfnPolicyS
 	return &j
 }
 
+// Create a new `AWS::VerifiedPermissions::PolicyStore`.
 func NewCfnPolicyStore_Override(c CfnPolicyStore, scope constructs.Construct, id *string, props *CfnPolicyStoreProps) {
 	_init_.Initialize()
 
@@ -532,13 +536,13 @@ func (j *jsiiProxy_CfnPolicyStore)SetValidationSettings(val interface{}) {
 }
 
 // Creates a new IPolicyStoreRef from an ARN.
-func CfnPolicyStore_FromPolicyStoreArn(scope constructs.Construct, id *string, arn *string) IPolicyStoreRef {
+func CfnPolicyStore_FromPolicyStoreArn(scope constructs.Construct, id *string, arn *string) interfacesawsverifiedpermissions.IPolicyStoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnPolicyStore_FromPolicyStoreArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IPolicyStoreRef
+	var returns interfacesawsverifiedpermissions.IPolicyStoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore",
@@ -551,13 +555,13 @@ func CfnPolicyStore_FromPolicyStoreArn(scope constructs.Construct, id *string, a
 }
 
 // Creates a new IPolicyStoreRef from a policyStoreId.
-func CfnPolicyStore_FromPolicyStoreId(scope constructs.Construct, id *string, policyStoreId *string) IPolicyStoreRef {
+func CfnPolicyStore_FromPolicyStoreId(scope constructs.Construct, id *string, policyStoreId *string) interfacesawsverifiedpermissions.IPolicyStoreRef {
 	_init_.Initialize()
 
 	if err := validateCfnPolicyStore_FromPolicyStoreIdParameters(scope, id, policyStoreId); err != nil {
 		panic(err)
 	}
-	var returns IPolicyStoreRef
+	var returns interfacesawsverifiedpermissions.IPolicyStoreRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore",

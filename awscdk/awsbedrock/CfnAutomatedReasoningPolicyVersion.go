@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnAutomatedReasoningPolicyVersion interface {
 	awscdk.CfnResource
-	IAutomatedReasoningPolicyVersionRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IAutomatedReasoningPolicyVersionRef
 	awscdk.ITaggableV2
 	// The timestamp when the policy version was created.
 	AttrCreatedAt() *string
@@ -53,7 +55,7 @@ type CfnAutomatedReasoningPolicyVersion interface {
 	// The version number of the policy version.
 	AttrVersion() *string
 	// A reference to a AutomatedReasoningPolicyVersion resource.
-	AutomatedReasoningPolicyVersionRef() *AutomatedReasoningPolicyVersionReference
+	AutomatedReasoningPolicyVersionRef() *interfacesawsbedrock.AutomatedReasoningPolicyVersionReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -65,7 +67,7 @@ type CfnAutomatedReasoningPolicyVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The hash of the policy definition that was last updated.
 	LastUpdatedDefinitionHash() *string
 	SetLastUpdatedDefinitionHash(val *string)
@@ -239,8 +241,8 @@ type CfnAutomatedReasoningPolicyVersion interface {
 // The jsii proxy struct for CfnAutomatedReasoningPolicyVersion
 type jsiiProxy_CfnAutomatedReasoningPolicyVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAutomatedReasoningPolicyVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIAutomatedReasoningPolicyVersionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) AttrVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) AutomatedReasoningPolicyVersionRef() *AutomatedReasoningPolicyVersionReference {
-	var returns *AutomatedReasoningPolicyVersionReference
+func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) AutomatedReasoningPolicyVersionRef() *interfacesawsbedrock.AutomatedReasoningPolicyVersionReference {
+	var returns *interfacesawsbedrock.AutomatedReasoningPolicyVersionReference
 	_jsii_.Get(
 		j,
 		"automatedReasoningPolicyVersionRef",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) CreationStack() *[]*strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -475,6 +477,7 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) UpdatedProperties() *map[
 }
 
 
+// Create a new `AWS::Bedrock::AutomatedReasoningPolicyVersion`.
 func NewCfnAutomatedReasoningPolicyVersion(scope constructs.Construct, id *string, props *CfnAutomatedReasoningPolicyVersionProps) CfnAutomatedReasoningPolicyVersion {
 	_init_.Initialize()
 
@@ -492,6 +495,7 @@ func NewCfnAutomatedReasoningPolicyVersion(scope constructs.Construct, id *strin
 	return &j
 }
 
+// Create a new `AWS::Bedrock::AutomatedReasoningPolicyVersion`.
 func NewCfnAutomatedReasoningPolicyVersion_Override(c CfnAutomatedReasoningPolicyVersion, scope constructs.Construct, id *string, props *CfnAutomatedReasoningPolicyVersionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnDomainConfiguration interface {
 	awscdk.CfnResource
-	IDomainConfigurationRef
 	awscdk.IInspectable
+	interfacesawsiot.IDomainConfigurationRef
 	awscdk.ITaggable
 	// An enumerated string that speciﬁes the application-layer protocol.
 	ApplicationProtocol() *string
@@ -90,14 +92,14 @@ type CfnDomainConfiguration interface {
 	DomainConfigurationName() *string
 	SetDomainConfigurationName(val *string)
 	// A reference to a DomainConfiguration resource.
-	DomainConfigurationRef() *DomainConfigurationReference
+	DomainConfigurationRef() *interfacesawsiot.DomainConfigurationReference
 	// The status to which the domain configuration should be updated.
 	DomainConfigurationStatus() *string
 	SetDomainConfigurationStatus(val *string)
 	// The name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -282,8 +284,8 @@ type CfnDomainConfiguration interface {
 // The jsii proxy struct for CfnDomainConfiguration
 type jsiiProxy_CfnDomainConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIDomainConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -407,8 +409,8 @@ func (j *jsiiProxy_CfnDomainConfiguration) DomainConfigurationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainConfiguration) DomainConfigurationRef() *DomainConfigurationReference {
-	var returns *DomainConfigurationReference
+func (j *jsiiProxy_CfnDomainConfiguration) DomainConfigurationRef() *interfacesawsiot.DomainConfigurationReference {
+	var returns *interfacesawsiot.DomainConfigurationReference
 	_jsii_.Get(
 		j,
 		"domainConfigurationRef",
@@ -437,8 +439,8 @@ func (j *jsiiProxy_CfnDomainConfiguration) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomainConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -578,6 +580,7 @@ func (j *jsiiProxy_CfnDomainConfiguration) ValidationCertificateArn() *string {
 }
 
 
+// Create a new `AWS::IoT::DomainConfiguration`.
 func NewCfnDomainConfiguration(scope constructs.Construct, id *string, props *CfnDomainConfigurationProps) CfnDomainConfiguration {
 	_init_.Initialize()
 
@@ -595,6 +598,7 @@ func NewCfnDomainConfiguration(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::IoT::DomainConfiguration`.
 func NewCfnDomainConfiguration_Override(c CfnDomainConfiguration, scope constructs.Construct, id *string, props *CfnDomainConfigurationProps) {
 	_init_.Initialize()
 
@@ -725,13 +729,13 @@ func (j *jsiiProxy_CfnDomainConfiguration)SetValidationCertificateArn(val *strin
 }
 
 // Creates a new IDomainConfigurationRef from an ARN.
-func CfnDomainConfiguration_FromDomainConfigurationArn(scope constructs.Construct, id *string, arn *string) IDomainConfigurationRef {
+func CfnDomainConfiguration_FromDomainConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IDomainConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomainConfiguration_FromDomainConfigurationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDomainConfigurationRef
+	var returns interfacesawsiot.IDomainConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnDomainConfiguration",
@@ -744,13 +748,13 @@ func CfnDomainConfiguration_FromDomainConfigurationArn(scope constructs.Construc
 }
 
 // Creates a new IDomainConfigurationRef from a domainConfigurationName.
-func CfnDomainConfiguration_FromDomainConfigurationName(scope constructs.Construct, id *string, domainConfigurationName *string) IDomainConfigurationRef {
+func CfnDomainConfiguration_FromDomainConfigurationName(scope constructs.Construct, id *string, domainConfigurationName *string) interfacesawsiot.IDomainConfigurationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomainConfiguration_FromDomainConfigurationNameParameters(scope, id, domainConfigurationName); err != nil {
 		panic(err)
 	}
-	var returns IDomainConfigurationRef
+	var returns interfacesawsiot.IDomainConfigurationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnDomainConfiguration",

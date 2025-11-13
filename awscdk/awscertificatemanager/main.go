@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_certificatemanager.AccountReference",
-		reflect.TypeOf((*AccountReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_certificatemanager.Certificate",
 		reflect.TypeOf((*Certificate)(nil)).Elem(),
@@ -38,10 +34,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_certificatemanager.CertificateProps",
 		reflect.TypeOf((*CertificateProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_certificatemanager.CertificateReference",
-		reflect.TypeOf((*CertificateReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_certificatemanager.CertificateValidation",
@@ -100,8 +92,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccount{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccountRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscertificatemanagerIAccountRef)
 			return &j
 		},
 	)
@@ -164,8 +156,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCertificate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICertificateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscertificatemanagerICertificateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -209,21 +201,6 @@ func init() {
 		reflect.TypeOf((*DnsValidatedCertificateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_certificatemanager.IAccountRef",
-		reflect.TypeOf((*IAccountRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accountRef", GoGetter: "AccountRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccountRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_certificatemanager.ICertificate",
 		reflect.TypeOf((*ICertificate)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -237,21 +214,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ICertificate{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_certificatemanager.ICertificateRef",
-		reflect.TypeOf((*ICertificateRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICertificateRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

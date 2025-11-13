@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsram/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsram"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnResourceShare interface {
 	awscdk.CfnResource
-	IResourceShareRef
 	awscdk.IInspectable
+	interfacesawsram.IResourceShareRef
 	awscdk.ITaggable
 	// Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share.
 	AllowExternalPrincipals() interface{}
@@ -66,7 +68,7 @@ type CfnResourceShare interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -99,7 +101,7 @@ type CfnResourceShare interface {
 	ResourceArns() *[]*string
 	SetResourceArns(val *[]*string)
 	// A reference to a ResourceShare resource.
-	ResourceShareRef() *ResourceShareReference
+	ResourceShareRef() *interfacesawsram.ResourceShareReference
 	// Specifies from which source accounts the service principal has access to the resources in this resource share.
 	Sources() *[]*string
 	SetSources(val *[]*string)
@@ -255,8 +257,8 @@ type CfnResourceShare interface {
 // The jsii proxy struct for CfnResourceShare
 type jsiiProxy_CfnResourceShare struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceShareRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsramIResourceShareRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnResourceShare) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceShare) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceShare) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnResourceShare) ResourceArns() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceShare) ResourceShareRef() *ResourceShareReference {
-	var returns *ResourceShareReference
+func (j *jsiiProxy_CfnResourceShare) ResourceShareRef() *interfacesawsram.ResourceShareReference {
+	var returns *interfacesawsram.ResourceShareReference
 	_jsii_.Get(
 		j,
 		"resourceShareRef",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnResourceShare) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::RAM::ResourceShare`.
 func NewCfnResourceShare(scope constructs.Construct, id *string, props *CfnResourceShareProps) CfnResourceShare {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnResourceShare(scope constructs.Construct, id *string, props *CfnResou
 	return &j
 }
 
+// Create a new `AWS::RAM::ResourceShare`.
 func NewCfnResourceShare_Override(c CfnResourceShare, scope constructs.Construct, id *string, props *CfnResourceShareProps) {
 	_init_.Initialize()
 

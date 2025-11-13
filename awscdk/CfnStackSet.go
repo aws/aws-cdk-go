@@ -4,6 +4,9 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
+	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -94,7 +97,7 @@ import (
 type CfnStackSet interface {
 	CfnResource
 	IInspectable
-	IStackSetRef
+	interfacesawscloudformation.IStackSetRef
 	ITaggable
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this StackSet.
 	AdministrationRoleArn() *string
@@ -122,7 +125,7 @@ type CfnStackSet interface {
 	// A description of the StackSet.
 	Description() *string
 	SetDescription(val *string)
-	Env() *ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the IAM execution role to use to create the StackSet.
 	ExecutionRoleName() *string
 	SetExecutionRoleName(val *string)
@@ -166,7 +169,7 @@ type CfnStackSet interface {
 	StackSetName() *string
 	SetStackSetName(val *string)
 	// A reference to a StackSet resource.
-	StackSetRef() *StackSetReference
+	StackSetRef() *interfacesawscloudformation.StackSetReference
 	// Tag Manager which manages the tags for this resource.
 	Tags() TagManager
 	// Key-value pairs to associate with this stack.
@@ -322,7 +325,7 @@ type CfnStackSet interface {
 type jsiiProxy_CfnStackSet struct {
 	jsiiProxy_CfnResource
 	jsiiProxy_IInspectable
-	jsiiProxy_IStackSetRef
+	internal.Type__interfacesawscloudformationIStackSetRef
 	jsiiProxy_ITaggable
 }
 
@@ -426,8 +429,8 @@ func (j *jsiiProxy_CfnStackSet) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStackSet) Env() *ResourceEnvironment {
-	var returns *ResourceEnvironment
+func (j *jsiiProxy_CfnStackSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -546,8 +549,8 @@ func (j *jsiiProxy_CfnStackSet) StackSetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStackSet) StackSetRef() *StackSetReference {
-	var returns *StackSetReference
+func (j *jsiiProxy_CfnStackSet) StackSetRef() *interfacesawscloudformation.StackSetReference {
+	var returns *interfacesawscloudformation.StackSetReference
 	_jsii_.Get(
 		j,
 		"stackSetRef",
@@ -617,6 +620,7 @@ func (j *jsiiProxy_CfnStackSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudFormation::StackSet`.
 func NewCfnStackSet(scope constructs.Construct, id *string, props *CfnStackSetProps) CfnStackSet {
 	_init_.Initialize()
 
@@ -634,6 +638,7 @@ func NewCfnStackSet(scope constructs.Construct, id *string, props *CfnStackSetPr
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::StackSet`.
 func NewCfnStackSet_Override(c CfnStackSet, scope constructs.Construct, id *string, props *CfnStackSetProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslocation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslocation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnTrackerConsumer interface {
 	awscdk.CfnResource
-	ITrackerConsumerRef
 	awscdk.IInspectable
+	interfacesawslocation.ITrackerConsumerRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -43,7 +45,7 @@ type CfnTrackerConsumer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -66,7 +68,7 @@ type CfnTrackerConsumer interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a TrackerConsumer resource.
-	TrackerConsumerRef() *TrackerConsumerReference
+	TrackerConsumerRef() *interfacesawslocation.TrackerConsumerReference
 	// The name for the tracker resource.
 	TrackerName() *string
 	SetTrackerName(val *string)
@@ -213,8 +215,8 @@ type CfnTrackerConsumer interface {
 // The jsii proxy struct for CfnTrackerConsumer
 type jsiiProxy_CfnTrackerConsumer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrackerConsumerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslocationITrackerConsumerRef
 }
 
 func (j *jsiiProxy_CfnTrackerConsumer) CfnOptions() awscdk.ICfnResourceOptions {
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnTrackerConsumer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrackerConsumer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrackerConsumer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnTrackerConsumer) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrackerConsumer) TrackerConsumerRef() *TrackerConsumerReference {
-	var returns *TrackerConsumerReference
+func (j *jsiiProxy_CfnTrackerConsumer) TrackerConsumerRef() *interfacesawslocation.TrackerConsumerReference {
+	var returns *interfacesawslocation.TrackerConsumerReference
 	_jsii_.Get(
 		j,
 		"trackerConsumerRef",
@@ -358,6 +360,7 @@ func (j *jsiiProxy_CfnTrackerConsumer) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Location::TrackerConsumer`.
 func NewCfnTrackerConsumer(scope constructs.Construct, id *string, props *CfnTrackerConsumerProps) CfnTrackerConsumer {
 	_init_.Initialize()
 
@@ -375,6 +378,7 @@ func NewCfnTrackerConsumer(scope constructs.Construct, id *string, props *CfnTra
 	return &j
 }
 
+// Create a new `AWS::Location::TrackerConsumer`.
 func NewCfnTrackerConsumer_Override(c CfnTrackerConsumer, scope constructs.Construct, id *string, props *CfnTrackerConsumerProps) {
 	_init_.Initialize()
 

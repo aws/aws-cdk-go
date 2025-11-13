@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsguardduty/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnMember interface {
 	awscdk.CfnResource
-	IMemberRef
 	awscdk.IInspectable
+	interfacesawsguardduty.IMemberRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -53,7 +55,7 @@ type CfnMember interface {
 	// The email address associated with the member account.
 	Email() *string
 	SetEmail(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -68,7 +70,7 @@ type CfnMember interface {
 	MemberId() *string
 	SetMemberId(val *string)
 	// A reference to a Member resource.
-	MemberRef() *MemberReference
+	MemberRef() *interfacesawsguardduty.MemberReference
 	// The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
 	Message() *string
 	SetMessage(val *string)
@@ -229,8 +231,8 @@ type CfnMember interface {
 // The jsii proxy struct for CfnMember
 type jsiiProxy_CfnMember struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMemberRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsguarddutyIMemberRef
 }
 
 func (j *jsiiProxy_CfnMember) CfnOptions() awscdk.ICfnResourceOptions {
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnMember) Email() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMember) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMember) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnMember) MemberId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMember) MemberRef() *MemberReference {
-	var returns *MemberReference
+func (j *jsiiProxy_CfnMember) MemberRef() *interfacesawsguardduty.MemberReference {
+	var returns *interfacesawsguardduty.MemberReference
 	_jsii_.Get(
 		j,
 		"memberRef",
@@ -414,6 +416,7 @@ func (j *jsiiProxy_CfnMember) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GuardDuty::Member`.
 func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps) CfnMember {
 	_init_.Initialize()
 
@@ -431,6 +434,7 @@ func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps)
 	return &j
 }
 
+// Create a new `AWS::GuardDuty::Member`.
 func NewCfnMember_Override(c CfnMember, scope constructs.Construct, id *string, props *CfnMemberProps) {
 	_init_.Initialize()
 

@@ -1,7 +1,7 @@
 package awssecurityhub
 
 
-// An object that defines which security controls are enabled in an AWS Security Hub configuration policy.
+// An object that defines which security controls are enabled in an Security Hub configuration policy.
 //
 // The enablement status of a control is aligned across all of the enabled standards in an account.
 //

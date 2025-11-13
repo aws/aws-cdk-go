@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnVdmAttributes interface {
 	awscdk.CfnResource
-	IVdmAttributesRef
 	awscdk.IInspectable
+	interfacesawsses.IVdmAttributesRef
 	// Unique identifier for this resource.
 	AttrVdmAttributesResourceId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -45,7 +47,7 @@ type CfnVdmAttributes interface {
 	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes() interface{}
 	SetDashboardAttributes(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianAttributes() interface{}
 	SetGuardianAttributes(val interface{})
@@ -84,7 +86,7 @@ type CfnVdmAttributes interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VdmAttributes resource.
-	VdmAttributesRef() *VdmAttributesReference
+	VdmAttributesRef() *interfacesawsses.VdmAttributesReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -215,8 +217,8 @@ type CfnVdmAttributes interface {
 // The jsii proxy struct for CfnVdmAttributes
 type jsiiProxy_CfnVdmAttributes struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVdmAttributesRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIVdmAttributesRef
 }
 
 func (j *jsiiProxy_CfnVdmAttributes) AttrVdmAttributesResourceId() *string {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnVdmAttributes) DashboardAttributes() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVdmAttributes) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVdmAttributes) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnVdmAttributes) UpdatedProperties() *map[string]interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnVdmAttributes) VdmAttributesRef() *VdmAttributesReference {
-	var returns *VdmAttributesReference
+func (j *jsiiProxy_CfnVdmAttributes) VdmAttributesRef() *interfacesawsses.VdmAttributesReference {
+	var returns *interfacesawsses.VdmAttributesReference
 	_jsii_.Get(
 		j,
 		"vdmAttributesRef",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnVdmAttributes) VdmAttributesRef() *VdmAttributesReference 
 }
 
 
+// Create a new `AWS::SES::VdmAttributes`.
 func NewCfnVdmAttributes(scope constructs.Construct, id *string, props *CfnVdmAttributesProps) CfnVdmAttributes {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnVdmAttributes(scope constructs.Construct, id *string, props *CfnVdmAt
 	return &j
 }
 
+// Create a new `AWS::SES::VdmAttributes`.
 func NewCfnVdmAttributes_Override(c CfnVdmAttributes, scope constructs.Construct, id *string, props *CfnVdmAttributesProps) {
 	_init_.Initialize()
 

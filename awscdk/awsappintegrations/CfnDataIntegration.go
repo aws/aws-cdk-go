@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappintegrations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappintegrations"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnDataIntegration interface {
 	awscdk.CfnResource
-	IDataIntegrationRef
 	awscdk.IInspectable
+	interfacesawsappintegrations.IDataIntegrationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the DataIntegration.
 	AttrDataIntegrationArn() *string
@@ -71,11 +73,11 @@ type CfnDataIntegration interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataIntegration resource.
-	DataIntegrationRef() *DataIntegrationReference
+	DataIntegrationRef() *interfacesawsappintegrations.DataIntegrationReference
 	// A description of the DataIntegration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration for what files should be pulled from the source.
 	FileConfiguration() interface{}
 	SetFileConfiguration(val interface{})
@@ -263,8 +265,8 @@ type CfnDataIntegration interface {
 // The jsii proxy struct for CfnDataIntegration
 type jsiiProxy_CfnDataIntegration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataIntegrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappintegrationsIDataIntegrationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnDataIntegration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataIntegration) DataIntegrationRef() *DataIntegrationReference {
-	var returns *DataIntegrationReference
+func (j *jsiiProxy_CfnDataIntegration) DataIntegrationRef() *interfacesawsappintegrations.DataIntegrationReference {
+	var returns *interfacesawsappintegrations.DataIntegrationReference
 	_jsii_.Get(
 		j,
 		"dataIntegrationRef",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnDataIntegration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataIntegration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataIntegration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -499,6 +501,7 @@ func (j *jsiiProxy_CfnDataIntegration) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::AppIntegrations::DataIntegration`.
 func NewCfnDataIntegration(scope constructs.Construct, id *string, props *CfnDataIntegrationProps) CfnDataIntegration {
 	_init_.Initialize()
 
@@ -516,6 +519,7 @@ func NewCfnDataIntegration(scope constructs.Construct, id *string, props *CfnDat
 	return &j
 }
 
+// Create a new `AWS::AppIntegrations::DataIntegration`.
 func NewCfnDataIntegration_Override(c CfnDataIntegration, scope constructs.Construct, id *string, props *CfnDataIntegrationProps) {
 	_init_.Initialize()
 
@@ -609,13 +613,13 @@ func (j *jsiiProxy_CfnDataIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDataIntegrationRef from an ARN.
-func CfnDataIntegration_FromDataIntegrationArn(scope constructs.Construct, id *string, arn *string) IDataIntegrationRef {
+func CfnDataIntegration_FromDataIntegrationArn(scope constructs.Construct, id *string, arn *string) interfacesawsappintegrations.IDataIntegrationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDataIntegration_FromDataIntegrationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDataIntegrationRef
+	var returns interfacesawsappintegrations.IDataIntegrationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appintegrations.CfnDataIntegration",
@@ -628,13 +632,13 @@ func CfnDataIntegration_FromDataIntegrationArn(scope constructs.Construct, id *s
 }
 
 // Creates a new IDataIntegrationRef from a dataIntegrationId.
-func CfnDataIntegration_FromDataIntegrationId(scope constructs.Construct, id *string, dataIntegrationId *string) IDataIntegrationRef {
+func CfnDataIntegration_FromDataIntegrationId(scope constructs.Construct, id *string, dataIntegrationId *string) interfacesawsappintegrations.IDataIntegrationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDataIntegration_FromDataIntegrationIdParameters(scope, id, dataIntegrationId); err != nil {
 		panic(err)
 	}
-	var returns IDataIntegrationRef
+	var returns interfacesawsappintegrations.IDataIntegrationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appintegrations.CfnDataIntegration",

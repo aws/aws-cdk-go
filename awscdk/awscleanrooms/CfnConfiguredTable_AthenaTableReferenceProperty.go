@@ -15,6 +15,7 @@ package awscleanrooms
 //
 //   	// the properties below are optional
 //   	OutputLocation: jsii.String("outputLocation"),
+//   	Region: jsii.String("region"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html
@@ -36,5 +37,11 @@ type CfnConfiguredTable_AthenaTableReferenceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-outputlocation
 	//
 	OutputLocation *string `field:"optional" json:"outputLocation" yaml:"outputLocation"`
+	// The AWS Region where the Athena table is located.
+	//
+	// This parameter is required to uniquely identify and access tables across different Regions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-region
+	//
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

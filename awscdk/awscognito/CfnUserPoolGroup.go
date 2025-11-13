@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnUserPoolGroup interface {
 	awscdk.CfnResource
-	IUserPoolGroupRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolGroupRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -46,7 +48,7 @@ type CfnUserPoolGroup interface {
 	// A description of the group that you're creating.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A name for the group.
 	GroupName() *string
 	SetGroupName(val *string)
@@ -91,7 +93,7 @@ type CfnUserPoolGroup interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a UserPoolGroup resource.
-	UserPoolGroupRef() *UserPoolGroupReference
+	UserPoolGroupRef() *interfacesawscognito.UserPoolGroupReference
 	// The ID of the user pool where you want to create a user group.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
@@ -225,8 +227,8 @@ type CfnUserPoolGroup interface {
 // The jsii proxy struct for CfnUserPoolGroup
 type jsiiProxy_CfnUserPoolGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolGroupRef
 }
 
 func (j *jsiiProxy_CfnUserPoolGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnUserPoolGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnUserPoolGroup) UpdatedProperties() *map[string]interface{}
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolGroup) UserPoolGroupRef() *UserPoolGroupReference {
-	var returns *UserPoolGroupReference
+func (j *jsiiProxy_CfnUserPoolGroup) UserPoolGroupRef() *interfacesawscognito.UserPoolGroupReference {
+	var returns *interfacesawscognito.UserPoolGroupReference
 	_jsii_.Get(
 		j,
 		"userPoolGroupRef",
@@ -400,6 +402,7 @@ func (j *jsiiProxy_CfnUserPoolGroup) UserPoolId() *string {
 }
 
 
+// Create a new `AWS::Cognito::UserPoolGroup`.
 func NewCfnUserPoolGroup(scope constructs.Construct, id *string, props *CfnUserPoolGroupProps) CfnUserPoolGroup {
 	_init_.Initialize()
 
@@ -417,6 +420,7 @@ func NewCfnUserPoolGroup(scope constructs.Construct, id *string, props *CfnUserP
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolGroup`.
 func NewCfnUserPoolGroup_Override(c CfnUserPoolGroup, scope constructs.Construct, id *string, props *CfnUserPoolGroupProps) {
 	_init_.Initialize()
 

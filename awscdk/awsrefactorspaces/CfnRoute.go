@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrefactorspaces/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrefactorspaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -80,8 +82,8 @@ import (
 //
 type CfnRoute interface {
 	awscdk.CfnResource
-	IRouteRef
 	awscdk.IInspectable
+	interfacesawsrefactorspaces.IRouteRef
 	awscdk.ITaggable
 	// The unique identifier of the application.
 	ApplicationIdentifier() *string
@@ -104,7 +106,7 @@ type CfnRoute interface {
 	// Configuration for the default route type.
 	DefaultRoute() interface{}
 	SetDefaultRoute(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the environment.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -126,7 +128,7 @@ type CfnRoute interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Route resource.
-	RouteRef() *RouteReference
+	RouteRef() *interfacesawsrefactorspaces.RouteReference
 	// The route type of the route.
 	RouteType() *string
 	SetRouteType(val *string)
@@ -288,8 +290,8 @@ type CfnRoute interface {
 // The jsii proxy struct for CfnRoute
 type jsiiProxy_CfnRoute struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRouteRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrefactorspacesIRouteRef
 	internal.Type__awscdkITaggable
 }
 
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnRoute) DefaultRoute() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoute) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRoute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -433,8 +435,8 @@ func (j *jsiiProxy_CfnRoute) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoute) RouteRef() *RouteReference {
-	var returns *RouteReference
+func (j *jsiiProxy_CfnRoute) RouteRef() *interfacesawsrefactorspaces.RouteReference {
+	var returns *interfacesawsrefactorspaces.RouteReference
 	_jsii_.Get(
 		j,
 		"routeRef",
@@ -524,6 +526,7 @@ func (j *jsiiProxy_CfnRoute) UriPathRoute() interface{} {
 }
 
 
+// Create a new `AWS::RefactorSpaces::Route`.
 func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) CfnRoute {
 	_init_.Initialize()
 
@@ -541,6 +544,7 @@ func NewCfnRoute(scope constructs.Construct, id *string, props *CfnRouteProps) C
 	return &j
 }
 
+// Create a new `AWS::RefactorSpaces::Route`.
 func NewCfnRoute_Override(c CfnRoute, scope constructs.Construct, id *string, props *CfnRouteProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,13 +41,13 @@ import (
 //
 type CfnArchive interface {
 	awscdk.CfnResource
-	IArchiveRef
 	awscdk.IInspectable
+	interfacesawsevents.IArchiveRef
 	// The name for the archive to create.
 	ArchiveName() *string
 	SetArchiveName(val *string)
 	// A reference to a Archive resource.
-	ArchiveRef() *ArchiveReference
+	ArchiveRef() *interfacesawsevents.ArchiveReference
 	// The ARN of the archive created.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -60,7 +62,7 @@ type CfnArchive interface {
 	// A description for the archive.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An event pattern to use to filter events sent to the archive.
 	EventPattern() interface{}
 	SetEventPattern(val interface{})
@@ -237,8 +239,8 @@ type CfnArchive interface {
 // The jsii proxy struct for CfnArchive
 type jsiiProxy_CfnArchive struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IArchiveRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventsIArchiveRef
 }
 
 func (j *jsiiProxy_CfnArchive) ArchiveName() *string {
@@ -251,8 +253,8 @@ func (j *jsiiProxy_CfnArchive) ArchiveName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnArchive) ArchiveRef() *ArchiveReference {
-	var returns *ArchiveReference
+func (j *jsiiProxy_CfnArchive) ArchiveRef() *interfacesawsevents.ArchiveReference {
+	var returns *interfacesawsevents.ArchiveReference
 	_jsii_.Get(
 		j,
 		"archiveRef",
@@ -321,8 +323,8 @@ func (j *jsiiProxy_CfnArchive) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnArchive) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnArchive) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnArchive) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Events::Archive`.
 func NewCfnArchive(scope constructs.Construct, id *string, props *CfnArchiveProps) CfnArchive {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnArchive(scope constructs.Construct, id *string, props *CfnArchiveProp
 	return &j
 }
 
+// Create a new `AWS::Events::Archive`.
 func NewCfnArchive_Override(c CfnArchive, scope constructs.Construct, id *string, props *CfnArchiveProps) {
 	_init_.Initialize()
 
@@ -511,13 +515,13 @@ func (j *jsiiProxy_CfnArchive)SetSourceArn(val *string) {
 }
 
 // Creates a new IArchiveRef from an ARN.
-func CfnArchive_FromArchiveArn(scope constructs.Construct, id *string, arn *string) IArchiveRef {
+func CfnArchive_FromArchiveArn(scope constructs.Construct, id *string, arn *string) interfacesawsevents.IArchiveRef {
 	_init_.Initialize()
 
 	if err := validateCfnArchive_FromArchiveArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IArchiveRef
+	var returns interfacesawsevents.IArchiveRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnArchive",
@@ -530,13 +534,13 @@ func CfnArchive_FromArchiveArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IArchiveRef from a archiveName.
-func CfnArchive_FromArchiveName(scope constructs.Construct, id *string, archiveName *string) IArchiveRef {
+func CfnArchive_FromArchiveName(scope constructs.Construct, id *string, archiveName *string) interfacesawsevents.IArchiveRef {
 	_init_.Initialize()
 
 	if err := validateCfnArchive_FromArchiveNameParameters(scope, id, archiveName); err != nil {
 		panic(err)
 	}
-	var returns IArchiveRef
+	var returns interfacesawsevents.IArchiveRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnArchive",

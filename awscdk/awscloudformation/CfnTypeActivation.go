@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnTypeActivation interface {
 	awscdk.CfnResource
-	ITypeActivationRef
 	awscdk.IInspectable
+	interfacesawscloudformation.ITypeActivationRef
 	// The Amazon Resource Name (ARN) of the activated extension in this account and Region.
 	AttrArn() *string
 	// Whether to automatically update the extension in this account and Region when a new *minor* version is published by the extension publisher.
@@ -54,7 +56,7 @@ type CfnTypeActivation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the IAM execution role to use to activate the extension.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -95,7 +97,7 @@ type CfnTypeActivation interface {
 	Type() *string
 	SetType(val *string)
 	// A reference to a TypeActivation resource.
-	TypeActivationRef() *TypeActivationReference
+	TypeActivationRef() *interfacesawscloudformation.TypeActivationReference
 	// The name of the extension.
 	TypeName() *string
 	SetTypeName(val *string)
@@ -248,8 +250,8 @@ type CfnTypeActivation interface {
 // The jsii proxy struct for CfnTypeActivation
 type jsiiProxy_CfnTypeActivation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITypeActivationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudformationITypeActivationRef
 }
 
 func (j *jsiiProxy_CfnTypeActivation) AttrArn() *string {
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnTypeActivation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTypeActivation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTypeActivation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnTypeActivation) Type() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTypeActivation) TypeActivationRef() *TypeActivationReference {
-	var returns *TypeActivationReference
+func (j *jsiiProxy_CfnTypeActivation) TypeActivationRef() *interfacesawscloudformation.TypeActivationReference {
+	var returns *interfacesawscloudformation.TypeActivationReference
 	_jsii_.Get(
 		j,
 		"typeActivationRef",
@@ -483,6 +485,7 @@ func (j *jsiiProxy_CfnTypeActivation) VersionBump() *string {
 }
 
 
+// Create a new `AWS::CloudFormation::TypeActivation`.
 func NewCfnTypeActivation(scope constructs.Construct, id *string, props *CfnTypeActivationProps) CfnTypeActivation {
 	_init_.Initialize()
 
@@ -500,6 +503,7 @@ func NewCfnTypeActivation(scope constructs.Construct, id *string, props *CfnType
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::TypeActivation`.
 func NewCfnTypeActivation_Override(c CfnTypeActivation, scope constructs.Construct, id *string, props *CfnTypeActivationProps) {
 	_init_.Initialize()
 

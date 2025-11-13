@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,7 +47,7 @@ type BastionHostLinux interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal
 	// The underlying instance resource.
@@ -67,7 +69,7 @@ type BastionHostLinux interface {
 	// (May be an empty string if the instance does not have a public IP).
 	InstancePublicIp() *string
 	// A reference to a Instance resource.
-	InstanceRef() *InstanceReference
+	InstanceRef() *interfacesawsec2.InstanceReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -131,8 +133,8 @@ func (j *jsiiProxy_BastionHostLinux) Connections() Connections {
 	return returns
 }
 
-func (j *jsiiProxy_BastionHostLinux) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_BastionHostLinux) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -221,8 +223,8 @@ func (j *jsiiProxy_BastionHostLinux) InstancePublicIp() *string {
 	return returns
 }
 
-func (j *jsiiProxy_BastionHostLinux) InstanceRef() *InstanceReference {
-	var returns *InstanceReference
+func (j *jsiiProxy_BastionHostLinux) InstanceRef() *interfacesawsec2.InstanceReference {
+	var returns *interfacesawsec2.InstanceReference
 	_jsii_.Get(
 		j,
 		"instanceRef",

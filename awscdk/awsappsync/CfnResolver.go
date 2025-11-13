@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,8 +72,8 @@ import (
 //
 type CfnResolver interface {
 	awscdk.CfnResource
-	IResolverRef
 	awscdk.IInspectable
+	interfacesawsappsync.IResolverRef
 	// The AWS AppSync GraphQL API to which you want to attach this resolver.
 	ApiId() *string
 	SetApiId(val *string)
@@ -102,7 +104,7 @@ type CfnResolver interface {
 	// The resolver data source name.
 	DataSourceName() *string
 	SetDataSourceName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The GraphQL field on a type that invokes the resolver.
 	FieldName() *string
 	SetFieldName(val *string)
@@ -142,7 +144,7 @@ type CfnResolver interface {
 	RequestMappingTemplateS3Location() *string
 	SetRequestMappingTemplateS3Location(val *string)
 	// A reference to a Resolver resource.
-	ResolverRef() *ResolverReference
+	ResolverRef() *interfacesawsappsync.ResolverReference
 	// The response mapping template.
 	ResponseMappingTemplate() *string
 	SetResponseMappingTemplate(val *string)
@@ -305,8 +307,8 @@ type CfnResolver interface {
 // The jsii proxy struct for CfnResolver
 type jsiiProxy_CfnResolver struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResolverRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIResolverRef
 }
 
 func (j *jsiiProxy_CfnResolver) ApiId() *string {
@@ -429,8 +431,8 @@ func (j *jsiiProxy_CfnResolver) DataSourceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolver) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResolver) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -539,8 +541,8 @@ func (j *jsiiProxy_CfnResolver) RequestMappingTemplateS3Location() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolver) ResolverRef() *ResolverReference {
-	var returns *ResolverReference
+func (j *jsiiProxy_CfnResolver) ResolverRef() *interfacesawsappsync.ResolverReference {
+	var returns *interfacesawsappsync.ResolverReference
 	_jsii_.Get(
 		j,
 		"resolverRef",
@@ -630,6 +632,7 @@ func (j *jsiiProxy_CfnResolver) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppSync::Resolver`.
 func NewCfnResolver(scope constructs.Construct, id *string, props *CfnResolverProps) CfnResolver {
 	_init_.Initialize()
 
@@ -647,6 +650,7 @@ func NewCfnResolver(scope constructs.Construct, id *string, props *CfnResolverPr
 	return &j
 }
 
+// Create a new `AWS::AppSync::Resolver`.
 func NewCfnResolver_Override(c CfnResolver, scope constructs.Construct, id *string, props *CfnResolverProps) {
 	_init_.Initialize()
 

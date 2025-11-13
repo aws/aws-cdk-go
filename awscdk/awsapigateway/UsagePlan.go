@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,7 +46,7 @@ type UsagePlan interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -60,9 +62,9 @@ type UsagePlan interface {
 	// Id of the usage plan.
 	UsagePlanId() *string
 	// A reference to a UsagePlan resource.
-	UsagePlanRef() *UsagePlanReference
+	UsagePlanRef() *interfacesawsapigateway.UsagePlanReference
 	// Adds an ApiKey.
-	AddApiKey(apiKey IApiKeyRef, options *AddApiKeyOptions)
+	AddApiKey(apiKey interfacesawsapigateway.IApiKeyRef, options *AddApiKeyOptions)
 	// Adds an apiStage.
 	AddApiStage(apiStage *UsagePlanPerApiStage)
 	// Apply the given removal policy to this resource.
@@ -99,8 +101,8 @@ type jsiiProxy_UsagePlan struct {
 	jsiiProxy_IUsagePlan
 }
 
-func (j *jsiiProxy_UsagePlan) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_UsagePlan) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -149,8 +151,8 @@ func (j *jsiiProxy_UsagePlan) UsagePlanId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_UsagePlan) UsagePlanRef() *UsagePlanReference {
-	var returns *UsagePlanReference
+func (j *jsiiProxy_UsagePlan) UsagePlanRef() *interfacesawsapigateway.UsagePlanReference {
+	var returns *interfacesawsapigateway.UsagePlanReference
 	_jsii_.Get(
 		j,
 		"usagePlanRef",
@@ -290,7 +292,7 @@ func UsagePlan_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKeyRef, options *AddApiKeyOptions) {
+func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey interfacesawsapigateway.IApiKeyRef, options *AddApiKeyOptions) {
 	if err := u.validateAddApiKeyParameters(apiKey, options); err != nil {
 		panic(err)
 	}

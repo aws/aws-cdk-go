@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmcontacts/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmcontacts"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnContactChannel interface {
 	awscdk.CfnResource
-	IContactChannelRef
 	awscdk.IInspectable
+	interfacesawsssmcontacts.IContactChannelRef
 	// The Amazon Resource Name (ARN) of the `ContactChannel` resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -53,7 +55,7 @@ type CfnContactChannel interface {
 	ChannelType() *string
 	SetChannelType(val *string)
 	// A reference to a ContactChannel resource.
-	ContactChannelRef() *ContactChannelReference
+	ContactChannelRef() *interfacesawsssmcontacts.ContactChannelReference
 	// The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.
 	ContactId() *string
 	SetContactId(val *string)
@@ -64,7 +66,7 @@ type CfnContactChannel interface {
 	// If you want to activate the channel at a later time, you can choose to defer activation.
 	DeferActivation() interface{}
 	SetDeferActivation(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -229,8 +231,8 @@ type CfnContactChannel interface {
 // The jsii proxy struct for CfnContactChannel
 type jsiiProxy_CfnContactChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContactChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmcontactsIContactChannelRef
 }
 
 func (j *jsiiProxy_CfnContactChannel) AttrArn() *string {
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnContactChannel) ChannelType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactChannel) ContactChannelRef() *ContactChannelReference {
-	var returns *ContactChannelReference
+func (j *jsiiProxy_CfnContactChannel) ContactChannelRef() *interfacesawsssmcontacts.ContactChannelReference {
+	var returns *interfacesawsssmcontacts.ContactChannelReference
 	_jsii_.Get(
 		j,
 		"contactChannelRef",
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnContactChannel) DeferActivation() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContactChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -414,6 +416,7 @@ func (j *jsiiProxy_CfnContactChannel) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::SSMContacts::ContactChannel`.
 func NewCfnContactChannel(scope constructs.Construct, id *string, props *CfnContactChannelProps) CfnContactChannel {
 	_init_.Initialize()
 
@@ -431,6 +434,7 @@ func NewCfnContactChannel(scope constructs.Construct, id *string, props *CfnCont
 	return &j
 }
 
+// Create a new `AWS::SSMContacts::ContactChannel`.
 func NewCfnContactChannel_Override(c CfnContactChannel, scope constructs.Construct, id *string, props *CfnContactChannelProps) {
 	_init_.Initialize()
 

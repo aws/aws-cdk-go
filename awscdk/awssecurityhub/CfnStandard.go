@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -15,7 +17,7 @@ import (
 //
 // You must create a separate `AWS::SecurityHub::Standard` resource for each standard that you want to enable.
 //
-// For more information about Security Hub standards, see [Security Hub standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *AWS Security Hub User Guide* .
+// For more information about Security Hub standards, see [Security Hub standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,8 +42,8 @@ import (
 //
 type CfnStandard interface {
 	awscdk.CfnResource
-	IStandardRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IStandardRef
 	// The ARN of a resource that represents your subscription to a supported standard.
 	AttrStandardsSubscriptionArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -56,7 +58,7 @@ type CfnStandard interface {
 	// Specifies which controls are to be disabled in a standard.
 	DisabledStandardsControls() interface{}
 	SetDisabledStandardsControls(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -79,7 +81,7 @@ type CfnStandard interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Standard resource.
-	StandardRef() *StandardReference
+	StandardRef() *interfacesawssecurityhub.StandardReference
 	// The ARN of the standard that you want to enable.
 	StandardsArn() *string
 	SetStandardsArn(val *string)
@@ -226,8 +228,8 @@ type CfnStandard interface {
 // The jsii proxy struct for CfnStandard
 type jsiiProxy_CfnStandard struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStandardRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIStandardRef
 }
 
 func (j *jsiiProxy_CfnStandard) AttrStandardsSubscriptionArn() *string {
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnStandard) DisabledStandardsControls() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStandard) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStandard) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnStandard) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStandard) StandardRef() *StandardReference {
-	var returns *StandardReference
+func (j *jsiiProxy_CfnStandard) StandardRef() *interfacesawssecurityhub.StandardReference {
+	var returns *interfacesawssecurityhub.StandardReference
 	_jsii_.Get(
 		j,
 		"standardRef",
@@ -381,6 +383,7 @@ func (j *jsiiProxy_CfnStandard) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SecurityHub::Standard`.
 func NewCfnStandard(scope constructs.Construct, id *string, props *CfnStandardProps) CfnStandard {
 	_init_.Initialize()
 
@@ -398,6 +401,7 @@ func NewCfnStandard(scope constructs.Construct, id *string, props *CfnStandardPr
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::Standard`.
 func NewCfnStandard_Override(c CfnStandard, scope constructs.Construct, id *string, props *CfnStandardProps) {
 	_init_.Initialize()
 

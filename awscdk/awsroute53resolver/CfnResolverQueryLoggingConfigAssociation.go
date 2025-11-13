@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnResolverQueryLoggingConfigAssociation interface {
 	awscdk.CfnResource
-	IResolverQueryLoggingConfigAssociationRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IResolverQueryLoggingConfigAssociationRef
 	// The date and time that the VPC was associated with the query logging configuration, in Unix time format and Coordinated Universal Time (UTC).
 	AttrCreationTime() *string
 	// If the value of `Status` is `FAILED` , the value of `Error` indicates the cause:.
@@ -60,7 +62,7 @@ type CfnResolverQueryLoggingConfigAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnResolverQueryLoggingConfigAssociation interface {
 	ResolverQueryLogConfigId() *string
 	SetResolverQueryLogConfigId(val *string)
 	// A reference to a ResolverQueryLoggingConfigAssociation resource.
-	ResolverQueryLoggingConfigAssociationRef() *ResolverQueryLoggingConfigAssociationReference
+	ResolverQueryLoggingConfigAssociationRef() *interfacesawsroute53resolver.ResolverQueryLoggingConfigAssociationReference
 	// The ID of the Amazon VPC that is associated with the query logging configuration.
 	ResourceId() *string
 	SetResourceId(val *string)
@@ -233,8 +235,8 @@ type CfnResolverQueryLoggingConfigAssociation interface {
 // The jsii proxy struct for CfnResolverQueryLoggingConfigAssociation
 type jsiiProxy_CfnResolverQueryLoggingConfigAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResolverQueryLoggingConfigAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIResolverQueryLoggingConfigAssociationRef
 }
 
 func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AttrCreationTime() *string {
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) CreationStack() *[]
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ResolverQueryLogCon
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ResolverQueryLoggingConfigAssociationRef() *ResolverQueryLoggingConfigAssociationReference {
-	var returns *ResolverQueryLoggingConfigAssociationReference
+func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ResolverQueryLoggingConfigAssociationRef() *interfacesawsroute53resolver.ResolverQueryLoggingConfigAssociationReference {
+	var returns *interfacesawsroute53resolver.ResolverQueryLoggingConfigAssociationReference
 	_jsii_.Get(
 		j,
 		"resolverQueryLoggingConfigAssociationRef",
@@ -428,6 +430,7 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) UpdatedProperties()
 }
 
 
+// Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
 func NewCfnResolverQueryLoggingConfigAssociation(scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) CfnResolverQueryLoggingConfigAssociation {
 	_init_.Initialize()
 
@@ -445,6 +448,7 @@ func NewCfnResolverQueryLoggingConfigAssociation(scope constructs.Construct, id 
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
 func NewCfnResolverQueryLoggingConfigAssociation_Override(c CfnResolverQueryLoggingConfigAssociation, scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) {
 	_init_.Initialize()
 

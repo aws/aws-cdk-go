@@ -26,13 +26,15 @@ type CfnCluster_CapacityProviderStrategyItemProperty struct {
 	// Base value characteristics:
 	//
 	// - Only one capacity provider in a strategy can have a base defined
-	// - Default value is `0` if not specified
-	// - Valid range: 0 to 100,000
+	// - The default value is `0` if not specified
+	// - The valid range is 0 to 100,000
 	// - Base requirements are satisfied first before weight distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-base
 	//
 	Base *float64 `field:"optional" json:"base" yaml:"base"`
 	// The short name of the capacity provider.
+	//
+	// This can be either an AWS managed capacity provider ( `FARGATE` or `FARGATE_SPOT` ) or the name of a custom capacity provider that you created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-capacityprovider
 	//
 	CapacityProvider *string `field:"optional" json:"capacityProvider" yaml:"capacityProvider"`
@@ -45,8 +47,8 @@ type CfnCluster_CapacityProviderStrategyItemProperty struct {
 	// Weight value characteristics:
 	//
 	// - Weight is considered after the base value is satisfied
-	// - Default value is `0` if not specified
-	// - Valid range: 0 to 1,000
+	// - The default value is `0` if not specified
+	// - The valid range is 0 to 1,000
 	// - At least one capacity provider must have a weight greater than zero
 	// - Capacity providers with weight of `0` cannot place tasks
 	//

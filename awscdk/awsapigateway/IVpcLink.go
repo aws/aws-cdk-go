@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an API Gateway VpcLink.
 type IVpcLink interface {
 	awscdk.IResource
-	IVpcLinkRef
+	interfacesawsapigateway.IVpcLinkRef
 	// Physical ID of the VpcLink resource.
 	VpcLinkId() *string
 }
@@ -19,7 +21,7 @@ type IVpcLink interface {
 // The jsii proxy for IVpcLink
 type jsiiProxy_IVpcLink struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IVpcLinkRef
+	internal.Type__interfacesawsapigatewayIVpcLinkRef
 }
 
 func (i *jsiiProxy_IVpcLink) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -43,8 +45,8 @@ func (j *jsiiProxy_IVpcLink) VpcLinkId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcLink) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IVpcLink) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -73,8 +75,8 @@ func (j *jsiiProxy_IVpcLink) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcLink) VpcLinkRef() *VpcLinkReference {
-	var returns *VpcLinkReference
+func (j *jsiiProxy_IVpcLink) VpcLinkRef() *interfacesawsapigateway.VpcLinkReference {
+	var returns *interfacesawsapigateway.VpcLinkReference
 	_jsii_.Get(
 		j,
 		"vpcLinkRef",

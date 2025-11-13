@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshiftserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshiftserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -106,8 +108,8 @@ import (
 //
 type CfnWorkgroup interface {
 	awscdk.CfnResource
-	IWorkgroupRef
 	awscdk.IInspectable
+	interfacesawsredshiftserverless.IWorkgroupRef
 	awscdk.ITaggable
 	AttrWorkgroup() awscdk.IResolvable
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
@@ -165,7 +167,7 @@ type CfnWorkgroup interface {
 	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	EnhancedVpcRouting() interface{}
 	SetEnhancedVpcRouting(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -248,7 +250,7 @@ type CfnWorkgroup interface {
 	WorkgroupName() *string
 	SetWorkgroupName(val *string)
 	// A reference to a Workgroup resource.
-	WorkgroupRef() *WorkgroupReference
+	WorkgroupRef() *interfacesawsredshiftserverless.WorkgroupReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -379,8 +381,8 @@ type CfnWorkgroup interface {
 // The jsii proxy struct for CfnWorkgroup
 type jsiiProxy_CfnWorkgroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkgroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftserverlessIWorkgroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -644,8 +646,8 @@ func (j *jsiiProxy_CfnWorkgroup) EnhancedVpcRouting() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkgroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkgroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -874,8 +876,8 @@ func (j *jsiiProxy_CfnWorkgroup) WorkgroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkgroup) WorkgroupRef() *WorkgroupReference {
-	var returns *WorkgroupReference
+func (j *jsiiProxy_CfnWorkgroup) WorkgroupRef() *interfacesawsredshiftserverless.WorkgroupReference {
+	var returns *interfacesawsredshiftserverless.WorkgroupReference
 	_jsii_.Get(
 		j,
 		"workgroupRef",
@@ -885,6 +887,7 @@ func (j *jsiiProxy_CfnWorkgroup) WorkgroupRef() *WorkgroupReference {
 }
 
 
+// Create a new `AWS::RedshiftServerless::Workgroup`.
 func NewCfnWorkgroup(scope constructs.Construct, id *string, props *CfnWorkgroupProps) CfnWorkgroup {
 	_init_.Initialize()
 
@@ -902,6 +905,7 @@ func NewCfnWorkgroup(scope constructs.Construct, id *string, props *CfnWorkgroup
 	return &j
 }
 
+// Create a new `AWS::RedshiftServerless::Workgroup`.
 func NewCfnWorkgroup_Override(c CfnWorkgroup, scope constructs.Construct, id *string, props *CfnWorkgroupProps) {
 	_init_.Initialize()
 

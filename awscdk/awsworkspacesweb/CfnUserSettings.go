@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesweb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -75,8 +77,8 @@ import (
 //
 type CfnUserSettings interface {
 	awscdk.CfnResource
-	IUserSettingsRef
 	awscdk.IInspectable
+	interfacesawsworkspacesweb.IUserSettingsRef
 	awscdk.ITaggableV2
 	// The additional encryption context of the user settings.
 	AdditionalEncryptionContext() interface{}
@@ -114,7 +116,7 @@ type CfnUserSettings interface {
 	// Specifies whether the user can download files from the streaming session to the local device.
 	DownloadAllowed() *string
 	SetDownloadAllowed(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
 	IdleDisconnectTimeoutInMinutes() *float64
 	SetIdleDisconnectTimeoutInMinutes(val *float64)
@@ -168,7 +170,7 @@ type CfnUserSettings interface {
 	UploadAllowed() *string
 	SetUploadAllowed(val *string)
 	// A reference to a UserSettings resource.
-	UserSettingsRef() *UserSettingsReference
+	UserSettingsRef() *interfacesawsworkspacesweb.UserSettingsReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -299,8 +301,8 @@ type CfnUserSettings interface {
 // The jsii proxy struct for CfnUserSettings
 type jsiiProxy_CfnUserSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspaceswebIUserSettingsRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -444,8 +446,8 @@ func (j *jsiiProxy_CfnUserSettings) DownloadAllowed() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -574,8 +576,8 @@ func (j *jsiiProxy_CfnUserSettings) UploadAllowed() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserSettings) UserSettingsRef() *UserSettingsReference {
-	var returns *UserSettingsReference
+func (j *jsiiProxy_CfnUserSettings) UserSettingsRef() *interfacesawsworkspacesweb.UserSettingsReference {
+	var returns *interfacesawsworkspacesweb.UserSettingsReference
 	_jsii_.Get(
 		j,
 		"userSettingsRef",
@@ -585,6 +587,7 @@ func (j *jsiiProxy_CfnUserSettings) UserSettingsRef() *UserSettingsReference {
 }
 
 
+// Create a new `AWS::WorkSpacesWeb::UserSettings`.
 func NewCfnUserSettings(scope constructs.Construct, id *string, props *CfnUserSettingsProps) CfnUserSettings {
 	_init_.Initialize()
 
@@ -602,6 +605,7 @@ func NewCfnUserSettings(scope constructs.Construct, id *string, props *CfnUserSe
 	return &j
 }
 
+// Create a new `AWS::WorkSpacesWeb::UserSettings`.
 func NewCfnUserSettings_Override(c CfnUserSettings, scope constructs.Construct, id *string, props *CfnUserSettingsProps) {
 	_init_.Initialize()
 

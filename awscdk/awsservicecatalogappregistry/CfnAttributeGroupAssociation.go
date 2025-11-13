@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalogappregistry/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalogappregistry"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnAttributeGroupAssociation interface {
 	awscdk.CfnResource
-	IAttributeGroupAssociationRef
 	awscdk.IInspectable
+	interfacesawsservicecatalogappregistry.IAttributeGroupAssociationRef
 	// The name or ID of the application.
 	Application() *string
 	SetApplication(val *string)
@@ -40,7 +42,7 @@ type CfnAttributeGroupAssociation interface {
 	AttributeGroup() *string
 	SetAttributeGroup(val *string)
 	// A reference to a AttributeGroupAssociation resource.
-	AttributeGroupAssociationRef() *AttributeGroupAssociationReference
+	AttributeGroupAssociationRef() *interfacesawsservicecatalogappregistry.AttributeGroupAssociationReference
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -51,7 +53,7 @@ type CfnAttributeGroupAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -216,8 +218,8 @@ type CfnAttributeGroupAssociation interface {
 // The jsii proxy struct for CfnAttributeGroupAssociation
 type jsiiProxy_CfnAttributeGroupAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAttributeGroupAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogappregistryIAttributeGroupAssociationRef
 }
 
 func (j *jsiiProxy_CfnAttributeGroupAssociation) Application() *string {
@@ -260,8 +262,8 @@ func (j *jsiiProxy_CfnAttributeGroupAssociation) AttributeGroup() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAttributeGroupAssociation) AttributeGroupAssociationRef() *AttributeGroupAssociationReference {
-	var returns *AttributeGroupAssociationReference
+func (j *jsiiProxy_CfnAttributeGroupAssociation) AttributeGroupAssociationRef() *interfacesawsservicecatalogappregistry.AttributeGroupAssociationReference {
+	var returns *interfacesawsservicecatalogappregistry.AttributeGroupAssociationReference
 	_jsii_.Get(
 		j,
 		"attributeGroupAssociationRef",
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnAttributeGroupAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAttributeGroupAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAttributeGroupAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -391,6 +393,7 @@ func (j *jsiiProxy_CfnAttributeGroupAssociation) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`.
 func NewCfnAttributeGroupAssociation(scope constructs.Construct, id *string, props *CfnAttributeGroupAssociationProps) CfnAttributeGroupAssociation {
 	_init_.Initialize()
 
@@ -408,6 +411,7 @@ func NewCfnAttributeGroupAssociation(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`.
 func NewCfnAttributeGroupAssociation_Override(c CfnAttributeGroupAssociation, scope constructs.Construct, id *string, props *CfnAttributeGroupAssociationProps) {
 	_init_.Initialize()
 

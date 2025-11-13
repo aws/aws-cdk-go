@@ -1,10 +1,27 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawspinpointIADMChannelRef = interfacesawspinpoint.IADMChannelRef
+type Type__interfacesawspinpointIAPNSChannelRef = interfacesawspinpoint.IAPNSChannelRef
+type Type__interfacesawspinpointIAPNSSandboxChannelRef = interfacesawspinpoint.IAPNSSandboxChannelRef
+type Type__interfacesawspinpointIAPNSVoipChannelRef = interfacesawspinpoint.IAPNSVoipChannelRef
+type Type__interfacesawspinpointIAPNSVoipSandboxChannelRef = interfacesawspinpoint.IAPNSVoipSandboxChannelRef
+type Type__interfacesawspinpointIAppRef = interfacesawspinpoint.IAppRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawspinpointIApplicationSettingsRef = interfacesawspinpoint.IApplicationSettingsRef
+type Type__interfacesawspinpointIBaiduChannelRef = interfacesawspinpoint.IBaiduChannelRef
+type Type__interfacesawspinpointICampaignRef = interfacesawspinpoint.ICampaignRef
+type Type__interfacesawspinpointIEmailChannelRef = interfacesawspinpoint.IEmailChannelRef
+type Type__interfacesawspinpointIEmailTemplateRef = interfacesawspinpoint.IEmailTemplateRef
+type Type__interfacesawspinpointIEventStreamRef = interfacesawspinpoint.IEventStreamRef
+type Type__interfacesawspinpointIGCMChannelRef = interfacesawspinpoint.IGCMChannelRef
+type Type__interfacesawspinpointIInAppTemplateRef = interfacesawspinpoint.IInAppTemplateRef
+type Type__interfacesawspinpointIPushTemplateRef = interfacesawspinpoint.IPushTemplateRef
+type Type__interfacesawspinpointISMSChannelRef = interfacesawspinpoint.ISMSChannelRef
+type Type__interfacesawspinpointISegmentRef = interfacesawspinpoint.ISegmentRef
+type Type__interfacesawspinpointISmsTemplateRef = interfacesawspinpoint.ISmsTemplateRef
+type Type__interfacesawspinpointIVoiceChannelRef = interfacesawspinpoint.IVoiceChannelRef

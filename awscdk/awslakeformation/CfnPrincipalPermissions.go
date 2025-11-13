@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslakeformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslakeformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,8 +101,8 @@ import (
 //
 type CfnPrincipalPermissions interface {
 	awscdk.CfnResource
-	IPrincipalPermissionsRef
 	awscdk.IInspectable
+	interfacesawslakeformation.IPrincipalPermissionsRef
 	// Json encoding of the input principal.
 	//
 	// For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`.
@@ -121,7 +123,7 @@ type CfnPrincipalPermissions interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -144,7 +146,7 @@ type CfnPrincipalPermissions interface {
 	Principal() interface{}
 	SetPrincipal(val interface{})
 	// A reference to a PrincipalPermissions resource.
-	PrincipalPermissionsRef() *PrincipalPermissionsReference
+	PrincipalPermissionsRef() *interfacesawslakeformation.PrincipalPermissionsReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -300,8 +302,8 @@ type CfnPrincipalPermissions interface {
 // The jsii proxy struct for CfnPrincipalPermissions
 type jsiiProxy_CfnPrincipalPermissions struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPrincipalPermissionsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslakeformationIPrincipalPermissionsRef
 }
 
 func (j *jsiiProxy_CfnPrincipalPermissions) AttrPrincipalIdentifier() *string {
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnPrincipalPermissions) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrincipalPermissions) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPrincipalPermissions) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -434,8 +436,8 @@ func (j *jsiiProxy_CfnPrincipalPermissions) Principal() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrincipalPermissions) PrincipalPermissionsRef() *PrincipalPermissionsReference {
-	var returns *PrincipalPermissionsReference
+func (j *jsiiProxy_CfnPrincipalPermissions) PrincipalPermissionsRef() *interfacesawslakeformation.PrincipalPermissionsReference {
+	var returns *interfacesawslakeformation.PrincipalPermissionsReference
 	_jsii_.Get(
 		j,
 		"principalPermissionsRef",
@@ -495,6 +497,7 @@ func (j *jsiiProxy_CfnPrincipalPermissions) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::LakeFormation::PrincipalPermissions`.
 func NewCfnPrincipalPermissions(scope constructs.Construct, id *string, props *CfnPrincipalPermissionsProps) CfnPrincipalPermissions {
 	_init_.Initialize()
 
@@ -512,6 +515,7 @@ func NewCfnPrincipalPermissions(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::LakeFormation::PrincipalPermissions`.
 func NewCfnPrincipalPermissions_Override(c CfnPrincipalPermissions, scope constructs.Construct, id *string, props *CfnPrincipalPermissionsProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsscheduler"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -128,8 +130,8 @@ import (
 //
 type CfnSchedule interface {
 	awscdk.CfnResource
-	IScheduleRef
 	awscdk.IInspectable
+	interfacesawsscheduler.IScheduleRef
 	// The Amazon Resource Name (ARN) for the Amazon EventBridge Scheduler schedule.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -147,7 +149,7 @@ type CfnSchedule interface {
 	// The date, in UTC, before which the schedule can invoke its target.
 	EndDate() *string
 	SetEndDate(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
 	FlexibleTimeWindow() interface{}
 	SetFlexibleTimeWindow(val interface{})
@@ -186,7 +188,7 @@ type CfnSchedule interface {
 	ScheduleExpressionTimezone() *string
 	SetScheduleExpressionTimezone(val *string)
 	// A reference to a Schedule resource.
-	ScheduleRef() *ScheduleReference
+	ScheduleRef() *interfacesawsscheduler.ScheduleReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -343,8 +345,8 @@ type CfnSchedule interface {
 // The jsii proxy struct for CfnSchedule
 type jsiiProxy_CfnSchedule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScheduleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsschedulerIScheduleRef
 }
 
 func (j *jsiiProxy_CfnSchedule) AttrArn() *string {
@@ -417,8 +419,8 @@ func (j *jsiiProxy_CfnSchedule) EndDate() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchedule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSchedule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -517,8 +519,8 @@ func (j *jsiiProxy_CfnSchedule) ScheduleExpressionTimezone() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchedule) ScheduleRef() *ScheduleReference {
-	var returns *ScheduleReference
+func (j *jsiiProxy_CfnSchedule) ScheduleRef() *interfacesawsscheduler.ScheduleReference {
+	var returns *interfacesawsscheduler.ScheduleReference
 	_jsii_.Get(
 		j,
 		"scheduleRef",
@@ -588,6 +590,7 @@ func (j *jsiiProxy_CfnSchedule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Scheduler::Schedule`.
 func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnScheduleProps) CfnSchedule {
 	_init_.Initialize()
 
@@ -605,6 +608,7 @@ func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnSchedulePr
 	return &j
 }
 
+// Create a new `AWS::Scheduler::Schedule`.
 func NewCfnSchedule_Override(c CfnSchedule, scope constructs.Construct, id *string, props *CfnScheduleProps) {
 	_init_.Initialize()
 

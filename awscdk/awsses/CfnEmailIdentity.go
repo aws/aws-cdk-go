@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,8 +60,8 @@ import (
 //
 type CfnEmailIdentity interface {
 	awscdk.CfnResource
-	IEmailIdentityRef
 	awscdk.IInspectable
+	interfacesawsses.IEmailIdentityRef
 	awscdk.ITaggableV2
 	// The host name for the first token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenName1() *string
@@ -97,8 +99,8 @@ type CfnEmailIdentity interface {
 	EmailIdentity() *string
 	SetEmailIdentity(val *string)
 	// A reference to a EmailIdentity resource.
-	EmailIdentityRef() *EmailIdentityReference
-	Env() *awscdk.ResourceEnvironment
+	EmailIdentityRef() *interfacesawsses.EmailIdentityReference
+	Env() *interfaces.ResourceEnvironment
 	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackAttributes() interface{}
 	SetFeedbackAttributes(val interface{})
@@ -272,8 +274,8 @@ type CfnEmailIdentity interface {
 // The jsii proxy struct for CfnEmailIdentity
 type jsiiProxy_CfnEmailIdentity struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEmailIdentityRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIEmailIdentityRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnEmailIdentity) EmailIdentity() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailIdentity) EmailIdentityRef() *EmailIdentityReference {
-	var returns *EmailIdentityReference
+func (j *jsiiProxy_CfnEmailIdentity) EmailIdentityRef() *interfacesawsses.EmailIdentityReference {
+	var returns *interfacesawsses.EmailIdentityReference
 	_jsii_.Get(
 		j,
 		"emailIdentityRef",
@@ -437,8 +439,8 @@ func (j *jsiiProxy_CfnEmailIdentity) EmailIdentityRef() *EmailIdentityReference 
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailIdentity) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEmailIdentity) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -538,6 +540,7 @@ func (j *jsiiProxy_CfnEmailIdentity) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::SES::EmailIdentity`.
 func NewCfnEmailIdentity(scope constructs.Construct, id *string, props *CfnEmailIdentityProps) CfnEmailIdentity {
 	_init_.Initialize()
 
@@ -555,6 +558,7 @@ func NewCfnEmailIdentity(scope constructs.Construct, id *string, props *CfnEmail
 	return &j
 }
 
+// Create a new `AWS::SES::EmailIdentity`.
 func NewCfnEmailIdentity_Override(c CfnEmailIdentity, scope constructs.Construct, id *string, props *CfnEmailIdentityProps) {
 	_init_.Initialize()
 

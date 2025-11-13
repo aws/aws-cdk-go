@@ -6,12 +6,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkAclRef INetworkAclRef
@@ -37,7 +40,7 @@ type SubnetNetworkAclAssociation interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// ID for the current Network ACL.
 	NetworkAcl() INetworkAcl
 	// The tree node.
@@ -57,7 +60,7 @@ type SubnetNetworkAclAssociation interface {
 	// ID for the current SubnetNetworkAclAssociation.
 	SubnetNetworkAclAssociationAssociationId() *string
 	// A reference to a SubnetNetworkAclAssociation resource.
-	SubnetNetworkAclAssociationRef() *SubnetNetworkAclAssociationReference
+	SubnetNetworkAclAssociationRef() *interfacesawsec2.SubnetNetworkAclAssociationReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -92,8 +95,8 @@ type jsiiProxy_SubnetNetworkAclAssociation struct {
 	jsiiProxy_ISubnetNetworkAclAssociation
 }
 
-func (j *jsiiProxy_SubnetNetworkAclAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SubnetNetworkAclAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -162,8 +165,8 @@ func (j *jsiiProxy_SubnetNetworkAclAssociation) SubnetNetworkAclAssociationAssoc
 	return returns
 }
 
-func (j *jsiiProxy_SubnetNetworkAclAssociation) SubnetNetworkAclAssociationRef() *SubnetNetworkAclAssociationReference {
-	var returns *SubnetNetworkAclAssociationReference
+func (j *jsiiProxy_SubnetNetworkAclAssociation) SubnetNetworkAclAssociationRef() *interfacesawsec2.SubnetNetworkAclAssociationReference {
+	var returns *interfacesawsec2.SubnetNetworkAclAssociationReference
 	_jsii_.Get(
 		j,
 		"subnetNetworkAclAssociationRef",

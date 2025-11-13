@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnBlueprint interface {
 	awscdk.CfnResource
-	IBlueprintRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IBlueprintRef
 	awscdk.ITaggableV2
 	// The blueprint's ARN.
 	AttrBlueprintArn() *string
@@ -55,7 +57,7 @@ type CfnBlueprint interface {
 	BlueprintName() *string
 	SetBlueprintName(val *string)
 	// A reference to a Blueprint resource.
-	BlueprintRef() *BlueprintReference
+	BlueprintRef() *interfacesawsbedrock.BlueprintReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -67,7 +69,7 @@ type CfnBlueprint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Name-value pairs to include as an encryption context.
 	KmsEncryptionContext() interface{}
 	SetKmsEncryptionContext(val interface{})
@@ -247,8 +249,8 @@ type CfnBlueprint interface {
 // The jsii proxy struct for CfnBlueprint
 type jsiiProxy_CfnBlueprint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBlueprintRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIBlueprintRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -302,8 +304,8 @@ func (j *jsiiProxy_CfnBlueprint) BlueprintName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBlueprint) BlueprintRef() *BlueprintReference {
-	var returns *BlueprintReference
+func (j *jsiiProxy_CfnBlueprint) BlueprintRef() *interfacesawsbedrock.BlueprintReference {
+	var returns *interfacesawsbedrock.BlueprintReference
 	_jsii_.Get(
 		j,
 		"blueprintRef",
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnBlueprint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBlueprint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBlueprint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -483,6 +485,7 @@ func (j *jsiiProxy_CfnBlueprint) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Bedrock::Blueprint`.
 func NewCfnBlueprint(scope constructs.Construct, id *string, props *CfnBlueprintProps) CfnBlueprint {
 	_init_.Initialize()
 
@@ -500,6 +503,7 @@ func NewCfnBlueprint(scope constructs.Construct, id *string, props *CfnBlueprint
 	return &j
 }
 
+// Create a new `AWS::Bedrock::Blueprint`.
 func NewCfnBlueprint_Override(c CfnBlueprint, scope constructs.Construct, id *string, props *CfnBlueprintProps) {
 	_init_.Initialize()
 

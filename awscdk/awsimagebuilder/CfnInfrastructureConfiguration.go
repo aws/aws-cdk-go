@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +64,8 @@ import (
 //
 type CfnInfrastructureConfiguration interface {
 	awscdk.CfnResource
-	IInfrastructureConfigurationRef
 	awscdk.IInspectable
+	interfacesawsimagebuilder.IInfrastructureConfigurationRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the infrastructure configuration.
 	//
@@ -83,9 +85,9 @@ type CfnInfrastructureConfiguration interface {
 	// The description of the infrastructure configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a InfrastructureConfiguration resource.
-	InfrastructureConfigurationRef() *InfrastructureConfigurationReference
+	InfrastructureConfigurationRef() *interfacesawsimagebuilder.InfrastructureConfigurationReference
 	// The instance metadata options that you can set for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
 	InstanceMetadataOptions() interface{}
 	SetInstanceMetadataOptions(val interface{})
@@ -291,8 +293,8 @@ type CfnInfrastructureConfiguration interface {
 // The jsii proxy struct for CfnInfrastructureConfiguration
 type jsiiProxy_CfnInfrastructureConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInfrastructureConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsimagebuilderIInfrastructureConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInfrastructureConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInfrastructureConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) Env() *awscdk.ResourceEnviron
 	return returns
 }
 
-func (j *jsiiProxy_CfnInfrastructureConfiguration) InfrastructureConfigurationRef() *InfrastructureConfigurationReference {
-	var returns *InfrastructureConfigurationReference
+func (j *jsiiProxy_CfnInfrastructureConfiguration) InfrastructureConfigurationRef() *interfacesawsimagebuilder.InfrastructureConfigurationReference {
+	var returns *interfacesawsimagebuilder.InfrastructureConfigurationReference
 	_jsii_.Get(
 		j,
 		"infrastructureConfigurationRef",
@@ -587,6 +589,7 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::ImageBuilder::InfrastructureConfiguration`.
 func NewCfnInfrastructureConfiguration(scope constructs.Construct, id *string, props *CfnInfrastructureConfigurationProps) CfnInfrastructureConfiguration {
 	_init_.Initialize()
 
@@ -604,6 +607,7 @@ func NewCfnInfrastructureConfiguration(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::ImageBuilder::InfrastructureConfiguration`.
 func NewCfnInfrastructureConfiguration_Override(c CfnInfrastructureConfiguration, scope constructs.Construct, id *string, props *CfnInfrastructureConfigurationProps) {
 	_init_.Initialize()
 

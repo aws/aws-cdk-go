@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscontroltower/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscontroltower"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnEnabledControl interface {
 	awscdk.CfnResource
-	IEnabledControlRef
 	awscdk.IInspectable
+	interfacesawscontroltower.IEnabledControlRef
 	awscdk.ITaggableV2
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -61,8 +63,8 @@ type CfnEnabledControl interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EnabledControl resource.
-	EnabledControlRef() *EnabledControlReference
-	Env() *awscdk.ResourceEnvironment
+	EnabledControlRef() *interfacesawscontroltower.EnabledControlReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -236,8 +238,8 @@ type CfnEnabledControl interface {
 // The jsii proxy struct for CfnEnabledControl
 type jsiiProxy_CfnEnabledControl struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnabledControlRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscontroltowerIEnabledControlRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnEnabledControl) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnabledControl) EnabledControlRef() *EnabledControlReference {
-	var returns *EnabledControlReference
+func (j *jsiiProxy_CfnEnabledControl) EnabledControlRef() *interfacesawscontroltower.EnabledControlReference {
+	var returns *interfacesawscontroltower.EnabledControlReference
 	_jsii_.Get(
 		j,
 		"enabledControlRef",
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnEnabledControl) EnabledControlRef() *EnabledControlReferen
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnabledControl) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnabledControl) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -412,6 +414,7 @@ func (j *jsiiProxy_CfnEnabledControl) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::ControlTower::EnabledControl`.
 func NewCfnEnabledControl(scope constructs.Construct, id *string, props *CfnEnabledControlProps) CfnEnabledControl {
 	_init_.Initialize()
 
@@ -429,6 +432,7 @@ func NewCfnEnabledControl(scope constructs.Construct, id *string, props *CfnEnab
 	return &j
 }
 
+// Create a new `AWS::ControlTower::EnabledControl`.
 func NewCfnEnabledControl_Override(c CfnEnabledControl, scope constructs.Construct, id *string, props *CfnEnabledControlProps) {
 	_init_.Initialize()
 

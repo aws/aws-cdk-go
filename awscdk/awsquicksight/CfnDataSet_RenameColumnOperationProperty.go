@@ -19,10 +19,10 @@ type CfnDataSet_RenameColumnOperationProperty struct {
 	// The name of the column to be renamed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname
 	//
-	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
+	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// The new name for the column.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
 	//
-	NewColumnName *string `field:"optional" json:"newColumnName" yaml:"newColumnName"`
+	NewColumnName *string `field:"required" json:"newColumnName" yaml:"newColumnName"`
 }
 

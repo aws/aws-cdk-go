@@ -13,10 +13,10 @@ package awsquicksight
 //   rowLevelPermissionTagConfigurationProperty := &RowLevelPermissionTagConfigurationProperty{
 //   	TagRules: []interface{}{
 //   		&RowLevelPermissionTagRuleProperty{
+//   			ColumnName: jsii.String("columnName"),
 //   			TagKey: jsii.String("tagKey"),
 //
 //   			// the properties below are optional
-//   			ColumnName: jsii.String("columnName"),
 //   			MatchAllValue: jsii.String("matchAllValue"),
 //   			TagMultiValueDelimiter: jsii.String("tagMultiValueDelimiter"),
 //   		},

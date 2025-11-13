@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnTransitGatewayAttachment interface {
 	awscdk.CfnResource
-	ITransitGatewayAttachmentRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayAttachmentRef
 	awscdk.ITaggable
 	// The ID of the attachment.
 	AttrId() *string
@@ -59,7 +61,7 @@ type CfnTransitGatewayAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -93,7 +95,7 @@ type CfnTransitGatewayAttachment interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TransitGatewayAttachment resource.
-	TransitGatewayAttachmentRef() *TransitGatewayAttachmentReference
+	TransitGatewayAttachmentRef() *interfacesawsec2.TransitGatewayAttachmentReference
 	// The ID of the transit gateway.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
@@ -243,8 +245,8 @@ type CfnTransitGatewayAttachment interface {
 // The jsii proxy struct for CfnTransitGatewayAttachment
 type jsiiProxy_CfnTransitGatewayAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayAttachmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,8 +390,8 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayAttachment) TransitGatewayAttachmentRef() *TransitGatewayAttachmentReference {
-	var returns *TransitGatewayAttachmentReference
+func (j *jsiiProxy_CfnTransitGatewayAttachment) TransitGatewayAttachmentRef() *interfacesawsec2.TransitGatewayAttachmentReference {
+	var returns *interfacesawsec2.TransitGatewayAttachmentReference
 	_jsii_.Get(
 		j,
 		"transitGatewayAttachmentRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayAttachment`.
 func NewCfnTransitGatewayAttachment(scope constructs.Construct, id *string, props *CfnTransitGatewayAttachmentProps) CfnTransitGatewayAttachment {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnTransitGatewayAttachment(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayAttachment`.
 func NewCfnTransitGatewayAttachment_Override(c CfnTransitGatewayAttachment, scope constructs.Construct, id *string, props *CfnTransitGatewayAttachmentProps) {
 	_init_.Initialize()
 
@@ -519,13 +523,13 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment)SetVpcId(val *string) {
 }
 
 // Creates a new ITransitGatewayAttachmentRef from a transitGatewayAttachmentId.
-func CfnTransitGatewayAttachment_FromTransitGatewayAttachmentId(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) ITransitGatewayAttachmentRef {
+func CfnTransitGatewayAttachment_FromTransitGatewayAttachmentId(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) interfacesawsec2.ITransitGatewayAttachmentRef {
 	_init_.Initialize()
 
 	if err := validateCfnTransitGatewayAttachment_FromTransitGatewayAttachmentIdParameters(scope, id, transitGatewayAttachmentId); err != nil {
 		panic(err)
 	}
-	var returns ITransitGatewayAttachmentRef
+	var returns interfacesawsec2.ITransitGatewayAttachmentRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayAttachment",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchserverless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnSecurityPolicy interface {
 	awscdk.CfnResource
-	ISecurityPolicyRef
 	awscdk.IInspectable
+	interfacesawsopensearchserverless.ISecurityPolicyRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -47,7 +49,7 @@ type CfnSecurityPolicy interface {
 	// The description of the security policy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -72,7 +74,7 @@ type CfnSecurityPolicy interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SecurityPolicy resource.
-	SecurityPolicyRef() *SecurityPolicyReference
+	SecurityPolicyRef() *interfacesawsopensearchserverless.SecurityPolicyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -223,8 +225,8 @@ type CfnSecurityPolicy interface {
 // The jsii proxy struct for CfnSecurityPolicy
 type jsiiProxy_CfnSecurityPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopensearchserverlessISecurityPolicyRef
 }
 
 func (j *jsiiProxy_CfnSecurityPolicy) CfnOptions() awscdk.ICfnResourceOptions {
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnSecurityPolicy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnSecurityPolicy) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityPolicy) SecurityPolicyRef() *SecurityPolicyReference {
-	var returns *SecurityPolicyReference
+func (j *jsiiProxy_CfnSecurityPolicy) SecurityPolicyRef() *interfacesawsopensearchserverless.SecurityPolicyReference {
+	var returns *interfacesawsopensearchserverless.SecurityPolicyReference
 	_jsii_.Get(
 		j,
 		"securityPolicyRef",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnSecurityPolicy) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::OpenSearchServerless::SecurityPolicy`.
 func NewCfnSecurityPolicy(scope constructs.Construct, id *string, props *CfnSecurityPolicyProps) CfnSecurityPolicy {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnSecurityPolicy(scope constructs.Construct, id *string, props *CfnSecu
 	return &j
 }
 
+// Create a new `AWS::OpenSearchServerless::SecurityPolicy`.
 func NewCfnSecurityPolicy_Override(c CfnSecurityPolicy, scope constructs.Construct, id *string, props *CfnSecurityPolicyProps) {
 	_init_.Initialize()
 

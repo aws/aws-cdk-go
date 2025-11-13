@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanrooms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanrooms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -88,14 +90,14 @@ import (
 //
 type CfnAnalysisTemplate interface {
 	awscdk.CfnResource
-	IAnalysisTemplateRef
 	awscdk.IInspectable
+	interfacesawscleanrooms.IAnalysisTemplateRef
 	awscdk.ITaggableV2
 	// The parameters of the analysis template.
 	AnalysisParameters() interface{}
 	SetAnalysisParameters(val interface{})
 	// A reference to a AnalysisTemplate resource.
-	AnalysisTemplateRef() *AnalysisTemplateReference
+	AnalysisTemplateRef() *interfacesawscleanrooms.AnalysisTemplateReference
 	// Returns the identifier for the analysis template.
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`.
@@ -132,7 +134,7 @@ type CfnAnalysisTemplate interface {
 	// The description of the analysis template.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration that specifies the level of detail in error messages returned by analyses using this template.
 	ErrorMessageConfiguration() interface{}
 	SetErrorMessageConfiguration(val interface{})
@@ -321,8 +323,8 @@ type CfnAnalysisTemplate interface {
 // The jsii proxy struct for CfnAnalysisTemplate
 type jsiiProxy_CfnAnalysisTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnalysisTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsIAnalysisTemplateRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnAnalysisTemplate) AnalysisParameters() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalysisTemplate) AnalysisTemplateRef() *AnalysisTemplateReference {
-	var returns *AnalysisTemplateReference
+func (j *jsiiProxy_CfnAnalysisTemplate) AnalysisTemplateRef() *interfacesawscleanrooms.AnalysisTemplateReference {
+	var returns *interfacesawscleanrooms.AnalysisTemplateReference
 	_jsii_.Get(
 		j,
 		"analysisTemplateRef",
@@ -476,8 +478,8 @@ func (j *jsiiProxy_CfnAnalysisTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalysisTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnalysisTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -627,6 +629,7 @@ func (j *jsiiProxy_CfnAnalysisTemplate) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::CleanRooms::AnalysisTemplate`.
 func NewCfnAnalysisTemplate(scope constructs.Construct, id *string, props *CfnAnalysisTemplateProps) CfnAnalysisTemplate {
 	_init_.Initialize()
 
@@ -644,6 +647,7 @@ func NewCfnAnalysisTemplate(scope constructs.Construct, id *string, props *CfnAn
 	return &j
 }
 
+// Create a new `AWS::CleanRooms::AnalysisTemplate`.
 func NewCfnAnalysisTemplate_Override(c CfnAnalysisTemplate, scope constructs.Construct, id *string, props *CfnAnalysisTemplateProps) {
 	_init_.Initialize()
 

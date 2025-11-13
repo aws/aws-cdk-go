@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,8 +73,8 @@ import (
 //
 type CfnMLTransform interface {
 	awscdk.CfnResource
-	IMLTransformRef
 	awscdk.IInspectable
+	interfacesawsglue.IMLTransformRef
 	awscdk.ITaggable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -87,7 +89,7 @@ type CfnMLTransform interface {
 	// A user-defined, long-form description text for the machine learning transform.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// This value determines which version of AWS Glue this machine learning transform is compatible with.
 	GlueVersion() *string
 	SetGlueVersion(val *string)
@@ -111,7 +113,7 @@ type CfnMLTransform interface {
 	MaxRetries() *float64
 	SetMaxRetries(val *float64)
 	// A reference to a MLTransform resource.
-	MlTransformRef() *MLTransformReference
+	MlTransformRef() *interfacesawsglue.MLTransformReference
 	// A user-defined name for the machine learning transform.
 	//
 	// Names are required to be unique. `Name` is optional:.
@@ -294,8 +296,8 @@ type CfnMLTransform interface {
 // The jsii proxy struct for CfnMLTransform
 type jsiiProxy_CfnMLTransform struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMLTransformRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIMLTransformRef
 	internal.Type__awscdkITaggable
 }
 
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnMLTransform) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMLTransform) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMLTransform) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -419,8 +421,8 @@ func (j *jsiiProxy_CfnMLTransform) MaxRetries() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMLTransform) MlTransformRef() *MLTransformReference {
-	var returns *MLTransformReference
+func (j *jsiiProxy_CfnMLTransform) MlTransformRef() *interfacesawsglue.MLTransformReference {
+	var returns *interfacesawsglue.MLTransformReference
 	_jsii_.Get(
 		j,
 		"mlTransformRef",
@@ -570,6 +572,7 @@ func (j *jsiiProxy_CfnMLTransform) WorkerType() *string {
 }
 
 
+// Create a new `AWS::Glue::MLTransform`.
 func NewCfnMLTransform(scope constructs.Construct, id *string, props *CfnMLTransformProps) CfnMLTransform {
 	_init_.Initialize()
 
@@ -587,6 +590,7 @@ func NewCfnMLTransform(scope constructs.Construct, id *string, props *CfnMLTrans
 	return &j
 }
 
+// Create a new `AWS::Glue::MLTransform`.
 func NewCfnMLTransform_Override(c CfnMLTransform, scope constructs.Construct, id *string, props *CfnMLTransformProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsm2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsm2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnDeployment interface {
 	awscdk.CfnResource
-	IDeploymentRef
 	awscdk.IInspectable
+	interfacesawsm2.IDeploymentRef
 	// The unique identifier of the application.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -52,8 +54,8 @@ type CfnDeployment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a Deployment resource.
-	DeploymentRef() *DeploymentReference
-	Env() *awscdk.ResourceEnvironment
+	DeploymentRef() *interfacesawsm2.DeploymentReference
+	Env() *interfaces.ResourceEnvironment
 	// The unique identifier of the runtime environment.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
@@ -221,8 +223,8 @@ type CfnDeployment interface {
 // The jsii proxy struct for CfnDeployment
 type jsiiProxy_CfnDeployment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeploymentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsm2IDeploymentRef
 }
 
 func (j *jsiiProxy_CfnDeployment) ApplicationId() *string {
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnDeployment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) DeploymentRef() *DeploymentReference {
-	var returns *DeploymentReference
+func (j *jsiiProxy_CfnDeployment) DeploymentRef() *interfacesawsm2.DeploymentReference {
+	var returns *interfacesawsm2.DeploymentReference
 	_jsii_.Get(
 		j,
 		"deploymentRef",
@@ -315,8 +317,8 @@ func (j *jsiiProxy_CfnDeployment) DeploymentRef() *DeploymentReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeployment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,6 +398,7 @@ func (j *jsiiProxy_CfnDeployment) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::M2::Deployment`.
 func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeploymentProps) CfnDeployment {
 	_init_.Initialize()
 
@@ -413,6 +416,7 @@ func NewCfnDeployment(scope constructs.Construct, id *string, props *CfnDeployme
 	return &j
 }
 
+// Create a new `AWS::M2::Deployment`.
 func NewCfnDeployment_Override(c CfnDeployment, scope constructs.Construct, id *string, props *CfnDeploymentProps) {
 	_init_.Initialize()
 

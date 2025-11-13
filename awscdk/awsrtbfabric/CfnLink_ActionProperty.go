@@ -1,6 +1,8 @@
 package awsrtbfabric
 
 
+// Describes a bid action.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,9 +21,11 @@ package awsrtbfabric
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-action.html
 //
 type CfnLink_ActionProperty struct {
+	// Describes the header tag for a bid action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-action.html#cfn-rtbfabric-link-action-headertag
 	//
 	HeaderTag interface{} `field:"required" json:"headerTag" yaml:"headerTag"`
+	// Describes the parameters of a no bid module.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-action.html#cfn-rtbfabric-link-action-nobid
 	//
 	NoBid interface{} `field:"required" json:"noBid" yaml:"noBid"`

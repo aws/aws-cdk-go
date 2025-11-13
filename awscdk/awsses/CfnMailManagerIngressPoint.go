@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnMailManagerIngressPoint interface {
 	awscdk.CfnResource
-	IMailManagerIngressPointRef
 	awscdk.IInspectable
+	interfacesawsses.IMailManagerIngressPointRef
 	awscdk.ITaggableV2
 	// The DNS A Record that identifies your ingress endpoint.
 	//
@@ -74,7 +76,7 @@ type CfnMailManagerIngressPoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration of the ingress endpoint resource.
 	IngressPointConfiguration() interface{}
 	SetIngressPointConfiguration(val interface{})
@@ -92,7 +94,7 @@ type CfnMailManagerIngressPoint interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MailManagerIngressPoint resource.
-	MailManagerIngressPointRef() *MailManagerIngressPointReference
+	MailManagerIngressPointRef() *interfacesawsses.MailManagerIngressPointReference
 	// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
 	NetworkConfiguration() interface{}
 	SetNetworkConfiguration(val interface{})
@@ -265,8 +267,8 @@ type CfnMailManagerIngressPoint interface {
 // The jsii proxy struct for CfnMailManagerIngressPoint
 type jsiiProxy_CfnMailManagerIngressPoint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMailManagerIngressPointRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIMailManagerIngressPointRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerIngressPoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMailManagerIngressPoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerIngressPoint) MailManagerIngressPointRef() *MailManagerIngressPointReference {
-	var returns *MailManagerIngressPointReference
+func (j *jsiiProxy_CfnMailManagerIngressPoint) MailManagerIngressPointRef() *interfacesawsses.MailManagerIngressPointReference {
+	var returns *interfacesawsses.MailManagerIngressPointReference
 	_jsii_.Get(
 		j,
 		"mailManagerIngressPointRef",
@@ -521,6 +523,7 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::SES::MailManagerIngressPoint`.
 func NewCfnMailManagerIngressPoint(scope constructs.Construct, id *string, props *CfnMailManagerIngressPointProps) CfnMailManagerIngressPoint {
 	_init_.Initialize()
 
@@ -538,6 +541,7 @@ func NewCfnMailManagerIngressPoint(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::SES::MailManagerIngressPoint`.
 func NewCfnMailManagerIngressPoint_Override(c CfnMailManagerIngressPoint, scope constructs.Construct, id *string, props *CfnMailManagerIngressPointProps) {
 	_init_.Initialize()
 
@@ -631,13 +635,13 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint)SetType(val *string) {
 }
 
 // Creates a new IMailManagerIngressPointRef from a ingressPointId.
-func CfnMailManagerIngressPoint_FromIngressPointId(scope constructs.Construct, id *string, ingressPointId *string) IMailManagerIngressPointRef {
+func CfnMailManagerIngressPoint_FromIngressPointId(scope constructs.Construct, id *string, ingressPointId *string) interfacesawsses.IMailManagerIngressPointRef {
 	_init_.Initialize()
 
 	if err := validateCfnMailManagerIngressPoint_FromIngressPointIdParameters(scope, id, ingressPointId); err != nil {
 		panic(err)
 	}
-	var returns IMailManagerIngressPointRef
+	var returns interfacesawsses.IMailManagerIngressPointRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnCustomerGatewayAssociation interface {
 	awscdk.CfnResource
-	ICustomerGatewayAssociationRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.ICustomerGatewayAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -48,11 +50,11 @@ type CfnCustomerGatewayAssociation interface {
 	CustomerGatewayArn() *string
 	SetCustomerGatewayArn(val *string)
 	// A reference to a CustomerGatewayAssociation resource.
-	CustomerGatewayAssociationRef() *CustomerGatewayAssociationReference
+	CustomerGatewayAssociationRef() *interfacesawsnetworkmanager.CustomerGatewayAssociationReference
 	// The ID of the device.
 	DeviceId() *string
 	SetDeviceId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the global network.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
@@ -223,8 +225,8 @@ type CfnCustomerGatewayAssociation interface {
 // The jsii proxy struct for CfnCustomerGatewayAssociation
 type jsiiProxy_CfnCustomerGatewayAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomerGatewayAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerICustomerGatewayAssociationRef
 }
 
 func (j *jsiiProxy_CfnCustomerGatewayAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -277,8 +279,8 @@ func (j *jsiiProxy_CfnCustomerGatewayAssociation) CustomerGatewayArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomerGatewayAssociation) CustomerGatewayAssociationRef() *CustomerGatewayAssociationReference {
-	var returns *CustomerGatewayAssociationReference
+func (j *jsiiProxy_CfnCustomerGatewayAssociation) CustomerGatewayAssociationRef() *interfacesawsnetworkmanager.CustomerGatewayAssociationReference {
+	var returns *interfacesawsnetworkmanager.CustomerGatewayAssociationReference
 	_jsii_.Get(
 		j,
 		"customerGatewayAssociationRef",
@@ -297,8 +299,8 @@ func (j *jsiiProxy_CfnCustomerGatewayAssociation) DeviceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomerGatewayAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomerGatewayAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -388,6 +390,7 @@ func (j *jsiiProxy_CfnCustomerGatewayAssociation) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::NetworkManager::CustomerGatewayAssociation`.
 func NewCfnCustomerGatewayAssociation(scope constructs.Construct, id *string, props *CfnCustomerGatewayAssociationProps) CfnCustomerGatewayAssociation {
 	_init_.Initialize()
 
@@ -405,6 +408,7 @@ func NewCfnCustomerGatewayAssociation(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::CustomerGatewayAssociation`.
 func NewCfnCustomerGatewayAssociation_Override(c CfnCustomerGatewayAssociation, scope constructs.Construct, id *string, props *CfnCustomerGatewayAssociationProps) {
 	_init_.Initialize()
 

@@ -73,8 +73,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSubscription{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISubscriptionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssnsISubscriptionRef)
 			return &j
 		},
 	)
@@ -138,8 +138,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTopic{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITopicRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssnsITopicRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -194,8 +194,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTopicInlinePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITopicInlinePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssnsITopicInlinePolicyRef)
 			return &j
 		},
 	)
@@ -246,8 +246,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTopicPolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITopicPolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssnsITopicPolicyRef)
 			return &j
 		},
 	)
@@ -311,21 +311,6 @@ func init() {
 		reflect.TypeOf((*HealthyRetryPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_sns.ISubscriptionRef",
-		reflect.TypeOf((*ISubscriptionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriptionRef", GoGetter: "SubscriptionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISubscriptionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_sns.ITopic",
 		reflect.TypeOf((*ITopic)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -358,51 +343,6 @@ func init() {
 			j := jsiiProxy_ITopic{}
 			_jsii_.InitJsiiProxy(&j.Type__awscodestarnotificationsINotificationRuleTarget)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_sns.ITopicInlinePolicyRef",
-		reflect.TypeOf((*ITopicInlinePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "topicInlinePolicyRef", GoGetter: "TopicInlinePolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITopicInlinePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_sns.ITopicPolicyRef",
-		reflect.TypeOf((*ITopicPolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "topicPolicyRef", GoGetter: "TopicPolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITopicPolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_sns.ITopicRef",
-		reflect.TypeOf((*ITopicRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "topicRef", GoGetter: "TopicRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITopicRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -513,10 +453,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns.SubscriptionReference",
-		reflect.TypeOf((*SubscriptionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sns.ThrottlePolicy",
 		reflect.TypeOf((*ThrottlePolicy)(nil)).Elem(),
 	)
@@ -616,10 +552,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns.TopicInlinePolicyReference",
-		reflect.TypeOf((*TopicInlinePolicyReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sns.TopicPolicy",
 		reflect.TypeOf((*TopicPolicy)(nil)).Elem(),
@@ -647,16 +579,8 @@ func init() {
 		reflect.TypeOf((*TopicPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns.TopicPolicyReference",
-		reflect.TypeOf((*TopicPolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sns.TopicProps",
 		reflect.TypeOf((*TopicProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns.TopicReference",
-		reflect.TypeOf((*TopicReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sns.TopicSubscriptionConfig",

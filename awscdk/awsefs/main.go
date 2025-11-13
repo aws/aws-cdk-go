@@ -44,10 +44,6 @@ func init() {
 		reflect.TypeOf((*AccessPointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_efs.AccessPointReference",
-		reflect.TypeOf((*AccessPointReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_efs.Acl",
 		reflect.TypeOf((*Acl)(nil)).Elem(),
 	)
@@ -99,8 +95,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnAccessPoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessPointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsefsIAccessPointRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -181,8 +177,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnFileSystem{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFileSystemRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsefsIFileSystemRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -263,8 +259,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMountTarget{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMountTargetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsefsIMountTargetRef)
 			return &j
 		},
 	)
@@ -315,10 +311,6 @@ func init() {
 		"aws-cdk-lib.aws_efs.FileSystemProps",
 		reflect.TypeOf((*FileSystemProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_efs.FileSystemReference",
-		reflect.TypeOf((*FileSystemReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_efs.IAccessPoint",
 		reflect.TypeOf((*IAccessPoint)(nil)).Elem(),
@@ -334,21 +326,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IAccessPoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_efs.IAccessPointRef",
-		reflect.TypeOf((*IAccessPointRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessPointRef", GoGetter: "AccessPointRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAccessPointRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -377,36 +354,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_efs.IFileSystemRef",
-		reflect.TypeOf((*IFileSystemRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "fileSystemRef", GoGetter: "FileSystemRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IFileSystemRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_efs.IMountTargetRef",
-		reflect.TypeOf((*IMountTargetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mountTargetRef", GoGetter: "MountTargetRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMountTargetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_efs.LifecyclePolicy",
 		reflect.TypeOf((*LifecyclePolicy)(nil)).Elem(),
@@ -421,10 +368,6 @@ func init() {
 			"AFTER_270_DAYS": LifecyclePolicy_AFTER_270_DAYS,
 			"AFTER_365_DAYS": LifecyclePolicy_AFTER_365_DAYS,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_efs.MountTargetReference",
-		reflect.TypeOf((*MountTargetReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_efs.OneZoneFileSystemProps",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,8 +101,8 @@ import (
 //
 type CfnNodegroup interface {
 	awscdk.CfnResource
-	INodegroupRef
 	awscdk.IInspectable
+	interfacesawseks.INodegroupRef
 	awscdk.ITaggable
 	// The AMI type for your node group.
 	AmiType() *string
@@ -130,7 +132,7 @@ type CfnNodegroup interface {
 	// The root device disk size (in GiB) for your node group instances.
 	DiskSize() *float64
 	SetDiskSize(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Force the update if any `Pod` on the existing node group can't be drained due to a `Pod` disruption budget issue.
 	ForceUpdateEnabled() interface{}
 	SetForceUpdateEnabled(val interface{})
@@ -159,7 +161,7 @@ type CfnNodegroup interface {
 	NodegroupName() *string
 	SetNodegroupName(val *string)
 	// A reference to a Nodegroup resource.
-	NodegroupRef() *NodegroupReference
+	NodegroupRef() *interfacesawseks.NodegroupReference
 	// The node auto repair configuration for the node group.
 	NodeRepairConfig() interface{}
 	SetNodeRepairConfig(val interface{})
@@ -344,8 +346,8 @@ type CfnNodegroup interface {
 // The jsii proxy struct for CfnNodegroup
 type jsiiProxy_CfnNodegroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INodegroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseksINodegroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -469,8 +471,8 @@ func (j *jsiiProxy_CfnNodegroup) DiskSize() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNodegroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNodegroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -549,8 +551,8 @@ func (j *jsiiProxy_CfnNodegroup) NodegroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNodegroup) NodegroupRef() *NodegroupReference {
-	var returns *NodegroupReference
+func (j *jsiiProxy_CfnNodegroup) NodegroupRef() *interfacesawseks.NodegroupReference {
+	var returns *interfacesawseks.NodegroupReference
 	_jsii_.Get(
 		j,
 		"nodegroupRef",
@@ -710,6 +712,7 @@ func (j *jsiiProxy_CfnNodegroup) Version() *string {
 }
 
 
+// Create a new `AWS::EKS::Nodegroup`.
 func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroupProps) CfnNodegroup {
 	_init_.Initialize()
 
@@ -727,6 +730,7 @@ func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroup
 	return &j
 }
 
+// Create a new `AWS::EKS::Nodegroup`.
 func NewCfnNodegroup_Override(c CfnNodegroup, scope constructs.Construct, id *string, props *CfnNodegroupProps) {
 	_init_.Initialize()
 

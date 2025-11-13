@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsaps/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsaps"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnWorkspace interface {
 	awscdk.CfnResource
-	IWorkspaceRef
 	awscdk.IInspectable
+	interfacesawsaps.IWorkspaceRef
 	awscdk.ITaggable
 	// The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace.
 	AlertManagerDefinition() *string
@@ -93,7 +95,7 @@ type CfnWorkspace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// (optional) The ARN for a customer managed AWS KMS key to use for encrypting data within your workspace.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -146,7 +148,7 @@ type CfnWorkspace interface {
 	WorkspaceConfiguration() interface{}
 	SetWorkspaceConfiguration(val interface{})
 	// A reference to a Workspace resource.
-	WorkspaceRef() *WorkspaceReference
+	WorkspaceRef() *interfacesawsaps.WorkspaceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -277,8 +279,8 @@ type CfnWorkspace interface {
 // The jsii proxy struct for CfnWorkspace
 type jsiiProxy_CfnWorkspace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkspaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapsIWorkspaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnWorkspace) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkspace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -502,8 +504,8 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *WorkspaceReference {
-	var returns *WorkspaceReference
+func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *interfacesawsaps.WorkspaceReference {
+	var returns *interfacesawsaps.WorkspaceReference
 	_jsii_.Get(
 		j,
 		"workspaceRef",
@@ -513,6 +515,7 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceRef() *WorkspaceReference {
 }
 
 
+// Create a new `AWS::APS::Workspace`.
 func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
@@ -530,6 +533,7 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 	return &j
 }
 
+// Create a new `AWS::APS::Workspace`.
 func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 

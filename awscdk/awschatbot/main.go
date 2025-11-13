@@ -54,8 +54,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCustomAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICustomActionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawschatbotICustomActionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -130,8 +130,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnMicrosoftTeamsChannelConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMicrosoftTeamsChannelConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawschatbotIMicrosoftTeamsChannelConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -192,8 +192,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSlackChannelConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISlackChannelConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawschatbotISlackChannelConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -201,40 +201,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_chatbot.CfnSlackChannelConfigurationProps",
 		reflect.TypeOf((*CfnSlackChannelConfigurationProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_chatbot.CustomActionReference",
-		reflect.TypeOf((*CustomActionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_chatbot.ICustomActionRef",
-		reflect.TypeOf((*ICustomActionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "customActionRef", GoGetter: "CustomActionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICustomActionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_chatbot.IMicrosoftTeamsChannelConfigurationRef",
-		reflect.TypeOf((*IMicrosoftTeamsChannelConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "microsoftTeamsChannelConfigurationRef", GoGetter: "MicrosoftTeamsChannelConfigurationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMicrosoftTeamsChannelConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_chatbot.ISlackChannelConfiguration",
@@ -260,21 +226,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_chatbot.ISlackChannelConfigurationRef",
-		reflect.TypeOf((*ISlackChannelConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationRef", GoGetter: "SlackChannelConfigurationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISlackChannelConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_chatbot.LoggingLevel",
 		reflect.TypeOf((*LoggingLevel)(nil)).Elem(),
@@ -283,10 +234,6 @@ func init() {
 			"INFO": LoggingLevel_INFO,
 			"NONE": LoggingLevel_NONE,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_chatbot.MicrosoftTeamsChannelConfigurationReference",
-		reflect.TypeOf((*MicrosoftTeamsChannelConfigurationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
@@ -320,9 +267,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_chatbot.SlackChannelConfigurationProps",
 		reflect.TypeOf((*SlackChannelConfigurationProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_chatbot.SlackChannelConfigurationReference",
-		reflect.TypeOf((*SlackChannelConfigurationReference)(nil)).Elem(),
 	)
 }

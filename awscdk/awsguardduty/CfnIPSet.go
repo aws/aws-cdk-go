@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsguardduty/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnIPSet interface {
 	awscdk.CfnResource
-	IIPSetRef
 	awscdk.IInspectable
+	interfacesawsguardduty.IIPSetRef
 	awscdk.ITaggable
 	// A boolean value that determines if GuardDuty can start using this list for custom threat detection.
 	Activate() interface{}
@@ -60,7 +62,7 @@ type CfnIPSet interface {
 	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
 	DetectorId() *string
 	SetDetectorId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
 	ExpectedBucketOwner() *string
 	SetExpectedBucketOwner(val *string)
@@ -68,7 +70,7 @@ type CfnIPSet interface {
 	Format() *string
 	SetFormat(val *string)
 	// A reference to a IPSet resource.
-	IpSetRef() *IPSetReference
+	IpSetRef() *interfacesawsguardduty.IPSetReference
 	// The URI of the file that contains the IPSet.
 	Location() *string
 	SetLocation(val *string)
@@ -244,8 +246,8 @@ type CfnIPSet interface {
 // The jsii proxy struct for CfnIPSet
 type jsiiProxy_CfnIPSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIPSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsguarddutyIIPSetRef
 	internal.Type__awscdkITaggable
 }
 
@@ -319,8 +321,8 @@ func (j *jsiiProxy_CfnIPSet) DetectorId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIPSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnIPSet) Format() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPSet) IpSetRef() *IPSetReference {
-	var returns *IPSetReference
+func (j *jsiiProxy_CfnIPSet) IpSetRef() *interfacesawsguardduty.IPSetReference {
+	var returns *interfacesawsguardduty.IPSetReference
 	_jsii_.Get(
 		j,
 		"ipSetRef",
@@ -460,6 +462,7 @@ func (j *jsiiProxy_CfnIPSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GuardDuty::IPSet`.
 func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
 	_init_.Initialize()
 
@@ -477,6 +480,7 @@ func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) C
 	return &j
 }
 
+// Create a new `AWS::GuardDuty::IPSet`.
 func NewCfnIPSet_Override(c CfnIPSet, scope constructs.Construct, id *string, props *CfnIPSetProps) {
 	_init_.Initialize()
 

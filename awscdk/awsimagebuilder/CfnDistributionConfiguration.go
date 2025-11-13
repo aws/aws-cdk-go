@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -78,8 +80,8 @@ import (
 //
 type CfnDistributionConfiguration interface {
 	awscdk.CfnResource
-	IDistributionConfigurationRef
 	awscdk.IInspectable
+	interfacesawsimagebuilder.IDistributionConfigurationRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of this distribution configuration.
 	//
@@ -100,11 +102,11 @@ type CfnDistributionConfiguration interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a DistributionConfiguration resource.
-	DistributionConfigurationRef() *DistributionConfigurationReference
+	DistributionConfigurationRef() *interfacesawsimagebuilder.DistributionConfigurationReference
 	// The distributions of this distribution configuration formatted as an array of Distribution objects.
 	Distributions() interface{}
 	SetDistributions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -277,8 +279,8 @@ type CfnDistributionConfiguration interface {
 // The jsii proxy struct for CfnDistributionConfiguration
 type jsiiProxy_CfnDistributionConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDistributionConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsimagebuilderIDistributionConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnDistributionConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDistributionConfiguration) DistributionConfigurationRef() *DistributionConfigurationReference {
-	var returns *DistributionConfigurationReference
+func (j *jsiiProxy_CfnDistributionConfiguration) DistributionConfigurationRef() *interfacesawsimagebuilder.DistributionConfigurationReference {
+	var returns *interfacesawsimagebuilder.DistributionConfigurationReference
 	_jsii_.Get(
 		j,
 		"distributionConfigurationRef",
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnDistributionConfiguration) Distributions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDistributionConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDistributionConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnDistributionConfiguration) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::ImageBuilder::DistributionConfiguration`.
 func NewCfnDistributionConfiguration(scope constructs.Construct, id *string, props *CfnDistributionConfigurationProps) CfnDistributionConfiguration {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnDistributionConfiguration(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::ImageBuilder::DistributionConfiguration`.
 func NewCfnDistributionConfiguration_Override(c CfnDistributionConfiguration, scope constructs.Construct, id *string, props *CfnDistributionConfigurationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssigner/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssigner"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnSigningProfile interface {
 	awscdk.CfnResource
-	ISigningProfileRef
 	awscdk.IInspectable
+	interfacesawssigner.ISigningProfileRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the signing profile created.
 	AttrArn() *string
@@ -59,7 +61,7 @@ type CfnSigningProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -87,7 +89,7 @@ type CfnSigningProfile interface {
 	SignatureValidityPeriod() interface{}
 	SetSignatureValidityPeriod(val interface{})
 	// A reference to a SigningProfile resource.
-	SigningProfileRef() *SigningProfileReference
+	SigningProfileRef() *interfacesawssigner.SigningProfileReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -240,8 +242,8 @@ type CfnSigningProfile interface {
 // The jsii proxy struct for CfnSigningProfile
 type jsiiProxy_CfnSigningProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISigningProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssignerISigningProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnSigningProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSigningProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSigningProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -395,8 +397,8 @@ func (j *jsiiProxy_CfnSigningProfile) SignatureValidityPeriod() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSigningProfile) SigningProfileRef() *SigningProfileReference {
-	var returns *SigningProfileReference
+func (j *jsiiProxy_CfnSigningProfile) SigningProfileRef() *interfacesawssigner.SigningProfileReference {
+	var returns *interfacesawssigner.SigningProfileReference
 	_jsii_.Get(
 		j,
 		"signingProfileRef",
@@ -456,6 +458,7 @@ func (j *jsiiProxy_CfnSigningProfile) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Signer::SigningProfile`.
 func NewCfnSigningProfile(scope constructs.Construct, id *string, props *CfnSigningProfileProps) CfnSigningProfile {
 	_init_.Initialize()
 
@@ -473,6 +476,7 @@ func NewCfnSigningProfile(scope constructs.Construct, id *string, props *CfnSign
 	return &j
 }
 
+// Create a new `AWS::Signer::SigningProfile`.
 func NewCfnSigningProfile_Override(c CfnSigningProfile, scope constructs.Construct, id *string, props *CfnSigningProfileProps) {
 	_init_.Initialize()
 

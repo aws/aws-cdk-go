@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnCustomActionType interface {
 	awscdk.CfnResource
-	ICustomActionTypeRef
 	awscdk.IInspectable
+	interfacesawscodepipeline.ICustomActionTypeRef
 	awscdk.ITaggable
 	AttrId() *string
 	// The category of the custom action, such as a build action or a test action.
@@ -83,8 +85,8 @@ type CfnCustomActionType interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CustomActionType resource.
-	CustomActionTypeRef() *CustomActionTypeReference
-	Env() *awscdk.ResourceEnvironment
+	CustomActionTypeRef() *interfacesawscodepipeline.CustomActionTypeReference
+	Env() *interfaces.ResourceEnvironment
 	// The details of the input artifact for the action, such as its commit ID.
 	InputArtifactDetails() interface{}
 	SetInputArtifactDetails(val interface{})
@@ -269,8 +271,8 @@ type CfnCustomActionType interface {
 // The jsii proxy struct for CfnCustomActionType
 type jsiiProxy_CfnCustomActionType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICustomActionTypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodepipelineICustomActionTypeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -344,8 +346,8 @@ func (j *jsiiProxy_CfnCustomActionType) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomActionType) CustomActionTypeRef() *CustomActionTypeReference {
-	var returns *CustomActionTypeReference
+func (j *jsiiProxy_CfnCustomActionType) CustomActionTypeRef() *interfacesawscodepipeline.CustomActionTypeReference {
+	var returns *interfacesawscodepipeline.CustomActionTypeReference
 	_jsii_.Get(
 		j,
 		"customActionTypeRef",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnCustomActionType) CustomActionTypeRef() *CustomActionTypeR
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomActionType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCustomActionType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -495,6 +497,7 @@ func (j *jsiiProxy_CfnCustomActionType) Version() *string {
 }
 
 
+// Create a new `AWS::CodePipeline::CustomActionType`.
 func NewCfnCustomActionType(scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) CfnCustomActionType {
 	_init_.Initialize()
 
@@ -512,6 +515,7 @@ func NewCfnCustomActionType(scope constructs.Construct, id *string, props *CfnCu
 	return &j
 }
 
+// Create a new `AWS::CodePipeline::CustomActionType`.
 func NewCfnCustomActionType_Override(c CfnCustomActionType, scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) {
 	_init_.Initialize()
 

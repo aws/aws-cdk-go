@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnIngestConfiguration interface {
 	awscdk.CfnResource
-	IIngestConfigurationRef
 	awscdk.IInspectable
+	interfacesawsivs.IIngestConfigurationRef
 	awscdk.ITaggableV2
 	// The ingest-configuration ARN.
 	//
@@ -66,9 +68,9 @@ type CfnIngestConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IngestConfiguration resource.
-	IngestConfigurationRef() *IngestConfigurationReference
+	IngestConfigurationRef() *interfacesawsivs.IngestConfigurationReference
 	// Type of ingest protocol that the user employs for broadcasting.
 	IngestProtocol() *string
 	SetIngestProtocol(val *string)
@@ -251,8 +253,8 @@ type CfnIngestConfiguration interface {
 // The jsii proxy struct for CfnIngestConfiguration
 type jsiiProxy_CfnIngestConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIngestConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivsIIngestConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnIngestConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIngestConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIngestConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnIngestConfiguration) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIngestConfiguration) IngestConfigurationRef() *IngestConfigurationReference {
-	var returns *IngestConfigurationReference
+func (j *jsiiProxy_CfnIngestConfiguration) IngestConfigurationRef() *interfacesawsivs.IngestConfigurationReference {
+	var returns *interfacesawsivs.IngestConfigurationReference
 	_jsii_.Get(
 		j,
 		"ingestConfigurationRef",
@@ -487,6 +489,7 @@ func (j *jsiiProxy_CfnIngestConfiguration) UserId() *string {
 }
 
 
+// Create a new `AWS::IVS::IngestConfiguration`.
 func NewCfnIngestConfiguration(scope constructs.Construct, id *string, props *CfnIngestConfigurationProps) CfnIngestConfiguration {
 	_init_.Initialize()
 
@@ -504,6 +507,7 @@ func NewCfnIngestConfiguration(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::IVS::IngestConfiguration`.
 func NewCfnIngestConfiguration_Override(c CfnIngestConfiguration, scope constructs.Construct, id *string, props *CfnIngestConfigurationProps) {
 	_init_.Initialize()
 

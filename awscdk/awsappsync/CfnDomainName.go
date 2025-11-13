@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnDomainName interface {
 	awscdk.CfnResource
-	IDomainNameRef
 	awscdk.IInspectable
+	interfacesawsappsync.IDomainNameRef
 	awscdk.ITaggableV2
 	// The domain name provided by AWS AppSync .
 	AttrAppSyncDomainName() *string
@@ -66,8 +68,8 @@ type CfnDomainName interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// A reference to a DomainName resource.
-	DomainNameRef() *DomainNameReference
-	Env() *awscdk.ResourceEnvironment
+	DomainNameRef() *interfacesawsappsync.DomainNameReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnDomainName interface {
 // The jsii proxy struct for CfnDomainName
 type jsiiProxy_CfnDomainName struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainNameRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappsyncIDomainNameRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnDomainName) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainName) DomainNameRef() *DomainNameReference {
-	var returns *DomainNameReference
+func (j *jsiiProxy_CfnDomainName) DomainNameRef() *interfacesawsappsync.DomainNameReference {
+	var returns *interfacesawsappsync.DomainNameReference
 	_jsii_.Get(
 		j,
 		"domainNameRef",
@@ -370,8 +372,8 @@ func (j *jsiiProxy_CfnDomainName) DomainNameRef() *DomainNameReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainName) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomainName) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnDomainName) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppSync::DomainName`.
 func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNameProps) CfnDomainName {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnDomainName(scope constructs.Construct, id *string, props *CfnDomainNa
 	return &j
 }
 
+// Create a new `AWS::AppSync::DomainName`.
 func NewCfnDomainName_Override(c CfnDomainName, scope constructs.Construct, id *string, props *CfnDomainNameProps) {
 	_init_.Initialize()
 
@@ -520,13 +524,13 @@ func (j *jsiiProxy_CfnDomainName)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDomainNameRef from a domainName.
-func CfnDomainName_FromDomainName(scope constructs.Construct, id *string, domainName *string) IDomainNameRef {
+func CfnDomainName_FromDomainName(scope constructs.Construct, id *string, domainName *string) interfacesawsappsync.IDomainNameRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomainName_FromDomainNameParameters(scope, id, domainName); err != nil {
 		panic(err)
 	}
-	var returns IDomainNameRef
+	var returns interfacesawsappsync.IDomainNameRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appsync.CfnDomainName",
@@ -539,13 +543,13 @@ func CfnDomainName_FromDomainName(scope constructs.Construct, id *string, domain
 }
 
 // Creates a new IDomainNameRef from an ARN.
-func CfnDomainName_FromDomainNameArn(scope constructs.Construct, id *string, arn *string) IDomainNameRef {
+func CfnDomainName_FromDomainNameArn(scope constructs.Construct, id *string, arn *string) interfacesawsappsync.IDomainNameRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomainName_FromDomainNameArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDomainNameRef
+	var returns interfacesawsappsync.IDomainNameRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appsync.CfnDomainName",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnClusterParameterGroup interface {
 	awscdk.CfnResource
-	IClusterParameterGroupRef
 	awscdk.IInspectable
+	interfacesawsredshift.IClusterParameterGroupRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -49,7 +51,7 @@ type CfnClusterParameterGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ClusterParameterGroup resource.
-	ClusterParameterGroupRef() *ClusterParameterGroupReference
+	ClusterParameterGroupRef() *interfacesawsredshift.ClusterParameterGroupReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -57,7 +59,7 @@ type CfnClusterParameterGroup interface {
 	// The description of the parameter group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -238,8 +240,8 @@ type CfnClusterParameterGroup interface {
 // The jsii proxy struct for CfnClusterParameterGroup
 type jsiiProxy_CfnClusterParameterGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterParameterGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIClusterParameterGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -273,8 +275,8 @@ func (j *jsiiProxy_CfnClusterParameterGroup) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterParameterGroup) ClusterParameterGroupRef() *ClusterParameterGroupReference {
-	var returns *ClusterParameterGroupReference
+func (j *jsiiProxy_CfnClusterParameterGroup) ClusterParameterGroupRef() *interfacesawsredshift.ClusterParameterGroupReference {
+	var returns *interfacesawsredshift.ClusterParameterGroupReference
 	_jsii_.Get(
 		j,
 		"clusterParameterGroupRef",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnClusterParameterGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterParameterGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClusterParameterGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -424,6 +426,7 @@ func (j *jsiiProxy_CfnClusterParameterGroup) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::Redshift::ClusterParameterGroup`.
 func NewCfnClusterParameterGroup(scope constructs.Construct, id *string, props *CfnClusterParameterGroupProps) CfnClusterParameterGroup {
 	_init_.Initialize()
 
@@ -441,6 +444,7 @@ func NewCfnClusterParameterGroup(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Redshift::ClusterParameterGroup`.
 func NewCfnClusterParameterGroup_Override(c CfnClusterParameterGroup, scope constructs.Construct, id *string, props *CfnClusterParameterGroupProps) {
 	_init_.Initialize()
 
@@ -504,13 +508,13 @@ func (j *jsiiProxy_CfnClusterParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IClusterParameterGroupRef from a parameterGroupName.
-func CfnClusterParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) IClusterParameterGroupRef {
+func CfnClusterParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) interfacesawsredshift.IClusterParameterGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnClusterParameterGroup_FromParameterGroupNameParameters(scope, id, parameterGroupName); err != nil {
 		panic(err)
 	}
-	var returns IClusterParameterGroupRef
+	var returns interfacesawsredshift.IClusterParameterGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_redshift.CfnClusterParameterGroup",

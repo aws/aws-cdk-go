@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnUserPoolIdentityProvider interface {
 	awscdk.CfnResource
-	IUserPoolIdentityProviderRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolIdentityProviderRef
 	// A mapping of IdP attributes to standard and custom user pool attributes.
 	AttributeMapping() interface{}
 	SetAttributeMapping(val interface{})
@@ -50,7 +52,7 @@ type CfnUserPoolIdentityProvider interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` .
 	IdpIdentifiers() *[]*string
 	SetIdpIdentifiers(val *[]*string)
@@ -101,7 +103,7 @@ type CfnUserPoolIdentityProvider interface {
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// A reference to a UserPoolIdentityProvider resource.
-	UserPoolIdentityProviderRef() *UserPoolIdentityProviderReference
+	UserPoolIdentityProviderRef() *interfacesawscognito.UserPoolIdentityProviderReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -232,8 +234,8 @@ type CfnUserPoolIdentityProvider interface {
 // The jsii proxy struct for CfnUserPoolIdentityProvider
 type jsiiProxy_CfnUserPoolIdentityProvider struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolIdentityProviderRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolIdentityProviderRef
 }
 
 func (j *jsiiProxy_CfnUserPoolIdentityProvider) AttributeMapping() interface{} {
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolIdentityProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolIdentityProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) UserPoolId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolIdentityProvider) UserPoolIdentityProviderRef() *UserPoolIdentityProviderReference {
-	var returns *UserPoolIdentityProviderReference
+func (j *jsiiProxy_CfnUserPoolIdentityProvider) UserPoolIdentityProviderRef() *interfacesawscognito.UserPoolIdentityProviderReference {
+	var returns *interfacesawscognito.UserPoolIdentityProviderReference
 	_jsii_.Get(
 		j,
 		"userPoolIdentityProviderRef",
@@ -417,6 +419,7 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) UserPoolIdentityProviderRef() *U
 }
 
 
+// Create a new `AWS::Cognito::UserPoolIdentityProvider`.
 func NewCfnUserPoolIdentityProvider(scope constructs.Construct, id *string, props *CfnUserPoolIdentityProviderProps) CfnUserPoolIdentityProvider {
 	_init_.Initialize()
 
@@ -434,6 +437,7 @@ func NewCfnUserPoolIdentityProvider(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolIdentityProvider`.
 func NewCfnUserPoolIdentityProvider_Override(c CfnUserPoolIdentityProvider, scope constructs.Construct, id *string, props *CfnUserPoolIdentityProviderProps) {
 	_init_.Initialize()
 

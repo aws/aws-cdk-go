@@ -6,19 +6,32 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // IAM Instance Profile.
 //
 // Example:
+//   var vpc Vpc
+//
+//
 //   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 //   	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
 //   })
-//
-//   instanceProfile := iam.InstanceProfile_FromInstanceProfileAttributes(this, jsii.String("ImportedInstanceProfile"), &InstanceProfileAttributes{
-//   	InstanceProfileArn: jsii.String("arn:aws:iam::account-id:instance-profile/MyInstanceProfile"),
+//   instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), &InstanceProfileProps{
 //   	Role: Role,
+//   })
+//
+//   template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   	LaunchTemplateName: jsii.String("MyTemplateV1"),
+//   	VersionDescription: jsii.String("This is my v1 template"),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+//   	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
+//   		Vpc: vpc,
+//   	}),
+//   	InstanceProfile: InstanceProfile,
 //   })
 //
 type InstanceProfile interface {
@@ -33,13 +46,13 @@ type InstanceProfile interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Returns the ARN of this InstanceProfile.
 	InstanceProfileArn() *string
 	// Returns the name of this InstanceProfile.
 	InstanceProfileName() *string
 	// A reference to a InstanceProfile resource.
-	InstanceProfileRef() *InstanceProfileReference
+	InstanceProfileRef() *interfacesawsiam.InstanceProfileReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -88,8 +101,8 @@ type jsiiProxy_InstanceProfile struct {
 	jsiiProxy_IInstanceProfile
 }
 
-func (j *jsiiProxy_InstanceProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_InstanceProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -118,8 +131,8 @@ func (j *jsiiProxy_InstanceProfile) InstanceProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_InstanceProfile) InstanceProfileRef() *InstanceProfileReference {
-	var returns *InstanceProfileReference
+func (j *jsiiProxy_InstanceProfile) InstanceProfileRef() *interfacesawsiam.InstanceProfileReference {
+	var returns *interfacesawsiam.InstanceProfileReference
 	_jsii_.Get(
 		j,
 		"instanceProfileRef",

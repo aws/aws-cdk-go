@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,7 +31,7 @@ type S3ApiDefinition interface {
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	BindAfterCreate(_scope constructs.Construct, _restApi IRestApiRef)
+	BindAfterCreate(_scope constructs.Construct, _restApi interfacesawsapigateway.IRestApiRef)
 }
 
 // The jsii proxy struct for S3ApiDefinition
@@ -37,7 +39,7 @@ type jsiiProxy_S3ApiDefinition struct {
 	jsiiProxy_ApiDefinition
 }
 
-func NewS3ApiDefinition(bucket awss3.IBucketRef, key *string, objectVersion *string) S3ApiDefinition {
+func NewS3ApiDefinition(bucket interfacesawss3.IBucketRef, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
 	if err := validateNewS3ApiDefinitionParameters(bucket, key); err != nil {
@@ -54,7 +56,7 @@ func NewS3ApiDefinition(bucket awss3.IBucketRef, key *string, objectVersion *str
 	return &j
 }
 
-func NewS3ApiDefinition_Override(s S3ApiDefinition, bucket awss3.IBucketRef, key *string, objectVersion *string) {
+func NewS3ApiDefinition_Override(s S3ApiDefinition, bucket interfacesawss3.IBucketRef, key *string, objectVersion *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -183,7 +185,7 @@ func (s *jsiiProxy_S3ApiDefinition) Bind(scope constructs.Construct) *ApiDefinit
 	return returns
 }
 
-func (s *jsiiProxy_S3ApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi IRestApiRef) {
+func (s *jsiiProxy_S3ApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi interfacesawsapigateway.IRestApiRef) {
 	if err := s.validateBindAfterCreateParameters(_scope, _restApi); err != nil {
 		panic(err)
 	}

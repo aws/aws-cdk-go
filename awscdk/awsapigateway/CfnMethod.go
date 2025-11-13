@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -94,8 +96,8 @@ import (
 //
 type CfnMethod interface {
 	awscdk.CfnResource
-	IMethodRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IMethodRef
 	// A boolean flag specifying whether a valid ApiKey is required to invoke this method.
 	ApiKeyRequired() interface{}
 	SetApiKeyRequired(val interface{})
@@ -117,7 +119,7 @@ type CfnMethod interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The method's HTTP verb.
 	HttpMethod() *string
 	SetHttpMethod(val *string)
@@ -135,7 +137,7 @@ type CfnMethod interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a Method resource.
-	MethodRef() *MethodReference
+	MethodRef() *interfacesawsapigateway.MethodReference
 	// Gets a method response associated with a given HTTP status code.
 	MethodResponses() interface{}
 	SetMethodResponses(val interface{})
@@ -311,8 +313,8 @@ type CfnMethod interface {
 // The jsii proxy struct for CfnMethod
 type jsiiProxy_CfnMethod struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMethodRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIMethodRef
 }
 
 func (j *jsiiProxy_CfnMethod) ApiKeyRequired() interface{} {
@@ -395,8 +397,8 @@ func (j *jsiiProxy_CfnMethod) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMethod) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMethod) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -435,8 +437,8 @@ func (j *jsiiProxy_CfnMethod) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMethod) MethodRef() *MethodReference {
-	var returns *MethodReference
+func (j *jsiiProxy_CfnMethod) MethodRef() *interfacesawsapigateway.MethodReference {
+	var returns *interfacesawsapigateway.MethodReference
 	_jsii_.Get(
 		j,
 		"methodRef",
@@ -566,6 +568,7 @@ func (j *jsiiProxy_CfnMethod) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApiGateway::Method`.
 func NewCfnMethod(scope constructs.Construct, id *string, props *CfnMethodProps) CfnMethod {
 	_init_.Initialize()
 
@@ -583,6 +586,7 @@ func NewCfnMethod(scope constructs.Construct, id *string, props *CfnMethodProps)
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::Method`.
 func NewCfnMethod_Override(c CfnMethod, scope constructs.Construct, id *string, props *CfnMethodProps) {
 	_init_.Initialize()
 

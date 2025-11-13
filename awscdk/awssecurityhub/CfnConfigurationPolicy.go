@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The `AWS::SecurityHub::ConfigurationPolicy` resource creates a central configuration policy with the defined settings.
 //
-// Only the AWS Security Hub delegated administrator can create this resource in the home Region. For more information, see [Central configuration in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in the *AWS Security Hub User Guide* .
+// Only the Security Hub delegated administrator can create this resource in the home Region. For more information, see [Central configuration in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in the *Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -76,8 +78,8 @@ import (
 //
 type CfnConfigurationPolicy interface {
 	awscdk.CfnResource
-	IConfigurationPolicyRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IConfigurationPolicyRef
 	awscdk.ITaggableV2
 	// The ARN of the configuration policy.
 	AttrArn() *string
@@ -98,11 +100,11 @@ type CfnConfigurationPolicy interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// An object that defines how AWS Security Hub is configured.
+	// An object that defines how Security Hub is configured.
 	ConfigurationPolicy() interface{}
 	SetConfigurationPolicy(val interface{})
 	// A reference to a ConfigurationPolicy resource.
-	ConfigurationPolicyRef() *ConfigurationPolicyReference
+	ConfigurationPolicyRef() *interfacesawssecurityhub.ConfigurationPolicyReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -110,7 +112,7 @@ type CfnConfigurationPolicy interface {
 	// The description of the configuration policy.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -281,8 +283,8 @@ type CfnConfigurationPolicy interface {
 // The jsii proxy struct for CfnConfigurationPolicy
 type jsiiProxy_CfnConfigurationPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIConfigurationPolicyRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -386,8 +388,8 @@ func (j *jsiiProxy_CfnConfigurationPolicy) ConfigurationPolicy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationPolicy) ConfigurationPolicyRef() *ConfigurationPolicyReference {
-	var returns *ConfigurationPolicyReference
+func (j *jsiiProxy_CfnConfigurationPolicy) ConfigurationPolicyRef() *interfacesawssecurityhub.ConfigurationPolicyReference {
+	var returns *interfacesawssecurityhub.ConfigurationPolicyReference
 	_jsii_.Get(
 		j,
 		"configurationPolicyRef",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnConfigurationPolicy) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -507,6 +509,7 @@ func (j *jsiiProxy_CfnConfigurationPolicy) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::SecurityHub::ConfigurationPolicy`.
 func NewCfnConfigurationPolicy(scope constructs.Construct, id *string, props *CfnConfigurationPolicyProps) CfnConfigurationPolicy {
 	_init_.Initialize()
 
@@ -524,6 +527,7 @@ func NewCfnConfigurationPolicy(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::ConfigurationPolicy`.
 func NewCfnConfigurationPolicy_Override(c CfnConfigurationPolicy, scope constructs.Construct, id *string, props *CfnConfigurationPolicyProps) {
 	_init_.Initialize()
 

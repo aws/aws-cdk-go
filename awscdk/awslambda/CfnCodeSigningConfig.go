@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnCodeSigningConfig interface {
 	awscdk.CfnResource
-	ICodeSigningConfigRef
 	awscdk.IInspectable
+	interfacesawslambda.ICodeSigningConfigRef
 	awscdk.ITaggableV2
 	// List of allowed publishers.
 	AllowedPublishers() interface{}
@@ -58,7 +60,7 @@ type CfnCodeSigningConfig interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CodeSigningConfig resource.
-	CodeSigningConfigRef() *CodeSigningConfigReference
+	CodeSigningConfigRef() *interfacesawslambda.CodeSigningConfigReference
 	// The code signing policy controls the validation failure action for signature mismatch or expiry.
 	CodeSigningPolicies() interface{}
 	SetCodeSigningPolicies(val interface{})
@@ -69,7 +71,7 @@ type CfnCodeSigningConfig interface {
 	// Code signing configuration description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,8 +239,8 @@ type CfnCodeSigningConfig interface {
 // The jsii proxy struct for CfnCodeSigningConfig
 type jsiiProxy_CfnCodeSigningConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICodeSigningConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslambdaICodeSigningConfigRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnCodeSigningConfig) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeSigningConfig) CodeSigningConfigRef() *CodeSigningConfigReference {
-	var returns *CodeSigningConfigReference
+func (j *jsiiProxy_CfnCodeSigningConfig) CodeSigningConfigRef() *interfacesawslambda.CodeSigningConfigReference {
+	var returns *interfacesawslambda.CodeSigningConfigReference
 	_jsii_.Get(
 		j,
 		"codeSigningConfigRef",
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnCodeSigningConfig) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeSigningConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCodeSigningConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnCodeSigningConfig) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::Lambda::CodeSigningConfig`.
 func NewCfnCodeSigningConfig(scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) CfnCodeSigningConfig {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnCodeSigningConfig(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
+// Create a new `AWS::Lambda::CodeSigningConfig`.
 func NewCfnCodeSigningConfig_Override(c CfnCodeSigningConfig, scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnNetworkInterfaceAttachment interface {
 	awscdk.CfnResource
-	INetworkInterfaceAttachmentRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkInterfaceAttachmentRef
 	// The ID of the network interface attachment.
 	AttrAttachmentId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -63,7 +65,7 @@ type CfnNetworkInterfaceAttachment interface {
 	// Configures ENA Express for the network interface that this action attaches to the instance.
 	EnaSrdSpecification() interface{}
 	SetEnaSrdSpecification(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the instance to which you will attach the ENI.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -78,7 +80,7 @@ type CfnNetworkInterfaceAttachment interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a NetworkInterfaceAttachment resource.
-	NetworkInterfaceAttachmentRef() *NetworkInterfaceAttachmentReference
+	NetworkInterfaceAttachmentRef() *interfacesawsec2.NetworkInterfaceAttachmentReference
 	// The ID of the ENI that you want to attach.
 	NetworkInterfaceId() *string
 	SetNetworkInterfaceId(val *string)
@@ -236,8 +238,8 @@ type CfnNetworkInterfaceAttachment interface {
 // The jsii proxy struct for CfnNetworkInterfaceAttachment
 type jsiiProxy_CfnNetworkInterfaceAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkInterfaceAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkInterfaceAttachmentRef
 }
 
 func (j *jsiiProxy_CfnNetworkInterfaceAttachment) AttrAttachmentId() *string {
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) EnaSrdSpecification() interfac
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInterfaceAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInterfaceAttachment) NetworkInterfaceAttachmentRef() *NetworkInterfaceAttachmentReference {
-	var returns *NetworkInterfaceAttachmentReference
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment) NetworkInterfaceAttachmentRef() *interfacesawsec2.NetworkInterfaceAttachmentReference {
+	var returns *interfacesawsec2.NetworkInterfaceAttachmentReference
 	_jsii_.Get(
 		j,
 		"networkInterfaceAttachmentRef",
@@ -431,6 +433,7 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) UpdatedProperties() *map[strin
 }
 
 
+// Create a new `AWS::EC2::NetworkInterfaceAttachment`.
 func NewCfnNetworkInterfaceAttachment(scope constructs.Construct, id *string, props *CfnNetworkInterfaceAttachmentProps) CfnNetworkInterfaceAttachment {
 	_init_.Initialize()
 
@@ -448,6 +451,7 @@ func NewCfnNetworkInterfaceAttachment(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkInterfaceAttachment`.
 func NewCfnNetworkInterfaceAttachment_Override(c CfnNetworkInterfaceAttachment, scope constructs.Construct, id *string, props *CfnNetworkInterfaceAttachmentProps) {
 	_init_.Initialize()
 

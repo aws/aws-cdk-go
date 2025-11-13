@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnVPCPeeringConnection interface {
 	awscdk.CfnResource
-	IVPCPeeringConnectionRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCPeeringConnectionRef
 	awscdk.ITaggable
 	// The ID of the peering connection.
 	AttrId() *string
@@ -58,7 +60,7 @@ type CfnVPCPeeringConnection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -114,7 +116,7 @@ type CfnVPCPeeringConnection interface {
 	VpcId() *string
 	SetVpcId(val *string)
 	// A reference to a VPCPeeringConnection resource.
-	VpcPeeringConnectionRef() *VPCPeeringConnectionReference
+	VpcPeeringConnectionRef() *interfacesawsec2.VPCPeeringConnectionReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -245,8 +247,8 @@ type CfnVPCPeeringConnection interface {
 // The jsii proxy struct for CfnVPCPeeringConnection
 type jsiiProxy_CfnVPCPeeringConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCPeeringConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCPeeringConnectionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCPeeringConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCPeeringConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -440,8 +442,8 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) VpcId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCPeeringConnection) VpcPeeringConnectionRef() *VPCPeeringConnectionReference {
-	var returns *VPCPeeringConnectionReference
+func (j *jsiiProxy_CfnVPCPeeringConnection) VpcPeeringConnectionRef() *interfacesawsec2.VPCPeeringConnectionReference {
+	var returns *interfacesawsec2.VPCPeeringConnectionReference
 	_jsii_.Get(
 		j,
 		"vpcPeeringConnectionRef",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) VpcPeeringConnectionRef() *VPCPeerin
 }
 
 
+// Create a new `AWS::EC2::VPCPeeringConnection`.
 func NewCfnVPCPeeringConnection(scope constructs.Construct, id *string, props *CfnVPCPeeringConnectionProps) CfnVPCPeeringConnection {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnVPCPeeringConnection(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCPeeringConnection`.
 func NewCfnVPCPeeringConnection_Override(c CfnVPCPeeringConnection, scope constructs.Construct, id *string, props *CfnVPCPeeringConnectionProps) {
 	_init_.Initialize()
 
@@ -536,13 +540,13 @@ func (j *jsiiProxy_CfnVPCPeeringConnection)SetVpcId(val *string) {
 }
 
 // Creates a new IVPCPeeringConnectionRef from a vpcPeeringConnectionId.
-func CfnVPCPeeringConnection_FromVpcPeeringConnectionId(scope constructs.Construct, id *string, vpcPeeringConnectionId *string) IVPCPeeringConnectionRef {
+func CfnVPCPeeringConnection_FromVpcPeeringConnectionId(scope constructs.Construct, id *string, vpcPeeringConnectionId *string) interfacesawsec2.IVPCPeeringConnectionRef {
 	_init_.Initialize()
 
 	if err := validateCfnVPCPeeringConnection_FromVpcPeeringConnectionIdParameters(scope, id, vpcPeeringConnectionId); err != nil {
 		panic(err)
 	}
-	var returns IVPCPeeringConnectionRef
+	var returns interfacesawsec2.IVPCPeeringConnectionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVPCPeeringConnection",

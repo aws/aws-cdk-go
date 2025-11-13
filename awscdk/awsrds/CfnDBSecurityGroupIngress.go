@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnDBSecurityGroupIngress interface {
 	awscdk.CfnResource
-	IDBSecurityGroupIngressRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBSecurityGroupIngressRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,7 +56,7 @@ type CfnDBSecurityGroupIngress interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DBSecurityGroupIngress resource.
-	DbSecurityGroupIngressRef() *DBSecurityGroupIngressReference
+	DbSecurityGroupIngressRef() *interfacesawsrds.DBSecurityGroupIngressReference
 	// The name of the DB security group to add authorization to.
 	DbSecurityGroupName() *string
 	SetDbSecurityGroupName(val *string)
@@ -67,7 +69,7 @@ type CfnDBSecurityGroupIngress interface {
 	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -232,8 +234,8 @@ type CfnDBSecurityGroupIngress interface {
 // The jsii proxy struct for CfnDBSecurityGroupIngress
 type jsiiProxy_CfnDBSecurityGroupIngress struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBSecurityGroupIngressRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBSecurityGroupIngressRef
 }
 
 func (j *jsiiProxy_CfnDBSecurityGroupIngress) AttrId() *string {
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSecurityGroupIngress) DbSecurityGroupIngressRef() *DBSecurityGroupIngressReference {
-	var returns *DBSecurityGroupIngressReference
+func (j *jsiiProxy_CfnDBSecurityGroupIngress) DbSecurityGroupIngressRef() *interfacesawsrds.DBSecurityGroupIngressReference {
+	var returns *interfacesawsrds.DBSecurityGroupIngressReference
 	_jsii_.Get(
 		j,
 		"dbSecurityGroupIngressRef",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) Ec2SecurityGroupOwnerId() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSecurityGroupIngress) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBSecurityGroupIngress) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -417,6 +419,7 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::RDS::DBSecurityGroupIngress`.
 func NewCfnDBSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) CfnDBSecurityGroupIngress {
 	_init_.Initialize()
 
@@ -434,6 +437,7 @@ func NewCfnDBSecurityGroupIngress(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::RDS::DBSecurityGroupIngress`.
 func NewCfnDBSecurityGroupIngress_Override(c CfnDBSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) {
 	_init_.Initialize()
 

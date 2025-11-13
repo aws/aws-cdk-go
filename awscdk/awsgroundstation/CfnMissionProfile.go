@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgroundstation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgroundstation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnMissionProfile interface {
 	awscdk.CfnResource
-	IMissionProfileRef
 	awscdk.IInspectable
+	interfacesawsgroundstation.IMissionProfileRef
 	awscdk.ITaggable
 	// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	AttrArn() *string
@@ -75,7 +77,7 @@ type CfnMissionProfile interface {
 	// A list containing lists of config ARNs.
 	DataflowEdges() interface{}
 	SetDataflowEdges(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -90,7 +92,7 @@ type CfnMissionProfile interface {
 	MinimumViableContactDurationSeconds() *float64
 	SetMinimumViableContactDurationSeconds(val *float64)
 	// A reference to a MissionProfile resource.
-	MissionProfileRef() *MissionProfileReference
+	MissionProfileRef() *interfacesawsgroundstation.MissionProfileReference
 	// The name of the mission profile.
 	Name() *string
 	SetName(val *string)
@@ -262,8 +264,8 @@ type CfnMissionProfile interface {
 // The jsii proxy struct for CfnMissionProfile
 type jsiiProxy_CfnMissionProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMissionProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgroundstationIMissionProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnMissionProfile) DataflowEdges() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMissionProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMissionProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnMissionProfile) MinimumViableContactDurationSeconds() *flo
 	return returns
 }
 
-func (j *jsiiProxy_CfnMissionProfile) MissionProfileRef() *MissionProfileReference {
-	var returns *MissionProfileReference
+func (j *jsiiProxy_CfnMissionProfile) MissionProfileRef() *interfacesawsgroundstation.MissionProfileReference {
+	var returns *interfacesawsgroundstation.MissionProfileReference
 	_jsii_.Get(
 		j,
 		"missionProfileRef",
@@ -518,6 +520,7 @@ func (j *jsiiProxy_CfnMissionProfile) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::GroundStation::MissionProfile`.
 func NewCfnMissionProfile(scope constructs.Construct, id *string, props *CfnMissionProfileProps) CfnMissionProfile {
 	_init_.Initialize()
 
@@ -535,6 +538,7 @@ func NewCfnMissionProfile(scope constructs.Construct, id *string, props *CfnMiss
 	return &j
 }
 
+// Create a new `AWS::GroundStation::MissionProfile`.
 func NewCfnMissionProfile_Override(c CfnMissionProfile, scope constructs.Construct, id *string, props *CfnMissionProfileProps) {
 	_init_.Initialize()
 
@@ -636,13 +640,13 @@ func (j *jsiiProxy_CfnMissionProfile)SetTrackingConfigArn(val *string) {
 }
 
 // Creates a new IMissionProfileRef from a missionProfileId.
-func CfnMissionProfile_FromMissionProfileId(scope constructs.Construct, id *string, missionProfileId *string) IMissionProfileRef {
+func CfnMissionProfile_FromMissionProfileId(scope constructs.Construct, id *string, missionProfileId *string) interfacesawsgroundstation.IMissionProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnMissionProfile_FromMissionProfileIdParameters(scope, id, missionProfileId); err != nil {
 		panic(err)
 	}
-	var returns IMissionProfileRef
+	var returns interfacesawsgroundstation.IMissionProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_groundstation.CfnMissionProfile",

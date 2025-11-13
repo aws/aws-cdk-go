@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -295,8 +297,8 @@ import (
 //
 type CfnGlobalTable interface {
 	awscdk.CfnResource
-	IGlobalTableRef
 	awscdk.IInspectable
+	interfacesawsdynamodb.IGlobalTableRef
 	// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
 	//
 	// The ARN returned is that of the replica in the region the stack is deployed to.
@@ -326,12 +328,12 @@ type CfnGlobalTable interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Global secondary indexes to be created on the global table.
 	GlobalSecondaryIndexes() interface{}
 	SetGlobalSecondaryIndexes(val interface{})
 	// A reference to a GlobalTable resource.
-	GlobalTableRef() *GlobalTableReference
+	GlobalTableRef() *interfacesawsdynamodb.GlobalTableReference
 	// The list of witnesses of the MRSC global table.
 	GlobalTableWitnesses() interface{}
 	SetGlobalTableWitnesses(val interface{})
@@ -532,8 +534,8 @@ type CfnGlobalTable interface {
 // The jsii proxy struct for CfnGlobalTable
 type jsiiProxy_CfnGlobalTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGlobalTableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdynamodbIGlobalTableRef
 }
 
 func (j *jsiiProxy_CfnGlobalTable) AttrArn() *string {
@@ -626,8 +628,8 @@ func (j *jsiiProxy_CfnGlobalTable) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGlobalTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -646,8 +648,8 @@ func (j *jsiiProxy_CfnGlobalTable) GlobalSecondaryIndexes() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalTable) GlobalTableRef() *GlobalTableReference {
-	var returns *GlobalTableReference
+func (j *jsiiProxy_CfnGlobalTable) GlobalTableRef() *interfacesawsdynamodb.GlobalTableReference {
+	var returns *interfacesawsdynamodb.GlobalTableReference
 	_jsii_.Get(
 		j,
 		"globalTableRef",
@@ -837,6 +839,7 @@ func (j *jsiiProxy_CfnGlobalTable) WriteProvisionedThroughputSettings() interfac
 }
 
 
+// Create a new `AWS::DynamoDB::GlobalTable`.
 func NewCfnGlobalTable(scope constructs.Construct, id *string, props *CfnGlobalTableProps) CfnGlobalTable {
 	_init_.Initialize()
 
@@ -854,6 +857,7 @@ func NewCfnGlobalTable(scope constructs.Construct, id *string, props *CfnGlobalT
 	return &j
 }
 
+// Create a new `AWS::DynamoDB::GlobalTable`.
 func NewCfnGlobalTable_Override(c CfnGlobalTable, scope constructs.Construct, id *string, props *CfnGlobalTableProps) {
 	_init_.Initialize()
 

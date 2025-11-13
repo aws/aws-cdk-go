@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnotifications"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnChannelAssociation interface {
 	awscdk.CfnResource
-	IChannelAssociationRef
 	awscdk.IInspectable
+	interfacesawsnotifications.IChannelAssociationRef
 	// The Amazon Resource Name (ARN) of the `Channel` .
 	Arn() *string
 	SetArn(val *string)
@@ -38,12 +40,12 @@ type CfnChannelAssociation interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ChannelAssociation resource.
-	ChannelAssociationRef() *ChannelAssociationReference
+	ChannelAssociationRef() *interfacesawsnotifications.ChannelAssociationReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -211,8 +213,8 @@ type CfnChannelAssociation interface {
 // The jsii proxy struct for CfnChannelAssociation
 type jsiiProxy_CfnChannelAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChannelAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnotificationsIChannelAssociationRef
 }
 
 func (j *jsiiProxy_CfnChannelAssociation) Arn() *string {
@@ -255,8 +257,8 @@ func (j *jsiiProxy_CfnChannelAssociation) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelAssociation) ChannelAssociationRef() *ChannelAssociationReference {
-	var returns *ChannelAssociationReference
+func (j *jsiiProxy_CfnChannelAssociation) ChannelAssociationRef() *interfacesawsnotifications.ChannelAssociationReference {
+	var returns *interfacesawsnotifications.ChannelAssociationReference
 	_jsii_.Get(
 		j,
 		"channelAssociationRef",
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnChannelAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChannelAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnChannelAssociation) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Notifications::ChannelAssociation`.
 func NewCfnChannelAssociation(scope constructs.Construct, id *string, props *CfnChannelAssociationProps) CfnChannelAssociation {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnChannelAssociation(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Notifications::ChannelAssociation`.
 func NewCfnChannelAssociation_Override(c CfnChannelAssociation, scope constructs.Construct, id *string, props *CfnChannelAssociationProps) {
 	_init_.Initialize()
 

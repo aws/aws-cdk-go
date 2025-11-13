@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -380,8 +382,8 @@ import (
 //
 type CfnDomain interface {
 	awscdk.CfnResource
-	IDomainRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IDomainRef
 	awscdk.ITaggable
 	// Specifies the VPC used for non-EFS traffic.
 	//
@@ -429,11 +431,11 @@ type CfnDomain interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	// A reference to a Domain resource.
-	DomainRef() *DomainReference
+	DomainRef() *interfacesawssagemaker.DomainReference
 	// A collection of settings that apply to the `SageMaker Domain` .
 	DomainSettings() interface{}
 	SetDomainSettings(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the Domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -615,8 +617,8 @@ type CfnDomain interface {
 // The jsii proxy struct for CfnDomain
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIDomainRef
 	internal.Type__awscdkITaggable
 }
 
@@ -790,8 +792,8 @@ func (j *jsiiProxy_CfnDomain) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) DomainRef() *DomainReference {
-	var returns *DomainReference
+func (j *jsiiProxy_CfnDomain) DomainRef() *interfacesawssagemaker.DomainReference {
+	var returns *interfacesawssagemaker.DomainReference
 	_jsii_.Get(
 		j,
 		"domainRef",
@@ -810,8 +812,8 @@ func (j *jsiiProxy_CfnDomain) DomainSettings() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -941,6 +943,7 @@ func (j *jsiiProxy_CfnDomain) VpcId() *string {
 }
 
 
+// Create a new `AWS::SageMaker::Domain`.
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
@@ -958,6 +961,7 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Domain`.
 func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
@@ -1083,13 +1087,13 @@ func (j *jsiiProxy_CfnDomain)SetVpcId(val *string) {
 }
 
 // Creates a new IDomainRef from an ARN.
-func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string) IDomainRef {
+func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string) interfacesawssagemaker.IDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomain_FromDomainArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDomainRef
+	var returns interfacesawssagemaker.IDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain",
@@ -1102,13 +1106,13 @@ func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IDomainRef from a domainId.
-func CfnDomain_FromDomainId(scope constructs.Construct, id *string, domainId *string) IDomainRef {
+func CfnDomain_FromDomainId(scope constructs.Construct, id *string, domainId *string) interfacesawssagemaker.IDomainRef {
 	_init_.Initialize()
 
 	if err := validateCfnDomain_FromDomainIdParameters(scope, id, domainId); err != nil {
 		panic(err)
 	}
-	var returns IDomainRef
+	var returns interfacesawssagemaker.IDomainRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain",

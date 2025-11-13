@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoverycontrol/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoverycontrol"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnSafetyRule interface {
 	awscdk.CfnResource
-	ISafetyRuleRef
 	awscdk.IInspectable
+	interfacesawsroute53recoverycontrol.ISafetyRuleRef
 	awscdk.ITaggable
 	// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met.
 	AssertionRule() interface{}
@@ -87,7 +89,7 @@ type CfnSafetyRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
 	GatingRule() interface{}
 	SetGatingRule(val interface{})
@@ -115,7 +117,7 @@ type CfnSafetyRule interface {
 	RuleConfig() interface{}
 	SetRuleConfig(val interface{})
 	// A reference to a SafetyRule resource.
-	SafetyRuleRef() *SafetyRuleReference
+	SafetyRuleRef() *interfacesawsroute53recoverycontrol.SafetyRuleReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -268,8 +270,8 @@ type CfnSafetyRule interface {
 // The jsii proxy struct for CfnSafetyRule
 type jsiiProxy_CfnSafetyRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISafetyRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53recoverycontrolISafetyRuleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnSafetyRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSafetyRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSafetyRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,8 +425,8 @@ func (j *jsiiProxy_CfnSafetyRule) RuleConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSafetyRule) SafetyRuleRef() *SafetyRuleReference {
-	var returns *SafetyRuleReference
+func (j *jsiiProxy_CfnSafetyRule) SafetyRuleRef() *interfacesawsroute53recoverycontrol.SafetyRuleReference {
+	var returns *interfacesawsroute53recoverycontrol.SafetyRuleReference
 	_jsii_.Get(
 		j,
 		"safetyRuleRef",
@@ -484,6 +486,7 @@ func (j *jsiiProxy_CfnSafetyRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Route53RecoveryControl::SafetyRule`.
 func NewCfnSafetyRule(scope constructs.Construct, id *string, props *CfnSafetyRuleProps) CfnSafetyRule {
 	_init_.Initialize()
 
@@ -501,6 +504,7 @@ func NewCfnSafetyRule(scope constructs.Construct, id *string, props *CfnSafetyRu
 	return &j
 }
 
+// Create a new `AWS::Route53RecoveryControl::SafetyRule`.
 func NewCfnSafetyRule_Override(c CfnSafetyRule, scope constructs.Construct, id *string, props *CfnSafetyRuleProps) {
 	_init_.Initialize()
 

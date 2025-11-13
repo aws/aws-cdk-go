@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -162,8 +164,8 @@ import (
 //
 type CfnCluster interface {
 	awscdk.CfnResource
-	IClusterRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IClusterRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.
 	AttrClusterArn() *string
@@ -187,7 +189,7 @@ type CfnCluster interface {
 	ClusterName() *string
 	SetClusterName(val *string)
 	// A reference to a Cluster resource.
-	ClusterRef() *ClusterReference
+	ClusterRef() *interfacesawssagemaker.ClusterReference
 	// The cluster role for the autoscaler to assume.
 	ClusterRole() *string
 	SetClusterRole(val *string)
@@ -195,7 +197,7 @@ type CfnCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The instance groups of the SageMaker HyperPod cluster.
 	InstanceGroups() interface{}
 	SetInstanceGroups(val interface{})
@@ -384,8 +386,8 @@ type CfnCluster interface {
 // The jsii proxy struct for CfnCluster
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIClusterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -489,8 +491,8 @@ func (j *jsiiProxy_CfnCluster) ClusterName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) ClusterRef() *ClusterReference {
-	var returns *ClusterReference
+func (j *jsiiProxy_CfnCluster) ClusterRef() *interfacesawssagemaker.ClusterReference {
+	var returns *interfacesawssagemaker.ClusterReference
 	_jsii_.Get(
 		j,
 		"clusterRef",
@@ -519,8 +521,8 @@ func (j *jsiiProxy_CfnCluster) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -670,6 +672,7 @@ func (j *jsiiProxy_CfnCluster) VpcConfig() interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -687,6 +690,7 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 

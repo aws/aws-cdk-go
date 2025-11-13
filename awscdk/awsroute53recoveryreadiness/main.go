@@ -7,10 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53recoveryreadiness.CellReference",
-		reflect.TypeOf((*CellReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
 		reflect.TypeOf((*CfnCell)(nil)).Elem(),
@@ -57,8 +53,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnCell{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICellRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53recoveryreadinessICellRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -112,8 +108,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnReadinessCheck{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReadinessCheckRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53recoveryreadinessIReadinessCheckRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -167,8 +163,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnRecoveryGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRecoveryGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53recoveryreadinessIRecoveryGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -223,8 +219,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnResourceSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResourceSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53recoveryreadinessIResourceSetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -252,77 +248,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53recoveryreadiness.CfnResourceSetProps",
 		reflect.TypeOf((*CfnResourceSetProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_route53recoveryreadiness.ICellRef",
-		reflect.TypeOf((*ICellRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cellRef", GoGetter: "CellRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICellRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_route53recoveryreadiness.IReadinessCheckRef",
-		reflect.TypeOf((*IReadinessCheckRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "readinessCheckRef", GoGetter: "ReadinessCheckRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReadinessCheckRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_route53recoveryreadiness.IRecoveryGroupRef",
-		reflect.TypeOf((*IRecoveryGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "recoveryGroupRef", GoGetter: "RecoveryGroupRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IRecoveryGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_route53recoveryreadiness.IResourceSetRef",
-		reflect.TypeOf((*IResourceSetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceSetRef", GoGetter: "ResourceSetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IResourceSetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53recoveryreadiness.ReadinessCheckReference",
-		reflect.TypeOf((*ReadinessCheckReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53recoveryreadiness.RecoveryGroupReference",
-		reflect.TypeOf((*RecoveryGroupReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53recoveryreadiness.ResourceSetReference",
-		reflect.TypeOf((*ResourceSetReference)(nil)).Elem(),
 	)
 }

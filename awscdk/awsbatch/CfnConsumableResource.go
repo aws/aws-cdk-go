@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnConsumableResource interface {
 	awscdk.CfnResource
-	IConsumableResourceRef
 	awscdk.IInspectable
+	interfacesawsbatch.IConsumableResourceRef
 	awscdk.ITaggableV2
 	// The amount of the consumable resource that is currently available to use.
 	AttrAvailableQuantity() *float64
@@ -55,12 +57,12 @@ type CfnConsumableResource interface {
 	ConsumableResourceName() *string
 	SetConsumableResourceName(val *string)
 	// A reference to a ConsumableResource resource.
-	ConsumableResourceRef() *ConsumableResourceReference
+	ConsumableResourceRef() *interfacesawsbatch.ConsumableResourceReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -236,8 +238,8 @@ type CfnConsumableResource interface {
 // The jsii proxy struct for CfnConsumableResource
 type jsiiProxy_CfnConsumableResource struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConsumableResourceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbatchIConsumableResourceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnConsumableResource) ConsumableResourceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConsumableResource) ConsumableResourceRef() *ConsumableResourceReference {
-	var returns *ConsumableResourceReference
+func (j *jsiiProxy_CfnConsumableResource) ConsumableResourceRef() *interfacesawsbatch.ConsumableResourceReference {
+	var returns *interfacesawsbatch.ConsumableResourceReference
 	_jsii_.Get(
 		j,
 		"consumableResourceRef",
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnConsumableResource) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConsumableResource) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConsumableResource) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -452,6 +454,7 @@ func (j *jsiiProxy_CfnConsumableResource) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Batch::ConsumableResource`.
 func NewCfnConsumableResource(scope constructs.Construct, id *string, props *CfnConsumableResourceProps) CfnConsumableResource {
 	_init_.Initialize()
 
@@ -469,6 +472,7 @@ func NewCfnConsumableResource(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Batch::ConsumableResource`.
 func NewCfnConsumableResource_Override(c CfnConsumableResource, scope constructs.Construct, id *string, props *CfnConsumableResourceProps) {
 	_init_.Initialize()
 

@@ -53,8 +53,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnSimulation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISimulationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssimspaceweaverISimulationRef)
 			return &j
 		},
 	)
@@ -65,24 +65,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_simspaceweaver.CfnSimulationProps",
 		reflect.TypeOf((*CfnSimulationProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_simspaceweaver.ISimulationRef",
-		reflect.TypeOf((*ISimulationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "simulationRef", GoGetter: "SimulationRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISimulationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_simspaceweaver.SimulationReference",
-		reflect.TypeOf((*SimulationReference)(nil)).Elem(),
 	)
 }

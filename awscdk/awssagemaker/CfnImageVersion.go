@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnImageVersion interface {
 	awscdk.CfnResource
-	IImageVersionRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IImageVersionRef
 	// The alias of the image version.
 	Alias() *string
 	SetAlias(val *string)
@@ -80,7 +82,7 @@ type CfnImageVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Indicates Horovod compatibility.
 	Horovod() interface{}
 	SetHorovod(val interface{})
@@ -88,7 +90,7 @@ type CfnImageVersion interface {
 	ImageName() *string
 	SetImageName(val *string)
 	// A reference to a ImageVersion resource.
-	ImageVersionRef() *ImageVersionReference
+	ImageVersionRef() *interfacesawssagemaker.ImageVersionReference
 	// Indicates SageMaker job type compatibility.
 	JobType() *string
 	SetJobType(val *string)
@@ -271,8 +273,8 @@ type CfnImageVersion interface {
 // The jsii proxy struct for CfnImageVersion
 type jsiiProxy_CfnImageVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IImageVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIImageVersionRef
 }
 
 func (j *jsiiProxy_CfnImageVersion) Alias() *string {
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnImageVersion) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnImageVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -415,8 +417,8 @@ func (j *jsiiProxy_CfnImageVersion) ImageName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageVersion) ImageVersionRef() *ImageVersionReference {
-	var returns *ImageVersionReference
+func (j *jsiiProxy_CfnImageVersion) ImageVersionRef() *interfacesawssagemaker.ImageVersionReference {
+	var returns *interfacesawssagemaker.ImageVersionReference
 	_jsii_.Get(
 		j,
 		"imageVersionRef",
@@ -546,6 +548,7 @@ func (j *jsiiProxy_CfnImageVersion) VendorGuidance() *string {
 }
 
 
+// Create a new `AWS::SageMaker::ImageVersion`.
 func NewCfnImageVersion(scope constructs.Construct, id *string, props *CfnImageVersionProps) CfnImageVersion {
 	_init_.Initialize()
 
@@ -563,6 +566,7 @@ func NewCfnImageVersion(scope constructs.Construct, id *string, props *CfnImageV
 	return &j
 }
 
+// Create a new `AWS::SageMaker::ImageVersion`.
 func NewCfnImageVersion_Override(c CfnImageVersion, scope constructs.Construct, id *string, props *CfnImageVersionProps) {
 	_init_.Initialize()
 

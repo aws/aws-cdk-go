@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotsitewise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -226,8 +228,8 @@ import (
 //
 type CfnAssetModel interface {
 	awscdk.CfnResource
-	IAssetModelRef
 	awscdk.IInspectable
+	interfacesawsiotsitewise.IAssetModelRef
 	awscdk.ITaggable
 	// The composite models that are part of this asset model.
 	AssetModelCompositeModels() interface{}
@@ -248,7 +250,7 @@ type CfnAssetModel interface {
 	AssetModelProperties() interface{}
 	SetAssetModelProperties(val interface{})
 	// A reference to a AssetModel resource.
-	AssetModelRef() *AssetModelReference
+	AssetModelRef() *interfacesawsiotsitewise.AssetModelReference
 	// The type of asset model.
 	AssetModelType() *string
 	SetAssetModelType(val *string)
@@ -268,7 +270,7 @@ type CfnAssetModel interface {
 	// a list of asset model and interface relationships.
 	EnforcedAssetModelInterfaceRelationships() interface{}
 	SetEnforcedAssetModelInterfaceRelationships(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -438,8 +440,8 @@ type CfnAssetModel interface {
 // The jsii proxy struct for CfnAssetModel
 type jsiiProxy_CfnAssetModel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAssetModelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotsitewiseIAssetModelRef
 	internal.Type__awscdkITaggable
 }
 
@@ -503,8 +505,8 @@ func (j *jsiiProxy_CfnAssetModel) AssetModelProperties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssetModel) AssetModelRef() *AssetModelReference {
-	var returns *AssetModelReference
+func (j *jsiiProxy_CfnAssetModel) AssetModelRef() *interfacesawsiotsitewise.AssetModelReference {
+	var returns *interfacesawsiotsitewise.AssetModelReference
 	_jsii_.Get(
 		j,
 		"assetModelRef",
@@ -593,8 +595,8 @@ func (j *jsiiProxy_CfnAssetModel) EnforcedAssetModelInterfaceRelationships() int
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssetModel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAssetModel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -684,6 +686,7 @@ func (j *jsiiProxy_CfnAssetModel) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTSiteWise::AssetModel`.
 func NewCfnAssetModel(scope constructs.Construct, id *string, props *CfnAssetModelProps) CfnAssetModel {
 	_init_.Initialize()
 
@@ -701,6 +704,7 @@ func NewCfnAssetModel(scope constructs.Construct, id *string, props *CfnAssetMod
 	return &j
 }
 
+// Create a new `AWS::IoTSiteWise::AssetModel`.
 func NewCfnAssetModel_Override(c CfnAssetModel, scope constructs.Construct, id *string, props *CfnAssetModelProps) {
 	_init_.Initialize()
 
@@ -802,13 +806,13 @@ func (j *jsiiProxy_CfnAssetModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IAssetModelRef from an ARN.
-func CfnAssetModel_FromAssetModelArn(scope constructs.Construct, id *string, arn *string) IAssetModelRef {
+func CfnAssetModel_FromAssetModelArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IAssetModelRef {
 	_init_.Initialize()
 
 	if err := validateCfnAssetModel_FromAssetModelArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAssetModelRef
+	var returns interfacesawsiotsitewise.IAssetModelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
@@ -821,13 +825,13 @@ func CfnAssetModel_FromAssetModelArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IAssetModelRef from a assetModelId.
-func CfnAssetModel_FromAssetModelId(scope constructs.Construct, id *string, assetModelId *string) IAssetModelRef {
+func CfnAssetModel_FromAssetModelId(scope constructs.Construct, id *string, assetModelId *string) interfacesawsiotsitewise.IAssetModelRef {
 	_init_.Initialize()
 
 	if err := validateCfnAssetModel_FromAssetModelIdParameters(scope, id, assetModelId); err != nil {
 		panic(err)
 	}
-	var returns IAssetModelRef
+	var returns interfacesawsiotsitewise.IAssetModelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsinspectorv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspectorv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnCodeSecurityScanConfiguration interface {
 	awscdk.CfnResource
-	ICodeSecurityScanConfigurationRef
 	awscdk.IInspectable
+	interfacesawsinspectorv2.ICodeSecurityScanConfigurationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the scan configuration.
 	AttrArn() *string
@@ -60,7 +62,7 @@ type CfnCodeSecurityScanConfiguration interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CodeSecurityScanConfiguration resource.
-	CodeSecurityScanConfigurationRef() *CodeSecurityScanConfigurationReference
+	CodeSecurityScanConfigurationRef() *interfacesawsinspectorv2.CodeSecurityScanConfigurationReference
 	// The configuration settings for the code security scan.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
@@ -68,7 +70,7 @@ type CfnCodeSecurityScanConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The security level for the scan configuration.
 	Level() *string
 	SetLevel(val *string)
@@ -245,8 +247,8 @@ type CfnCodeSecurityScanConfiguration interface {
 // The jsii proxy struct for CfnCodeSecurityScanConfiguration
 type jsiiProxy_CfnCodeSecurityScanConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICodeSecurityScanConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsinspectorv2ICodeSecurityScanConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnCodeSecurityScanConfiguration) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeSecurityScanConfiguration) CodeSecurityScanConfigurationRef() *CodeSecurityScanConfigurationReference {
-	var returns *CodeSecurityScanConfigurationReference
+func (j *jsiiProxy_CfnCodeSecurityScanConfiguration) CodeSecurityScanConfigurationRef() *interfacesawsinspectorv2.CodeSecurityScanConfigurationReference {
+	var returns *interfacesawsinspectorv2.CodeSecurityScanConfigurationReference
 	_jsii_.Get(
 		j,
 		"codeSecurityScanConfigurationRef",
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnCodeSecurityScanConfiguration) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeSecurityScanConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCodeSecurityScanConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -441,6 +443,7 @@ func (j *jsiiProxy_CfnCodeSecurityScanConfiguration) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::InspectorV2::CodeSecurityScanConfiguration`.
 func NewCfnCodeSecurityScanConfiguration(scope constructs.Construct, id *string, props *CfnCodeSecurityScanConfigurationProps) CfnCodeSecurityScanConfiguration {
 	_init_.Initialize()
 
@@ -458,6 +461,7 @@ func NewCfnCodeSecurityScanConfiguration(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::InspectorV2::CodeSecurityScanConfiguration`.
 func NewCfnCodeSecurityScanConfiguration_Override(c CfnCodeSecurityScanConfiguration, scope constructs.Construct, id *string, props *CfnCodeSecurityScanConfigurationProps) {
 	_init_.Initialize()
 

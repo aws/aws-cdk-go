@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnCloudWatchAlarmTemplate interface {
 	awscdk.CfnResource
-	ICloudWatchAlarmTemplateRef
 	awscdk.IInspectable
+	interfacesawsmedialive.ICloudWatchAlarmTemplateRef
 	awscdk.ITaggableV2
 	// A cloudwatch alarm template's ARN (Amazon Resource Name).
 	AttrArn() *string
@@ -66,7 +68,7 @@ type CfnCloudWatchAlarmTemplate interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CloudWatchAlarmTemplate resource.
-	CloudWatchAlarmTemplateRef() *CloudWatchAlarmTemplateReference
+	CloudWatchAlarmTemplateRef() *interfacesawsmedialive.CloudWatchAlarmTemplateReference
 	// The comparison operator used to compare the specified statistic and the threshold.
 	ComparisonOperator() *string
 	SetComparisonOperator(val *string)
@@ -80,7 +82,7 @@ type CfnCloudWatchAlarmTemplate interface {
 	// A resource's optional description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods() *float64
 	SetEvaluationPeriods(val *float64)
@@ -275,8 +277,8 @@ type CfnCloudWatchAlarmTemplate interface {
 // The jsii proxy struct for CfnCloudWatchAlarmTemplate
 type jsiiProxy_CfnCloudWatchAlarmTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICloudWatchAlarmTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveICloudWatchAlarmTemplateRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) CloudWatchAlarmTemplateRef() *CloudWatchAlarmTemplateReference {
-	var returns *CloudWatchAlarmTemplateReference
+func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) CloudWatchAlarmTemplateRef() *interfacesawsmedialive.CloudWatchAlarmTemplateReference {
+	var returns *interfacesawsmedialive.CloudWatchAlarmTemplateReference
 	_jsii_.Get(
 		j,
 		"cloudWatchAlarmTemplateRef",
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -601,6 +603,7 @@ func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) UpdatedProperties() *map[string]i
 }
 
 
+// Create a new `AWS::MediaLive::CloudWatchAlarmTemplate`.
 func NewCfnCloudWatchAlarmTemplate(scope constructs.Construct, id *string, props *CfnCloudWatchAlarmTemplateProps) CfnCloudWatchAlarmTemplate {
 	_init_.Initialize()
 
@@ -618,6 +621,7 @@ func NewCfnCloudWatchAlarmTemplate(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::MediaLive::CloudWatchAlarmTemplate`.
 func NewCfnCloudWatchAlarmTemplate_Override(c CfnCloudWatchAlarmTemplate, scope constructs.Construct, id *string, props *CfnCloudWatchAlarmTemplateProps) {
 	_init_.Initialize()
 

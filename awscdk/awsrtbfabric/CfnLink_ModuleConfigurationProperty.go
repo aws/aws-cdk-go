@@ -1,6 +1,8 @@
 package awsrtbfabric
 
 
+// Describes the configuration of a module.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -51,15 +53,19 @@ package awsrtbfabric
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-moduleconfiguration.html
 //
 type CfnLink_ModuleConfigurationProperty struct {
+	// The name of the module.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-moduleconfiguration.html#cfn-rtbfabric-link-moduleconfiguration-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The dependencies of the module.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-moduleconfiguration.html#cfn-rtbfabric-link-moduleconfiguration-dependson
 	//
 	DependsOn *[]*string `field:"optional" json:"dependsOn" yaml:"dependsOn"`
+	// Describes the parameters of a module.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-moduleconfiguration.html#cfn-rtbfabric-link-moduleconfiguration-moduleparameters
 	//
 	ModuleParameters interface{} `field:"optional" json:"moduleParameters" yaml:"moduleParameters"`
+	// The version of the module.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-moduleconfiguration.html#cfn-rtbfabric-link-moduleconfiguration-version
 	//
 	Version *string `field:"optional" json:"version" yaml:"version"`

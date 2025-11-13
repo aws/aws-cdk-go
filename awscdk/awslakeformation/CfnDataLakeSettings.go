@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslakeformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslakeformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -97,8 +99,8 @@ import (
 //
 type CfnDataLakeSettings interface {
 	awscdk.CfnResource
-	IDataLakeSettingsRef
 	awscdk.IInspectable
+	interfacesawslakeformation.IDataLakeSettingsRef
 	// A list of AWS Lake Formation principals.
 	Admins() interface{}
 	SetAdmins(val interface{})
@@ -128,8 +130,8 @@ type CfnDataLakeSettings interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataLakeSettings resource.
-	DataLakeSettingsRef() *DataLakeSettingsReference
-	Env() *awscdk.ResourceEnvironment
+	DataLakeSettingsRef() *interfacesawslakeformation.DataLakeSettingsReference
+	Env() *interfaces.ResourceEnvironment
 	// A list of the account IDs of AWS accounts with Amazon EMR clusters or third-party engines that are allwed to perform data filtering.
 	ExternalDataFilteringAllowList() interface{}
 	SetExternalDataFilteringAllowList(val interface{})
@@ -306,8 +308,8 @@ type CfnDataLakeSettings interface {
 // The jsii proxy struct for CfnDataLakeSettings
 type jsiiProxy_CfnDataLakeSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataLakeSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslakeformationIDataLakeSettingsRef
 }
 
 func (j *jsiiProxy_CfnDataLakeSettings) Admins() interface{} {
@@ -420,8 +422,8 @@ func (j *jsiiProxy_CfnDataLakeSettings) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataLakeSettings) DataLakeSettingsRef() *DataLakeSettingsReference {
-	var returns *DataLakeSettingsReference
+func (j *jsiiProxy_CfnDataLakeSettings) DataLakeSettingsRef() *interfacesawslakeformation.DataLakeSettingsReference {
+	var returns *interfacesawslakeformation.DataLakeSettingsReference
 	_jsii_.Get(
 		j,
 		"dataLakeSettingsRef",
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnDataLakeSettings) DataLakeSettingsRef() *DataLakeSettingsR
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataLakeSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataLakeSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -541,6 +543,7 @@ func (j *jsiiProxy_CfnDataLakeSettings) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::LakeFormation::DataLakeSettings`.
 func NewCfnDataLakeSettings(scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) CfnDataLakeSettings {
 	_init_.Initialize()
 
@@ -558,6 +561,7 @@ func NewCfnDataLakeSettings(scope constructs.Construct, id *string, props *CfnDa
 	return &j
 }
 
+// Create a new `AWS::LakeFormation::DataLakeSettings`.
 func NewCfnDataLakeSettings_Override(c CfnDataLakeSettings, scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) {
 	_init_.Initialize()
 

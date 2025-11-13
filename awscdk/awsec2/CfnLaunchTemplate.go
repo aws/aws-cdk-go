@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,8 +55,8 @@ import (
 //
 type CfnLaunchTemplate interface {
 	awscdk.CfnResource
-	ILaunchTemplateRef
 	awscdk.IInspectable
+	interfacesawsec2.ILaunchTemplateRef
 	// The default version of the launch template, such as 2.
 	//
 	// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
@@ -72,7 +74,7 @@ type CfnLaunchTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The information for the launch template.
 	LaunchTemplateData() interface{}
 	SetLaunchTemplateData(val interface{})
@@ -80,7 +82,7 @@ type CfnLaunchTemplate interface {
 	LaunchTemplateName() *string
 	SetLaunchTemplateName(val *string)
 	// A reference to a LaunchTemplate resource.
-	LaunchTemplateRef() *LaunchTemplateReference
+	LaunchTemplateRef() *interfacesawsec2.LaunchTemplateReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -251,8 +253,8 @@ type CfnLaunchTemplate interface {
 // The jsii proxy struct for CfnLaunchTemplate
 type jsiiProxy_CfnLaunchTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILaunchTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ILaunchTemplateRef
 }
 
 func (j *jsiiProxy_CfnLaunchTemplate) AttrDefaultVersionNumber() *string {
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnLaunchTemplate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLaunchTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnLaunchTemplate) LaunchTemplateName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchTemplate) LaunchTemplateRef() *LaunchTemplateReference {
-	var returns *LaunchTemplateReference
+func (j *jsiiProxy_CfnLaunchTemplate) LaunchTemplateRef() *interfacesawsec2.LaunchTemplateReference {
+	var returns *interfacesawsec2.LaunchTemplateReference
 	_jsii_.Get(
 		j,
 		"launchTemplateRef",
@@ -446,6 +448,7 @@ func (j *jsiiProxy_CfnLaunchTemplate) VersionDescription() *string {
 }
 
 
+// Create a new `AWS::EC2::LaunchTemplate`.
 func NewCfnLaunchTemplate(scope constructs.Construct, id *string, props *CfnLaunchTemplateProps) CfnLaunchTemplate {
 	_init_.Initialize()
 
@@ -463,6 +466,7 @@ func NewCfnLaunchTemplate(scope constructs.Construct, id *string, props *CfnLaun
 	return &j
 }
 
+// Create a new `AWS::EC2::LaunchTemplate`.
 func NewCfnLaunchTemplate_Override(c CfnLaunchTemplate, scope constructs.Construct, id *string, props *CfnLaunchTemplateProps) {
 	_init_.Initialize()
 
@@ -512,13 +516,13 @@ func (j *jsiiProxy_CfnLaunchTemplate)SetVersionDescription(val *string) {
 }
 
 // Creates a new ILaunchTemplateRef from a launchTemplateId.
-func CfnLaunchTemplate_FromLaunchTemplateId(scope constructs.Construct, id *string, launchTemplateId *string) ILaunchTemplateRef {
+func CfnLaunchTemplate_FromLaunchTemplateId(scope constructs.Construct, id *string, launchTemplateId *string) interfacesawsec2.ILaunchTemplateRef {
 	_init_.Initialize()
 
 	if err := validateCfnLaunchTemplate_FromLaunchTemplateIdParameters(scope, id, launchTemplateId); err != nil {
 		panic(err)
 	}
-	var returns ILaunchTemplateRef
+	var returns interfacesawsec2.ILaunchTemplateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate",

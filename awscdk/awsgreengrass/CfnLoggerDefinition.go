@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnLoggerDefinition interface {
 	awscdk.CfnResource
-	ILoggerDefinitionRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.ILoggerDefinitionRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the `LoggerDefinition` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/loggers/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
@@ -70,12 +72,12 @@ type CfnLoggerDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logger definition version to include when the logger definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
 	// A reference to a LoggerDefinition resource.
-	LoggerDefinitionRef() *LoggerDefinitionReference
+	LoggerDefinitionRef() *interfacesawsgreengrass.LoggerDefinitionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -248,8 +250,8 @@ type CfnLoggerDefinition interface {
 // The jsii proxy struct for CfnLoggerDefinition
 type jsiiProxy_CfnLoggerDefinition struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoggerDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassILoggerDefinitionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnLoggerDefinition) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggerDefinition) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLoggerDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnLoggerDefinition) InitialVersion() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggerDefinition) LoggerDefinitionRef() *LoggerDefinitionReference {
-	var returns *LoggerDefinitionReference
+func (j *jsiiProxy_CfnLoggerDefinition) LoggerDefinitionRef() *interfacesawsgreengrass.LoggerDefinitionReference {
+	var returns *interfacesawsgreengrass.LoggerDefinitionReference
 	_jsii_.Get(
 		j,
 		"loggerDefinitionRef",
@@ -454,6 +456,7 @@ func (j *jsiiProxy_CfnLoggerDefinition) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Greengrass::LoggerDefinition`.
 func NewCfnLoggerDefinition(scope constructs.Construct, id *string, props *CfnLoggerDefinitionProps) CfnLoggerDefinition {
 	_init_.Initialize()
 
@@ -471,6 +474,7 @@ func NewCfnLoggerDefinition(scope constructs.Construct, id *string, props *CfnLo
 	return &j
 }
 
+// Create a new `AWS::Greengrass::LoggerDefinition`.
 func NewCfnLoggerDefinition_Override(c CfnLoggerDefinition, scope constructs.Construct, id *string, props *CfnLoggerDefinitionProps) {
 	_init_.Initialize()
 
@@ -512,13 +516,13 @@ func (j *jsiiProxy_CfnLoggerDefinition)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new ILoggerDefinitionRef from an ARN.
-func CfnLoggerDefinition_FromLoggerDefinitionArn(scope constructs.Construct, id *string, arn *string) ILoggerDefinitionRef {
+func CfnLoggerDefinition_FromLoggerDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.ILoggerDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnLoggerDefinition_FromLoggerDefinitionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ILoggerDefinitionRef
+	var returns interfacesawsgreengrass.ILoggerDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
@@ -531,13 +535,13 @@ func CfnLoggerDefinition_FromLoggerDefinitionArn(scope constructs.Construct, id 
 }
 
 // Creates a new ILoggerDefinitionRef from a loggerDefinitionId.
-func CfnLoggerDefinition_FromLoggerDefinitionId(scope constructs.Construct, id *string, loggerDefinitionId *string) ILoggerDefinitionRef {
+func CfnLoggerDefinition_FromLoggerDefinitionId(scope constructs.Construct, id *string, loggerDefinitionId *string) interfacesawsgreengrass.ILoggerDefinitionRef {
 	_init_.Initialize()
 
 	if err := validateCfnLoggerDefinition_FromLoggerDefinitionIdParameters(scope, id, loggerDefinitionId); err != nil {
 		panic(err)
 	}
-	var returns ILoggerDefinitionRef
+	var returns interfacesawsgreengrass.ILoggerDefinitionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",

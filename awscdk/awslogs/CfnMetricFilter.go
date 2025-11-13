@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnMetricFilter interface {
 	awscdk.CfnResource
-	IMetricFilterRef
 	awscdk.IInspectable
+	interfacesawslogs.IMetricFilterRef
 	// This parameter is valid only for log groups that have an active log transformer.
 	ApplyOnTransformedLogs() interface{}
 	SetApplyOnTransformedLogs(val interface{})
@@ -71,7 +73,7 @@ type CfnMetricFilter interface {
 	// The list of system fields that are emitted as additional dimensions in the generated metrics.
 	EmitSystemFieldDimensions() *[]*string
 	SetEmitSystemFieldDimensions(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The filter expression that specifies which log events are processed by this metric filter based on system fields.
 	FieldSelectionCriteria() *string
 	SetFieldSelectionCriteria(val *string)
@@ -95,7 +97,7 @@ type CfnMetricFilter interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MetricFilter resource.
-	MetricFilterRef() *MetricFilterReference
+	MetricFilterRef() *interfacesawslogs.MetricFilterReference
 	// The metric transformations.
 	MetricTransformations() interface{}
 	SetMetricTransformations(val interface{})
@@ -253,8 +255,8 @@ type CfnMetricFilter interface {
 // The jsii proxy struct for CfnMetricFilter
 type jsiiProxy_CfnMetricFilter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMetricFilterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsIMetricFilterRef
 }
 
 func (j *jsiiProxy_CfnMetricFilter) ApplyOnTransformedLogs() interface{} {
@@ -317,8 +319,8 @@ func (j *jsiiProxy_CfnMetricFilter) EmitSystemFieldDimensions() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMetricFilter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMetricFilter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnMetricFilter) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMetricFilter) MetricFilterRef() *MetricFilterReference {
-	var returns *MetricFilterReference
+func (j *jsiiProxy_CfnMetricFilter) MetricFilterRef() *interfacesawslogs.MetricFilterReference {
+	var returns *interfacesawslogs.MetricFilterReference
 	_jsii_.Get(
 		j,
 		"metricFilterRef",
@@ -448,6 +450,7 @@ func (j *jsiiProxy_CfnMetricFilter) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Logs::MetricFilter`.
 func NewCfnMetricFilter(scope constructs.Construct, id *string, props *CfnMetricFilterProps) CfnMetricFilter {
 	_init_.Initialize()
 
@@ -465,6 +468,7 @@ func NewCfnMetricFilter(scope constructs.Construct, id *string, props *CfnMetric
 	return &j
 }
 
+// Create a new `AWS::Logs::MetricFilter`.
 func NewCfnMetricFilter_Override(c CfnMetricFilter, scope constructs.Construct, id *string, props *CfnMetricFilterProps) {
 	_init_.Initialize()
 

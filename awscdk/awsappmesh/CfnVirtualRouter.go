@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnVirtualRouter interface {
 	awscdk.CfnResource
-	IVirtualRouterRef
 	awscdk.IInspectable
+	interfacesawsappmesh.IVirtualRouterRef
 	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) for the virtual router.
 	AttrArn() *string
@@ -77,7 +79,7 @@ type CfnVirtualRouter interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -130,7 +132,7 @@ type CfnVirtualRouter interface {
 	VirtualRouterName() *string
 	SetVirtualRouterName(val *string)
 	// A reference to a VirtualRouter resource.
-	VirtualRouterRef() *VirtualRouterReference
+	VirtualRouterRef() *interfacesawsappmesh.VirtualRouterReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -261,8 +263,8 @@ type CfnVirtualRouter interface {
 // The jsii proxy struct for CfnVirtualRouter
 type jsiiProxy_CfnVirtualRouter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVirtualRouterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappmeshIVirtualRouterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnVirtualRouter) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualRouter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVirtualRouter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -506,8 +508,8 @@ func (j *jsiiProxy_CfnVirtualRouter) VirtualRouterName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualRouter) VirtualRouterRef() *VirtualRouterReference {
-	var returns *VirtualRouterReference
+func (j *jsiiProxy_CfnVirtualRouter) VirtualRouterRef() *interfacesawsappmesh.VirtualRouterReference {
+	var returns *interfacesawsappmesh.VirtualRouterReference
 	_jsii_.Get(
 		j,
 		"virtualRouterRef",
@@ -517,6 +519,7 @@ func (j *jsiiProxy_CfnVirtualRouter) VirtualRouterRef() *VirtualRouterReference 
 }
 
 
+// Create a new `AWS::AppMesh::VirtualRouter`.
 func NewCfnVirtualRouter(scope constructs.Construct, id *string, props *CfnVirtualRouterProps) CfnVirtualRouter {
 	_init_.Initialize()
 
@@ -534,6 +537,7 @@ func NewCfnVirtualRouter(scope constructs.Construct, id *string, props *CfnVirtu
 	return &j
 }
 
+// Create a new `AWS::AppMesh::VirtualRouter`.
 func NewCfnVirtualRouter_Override(c CfnVirtualRouter, scope constructs.Construct, id *string, props *CfnVirtualRouterProps) {
 	_init_.Initialize()
 

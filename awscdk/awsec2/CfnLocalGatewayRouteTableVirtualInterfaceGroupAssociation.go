@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation interface {
 	awscdk.CfnResource
-	ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef
 	awscdk.ITaggable
 	// The ID of the local gateway.
 	AttrLocalGatewayId() *string
@@ -55,12 +57,12 @@ type CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId() *string
 	SetLocalGatewayRouteTableId(val *string)
 	// A reference to a LocalGatewayRouteTableVirtualInterfaceGroupAssociation resource.
-	LocalGatewayRouteTableVirtualInterfaceGroupAssociationRef() *LocalGatewayRouteTableVirtualInterfaceGroupAssociationReference
+	LocalGatewayRouteTableVirtualInterfaceGroupAssociationRef() *interfacesawsec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociationReference
 	// The ID of the virtual interface group.
 	LocalGatewayVirtualInterfaceGroupId() *string
 	SetLocalGatewayVirtualInterfaceGroupId(val *string)
@@ -233,8 +235,8 @@ type CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation interface {
 // The jsii proxy struct for CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation
 type jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) Cr
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) Lo
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) LocalGatewayRouteTableVirtualInterfaceGroupAssociationRef() *LocalGatewayRouteTableVirtualInterfaceGroupAssociationReference {
-	var returns *LocalGatewayRouteTableVirtualInterfaceGroupAssociationReference
+func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) LocalGatewayRouteTableVirtualInterfaceGroupAssociationRef() *interfacesawsec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociationReference {
+	var returns *interfacesawsec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociationReference
 	_jsii_.Get(
 		j,
 		"localGatewayRouteTableVirtualInterfaceGroupAssociationRef",
@@ -449,6 +451,7 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) Up
 }
 
 
+// Create a new `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`.
 func NewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationProps) CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation {
 	_init_.Initialize()
 
@@ -466,6 +469,7 @@ func NewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation(scope construc
 	return &j
 }
 
+// Create a new `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`.
 func NewCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_Override(c CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation, scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationProps) {
 	_init_.Initialize()
 
@@ -510,13 +514,13 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation)Set
 }
 
 // Creates a new ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef from a localGatewayRouteTableVirtualInterfaceGroupAssociationId.
-func CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_FromLocalGatewayRouteTableVirtualInterfaceGroupAssociationId(scope constructs.Construct, id *string, localGatewayRouteTableVirtualInterfaceGroupAssociationId *string) ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef {
+func CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_FromLocalGatewayRouteTableVirtualInterfaceGroupAssociationId(scope constructs.Construct, id *string, localGatewayRouteTableVirtualInterfaceGroupAssociationId *string) interfacesawsec2.ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef {
 	_init_.Initialize()
 
 	if err := validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_FromLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdParameters(scope, id, localGatewayRouteTableVirtualInterfaceGroupAssociationId); err != nil {
 		panic(err)
 	}
-	var returns ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef
+	var returns interfacesawsec2.ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation",

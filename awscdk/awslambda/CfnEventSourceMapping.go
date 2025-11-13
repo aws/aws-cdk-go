@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -143,8 +145,8 @@ import (
 //
 type CfnEventSourceMapping interface {
 	awscdk.CfnResource
-	IEventSourceMappingRef
 	awscdk.IInspectable
+	interfacesawslambda.IEventSourceMappingRef
 	awscdk.ITaggableV2
 	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 	AmazonManagedKafkaEventSourceConfig() interface{}
@@ -181,12 +183,12 @@ type CfnEventSourceMapping interface {
 	// When false, Lambda pauses polling and invocation.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the event source.
 	EventSourceArn() *string
 	SetEventSourceArn(val *string)
 	// A reference to a EventSourceMapping resource.
-	EventSourceMappingRef() *EventSourceMappingReference
+	EventSourceMappingRef() *interfacesawslambda.EventSourceMappingReference
 	// An object that defines the filter criteria that determine whether Lambda should process an event.
 	FilterCriteria() interface{}
 	SetFilterCriteria(val interface{})
@@ -413,8 +415,8 @@ type CfnEventSourceMapping interface {
 // The jsii proxy struct for CfnEventSourceMapping
 type jsiiProxy_CfnEventSourceMapping struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventSourceMappingRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslambdaIEventSourceMappingRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -548,8 +550,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventSourceMapping) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -568,8 +570,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) EventSourceArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) EventSourceMappingRef() *EventSourceMappingReference {
-	var returns *EventSourceMappingReference
+func (j *jsiiProxy_CfnEventSourceMapping) EventSourceMappingRef() *interfacesawslambda.EventSourceMappingReference {
+	var returns *interfacesawslambda.EventSourceMappingReference
 	_jsii_.Get(
 		j,
 		"eventSourceMappingRef",
@@ -839,6 +841,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Lambda::EventSourceMapping`.
 func NewCfnEventSourceMapping(scope constructs.Construct, id *string, props *CfnEventSourceMappingProps) CfnEventSourceMapping {
 	_init_.Initialize()
 
@@ -856,6 +859,7 @@ func NewCfnEventSourceMapping(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Lambda::EventSourceMapping`.
 func NewCfnEventSourceMapping_Override(c CfnEventSourceMapping, scope constructs.Construct, id *string, props *CfnEventSourceMappingProps) {
 	_init_.Initialize()
 

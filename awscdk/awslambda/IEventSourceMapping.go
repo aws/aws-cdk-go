@@ -5,6 +5,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -12,7 +14,7 @@ import (
 // See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html
 //
 type IEventSourceMapping interface {
-	IEventSourceMappingRef
+	interfacesawslambda.IEventSourceMappingRef
 	awscdk.IResource
 	// The ARN of the event source mapping (i.e. arn:aws:lambda:region:account-id:event-source-mapping/event-source-mapping-id).
 	EventSourceMappingArn() *string
@@ -22,7 +24,7 @@ type IEventSourceMapping interface {
 
 // The jsii proxy for IEventSourceMapping
 type jsiiProxy_IEventSourceMapping struct {
-	jsiiProxy_IEventSourceMappingRef
+	internal.Type__interfacesawslambdaIEventSourceMappingRef
 	internal.Type__awscdkIResource
 }
 
@@ -57,8 +59,8 @@ func (j *jsiiProxy_IEventSourceMapping) EventSourceMappingId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IEventSourceMapping) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IEventSourceMapping) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -67,8 +69,8 @@ func (j *jsiiProxy_IEventSourceMapping) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IEventSourceMapping) EventSourceMappingRef() *EventSourceMappingReference {
-	var returns *EventSourceMappingReference
+func (j *jsiiProxy_IEventSourceMapping) EventSourceMappingRef() *interfacesawslambda.EventSourceMappingReference {
+	var returns *interfacesawslambda.EventSourceMappingReference
 	_jsii_.Get(
 		j,
 		"eventSourceMappingRef",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudtrail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudtrail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,8 +101,8 @@ import (
 //
 type CfnTrail interface {
 	awscdk.CfnResource
-	ITrailRef
 	awscdk.IInspectable
+	interfacesawscloudtrail.ITrailRef
 	awscdk.ITaggable
 	// Specifies the settings for advanced event selectors.
 	AdvancedEventSelectors() interface{}
@@ -129,7 +131,7 @@ type CfnTrail interface {
 	// The default is false.
 	EnableLogFileValidation() interface{}
 	SetEnableLogFileValidation(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Use event selectors to further specify the management and data event settings for your trail.
 	EventSelectors() interface{}
 	SetEventSelectors(val interface{})
@@ -192,7 +194,7 @@ type CfnTrail interface {
 	TrailName() *string
 	SetTrailName(val *string)
 	// A reference to a Trail resource.
-	TrailRef() *TrailReference
+	TrailRef() *interfacesawscloudtrail.TrailReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -336,8 +338,8 @@ type CfnTrail interface {
 // The jsii proxy struct for CfnTrail
 type jsiiProxy_CfnTrail struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrailRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudtrailITrailRef
 	internal.Type__awscdkITaggable
 }
 
@@ -441,8 +443,8 @@ func (j *jsiiProxy_CfnTrail) EnableLogFileValidation() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrail) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrail) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -621,8 +623,8 @@ func (j *jsiiProxy_CfnTrail) TrailName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrail) TrailRef() *TrailReference {
-	var returns *TrailReference
+func (j *jsiiProxy_CfnTrail) TrailRef() *interfacesawscloudtrail.TrailReference {
+	var returns *interfacesawscloudtrail.TrailReference
 	_jsii_.Get(
 		j,
 		"trailRef",
@@ -652,6 +654,7 @@ func (j *jsiiProxy_CfnTrail) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CloudTrail::Trail`.
 func NewCfnTrail(scope constructs.Construct, id *string, props *CfnTrailProps) CfnTrail {
 	_init_.Initialize()
 
@@ -669,6 +672,7 @@ func NewCfnTrail(scope constructs.Construct, id *string, props *CfnTrailProps) C
 	return &j
 }
 
+// Create a new `AWS::CloudTrail::Trail`.
 func NewCfnTrail_Override(c CfnTrail, scope constructs.Construct, id *string, props *CfnTrailProps) {
 	_init_.Initialize()
 
@@ -838,13 +842,13 @@ func (j *jsiiProxy_CfnTrail)SetTrailName(val *string) {
 }
 
 // Creates a new ITrailRef from an ARN.
-func CfnTrail_FromTrailArn(scope constructs.Construct, id *string, arn *string) ITrailRef {
+func CfnTrail_FromTrailArn(scope constructs.Construct, id *string, arn *string) interfacesawscloudtrail.ITrailRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrail_FromTrailArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ITrailRef
+	var returns interfacesawscloudtrail.ITrailRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
@@ -857,13 +861,13 @@ func CfnTrail_FromTrailArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new ITrailRef from a trailName.
-func CfnTrail_FromTrailName(scope constructs.Construct, id *string, trailName *string) ITrailRef {
+func CfnTrail_FromTrailName(scope constructs.Construct, id *string, trailName *string) interfacesawscloudtrail.ITrailRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrail_FromTrailNameParameters(scope, id, trailName); err != nil {
 		panic(err)
 	}
-	var returns ITrailRef
+	var returns interfacesawscloudtrail.ITrailRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudtrail.CfnTrail",

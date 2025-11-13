@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdax/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdax"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnSubnetGroup interface {
 	awscdk.CfnResource
-	ISubnetGroupRef
 	awscdk.IInspectable
+	interfacesawsdax.ISubnetGroupRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -45,7 +47,7 @@ type CfnSubnetGroup interface {
 	// The description of the subnet group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,7 +73,7 @@ type CfnSubnetGroup interface {
 	SubnetGroupName() *string
 	SetSubnetGroupName(val *string)
 	// A reference to a SubnetGroup resource.
-	SubnetGroupRef() *SubnetGroupReference
+	SubnetGroupRef() *interfacesawsdax.SubnetGroupReference
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
@@ -218,8 +220,8 @@ type CfnSubnetGroup interface {
 // The jsii proxy struct for CfnSubnetGroup
 type jsiiProxy_CfnSubnetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubnetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdaxISubnetGroupRef
 }
 
 func (j *jsiiProxy_CfnSubnetGroup) AttrId() *string {
@@ -282,8 +284,8 @@ func (j *jsiiProxy_CfnSubnetGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubnetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnSubnetGroup) SubnetGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetGroup) SubnetGroupRef() *SubnetGroupReference {
-	var returns *SubnetGroupReference
+func (j *jsiiProxy_CfnSubnetGroup) SubnetGroupRef() *interfacesawsdax.SubnetGroupReference {
+	var returns *interfacesawsdax.SubnetGroupReference
 	_jsii_.Get(
 		j,
 		"subnetGroupRef",
@@ -383,6 +385,7 @@ func (j *jsiiProxy_CfnSubnetGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DAX::SubnetGroup`.
 func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetGroupProps) CfnSubnetGroup {
 	_init_.Initialize()
 
@@ -400,6 +403,7 @@ func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetG
 	return &j
 }
 
+// Create a new `AWS::DAX::SubnetGroup`.
 func NewCfnSubnetGroup_Override(c CfnSubnetGroup, scope constructs.Construct, id *string, props *CfnSubnetGroupProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,8 +65,8 @@ import (
 //
 type CfnLoadBalancer interface {
 	awscdk.CfnResource
-	ILoadBalancerRef
 	awscdk.IInspectable
+	interfacesawselasticloadbalancingv2.ILoadBalancerRef
 	awscdk.ITaggable
 	// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
 	//
@@ -104,7 +106,7 @@ type CfnLoadBalancer interface {
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink .
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string
 	SetEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IP address type.
 	//
 	// Internal load balancers must use `ipv4` .
@@ -117,7 +119,7 @@ type CfnLoadBalancer interface {
 	LoadBalancerAttributes() interface{}
 	SetLoadBalancerAttributes(val interface{})
 	// A reference to a LoadBalancer resource.
-	LoadBalancerRef() *LoadBalancerReference
+	LoadBalancerRef() *interfacesawselasticloadbalancingv2.LoadBalancerReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -308,8 +310,8 @@ type CfnLoadBalancer interface {
 // The jsii proxy struct for CfnLoadBalancer
 type jsiiProxy_CfnLoadBalancer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILoadBalancerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticloadbalancingv2ILoadBalancerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -443,8 +445,8 @@ func (j *jsiiProxy_CfnLoadBalancer) EnforceSecurityGroupInboundRulesOnPrivateLin
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLoadBalancer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -483,8 +485,8 @@ func (j *jsiiProxy_CfnLoadBalancer) LoadBalancerAttributes() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancer) LoadBalancerRef() *LoadBalancerReference {
-	var returns *LoadBalancerReference
+func (j *jsiiProxy_CfnLoadBalancer) LoadBalancerRef() *interfacesawselasticloadbalancingv2.LoadBalancerReference {
+	var returns *interfacesawselasticloadbalancingv2.LoadBalancerReference
 	_jsii_.Get(
 		j,
 		"loadBalancerRef",
@@ -644,6 +646,7 @@ func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::ElasticLoadBalancingV2::LoadBalancer`.
 func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
 	_init_.Initialize()
 
@@ -661,6 +664,7 @@ func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBa
 	return &j
 }
 
+// Create a new `AWS::ElasticLoadBalancingV2::LoadBalancer`.
 func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, id *string, props *CfnLoadBalancerProps) {
 	_init_.Initialize()
 

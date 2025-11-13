@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsresourcegroups/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsresourcegroups"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -74,8 +76,8 @@ import (
 //
 type CfnGroup interface {
 	awscdk.CfnResource
-	IGroupRef
 	awscdk.IInspectable
+	interfacesawsresourcegroups.IGroupRef
 	awscdk.ITaggable
 	// The ARN of the new resource group.
 	AttrArn() *string
@@ -94,9 +96,9 @@ type CfnGroup interface {
 	// The description of the resource group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Group resource.
-	GroupRef() *GroupReference
+	GroupRef() *interfacesawsresourcegroups.GroupReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -275,8 +277,8 @@ type CfnGroup interface {
 // The jsii proxy struct for CfnGroup
 type jsiiProxy_CfnGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsresourcegroupsIGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) GroupRef() *GroupReference {
-	var returns *GroupReference
+func (j *jsiiProxy_CfnGroup) GroupRef() *interfacesawsresourcegroups.GroupReference {
+	var returns *interfacesawsresourcegroups.GroupReference
 	_jsii_.Get(
 		j,
 		"groupRef",
@@ -481,6 +483,7 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ResourceGroups::Group`.
 func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
@@ -498,6 +501,7 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 	return &j
 }
 
+// Create a new `AWS::ResourceGroups::Group`.
 func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 
@@ -569,13 +573,13 @@ func (j *jsiiProxy_CfnGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IGroupRef from an ARN.
-func CfnGroup_FromGroupArn(scope constructs.Construct, id *string, arn *string) IGroupRef {
+func CfnGroup_FromGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsresourcegroups.IGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnGroup_FromGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IGroupRef
+	var returns interfacesawsresourcegroups.IGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
@@ -588,13 +592,13 @@ func CfnGroup_FromGroupArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IGroupRef from a groupName.
-func CfnGroup_FromGroupName(scope constructs.Construct, id *string, groupName *string) IGroupRef {
+func CfnGroup_FromGroupName(scope constructs.Construct, id *string, groupName *string) interfacesawsresourcegroups.IGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnGroup_FromGroupNameParameters(scope, id, groupName); err != nil {
 		panic(err)
 	}
-	var returns IGroupRef
+	var returns interfacesawsresourcegroups.IGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_resourcegroups.CfnGroup",

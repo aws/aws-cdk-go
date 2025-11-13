@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnFileSystem interface {
 	awscdk.CfnResource
-	IFileSystemRef
 	awscdk.IInspectable
+	interfacesawsefs.IFileSystemRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the EFS file system.
 	//
@@ -99,7 +101,7 @@ type CfnFileSystem interface {
 	// A Boolean value that, if true, creates an encrypted file system.
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The `FileSystemPolicy` for the EFS file system.
 	FileSystemPolicy() interface{}
 	SetFileSystemPolicy(val interface{})
@@ -107,7 +109,7 @@ type CfnFileSystem interface {
 	FileSystemProtection() interface{}
 	SetFileSystemProtection(val interface{})
 	// A reference to a FileSystem resource.
-	FileSystemRef() *FileSystemReference
+	FileSystemRef() *interfacesawsefs.FileSystemReference
 	// Use to create one or more tags associated with the file system.
 	FileSystemTagsRaw() *[]*CfnFileSystem_ElasticFileSystemTagProperty
 	SetFileSystemTagsRaw(val *[]*CfnFileSystem_ElasticFileSystemTagProperty)
@@ -295,8 +297,8 @@ type CfnFileSystem interface {
 // The jsii proxy struct for CfnFileSystem
 type jsiiProxy_CfnFileSystem struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFileSystemRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsefsIFileSystemRef
 	internal.Type__awscdkITaggable
 }
 
@@ -400,8 +402,8 @@ func (j *jsiiProxy_CfnFileSystem) Encrypted() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFileSystem) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFileSystem) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -430,8 +432,8 @@ func (j *jsiiProxy_CfnFileSystem) FileSystemProtection() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFileSystem) FileSystemRef() *FileSystemReference {
-	var returns *FileSystemReference
+func (j *jsiiProxy_CfnFileSystem) FileSystemRef() *interfacesawsefs.FileSystemReference {
+	var returns *interfacesawsefs.FileSystemReference
 	_jsii_.Get(
 		j,
 		"fileSystemRef",
@@ -581,6 +583,7 @@ func (j *jsiiProxy_CfnFileSystem) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EFS::FileSystem`.
 func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSystemProps) CfnFileSystem {
 	_init_.Initialize()
 
@@ -598,6 +601,7 @@ func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSyst
 	return &j
 }
 
+// Create a new `AWS::EFS::FileSystem`.
 func NewCfnFileSystem_Override(c CfnFileSystem, scope constructs.Construct, id *string, props *CfnFileSystemProps) {
 	_init_.Initialize()
 
@@ -734,13 +738,13 @@ func (j *jsiiProxy_CfnFileSystem)SetThroughputMode(val *string) {
 }
 
 // Creates a new IFileSystemRef from an ARN.
-func CfnFileSystem_FromFileSystemArn(scope constructs.Construct, id *string, arn *string) IFileSystemRef {
+func CfnFileSystem_FromFileSystemArn(scope constructs.Construct, id *string, arn *string) interfacesawsefs.IFileSystemRef {
 	_init_.Initialize()
 
 	if err := validateCfnFileSystem_FromFileSystemArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IFileSystemRef
+	var returns interfacesawsefs.IFileSystemRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_efs.CfnFileSystem",
@@ -753,13 +757,13 @@ func CfnFileSystem_FromFileSystemArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IFileSystemRef from a fileSystemId.
-func CfnFileSystem_FromFileSystemId(scope constructs.Construct, id *string, fileSystemId *string) IFileSystemRef {
+func CfnFileSystem_FromFileSystemId(scope constructs.Construct, id *string, fileSystemId *string) interfacesawsefs.IFileSystemRef {
 	_init_.Initialize()
 
 	if err := validateCfnFileSystem_FromFileSystemIdParameters(scope, id, fileSystemId); err != nil {
 		panic(err)
 	}
-	var returns IFileSystemRef
+	var returns interfacesawsefs.IFileSystemRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_efs.CfnFileSystem",

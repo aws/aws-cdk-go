@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,8 +72,8 @@ import (
 //
 type CfnServerlessCache interface {
 	awscdk.CfnResource
-	IServerlessCacheRef
 	awscdk.IInspectable
+	interfacesawselasticache.IServerlessCacheRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the serverless cache.
 	AttrArn() *string
@@ -117,7 +119,7 @@ type CfnServerlessCache interface {
 	// The engine the serverless cache is compatible with.
 	Engine() *string
 	SetEngine(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the final snapshot taken of a cache before the cache is deleted.
 	FinalSnapshotName() *string
 	SetFinalSnapshotName(val *string)
@@ -154,7 +156,7 @@ type CfnServerlessCache interface {
 	ServerlessCacheName() *string
 	SetServerlessCacheName(val *string)
 	// A reference to a ServerlessCache resource.
-	ServerlessCacheRef() *ServerlessCacheReference
+	ServerlessCacheRef() *interfacesawselasticache.ServerlessCacheReference
 	// The ARN of the snapshot from which to restore data into the new cache.
 	SnapshotArnsToRestore() *[]*string
 	SetSnapshotArnsToRestore(val *[]*string)
@@ -317,8 +319,8 @@ type CfnServerlessCache interface {
 // The jsii proxy struct for CfnServerlessCache
 type jsiiProxy_CfnServerlessCache struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServerlessCacheRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawselasticacheIServerlessCacheRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -502,8 +504,8 @@ func (j *jsiiProxy_CfnServerlessCache) Engine() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCache) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServerlessCache) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -602,8 +604,8 @@ func (j *jsiiProxy_CfnServerlessCache) ServerlessCacheName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCache) ServerlessCacheRef() *ServerlessCacheReference {
-	var returns *ServerlessCacheReference
+func (j *jsiiProxy_CfnServerlessCache) ServerlessCacheRef() *interfacesawselasticache.ServerlessCacheReference {
+	var returns *interfacesawselasticache.ServerlessCacheReference
 	_jsii_.Get(
 		j,
 		"serverlessCacheRef",
@@ -693,6 +695,7 @@ func (j *jsiiProxy_CfnServerlessCache) UserGroupId() *string {
 }
 
 
+// Create a new `AWS::ElastiCache::ServerlessCache`.
 func NewCfnServerlessCache(scope constructs.Construct, id *string, props *CfnServerlessCacheProps) CfnServerlessCache {
 	_init_.Initialize()
 
@@ -710,6 +713,7 @@ func NewCfnServerlessCache(scope constructs.Construct, id *string, props *CfnSer
 	return &j
 }
 
+// Create a new `AWS::ElastiCache::ServerlessCache`.
 func NewCfnServerlessCache_Override(c CfnServerlessCache, scope constructs.Construct, id *string, props *CfnServerlessCacheProps) {
 	_init_.Initialize()
 
@@ -867,13 +871,13 @@ func (j *jsiiProxy_CfnServerlessCache)SetUserGroupId(val *string) {
 }
 
 // Creates a new IServerlessCacheRef from a serverlessCacheName.
-func CfnServerlessCache_FromServerlessCacheName(scope constructs.Construct, id *string, serverlessCacheName *string) IServerlessCacheRef {
+func CfnServerlessCache_FromServerlessCacheName(scope constructs.Construct, id *string, serverlessCacheName *string) interfacesawselasticache.IServerlessCacheRef {
 	_init_.Initialize()
 
 	if err := validateCfnServerlessCache_FromServerlessCacheNameParameters(scope, id, serverlessCacheName); err != nil {
 		panic(err)
 	}
-	var returns IServerlessCacheRef
+	var returns interfacesawselasticache.IServerlessCacheRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnServerlessCache",

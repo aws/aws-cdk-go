@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,9 +45,10 @@ import (
 //
 type CfnVpcOrigin interface {
 	awscdk.CfnResource
-	IVpcOriginRef
 	awscdk.IInspectable
+	interfacesawscloudfront.IVpcOriginRef
 	awscdk.ITaggableV2
+	// The account ID of the AWS account that owns the VPC origin.
 	AttrAccountId() *string
 	// The VPC origin ARN.
 	AttrArn() *string
@@ -68,7 +71,7 @@ type CfnVpcOrigin interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -110,7 +113,7 @@ type CfnVpcOrigin interface {
 	VpcOriginEndpointConfig() interface{}
 	SetVpcOriginEndpointConfig(val interface{})
 	// A reference to a VpcOrigin resource.
-	VpcOriginRef() *VpcOriginReference
+	VpcOriginRef() *interfacesawscloudfront.VpcOriginReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -241,8 +244,8 @@ type CfnVpcOrigin interface {
 // The jsii proxy struct for CfnVpcOrigin
 type jsiiProxy_CfnVpcOrigin struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVpcOriginRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscloudfrontIVpcOriginRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -356,8 +359,8 @@ func (j *jsiiProxy_CfnVpcOrigin) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcOrigin) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVpcOrigin) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -446,8 +449,8 @@ func (j *jsiiProxy_CfnVpcOrigin) VpcOriginEndpointConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcOrigin) VpcOriginRef() *VpcOriginReference {
-	var returns *VpcOriginReference
+func (j *jsiiProxy_CfnVpcOrigin) VpcOriginRef() *interfacesawscloudfront.VpcOriginReference {
+	var returns *interfacesawscloudfront.VpcOriginReference
 	_jsii_.Get(
 		j,
 		"vpcOriginRef",
@@ -457,6 +460,7 @@ func (j *jsiiProxy_CfnVpcOrigin) VpcOriginRef() *VpcOriginReference {
 }
 
 
+// Create a new `AWS::CloudFront::VpcOrigin`.
 func NewCfnVpcOrigin(scope constructs.Construct, id *string, props *CfnVpcOriginProps) CfnVpcOrigin {
 	_init_.Initialize()
 
@@ -474,6 +478,7 @@ func NewCfnVpcOrigin(scope constructs.Construct, id *string, props *CfnVpcOrigin
 	return &j
 }
 
+// Create a new `AWS::CloudFront::VpcOrigin`.
 func NewCfnVpcOrigin_Override(c CfnVpcOrigin, scope constructs.Construct, id *string, props *CfnVpcOriginProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediatailor/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediatailor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -97,8 +99,8 @@ import (
 //
 type CfnPlaybackConfiguration interface {
 	awscdk.CfnResource
-	IPlaybackConfigurationRef
 	awscdk.IInspectable
+	interfacesawsmediatailor.IPlaybackConfigurationRef
 	awscdk.ITaggable
 	// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
 	AdConditioningConfiguration() interface{}
@@ -146,7 +148,7 @@ type CfnPlaybackConfiguration interface {
 	// The configuration for a DASH source.
 	DashConfiguration() interface{}
 	SetDashConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration for HLS content.
 	HlsConfiguration() interface{}
 	SetHlsConfiguration(val interface{})
@@ -181,7 +183,7 @@ type CfnPlaybackConfiguration interface {
 	PersonalizationThresholdSeconds() *float64
 	SetPersonalizationThresholdSeconds(val *float64)
 	// A reference to a PlaybackConfiguration resource.
-	PlaybackConfigurationRef() *PlaybackConfigurationReference
+	PlaybackConfigurationRef() *interfacesawsmediatailor.PlaybackConfigurationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -348,8 +350,8 @@ type CfnPlaybackConfiguration interface {
 // The jsii proxy struct for CfnPlaybackConfiguration
 type jsiiProxy_CfnPlaybackConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPlaybackConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediatailorIPlaybackConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -513,8 +515,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) DashConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPlaybackConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -613,8 +615,8 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) PersonalizationThresholdSeconds() *
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) PlaybackConfigurationRef() *PlaybackConfigurationReference {
-	var returns *PlaybackConfigurationReference
+func (j *jsiiProxy_CfnPlaybackConfiguration) PlaybackConfigurationRef() *interfacesawsmediatailor.PlaybackConfigurationReference {
+	var returns *interfacesawsmediatailor.PlaybackConfigurationReference
 	_jsii_.Get(
 		j,
 		"playbackConfigurationRef",
@@ -714,6 +716,7 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) VideoContentSourceUrl() *string {
 }
 
 
+// Create a new `AWS::MediaTailor::PlaybackConfiguration`.
 func NewCfnPlaybackConfiguration(scope constructs.Construct, id *string, props *CfnPlaybackConfigurationProps) CfnPlaybackConfiguration {
 	_init_.Initialize()
 
@@ -731,6 +734,7 @@ func NewCfnPlaybackConfiguration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::MediaTailor::PlaybackConfiguration`.
 func NewCfnPlaybackConfiguration_Override(c CfnPlaybackConfiguration, scope constructs.Construct, id *string, props *CfnPlaybackConfigurationProps) {
 	_init_.Initialize()
 

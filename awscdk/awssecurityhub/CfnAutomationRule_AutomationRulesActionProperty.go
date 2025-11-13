@@ -1,7 +1,7 @@
 package awssecurityhub
 
 
-// One or more actions that AWS Security Hub takes when a finding matches the defined criteria of a rule.
+// One or more actions that Security Hub takes when a finding matches the defined criteria of a rule.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

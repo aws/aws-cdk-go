@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsivschat/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsivschat"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnRoom interface {
 	awscdk.CfnResource
-	IRoomRef
 	awscdk.IInspectable
+	interfacesawsivschat.IRoomRef
 	awscdk.ITaggable
 	// The room ARN.
 	//
@@ -61,7 +63,7 @@ type CfnRoom interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// List of logging-configuration identifiers attached to the room.
 	LoggingConfigurationIdentifiers() *[]*string
 	SetLoggingConfigurationIdentifiers(val *[]*string)
@@ -95,7 +97,7 @@ type CfnRoom interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Room resource.
-	RoomRef() *RoomReference
+	RoomRef() *interfacesawsivschat.RoomReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -248,8 +250,8 @@ type CfnRoom interface {
 // The jsii proxy struct for CfnRoom
 type jsiiProxy_CfnRoom struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRoomRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsivschatIRoomRef
 	internal.Type__awscdkITaggable
 }
 
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnRoom) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoom) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRoom) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnRoom) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoom) RoomRef() *RoomReference {
-	var returns *RoomReference
+func (j *jsiiProxy_CfnRoom) RoomRef() *interfacesawsivschat.RoomReference {
+	var returns *interfacesawsivschat.RoomReference
 	_jsii_.Get(
 		j,
 		"roomRef",
@@ -464,6 +466,7 @@ func (j *jsiiProxy_CfnRoom) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IVSChat::Room`.
 func NewCfnRoom(scope constructs.Construct, id *string, props *CfnRoomProps) CfnRoom {
 	_init_.Initialize()
 
@@ -481,6 +484,7 @@ func NewCfnRoom(scope constructs.Construct, id *string, props *CfnRoomProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::IVSChat::Room`.
 func NewCfnRoom_Override(c CfnRoom, scope constructs.Construct, id *string, props *CfnRoomProps) {
 	_init_.Initialize()
 

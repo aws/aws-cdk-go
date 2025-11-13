@@ -4,6 +4,9 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudformation"
+	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +32,8 @@ import (
 //
 type CfnHookTypeConfig interface {
 	CfnResource
-	IHookTypeConfigRef
 	IInspectable
+	interfacesawscloudformation.IHookTypeConfigRef
 	// The Amazon Resource Number (ARN) of the activated Hook type configuration in this account and Region.
 	AttrConfigurationArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -48,9 +51,9 @@ type CfnHookTypeConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a HookTypeConfig resource.
-	HookTypeConfigRef() *HookTypeConfigReference
+	HookTypeConfigRef() *interfacesawscloudformation.HookTypeConfigReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +224,8 @@ type CfnHookTypeConfig interface {
 // The jsii proxy struct for CfnHookTypeConfig
 type jsiiProxy_CfnHookTypeConfig struct {
 	jsiiProxy_CfnResource
-	jsiiProxy_IHookTypeConfigRef
 	jsiiProxy_IInspectable
+	internal.Type__interfacesawscloudformationIHookTypeConfigRef
 }
 
 func (j *jsiiProxy_CfnHookTypeConfig) AttrConfigurationArn() *string {
@@ -295,8 +298,8 @@ func (j *jsiiProxy_CfnHookTypeConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHookTypeConfig) Env() *ResourceEnvironment {
-	var returns *ResourceEnvironment
+func (j *jsiiProxy_CfnHookTypeConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -305,8 +308,8 @@ func (j *jsiiProxy_CfnHookTypeConfig) Env() *ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHookTypeConfig) HookTypeConfigRef() *HookTypeConfigReference {
-	var returns *HookTypeConfigReference
+func (j *jsiiProxy_CfnHookTypeConfig) HookTypeConfigRef() *interfacesawscloudformation.HookTypeConfigReference {
+	var returns *interfacesawscloudformation.HookTypeConfigReference
 	_jsii_.Get(
 		j,
 		"hookTypeConfigRef",
@@ -396,6 +399,7 @@ func (j *jsiiProxy_CfnHookTypeConfig) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::CloudFormation::HookTypeConfig`.
 func NewCfnHookTypeConfig(scope constructs.Construct, id *string, props *CfnHookTypeConfigProps) CfnHookTypeConfig {
 	_init_.Initialize()
 
@@ -413,6 +417,7 @@ func NewCfnHookTypeConfig(scope constructs.Construct, id *string, props *CfnHook
 	return &j
 }
 
+// Create a new `AWS::CloudFormation::HookTypeConfig`.
 func NewCfnHookTypeConfig_Override(c CfnHookTypeConfig, scope constructs.Construct, id *string, props *CfnHookTypeConfigProps) {
 	_init_.Initialize()
 

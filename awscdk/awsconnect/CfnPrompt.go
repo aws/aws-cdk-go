@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnPrompt interface {
 	awscdk.CfnResource
-	IPromptRef
 	awscdk.IInspectable
+	interfacesawsconnect.IPromptRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the prompt.
 	AttrPromptArn() *string
@@ -54,7 +56,7 @@ type CfnPrompt interface {
 	// The description of the prompt.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -74,7 +76,7 @@ type CfnPrompt interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Prompt resource.
-	PromptRef() *PromptReference
+	PromptRef() *interfacesawsconnect.PromptReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -233,8 +235,8 @@ type CfnPrompt interface {
 // The jsii proxy struct for CfnPrompt
 type jsiiProxy_CfnPrompt struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPromptRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIPromptRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnPrompt) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrompt) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPrompt) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnPrompt) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrompt) PromptRef() *PromptReference {
-	var returns *PromptReference
+func (j *jsiiProxy_CfnPrompt) PromptRef() *interfacesawsconnect.PromptReference {
+	var returns *interfacesawsconnect.PromptReference
 	_jsii_.Get(
 		j,
 		"promptRef",
@@ -429,6 +431,7 @@ func (j *jsiiProxy_CfnPrompt) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Connect::Prompt`.
 func NewCfnPrompt(scope constructs.Construct, id *string, props *CfnPromptProps) CfnPrompt {
 	_init_.Initialize()
 
@@ -446,6 +449,7 @@ func NewCfnPrompt(scope constructs.Construct, id *string, props *CfnPromptProps)
 	return &j
 }
 
+// Create a new `AWS::Connect::Prompt`.
 func NewCfnPrompt_Override(c CfnPrompt, scope constructs.Construct, id *string, props *CfnPromptProps) {
 	_init_.Initialize()
 

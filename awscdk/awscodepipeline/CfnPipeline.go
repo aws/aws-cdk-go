@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -298,8 +300,8 @@ import (
 //
 type CfnPipeline interface {
 	awscdk.CfnResource
-	IPipelineRef
 	awscdk.IInspectable
+	interfacesawscodepipeline.IPipelineRef
 	awscdk.ITaggable
 	// The S3 bucket where artifacts for the pipeline are stored.
 	ArtifactStore() interface{}
@@ -323,7 +325,7 @@ type CfnPipeline interface {
 	// Represents the input of a `DisableStageTransition` action.
 	DisableInboundStageTransitions() interface{}
 	SetDisableInboundStageTransitions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The method that the pipeline will use to handle multiple executions.
 	ExecutionMode() *string
 	SetExecutionMode(val *string)
@@ -343,7 +345,7 @@ type CfnPipeline interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Pipeline resource.
-	PipelineRef() *PipelineReference
+	PipelineRef() *interfacesawscodepipeline.PipelineReference
 	// CodePipeline provides the following pipeline types, which differ in characteristics and price, so that you can tailor your pipeline features and cost to the needs of your applications.
 	PipelineType() *string
 	SetPipelineType(val *string)
@@ -519,8 +521,8 @@ type CfnPipeline interface {
 // The jsii proxy struct for CfnPipeline
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPipelineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodepipelineIPipelineRef
 	internal.Type__awscdkITaggable
 }
 
@@ -604,8 +606,8 @@ func (j *jsiiProxy_CfnPipeline) DisableInboundStageTransitions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPipeline) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -654,8 +656,8 @@ func (j *jsiiProxy_CfnPipeline) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) PipelineRef() *PipelineReference {
-	var returns *PipelineReference
+func (j *jsiiProxy_CfnPipeline) PipelineRef() *interfacesawscodepipeline.PipelineReference {
+	var returns *interfacesawscodepipeline.PipelineReference
 	_jsii_.Get(
 		j,
 		"pipelineRef",
@@ -785,6 +787,7 @@ func (j *jsiiProxy_CfnPipeline) Variables() interface{} {
 }
 
 
+// Create a new `AWS::CodePipeline::Pipeline`.
 func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
@@ -802,6 +805,7 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 	return &j
 }
 
+// Create a new `AWS::CodePipeline::Pipeline`.
 func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
@@ -936,13 +940,13 @@ func (j *jsiiProxy_CfnPipeline)SetVariables(val interface{}) {
 }
 
 // Creates a new IPipelineRef from a pipelineName.
-func CfnPipeline_FromPipelineName(scope constructs.Construct, id *string, pipelineName *string) IPipelineRef {
+func CfnPipeline_FromPipelineName(scope constructs.Construct, id *string, pipelineName *string) interfacesawscodepipeline.IPipelineRef {
 	_init_.Initialize()
 
 	if err := validateCfnPipeline_FromPipelineNameParameters(scope, id, pipelineName); err != nil {
 		panic(err)
 	}
-	var returns IPipelineRef
+	var returns interfacesawscodepipeline.IPipelineRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline",

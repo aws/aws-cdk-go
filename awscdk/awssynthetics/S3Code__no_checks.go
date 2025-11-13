@@ -12,7 +12,7 @@ func validateS3Code_FromAssetParameters(assetPath *string, options *awss3assets.
 	return nil
 }
 
-func validateS3Code_FromBucketParameters(bucket awss3.IBucketRef, key *string) error {
+func validateS3Code_FromBucketParameters(bucket interfacesawss3.IBucketRef, key *string) error {
 	return nil
 }
 
@@ -20,7 +20,7 @@ func validateS3Code_FromInlineParameters(code *string) error {
 	return nil
 }
 
-func validateNewS3CodeParameters(bucket awss3.IBucketRef, key *string) error {
+func validateNewS3CodeParameters(bucket interfacesawss3.IBucketRef, key *string) error {
 	return nil
 }
 

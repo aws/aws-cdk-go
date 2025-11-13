@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnHttpNamespace interface {
 	awscdk.CfnResource
-	IHttpNamespaceRef
 	awscdk.IInspectable
+	interfacesawsservicediscovery.IHttpNamespaceRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the namespace, such as `arn:aws:service-discovery:us-east-1:123456789012:http-namespace/http-namespace-a1bzhi` .
 	AttrArn() *string
@@ -56,9 +58,9 @@ type CfnHttpNamespace interface {
 	// A description for the namespace.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a HttpNamespace resource.
-	HttpNamespaceRef() *HttpNamespaceReference
+	HttpNamespaceRef() *interfacesawsservicediscovery.HttpNamespaceReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnHttpNamespace interface {
 // The jsii proxy struct for CfnHttpNamespace
 type jsiiProxy_CfnHttpNamespace struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHttpNamespaceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicediscoveryIHttpNamespaceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnHttpNamespace) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHttpNamespace) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHttpNamespace) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnHttpNamespace) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHttpNamespace) HttpNamespaceRef() *HttpNamespaceReference {
-	var returns *HttpNamespaceReference
+func (j *jsiiProxy_CfnHttpNamespace) HttpNamespaceRef() *interfacesawsservicediscovery.HttpNamespaceReference {
+	var returns *interfacesawsservicediscovery.HttpNamespaceReference
 	_jsii_.Get(
 		j,
 		"httpNamespaceRef",
@@ -417,6 +419,7 @@ func (j *jsiiProxy_CfnHttpNamespace) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::ServiceDiscovery::HttpNamespace`.
 func NewCfnHttpNamespace(scope constructs.Construct, id *string, props *CfnHttpNamespaceProps) CfnHttpNamespace {
 	_init_.Initialize()
 
@@ -434,6 +437,7 @@ func NewCfnHttpNamespace(scope constructs.Construct, id *string, props *CfnHttpN
 	return &j
 }
 
+// Create a new `AWS::ServiceDiscovery::HttpNamespace`.
 func NewCfnHttpNamespace_Override(c CfnHttpNamespace, scope constructs.Construct, id *string, props *CfnHttpNamespaceProps) {
 	_init_.Initialize()
 

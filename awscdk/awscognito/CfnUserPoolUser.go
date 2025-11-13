@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,8 +49,8 @@ import (
 //
 type CfnUserPoolUser interface {
 	awscdk.CfnResource
-	IUserPoolUserRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolUserRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -64,7 +66,7 @@ type CfnUserPoolUser interface {
 	// Specify `EMAIL` if email will be used to send the welcome message.
 	DesiredDeliveryMediums() *[]*string
 	SetDesiredDeliveryMediums(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` .
 	ForceAliasCreation() interface{}
 	SetForceAliasCreation(val interface{})
@@ -115,7 +117,7 @@ type CfnUserPoolUser interface {
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// A reference to a UserPoolUser resource.
-	UserPoolUserRef() *UserPoolUserReference
+	UserPoolUserRef() *interfacesawscognito.UserPoolUserReference
 	// Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger.
 	ValidationData() interface{}
 	SetValidationData(val interface{})
@@ -249,8 +251,8 @@ type CfnUserPoolUser interface {
 // The jsii proxy struct for CfnUserPoolUser
 type jsiiProxy_CfnUserPoolUser struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolUserRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolUserRef
 }
 
 func (j *jsiiProxy_CfnUserPoolUser) CfnOptions() awscdk.ICfnResourceOptions {
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnUserPoolUser) DesiredDeliveryMediums() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUser) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolUser) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -433,8 +435,8 @@ func (j *jsiiProxy_CfnUserPoolUser) UserPoolId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUser) UserPoolUserRef() *UserPoolUserReference {
-	var returns *UserPoolUserReference
+func (j *jsiiProxy_CfnUserPoolUser) UserPoolUserRef() *interfacesawscognito.UserPoolUserReference {
+	var returns *interfacesawscognito.UserPoolUserReference
 	_jsii_.Get(
 		j,
 		"userPoolUserRef",
@@ -454,6 +456,7 @@ func (j *jsiiProxy_CfnUserPoolUser) ValidationData() interface{} {
 }
 
 
+// Create a new `AWS::Cognito::UserPoolUser`.
 func NewCfnUserPoolUser(scope constructs.Construct, id *string, props *CfnUserPoolUserProps) CfnUserPoolUser {
 	_init_.Initialize()
 
@@ -471,6 +474,7 @@ func NewCfnUserPoolUser(scope constructs.Construct, id *string, props *CfnUserPo
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolUser`.
 func NewCfnUserPoolUser_Override(c CfnUserPoolUser, scope constructs.Construct, id *string, props *CfnUserPoolUserProps) {
 	_init_.Initialize()
 

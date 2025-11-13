@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -125,8 +127,8 @@ import (
 //
 type CfnConnection interface {
 	awscdk.CfnResource
-	IConnectionRef
 	awscdk.IInspectable
+	interfacesawsevents.IConnectionRef
 	// The ARN of the connection that was created by the request.
 	AttrArn() *string
 	// Returns the Amazon Resource Name (ARN) of a connection in resource format, so it can be used in the `Resource` element of IAM permission policy statements.
@@ -159,7 +161,7 @@ type CfnConnection interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Connection resource.
-	ConnectionRef() *ConnectionReference
+	ConnectionRef() *interfacesawsevents.ConnectionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -167,7 +169,7 @@ type CfnConnection interface {
 	// A description for the connection to create.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// For connections to private APIs, the parameters to use for invoking the API.
 	InvocationConnectivityParameters() interface{}
 	SetInvocationConnectivityParameters(val interface{})
@@ -341,8 +343,8 @@ type CfnConnection interface {
 // The jsii proxy struct for CfnConnection
 type jsiiProxy_CfnConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventsIConnectionRef
 }
 
 func (j *jsiiProxy_CfnConnection) AttrArn() *string {
@@ -445,8 +447,8 @@ func (j *jsiiProxy_CfnConnection) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnection) ConnectionRef() *ConnectionReference {
-	var returns *ConnectionReference
+func (j *jsiiProxy_CfnConnection) ConnectionRef() *interfacesawsevents.ConnectionReference {
+	var returns *interfacesawsevents.ConnectionReference
 	_jsii_.Get(
 		j,
 		"connectionRef",
@@ -475,8 +477,8 @@ func (j *jsiiProxy_CfnConnection) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -576,6 +578,7 @@ func (j *jsiiProxy_CfnConnection) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Events::Connection`.
 func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnectionProps) CfnConnection {
 	_init_.Initialize()
 
@@ -593,6 +596,7 @@ func NewCfnConnection(scope constructs.Construct, id *string, props *CfnConnecti
 	return &j
 }
 
+// Create a new `AWS::Events::Connection`.
 func NewCfnConnection_Override(c CfnConnection, scope constructs.Construct, id *string, props *CfnConnectionProps) {
 	_init_.Initialize()
 
@@ -658,13 +662,13 @@ func (j *jsiiProxy_CfnConnection)SetName(val *string) {
 }
 
 // Creates a new IConnectionRef from an ARN.
-func CfnConnection_FromConnectionArn(scope constructs.Construct, id *string, arn *string) IConnectionRef {
+func CfnConnection_FromConnectionArn(scope constructs.Construct, id *string, arn *string) interfacesawsevents.IConnectionRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnection_FromConnectionArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IConnectionRef
+	var returns interfacesawsevents.IConnectionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnConnection",
@@ -677,13 +681,13 @@ func CfnConnection_FromConnectionArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IConnectionRef from a connectionName.
-func CfnConnection_FromConnectionName(scope constructs.Construct, id *string, connectionName *string) IConnectionRef {
+func CfnConnection_FromConnectionName(scope constructs.Construct, id *string, connectionName *string) interfacesawsevents.IConnectionRef {
 	_init_.Initialize()
 
 	if err := validateCfnConnection_FromConnectionNameParameters(scope, id, connectionName); err != nil {
 		panic(err)
 	}
-	var returns IConnectionRef
+	var returns interfacesawsevents.IConnectionRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnConnection",

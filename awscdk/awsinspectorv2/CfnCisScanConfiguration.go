@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsinspectorv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspectorv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,8 +69,8 @@ import (
 //
 type CfnCisScanConfiguration interface {
 	awscdk.CfnResource
-	ICisScanConfigurationRef
 	awscdk.IInspectable
+	interfacesawsinspectorv2.ICisScanConfigurationRef
 	awscdk.ITaggableV2
 	// The CIS scan configuration's scan configuration ARN.
 	AttrArn() *string
@@ -80,12 +82,12 @@ type CfnCisScanConfiguration interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CisScanConfiguration resource.
-	CisScanConfigurationRef() *CisScanConfigurationReference
+	CisScanConfigurationRef() *interfacesawsinspectorv2.CisScanConfigurationReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -265,8 +267,8 @@ type CfnCisScanConfiguration interface {
 // The jsii proxy struct for CfnCisScanConfiguration
 type jsiiProxy_CfnCisScanConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICisScanConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsinspectorv2ICisScanConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnCisScanConfiguration) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCisScanConfiguration) CisScanConfigurationRef() *CisScanConfigurationReference {
-	var returns *CisScanConfigurationReference
+func (j *jsiiProxy_CfnCisScanConfiguration) CisScanConfigurationRef() *interfacesawsinspectorv2.CisScanConfigurationReference {
+	var returns *interfacesawsinspectorv2.CisScanConfigurationReference
 	_jsii_.Get(
 		j,
 		"cisScanConfigurationRef",
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnCisScanConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCisScanConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCisScanConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnCisScanConfiguration) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::InspectorV2::CisScanConfiguration`.
 func NewCfnCisScanConfiguration(scope constructs.Construct, id *string, props *CfnCisScanConfigurationProps) CfnCisScanConfiguration {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnCisScanConfiguration(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::InspectorV2::CisScanConfiguration`.
 func NewCfnCisScanConfiguration_Override(c CfnCisScanConfiguration, scope constructs.Construct, id *string, props *CfnCisScanConfigurationProps) {
 	_init_.Initialize()
 

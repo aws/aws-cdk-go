@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -101,13 +103,13 @@ type EventSourceMapping interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the event source mapping (i.e. arn:aws:lambda:region:account-id:event-source-mapping/event-source-mapping-id).
 	EventSourceMappingArn() *string
 	// The identifier for this EventSourceMapping.
 	EventSourceMappingId() *string
 	// A reference to a EventSourceMapping resource.
-	EventSourceMappingRef() *EventSourceMappingReference
+	EventSourceMappingRef() *interfacesawslambda.EventSourceMappingReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -154,8 +156,8 @@ type jsiiProxy_EventSourceMapping struct {
 	jsiiProxy_IEventSourceMapping
 }
 
-func (j *jsiiProxy_EventSourceMapping) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_EventSourceMapping) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -184,8 +186,8 @@ func (j *jsiiProxy_EventSourceMapping) EventSourceMappingId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_EventSourceMapping) EventSourceMappingRef() *EventSourceMappingReference {
-	var returns *EventSourceMappingReference
+func (j *jsiiProxy_EventSourceMapping) EventSourceMappingRef() *interfacesawslambda.EventSourceMappingReference {
+	var returns *interfacesawslambda.EventSourceMappingReference
 	_jsii_.Get(
 		j,
 		"eventSourceMappingRef",

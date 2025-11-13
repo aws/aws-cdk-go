@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,10 +36,10 @@ import (
 //
 type CfnAccessKey interface {
 	awscdk.CfnResource
-	IAccessKeyRef
 	awscdk.IInspectable
+	interfacesawsiam.IAccessKeyRef
 	// A reference to a AccessKey resource.
-	AccessKeyRef() *AccessKeyReference
+	AccessKeyRef() *interfacesawsiam.AccessKeyReference
 	// The ID for this access key.
 	AttrId() *string
 	// Returns the secret access key for the specified AWS::IAM::AccessKey resource.
@@ -53,7 +55,7 @@ type CfnAccessKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -227,12 +229,12 @@ type CfnAccessKey interface {
 // The jsii proxy struct for CfnAccessKey
 type jsiiProxy_CfnAccessKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIAccessKeyRef
 }
 
-func (j *jsiiProxy_CfnAccessKey) AccessKeyRef() *AccessKeyReference {
-	var returns *AccessKeyReference
+func (j *jsiiProxy_CfnAccessKey) AccessKeyRef() *interfacesawsiam.AccessKeyReference {
+	var returns *interfacesawsiam.AccessKeyReference
 	_jsii_.Get(
 		j,
 		"accessKeyRef",
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnAccessKey) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,6 +404,7 @@ func (j *jsiiProxy_CfnAccessKey) UserName() *string {
 }
 
 
+// Create a new `AWS::IAM::AccessKey`.
 func NewCfnAccessKey(scope constructs.Construct, id *string, props *CfnAccessKeyProps) CfnAccessKey {
 	_init_.Initialize()
 
@@ -419,6 +422,7 @@ func NewCfnAccessKey(scope constructs.Construct, id *string, props *CfnAccessKey
 	return &j
 }
 
+// Create a new `AWS::IAM::AccessKey`.
 func NewCfnAccessKey_Override(c CfnAccessKey, scope constructs.Construct, id *string, props *CfnAccessKeyProps) {
 	_init_.Initialize()
 

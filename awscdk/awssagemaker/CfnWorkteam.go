@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,8 +55,8 @@ import (
 //
 type CfnWorkteam interface {
 	awscdk.CfnResource
-	IWorkteamRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IWorkteamRef
 	awscdk.ITaggable
 	AttrId() *string
 	// The name of the work team.
@@ -71,7 +73,7 @@ type CfnWorkteam interface {
 	// A description of the work team.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -124,7 +126,7 @@ type CfnWorkteam interface {
 	WorkteamName() *string
 	SetWorkteamName(val *string)
 	// A reference to a Workteam resource.
-	WorkteamRef() *WorkteamReference
+	WorkteamRef() *interfacesawssagemaker.WorkteamReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -255,8 +257,8 @@ type CfnWorkteam interface {
 // The jsii proxy struct for CfnWorkteam
 type jsiiProxy_CfnWorkteam struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkteamRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIWorkteamRef
 	internal.Type__awscdkITaggable
 }
 
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnWorkteam) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkteam) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkteam) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -460,8 +462,8 @@ func (j *jsiiProxy_CfnWorkteam) WorkteamName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkteam) WorkteamRef() *WorkteamReference {
-	var returns *WorkteamReference
+func (j *jsiiProxy_CfnWorkteam) WorkteamRef() *interfacesawssagemaker.WorkteamReference {
+	var returns *interfacesawssagemaker.WorkteamReference
 	_jsii_.Get(
 		j,
 		"workteamRef",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnWorkteam) WorkteamRef() *WorkteamReference {
 }
 
 
+// Create a new `AWS::SageMaker::Workteam`.
 func NewCfnWorkteam(scope constructs.Construct, id *string, props *CfnWorkteamProps) CfnWorkteam {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnWorkteam(scope constructs.Construct, id *string, props *CfnWorkteamPr
 	return &j
 }
 
+// Create a new `AWS::SageMaker::Workteam`.
 func NewCfnWorkteam_Override(c CfnWorkteam, scope constructs.Construct, id *string, props *CfnWorkteamProps) {
 	_init_.Initialize()
 

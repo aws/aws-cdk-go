@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediapackage/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackage"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -180,8 +182,8 @@ import (
 //
 type CfnPackagingConfiguration interface {
 	awscdk.CfnResource
-	IPackagingConfigurationRef
 	awscdk.IInspectable
+	interfacesawsmediapackage.IPackagingConfigurationRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the packaging configuration.
 	//
@@ -202,7 +204,7 @@ type CfnPackagingConfiguration interface {
 	// Parameters for DASH-ISO packaging.
 	DashPackage() interface{}
 	SetDashPackage(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Parameters for Apple HLS packaging.
 	HlsPackage() interface{}
 	SetHlsPackage(val interface{})
@@ -225,7 +227,7 @@ type CfnPackagingConfiguration interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PackagingConfiguration resource.
-	PackagingConfigurationRef() *PackagingConfigurationReference
+	PackagingConfigurationRef() *interfacesawsmediapackage.PackagingConfigurationReference
 	// The ID of the packaging group associated with this packaging configuration.
 	PackagingGroupId() *string
 	SetPackagingGroupId(val *string)
@@ -386,8 +388,8 @@ type CfnPackagingConfiguration interface {
 // The jsii proxy struct for CfnPackagingConfiguration
 type jsiiProxy_CfnPackagingConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPackagingConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediapackageIPackagingConfigurationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -461,8 +463,8 @@ func (j *jsiiProxy_CfnPackagingConfiguration) DashPackage() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackagingConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPackagingConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -521,8 +523,8 @@ func (j *jsiiProxy_CfnPackagingConfiguration) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackagingConfiguration) PackagingConfigurationRef() *PackagingConfigurationReference {
-	var returns *PackagingConfigurationReference
+func (j *jsiiProxy_CfnPackagingConfiguration) PackagingConfigurationRef() *interfacesawsmediapackage.PackagingConfigurationReference {
+	var returns *interfacesawsmediapackage.PackagingConfigurationReference
 	_jsii_.Get(
 		j,
 		"packagingConfigurationRef",
@@ -602,6 +604,7 @@ func (j *jsiiProxy_CfnPackagingConfiguration) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::MediaPackage::PackagingConfiguration`.
 func NewCfnPackagingConfiguration(scope constructs.Construct, id *string, props *CfnPackagingConfigurationProps) CfnPackagingConfiguration {
 	_init_.Initialize()
 
@@ -619,6 +622,7 @@ func NewCfnPackagingConfiguration(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::MediaPackage::PackagingConfiguration`.
 func NewCfnPackagingConfiguration_Override(c CfnPackagingConfiguration, scope constructs.Construct, id *string, props *CfnPackagingConfigurationProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnCluster interface {
 	awscdk.CfnResource
-	IClusterRef
 	awscdk.IInspectable
+	interfacesawsmedialive.IClusterRef
 	awscdk.ITaggableV2
 	// The ARN of the Cluster.
 	AttrArn() *string
@@ -60,7 +62,7 @@ type CfnCluster interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Cluster resource.
-	ClusterRef() *ClusterReference
+	ClusterRef() *interfacesawsmedialive.ClusterReference
 	// The hardware type for the cluster.
 	ClusterType() *string
 	SetClusterType(val *string)
@@ -68,7 +70,7 @@ type CfnCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IAM role your nodes will use.
 	InstanceRoleArn() *string
 	SetInstanceRoleArn(val *string)
@@ -245,8 +247,8 @@ type CfnCluster interface {
 // The jsii proxy struct for CfnCluster
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveIClusterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -330,8 +332,8 @@ func (j *jsiiProxy_CfnCluster) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) ClusterRef() *ClusterReference {
-	var returns *ClusterReference
+func (j *jsiiProxy_CfnCluster) ClusterRef() *interfacesawsmedialive.ClusterReference {
+	var returns *interfacesawsmedialive.ClusterReference
 	_jsii_.Get(
 		j,
 		"clusterRef",
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnCluster) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaLive::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
+// Create a new `AWS::MediaLive::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -545,13 +549,13 @@ func (j *jsiiProxy_CfnCluster)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IClusterRef from an ARN.
-func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) IClusterRef {
+func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IClusterRef {
 	_init_.Initialize()
 
 	if err := validateCfnCluster_FromClusterArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IClusterRef
+	var returns interfacesawsmedialive.IClusterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnCluster",
@@ -564,13 +568,13 @@ func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IClusterRef from a clusterId.
-func CfnCluster_FromClusterId(scope constructs.Construct, id *string, clusterId *string) IClusterRef {
+func CfnCluster_FromClusterId(scope constructs.Construct, id *string, clusterId *string) interfacesawsmedialive.IClusterRef {
 	_init_.Initialize()
 
 	if err := validateCfnCluster_FromClusterIdParameters(scope, id, clusterId); err != nil {
 		panic(err)
 	}
-	var returns IClusterRef
+	var returns interfacesawsmedialive.IClusterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnCluster",

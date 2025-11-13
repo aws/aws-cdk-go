@@ -35,6 +35,7 @@ type CfnAnycastIpListProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The IP address type for the Anycast static IP list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`

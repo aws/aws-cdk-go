@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnPrefixList interface {
 	awscdk.CfnResource
-	IPrefixListRef
 	awscdk.IInspectable
+	interfacesawsec2.IPrefixListRef
 	awscdk.ITaggable
 	// The IP address type.
 	AddressFamily() *string
@@ -78,7 +80,7 @@ type CfnPrefixList interface {
 	// The entries for the prefix list.
 	Entries() interface{}
 	SetEntries(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -98,7 +100,7 @@ type CfnPrefixList interface {
 	PrefixListName() *string
 	SetPrefixListName(val *string)
 	// A reference to a PrefixList resource.
-	PrefixListRef() *PrefixListReference
+	PrefixListRef() *interfacesawsec2.PrefixListReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -256,8 +258,8 @@ type CfnPrefixList interface {
 // The jsii proxy struct for CfnPrefixList
 type jsiiProxy_CfnPrefixList struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPrefixListRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IPrefixListRef
 	internal.Type__awscdkITaggable
 }
 
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnPrefixList) Entries() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrefixList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPrefixList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -411,8 +413,8 @@ func (j *jsiiProxy_CfnPrefixList) PrefixListName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrefixList) PrefixListRef() *PrefixListReference {
-	var returns *PrefixListReference
+func (j *jsiiProxy_CfnPrefixList) PrefixListRef() *interfacesawsec2.PrefixListReference {
+	var returns *interfacesawsec2.PrefixListReference
 	_jsii_.Get(
 		j,
 		"prefixListRef",
@@ -482,6 +484,7 @@ func (j *jsiiProxy_CfnPrefixList) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::PrefixList`.
 func NewCfnPrefixList(scope constructs.Construct, id *string, props *CfnPrefixListProps) CfnPrefixList {
 	_init_.Initialize()
 
@@ -499,6 +502,7 @@ func NewCfnPrefixList(scope constructs.Construct, id *string, props *CfnPrefixLi
 	return &j
 }
 
+// Create a new `AWS::EC2::PrefixList`.
 func NewCfnPrefixList_Override(c CfnPrefixList, scope constructs.Construct, id *string, props *CfnPrefixListProps) {
 	_init_.Initialize()
 
@@ -562,13 +566,13 @@ func (j *jsiiProxy_CfnPrefixList)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IPrefixListRef from an ARN.
-func CfnPrefixList_FromPrefixListArn(scope constructs.Construct, id *string, arn *string) IPrefixListRef {
+func CfnPrefixList_FromPrefixListArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IPrefixListRef {
 	_init_.Initialize()
 
 	if err := validateCfnPrefixList_FromPrefixListArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IPrefixListRef
+	var returns interfacesawsec2.IPrefixListRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnPrefixList",
@@ -581,13 +585,13 @@ func CfnPrefixList_FromPrefixListArn(scope constructs.Construct, id *string, arn
 }
 
 // Creates a new IPrefixListRef from a prefixListId.
-func CfnPrefixList_FromPrefixListId(scope constructs.Construct, id *string, prefixListId *string) IPrefixListRef {
+func CfnPrefixList_FromPrefixListId(scope constructs.Construct, id *string, prefixListId *string) interfacesawsec2.IPrefixListRef {
 	_init_.Initialize()
 
 	if err := validateCfnPrefixList_FromPrefixListIdParameters(scope, id, prefixListId); err != nil {
 		panic(err)
 	}
-	var returns IPrefixListRef
+	var returns interfacesawsec2.IPrefixListRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnPrefixList",

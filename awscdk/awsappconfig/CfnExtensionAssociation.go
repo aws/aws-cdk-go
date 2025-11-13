@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnExtensionAssociation interface {
 	awscdk.CfnResource
-	IExtensionAssociationRef
 	awscdk.IInspectable
+	interfacesawsappconfig.IExtensionAssociationRef
 	awscdk.ITaggable
 	// The ARN of the extension defined in the association.
 	AttrArn() *string
@@ -57,9 +59,9 @@ type CfnExtensionAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a ExtensionAssociation resource.
-	ExtensionAssociationRef() *ExtensionAssociationReference
+	ExtensionAssociationRef() *interfacesawsappconfig.ExtensionAssociationReference
 	// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 	ExtensionIdentifier() *string
 	SetExtensionIdentifier(val *string)
@@ -241,8 +243,8 @@ type CfnExtensionAssociation interface {
 // The jsii proxy struct for CfnExtensionAssociation
 type jsiiProxy_CfnExtensionAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IExtensionAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappconfigIExtensionAssociationRef
 	internal.Type__awscdkITaggable
 }
 
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnExtensionAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExtensionAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnExtensionAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnExtensionAssociation) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExtensionAssociation) ExtensionAssociationRef() *ExtensionAssociationReference {
-	var returns *ExtensionAssociationReference
+func (j *jsiiProxy_CfnExtensionAssociation) ExtensionAssociationRef() *interfacesawsappconfig.ExtensionAssociationReference {
+	var returns *interfacesawsappconfig.ExtensionAssociationReference
 	_jsii_.Get(
 		j,
 		"extensionAssociationRef",
@@ -467,6 +469,7 @@ func (j *jsiiProxy_CfnExtensionAssociation) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::AppConfig::ExtensionAssociation`.
 func NewCfnExtensionAssociation(scope constructs.Construct, id *string, props *CfnExtensionAssociationProps) CfnExtensionAssociation {
 	_init_.Initialize()
 
@@ -484,6 +487,7 @@ func NewCfnExtensionAssociation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::AppConfig::ExtensionAssociation`.
 func NewCfnExtensionAssociation_Override(c CfnExtensionAssociation, scope constructs.Construct, id *string, props *CfnExtensionAssociationProps) {
 	_init_.Initialize()
 
@@ -541,13 +545,13 @@ func (j *jsiiProxy_CfnExtensionAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IExtensionAssociationRef from an ARN.
-func CfnExtensionAssociation_FromExtensionAssociationArn(scope constructs.Construct, id *string, arn *string) IExtensionAssociationRef {
+func CfnExtensionAssociation_FromExtensionAssociationArn(scope constructs.Construct, id *string, arn *string) interfacesawsappconfig.IExtensionAssociationRef {
 	_init_.Initialize()
 
 	if err := validateCfnExtensionAssociation_FromExtensionAssociationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IExtensionAssociationRef
+	var returns interfacesawsappconfig.IExtensionAssociationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appconfig.CfnExtensionAssociation",
@@ -560,13 +564,13 @@ func CfnExtensionAssociation_FromExtensionAssociationArn(scope constructs.Constr
 }
 
 // Creates a new IExtensionAssociationRef from a extensionAssociationId.
-func CfnExtensionAssociation_FromExtensionAssociationId(scope constructs.Construct, id *string, extensionAssociationId *string) IExtensionAssociationRef {
+func CfnExtensionAssociation_FromExtensionAssociationId(scope constructs.Construct, id *string, extensionAssociationId *string) interfacesawsappconfig.IExtensionAssociationRef {
 	_init_.Initialize()
 
 	if err := validateCfnExtensionAssociation_FromExtensionAssociationIdParameters(scope, id, extensionAssociationId); err != nil {
 		panic(err)
 	}
-	var returns IExtensionAssociationRef
+	var returns interfacesawsappconfig.IExtensionAssociationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appconfig.CfnExtensionAssociation",

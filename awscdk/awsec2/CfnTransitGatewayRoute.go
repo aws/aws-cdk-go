@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnTransitGatewayRoute interface {
 	awscdk.CfnResource
-	ITransitGatewayRouteRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayRouteRef
 	// Indicates whether to drop traffic that matches this route.
 	Blackhole() interface{}
 	SetBlackhole(val interface{})
@@ -46,7 +48,7 @@ type CfnTransitGatewayRoute interface {
 	// The CIDR block used for destination matches.
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -72,7 +74,7 @@ type CfnTransitGatewayRoute interface {
 	TransitGatewayAttachmentId() *string
 	SetTransitGatewayAttachmentId(val *string)
 	// A reference to a TransitGatewayRoute resource.
-	TransitGatewayRouteRef() *TransitGatewayRouteReference
+	TransitGatewayRouteRef() *interfacesawsec2.TransitGatewayRouteReference
 	// The ID of the transit gateway route table.
 	TransitGatewayRouteTableId() *string
 	SetTransitGatewayRouteTableId(val *string)
@@ -219,8 +221,8 @@ type CfnTransitGatewayRoute interface {
 // The jsii proxy struct for CfnTransitGatewayRoute
 type jsiiProxy_CfnTransitGatewayRoute struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayRouteRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayRouteRef
 }
 
 func (j *jsiiProxy_CfnTransitGatewayRoute) Blackhole() interface{} {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnTransitGatewayRoute) DestinationCidrBlock() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRoute) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayRoute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnTransitGatewayRoute) TransitGatewayAttachmentId() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRoute) TransitGatewayRouteRef() *TransitGatewayRouteReference {
-	var returns *TransitGatewayRouteReference
+func (j *jsiiProxy_CfnTransitGatewayRoute) TransitGatewayRouteRef() *interfacesawsec2.TransitGatewayRouteReference {
+	var returns *interfacesawsec2.TransitGatewayRouteReference
 	_jsii_.Get(
 		j,
 		"transitGatewayRouteRef",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnTransitGatewayRoute) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayRoute`.
 func NewCfnTransitGatewayRoute(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteProps) CfnTransitGatewayRoute {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnTransitGatewayRoute(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayRoute`.
 func NewCfnTransitGatewayRoute_Override(c CfnTransitGatewayRoute, scope constructs.Construct, id *string, props *CfnTransitGatewayRouteProps) {
 	_init_.Initialize()
 

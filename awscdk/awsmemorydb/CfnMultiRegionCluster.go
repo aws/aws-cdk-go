@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmemorydb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmemorydb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnMultiRegionCluster interface {
 	awscdk.CfnResource
-	IMultiRegionClusterRef
 	awscdk.IInspectable
+	interfacesawsmemorydb.IMultiRegionClusterRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the multi-Region cluster.
 	AttrArn() *string
@@ -69,7 +71,7 @@ type CfnMultiRegionCluster interface {
 	// The version of the engine used by the multi-Region cluster.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnMultiRegionCluster interface {
 	MultiRegionClusterNameSuffix() *string
 	SetMultiRegionClusterNameSuffix(val *string)
 	// A reference to a MultiRegionCluster resource.
-	MultiRegionClusterRef() *MultiRegionClusterReference
+	MultiRegionClusterRef() *interfacesawsmemorydb.MultiRegionClusterReference
 	// The name of the multi-Region parameter group associated with the cluster.
 	MultiRegionParameterGroupName() *string
 	SetMultiRegionParameterGroupName(val *string)
@@ -257,8 +259,8 @@ type CfnMultiRegionCluster interface {
 // The jsii proxy struct for CfnMultiRegionCluster
 type jsiiProxy_CfnMultiRegionCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMultiRegionClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmemorydbIMultiRegionClusterRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -372,8 +374,8 @@ func (j *jsiiProxy_CfnMultiRegionCluster) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiRegionCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMultiRegionCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -402,8 +404,8 @@ func (j *jsiiProxy_CfnMultiRegionCluster) MultiRegionClusterNameSuffix() *string
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiRegionCluster) MultiRegionClusterRef() *MultiRegionClusterReference {
-	var returns *MultiRegionClusterReference
+func (j *jsiiProxy_CfnMultiRegionCluster) MultiRegionClusterRef() *interfacesawsmemorydb.MultiRegionClusterReference {
+	var returns *interfacesawsmemorydb.MultiRegionClusterReference
 	_jsii_.Get(
 		j,
 		"multiRegionClusterRef",
@@ -523,6 +525,7 @@ func (j *jsiiProxy_CfnMultiRegionCluster) UpdateStrategy() *string {
 }
 
 
+// Create a new `AWS::MemoryDB::MultiRegionCluster`.
 func NewCfnMultiRegionCluster(scope constructs.Construct, id *string, props *CfnMultiRegionClusterProps) CfnMultiRegionCluster {
 	_init_.Initialize()
 
@@ -540,6 +543,7 @@ func NewCfnMultiRegionCluster(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::MemoryDB::MultiRegionCluster`.
 func NewCfnMultiRegionCluster_Override(c CfnMultiRegionCluster, scope constructs.Construct, id *string, props *CfnMultiRegionClusterProps) {
 	_init_.Initialize()
 

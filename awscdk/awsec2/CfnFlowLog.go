@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnFlowLog interface {
 	awscdk.CfnResource
-	IFlowLogRef
 	awscdk.IInspectable
+	interfacesawsec2.IFlowLogRef
 	awscdk.ITaggable
 	// The ID of the flow log.
 	//
@@ -71,9 +73,9 @@ type CfnFlowLog interface {
 	// The destination options.
 	DestinationOptions() interface{}
 	SetDestinationOptions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FlowLog resource.
-	FlowLogRef() *FlowLogReference
+	FlowLogRef() *interfacesawsec2.FlowLogReference
 	// The destination for the flow log data.
 	//
 	// The meaning of this parameter depends on the destination type.
@@ -269,8 +271,8 @@ type CfnFlowLog interface {
 // The jsii proxy struct for CfnFlowLog
 type jsiiProxy_CfnFlowLog struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowLogRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IFlowLogRef
 	internal.Type__awscdkITaggable
 }
 
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnFlowLog) DestinationOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowLog) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlowLog) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnFlowLog) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowLog) FlowLogRef() *FlowLogReference {
-	var returns *FlowLogReference
+func (j *jsiiProxy_CfnFlowLog) FlowLogRef() *interfacesawsec2.FlowLogReference {
+	var returns *interfacesawsec2.FlowLogReference
 	_jsii_.Get(
 		j,
 		"flowLogRef",
@@ -535,6 +537,7 @@ func (j *jsiiProxy_CfnFlowLog) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::EC2::FlowLog`.
 func NewCfnFlowLog(scope constructs.Construct, id *string, props *CfnFlowLogProps) CfnFlowLog {
 	_init_.Initialize()
 
@@ -552,6 +555,7 @@ func NewCfnFlowLog(scope constructs.Construct, id *string, props *CfnFlowLogProp
 	return &j
 }
 
+// Create a new `AWS::EC2::FlowLog`.
 func NewCfnFlowLog_Override(c CfnFlowLog, scope constructs.Construct, id *string, props *CfnFlowLogProps) {
 	_init_.Initialize()
 
@@ -668,13 +672,13 @@ func (j *jsiiProxy_CfnFlowLog)SetTrafficType(val *string) {
 }
 
 // Creates a new IFlowLogRef from a flowLogId.
-func CfnFlowLog_FromFlowLogId(scope constructs.Construct, id *string, flowLogId *string) IFlowLogRef {
+func CfnFlowLog_FromFlowLogId(scope constructs.Construct, id *string, flowLogId *string) interfacesawsec2.IFlowLogRef {
 	_init_.Initialize()
 
 	if err := validateCfnFlowLog_FromFlowLogIdParameters(scope, id, flowLogId); err != nil {
 		panic(err)
 	}
-	var returns IFlowLogRef
+	var returns interfacesawsec2.IFlowLogRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnFlowLog",

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnMailManagerRelay interface {
 	awscdk.CfnResource
-	IMailManagerRelayRef
 	awscdk.IInspectable
+	interfacesawsses.IMailManagerRelayRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the relay.
 	AttrRelayArn() *string
@@ -61,7 +63,7 @@ type CfnMailManagerRelay interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,7 +75,7 @@ type CfnMailManagerRelay interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MailManagerRelay resource.
-	MailManagerRelayRef() *MailManagerRelayReference
+	MailManagerRelayRef() *interfacesawsses.MailManagerRelayReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -240,8 +242,8 @@ type CfnMailManagerRelay interface {
 // The jsii proxy struct for CfnMailManagerRelay
 type jsiiProxy_CfnMailManagerRelay struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMailManagerRelayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIMailManagerRelayRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnMailManagerRelay) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerRelay) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMailManagerRelay) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnMailManagerRelay) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerRelay) MailManagerRelayRef() *MailManagerRelayReference {
-	var returns *MailManagerRelayReference
+func (j *jsiiProxy_CfnMailManagerRelay) MailManagerRelayRef() *interfacesawsses.MailManagerRelayReference {
+	var returns *interfacesawsses.MailManagerRelayReference
 	_jsii_.Get(
 		j,
 		"mailManagerRelayRef",
@@ -446,6 +448,7 @@ func (j *jsiiProxy_CfnMailManagerRelay) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::SES::MailManagerRelay`.
 func NewCfnMailManagerRelay(scope constructs.Construct, id *string, props *CfnMailManagerRelayProps) CfnMailManagerRelay {
 	_init_.Initialize()
 
@@ -463,6 +466,7 @@ func NewCfnMailManagerRelay(scope constructs.Construct, id *string, props *CfnMa
 	return &j
 }
 
+// Create a new `AWS::SES::MailManagerRelay`.
 func NewCfnMailManagerRelay_Override(c CfnMailManagerRelay, scope constructs.Construct, id *string, props *CfnMailManagerRelayProps) {
 	_init_.Initialize()
 
@@ -526,13 +530,13 @@ func (j *jsiiProxy_CfnMailManagerRelay)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMailManagerRelayRef from a relayId.
-func CfnMailManagerRelay_FromRelayId(scope constructs.Construct, id *string, relayId *string) IMailManagerRelayRef {
+func CfnMailManagerRelay_FromRelayId(scope constructs.Construct, id *string, relayId *string) interfacesawsses.IMailManagerRelayRef {
 	_init_.Initialize()
 
 	if err := validateCfnMailManagerRelay_FromRelayIdParameters(scope, id, relayId); err != nil {
 		panic(err)
 	}
-	var returns IMailManagerRelayRef
+	var returns interfacesawsses.IMailManagerRelayRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerRelay",

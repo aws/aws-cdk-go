@@ -1,0 +1,56 @@
+package interfacesawselasticloadbalancingv2
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a ListenerCertificate.
+// Experimental.
+type IListenerCertificateRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a ListenerCertificate resource.
+	// Experimental.
+	ListenerCertificateRef() *ListenerCertificateReference
+}
+
+// The jsii proxy for IListenerCertificateRef
+type jsiiProxy_IListenerCertificateRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IListenerCertificateRef) ListenerCertificateRef() *ListenerCertificateReference {
+	var returns *ListenerCertificateReference
+	_jsii_.Get(
+		j,
+		"listenerCertificateRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IListenerCertificateRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IListenerCertificateRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

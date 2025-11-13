@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,8 +22,8 @@ import (
 //
 type CfnDashboard interface {
 	awscdk.CfnResource
-	IDashboardRef
 	awscdk.IInspectable
+	interfacesawsquicksight.IDashboardRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the dashboard.
 	AttrArn() *string
@@ -62,10 +64,10 @@ type CfnDashboard interface {
 	DashboardPublishOptions() interface{}
 	SetDashboardPublishOptions(val interface{})
 	// A reference to a Dashboard resource.
-	DashboardRef() *DashboardReference
+	DashboardRef() *interfacesawsquicksight.DashboardReference
 	Definition() interface{}
 	SetDefinition(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	FolderArns() *[]*string
 	SetFolderArns(val *[]*string)
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
@@ -264,8 +266,8 @@ type CfnDashboard interface {
 // The jsii proxy struct for CfnDashboard
 type jsiiProxy_CfnDashboard struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDashboardRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightIDashboardRef
 	internal.Type__awscdkITaggable
 }
 
@@ -489,8 +491,8 @@ func (j *jsiiProxy_CfnDashboard) DashboardPublishOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboard) DashboardRef() *DashboardReference {
-	var returns *DashboardReference
+func (j *jsiiProxy_CfnDashboard) DashboardRef() *interfacesawsquicksight.DashboardReference {
+	var returns *interfacesawsquicksight.DashboardReference
 	_jsii_.Get(
 		j,
 		"dashboardRef",
@@ -509,8 +511,8 @@ func (j *jsiiProxy_CfnDashboard) Definition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboard) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDashboard) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -700,6 +702,7 @@ func (j *jsiiProxy_CfnDashboard) VersionDescription() *string {
 }
 
 
+// Create a new `AWS::QuickSight::Dashboard`.
 func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
@@ -717,6 +720,7 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 	return &j
 }
 
+// Create a new `AWS::QuickSight::Dashboard`.
 func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 

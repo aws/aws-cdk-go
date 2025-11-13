@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A VPC endpoint service.
 type IVpcEndpointService interface {
 	awscdk.IResource
-	IVPCEndpointServiceRef
+	interfacesawsec2.IVPCEndpointServiceRef
 	// The id of the VPC Endpoint Service that clients use to connect to, like vpce-svc-xxxxxxxxxxxxxxxx.
 	VpcEndpointServiceId() *string
 	// The service name of the VPC Endpoint Service that clients use to connect to, like com.amazonaws.vpce.<region>.vpce-svc-xxxxxxxxxxxxxxxx.
@@ -21,7 +23,7 @@ type IVpcEndpointService interface {
 // The jsii proxy for IVpcEndpointService
 type jsiiProxy_IVpcEndpointService struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IVPCEndpointServiceRef
+	internal.Type__interfacesawsec2IVPCEndpointServiceRef
 }
 
 func (i *jsiiProxy_IVpcEndpointService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -55,8 +57,8 @@ func (j *jsiiProxy_IVpcEndpointService) VpcEndpointServiceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcEndpointService) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IVpcEndpointService) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -85,8 +87,8 @@ func (j *jsiiProxy_IVpcEndpointService) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcEndpointService) VpcEndpointServiceRef() *VPCEndpointServiceReference {
-	var returns *VPCEndpointServiceReference
+func (j *jsiiProxy_IVpcEndpointService) VpcEndpointServiceRef() *interfacesawsec2.VPCEndpointServiceReference {
+	var returns *interfacesawsec2.VPCEndpointServiceReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointServiceRef",

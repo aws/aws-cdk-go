@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -49,7 +50,7 @@ type VPCPeeringConnection interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -113,8 +114,8 @@ type jsiiProxy_VPCPeeringConnection struct {
 	jsiiProxy_IRouteTarget
 }
 
-func (j *jsiiProxy_VPCPeeringConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_VPCPeeringConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

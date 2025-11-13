@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnClusterCapacityProviderAssociations interface {
 	awscdk.CfnResource
-	IClusterCapacityProviderAssociationsRef
 	awscdk.IInspectable
+	interfacesawsecs.IClusterCapacityProviderAssociationsRef
 	// The capacity providers to associate with the cluster.
 	CapacityProviders() *[]*string
 	SetCapacityProviders(val *[]*string)
@@ -52,7 +54,7 @@ type CfnClusterCapacityProviderAssociations interface {
 	Cluster() *string
 	SetCluster(val *string)
 	// A reference to a ClusterCapacityProviderAssociations resource.
-	ClusterCapacityProviderAssociationsRef() *ClusterCapacityProviderAssociationsReference
+	ClusterCapacityProviderAssociationsRef() *interfacesawsecs.ClusterCapacityProviderAssociationsReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -60,7 +62,7 @@ type CfnClusterCapacityProviderAssociations interface {
 	// The default capacity provider strategy to associate with the cluster.
 	DefaultCapacityProviderStrategy() interface{}
 	SetDefaultCapacityProviderStrategy(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -225,8 +227,8 @@ type CfnClusterCapacityProviderAssociations interface {
 // The jsii proxy struct for CfnClusterCapacityProviderAssociations
 type jsiiProxy_CfnClusterCapacityProviderAssociations struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterCapacityProviderAssociationsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsecsIClusterCapacityProviderAssociationsRef
 }
 
 func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) CapacityProviders() *[]*string {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) Cluster() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) ClusterCapacityProviderAssociationsRef() *ClusterCapacityProviderAssociationsReference {
-	var returns *ClusterCapacityProviderAssociationsReference
+func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) ClusterCapacityProviderAssociationsRef() *interfacesawsecs.ClusterCapacityProviderAssociationsReference {
+	var returns *interfacesawsecs.ClusterCapacityProviderAssociationsReference
 	_jsii_.Get(
 		j,
 		"clusterCapacityProviderAssociationsRef",
@@ -309,8 +311,8 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) DefaultCapacityProvid
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,6 +382,7 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) UpdatedProperties() *
 }
 
 
+// Create a new `AWS::ECS::ClusterCapacityProviderAssociations`.
 func NewCfnClusterCapacityProviderAssociations(scope constructs.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) CfnClusterCapacityProviderAssociations {
 	_init_.Initialize()
 
@@ -397,6 +400,7 @@ func NewCfnClusterCapacityProviderAssociations(scope constructs.Construct, id *s
 	return &j
 }
 
+// Create a new `AWS::ECS::ClusterCapacityProviderAssociations`.
 func NewCfnClusterCapacityProviderAssociations_Override(c CfnClusterCapacityProviderAssociations, scope constructs.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) {
 	_init_.Initialize()
 

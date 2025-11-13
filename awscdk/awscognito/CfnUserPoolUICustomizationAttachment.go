@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnUserPoolUICustomizationAttachment interface {
 	awscdk.CfnResource
-	IUserPoolUICustomizationAttachmentRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolUICustomizationAttachmentRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -45,7 +47,7 @@ type CfnUserPoolUICustomizationAttachment interface {
 	// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client.
 	Css() *string
 	SetCss(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnUserPoolUICustomizationAttachment interface {
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// A reference to a UserPoolUICustomizationAttachment resource.
-	UserPoolUiCustomizationAttachmentRef() *UserPoolUICustomizationAttachmentReference
+	UserPoolUiCustomizationAttachmentRef() *interfacesawscognito.UserPoolUICustomizationAttachmentReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -215,8 +217,8 @@ type CfnUserPoolUICustomizationAttachment interface {
 // The jsii proxy struct for CfnUserPoolUICustomizationAttachment
 type jsiiProxy_CfnUserPoolUICustomizationAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolUICustomizationAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolUICustomizationAttachmentRef
 }
 
 func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) CfnOptions() awscdk.ICfnResourceOptions {
@@ -279,8 +281,8 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) Css() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) UserPoolId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) UserPoolUiCustomizationAttachmentRef() *UserPoolUICustomizationAttachmentReference {
-	var returns *UserPoolUICustomizationAttachmentReference
+func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) UserPoolUiCustomizationAttachmentRef() *interfacesawscognito.UserPoolUICustomizationAttachmentReference {
+	var returns *interfacesawscognito.UserPoolUICustomizationAttachmentReference
 	_jsii_.Get(
 		j,
 		"userPoolUiCustomizationAttachmentRef",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) UserPoolUiCustomization
 }
 
 
+// Create a new `AWS::Cognito::UserPoolUICustomizationAttachment`.
 func NewCfnUserPoolUICustomizationAttachment(scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) CfnUserPoolUICustomizationAttachment {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnUserPoolUICustomizationAttachment(scope constructs.Construct, id *str
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolUICustomizationAttachment`.
 func NewCfnUserPoolUICustomizationAttachment_Override(c CfnUserPoolUICustomizationAttachment, scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) {
 	_init_.Initialize()
 

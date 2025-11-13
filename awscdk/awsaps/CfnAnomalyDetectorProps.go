@@ -55,10 +55,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html
 //
 type CfnAnomalyDetectorProps struct {
-	// The AnomalyDetector alias.
+	// The user-friendly name of the anomaly detector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html#cfn-aps-anomalydetector-alias
 	//
 	Alias *string `field:"required" json:"alias" yaml:"alias"`
+	// The algorithm configuration of the anomaly detector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html#cfn-aps-anomalydetector-configuration
 	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
@@ -66,20 +67,21 @@ type CfnAnomalyDetectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html#cfn-aps-anomalydetector-workspace
 	//
 	Workspace *string `field:"required" json:"workspace" yaml:"workspace"`
-	// The AnomalyDetector period of detection and metric generation.
+	// The frequency, in seconds, at which the anomaly detector evaluates metrics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html#cfn-aps-anomalydetector-evaluationintervalinseconds
 	//
 	// Default: - 60.
 	//
 	EvaluationIntervalInSeconds *float64 `field:"optional" json:"evaluationIntervalInSeconds" yaml:"evaluationIntervalInSeconds"`
-	// An array of key-value pairs to provide meta-data.
+	// The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html#cfn-aps-anomalydetector-labels
 	//
 	Labels interface{} `field:"optional" json:"labels" yaml:"labels"`
+	// The action taken when data is missing during evaluation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html#cfn-aps-anomalydetector-missingdataaction
 	//
 	MissingDataAction interface{} `field:"optional" json:"missingDataAction" yaml:"missingDataAction"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags applied to the anomaly detector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html#cfn-aps-anomalydetector-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

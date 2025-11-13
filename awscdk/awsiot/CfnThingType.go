@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnThingType interface {
 	awscdk.CfnResource
-	IThingTypeRef
 	awscdk.IInspectable
+	interfacesawsiot.IThingTypeRef
 	awscdk.ITaggable
 	// The thing type arn.
 	AttrArn() *string
@@ -69,7 +71,7 @@ type CfnThingType interface {
 	// You can not associate new things with deprecated thing type.
 	DeprecateThingType() interface{}
 	SetDeprecateThingType(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -103,7 +105,7 @@ type CfnThingType interface {
 	ThingTypeProperties() interface{}
 	SetThingTypeProperties(val interface{})
 	// A reference to a ThingType resource.
-	ThingTypeRef() *ThingTypeReference
+	ThingTypeRef() *interfacesawsiot.ThingTypeReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -247,8 +249,8 @@ type CfnThingType interface {
 // The jsii proxy struct for CfnThingType
 type jsiiProxy_CfnThingType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IThingTypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIThingTypeRef
 	internal.Type__awscdkITaggable
 }
 
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnThingType) DeprecateThingType() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThingType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnThingType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnThingType) ThingTypeProperties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThingType) ThingTypeRef() *ThingTypeReference {
-	var returns *ThingTypeReference
+func (j *jsiiProxy_CfnThingType) ThingTypeRef() *interfacesawsiot.ThingTypeReference {
+	var returns *interfacesawsiot.ThingTypeReference
 	_jsii_.Get(
 		j,
 		"thingTypeRef",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnThingType) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::ThingType`.
 func NewCfnThingType(scope constructs.Construct, id *string, props *CfnThingTypeProps) CfnThingType {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnThingType(scope constructs.Construct, id *string, props *CfnThingType
 	return &j
 }
 
+// Create a new `AWS::IoT::ThingType`.
 func NewCfnThingType_Override(c CfnThingType, scope constructs.Construct, id *string, props *CfnThingTypeProps) {
 	_init_.Initialize()
 
@@ -512,13 +516,13 @@ func (j *jsiiProxy_CfnThingType)SetThingTypeProperties(val interface{}) {
 }
 
 // Creates a new IThingTypeRef from an ARN.
-func CfnThingType_FromThingTypeArn(scope constructs.Construct, id *string, arn *string) IThingTypeRef {
+func CfnThingType_FromThingTypeArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IThingTypeRef {
 	_init_.Initialize()
 
 	if err := validateCfnThingType_FromThingTypeArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IThingTypeRef
+	var returns interfacesawsiot.IThingTypeRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnThingType",
@@ -531,13 +535,13 @@ func CfnThingType_FromThingTypeArn(scope constructs.Construct, id *string, arn *
 }
 
 // Creates a new IThingTypeRef from a thingTypeName.
-func CfnThingType_FromThingTypeName(scope constructs.Construct, id *string, thingTypeName *string) IThingTypeRef {
+func CfnThingType_FromThingTypeName(scope constructs.Construct, id *string, thingTypeName *string) interfacesawsiot.IThingTypeRef {
 	_init_.Initialize()
 
 	if err := validateCfnThingType_FromThingTypeNameParameters(scope, id, thingTypeName); err != nil {
 		panic(err)
 	}
-	var returns IThingTypeRef
+	var returns interfacesawsiot.IThingTypeRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnThingType",

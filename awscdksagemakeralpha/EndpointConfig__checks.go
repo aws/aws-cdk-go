@@ -22,6 +22,17 @@ func (e *jsiiProxy_EndpointConfig) validateAddInstanceProductionVariantParameter
 	return nil
 }
 
+func (e *jsiiProxy_EndpointConfig) validateAddServerlessProductionVariantParameters(props *ServerlessProductionVariantProps) error {
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_EndpointConfig) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

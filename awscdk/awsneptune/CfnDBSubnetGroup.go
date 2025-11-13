@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsneptune/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsneptune"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnDBSubnetGroup interface {
 	awscdk.CfnResource
-	IDBSubnetGroupRef
 	awscdk.IInspectable
+	interfacesawsneptune.IDBSubnetGroupRef
 	awscdk.ITaggable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -57,8 +59,8 @@ type CfnDBSubnetGroup interface {
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
 	// A reference to a DBSubnetGroup resource.
-	DbSubnetGroupRef() *DBSubnetGroupReference
-	Env() *awscdk.ResourceEnvironment
+	DbSubnetGroupRef() *interfacesawsneptune.DBSubnetGroupReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnDBSubnetGroup interface {
 // The jsii proxy struct for CfnDBSubnetGroup
 type jsiiProxy_CfnDBSubnetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBSubnetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsneptuneIDBSubnetGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnDBSubnetGroup) DbSubnetGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSubnetGroup) DbSubnetGroupRef() *DBSubnetGroupReference {
-	var returns *DBSubnetGroupReference
+func (j *jsiiProxy_CfnDBSubnetGroup) DbSubnetGroupRef() *interfacesawsneptune.DBSubnetGroupReference {
+	var returns *interfacesawsneptune.DBSubnetGroupReference
 	_jsii_.Get(
 		j,
 		"dbSubnetGroupRef",
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnDBSubnetGroup) DbSubnetGroupRef() *DBSubnetGroupReference 
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSubnetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBSubnetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Neptune::DBSubnetGroup`.
 func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) CfnDBSubnetGroup {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSub
 	return &j
 }
 
+// Create a new `AWS::Neptune::DBSubnetGroup`.
 func NewCfnDBSubnetGroup_Override(c CfnDBSubnetGroup, scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) {
 	_init_.Initialize()
 

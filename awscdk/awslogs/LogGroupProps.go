@@ -2,7 +2,7 @@ package awslogs
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for a LogGroup.
@@ -51,7 +51,7 @@ type LogGroupProps struct {
 	// The KMS customer managed key to encrypt the log group with.
 	// Default: Server-side encryption managed by the CloudWatch Logs service.
 	//
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Field Index Policies for this log group.
 	// Default: - no field index policies for this log group.
 	//

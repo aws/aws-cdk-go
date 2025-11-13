@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsresourceexplorer2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsresourceexplorer2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnView interface {
 	awscdk.CfnResource
-	IViewRef
 	awscdk.IInspectable
+	interfacesawsresourceexplorer2.IViewRef
 	awscdk.ITaggable
 	// The ARN of the new view. For example:.
 	//
@@ -54,7 +56,7 @@ type CfnView interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view.
 	Filters() interface{}
 	SetFilters(val interface{})
@@ -107,7 +109,7 @@ type CfnView interface {
 	ViewName() *string
 	SetViewName(val *string)
 	// A reference to a View resource.
-	ViewRef() *ViewReference
+	ViewRef() *interfacesawsresourceexplorer2.ViewReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -238,8 +240,8 @@ type CfnView interface {
 // The jsii proxy struct for CfnView
 type jsiiProxy_CfnView struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IViewRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsresourceexplorer2IViewRef
 	internal.Type__awscdkITaggable
 }
 
@@ -293,8 +295,8 @@ func (j *jsiiProxy_CfnView) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnView) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnView) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,8 +425,8 @@ func (j *jsiiProxy_CfnView) ViewName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnView) ViewRef() *ViewReference {
-	var returns *ViewReference
+func (j *jsiiProxy_CfnView) ViewRef() *interfacesawsresourceexplorer2.ViewReference {
+	var returns *interfacesawsresourceexplorer2.ViewReference
 	_jsii_.Get(
 		j,
 		"viewRef",
@@ -434,6 +436,7 @@ func (j *jsiiProxy_CfnView) ViewRef() *ViewReference {
 }
 
 
+// Create a new `AWS::ResourceExplorer2::View`.
 func NewCfnView(scope constructs.Construct, id *string, props *CfnViewProps) CfnView {
 	_init_.Initialize()
 
@@ -451,6 +454,7 @@ func NewCfnView(scope constructs.Construct, id *string, props *CfnViewProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::ResourceExplorer2::View`.
 func NewCfnView_Override(c CfnView, scope constructs.Construct, id *string, props *CfnViewProps) {
 	_init_.Initialize()
 

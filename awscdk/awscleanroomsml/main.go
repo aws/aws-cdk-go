@@ -55,8 +55,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTrainingDataset{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITrainingDatasetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscleanroomsmlITrainingDatasetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -84,24 +84,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanroomsml.CfnTrainingDatasetProps",
 		reflect.TypeOf((*CfnTrainingDatasetProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cleanroomsml.ITrainingDatasetRef",
-		reflect.TypeOf((*ITrainingDatasetRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "trainingDatasetRef", GoGetter: "TrainingDatasetRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITrainingDatasetRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cleanroomsml.TrainingDatasetReference",
-		reflect.TypeOf((*TrainingDatasetReference)(nil)).Elem(),
 	)
 }

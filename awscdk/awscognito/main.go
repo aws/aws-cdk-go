@@ -119,8 +119,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIdentityPool{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIdentityPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIIdentityPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -181,8 +181,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIdentityPoolPrincipalTag{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIdentityPoolPrincipalTagRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIIdentityPoolPrincipalTagRef)
 			return &j
 		},
 	)
@@ -238,8 +238,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnIdentityPoolRoleAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIdentityPoolRoleAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIIdentityPoolRoleAttachmentRef)
 			return &j
 		},
 	)
@@ -302,8 +302,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnLogDeliveryConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogDeliveryConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoILogDeliveryConfigurationRef)
 			return &j
 		},
 	)
@@ -374,8 +374,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnManagedLoginBranding{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IManagedLoginBrandingRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIManagedLoginBrandingRef)
 			return &j
 		},
 	)
@@ -386,6 +386,62 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnManagedLoginBrandingProps",
 		reflect.TypeOf((*CfnManagedLoginBrandingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cognito.CfnTerms",
+		reflect.TypeOf((*CfnTerms)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrTermsId", GoGetter: "AttrTermsId"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "clientId", GoGetter: "ClientId"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "enforcement", GoGetter: "Enforcement"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "links", GoGetter: "Links"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "termsName", GoGetter: "TermsName"},
+			_jsii_.MemberProperty{JsiiProperty: "termsRef", GoGetter: "TermsRef"},
+			_jsii_.MemberProperty{JsiiProperty: "termsSource", GoGetter: "TermsSource"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTerms{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoITermsRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnTermsProps",
+		reflect.TypeOf((*CfnTermsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cognito.CfnUserPool",
@@ -461,8 +517,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPool{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -621,8 +677,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolClient{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolClientRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolClientRef)
 			return &j
 		},
 	)
@@ -687,8 +743,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolDomain{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolDomainRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolDomainRef)
 			return &j
 		},
 	)
@@ -745,8 +801,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolGroupRef)
 			return &j
 		},
 	)
@@ -800,8 +856,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolIdentityProvider{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolIdentityProviderRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolIdentityProviderRef)
 			return &j
 		},
 	)
@@ -857,8 +913,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolResourceServer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolResourceServerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolResourceServerRef)
 			return &j
 		},
 	)
@@ -915,8 +971,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolRiskConfigurationAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolRiskConfigurationAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolRiskConfigurationAttachmentRef)
 			return &j
 		},
 	)
@@ -999,8 +1055,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolUICustomizationAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolUICustomizationAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolUICustomizationAttachmentRef)
 			return &j
 		},
 	)
@@ -1056,8 +1112,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolUser{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolUserRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolUserRef)
 			return &j
 		},
 	)
@@ -1112,8 +1168,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnUserPoolUserToGroupAttachment{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolUserToGroupAttachmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIUserPoolUserToGroupAttachmentRef)
 			return &j
 		},
 	)
@@ -1197,81 +1253,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IIdentityPoolPrincipalTagRef",
-		reflect.TypeOf((*IIdentityPoolPrincipalTagRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "identityPoolPrincipalTagRef", GoGetter: "IdentityPoolPrincipalTagRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIdentityPoolPrincipalTagRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IIdentityPoolRef",
-		reflect.TypeOf((*IIdentityPoolRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "identityPoolRef", GoGetter: "IdentityPoolRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIdentityPoolRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IIdentityPoolRoleAttachmentRef",
-		reflect.TypeOf((*IIdentityPoolRoleAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "identityPoolRoleAttachmentRef", GoGetter: "IdentityPoolRoleAttachmentRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIdentityPoolRoleAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.ILogDeliveryConfigurationRef",
-		reflect.TypeOf((*ILogDeliveryConfigurationRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "logDeliveryConfigurationRef", GoGetter: "LogDeliveryConfigurationRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ILogDeliveryConfigurationRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IManagedLoginBrandingRef",
-		reflect.TypeOf((*IManagedLoginBrandingRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "managedLoginBrandingRef", GoGetter: "ManagedLoginBrandingRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IManagedLoginBrandingRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cognito.IUserPool",
 		reflect.TypeOf((*IUserPool)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1314,21 +1295,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolClientRef",
-		reflect.TypeOf((*IUserPoolClientRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolClientRef", GoGetter: "UserPoolClientRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolClientRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cognito.IUserPoolDomain",
 		reflect.TypeOf((*IUserPoolDomain)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1341,21 +1307,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IUserPoolDomain{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolDomainRef",
-		reflect.TypeOf((*IUserPoolDomainRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolDomainRef", GoGetter: "UserPoolDomainRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolDomainRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1376,21 +1327,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolGroupRef",
-		reflect.TypeOf((*IUserPoolGroupRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolGroupRef", GoGetter: "UserPoolGroupRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolGroupRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cognito.IUserPoolIdentityProvider",
 		reflect.TypeOf((*IUserPoolIdentityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1403,36 +1339,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IUserPoolIdentityProvider{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolIdentityProviderRef",
-		reflect.TypeOf((*IUserPoolIdentityProviderRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolIdentityProviderRef", GoGetter: "UserPoolIdentityProviderRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolIdentityProviderRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolRef",
-		reflect.TypeOf((*IUserPoolRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolRef", GoGetter: "UserPoolRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1452,93 +1358,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolResourceServerRef",
-		reflect.TypeOf((*IUserPoolResourceServerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolResourceServerRef", GoGetter: "UserPoolResourceServerRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolResourceServerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolRiskConfigurationAttachmentRef",
-		reflect.TypeOf((*IUserPoolRiskConfigurationAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolRiskConfigurationAttachmentRef", GoGetter: "UserPoolRiskConfigurationAttachmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolRiskConfigurationAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolUICustomizationAttachmentRef",
-		reflect.TypeOf((*IUserPoolUICustomizationAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolUiCustomizationAttachmentRef", GoGetter: "UserPoolUiCustomizationAttachmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolUICustomizationAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolUserRef",
-		reflect.TypeOf((*IUserPoolUserRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolUserRef", GoGetter: "UserPoolUserRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolUserRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cognito.IUserPoolUserToGroupAttachmentRef",
-		reflect.TypeOf((*IUserPoolUserToGroupAttachmentRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolUserToGroupAttachmentRef", GoGetter: "UserPoolUserToGroupAttachmentRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IUserPoolUserToGroupAttachmentRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.IdentityPoolPrincipalTagReference",
-		reflect.TypeOf((*IdentityPoolPrincipalTagReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.IdentityPoolReference",
-		reflect.TypeOf((*IdentityPoolReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.IdentityPoolRoleAttachmentReference",
-		reflect.TypeOf((*IdentityPoolRoleAttachmentReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.KeepOriginalAttrs",
 		reflect.TypeOf((*KeepOriginalAttrs)(nil)).Elem(),
@@ -1551,14 +1370,6 @@ func init() {
 			"V2_0": LambdaVersion_V2_0,
 			"V3_0": LambdaVersion_V3_0,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.LogDeliveryConfigurationReference",
-		reflect.TypeOf((*LogDeliveryConfigurationReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.ManagedLoginBrandingReference",
-		reflect.TypeOf((*ManagedLoginBrandingReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cognito.ManagedLoginVersion",
@@ -1808,10 +1619,6 @@ func init() {
 		"aws-cdk-lib.aws_cognito.UserPoolClientProps",
 		reflect.TypeOf((*UserPoolClientProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolClientReference",
-		reflect.TypeOf((*UserPoolClientReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		reflect.TypeOf((*UserPoolDomain)(nil)).Elem(),
@@ -1845,10 +1652,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.UserPoolDomainProps",
 		reflect.TypeOf((*UserPoolDomainProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolDomainReference",
-		reflect.TypeOf((*UserPoolDomainReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cognito.UserPoolEmail",
@@ -1891,10 +1694,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.UserPoolGroupProps",
 		reflect.TypeOf((*UserPoolGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolGroupReference",
-		reflect.TypeOf((*UserPoolGroupReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cognito.UserPoolIdentityProvider",
@@ -2043,10 +1842,6 @@ func init() {
 		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderProps",
 		reflect.TypeOf((*UserPoolIdentityProviderProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderReference",
-		reflect.TypeOf((*UserPoolIdentityProviderReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderSaml",
 		reflect.TypeOf((*UserPoolIdentityProviderSaml)(nil)).Elem(),
@@ -2107,10 +1902,6 @@ func init() {
 		"aws-cdk-lib.aws_cognito.UserPoolProps",
 		reflect.TypeOf((*UserPoolProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolReference",
-		reflect.TypeOf((*UserPoolReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		reflect.TypeOf((*UserPoolResourceServer)(nil)).Elem(),
@@ -2142,32 +1933,12 @@ func init() {
 		reflect.TypeOf((*UserPoolResourceServerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolResourceServerReference",
-		reflect.TypeOf((*UserPoolResourceServerReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolRiskConfigurationAttachmentReference",
-		reflect.TypeOf((*UserPoolRiskConfigurationAttachmentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.UserPoolSESOptions",
 		reflect.TypeOf((*UserPoolSESOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.UserPoolTriggers",
 		reflect.TypeOf((*UserPoolTriggers)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolUICustomizationAttachmentReference",
-		reflect.TypeOf((*UserPoolUICustomizationAttachmentReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolUserReference",
-		reflect.TypeOf((*UserPoolUserReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cognito.UserPoolUserToGroupAttachmentReference",
-		reflect.TypeOf((*UserPoolUserToGroupAttachmentReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.UserVerificationConfig",

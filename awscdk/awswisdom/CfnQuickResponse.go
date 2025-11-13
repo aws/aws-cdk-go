@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnQuickResponse interface {
 	awscdk.CfnResource
-	IQuickResponseRef
 	awscdk.IInspectable
+	interfacesawswisdom.IQuickResponseRef
 	awscdk.ITaggableV2
 	// The content of the quick response stored in different media types.
 	AttrContents() awscdk.IResolvable
@@ -84,7 +86,7 @@ type CfnQuickResponse interface {
 	// The description of the quick response.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration information of the user groups that the quick response is accessible to.
 	GroupingConfiguration() interface{}
 	SetGroupingConfiguration(val interface{})
@@ -113,7 +115,7 @@ type CfnQuickResponse interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a QuickResponse resource.
-	QuickResponseRef() *QuickResponseReference
+	QuickResponseRef() *interfacesawswisdom.QuickResponseReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -272,8 +274,8 @@ type CfnQuickResponse interface {
 // The jsii proxy struct for CfnQuickResponse
 type jsiiProxy_CfnQuickResponse struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQuickResponseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIQuickResponseRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -407,8 +409,8 @@ func (j *jsiiProxy_CfnQuickResponse) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQuickResponse) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQuickResponse) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -487,8 +489,8 @@ func (j *jsiiProxy_CfnQuickResponse) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQuickResponse) QuickResponseRef() *QuickResponseReference {
-	var returns *QuickResponseReference
+func (j *jsiiProxy_CfnQuickResponse) QuickResponseRef() *interfacesawswisdom.QuickResponseReference {
+	var returns *interfacesawswisdom.QuickResponseReference
 	_jsii_.Get(
 		j,
 		"quickResponseRef",
@@ -558,6 +560,7 @@ func (j *jsiiProxy_CfnQuickResponse) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Wisdom::QuickResponse`.
 func NewCfnQuickResponse(scope constructs.Construct, id *string, props *CfnQuickResponseProps) CfnQuickResponse {
 	_init_.Initialize()
 
@@ -575,6 +578,7 @@ func NewCfnQuickResponse(scope constructs.Construct, id *string, props *CfnQuick
 	return &j
 }
 
+// Create a new `AWS::Wisdom::QuickResponse`.
 func NewCfnQuickResponse_Override(c CfnQuickResponse, scope constructs.Construct, id *string, props *CfnQuickResponseProps) {
 	_init_.Initialize()
 

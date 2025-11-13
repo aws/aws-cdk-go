@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslocation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslocation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnPlaceIndex interface {
 	awscdk.CfnResource
-	IPlaceIndexRef
 	awscdk.IInspectable
+	interfacesawslocation.IPlaceIndexRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
 	//
@@ -79,7 +81,7 @@ type CfnPlaceIndex interface {
 	// The optional description for the place index resource.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the place index resource.
 	IndexName() *string
 	SetIndexName(val *string)
@@ -96,7 +98,7 @@ type CfnPlaceIndex interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PlaceIndex resource.
-	PlaceIndexRef() *PlaceIndexReference
+	PlaceIndexRef() *interfacesawslocation.PlaceIndexReference
 	// No longer used.
 	//
 	// If included, the only allowed value is `RequestBasedUsage` .
@@ -257,8 +259,8 @@ type CfnPlaceIndex interface {
 // The jsii proxy struct for CfnPlaceIndex
 type jsiiProxy_CfnPlaceIndex struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPlaceIndexRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslocationIPlaceIndexRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnPlaceIndex) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaceIndex) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPlaceIndex) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -422,8 +424,8 @@ func (j *jsiiProxy_CfnPlaceIndex) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaceIndex) PlaceIndexRef() *PlaceIndexReference {
-	var returns *PlaceIndexReference
+func (j *jsiiProxy_CfnPlaceIndex) PlaceIndexRef() *interfacesawslocation.PlaceIndexReference {
+	var returns *interfacesawslocation.PlaceIndexReference
 	_jsii_.Get(
 		j,
 		"placeIndexRef",
@@ -493,6 +495,7 @@ func (j *jsiiProxy_CfnPlaceIndex) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Location::PlaceIndex`.
 func NewCfnPlaceIndex(scope constructs.Construct, id *string, props *CfnPlaceIndexProps) CfnPlaceIndex {
 	_init_.Initialize()
 
@@ -510,6 +513,7 @@ func NewCfnPlaceIndex(scope constructs.Construct, id *string, props *CfnPlaceInd
 	return &j
 }
 
+// Create a new `AWS::Location::PlaceIndex`.
 func NewCfnPlaceIndex_Override(c CfnPlaceIndex, scope constructs.Construct, id *string, props *CfnPlaceIndexProps) {
 	_init_.Initialize()
 
@@ -581,13 +585,13 @@ func (j *jsiiProxy_CfnPlaceIndex)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IPlaceIndexRef from a indexName.
-func CfnPlaceIndex_FromIndexName(scope constructs.Construct, id *string, indexName *string) IPlaceIndexRef {
+func CfnPlaceIndex_FromIndexName(scope constructs.Construct, id *string, indexName *string) interfacesawslocation.IPlaceIndexRef {
 	_init_.Initialize()
 
 	if err := validateCfnPlaceIndex_FromIndexNameParameters(scope, id, indexName); err != nil {
 		panic(err)
 	}
-	var returns IPlaceIndexRef
+	var returns interfacesawslocation.IPlaceIndexRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnPlaceIndex",
@@ -600,13 +604,13 @@ func CfnPlaceIndex_FromIndexName(scope constructs.Construct, id *string, indexNa
 }
 
 // Creates a new IPlaceIndexRef from an ARN.
-func CfnPlaceIndex_FromPlaceIndexArn(scope constructs.Construct, id *string, arn *string) IPlaceIndexRef {
+func CfnPlaceIndex_FromPlaceIndexArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.IPlaceIndexRef {
 	_init_.Initialize()
 
 	if err := validateCfnPlaceIndex_FromPlaceIndexArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IPlaceIndexRef
+	var returns interfacesawslocation.IPlaceIndexRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_location.CfnPlaceIndex",

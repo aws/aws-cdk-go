@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -417,8 +419,8 @@ import (
 //
 type CfnModelPackage interface {
 	awscdk.CfnResource
-	IModelPackageRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IModelPackageRef
 	awscdk.ITaggable
 	// An array of additional Inference Specification objects.
 	AdditionalInferenceSpecifications() interface{}
@@ -465,7 +467,7 @@ type CfnModelPackage interface {
 	// Represents the drift check baselines that can be used when the model monitor is set using the model package.
 	DriftCheckBaselines() interface{}
 	SetDriftCheckBaselines(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification() interface{}
 	SetInferenceSpecification(val interface{})
@@ -508,7 +510,7 @@ type CfnModelPackage interface {
 	ModelPackageName() *string
 	SetModelPackageName(val *string)
 	// A reference to a ModelPackage resource.
-	ModelPackageRef() *ModelPackageReference
+	ModelPackageRef() *interfacesawssagemaker.ModelPackageReference
 	// Specifies the validation and image scan statuses of the model package.
 	ModelPackageStatusDetails() interface{}
 	SetModelPackageStatusDetails(val interface{})
@@ -695,8 +697,8 @@ type CfnModelPackage interface {
 // The jsii proxy struct for CfnModelPackage
 type jsiiProxy_CfnModelPackage struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IModelPackageRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIModelPackageRef
 	internal.Type__awscdkITaggable
 }
 
@@ -850,8 +852,8 @@ func (j *jsiiProxy_CfnModelPackage) DriftCheckBaselines() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelPackage) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnModelPackage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -960,8 +962,8 @@ func (j *jsiiProxy_CfnModelPackage) ModelPackageName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnModelPackage) ModelPackageRef() *ModelPackageReference {
-	var returns *ModelPackageReference
+func (j *jsiiProxy_CfnModelPackage) ModelPackageRef() *interfacesawssagemaker.ModelPackageReference {
+	var returns *interfacesawssagemaker.ModelPackageReference
 	_jsii_.Get(
 		j,
 		"modelPackageRef",
@@ -1131,6 +1133,7 @@ func (j *jsiiProxy_CfnModelPackage) ValidationSpecification() interface{} {
 }
 
 
+// Create a new `AWS::SageMaker::ModelPackage`.
 func NewCfnModelPackage(scope constructs.Construct, id *string, props *CfnModelPackageProps) CfnModelPackage {
 	_init_.Initialize()
 
@@ -1148,6 +1151,7 @@ func NewCfnModelPackage(scope constructs.Construct, id *string, props *CfnModelP
 	return &j
 }
 
+// Create a new `AWS::SageMaker::ModelPackage`.
 func NewCfnModelPackage_Override(c CfnModelPackage, scope constructs.Construct, id *string, props *CfnModelPackageProps) {
 	_init_.Initialize()
 

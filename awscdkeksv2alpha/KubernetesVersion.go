@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("ManagedNodeCluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_33(),
+//   	Version: eks.KubernetesVersion_V1_34(),
 //   	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
 //   })
 //
@@ -161,6 +161,17 @@ func KubernetesVersion_V1_33() KubernetesVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-eks-v2-alpha.KubernetesVersion",
 		"V1_33",
+		&returns,
+	)
+	return returns
+}
+
+func KubernetesVersion_V1_34() KubernetesVersion {
+	_init_.Initialize()
+	var returns KubernetesVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-eks-v2-alpha.KubernetesVersion",
+		"V1_34",
 		&returns,
 	)
 	return returns

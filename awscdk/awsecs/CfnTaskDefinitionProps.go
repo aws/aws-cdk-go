@@ -407,7 +407,7 @@ type CfnTaskDefinitionProps struct {
 	//
 	// If `task` is specified, all containers within the specified task share the same process namespace.
 	//
-	// If no value is specified, the default is a private namespace for each container.
+	// If no value is specified, the The default is a private namespace for each container.
 	//
 	// If the `host` PID mode is used, there's a heightened risk of undesired process namespace exposure.
 	//
@@ -434,8 +434,6 @@ type CfnTaskDefinitionProps struct {
 	//
 	RequiresCompatibilities *[]*string `field:"optional" json:"requiresCompatibilities" yaml:"requiresCompatibilities"`
 	// The operating system that your tasks definitions run on.
-	//
-	// A platform family is specified only for tasks using the Fargate launch type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-runtimeplatform
 	//
 	RuntimePlatform interface{} `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`

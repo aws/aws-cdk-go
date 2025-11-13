@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::SecurityControl` resource specifies custom parameter values for an AWS Security Hub control.
+// The `AWS::SecurityHub::SecurityControl` resource specifies custom parameter values for an Security Hub control.
 //
-// For a list of controls that support custom parameters, see [Security Hub controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) . You can also use this resource to specify the use of default parameter values for a control. For more information about custom parameters, see [Custom control parameters](https://docs.aws.amazon.com/securityhub/latest/userguide/custom-control-parameters.html) in the *AWS Security Hub User Guide* .
+// For a list of controls that support custom parameters, see [Security Hub controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) . You can also use this resource to specify the use of default parameter values for a control. For more information about custom parameters, see [Custom control parameters](https://docs.aws.amazon.com/securityhub/latest/userguide/custom-control-parameters.html) in the *Security Hub User Guide* .
 //
 // Tags aren't supported for this resource.
 //
@@ -55,8 +57,8 @@ import (
 //
 type CfnSecurityControl interface {
 	awscdk.CfnResource
-	ISecurityControlRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.ISecurityControlRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -66,7 +68,7 @@ type CfnSecurityControl interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The most recent reason for updating the customizable properties of a security control.
 	LastUpdateReason() *string
 	SetLastUpdateReason(val *string)
@@ -97,7 +99,7 @@ type CfnSecurityControl interface {
 	SecurityControlId() *string
 	SetSecurityControlId(val *string)
 	// A reference to a SecurityControl resource.
-	SecurityControlRef() *SecurityControlReference
+	SecurityControlRef() *interfacesawssecurityhub.SecurityControlReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -245,8 +247,8 @@ type CfnSecurityControl interface {
 // The jsii proxy struct for CfnSecurityControl
 type jsiiProxy_CfnSecurityControl struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityControlRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubISecurityControlRef
 }
 
 func (j *jsiiProxy_CfnSecurityControl) CfnOptions() awscdk.ICfnResourceOptions {
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnSecurityControl) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityControl) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityControl) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnSecurityControl) SecurityControlId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityControl) SecurityControlRef() *SecurityControlReference {
-	var returns *SecurityControlReference
+func (j *jsiiProxy_CfnSecurityControl) SecurityControlRef() *interfacesawssecurityhub.SecurityControlReference {
+	var returns *interfacesawssecurityhub.SecurityControlReference
 	_jsii_.Get(
 		j,
 		"securityControlRef",
@@ -410,6 +412,7 @@ func (j *jsiiProxy_CfnSecurityControl) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::SecurityHub::SecurityControl`.
 func NewCfnSecurityControl(scope constructs.Construct, id *string, props *CfnSecurityControlProps) CfnSecurityControl {
 	_init_.Initialize()
 
@@ -427,6 +430,7 @@ func NewCfnSecurityControl(scope constructs.Construct, id *string, props *CfnSec
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::SecurityControl`.
 func NewCfnSecurityControl_Override(c CfnSecurityControl, scope constructs.Construct, id *string, props *CfnSecurityControlProps) {
 	_init_.Initialize()
 

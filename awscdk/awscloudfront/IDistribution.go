@@ -6,12 +6,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for CloudFront distributions.
 type IDistribution interface {
-	IDistributionRef
+	interfacesawscloudfront.IDistributionRef
 	awscdk.IResource
 	// Adds an IAM policy statement associated with this distribution to an IAM principal's policy.
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
@@ -27,7 +29,7 @@ type IDistribution interface {
 
 // The jsii proxy for IDistribution
 type jsiiProxy_IDistribution struct {
-	jsiiProxy_IDistributionRef
+	internal.Type__interfacesawscloudfrontIDistributionRef
 	internal.Type__awscdkIResource
 }
 
@@ -109,8 +111,8 @@ func (j *jsiiProxy_IDistribution) DistributionId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IDistribution) DistributionRef() *DistributionReference {
-	var returns *DistributionReference
+func (j *jsiiProxy_IDistribution) DistributionRef() *interfacesawscloudfront.DistributionReference {
+	var returns *interfacesawscloudfront.DistributionReference
 	_jsii_.Get(
 		j,
 		"distributionRef",
@@ -119,8 +121,8 @@ func (j *jsiiProxy_IDistribution) DistributionRef() *DistributionReference {
 	return returns
 }
 
-func (j *jsiiProxy_IDistribution) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IDistribution) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

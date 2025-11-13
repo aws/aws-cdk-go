@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslex/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslex"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -85,8 +87,8 @@ import (
 //
 type CfnBotAlias interface {
 	awscdk.CfnResource
-	IBotAliasRef
 	awscdk.IInspectable
+	interfacesawslex.IBotAliasRef
 	// The Amazon Resource Name (ARN) of the bot alias.
 	AttrArn() *string
 	// The unique identifier of the bot alias.
@@ -102,7 +104,7 @@ type CfnBotAlias interface {
 	BotAliasName() *string
 	SetBotAliasName(val *string)
 	// A reference to a BotAlias resource.
-	BotAliasRef() *BotAliasReference
+	BotAliasRef() *interfacesawslex.BotAliasReference
 	// An array of key-value pairs to apply to this resource.
 	BotAliasTags() interface{}
 	SetBotAliasTags(val interface{})
@@ -127,7 +129,7 @@ type CfnBotAlias interface {
 	// The description of the bot alias.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -295,8 +297,8 @@ type CfnBotAlias interface {
 // The jsii proxy struct for CfnBotAlias
 type jsiiProxy_CfnBotAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBotAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslexIBotAliasRef
 }
 
 func (j *jsiiProxy_CfnBotAlias) AttrArn() *string {
@@ -349,8 +351,8 @@ func (j *jsiiProxy_CfnBotAlias) BotAliasName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotAlias) BotAliasRef() *BotAliasReference {
-	var returns *BotAliasReference
+func (j *jsiiProxy_CfnBotAlias) BotAliasRef() *interfacesawslex.BotAliasReference {
+	var returns *interfacesawslex.BotAliasReference
 	_jsii_.Get(
 		j,
 		"botAliasRef",
@@ -449,8 +451,8 @@ func (j *jsiiProxy_CfnBotAlias) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBotAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -530,6 +532,7 @@ func (j *jsiiProxy_CfnBotAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lex::BotAlias`.
 func NewCfnBotAlias(scope constructs.Construct, id *string, props *CfnBotAliasProps) CfnBotAlias {
 	_init_.Initialize()
 
@@ -547,6 +550,7 @@ func NewCfnBotAlias(scope constructs.Construct, id *string, props *CfnBotAliasPr
 	return &j
 }
 
+// Create a new `AWS::Lex::BotAlias`.
 func NewCfnBotAlias_Override(c CfnBotAlias, scope constructs.Construct, id *string, props *CfnBotAliasProps) {
 	_init_.Initialize()
 

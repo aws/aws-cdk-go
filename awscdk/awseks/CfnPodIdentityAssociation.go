@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnPodIdentityAssociation interface {
 	awscdk.CfnResource
-	IPodIdentityAssociationRef
 	awscdk.IInspectable
+	interfacesawseks.IPodIdentityAssociationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the association.
 	AttrAssociationArn() *string
@@ -69,7 +71,7 @@ type CfnPodIdentityAssociation interface {
 	// The value of *true* disables these tags.
 	DisableSessionTags() interface{}
 	SetDisableSessionTags(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -86,7 +88,7 @@ type CfnPodIdentityAssociation interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a PodIdentityAssociation resource.
-	PodIdentityAssociationRef() *PodIdentityAssociationReference
+	PodIdentityAssociationRef() *interfacesawseks.PodIdentityAssociationReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -251,8 +253,8 @@ type CfnPodIdentityAssociation interface {
 // The jsii proxy struct for CfnPodIdentityAssociation
 type jsiiProxy_CfnPodIdentityAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPodIdentityAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseksIPodIdentityAssociationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) DisableSessionTags() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPodIdentityAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPodIdentityAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -396,8 +398,8 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPodIdentityAssociation) PodIdentityAssociationRef() *PodIdentityAssociationReference {
-	var returns *PodIdentityAssociationReference
+func (j *jsiiProxy_CfnPodIdentityAssociation) PodIdentityAssociationRef() *interfacesawseks.PodIdentityAssociationReference {
+	var returns *interfacesawseks.PodIdentityAssociationReference
 	_jsii_.Get(
 		j,
 		"podIdentityAssociationRef",
@@ -487,6 +489,7 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::EKS::PodIdentityAssociation`.
 func NewCfnPodIdentityAssociation(scope constructs.Construct, id *string, props *CfnPodIdentityAssociationProps) CfnPodIdentityAssociation {
 	_init_.Initialize()
 
@@ -504,6 +507,7 @@ func NewCfnPodIdentityAssociation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::EKS::PodIdentityAssociation`.
 func NewCfnPodIdentityAssociation_Override(c CfnPodIdentityAssociation, scope constructs.Construct, id *string, props *CfnPodIdentityAssociationProps) {
 	_init_.Initialize()
 

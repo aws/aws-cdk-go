@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslakeformation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslakeformation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnDataCellsFilter interface {
 	awscdk.CfnResource
-	IDataCellsFilterRef
 	awscdk.IInspectable
+	interfacesawslakeformation.IDataCellsFilterRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -66,8 +68,8 @@ type CfnDataCellsFilter interface {
 	DatabaseName() *string
 	SetDatabaseName(val *string)
 	// A reference to a DataCellsFilter resource.
-	DataCellsFilterRef() *DataCellsFilterReference
-	Env() *awscdk.ResourceEnvironment
+	DataCellsFilterRef() *interfacesawslakeformation.DataCellsFilterReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -244,8 +246,8 @@ type CfnDataCellsFilter interface {
 // The jsii proxy struct for CfnDataCellsFilter
 type jsiiProxy_CfnDataCellsFilter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataCellsFilterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslakeformationIDataCellsFilterRef
 }
 
 func (j *jsiiProxy_CfnDataCellsFilter) CfnOptions() awscdk.ICfnResourceOptions {
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnDataCellsFilter) DatabaseName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) DataCellsFilterRef() *DataCellsFilterReference {
-	var returns *DataCellsFilterReference
+func (j *jsiiProxy_CfnDataCellsFilter) DataCellsFilterRef() *interfacesawslakeformation.DataCellsFilterReference {
+	var returns *interfacesawslakeformation.DataCellsFilterReference
 	_jsii_.Get(
 		j,
 		"dataCellsFilterRef",
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnDataCellsFilter) DataCellsFilterRef() *DataCellsFilterRefe
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataCellsFilter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnDataCellsFilter) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::LakeFormation::DataCellsFilter`.
 func NewCfnDataCellsFilter(scope constructs.Construct, id *string, props *CfnDataCellsFilterProps) CfnDataCellsFilter {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnDataCellsFilter(scope constructs.Construct, id *string, props *CfnDat
 	return &j
 }
 
+// Create a new `AWS::LakeFormation::DataCellsFilter`.
 func NewCfnDataCellsFilter_Override(c CfnDataCellsFilter, scope constructs.Construct, id *string, props *CfnDataCellsFilterProps) {
 	_init_.Initialize()
 

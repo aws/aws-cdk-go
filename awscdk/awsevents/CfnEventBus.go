@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnEventBus interface {
 	awscdk.CfnResource
-	IEventBusRef
 	awscdk.IInspectable
+	interfacesawsevents.IEventBusRef
 	awscdk.ITaggableV2
 	// The ARN of the event bus, such as `arn:aws:events:us-east-2:123456789012:event-bus/aws.partner/PartnerName/acct1/repo1` .
 	AttrArn() *string
@@ -74,9 +76,9 @@ type CfnEventBus interface {
 	// The event bus description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EventBus resource.
-	EventBusRef() *EventBusReference
+	EventBusRef() *interfacesawsevents.EventBusReference
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName() *string
 	SetEventSourceName(val *string)
@@ -259,8 +261,8 @@ type CfnEventBus interface {
 // The jsii proxy struct for CfnEventBus
 type jsiiProxy_CfnEventBus struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventBusRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseventsIEventBusRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnEventBus) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventBus) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventBus) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnEventBus) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventBus) EventBusRef() *EventBusReference {
-	var returns *EventBusReference
+func (j *jsiiProxy_CfnEventBus) EventBusRef() *interfacesawsevents.EventBusReference {
+	var returns *interfacesawsevents.EventBusReference
 	_jsii_.Get(
 		j,
 		"eventBusRef",
@@ -505,6 +507,7 @@ func (j *jsiiProxy_CfnEventBus) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Events::EventBus`.
 func NewCfnEventBus(scope constructs.Construct, id *string, props *CfnEventBusProps) CfnEventBus {
 	_init_.Initialize()
 
@@ -522,6 +525,7 @@ func NewCfnEventBus(scope constructs.Construct, id *string, props *CfnEventBusPr
 	return &j
 }
 
+// Create a new `AWS::Events::EventBus`.
 func NewCfnEventBus_Override(c CfnEventBus, scope constructs.Construct, id *string, props *CfnEventBusProps) {
 	_init_.Initialize()
 
@@ -609,13 +613,13 @@ func (j *jsiiProxy_CfnEventBus)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IEventBusRef from an ARN.
-func CfnEventBus_FromEventBusArn(scope constructs.Construct, id *string, arn *string) IEventBusRef {
+func CfnEventBus_FromEventBusArn(scope constructs.Construct, id *string, arn *string) interfacesawsevents.IEventBusRef {
 	_init_.Initialize()
 
 	if err := validateCfnEventBus_FromEventBusArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IEventBusRef
+	var returns interfacesawsevents.IEventBusRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnEventBus",
@@ -628,13 +632,13 @@ func CfnEventBus_FromEventBusArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new IEventBusRef from a eventBusName.
-func CfnEventBus_FromEventBusName(scope constructs.Construct, id *string, eventBusName *string) IEventBusRef {
+func CfnEventBus_FromEventBusName(scope constructs.Construct, id *string, eventBusName *string) interfacesawsevents.IEventBusRef {
 	_init_.Initialize()
 
 	if err := validateCfnEventBus_FromEventBusNameParameters(scope, id, eventBusName); err != nil {
 		panic(err)
 	}
-	var returns IEventBusRef
+	var returns interfacesawsevents.IEventBusRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.CfnEventBus",

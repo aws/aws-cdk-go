@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,12 +31,11 @@ import (
 //
 type CfnPortfolioPrincipalAssociation interface {
 	awscdk.CfnResource
-	IPortfolioPrincipalAssociationRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.IPortfolioPrincipalAssociationRef
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -44,7 +45,7 @@ type CfnPortfolioPrincipalAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -61,7 +62,7 @@ type CfnPortfolioPrincipalAssociation interface {
 	PortfolioId() *string
 	SetPortfolioId(val *string)
 	// A reference to a PortfolioPrincipalAssociation resource.
-	PortfolioPrincipalAssociationRef() *PortfolioPrincipalAssociationReference
+	PortfolioPrincipalAssociationRef() *interfacesawsservicecatalog.PortfolioPrincipalAssociationReference
 	// The ARN of the principal ( IAM user, role, or group).
 	PrincipalArn() *string
 	SetPrincipalArn(val *string)
@@ -220,8 +221,8 @@ type CfnPortfolioPrincipalAssociation interface {
 // The jsii proxy struct for CfnPortfolioPrincipalAssociation
 type jsiiProxy_CfnPortfolioPrincipalAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPortfolioPrincipalAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogIPortfolioPrincipalAssociationRef
 }
 
 func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) AcceptLanguage() *string {
@@ -229,16 +230,6 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) AcceptLanguage() *string {
 	_jsii_.Get(
 		j,
 		"acceptLanguage",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns
@@ -284,8 +275,8 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -324,8 +315,8 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) PortfolioId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) PortfolioPrincipalAssociationRef() *PortfolioPrincipalAssociationReference {
-	var returns *PortfolioPrincipalAssociationReference
+func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) PortfolioPrincipalAssociationRef() *interfacesawsservicecatalog.PortfolioPrincipalAssociationReference {
+	var returns *interfacesawsservicecatalog.PortfolioPrincipalAssociationReference
 	_jsii_.Get(
 		j,
 		"portfolioPrincipalAssociationRef",
@@ -395,6 +386,7 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::ServiceCatalog::PortfolioPrincipalAssociation`.
 func NewCfnPortfolioPrincipalAssociation(scope constructs.Construct, id *string, props *CfnPortfolioPrincipalAssociationProps) CfnPortfolioPrincipalAssociation {
 	_init_.Initialize()
 
@@ -412,6 +404,7 @@ func NewCfnPortfolioPrincipalAssociation(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::PortfolioPrincipalAssociation`.
 func NewCfnPortfolioPrincipalAssociation_Override(c CfnPortfolioPrincipalAssociation, scope constructs.Construct, id *string, props *CfnPortfolioPrincipalAssociationProps) {
 	_init_.Initialize()
 

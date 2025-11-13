@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmemorydb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmemorydb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -68,8 +70,8 @@ import (
 //
 type CfnCluster interface {
 	awscdk.CfnResource
-	IClusterRef
 	awscdk.IInspectable
+	interfacesawsmemorydb.IClusterRef
 	awscdk.ITaggable
 	// The name of the Access Control List to associate with the cluster .
 	AclName() *string
@@ -101,7 +103,7 @@ type CfnCluster interface {
 	ClusterName() *string
 	SetClusterName(val *string)
 	// A reference to a Cluster resource.
-	ClusterRef() *ClusterReference
+	ClusterRef() *interfacesawsmemorydb.ClusterReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -118,7 +120,7 @@ type CfnCluster interface {
 	// The Redis engine version used by the cluster .
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The user-supplied name of a final cluster snapshot.
 	FinalSnapshotName() *string
 	SetFinalSnapshotName(val *string)
@@ -348,8 +350,8 @@ type CfnCluster interface {
 // The jsii proxy struct for CfnCluster
 type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmemorydbIClusterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -473,8 +475,8 @@ func (j *jsiiProxy_CfnCluster) ClusterName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) ClusterRef() *ClusterReference {
-	var returns *ClusterReference
+func (j *jsiiProxy_CfnCluster) ClusterRef() *interfacesawsmemorydb.ClusterReference {
+	var returns *interfacesawsmemorydb.ClusterReference
 	_jsii_.Get(
 		j,
 		"clusterRef",
@@ -533,8 +535,8 @@ func (j *jsiiProxy_CfnCluster) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -824,6 +826,7 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MemoryDB::Cluster`.
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
@@ -841,6 +844,7 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 	return &j
 }
 
+// Create a new `AWS::MemoryDB::Cluster`.
 func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
@@ -1105,13 +1109,13 @@ func (j *jsiiProxy_CfnCluster)SetTlsEnabled(val interface{}) {
 }
 
 // Creates a new IClusterRef from a clusterName.
-func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterName *string) IClusterRef {
+func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterName *string) interfacesawsmemorydb.IClusterRef {
 	_init_.Initialize()
 
 	if err := validateCfnCluster_FromClusterNameParameters(scope, id, clusterName); err != nil {
 		panic(err)
 	}
-	var returns IClusterRef
+	var returns interfacesawsmemorydb.IClusterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_memorydb.CfnCluster",

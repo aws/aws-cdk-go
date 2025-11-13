@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnMailManagerArchive interface {
 	awscdk.CfnResource
-	IMailManagerArchiveRef
 	awscdk.IInspectable
+	interfacesawsses.IMailManagerArchiveRef
 	awscdk.ITaggableV2
 	// A unique name for the new archive.
 	ArchiveName() *string
@@ -60,7 +62,7 @@ type CfnMailManagerArchive interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -75,7 +77,7 @@ type CfnMailManagerArchive interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MailManagerArchive resource.
-	MailManagerArchiveRef() *MailManagerArchiveReference
+	MailManagerArchiveRef() *interfacesawsses.MailManagerArchiveReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -236,8 +238,8 @@ type CfnMailManagerArchive interface {
 // The jsii proxy struct for CfnMailManagerArchive
 type jsiiProxy_CfnMailManagerArchive struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMailManagerArchiveRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIMailManagerArchiveRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnMailManagerArchive) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerArchive) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMailManagerArchive) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -361,8 +363,8 @@ func (j *jsiiProxy_CfnMailManagerArchive) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerArchive) MailManagerArchiveRef() *MailManagerArchiveReference {
-	var returns *MailManagerArchiveReference
+func (j *jsiiProxy_CfnMailManagerArchive) MailManagerArchiveRef() *interfacesawsses.MailManagerArchiveReference {
+	var returns *interfacesawsses.MailManagerArchiveReference
 	_jsii_.Get(
 		j,
 		"mailManagerArchiveRef",
@@ -442,6 +444,7 @@ func (j *jsiiProxy_CfnMailManagerArchive) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::SES::MailManagerArchive`.
 func NewCfnMailManagerArchive(scope constructs.Construct, id *string, props *CfnMailManagerArchiveProps) CfnMailManagerArchive {
 	_init_.Initialize()
 
@@ -459,6 +462,7 @@ func NewCfnMailManagerArchive(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::SES::MailManagerArchive`.
 func NewCfnMailManagerArchive_Override(c CfnMailManagerArchive, scope constructs.Construct, id *string, props *CfnMailManagerArchiveProps) {
 	_init_.Initialize()
 
@@ -508,13 +512,13 @@ func (j *jsiiProxy_CfnMailManagerArchive)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMailManagerArchiveRef from a archiveId.
-func CfnMailManagerArchive_FromArchiveId(scope constructs.Construct, id *string, archiveId *string) IMailManagerArchiveRef {
+func CfnMailManagerArchive_FromArchiveId(scope constructs.Construct, id *string, archiveId *string) interfacesawsses.IMailManagerArchiveRef {
 	_init_.Initialize()
 
 	if err := validateCfnMailManagerArchive_FromArchiveIdParameters(scope, id, archiveId); err != nil {
 		panic(err)
 	}
-	var returns IMailManagerArchiveRef
+	var returns interfacesawsses.IMailManagerArchiveRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerArchive",

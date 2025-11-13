@@ -1,8 +1,8 @@
 package awsappsync
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Logging configuration for AppSync.
@@ -42,6 +42,6 @@ type LogConfig struct {
 	// The role for CloudWatch Logs.
 	// Default: - None.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role interfacesawsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 }
 

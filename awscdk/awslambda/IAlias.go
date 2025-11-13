@@ -7,11 +7,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IAlias interface {
-	IAliasRef
+	interfacesawslambda.IAliasRef
 	IFunction
 	// Name of this alias.
 	AliasName() *string
@@ -21,7 +24,7 @@ type IAlias interface {
 
 // The jsii proxy for IAlias
 type jsiiProxy_IAlias struct {
-	jsiiProxy_IAliasRef
+	internal.Type__interfacesawslambdaIAliasRef
 	jsiiProxy_IFunction
 }
 
@@ -292,8 +295,8 @@ func (j *jsiiProxy_IAlias) Version() IVersion {
 	return returns
 }
 
-func (j *jsiiProxy_IAlias) AliasRef() *AliasReference {
-	var returns *AliasReference
+func (j *jsiiProxy_IAlias) AliasRef() *interfacesawslambda.AliasReference {
+	var returns *interfacesawslambda.AliasReference
 	_jsii_.Get(
 		j,
 		"aliasRef",
@@ -322,8 +325,8 @@ func (j *jsiiProxy_IAlias) Connections() awsec2.Connections {
 	return returns
 }
 
-func (j *jsiiProxy_IAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -352,8 +355,8 @@ func (j *jsiiProxy_IAlias) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IAlias) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_IAlias) FunctionRef() *interfacesawslambda.FunctionReference {
+	var returns *interfacesawslambda.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",

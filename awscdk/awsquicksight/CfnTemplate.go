@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsquicksight"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -22,8 +24,8 @@ import (
 //
 type CfnTemplate interface {
 	awscdk.CfnResource
-	ITemplateRef
 	awscdk.IInspectable
+	interfacesawsquicksight.ITemplateRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the template.
 	AttrArn() *string
@@ -56,7 +58,7 @@ type CfnTemplate interface {
 	CreationStack() *[]*string
 	Definition() interface{}
 	SetDefinition(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -96,7 +98,7 @@ type CfnTemplate interface {
 	TemplateId() *string
 	SetTemplateId(val *string)
 	// A reference to a Template resource.
-	TemplateRef() *TemplateReference
+	TemplateRef() *interfacesawsquicksight.TemplateReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -246,8 +248,8 @@ type CfnTemplate interface {
 // The jsii proxy struct for CfnTemplate
 type jsiiProxy_CfnTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsquicksightITemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -441,8 +443,8 @@ func (j *jsiiProxy_CfnTemplate) Definition() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -551,8 +553,8 @@ func (j *jsiiProxy_CfnTemplate) TemplateId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) TemplateRef() *TemplateReference {
-	var returns *TemplateReference
+func (j *jsiiProxy_CfnTemplate) TemplateRef() *interfacesawsquicksight.TemplateReference {
+	var returns *interfacesawsquicksight.TemplateReference
 	_jsii_.Get(
 		j,
 		"templateRef",
@@ -602,6 +604,7 @@ func (j *jsiiProxy_CfnTemplate) VersionDescription() *string {
 }
 
 
+// Create a new `AWS::QuickSight::Template`.
 func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
@@ -619,6 +622,7 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 	return &j
 }
 
+// Create a new `AWS::QuickSight::Template`.
 func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 

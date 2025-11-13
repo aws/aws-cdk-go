@@ -6,31 +6,37 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Managed policy.
 //
 // Example:
-//   var vpc Vpc
+//   var build Build
 //
-//   role := iam.NewRole(this, jsii.String("RDSDirectoryServicesRole"), &RoleProps{
-//   	AssumedBy: iam.NewCompositePrincipal(
-//   	iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
-//   	iam.NewServicePrincipal(jsii.String("directoryservice.rds.amazonaws.com"))),
-//   	ManagedPolicies: []IManagedPolicy{
-//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
+//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewCompositePrincipal(iam.NewServicePrincipal(jsii.String("gamelift.amazonaws.com"))),
+//   })
+//   role.AddManagedPolicy(iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("CloudWatchAgentServerPolicy")))
+//
+//   fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
+//   	FleetName: jsii.String("test-fleet"),
+//   	Content: build,
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
+//   	RuntimeConfiguration: &RuntimeConfiguration{
+//   		ServerProcesses: []ServerProcess{
+//   			&ServerProcess{
+//   				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
+//   			},
+//   		},
 //   	},
+//   	Role: role,
 //   })
-//   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-//   		Version: rds.MysqlEngineVersion_VER_8_0_19(),
-//   	}),
-//   	Vpc: Vpc,
-//   	Domain: jsii.String("d-????????"),
-//   	 // The ID of the domain for the instance to join.
-//   	DomainRole: role,
-//   })
+//
+//   // Actions can also be grantted through dedicated method
+//   fleet.Grant(role, jsii.String("gamelift:ListFleets"))
 //
 type ManagedPolicy interface {
 	awscdk.Resource
@@ -49,7 +55,7 @@ type ManagedPolicy interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() IPrincipal
 	// Returns the ARN of this managed policy.
@@ -57,7 +63,7 @@ type ManagedPolicy interface {
 	// The name of this policy.
 	ManagedPolicyName() *string
 	// A reference to a ManagedPolicy resource.
-	ManagedPolicyRef() *ManagedPolicyReference
+	ManagedPolicyRef() *interfacesawsiam.ManagedPolicyReference
 	// The tree node.
 	Node() constructs.Node
 	// The path of this policy.
@@ -85,11 +91,11 @@ type ManagedPolicy interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attaches this policy to a group.
-	AttachToGroup(group IGroupRef)
+	AttachToGroup(group interfacesawsiam.IGroupRef)
 	// Attaches this policy to a role.
 	AttachToRole(role IRole)
 	// Attaches this policy to a user.
-	AttachToUser(user IUserRef)
+	AttachToUser(user interfacesawsiam.IUserRef)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -135,8 +141,8 @@ func (j *jsiiProxy_ManagedPolicy) Document() PolicyDocument {
 	return returns
 }
 
-func (j *jsiiProxy_ManagedPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ManagedPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -175,8 +181,8 @@ func (j *jsiiProxy_ManagedPolicy) ManagedPolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ManagedPolicy) ManagedPolicyRef() *ManagedPolicyReference {
-	var returns *ManagedPolicyReference
+func (j *jsiiProxy_ManagedPolicy) ManagedPolicyRef() *interfacesawsiam.ManagedPolicyReference {
+	var returns *interfacesawsiam.ManagedPolicyReference
 	_jsii_.Get(
 		j,
 		"managedPolicyRef",
@@ -438,7 +444,7 @@ func (m *jsiiProxy_ManagedPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
-func (m *jsiiProxy_ManagedPolicy) AttachToGroup(group IGroupRef) {
+func (m *jsiiProxy_ManagedPolicy) AttachToGroup(group interfacesawsiam.IGroupRef) {
 	if err := m.validateAttachToGroupParameters(group); err != nil {
 		panic(err)
 	}
@@ -460,7 +466,7 @@ func (m *jsiiProxy_ManagedPolicy) AttachToRole(role IRole) {
 	)
 }
 
-func (m *jsiiProxy_ManagedPolicy) AttachToUser(user IUserRef) {
+func (m *jsiiProxy_ManagedPolicy) AttachToUser(user interfacesawsiam.IUserRef) {
 	if err := m.validateAttachToUserParameters(user); err != nil {
 		panic(err)
 	}

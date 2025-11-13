@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnNetwork interface {
 	awscdk.CfnResource
-	INetworkRef
 	awscdk.IInspectable
+	interfacesawsmedialive.INetworkRef
 	awscdk.ITaggableV2
 	// The ARN of the Network.
 	AttrArn() *string
@@ -63,7 +65,7 @@ type CfnNetwork interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The list of IP address cidr pools for the network.
 	IpPools() interface{}
 	SetIpPools(val interface{})
@@ -81,7 +83,7 @@ type CfnNetwork interface {
 	Name() *string
 	SetName(val *string)
 	// A reference to a Network resource.
-	NetworkRef() *NetworkReference
+	NetworkRef() *interfacesawsmedialive.NetworkReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -242,8 +244,8 @@ type CfnNetwork interface {
 // The jsii proxy struct for CfnNetwork
 type jsiiProxy_CfnNetwork struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveINetworkRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -337,8 +339,8 @@ func (j *jsiiProxy_CfnNetwork) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetwork) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetwork) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnNetwork) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetwork) NetworkRef() *NetworkReference {
-	var returns *NetworkReference
+func (j *jsiiProxy_CfnNetwork) NetworkRef() *interfacesawsmedialive.NetworkReference {
+	var returns *interfacesawsmedialive.NetworkReference
 	_jsii_.Get(
 		j,
 		"networkRef",
@@ -458,6 +460,7 @@ func (j *jsiiProxy_CfnNetwork) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaLive::Network`.
 func NewCfnNetwork(scope constructs.Construct, id *string, props *CfnNetworkProps) CfnNetwork {
 	_init_.Initialize()
 
@@ -475,6 +478,7 @@ func NewCfnNetwork(scope constructs.Construct, id *string, props *CfnNetworkProp
 	return &j
 }
 
+// Create a new `AWS::MediaLive::Network`.
 func NewCfnNetwork_Override(c CfnNetwork, scope constructs.Construct, id *string, props *CfnNetworkProps) {
 	_init_.Initialize()
 
@@ -530,13 +534,13 @@ func (j *jsiiProxy_CfnNetwork)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new INetworkRef from an ARN.
-func CfnNetwork_FromNetworkArn(scope constructs.Construct, id *string, arn *string) INetworkRef {
+func CfnNetwork_FromNetworkArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.INetworkRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetwork_FromNetworkArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns INetworkRef
+	var returns interfacesawsmedialive.INetworkRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnNetwork",
@@ -549,13 +553,13 @@ func CfnNetwork_FromNetworkArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new INetworkRef from a networkId.
-func CfnNetwork_FromNetworkId(scope constructs.Construct, id *string, networkId *string) INetworkRef {
+func CfnNetwork_FromNetworkId(scope constructs.Construct, id *string, networkId *string) interfacesawsmedialive.INetworkRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetwork_FromNetworkIdParameters(scope, id, networkId); err != nil {
 		panic(err)
 	}
-	var returns INetworkRef
+	var returns interfacesawsmedialive.INetworkRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnNetwork",

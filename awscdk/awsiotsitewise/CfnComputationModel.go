@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotsitewise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnComputationModel interface {
 	awscdk.CfnResource
-	IComputationModelRef
 	awscdk.IInspectable
+	interfacesawsiotsitewise.IComputationModelRef
 	awscdk.ITaggableV2
 	// The ARN of the computation model, which has the following format.
 	//
@@ -85,12 +87,12 @@ type CfnComputationModel interface {
 	ComputationModelName() *string
 	SetComputationModelName(val *string)
 	// A reference to a ComputationModel resource.
-	ComputationModelRef() *ComputationModelReference
+	ComputationModelRef() *interfacesawsiotsitewise.ComputationModelReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -258,8 +260,8 @@ type CfnComputationModel interface {
 // The jsii proxy struct for CfnComputationModel
 type jsiiProxy_CfnComputationModel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IComputationModelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotsitewiseIComputationModelRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnComputationModel) ComputationModelName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComputationModel) ComputationModelRef() *ComputationModelReference {
-	var returns *ComputationModelReference
+func (j *jsiiProxy_CfnComputationModel) ComputationModelRef() *interfacesawsiotsitewise.ComputationModelReference {
+	var returns *interfacesawsiotsitewise.ComputationModelReference
 	_jsii_.Get(
 		j,
 		"computationModelRef",
@@ -383,8 +385,8 @@ func (j *jsiiProxy_CfnComputationModel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComputationModel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnComputationModel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -464,6 +466,7 @@ func (j *jsiiProxy_CfnComputationModel) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::IoTSiteWise::ComputationModel`.
 func NewCfnComputationModel(scope constructs.Construct, id *string, props *CfnComputationModelProps) CfnComputationModel {
 	_init_.Initialize()
 
@@ -481,6 +484,7 @@ func NewCfnComputationModel(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
+// Create a new `AWS::IoTSiteWise::ComputationModel`.
 func NewCfnComputationModel_Override(c CfnComputationModel, scope constructs.Construct, id *string, props *CfnComputationModelProps) {
 	_init_.Initialize()
 
@@ -544,13 +548,13 @@ func (j *jsiiProxy_CfnComputationModel)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IComputationModelRef from an ARN.
-func CfnComputationModel_FromComputationModelArn(scope constructs.Construct, id *string, arn *string) IComputationModelRef {
+func CfnComputationModel_FromComputationModelArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IComputationModelRef {
 	_init_.Initialize()
 
 	if err := validateCfnComputationModel_FromComputationModelArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IComputationModelRef
+	var returns interfacesawsiotsitewise.IComputationModelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnComputationModel",
@@ -563,13 +567,13 @@ func CfnComputationModel_FromComputationModelArn(scope constructs.Construct, id 
 }
 
 // Creates a new IComputationModelRef from a computationModelId.
-func CfnComputationModel_FromComputationModelId(scope constructs.Construct, id *string, computationModelId *string) IComputationModelRef {
+func CfnComputationModel_FromComputationModelId(scope constructs.Construct, id *string, computationModelId *string) interfacesawsiotsitewise.IComputationModelRef {
 	_init_.Initialize()
 
 	if err := validateCfnComputationModel_FromComputationModelIdParameters(scope, id, computationModelId); err != nil {
 		panic(err)
 	}
-	var returns IComputationModelRef
+	var returns interfacesawsiotsitewise.IComputationModelRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnComputationModel",

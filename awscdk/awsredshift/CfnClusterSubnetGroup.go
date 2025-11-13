@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnClusterSubnetGroup interface {
 	awscdk.CfnResource
-	IClusterSubnetGroupRef
 	awscdk.IInspectable
+	interfacesawsredshift.IClusterSubnetGroupRef
 	awscdk.ITaggable
 	// The name of the cluster subnet group.
 	AttrClusterSubnetGroupName() *string
@@ -50,7 +52,7 @@ type CfnClusterSubnetGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ClusterSubnetGroup resource.
-	ClusterSubnetGroupRef() *ClusterSubnetGroupReference
+	ClusterSubnetGroupRef() *interfacesawsredshift.ClusterSubnetGroupReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -58,7 +60,7 @@ type CfnClusterSubnetGroup interface {
 	// A description for the subnet group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnClusterSubnetGroup interface {
 // The jsii proxy struct for CfnClusterSubnetGroup
 type jsiiProxy_CfnClusterSubnetGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterSubnetGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIClusterSubnetGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -276,8 +278,8 @@ func (j *jsiiProxy_CfnClusterSubnetGroup) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterSubnetGroup) ClusterSubnetGroupRef() *ClusterSubnetGroupReference {
-	var returns *ClusterSubnetGroupReference
+func (j *jsiiProxy_CfnClusterSubnetGroup) ClusterSubnetGroupRef() *interfacesawsredshift.ClusterSubnetGroupReference {
+	var returns *interfacesawsredshift.ClusterSubnetGroupReference
 	_jsii_.Get(
 		j,
 		"clusterSubnetGroupRef",
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnClusterSubnetGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterSubnetGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClusterSubnetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnClusterSubnetGroup) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::Redshift::ClusterSubnetGroup`.
 func NewCfnClusterSubnetGroup(scope constructs.Construct, id *string, props *CfnClusterSubnetGroupProps) CfnClusterSubnetGroup {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnClusterSubnetGroup(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Redshift::ClusterSubnetGroup`.
 func NewCfnClusterSubnetGroup_Override(c CfnClusterSubnetGroup, scope constructs.Construct, id *string, props *CfnClusterSubnetGroupProps) {
 	_init_.Initialize()
 

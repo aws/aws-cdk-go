@@ -58,8 +58,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnInferenceScheduler{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInferenceSchedulerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslookoutequipmentIInferenceSchedulerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -87,24 +87,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceSchedulerProps",
 		reflect.TypeOf((*CfnInferenceSchedulerProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_lookoutequipment.IInferenceSchedulerRef",
-		reflect.TypeOf((*IInferenceSchedulerRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "inferenceSchedulerRef", GoGetter: "InferenceSchedulerRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IInferenceSchedulerRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutequipment.InferenceSchedulerReference",
-		reflect.TypeOf((*InferenceSchedulerReference)(nil)).Elem(),
 	)
 }

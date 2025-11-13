@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -86,8 +88,8 @@ import (
 //
 type CfnContainer interface {
 	awscdk.CfnResource
-	IContainerRef
 	awscdk.IInspectable
+	interfacesawslightsail.IContainerRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the container.
 	AttrContainerArn() *string
@@ -105,7 +107,7 @@ type CfnContainer interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Container resource.
-	ContainerRef() *ContainerReference
+	ContainerRef() *interfacesawslightsail.ContainerReference
 	// An object that describes the current container deployment of the container service.
 	ContainerServiceDeployment() interface{}
 	SetContainerServiceDeployment(val interface{})
@@ -113,7 +115,7 @@ type CfnContainer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A Boolean value indicating whether the container service is disabled.
 	IsDisabled() interface{}
 	SetIsDisabled(val interface{})
@@ -301,8 +303,8 @@ type CfnContainer interface {
 // The jsii proxy struct for CfnContainer
 type jsiiProxy_CfnContainer struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContainerRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIContainerRef
 	internal.Type__awscdkITaggable
 }
 
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnContainer) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainer) ContainerRef() *ContainerReference {
-	var returns *ContainerReference
+func (j *jsiiProxy_CfnContainer) ContainerRef() *interfacesawslightsail.ContainerReference {
+	var returns *interfacesawslightsail.ContainerReference
 	_jsii_.Get(
 		j,
 		"containerRef",
@@ -406,8 +408,8 @@ func (j *jsiiProxy_CfnContainer) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainer) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContainer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -557,6 +559,7 @@ func (j *jsiiProxy_CfnContainer) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lightsail::Container`.
 func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainerProps) CfnContainer {
 	_init_.Initialize()
 
@@ -574,6 +577,7 @@ func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainer
 	return &j
 }
 
+// Create a new `AWS::Lightsail::Container`.
 func NewCfnContainer_Override(c CfnContainer, scope constructs.Construct, id *string, props *CfnContainerProps) {
 	_init_.Initialize()
 

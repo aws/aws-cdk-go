@@ -19,6 +19,7 @@ import (
 //   	DefaultRouteTablePropagation: jsii.String("defaultRouteTablePropagation"),
 //   	Description: jsii.String("description"),
 //   	DnsSupport: jsii.String("dnsSupport"),
+//   	EncryptionSupport: jsii.String("encryptionSupport"),
 //   	MulticastSupport: jsii.String("multicastSupport"),
 //   	PropagationDefaultRouteTableId: jsii.String("propagationDefaultRouteTableId"),
 //   	SecurityGroupReferencingSupport: jsii.String("securityGroupReferencingSupport"),
@@ -75,6 +76,9 @@ type CfnTransitGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
 	//
 	DnsSupport *string `field:"optional" json:"dnsSupport" yaml:"dnsSupport"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-encryptionsupport
+	//
+	EncryptionSupport *string `field:"optional" json:"encryptionSupport" yaml:"encryptionSupport"`
 	// Indicates whether multicast is enabled on the transit gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
 	//

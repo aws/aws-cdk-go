@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -110,8 +112,8 @@ import (
 //
 type CfnKnowledgeBase interface {
 	awscdk.CfnResource
-	IKnowledgeBaseRef
 	awscdk.IInspectable
+	interfacesawswisdom.IKnowledgeBaseRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the knowledge base.
 	AttrKnowledgeBaseArn() *string
@@ -129,9 +131,9 @@ type CfnKnowledgeBase interface {
 	// The description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a KnowledgeBase resource.
-	KnowledgeBaseRef() *KnowledgeBaseReference
+	KnowledgeBaseRef() *interfacesawswisdom.KnowledgeBaseReference
 	// The type of knowledge base.
 	KnowledgeBaseType() *string
 	SetKnowledgeBaseType(val *string)
@@ -319,8 +321,8 @@ type CfnKnowledgeBase interface {
 // The jsii proxy struct for CfnKnowledgeBase
 type jsiiProxy_CfnKnowledgeBase struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKnowledgeBaseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIKnowledgeBaseRef
 	internal.Type__awscdkITaggable
 }
 
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKnowledgeBase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKnowledgeBase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -404,8 +406,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKnowledgeBase) KnowledgeBaseRef() *KnowledgeBaseReference {
-	var returns *KnowledgeBaseReference
+func (j *jsiiProxy_CfnKnowledgeBase) KnowledgeBaseRef() *interfacesawswisdom.KnowledgeBaseReference {
+	var returns *interfacesawswisdom.KnowledgeBaseReference
 	_jsii_.Get(
 		j,
 		"knowledgeBaseRef",
@@ -555,6 +557,7 @@ func (j *jsiiProxy_CfnKnowledgeBase) VectorIngestionConfiguration() interface{} 
 }
 
 
+// Create a new `AWS::Wisdom::KnowledgeBase`.
 func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) CfnKnowledgeBase {
 	_init_.Initialize()
 
@@ -572,6 +575,7 @@ func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowl
 	return &j
 }
 
+// Create a new `AWS::Wisdom::KnowledgeBase`.
 func NewCfnKnowledgeBase_Override(c CfnKnowledgeBase, scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) {
 	_init_.Initialize()
 
@@ -668,13 +672,13 @@ func (j *jsiiProxy_CfnKnowledgeBase)SetVectorIngestionConfiguration(val interfac
 }
 
 // Creates a new IKnowledgeBaseRef from an ARN.
-func CfnKnowledgeBase_FromKnowledgeBaseArn(scope constructs.Construct, id *string, arn *string) IKnowledgeBaseRef {
+func CfnKnowledgeBase_FromKnowledgeBaseArn(scope constructs.Construct, id *string, arn *string) interfacesawswisdom.IKnowledgeBaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnKnowledgeBase_FromKnowledgeBaseArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IKnowledgeBaseRef
+	var returns interfacesawswisdom.IKnowledgeBaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",
@@ -687,13 +691,13 @@ func CfnKnowledgeBase_FromKnowledgeBaseArn(scope constructs.Construct, id *strin
 }
 
 // Creates a new IKnowledgeBaseRef from a knowledgeBaseId.
-func CfnKnowledgeBase_FromKnowledgeBaseId(scope constructs.Construct, id *string, knowledgeBaseId *string) IKnowledgeBaseRef {
+func CfnKnowledgeBase_FromKnowledgeBaseId(scope constructs.Construct, id *string, knowledgeBaseId *string) interfacesawswisdom.IKnowledgeBaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnKnowledgeBase_FromKnowledgeBaseIdParameters(scope, id, knowledgeBaseId); err != nil {
 		panic(err)
 	}
-	var returns IKnowledgeBaseRef
+	var returns interfacesawswisdom.IKnowledgeBaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",

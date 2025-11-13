@@ -14,6 +14,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,7 +62,7 @@ type GraphqlApi interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The GraphQL endpoint ARN.
 	GraphQLEndpointArn() *string
 	// the URL of the endpoint created by AppSync.
@@ -197,8 +198,8 @@ func (j *jsiiProxy_GraphqlApi) Arn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_GraphqlApi) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_GraphqlApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

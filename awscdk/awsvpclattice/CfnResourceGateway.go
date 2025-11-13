@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnResourceGateway interface {
 	awscdk.CfnResource
-	IResourceGatewayRef
 	awscdk.IInspectable
+	interfacesawsvpclattice.IResourceGatewayRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the resource gateway.
 	AttrArn() *string
@@ -61,7 +63,7 @@ type CfnResourceGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The type of IP address used by the resource gateway.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
@@ -89,7 +91,7 @@ type CfnResourceGateway interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourceGateway resource.
-	ResourceGatewayRef() *ResourceGatewayReference
+	ResourceGatewayRef() *interfacesawsvpclattice.ResourceGatewayReference
 	// The IDs of the security groups applied to the resource gateway.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
@@ -249,8 +251,8 @@ type CfnResourceGateway interface {
 // The jsii proxy struct for CfnResourceGateway
 type jsiiProxy_CfnResourceGateway struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceGatewayRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsvpclatticeIResourceGatewayRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -324,8 +326,8 @@ func (j *jsiiProxy_CfnResourceGateway) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceGateway) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -394,8 +396,8 @@ func (j *jsiiProxy_CfnResourceGateway) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceGateway) ResourceGatewayRef() *ResourceGatewayReference {
-	var returns *ResourceGatewayReference
+func (j *jsiiProxy_CfnResourceGateway) ResourceGatewayRef() *interfacesawsvpclattice.ResourceGatewayReference {
+	var returns *interfacesawsvpclattice.ResourceGatewayReference
 	_jsii_.Get(
 		j,
 		"resourceGatewayRef",
@@ -475,6 +477,7 @@ func (j *jsiiProxy_CfnResourceGateway) VpcIdentifier() *string {
 }
 
 
+// Create a new `AWS::VpcLattice::ResourceGateway`.
 func NewCfnResourceGateway(scope constructs.Construct, id *string, props *CfnResourceGatewayProps) CfnResourceGateway {
 	_init_.Initialize()
 
@@ -492,6 +495,7 @@ func NewCfnResourceGateway(scope constructs.Construct, id *string, props *CfnRes
 	return &j
 }
 
+// Create a new `AWS::VpcLattice::ResourceGateway`.
 func NewCfnResourceGateway_Override(c CfnResourceGateway, scope constructs.Construct, id *string, props *CfnResourceGatewayProps) {
 	_init_.Initialize()
 

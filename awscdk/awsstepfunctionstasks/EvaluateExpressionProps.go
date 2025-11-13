@@ -149,6 +149,12 @@ type EvaluateExpressionProps struct {
 	//
 	// Example value: `'$.a + $.b'`
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
+	// The system architecture compatible with this lambda function.
+	//
+	// ARM64 architecture support varies by AWS region. Please verify that your deployment region supports Lambda functions with ARM64 architecture before specifying Architecture.ARM_64.
+	// Default: Architecture.X86_64
+	//
+	Architecture awslambda.Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// The runtime language to use to evaluate the expression.
 	// Default: - the latest Lambda node runtime available in your region.
 	//

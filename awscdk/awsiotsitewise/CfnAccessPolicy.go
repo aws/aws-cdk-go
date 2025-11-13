@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotsitewise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnAccessPolicy interface {
 	awscdk.CfnResource
-	IAccessPolicyRef
 	awscdk.IInspectable
+	interfacesawsiotsitewise.IAccessPolicyRef
 	// The identity for this access policy.
 	AccessPolicyIdentity() interface{}
 	SetAccessPolicyIdentity(val interface{})
@@ -58,7 +60,7 @@ type CfnAccessPolicy interface {
 	AccessPolicyPermission() *string
 	SetAccessPolicyPermission(val *string)
 	// A reference to a AccessPolicy resource.
-	AccessPolicyRef() *AccessPolicyReference
+	AccessPolicyRef() *interfacesawsiotsitewise.AccessPolicyReference
 	// The AWS IoT SiteWise Monitor resource for this access policy.
 	AccessPolicyResource() interface{}
 	SetAccessPolicyResource(val interface{})
@@ -77,7 +79,7 @@ type CfnAccessPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -242,8 +244,8 @@ type CfnAccessPolicy interface {
 // The jsii proxy struct for CfnAccessPolicy
 type jsiiProxy_CfnAccessPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccessPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotsitewiseIAccessPolicyRef
 }
 
 func (j *jsiiProxy_CfnAccessPolicy) AccessPolicyIdentity() interface{} {
@@ -266,8 +268,8 @@ func (j *jsiiProxy_CfnAccessPolicy) AccessPolicyPermission() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPolicy) AccessPolicyRef() *AccessPolicyReference {
-	var returns *AccessPolicyReference
+func (j *jsiiProxy_CfnAccessPolicy) AccessPolicyRef() *interfacesawsiotsitewise.AccessPolicyReference {
+	var returns *interfacesawsiotsitewise.AccessPolicyReference
 	_jsii_.Get(
 		j,
 		"accessPolicyRef",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnAccessPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccessPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -417,6 +419,7 @@ func (j *jsiiProxy_CfnAccessPolicy) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::IoTSiteWise::AccessPolicy`.
 func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccessPolicyProps) CfnAccessPolicy {
 	_init_.Initialize()
 
@@ -434,6 +437,7 @@ func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccess
 	return &j
 }
 
+// Create a new `AWS::IoTSiteWise::AccessPolicy`.
 func NewCfnAccessPolicy_Override(c CfnAccessPolicy, scope constructs.Construct, id *string, props *CfnAccessPolicyProps) {
 	_init_.Initialize()
 
@@ -478,13 +482,13 @@ func (j *jsiiProxy_CfnAccessPolicy)SetAccessPolicyResource(val interface{}) {
 }
 
 // Creates a new IAccessPolicyRef from an ARN.
-func CfnAccessPolicy_FromAccessPolicyArn(scope constructs.Construct, id *string, arn *string) IAccessPolicyRef {
+func CfnAccessPolicy_FromAccessPolicyArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IAccessPolicyRef {
 	_init_.Initialize()
 
 	if err := validateCfnAccessPolicy_FromAccessPolicyArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAccessPolicyRef
+	var returns interfacesawsiotsitewise.IAccessPolicyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
@@ -497,13 +501,13 @@ func CfnAccessPolicy_FromAccessPolicyArn(scope constructs.Construct, id *string,
 }
 
 // Creates a new IAccessPolicyRef from a accessPolicyId.
-func CfnAccessPolicy_FromAccessPolicyId(scope constructs.Construct, id *string, accessPolicyId *string) IAccessPolicyRef {
+func CfnAccessPolicy_FromAccessPolicyId(scope constructs.Construct, id *string, accessPolicyId *string) interfacesawsiotsitewise.IAccessPolicyRef {
 	_init_.Initialize()
 
 	if err := validateCfnAccessPolicy_FromAccessPolicyIdParameters(scope, id, accessPolicyId); err != nil {
 		panic(err)
 	}
-	var returns IAccessPolicyRef
+	var returns interfacesawsiotsitewise.IAccessPolicyRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",

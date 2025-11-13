@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -75,8 +77,8 @@ import (
 //
 type CfnHealthCheck interface {
 	awscdk.CfnResource
-	IHealthCheckRef
 	awscdk.IInspectable
+	interfacesawsroute53.IHealthCheckRef
 	awscdk.ITaggableV2
 	// The identifier that Amazon Route 53 assigned to the health check when you created it.
 	//
@@ -93,12 +95,12 @@ type CfnHealthCheck interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A complex type that contains detailed information about one health check.
 	HealthCheckConfig() interface{}
 	SetHealthCheckConfig(val interface{})
 	// A reference to a HealthCheck resource.
-	HealthCheckRef() *HealthCheckReference
+	HealthCheckRef() *interfacesawsroute53.HealthCheckReference
 	// The `HealthCheckTags` property describes key-value pairs that are associated with an `AWS::Route53::HealthCheck` resource.
 	HealthCheckTags() *[]*CfnHealthCheck_HealthCheckTagProperty
 	SetHealthCheckTags(val *[]*CfnHealthCheck_HealthCheckTagProperty)
@@ -266,8 +268,8 @@ type CfnHealthCheck interface {
 // The jsii proxy struct for CfnHealthCheck
 type jsiiProxy_CfnHealthCheck struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IHealthCheckRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53IHealthCheckRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnHealthCheck) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHealthCheck) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnHealthCheck) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -351,8 +353,8 @@ func (j *jsiiProxy_CfnHealthCheck) HealthCheckConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHealthCheck) HealthCheckRef() *HealthCheckReference {
-	var returns *HealthCheckReference
+func (j *jsiiProxy_CfnHealthCheck) HealthCheckRef() *interfacesawsroute53.HealthCheckReference {
+	var returns *interfacesawsroute53.HealthCheckReference
 	_jsii_.Get(
 		j,
 		"healthCheckRef",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnHealthCheck) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Route53::HealthCheck`.
 func NewCfnHealthCheck(scope constructs.Construct, id *string, props *CfnHealthCheckProps) CfnHealthCheck {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnHealthCheck(scope constructs.Construct, id *string, props *CfnHealthC
 	return &j
 }
 
+// Create a new `AWS::Route53::HealthCheck`.
 func NewCfnHealthCheck_Override(c CfnHealthCheck, scope constructs.Construct, id *string, props *CfnHealthCheckProps) {
 	_init_.Initialize()
 

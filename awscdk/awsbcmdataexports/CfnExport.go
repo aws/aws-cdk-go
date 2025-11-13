@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbcmdataexports/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbcmdataexports"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -70,8 +72,8 @@ import (
 //
 type CfnExport interface {
 	awscdk.CfnResource
-	IExportRef
 	awscdk.IInspectable
+	interfacesawsbcmdataexports.IExportRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for this export.
 	AttrExportArn() *string
@@ -88,12 +90,12 @@ type CfnExport interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The details that are available for an export.
 	Export() interface{}
 	SetExport(val interface{})
 	// A reference to a Export resource.
-	ExportRef() *ExportReference
+	ExportRef() *interfacesawsbcmdataexports.ExportReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -260,8 +262,8 @@ type CfnExport interface {
 // The jsii proxy struct for CfnExport
 type jsiiProxy_CfnExport struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IExportRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbcmdataexportsIExportRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnExport) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExport) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnExport) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnExport) Export() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExport) ExportRef() *ExportReference {
-	var returns *ExportReference
+func (j *jsiiProxy_CfnExport) ExportRef() *interfacesawsbcmdataexports.ExportReference {
+	var returns *interfacesawsbcmdataexports.ExportReference
 	_jsii_.Get(
 		j,
 		"exportRef",
@@ -436,6 +438,7 @@ func (j *jsiiProxy_CfnExport) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::BCMDataExports::Export`.
 func NewCfnExport(scope constructs.Construct, id *string, props *CfnExportProps) CfnExport {
 	_init_.Initialize()
 
@@ -453,6 +456,7 @@ func NewCfnExport(scope constructs.Construct, id *string, props *CfnExportProps)
 	return &j
 }
 
+// Create a new `AWS::BCMDataExports::Export`.
 func NewCfnExport_Override(c CfnExport, scope constructs.Construct, id *string, props *CfnExportProps) {
 	_init_.Initialize()
 

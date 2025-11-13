@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,25 +47,27 @@ import (
 // ```.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
-//   	MaxAzs: jsii.Number(1),
+//   vpc := ec2.Vpc_FromLookup(this, jsii.String("ExistingVPC"), &VpcLookupOptions{
+//   	VpcId: jsii.String("vpc-12345678"),
 //   })
-//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
-//   	Vpc: Vpc,
-//   })
-//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SG"), &SecurityGroupProps{
-//   	Vpc: Vpc,
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//
+//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("CustomSG"), &SecurityGroupProps{
+//   	Vpc: vpc,
+//   	Description: jsii.String("Allow HTTPS outbound access"),
+//   	AllowAllOutbound: jsii.Boolean(false),
 //   })
 //
-//   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
-//   	Cluster: Cluster,
-//   	ScheduledFargateTaskImageOptions: &ScheduledFargateTaskImageOptions{
-//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   		MemoryLimitMiB: jsii.Number(512),
-//   	},
-//   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
+//   securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow HTTPS traffic"))
+//
+//   s3deploy.NewBucketDeployment(this, jsii.String("DeployWithSecurityGroup"), &BucketDeploymentProps{
+//   	DestinationBucket: bucket,
+//   	Vpc: vpc,
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
+//   	},
+//   	Sources: []ISource{
+//   		s3deploy.Source_Asset(jsii.String("./website")),
 //   	},
 //   })
 //
@@ -88,7 +92,7 @@ type SecurityGroup interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -102,7 +106,7 @@ type SecurityGroup interface {
 	// The ID of the security group.
 	SecurityGroupId() *string
 	// A reference to a SecurityGroup resource.
-	SecurityGroupRef() *SecurityGroupReference
+	SecurityGroupRef() *interfacesawsec2.SecurityGroupReference
 	// The VPC ID this security group is part of.
 	SecurityGroupVpcId() *string
 	// The stack in which this resource is defined.
@@ -260,8 +264,8 @@ func (j *jsiiProxy_SecurityGroup) DefaultPort() Port {
 	return returns
 }
 
-func (j *jsiiProxy_SecurityGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SecurityGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -300,8 +304,8 @@ func (j *jsiiProxy_SecurityGroup) SecurityGroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SecurityGroup) SecurityGroupRef() *SecurityGroupReference {
-	var returns *SecurityGroupReference
+func (j *jsiiProxy_SecurityGroup) SecurityGroupRef() *interfacesawsec2.SecurityGroupReference {
+	var returns *interfacesawsec2.SecurityGroupReference
 	_jsii_.Get(
 		j,
 		"securityGroupRef",

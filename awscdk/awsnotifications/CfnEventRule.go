@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnotifications"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnEventRule interface {
 	awscdk.CfnResource
-	IEventRuleRef
 	awscdk.IInspectable
+	interfacesawsnotifications.IEventRuleRef
 	// The Amazon Resource Name (ARN) of the `EventRule` .
 	//
 	// AWS CloudFormation stack generates this ARN and then uses this ARN associated with the `NotificationConfiguration` .
@@ -54,12 +56,12 @@ type CfnEventRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An additional event pattern used to further filter the events this `EventRule` receives.
 	EventPattern() *string
 	SetEventPattern(val *string)
 	// A reference to a EventRule resource.
-	EventRuleRef() *EventRuleReference
+	EventRuleRef() *interfacesawsnotifications.EventRuleReference
 	// The event type this rule should match with the EventBridge events.
 	EventType() *string
 	SetEventType(val *string)
@@ -236,8 +238,8 @@ type CfnEventRule interface {
 // The jsii proxy struct for CfnEventRule
 type jsiiProxy_CfnEventRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEventRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnotificationsIEventRuleRef
 }
 
 func (j *jsiiProxy_CfnEventRule) AttrArn() *string {
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnEventRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEventRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnEventRule) EventPattern() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventRule) EventRuleRef() *EventRuleReference {
-	var returns *EventRuleReference
+func (j *jsiiProxy_CfnEventRule) EventRuleRef() *interfacesawsnotifications.EventRuleReference {
+	var returns *interfacesawsnotifications.EventRuleReference
 	_jsii_.Get(
 		j,
 		"eventRuleRef",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnEventRule) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Notifications::EventRule`.
 func NewCfnEventRule(scope constructs.Construct, id *string, props *CfnEventRuleProps) CfnEventRule {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnEventRule(scope constructs.Construct, id *string, props *CfnEventRule
 	return &j
 }
 
+// Create a new `AWS::Notifications::EventRule`.
 func NewCfnEventRule_Override(c CfnEventRule, scope constructs.Construct, id *string, props *CfnEventRuleProps) {
 	_init_.Initialize()
 

@@ -160,6 +160,17 @@ The `EvaluateExpression` supports a `runtime` prop to specify the Lambda
 runtime to use to evaluate the expression. Currently, only runtimes
 of the Node.js family are supported.
 
+The `EvaluateExpression` also supports an `architecture` prop to specify the Lambda
+architecture. This can be useful when migrating to ARM64 or when running integration
+tests on ARM64 systems.
+
+```go
+convertToSecondsArm64 := tasks.NewEvaluateExpression(this, jsii.String("Convert to seconds"), &EvaluateExpressionProps{
+	Expression: jsii.String("$.waitMilliseconds / 1000"),
+	Architecture: lambda.Architecture_ARM_64(),
+})
+```
+
 ## API Gateway
 
 Step Functions supports [API Gateway](https://docs.aws.amazon.com/step-functions/latest/dg/connect-api-gateway.html) through the service integration pattern.
@@ -1455,13 +1466,13 @@ The following code snippet includes a Task state that uses eks:call to list the 
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 
 
 myEksCluster := eks.NewCluster(this, jsii.String("my sample cluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_32(),
+	Version: eks.KubernetesVersion_V1_34(),
 	ClusterName: jsii.String("myEksCluster"),
-	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 })
 
 tasks.NewEksCall(this, jsii.String("Call a EKS Endpoint"), &EksCallProps{

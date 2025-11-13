@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,8 +27,8 @@ import (
 //
 type CfnStackFleetAssociation interface {
 	awscdk.CfnResource
-	IStackFleetAssociationRef
 	awscdk.IInspectable
+	interfacesawsappstream.IStackFleetAssociationRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -37,7 +39,7 @@ type CfnStackFleetAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the fleet.
 	FleetName() *string
 	SetFleetName(val *string)
@@ -63,7 +65,7 @@ type CfnStackFleetAssociation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StackFleetAssociation resource.
-	StackFleetAssociationRef() *StackFleetAssociationReference
+	StackFleetAssociationRef() *interfacesawsappstream.StackFleetAssociationReference
 	// The name of the stack.
 	StackName() *string
 	SetStackName(val *string)
@@ -210,8 +212,8 @@ type CfnStackFleetAssociation interface {
 // The jsii proxy struct for CfnStackFleetAssociation
 type jsiiProxy_CfnStackFleetAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStackFleetAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIStackFleetAssociationRef
 }
 
 func (j *jsiiProxy_CfnStackFleetAssociation) AttrId() *string {
@@ -264,8 +266,8 @@ func (j *jsiiProxy_CfnStackFleetAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStackFleetAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStackFleetAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -324,8 +326,8 @@ func (j *jsiiProxy_CfnStackFleetAssociation) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStackFleetAssociation) StackFleetAssociationRef() *StackFleetAssociationReference {
-	var returns *StackFleetAssociationReference
+func (j *jsiiProxy_CfnStackFleetAssociation) StackFleetAssociationRef() *interfacesawsappstream.StackFleetAssociationReference {
+	var returns *interfacesawsappstream.StackFleetAssociationReference
 	_jsii_.Get(
 		j,
 		"stackFleetAssociationRef",
@@ -365,6 +367,7 @@ func (j *jsiiProxy_CfnStackFleetAssociation) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::AppStream::StackFleetAssociation`.
 func NewCfnStackFleetAssociation(scope constructs.Construct, id *string, props *CfnStackFleetAssociationProps) CfnStackFleetAssociation {
 	_init_.Initialize()
 
@@ -382,6 +385,7 @@ func NewCfnStackFleetAssociation(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::AppStream::StackFleetAssociation`.
 func NewCfnStackFleetAssociation_Override(c CfnStackFleetAssociation, scope constructs.Construct, id *string, props *CfnStackFleetAssociationProps) {
 	_init_.Initialize()
 

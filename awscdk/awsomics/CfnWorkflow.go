@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsomics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -82,8 +84,8 @@ import (
 //
 type CfnWorkflow interface {
 	awscdk.CfnResource
-	IWorkflowRef
 	awscdk.IInspectable
+	interfacesawsomics.IWorkflowRef
 	awscdk.ITaggable
 	Accelerators() *string
 	SetAccelerators(val *string)
@@ -124,7 +126,7 @@ type CfnWorkflow interface {
 	// An engine for the workflow.
 	Engine() *string
 	SetEngine(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -194,7 +196,7 @@ type CfnWorkflow interface {
 	WorkflowBucketOwnerId() *string
 	SetWorkflowBucketOwnerId(val *string)
 	// A reference to a Workflow resource.
-	WorkflowRef() *WorkflowReference
+	WorkflowRef() *interfacesawsomics.WorkflowReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -325,8 +327,8 @@ type CfnWorkflow interface {
 // The jsii proxy struct for CfnWorkflow
 type jsiiProxy_CfnWorkflow struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkflowRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsomicsIWorkflowRef
 	internal.Type__awscdkITaggable
 }
 
@@ -500,8 +502,8 @@ func (j *jsiiProxy_CfnWorkflow) Engine() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkflow) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkflow) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -690,8 +692,8 @@ func (j *jsiiProxy_CfnWorkflow) WorkflowBucketOwnerId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkflow) WorkflowRef() *WorkflowReference {
-	var returns *WorkflowReference
+func (j *jsiiProxy_CfnWorkflow) WorkflowRef() *interfacesawsomics.WorkflowReference {
+	var returns *interfacesawsomics.WorkflowReference
 	_jsii_.Get(
 		j,
 		"workflowRef",
@@ -701,6 +703,7 @@ func (j *jsiiProxy_CfnWorkflow) WorkflowRef() *WorkflowReference {
 }
 
 
+// Create a new `AWS::Omics::Workflow`.
 func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowProps) CfnWorkflow {
 	_init_.Initialize()
 
@@ -718,6 +721,7 @@ func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowPr
 	return &j
 }
 
+// Create a new `AWS::Omics::Workflow`.
 func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *string, props *CfnWorkflowProps) {
 	_init_.Initialize()
 

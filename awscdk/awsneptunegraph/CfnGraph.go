@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsneptunegraph/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsneptunegraph"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnGraph interface {
 	awscdk.CfnResource
-	IGraphRef
 	awscdk.IInspectable
+	interfacesawsneptunegraph.IGraphRef
 	awscdk.ITaggableV2
 	// The connection endpoint for the graph.
 	//
@@ -72,14 +74,14 @@ type CfnGraph interface {
 	// A value that indicates whether the graph has deletion protection enabled.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The graph name.
 	//
 	// For example: `my-graph-1` .
 	GraphName() *string
 	SetGraphName(val *string)
 	// A reference to a Graph resource.
-	GraphRef() *GraphReference
+	GraphRef() *interfacesawsneptunegraph.GraphReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -261,8 +263,8 @@ type CfnGraph interface {
 // The jsii proxy struct for CfnGraph
 type jsiiProxy_CfnGraph struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGraphRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsneptunegraphIGraphRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnGraph) DeletionProtection() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGraph) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGraph) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -376,8 +378,8 @@ func (j *jsiiProxy_CfnGraph) GraphName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGraph) GraphRef() *GraphReference {
-	var returns *GraphReference
+func (j *jsiiProxy_CfnGraph) GraphRef() *interfacesawsneptunegraph.GraphReference {
+	var returns *interfacesawsneptunegraph.GraphReference
 	_jsii_.Get(
 		j,
 		"graphRef",
@@ -497,6 +499,7 @@ func (j *jsiiProxy_CfnGraph) VectorSearchConfiguration() interface{} {
 }
 
 
+// Create a new `AWS::NeptuneGraph::Graph`.
 func NewCfnGraph(scope constructs.Construct, id *string, props *CfnGraphProps) CfnGraph {
 	_init_.Initialize()
 
@@ -514,6 +517,7 @@ func NewCfnGraph(scope constructs.Construct, id *string, props *CfnGraphProps) C
 	return &j
 }
 
+// Create a new `AWS::NeptuneGraph::Graph`.
 func NewCfnGraph_Override(c CfnGraph, scope constructs.Construct, id *string, props *CfnGraphProps) {
 	_init_.Initialize()
 

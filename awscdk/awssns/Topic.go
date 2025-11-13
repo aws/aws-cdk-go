@@ -9,23 +9,25 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A new SNS topic.
 //
 // Example:
-//   import firehose "github.com/aws/aws-cdk-go/awscdk"
-//   var stream DeliveryStream
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("Topic"))
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
-//   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
-//   	Topic: Topic,
-//   	Endpoint: stream.DeliveryStreamArn,
-//   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
-//   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
+//   	Actions: []IAction{
+//   		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
+//   			MessageFormat: actions.SnsActionMessageFormat_JSON,
+//   		}),
+//   	},
 //   })
 //
 type Topic interface {
@@ -48,7 +50,7 @@ type Topic interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Whether this topic is an Amazon SNS FIFO queue.
 	//
 	// If false, this is a standard topic.
@@ -201,8 +203,8 @@ func (j *jsiiProxy_Topic) EnforceSSL() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Topic) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Topic) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

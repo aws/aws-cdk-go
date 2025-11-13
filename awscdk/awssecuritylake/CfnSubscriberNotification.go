@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecuritylake/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecuritylake"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +42,8 @@ import (
 //
 type CfnSubscriberNotification interface {
 	awscdk.CfnResource
-	ISubscriberNotificationRef
 	awscdk.IInspectable
+	interfacesawssecuritylake.ISubscriberNotificationRef
 	// The endpoint the subscriber should listen to for notifications.
 	AttrSubscriberEndpoint() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -53,7 +55,7 @@ type CfnSubscriberNotification interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -82,7 +84,7 @@ type CfnSubscriberNotification interface {
 	SubscriberArn() *string
 	SetSubscriberArn(val *string)
 	// A reference to a SubscriberNotification resource.
-	SubscriberNotificationRef() *SubscriberNotificationReference
+	SubscriberNotificationRef() *interfacesawssecuritylake.SubscriberNotificationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,8 +228,8 @@ type CfnSubscriberNotification interface {
 // The jsii proxy struct for CfnSubscriberNotification
 type jsiiProxy_CfnSubscriberNotification struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubscriberNotificationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecuritylakeISubscriberNotificationRef
 }
 
 func (j *jsiiProxy_CfnSubscriberNotification) AttrSubscriberEndpoint() *string {
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnSubscriberNotification) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriberNotification) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubscriberNotification) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnSubscriberNotification) SubscriberArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriberNotification) SubscriberNotificationRef() *SubscriberNotificationReference {
-	var returns *SubscriberNotificationReference
+func (j *jsiiProxy_CfnSubscriberNotification) SubscriberNotificationRef() *interfacesawssecuritylake.SubscriberNotificationReference {
+	var returns *interfacesawssecuritylake.SubscriberNotificationReference
 	_jsii_.Get(
 		j,
 		"subscriberNotificationRef",
@@ -381,6 +383,7 @@ func (j *jsiiProxy_CfnSubscriberNotification) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::SecurityLake::SubscriberNotification`.
 func NewCfnSubscriberNotification(scope constructs.Construct, id *string, props *CfnSubscriberNotificationProps) CfnSubscriberNotification {
 	_init_.Initialize()
 
@@ -398,6 +401,7 @@ func NewCfnSubscriberNotification(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::SecurityLake::SubscriberNotification`.
 func NewCfnSubscriberNotification_Override(c CfnSubscriberNotification, scope constructs.Construct, id *string, props *CfnSubscriberNotificationProps) {
 	_init_.Initialize()
 

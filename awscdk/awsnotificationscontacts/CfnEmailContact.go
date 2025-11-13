@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotificationscontacts/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnotificationscontacts"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnEmailContact interface {
 	awscdk.CfnResource
-	IEmailContactRef
 	awscdk.IInspectable
+	interfacesawsnotificationscontacts.IEmailContactRef
 	awscdk.ITaggableV2
 	// Returns the ARN of the contact.
 	AttrArn() *string
@@ -68,8 +70,8 @@ type CfnEmailContact interface {
 	EmailAddress() *string
 	SetEmailAddress(val *string)
 	// A reference to a EmailContact resource.
-	EmailContactRef() *EmailContactReference
-	Env() *awscdk.ResourceEnvironment
+	EmailContactRef() *interfacesawsnotificationscontacts.EmailContactReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -240,8 +242,8 @@ type CfnEmailContact interface {
 // The jsii proxy struct for CfnEmailContact
 type jsiiProxy_CfnEmailContact struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEmailContactRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnotificationscontactsIEmailContactRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnEmailContact) EmailAddress() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailContact) EmailContactRef() *EmailContactReference {
-	var returns *EmailContactReference
+func (j *jsiiProxy_CfnEmailContact) EmailContactRef() *interfacesawsnotificationscontacts.EmailContactReference {
+	var returns *interfacesawsnotificationscontacts.EmailContactReference
 	_jsii_.Get(
 		j,
 		"emailContactRef",
@@ -395,8 +397,8 @@ func (j *jsiiProxy_CfnEmailContact) EmailContactRef() *EmailContactReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailContact) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEmailContact) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -486,6 +488,7 @@ func (j *jsiiProxy_CfnEmailContact) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::NotificationsContacts::EmailContact`.
 func NewCfnEmailContact(scope constructs.Construct, id *string, props *CfnEmailContactProps) CfnEmailContact {
 	_init_.Initialize()
 
@@ -503,6 +506,7 @@ func NewCfnEmailContact(scope constructs.Construct, id *string, props *CfnEmailC
 	return &j
 }
 
+// Create a new `AWS::NotificationsContacts::EmailContact`.
 func NewCfnEmailContact_Override(c CfnEmailContact, scope constructs.Construct, id *string, props *CfnEmailContactProps) {
 	_init_.Initialize()
 

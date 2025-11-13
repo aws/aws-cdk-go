@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconvert/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconvert"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnQueue interface {
 	awscdk.CfnResource
-	IQueueRef
 	awscdk.IInspectable
+	interfacesawsmediaconvert.IQueueRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the queue, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
 	AttrArn() *string
@@ -56,7 +58,7 @@ type CfnQueue interface {
 	// Optional.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -76,7 +78,7 @@ type CfnQueue interface {
 	PricingPlan() *string
 	SetPricingPlan(val *string)
 	// A reference to a Queue resource.
-	QueueRef() *QueueReference
+	QueueRef() *interfacesawsmediaconvert.QueueReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -237,8 +239,8 @@ type CfnQueue interface {
 // The jsii proxy struct for CfnQueue
 type jsiiProxy_CfnQueue struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueueRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmediaconvertIQueueRef
 	internal.Type__awscdkITaggable
 }
 
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnQueue) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueue) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnQueue) PricingPlan() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) QueueRef() *QueueReference {
-	var returns *QueueReference
+func (j *jsiiProxy_CfnQueue) QueueRef() *interfacesawsmediaconvert.QueueReference {
+	var returns *interfacesawsmediaconvert.QueueReference
 	_jsii_.Get(
 		j,
 		"queueRef",
@@ -463,6 +465,7 @@ func (j *jsiiProxy_CfnQueue) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::MediaConvert::Queue`.
 func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) CfnQueue {
 	_init_.Initialize()
 
@@ -480,6 +483,7 @@ func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) C
 	return &j
 }
 
+// Create a new `AWS::MediaConvert::Queue`.
 func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, props *CfnQueueProps) {
 	_init_.Initialize()
 

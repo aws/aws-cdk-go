@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnResourceUpdateConstraint interface {
 	awscdk.CfnResource
-	IResourceUpdateConstraintRef
 	awscdk.IInspectable
+	interfacesawsservicecatalog.IResourceUpdateConstraintRef
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
@@ -49,7 +51,7 @@ type CfnResourceUpdateConstraint interface {
 	// The description of the constraint.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnResourceUpdateConstraint interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResourceUpdateConstraint resource.
-	ResourceUpdateConstraintRef() *ResourceUpdateConstraintReference
+	ResourceUpdateConstraintRef() *interfacesawsservicecatalog.ResourceUpdateConstraintReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -225,8 +227,8 @@ type CfnResourceUpdateConstraint interface {
 // The jsii proxy struct for CfnResourceUpdateConstraint
 type jsiiProxy_CfnResourceUpdateConstraint struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResourceUpdateConstraintRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsservicecatalogIResourceUpdateConstraintRef
 }
 
 func (j *jsiiProxy_CfnResourceUpdateConstraint) AcceptLanguage() *string {
@@ -299,8 +301,8 @@ func (j *jsiiProxy_CfnResourceUpdateConstraint) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceUpdateConstraint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResourceUpdateConstraint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnResourceUpdateConstraint) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceUpdateConstraint) ResourceUpdateConstraintRef() *ResourceUpdateConstraintReference {
-	var returns *ResourceUpdateConstraintReference
+func (j *jsiiProxy_CfnResourceUpdateConstraint) ResourceUpdateConstraintRef() *interfacesawsservicecatalog.ResourceUpdateConstraintReference {
+	var returns *interfacesawsservicecatalog.ResourceUpdateConstraintReference
 	_jsii_.Get(
 		j,
 		"resourceUpdateConstraintRef",
@@ -410,6 +412,7 @@ func (j *jsiiProxy_CfnResourceUpdateConstraint) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::ServiceCatalog::ResourceUpdateConstraint`.
 func NewCfnResourceUpdateConstraint(scope constructs.Construct, id *string, props *CfnResourceUpdateConstraintProps) CfnResourceUpdateConstraint {
 	_init_.Initialize()
 
@@ -427,6 +430,7 @@ func NewCfnResourceUpdateConstraint(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::ServiceCatalog::ResourceUpdateConstraint`.
 func NewCfnResourceUpdateConstraint_Override(c CfnResourceUpdateConstraint, scope constructs.Construct, id *string, props *CfnResourceUpdateConstraintProps) {
 	_init_.Initialize()
 

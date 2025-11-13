@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmcontacts/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssmcontacts"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnContact interface {
 	awscdk.CfnResource
-	IContactRef
 	awscdk.IInspectable
+	interfacesawsssmcontacts.IContactRef
 	awscdk.ITaggableV2
 	// The unique and identifiable alias of the contact or escalation plan.
 	Alias() *string
@@ -72,7 +74,7 @@ type CfnContact interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a Contact resource.
-	ContactRef() *ContactReference
+	ContactRef() *interfacesawsssmcontacts.ContactReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -80,7 +82,7 @@ type CfnContact interface {
 	// The full name of the contact or escalation plan.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnContact interface {
 // The jsii proxy struct for CfnContact
 type jsiiProxy_CfnContact struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IContactRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsssmcontactsIContactRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnContact) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContact) ContactRef() *ContactReference {
-	var returns *ContactReference
+func (j *jsiiProxy_CfnContact) ContactRef() *interfacesawsssmcontacts.ContactReference {
+	var returns *interfacesawsssmcontacts.ContactReference
 	_jsii_.Get(
 		j,
 		"contactRef",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnContact) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContact) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnContact) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -449,6 +451,7 @@ func (j *jsiiProxy_CfnContact) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::SSMContacts::Contact`.
 func NewCfnContact(scope constructs.Construct, id *string, props *CfnContactProps) CfnContact {
 	_init_.Initialize()
 
@@ -466,6 +469,7 @@ func NewCfnContact(scope constructs.Construct, id *string, props *CfnContactProp
 	return &j
 }
 
+// Create a new `AWS::SSMContacts::Contact`.
 func NewCfnContact_Override(c CfnContact, scope constructs.Construct, id *string, props *CfnContactProps) {
 	_init_.Initialize()
 

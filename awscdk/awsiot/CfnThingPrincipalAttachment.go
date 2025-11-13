@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnThingPrincipalAttachment interface {
 	awscdk.CfnResource
-	IThingPrincipalAttachmentRef
 	awscdk.IInspectable
+	interfacesawsiot.IThingPrincipalAttachmentRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -42,7 +44,7 @@ type CfnThingPrincipalAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,7 +73,7 @@ type CfnThingPrincipalAttachment interface {
 	ThingName() *string
 	SetThingName(val *string)
 	// A reference to a ThingPrincipalAttachment resource.
-	ThingPrincipalAttachmentRef() *ThingPrincipalAttachmentReference
+	ThingPrincipalAttachmentRef() *interfacesawsiot.ThingPrincipalAttachmentReference
 	ThingPrincipalType() *string
 	SetThingPrincipalType(val *string)
 	// Deprecated.
@@ -217,8 +219,8 @@ type CfnThingPrincipalAttachment interface {
 // The jsii proxy struct for CfnThingPrincipalAttachment
 type jsiiProxy_CfnThingPrincipalAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IThingPrincipalAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIThingPrincipalAttachmentRef
 }
 
 func (j *jsiiProxy_CfnThingPrincipalAttachment) AttrId() *string {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnThingPrincipalAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThingPrincipalAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnThingPrincipalAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -341,8 +343,8 @@ func (j *jsiiProxy_CfnThingPrincipalAttachment) ThingName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThingPrincipalAttachment) ThingPrincipalAttachmentRef() *ThingPrincipalAttachmentReference {
-	var returns *ThingPrincipalAttachmentReference
+func (j *jsiiProxy_CfnThingPrincipalAttachment) ThingPrincipalAttachmentRef() *interfacesawsiot.ThingPrincipalAttachmentReference {
+	var returns *interfacesawsiot.ThingPrincipalAttachmentReference
 	_jsii_.Get(
 		j,
 		"thingPrincipalAttachmentRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnThingPrincipalAttachment) UpdatedProperties() *map[string]
 }
 
 
+// Create a new `AWS::IoT::ThingPrincipalAttachment`.
 func NewCfnThingPrincipalAttachment(scope constructs.Construct, id *string, props *CfnThingPrincipalAttachmentProps) CfnThingPrincipalAttachment {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnThingPrincipalAttachment(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Create a new `AWS::IoT::ThingPrincipalAttachment`.
 func NewCfnThingPrincipalAttachment_Override(c CfnThingPrincipalAttachment, scope constructs.Construct, id *string, props *CfnThingPrincipalAttachmentProps) {
 	_init_.Initialize()
 

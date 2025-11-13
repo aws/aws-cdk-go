@@ -4,14 +4,14 @@ package awseks
 // Represents the authentication mode for an Amazon EKS cluster.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //   var vpc Vpc
 //
 //
 //   eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	Vpc: Vpc,
-//   	Version: eks.KubernetesVersion_V1_33(),
-//   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("KubectlLayer")),
+//   	Version: eks.KubernetesVersion_V1_34(),
+//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("KubectlLayer")),
 //   	AuthenticationMode: eks.AuthenticationMode_API_AND_CONFIG_MAP,
 //   })
 //

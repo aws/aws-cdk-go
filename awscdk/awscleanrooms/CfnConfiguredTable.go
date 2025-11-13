@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanrooms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanrooms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,10 +32,14 @@ import (
 //
 //   			// the properties below are optional
 //   			OutputLocation: jsii.String("outputLocation"),
+//   			Region: jsii.String("region"),
 //   		},
 //   		Glue: &GlueTableReferenceProperty{
 //   			DatabaseName: jsii.String("databaseName"),
 //   			TableName: jsii.String("tableName"),
+//
+//   			// the properties below are optional
+//   			Region: jsii.String("region"),
 //   		},
 //   		Snowflake: &SnowflakeTableReferenceProperty{
 //   			AccountIdentifier: jsii.String("accountIdentifier"),
@@ -146,10 +152,10 @@ import (
 //
 type CfnConfiguredTable interface {
 	awscdk.CfnResource
-	IConfiguredTableRef
 	awscdk.IInspectable
+	interfacesawscleanrooms.IConfiguredTableRef
 	awscdk.ITaggableV2
-	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	// The columns within the underlying AWS Glue table that can be used within collaborations.
 	AllowedColumns() *[]*string
 	SetAllowedColumns(val *[]*string)
 	// The analysis method for the configured table.
@@ -174,7 +180,7 @@ type CfnConfiguredTable interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConfiguredTable resource.
-	ConfiguredTableRef() *ConfiguredTableReference
+	ConfiguredTableRef() *interfacesawscleanrooms.ConfiguredTableReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -182,7 +188,7 @@ type CfnConfiguredTable interface {
 	// A description for the configured table.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -359,8 +365,8 @@ type CfnConfiguredTable interface {
 // The jsii proxy struct for CfnConfiguredTable
 type jsiiProxy_CfnConfiguredTable struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfiguredTableRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsIConfiguredTableRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -454,8 +460,8 @@ func (j *jsiiProxy_CfnConfiguredTable) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguredTable) ConfiguredTableRef() *ConfiguredTableReference {
-	var returns *ConfiguredTableReference
+func (j *jsiiProxy_CfnConfiguredTable) ConfiguredTableRef() *interfacesawscleanrooms.ConfiguredTableReference {
+	var returns *interfacesawscleanrooms.ConfiguredTableReference
 	_jsii_.Get(
 		j,
 		"configuredTableRef",
@@ -484,8 +490,8 @@ func (j *jsiiProxy_CfnConfiguredTable) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguredTable) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfiguredTable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -595,6 +601,7 @@ func (j *jsiiProxy_CfnConfiguredTable) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::CleanRooms::ConfiguredTable`.
 func NewCfnConfiguredTable(scope constructs.Construct, id *string, props *CfnConfiguredTableProps) CfnConfiguredTable {
 	_init_.Initialize()
 
@@ -612,6 +619,7 @@ func NewCfnConfiguredTable(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
+// Create a new `AWS::CleanRooms::ConfiguredTable`.
 func NewCfnConfiguredTable_Override(c CfnConfiguredTable, scope constructs.Construct, id *string, props *CfnConfiguredTableProps) {
 	_init_.Initialize()
 

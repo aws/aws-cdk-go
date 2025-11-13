@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnSubnetCidrBlock interface {
 	awscdk.CfnResource
-	ISubnetCidrBlockRef
 	awscdk.IInspectable
+	interfacesawsec2.ISubnetCidrBlockRef
 	// The ID of the association.
 	AttrId() *string
 	// The source that allocated the IP address space.
@@ -52,7 +54,7 @@ type CfnSubnetCidrBlock interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The IPv6 network range for the subnet, in CIDR notation.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
@@ -84,7 +86,7 @@ type CfnSubnetCidrBlock interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a SubnetCidrBlock resource.
-	SubnetCidrBlockRef() *SubnetCidrBlockReference
+	SubnetCidrBlockRef() *interfacesawsec2.SubnetCidrBlockReference
 	// The ID of the subnet.
 	SubnetId() *string
 	SetSubnetId(val *string)
@@ -231,8 +233,8 @@ type CfnSubnetCidrBlock interface {
 // The jsii proxy struct for CfnSubnetCidrBlock
 type jsiiProxy_CfnSubnetCidrBlock struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISubnetCidrBlockRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ISubnetCidrBlockRef
 }
 
 func (j *jsiiProxy_CfnSubnetCidrBlock) AttrId() *string {
@@ -305,8 +307,8 @@ func (j *jsiiProxy_CfnSubnetCidrBlock) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetCidrBlock) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSubnetCidrBlock) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnSubnetCidrBlock) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetCidrBlock) SubnetCidrBlockRef() *SubnetCidrBlockReference {
-	var returns *SubnetCidrBlockReference
+func (j *jsiiProxy_CfnSubnetCidrBlock) SubnetCidrBlockRef() *interfacesawsec2.SubnetCidrBlockReference {
+	var returns *interfacesawsec2.SubnetCidrBlockReference
 	_jsii_.Get(
 		j,
 		"subnetCidrBlockRef",
@@ -426,6 +428,7 @@ func (j *jsiiProxy_CfnSubnetCidrBlock) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::EC2::SubnetCidrBlock`.
 func NewCfnSubnetCidrBlock(scope constructs.Construct, id *string, props *CfnSubnetCidrBlockProps) CfnSubnetCidrBlock {
 	_init_.Initialize()
 
@@ -443,6 +446,7 @@ func NewCfnSubnetCidrBlock(scope constructs.Construct, id *string, props *CfnSub
 	return &j
 }
 
+// Create a new `AWS::EC2::SubnetCidrBlock`.
 func NewCfnSubnetCidrBlock_Override(c CfnSubnetCidrBlock, scope constructs.Construct, id *string, props *CfnSubnetCidrBlockProps) {
 	_init_.Initialize()
 

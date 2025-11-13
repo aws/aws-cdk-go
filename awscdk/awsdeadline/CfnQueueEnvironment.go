@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdeadline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdeadline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnQueueEnvironment interface {
 	awscdk.CfnResource
-	IQueueEnvironmentRef
 	awscdk.IInspectable
+	interfacesawsdeadline.IQueueEnvironmentRef
 	// The name of the queue environment.
 	AttrName() *string
 	// The queue environment ID.
@@ -43,7 +45,7 @@ type CfnQueueEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The identifier assigned to the farm that contains the queue.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -63,7 +65,7 @@ type CfnQueueEnvironment interface {
 	Priority() *float64
 	SetPriority(val *float64)
 	// A reference to a QueueEnvironment resource.
-	QueueEnvironmentRef() *QueueEnvironmentReference
+	QueueEnvironmentRef() *interfacesawsdeadline.QueueEnvironmentReference
 	// The unique identifier of the queue that contains the environment.
 	QueueId() *string
 	SetQueueId(val *string)
@@ -225,8 +227,8 @@ type CfnQueueEnvironment interface {
 // The jsii proxy struct for CfnQueueEnvironment
 type jsiiProxy_CfnQueueEnvironment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQueueEnvironmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdeadlineIQueueEnvironmentRef
 }
 
 func (j *jsiiProxy_CfnQueueEnvironment) AttrName() *string {
@@ -289,8 +291,8 @@ func (j *jsiiProxy_CfnQueueEnvironment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueueEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQueueEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -339,8 +341,8 @@ func (j *jsiiProxy_CfnQueueEnvironment) Priority() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueueEnvironment) QueueEnvironmentRef() *QueueEnvironmentReference {
-	var returns *QueueEnvironmentReference
+func (j *jsiiProxy_CfnQueueEnvironment) QueueEnvironmentRef() *interfacesawsdeadline.QueueEnvironmentReference {
+	var returns *interfacesawsdeadline.QueueEnvironmentReference
 	_jsii_.Get(
 		j,
 		"queueEnvironmentRef",
@@ -420,6 +422,7 @@ func (j *jsiiProxy_CfnQueueEnvironment) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::Deadline::QueueEnvironment`.
 func NewCfnQueueEnvironment(scope constructs.Construct, id *string, props *CfnQueueEnvironmentProps) CfnQueueEnvironment {
 	_init_.Initialize()
 
@@ -437,6 +440,7 @@ func NewCfnQueueEnvironment(scope constructs.Construct, id *string, props *CfnQu
 	return &j
 }
 
+// Create a new `AWS::Deadline::QueueEnvironment`.
 func NewCfnQueueEnvironment_Override(c CfnQueueEnvironment, scope constructs.Construct, id *string, props *CfnQueueEnvironmentProps) {
 	_init_.Initialize()
 

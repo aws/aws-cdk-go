@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappstream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnStackUserAssociation interface {
 	awscdk.CfnResource
-	IStackUserAssociationRef
 	awscdk.IInspectable
+	interfacesawsappstream.IStackUserAssociationRef
 	AttrId() *string
 	// The authentication type for the user who is associated with the stack.
 	AuthenticationType() *string
@@ -44,7 +46,7 @@ type CfnStackUserAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,7 +75,7 @@ type CfnStackUserAssociation interface {
 	StackName() *string
 	SetStackName(val *string)
 	// A reference to a StackUserAssociation resource.
-	StackUserAssociationRef() *StackUserAssociationReference
+	StackUserAssociationRef() *interfacesawsappstream.StackUserAssociationReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -220,8 +222,8 @@ type CfnStackUserAssociation interface {
 // The jsii proxy struct for CfnStackUserAssociation
 type jsiiProxy_CfnStackUserAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStackUserAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappstreamIStackUserAssociationRef
 }
 
 func (j *jsiiProxy_CfnStackUserAssociation) AttrId() *string {
@@ -284,8 +286,8 @@ func (j *jsiiProxy_CfnStackUserAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStackUserAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStackUserAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnStackUserAssociation) StackName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStackUserAssociation) StackUserAssociationRef() *StackUserAssociationReference {
-	var returns *StackUserAssociationReference
+func (j *jsiiProxy_CfnStackUserAssociation) StackUserAssociationRef() *interfacesawsappstream.StackUserAssociationReference {
+	var returns *interfacesawsappstream.StackUserAssociationReference
 	_jsii_.Get(
 		j,
 		"stackUserAssociationRef",
@@ -395,6 +397,7 @@ func (j *jsiiProxy_CfnStackUserAssociation) UserName() *string {
 }
 
 
+// Create a new `AWS::AppStream::StackUserAssociation`.
 func NewCfnStackUserAssociation(scope constructs.Construct, id *string, props *CfnStackUserAssociationProps) CfnStackUserAssociation {
 	_init_.Initialize()
 
@@ -412,6 +415,7 @@ func NewCfnStackUserAssociation(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::AppStream::StackUserAssociation`.
 func NewCfnStackUserAssociation_Override(c CfnStackUserAssociation, scope constructs.Construct, id *string, props *CfnStackUserAssociationProps) {
 	_init_.Initialize()
 

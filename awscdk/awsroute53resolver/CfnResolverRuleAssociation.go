@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnResolverRuleAssociation interface {
 	awscdk.CfnResource
-	IResolverRuleAssociationRef
 	awscdk.IInspectable
+	interfacesawsroute53resolver.IResolverRuleAssociationRef
 	// The name of an association between a resolver rule and a VPC, such as `test.example.com in beta VPC` .
 	AttrName() *string
 	// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
@@ -47,7 +49,7 @@ type CfnResolverRuleAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -69,7 +71,7 @@ type CfnResolverRuleAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ResolverRuleAssociation resource.
-	ResolverRuleAssociationRef() *ResolverRuleAssociationReference
+	ResolverRuleAssociationRef() *interfacesawsroute53resolver.ResolverRuleAssociationReference
 	// The ID of the Resolver rule that you associated with the VPC that is specified by `VPCId` .
 	ResolverRuleId() *string
 	SetResolverRuleId(val *string)
@@ -223,8 +225,8 @@ type CfnResolverRuleAssociation interface {
 // The jsii proxy struct for CfnResolverRuleAssociation
 type jsiiProxy_CfnResolverRuleAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IResolverRuleAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53resolverIResolverRuleAssociationRef
 }
 
 func (j *jsiiProxy_CfnResolverRuleAssociation) AttrName() *string {
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnResolverRuleAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverRuleAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnResolverRuleAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnResolverRuleAssociation) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverRuleAssociation) ResolverRuleAssociationRef() *ResolverRuleAssociationReference {
-	var returns *ResolverRuleAssociationReference
+func (j *jsiiProxy_CfnResolverRuleAssociation) ResolverRuleAssociationRef() *interfacesawsroute53resolver.ResolverRuleAssociationReference {
+	var returns *interfacesawsroute53resolver.ResolverRuleAssociationReference
 	_jsii_.Get(
 		j,
 		"resolverRuleAssociationRef",
@@ -418,6 +420,7 @@ func (j *jsiiProxy_CfnResolverRuleAssociation) VpcId() *string {
 }
 
 
+// Create a new `AWS::Route53Resolver::ResolverRuleAssociation`.
 func NewCfnResolverRuleAssociation(scope constructs.Construct, id *string, props *CfnResolverRuleAssociationProps) CfnResolverRuleAssociation {
 	_init_.Initialize()
 
@@ -435,6 +438,7 @@ func NewCfnResolverRuleAssociation(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::Route53Resolver::ResolverRuleAssociation`.
 func NewCfnResolverRuleAssociation_Override(c CfnResolverRuleAssociation, scope constructs.Construct, id *string, props *CfnResolverRuleAssociationProps) {
 	_init_.Initialize()
 

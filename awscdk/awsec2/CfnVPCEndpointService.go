@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnVPCEndpointService interface {
 	awscdk.CfnResource
-	IVPCEndpointServiceRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCEndpointServiceRef
 	awscdk.ITaggableV2
 	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
 	AcceptanceRequired() interface{}
@@ -73,7 +75,7 @@ type CfnVPCEndpointService interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 	GatewayLoadBalancerArns() *[]*string
 	SetGatewayLoadBalancerArns(val *[]*string)
@@ -127,7 +129,7 @@ type CfnVPCEndpointService interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPCEndpointService resource.
-	VpcEndpointServiceRef() *VPCEndpointServiceReference
+	VpcEndpointServiceRef() *interfacesawsec2.VPCEndpointServiceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -258,8 +260,8 @@ type CfnVPCEndpointService interface {
 // The jsii proxy struct for CfnVPCEndpointService
 type jsiiProxy_CfnVPCEndpointService struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCEndpointServiceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCEndpointServiceRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -343,8 +345,8 @@ func (j *jsiiProxy_CfnVPCEndpointService) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpointService) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCEndpointService) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -473,8 +475,8 @@ func (j *jsiiProxy_CfnVPCEndpointService) UpdatedProperties() *map[string]interf
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpointService) VpcEndpointServiceRef() *VPCEndpointServiceReference {
-	var returns *VPCEndpointServiceReference
+func (j *jsiiProxy_CfnVPCEndpointService) VpcEndpointServiceRef() *interfacesawsec2.VPCEndpointServiceReference {
+	var returns *interfacesawsec2.VPCEndpointServiceReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointServiceRef",
@@ -484,6 +486,7 @@ func (j *jsiiProxy_CfnVPCEndpointService) VpcEndpointServiceRef() *VPCEndpointSe
 }
 
 
+// Create a new `AWS::EC2::VPCEndpointService`.
 func NewCfnVPCEndpointService(scope constructs.Construct, id *string, props *CfnVPCEndpointServiceProps) CfnVPCEndpointService {
 	_init_.Initialize()
 
@@ -501,6 +504,7 @@ func NewCfnVPCEndpointService(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCEndpointService`.
 func NewCfnVPCEndpointService_Override(c CfnVPCEndpointService, scope constructs.Construct, id *string, props *CfnVPCEndpointServiceProps) {
 	_init_.Initialize()
 

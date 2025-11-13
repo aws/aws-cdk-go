@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -87,8 +89,8 @@ import (
 //
 type CfnInstance interface {
 	awscdk.CfnResource
-	IInstanceRef
 	awscdk.IInspectable
+	interfacesawsopsworks.IInstanceRef
 	// The default OpsWorks Stacks agent version.
 	//
 	// You have the following options:.
@@ -137,7 +139,7 @@ type CfnInstance interface {
 	// A list of Elastic IP addresses to associate with the instance.
 	ElasticIps() *[]*string
 	SetElasticIps(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The instance host name.
 	//
 	// The following are character limits for instance host names.
@@ -147,7 +149,7 @@ type CfnInstance interface {
 	InstallUpdatesOnBoot() interface{}
 	SetInstallUpdatesOnBoot(val interface{})
 	// A reference to a Instance resource.
-	InstanceRef() *InstanceReference
+	InstanceRef() *interfacesawsopsworks.InstanceReference
 	// The instance type, such as `t2.micro` . For a list of supported instance types, open the stack in the console, choose *Instances* , and choose *+ Instance* . The *Size* list contains the currently supported types. For more information, see [Instance Families and Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) . The parameter values that you use to specify the various types are in the *API Name* column of the *Available Instance Types* table.
 	InstanceType() *string
 	SetInstanceType(val *string)
@@ -345,8 +347,8 @@ type CfnInstance interface {
 // The jsii proxy struct for CfnInstance
 type jsiiProxy_CfnInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsopsworksIInstanceRef
 }
 
 func (j *jsiiProxy_CfnInstance) AgentVersion() *string {
@@ -529,8 +531,8 @@ func (j *jsiiProxy_CfnInstance) ElasticIps() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -559,8 +561,8 @@ func (j *jsiiProxy_CfnInstance) InstallUpdatesOnBoot() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) InstanceRef() *InstanceReference {
-	var returns *InstanceReference
+func (j *jsiiProxy_CfnInstance) InstanceRef() *interfacesawsopsworks.InstanceReference {
+	var returns *interfacesawsopsworks.InstanceReference
 	_jsii_.Get(
 		j,
 		"instanceRef",
@@ -740,6 +742,7 @@ func (j *jsiiProxy_CfnInstance) Volumes() *[]*string {
 }
 
 
+// Create a new `AWS::OpsWorks::Instance`.
 func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
@@ -757,6 +760,7 @@ func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstancePr
 	return &j
 }
 
+// Create a new `AWS::OpsWorks::Instance`.
 func NewCfnInstance_Override(c CfnInstance, scope constructs.Construct, id *string, props *CfnInstanceProps) {
 	_init_.Initialize()
 

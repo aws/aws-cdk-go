@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkfirewall/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkfirewall"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,8 +57,8 @@ import (
 //
 type CfnVpcEndpointAssociation interface {
 	awscdk.CfnResource
-	IVpcEndpointAssociationRef
 	awscdk.IInspectable
+	interfacesawsnetworkfirewall.IVpcEndpointAssociationRef
 	awscdk.ITaggableV2
 	// The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333".
 	AttrEndpointId() *string
@@ -78,7 +80,7 @@ type CfnVpcEndpointAssociation interface {
 	// A description of the VPC endpoint association.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the firewall.
 	FirewallArn() *string
 	SetFirewallArn(val *string)
@@ -123,7 +125,7 @@ type CfnVpcEndpointAssociation interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VpcEndpointAssociation resource.
-	VpcEndpointAssociationRef() *VpcEndpointAssociationReference
+	VpcEndpointAssociationRef() *interfacesawsnetworkfirewall.VpcEndpointAssociationReference
 	// The unique identifier of the VPC for the endpoint association.
 	VpcId() *string
 	SetVpcId(val *string)
@@ -257,8 +259,8 @@ type CfnVpcEndpointAssociation interface {
 // The jsii proxy struct for CfnVpcEndpointAssociation
 type jsiiProxy_CfnVpcEndpointAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVpcEndpointAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkfirewallIVpcEndpointAssociationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -352,8 +354,8 @@ func (j *jsiiProxy_CfnVpcEndpointAssociation) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcEndpointAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVpcEndpointAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -452,8 +454,8 @@ func (j *jsiiProxy_CfnVpcEndpointAssociation) UpdatedProperties() *map[string]in
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcEndpointAssociation) VpcEndpointAssociationRef() *VpcEndpointAssociationReference {
-	var returns *VpcEndpointAssociationReference
+func (j *jsiiProxy_CfnVpcEndpointAssociation) VpcEndpointAssociationRef() *interfacesawsnetworkfirewall.VpcEndpointAssociationReference {
+	var returns *interfacesawsnetworkfirewall.VpcEndpointAssociationReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointAssociationRef",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnVpcEndpointAssociation) VpcId() *string {
 }
 
 
+// Create a new `AWS::NetworkFirewall::VpcEndpointAssociation`.
 func NewCfnVpcEndpointAssociation(scope constructs.Construct, id *string, props *CfnVpcEndpointAssociationProps) CfnVpcEndpointAssociation {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnVpcEndpointAssociation(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::NetworkFirewall::VpcEndpointAssociation`.
 func NewCfnVpcEndpointAssociation_Override(c CfnVpcEndpointAssociation, scope constructs.Construct, id *string, props *CfnVpcEndpointAssociationProps) {
 	_init_.Initialize()
 

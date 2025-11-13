@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscontroltower/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscontroltower"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnEnabledBaseline interface {
 	awscdk.CfnResource
-	IEnabledBaselineRef
 	awscdk.IInspectable
+	interfacesawscontroltower.IEnabledBaselineRef
 	awscdk.ITaggableV2
 	AttrEnabledBaselineIdentifier() *string
 	// The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
@@ -64,8 +66,8 @@ type CfnEnabledBaseline interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EnabledBaseline resource.
-	EnabledBaselineRef() *EnabledBaselineReference
-	Env() *awscdk.ResourceEnvironment
+	EnabledBaselineRef() *interfacesawscontroltower.EnabledBaselineReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -238,8 +240,8 @@ type CfnEnabledBaseline interface {
 // The jsii proxy struct for CfnEnabledBaseline
 type jsiiProxy_CfnEnabledBaseline struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnabledBaselineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscontroltowerIEnabledBaselineRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -323,8 +325,8 @@ func (j *jsiiProxy_CfnEnabledBaseline) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnabledBaseline) EnabledBaselineRef() *EnabledBaselineReference {
-	var returns *EnabledBaselineReference
+func (j *jsiiProxy_CfnEnabledBaseline) EnabledBaselineRef() *interfacesawscontroltower.EnabledBaselineReference {
+	var returns *interfacesawscontroltower.EnabledBaselineReference
 	_jsii_.Get(
 		j,
 		"enabledBaselineRef",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnEnabledBaseline) EnabledBaselineRef() *EnabledBaselineRefe
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnabledBaseline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnabledBaseline) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -434,6 +436,7 @@ func (j *jsiiProxy_CfnEnabledBaseline) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::ControlTower::EnabledBaseline`.
 func NewCfnEnabledBaseline(scope constructs.Construct, id *string, props *CfnEnabledBaselineProps) CfnEnabledBaseline {
 	_init_.Initialize()
 
@@ -451,6 +454,7 @@ func NewCfnEnabledBaseline(scope constructs.Construct, id *string, props *CfnEna
 	return &j
 }
 
+// Create a new `AWS::ControlTower::EnabledBaseline`.
 func NewCfnEnabledBaseline_Override(c CfnEnabledBaseline, scope constructs.Construct, id *string, props *CfnEnabledBaselineProps) {
 	_init_.Initialize()
 

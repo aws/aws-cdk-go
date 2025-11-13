@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +47,8 @@ import (
 //
 type CfnFleetMetric interface {
 	awscdk.CfnResource
-	IFleetMetricRef
 	awscdk.IInspectable
+	interfacesawsiot.IFleetMetricRef
 	awscdk.ITaggable
 	// The field to aggregate.
 	AggregationField() *string
@@ -74,9 +76,9 @@ type CfnFleetMetric interface {
 	// The fleet metric description.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FleetMetric resource.
-	FleetMetricRef() *FleetMetricReference
+	FleetMetricRef() *interfacesawsiot.FleetMetricReference
 	// The name of the index to search.
 	IndexName() *string
 	SetIndexName(val *string)
@@ -264,8 +266,8 @@ type CfnFleetMetric interface {
 // The jsii proxy struct for CfnFleetMetric
 type jsiiProxy_CfnFleetMetric struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFleetMetricRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIFleetMetricRef
 	internal.Type__awscdkITaggable
 }
 
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnFleetMetric) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleetMetric) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFleetMetric) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -389,8 +391,8 @@ func (j *jsiiProxy_CfnFleetMetric) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleetMetric) FleetMetricRef() *FleetMetricReference {
-	var returns *FleetMetricReference
+func (j *jsiiProxy_CfnFleetMetric) FleetMetricRef() *interfacesawsiot.FleetMetricReference {
+	var returns *interfacesawsiot.FleetMetricReference
 	_jsii_.Get(
 		j,
 		"fleetMetricRef",
@@ -540,6 +542,7 @@ func (j *jsiiProxy_CfnFleetMetric) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::FleetMetric`.
 func NewCfnFleetMetric(scope constructs.Construct, id *string, props *CfnFleetMetricProps) CfnFleetMetric {
 	_init_.Initialize()
 
@@ -557,6 +560,7 @@ func NewCfnFleetMetric(scope constructs.Construct, id *string, props *CfnFleetMe
 	return &j
 }
 
+// Create a new `AWS::IoT::FleetMetric`.
 func NewCfnFleetMetric_Override(c CfnFleetMetric, scope constructs.Construct, id *string, props *CfnFleetMetricProps) {
 	_init_.Initialize()
 

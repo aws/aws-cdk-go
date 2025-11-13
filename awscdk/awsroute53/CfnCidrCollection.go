@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnCidrCollection interface {
 	awscdk.CfnResource
-	ICidrCollectionRef
 	awscdk.IInspectable
+	interfacesawsroute53.ICidrCollectionRef
 	// "The Amazon resource name (ARN) to uniquely identify the AWS resource.
 	AttrArn() *string
 	// The UUID of the CIDR collection.
@@ -53,12 +55,12 @@ type CfnCidrCollection interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CidrCollection resource.
-	CidrCollectionRef() *CidrCollectionReference
+	CidrCollectionRef() *interfacesawsroute53.CidrCollectionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A complex type that contains information about the list of CIDR locations.
 	Locations() interface{}
 	SetLocations(val interface{})
@@ -229,8 +231,8 @@ type CfnCidrCollection interface {
 // The jsii proxy struct for CfnCidrCollection
 type jsiiProxy_CfnCidrCollection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICidrCollectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53ICidrCollectionRef
 }
 
 func (j *jsiiProxy_CfnCidrCollection) AttrArn() *string {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnCidrCollection) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCidrCollection) CidrCollectionRef() *CidrCollectionReference {
-	var returns *CidrCollectionReference
+func (j *jsiiProxy_CfnCidrCollection) CidrCollectionRef() *interfacesawsroute53.CidrCollectionReference {
+	var returns *interfacesawsroute53.CidrCollectionReference
 	_jsii_.Get(
 		j,
 		"cidrCollectionRef",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnCidrCollection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCidrCollection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCidrCollection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -394,6 +396,7 @@ func (j *jsiiProxy_CfnCidrCollection) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::Route53::CidrCollection`.
 func NewCfnCidrCollection(scope constructs.Construct, id *string, props *CfnCidrCollectionProps) CfnCidrCollection {
 	_init_.Initialize()
 
@@ -411,6 +414,7 @@ func NewCfnCidrCollection(scope constructs.Construct, id *string, props *CfnCidr
 	return &j
 }
 
+// Create a new `AWS::Route53::CidrCollection`.
 func NewCfnCidrCollection_Override(c CfnCidrCollection, scope constructs.Construct, id *string, props *CfnCidrCollectionProps) {
 	_init_.Initialize()
 

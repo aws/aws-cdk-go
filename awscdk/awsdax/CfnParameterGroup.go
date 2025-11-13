@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdax/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdax"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnParameterGroup interface {
 	awscdk.CfnResource
-	IParameterGroupRef
 	awscdk.IInspectable
+	interfacesawsdax.IParameterGroupRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,7 +45,7 @@ type CfnParameterGroup interface {
 	// A description of the parameter group.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -60,7 +62,7 @@ type CfnParameterGroup interface {
 	ParameterGroupName() *string
 	SetParameterGroupName(val *string)
 	// A reference to a ParameterGroup resource.
-	ParameterGroupRef() *ParameterGroupReference
+	ParameterGroupRef() *interfacesawsdax.ParameterGroupReference
 	// An array of name-value pairs for the parameters in the group.
 	ParameterNameValues() interface{}
 	SetParameterNameValues(val interface{})
@@ -216,8 +218,8 @@ type CfnParameterGroup interface {
 // The jsii proxy struct for CfnParameterGroup
 type jsiiProxy_CfnParameterGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IParameterGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdaxIParameterGroupRef
 }
 
 func (j *jsiiProxy_CfnParameterGroup) AttrId() *string {
@@ -280,8 +282,8 @@ func (j *jsiiProxy_CfnParameterGroup) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameterGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnParameterGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnParameterGroup) ParameterGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameterGroup) ParameterGroupRef() *ParameterGroupReference {
-	var returns *ParameterGroupReference
+func (j *jsiiProxy_CfnParameterGroup) ParameterGroupRef() *interfacesawsdax.ParameterGroupReference {
+	var returns *interfacesawsdax.ParameterGroupReference
 	_jsii_.Get(
 		j,
 		"parameterGroupRef",
@@ -381,6 +383,7 @@ func (j *jsiiProxy_CfnParameterGroup) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::DAX::ParameterGroup`.
 func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnParameterGroupProps) CfnParameterGroup {
 	_init_.Initialize()
 
@@ -398,6 +401,7 @@ func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnPara
 	return &j
 }
 
+// Create a new `AWS::DAX::ParameterGroup`.
 func NewCfnParameterGroup_Override(c CfnParameterGroup, scope constructs.Construct, id *string, props *CfnParameterGroupProps) {
 	_init_.Initialize()
 

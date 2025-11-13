@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoveryreadiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoveryreadiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnRecoveryGroup interface {
 	awscdk.CfnResource
-	IRecoveryGroupRef
 	awscdk.IInspectable
+	interfacesawsroute53recoveryreadiness.IRecoveryGroupRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the recovery group.
 	AttrRecoveryGroupArn() *string
@@ -56,7 +58,7 @@ type CfnRecoveryGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,7 +75,7 @@ type CfnRecoveryGroup interface {
 	RecoveryGroupName() *string
 	SetRecoveryGroupName(val *string)
 	// A reference to a RecoveryGroup resource.
-	RecoveryGroupRef() *RecoveryGroupReference
+	RecoveryGroupRef() *interfacesawsroute53recoveryreadiness.RecoveryGroupReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -231,8 +233,8 @@ type CfnRecoveryGroup interface {
 // The jsii proxy struct for CfnRecoveryGroup
 type jsiiProxy_CfnRecoveryGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRecoveryGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53recoveryreadinessIRecoveryGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnRecoveryGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecoveryGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRecoveryGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -336,8 +338,8 @@ func (j *jsiiProxy_CfnRecoveryGroup) RecoveryGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecoveryGroup) RecoveryGroupRef() *RecoveryGroupReference {
-	var returns *RecoveryGroupReference
+func (j *jsiiProxy_CfnRecoveryGroup) RecoveryGroupRef() *interfacesawsroute53recoveryreadiness.RecoveryGroupReference {
+	var returns *interfacesawsroute53recoveryreadiness.RecoveryGroupReference
 	_jsii_.Get(
 		j,
 		"recoveryGroupRef",
@@ -407,6 +409,7 @@ func (j *jsiiProxy_CfnRecoveryGroup) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::Route53RecoveryReadiness::RecoveryGroup`.
 func NewCfnRecoveryGroup(scope constructs.Construct, id *string, props *CfnRecoveryGroupProps) CfnRecoveryGroup {
 	_init_.Initialize()
 
@@ -424,6 +427,7 @@ func NewCfnRecoveryGroup(scope constructs.Construct, id *string, props *CfnRecov
 	return &j
 }
 
+// Create a new `AWS::Route53RecoveryReadiness::RecoveryGroup`.
 func NewCfnRecoveryGroup_Override(c CfnRecoveryGroup, scope constructs.Construct, id *string, props *CfnRecoveryGroupProps) {
 	_init_.Initialize()
 

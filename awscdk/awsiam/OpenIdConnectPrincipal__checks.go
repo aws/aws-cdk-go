@@ -4,6 +4,8 @@ package awsiam
 
 import (
 	"fmt"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 func (o *jsiiProxy_OpenIdConnectPrincipal) validateAddToAssumeRolePolicyParameters(document PolicyDocument) error {
@@ -38,7 +40,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) validateWithConditionsParameters(cond
 	return nil
 }
 
-func validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider IOIDCProviderRef) error {
+func validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider interfacesawsiam.IOIDCProviderRef) error {
 	if openIdConnectProvider == nil {
 		return fmt.Errorf("parameter openIdConnectProvider is required, but nil was provided")
 	}

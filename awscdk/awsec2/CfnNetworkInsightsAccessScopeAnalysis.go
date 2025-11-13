@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnNetworkInsightsAccessScopeAnalysis interface {
 	awscdk.CfnResource
-	INetworkInsightsAccessScopeAnalysisRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkInsightsAccessScopeAnalysisRef
 	awscdk.ITaggable
 	// The number of network interfaces analyzed.
 	AttrAnalyzedEniCount() *float64
@@ -60,7 +62,7 @@ type CfnNetworkInsightsAccessScopeAnalysis interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -72,7 +74,7 @@ type CfnNetworkInsightsAccessScopeAnalysis interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a NetworkInsightsAccessScopeAnalysis resource.
-	NetworkInsightsAccessScopeAnalysisRef() *NetworkInsightsAccessScopeAnalysisReference
+	NetworkInsightsAccessScopeAnalysisRef() *interfacesawsec2.NetworkInsightsAccessScopeAnalysisReference
 	// The ID of the Network Access Scope.
 	NetworkInsightsAccessScopeId() *string
 	SetNetworkInsightsAccessScopeId(val *string)
@@ -235,8 +237,8 @@ type CfnNetworkInsightsAccessScopeAnalysis interface {
 // The jsii proxy struct for CfnNetworkInsightsAccessScopeAnalysis
 type jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkInsightsAccessScopeAnalysisRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkInsightsAccessScopeAnalysisRef
 	internal.Type__awscdkITaggable
 }
 
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) CreationStack() *[]*st
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) NetworkInsightsAccessScopeAnalysisRef() *NetworkInsightsAccessScopeAnalysisReference {
-	var returns *NetworkInsightsAccessScopeAnalysisReference
+func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) NetworkInsightsAccessScopeAnalysisRef() *interfacesawsec2.NetworkInsightsAccessScopeAnalysisReference {
+	var returns *interfacesawsec2.NetworkInsightsAccessScopeAnalysisReference
 	_jsii_.Get(
 		j,
 		"networkInsightsAccessScopeAnalysisRef",
@@ -471,6 +473,7 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) UpdatedProperties() *m
 }
 
 
+// Create a new `AWS::EC2::NetworkInsightsAccessScopeAnalysis`.
 func NewCfnNetworkInsightsAccessScopeAnalysis(scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeAnalysisProps) CfnNetworkInsightsAccessScopeAnalysis {
 	_init_.Initialize()
 
@@ -488,6 +491,7 @@ func NewCfnNetworkInsightsAccessScopeAnalysis(scope constructs.Construct, id *st
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkInsightsAccessScopeAnalysis`.
 func NewCfnNetworkInsightsAccessScopeAnalysis_Override(c CfnNetworkInsightsAccessScopeAnalysis, scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeAnalysisProps) {
 	_init_.Initialize()
 
@@ -521,13 +525,13 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis)SetTagsRaw(val *[]*awsc
 }
 
 // Creates a new INetworkInsightsAccessScopeAnalysisRef from an ARN.
-func CfnNetworkInsightsAccessScopeAnalysis_FromNetworkInsightsAccessScopeAnalysisArn(scope constructs.Construct, id *string, arn *string) INetworkInsightsAccessScopeAnalysisRef {
+func CfnNetworkInsightsAccessScopeAnalysis_FromNetworkInsightsAccessScopeAnalysisArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.INetworkInsightsAccessScopeAnalysisRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkInsightsAccessScopeAnalysis_FromNetworkInsightsAccessScopeAnalysisArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns INetworkInsightsAccessScopeAnalysisRef
+	var returns interfacesawsec2.INetworkInsightsAccessScopeAnalysisRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScopeAnalysis",
@@ -540,13 +544,13 @@ func CfnNetworkInsightsAccessScopeAnalysis_FromNetworkInsightsAccessScopeAnalysi
 }
 
 // Creates a new INetworkInsightsAccessScopeAnalysisRef from a networkInsightsAccessScopeAnalysisId.
-func CfnNetworkInsightsAccessScopeAnalysis_FromNetworkInsightsAccessScopeAnalysisId(scope constructs.Construct, id *string, networkInsightsAccessScopeAnalysisId *string) INetworkInsightsAccessScopeAnalysisRef {
+func CfnNetworkInsightsAccessScopeAnalysis_FromNetworkInsightsAccessScopeAnalysisId(scope constructs.Construct, id *string, networkInsightsAccessScopeAnalysisId *string) interfacesawsec2.INetworkInsightsAccessScopeAnalysisRef {
 	_init_.Initialize()
 
 	if err := validateCfnNetworkInsightsAccessScopeAnalysis_FromNetworkInsightsAccessScopeAnalysisIdParameters(scope, id, networkInsightsAccessScopeAnalysisId); err != nil {
 		panic(err)
 	}
-	var returns INetworkInsightsAccessScopeAnalysisRef
+	var returns interfacesawsec2.INetworkInsightsAccessScopeAnalysisRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScopeAnalysis",

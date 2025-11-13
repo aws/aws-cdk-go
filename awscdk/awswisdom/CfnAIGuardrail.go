@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -94,11 +96,11 @@ import (
 //
 type CfnAIGuardrail interface {
 	awscdk.CfnResource
-	IAIGuardrailRef
 	awscdk.IInspectable
+	interfacesawswisdom.IAIGuardrailRef
 	awscdk.ITaggableV2
 	// A reference to a AIGuardrail resource.
-	AiGuardrailRef() *AIGuardrailReference
+	AiGuardrailRef() *interfacesawswisdom.AIGuardrailReference
 	// The identifier of the Amazon Q in Connect assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
@@ -134,7 +136,7 @@ type CfnAIGuardrail interface {
 	// A description of the AI Guardrail.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -314,13 +316,13 @@ type CfnAIGuardrail interface {
 // The jsii proxy struct for CfnAIGuardrail
 type jsiiProxy_CfnAIGuardrail struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAIGuardrailRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIAIGuardrailRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAIGuardrail) AiGuardrailRef() *AIGuardrailReference {
-	var returns *AIGuardrailReference
+func (j *jsiiProxy_CfnAIGuardrail) AiGuardrailRef() *interfacesawswisdom.AIGuardrailReference {
+	var returns *interfacesawswisdom.AIGuardrailReference
 	_jsii_.Get(
 		j,
 		"aiGuardrailRef",
@@ -469,8 +471,8 @@ func (j *jsiiProxy_CfnAIGuardrail) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIGuardrail) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAIGuardrail) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -590,6 +592,7 @@ func (j *jsiiProxy_CfnAIGuardrail) WordPolicyConfig() interface{} {
 }
 
 
+// Create a new `AWS::Wisdom::AIGuardrail`.
 func NewCfnAIGuardrail(scope constructs.Construct, id *string, props *CfnAIGuardrailProps) CfnAIGuardrail {
 	_init_.Initialize()
 
@@ -607,6 +610,7 @@ func NewCfnAIGuardrail(scope constructs.Construct, id *string, props *CfnAIGuard
 	return &j
 }
 
+// Create a new `AWS::Wisdom::AIGuardrail`.
 func NewCfnAIGuardrail_Override(c CfnAIGuardrail, scope constructs.Construct, id *string, props *CfnAIGuardrailProps) {
 	_init_.Initialize()
 

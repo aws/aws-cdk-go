@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -31,8 +33,8 @@ import (
 //
 type CfnEndpointAuthorization interface {
 	awscdk.CfnResource
-	IEndpointAuthorizationRef
 	awscdk.IInspectable
+	interfacesawsredshift.IEndpointAuthorizationRef
 	// The AWS account ID of either the cluster owner (grantor) or grantee.
 	Account() *string
 	SetAccount(val *string)
@@ -65,8 +67,8 @@ type CfnEndpointAuthorization interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EndpointAuthorization resource.
-	EndpointAuthorizationRef() *EndpointAuthorizationReference
-	Env() *awscdk.ResourceEnvironment
+	EndpointAuthorizationRef() *interfacesawsredshift.EndpointAuthorizationReference
+	Env() *interfaces.ResourceEnvironment
 	// Indicates whether to force the revoke action.
 	Force() interface{}
 	SetForce(val interface{})
@@ -237,8 +239,8 @@ type CfnEndpointAuthorization interface {
 // The jsii proxy struct for CfnEndpointAuthorization
 type jsiiProxy_CfnEndpointAuthorization struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEndpointAuthorizationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIEndpointAuthorizationRef
 }
 
 func (j *jsiiProxy_CfnEndpointAuthorization) Account() *string {
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnEndpointAuthorization) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointAuthorization) EndpointAuthorizationRef() *EndpointAuthorizationReference {
-	var returns *EndpointAuthorizationReference
+func (j *jsiiProxy_CfnEndpointAuthorization) EndpointAuthorizationRef() *interfacesawsredshift.EndpointAuthorizationReference {
+	var returns *interfacesawsredshift.EndpointAuthorizationReference
 	_jsii_.Get(
 		j,
 		"endpointAuthorizationRef",
@@ -391,8 +393,8 @@ func (j *jsiiProxy_CfnEndpointAuthorization) EndpointAuthorizationRef() *Endpoin
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointAuthorization) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEndpointAuthorization) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -482,6 +484,7 @@ func (j *jsiiProxy_CfnEndpointAuthorization) VpcIds() *[]*string {
 }
 
 
+// Create a new `AWS::Redshift::EndpointAuthorization`.
 func NewCfnEndpointAuthorization(scope constructs.Construct, id *string, props *CfnEndpointAuthorizationProps) CfnEndpointAuthorization {
 	_init_.Initialize()
 
@@ -499,6 +502,7 @@ func NewCfnEndpointAuthorization(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::Redshift::EndpointAuthorization`.
 func NewCfnEndpointAuthorization_Override(c CfnEndpointAuthorization, scope constructs.Construct, id *string, props *CfnEndpointAuthorizationProps) {
 	_init_.Initialize()
 

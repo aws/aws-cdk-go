@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsproton/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsproton"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnServiceTemplate interface {
 	awscdk.CfnResource
-	IServiceTemplateRef
 	awscdk.IInspectable
+	interfacesawsproton.IServiceTemplateRef
 	awscdk.ITaggable
 	// Returns the service template ARN.
 	AttrArn() *string
@@ -59,7 +61,7 @@ type CfnServiceTemplate interface {
 	// The customer provided service template encryption key that's used to encrypt data.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnServiceTemplate interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ServiceTemplate resource.
-	ServiceTemplateRef() *ServiceTemplateReference
+	ServiceTemplateRef() *interfacesawsproton.ServiceTemplateReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -237,8 +239,8 @@ type CfnServiceTemplate interface {
 // The jsii proxy struct for CfnServiceTemplate
 type jsiiProxy_CfnServiceTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsprotonIServiceTemplateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnServiceTemplate) EncryptionKey() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnServiceTemplate) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceTemplate) ServiceTemplateRef() *ServiceTemplateReference {
-	var returns *ServiceTemplateReference
+func (j *jsiiProxy_CfnServiceTemplate) ServiceTemplateRef() *interfacesawsproton.ServiceTemplateReference {
+	var returns *interfacesawsproton.ServiceTemplateReference
 	_jsii_.Get(
 		j,
 		"serviceTemplateRef",
@@ -443,6 +445,7 @@ func (j *jsiiProxy_CfnServiceTemplate) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Proton::ServiceTemplate`.
 func NewCfnServiceTemplate(scope constructs.Construct, id *string, props *CfnServiceTemplateProps) CfnServiceTemplate {
 	_init_.Initialize()
 
@@ -460,6 +463,7 @@ func NewCfnServiceTemplate(scope constructs.Construct, id *string, props *CfnSer
 	return &j
 }
 
+// Create a new `AWS::Proton::ServiceTemplate`.
 func NewCfnServiceTemplate_Override(c CfnServiceTemplate, scope constructs.Construct, id *string, props *CfnServiceTemplateProps) {
 	_init_.Initialize()
 

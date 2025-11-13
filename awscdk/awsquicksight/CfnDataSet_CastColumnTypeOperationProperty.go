@@ -9,10 +9,10 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   castColumnTypeOperationProperty := &CastColumnTypeOperationProperty{
+//   	ColumnName: jsii.String("columnName"),
 //   	NewColumnType: jsii.String("newColumnType"),
 //
 //   	// the properties below are optional
-//   	ColumnName: jsii.String("columnName"),
 //   	Format: jsii.String("format"),
 //   	SubType: jsii.String("subType"),
 //   }
@@ -20,14 +20,14 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html
 //
 type CfnDataSet_CastColumnTypeOperationProperty struct {
+	// Column name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
+	//
+	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// New column data type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype
 	//
 	NewColumnType *string `field:"required" json:"newColumnType" yaml:"newColumnType"`
-	// Column name.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
-	//
-	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
 	// When casting a column from string to datetime type, you can supply a string in a format supported by Quick Sight to denote the source data format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
 	//

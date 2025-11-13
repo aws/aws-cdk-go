@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskafkaconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskafkaconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnWorkerConfiguration interface {
 	awscdk.CfnResource
-	IWorkerConfigurationRef
 	awscdk.IInspectable
+	interfacesawskafkaconnect.IWorkerConfigurationRef
 	awscdk.ITaggableV2
 	// The revision of the worker configuration.
 	AttrRevision() *float64
@@ -55,7 +57,7 @@ type CfnWorkerConfiguration interface {
 	// The description of a worker configuration.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -100,7 +102,7 @@ type CfnWorkerConfiguration interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a WorkerConfiguration resource.
-	WorkerConfigurationRef() *WorkerConfigurationReference
+	WorkerConfigurationRef() *interfacesawskafkaconnect.WorkerConfigurationReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -231,8 +233,8 @@ type CfnWorkerConfiguration interface {
 // The jsii proxy struct for CfnWorkerConfiguration
 type jsiiProxy_CfnWorkerConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWorkerConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawskafkaconnectIWorkerConfigurationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -316,8 +318,8 @@ func (j *jsiiProxy_CfnWorkerConfiguration) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkerConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWorkerConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -416,8 +418,8 @@ func (j *jsiiProxy_CfnWorkerConfiguration) UpdatedProperties() *map[string]inter
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkerConfiguration) WorkerConfigurationRef() *WorkerConfigurationReference {
-	var returns *WorkerConfigurationReference
+func (j *jsiiProxy_CfnWorkerConfiguration) WorkerConfigurationRef() *interfacesawskafkaconnect.WorkerConfigurationReference {
+	var returns *interfacesawskafkaconnect.WorkerConfigurationReference
 	_jsii_.Get(
 		j,
 		"workerConfigurationRef",
@@ -427,6 +429,7 @@ func (j *jsiiProxy_CfnWorkerConfiguration) WorkerConfigurationRef() *WorkerConfi
 }
 
 
+// Create a new `AWS::KafkaConnect::WorkerConfiguration`.
 func NewCfnWorkerConfiguration(scope constructs.Construct, id *string, props *CfnWorkerConfigurationProps) CfnWorkerConfiguration {
 	_init_.Initialize()
 
@@ -444,6 +447,7 @@ func NewCfnWorkerConfiguration(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::KafkaConnect::WorkerConfiguration`.
 func NewCfnWorkerConfiguration_Override(c CfnWorkerConfiguration, scope constructs.Construct, id *string, props *CfnWorkerConfigurationProps) {
 	_init_.Initialize()
 

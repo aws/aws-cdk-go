@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnIntegration interface {
 	awscdk.CfnResource
-	IIntegrationRef
 	awscdk.IInspectable
+	interfacesawslogs.IIntegrationRef
 	// The current status of this integration.
 	AttrIntegrationStatus() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -57,12 +59,12 @@ type CfnIntegration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of this integration.
 	IntegrationName() *string
 	SetIntegrationName(val *string)
 	// A reference to a Integration resource.
-	IntegrationRef() *IntegrationReference
+	IntegrationRef() *interfacesawslogs.IntegrationReference
 	// The type of integration.
 	IntegrationType() *string
 	SetIntegrationType(val *string)
@@ -233,8 +235,8 @@ type CfnIntegration interface {
 // The jsii proxy struct for CfnIntegration
 type jsiiProxy_CfnIntegration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIntegrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsIIntegrationRef
 }
 
 func (j *jsiiProxy_CfnIntegration) AttrIntegrationStatus() *string {
@@ -287,8 +289,8 @@ func (j *jsiiProxy_CfnIntegration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIntegration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -307,8 +309,8 @@ func (j *jsiiProxy_CfnIntegration) IntegrationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) IntegrationRef() *IntegrationReference {
-	var returns *IntegrationReference
+func (j *jsiiProxy_CfnIntegration) IntegrationRef() *interfacesawslogs.IntegrationReference {
+	var returns *interfacesawslogs.IntegrationReference
 	_jsii_.Get(
 		j,
 		"integrationRef",
@@ -398,6 +400,7 @@ func (j *jsiiProxy_CfnIntegration) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Logs::Integration`.
 func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegrationProps) CfnIntegration {
 	_init_.Initialize()
 
@@ -415,6 +418,7 @@ func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegra
 	return &j
 }
 
+// Create a new `AWS::Logs::Integration`.
 func NewCfnIntegration_Override(c CfnIntegration, scope constructs.Construct, id *string, props *CfnIntegrationProps) {
 	_init_.Initialize()
 

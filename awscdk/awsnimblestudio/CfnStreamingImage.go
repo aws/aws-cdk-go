@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnimblestudio/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnimblestudio"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,8 +34,8 @@ import (
 //
 type CfnStreamingImage interface {
 	awscdk.CfnResource
-	IStreamingImageRef
 	awscdk.IInspectable
+	interfacesawsnimblestudio.IStreamingImageRef
 	awscdk.ITaggable
 	AttrEncryptionConfiguration() awscdk.IResolvable
 	AttrEncryptionConfigurationKeyArn() *string
@@ -55,7 +57,7 @@ type CfnStreamingImage interface {
 	SetDescription(val *string)
 	Ec2ImageId() *string
 	SetEc2ImageId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,7 +82,7 @@ type CfnStreamingImage interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a StreamingImage resource.
-	StreamingImageRef() *StreamingImageReference
+	StreamingImageRef() *interfacesawsnimblestudio.StreamingImageReference
 	StudioId() *string
 	SetStudioId(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -230,8 +232,8 @@ type CfnStreamingImage interface {
 // The jsii proxy struct for CfnStreamingImage
 type jsiiProxy_CfnStreamingImage struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStreamingImageRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnimblestudioIStreamingImageRef
 	internal.Type__awscdkITaggable
 }
 
@@ -365,8 +367,8 @@ func (j *jsiiProxy_CfnStreamingImage) Ec2ImageId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamingImage) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStreamingImage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -425,8 +427,8 @@ func (j *jsiiProxy_CfnStreamingImage) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamingImage) StreamingImageRef() *StreamingImageReference {
-	var returns *StreamingImageReference
+func (j *jsiiProxy_CfnStreamingImage) StreamingImageRef() *interfacesawsnimblestudio.StreamingImageReference {
+	var returns *interfacesawsnimblestudio.StreamingImageReference
 	_jsii_.Get(
 		j,
 		"streamingImageRef",
@@ -486,6 +488,7 @@ func (j *jsiiProxy_CfnStreamingImage) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::NimbleStudio::StreamingImage`.
 func NewCfnStreamingImage(scope constructs.Construct, id *string, props *CfnStreamingImageProps) CfnStreamingImage {
 	_init_.Initialize()
 
@@ -503,6 +506,7 @@ func NewCfnStreamingImage(scope constructs.Construct, id *string, props *CfnStre
 	return &j
 }
 
+// Create a new `AWS::NimbleStudio::StreamingImage`.
 func NewCfnStreamingImage_Override(c CfnStreamingImage, scope constructs.Construct, id *string, props *CfnStreamingImageProps) {
 	_init_.Initialize()
 

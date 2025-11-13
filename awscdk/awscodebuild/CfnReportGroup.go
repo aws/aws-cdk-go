@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnReportGroup interface {
 	awscdk.CfnResource
-	IReportGroupRef
 	awscdk.IInspectable
+	interfacesawscodebuild.IReportGroupRef
 	awscdk.ITaggable
 	// The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
 	AttrArn() *string
@@ -69,7 +71,7 @@ type CfnReportGroup interface {
 	// When deleting a report group, specifies if reports within the report group should be deleted.
 	DeleteReports() interface{}
 	SetDeleteReports(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Information about the destination where the raw data of this `ReportGroup` is exported.
 	ExportConfig() interface{}
 	SetExportConfig(val interface{})
@@ -94,7 +96,7 @@ type CfnReportGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ReportGroup resource.
-	ReportGroupRef() *ReportGroupReference
+	ReportGroupRef() *interfacesawscodebuild.ReportGroupReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -252,8 +254,8 @@ type CfnReportGroup interface {
 // The jsii proxy struct for CfnReportGroup
 type jsiiProxy_CfnReportGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IReportGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscodebuildIReportGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnReportGroup) DeleteReports() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReportGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnReportGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnReportGroup) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReportGroup) ReportGroupRef() *ReportGroupReference {
-	var returns *ReportGroupReference
+func (j *jsiiProxy_CfnReportGroup) ReportGroupRef() *interfacesawscodebuild.ReportGroupReference {
+	var returns *interfacesawscodebuild.ReportGroupReference
 	_jsii_.Get(
 		j,
 		"reportGroupRef",
@@ -458,6 +460,7 @@ func (j *jsiiProxy_CfnReportGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::CodeBuild::ReportGroup`.
 func NewCfnReportGroup(scope constructs.Construct, id *string, props *CfnReportGroupProps) CfnReportGroup {
 	_init_.Initialize()
 
@@ -475,6 +478,7 @@ func NewCfnReportGroup(scope constructs.Construct, id *string, props *CfnReportG
 	return &j
 }
 
+// Create a new `AWS::CodeBuild::ReportGroup`.
 func NewCfnReportGroup_Override(c CfnReportGroup, scope constructs.Construct, id *string, props *CfnReportGroupProps) {
 	_init_.Initialize()
 

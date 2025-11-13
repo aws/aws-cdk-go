@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnDeliveryDestination interface {
 	awscdk.CfnResource
-	IDeliveryDestinationRef
 	awscdk.IInspectable
+	interfacesawslogs.IDeliveryDestinationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
 	AttrArn() *string
@@ -72,14 +74,14 @@ type CfnDeliveryDestination interface {
 	DeliveryDestinationPolicy() interface{}
 	SetDeliveryDestinationPolicy(val interface{})
 	// A reference to a DeliveryDestination resource.
-	DeliveryDestinationRef() *DeliveryDestinationReference
+	DeliveryDestinationRef() *interfacesawslogs.DeliveryDestinationReference
 	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.
 	DeliveryDestinationType() *string
 	SetDeliveryDestinationType(val *string)
 	// The ARN of the AWS destination that this delivery destination represents.
 	DestinationResourceArn() *string
 	SetDestinationResourceArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnDeliveryDestination interface {
 // The jsii proxy struct for CfnDeliveryDestination
 type jsiiProxy_CfnDeliveryDestination struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDeliveryDestinationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslogsIDeliveryDestinationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnDeliveryDestination) DeliveryDestinationPolicy() interface
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliveryDestination) DeliveryDestinationRef() *DeliveryDestinationReference {
-	var returns *DeliveryDestinationReference
+func (j *jsiiProxy_CfnDeliveryDestination) DeliveryDestinationRef() *interfacesawslogs.DeliveryDestinationReference {
+	var returns *interfacesawslogs.DeliveryDestinationReference
 	_jsii_.Get(
 		j,
 		"deliveryDestinationRef",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnDeliveryDestination) DestinationResourceArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliveryDestination) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDeliveryDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -459,6 +461,7 @@ func (j *jsiiProxy_CfnDeliveryDestination) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::Logs::DeliveryDestination`.
 func NewCfnDeliveryDestination(scope constructs.Construct, id *string, props *CfnDeliveryDestinationProps) CfnDeliveryDestination {
 	_init_.Initialize()
 
@@ -476,6 +479,7 @@ func NewCfnDeliveryDestination(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::Logs::DeliveryDestination`.
 func NewCfnDeliveryDestination_Override(c CfnDeliveryDestination, scope constructs.Construct, id *string, props *CfnDeliveryDestinationProps) {
 	_init_.Initialize()
 
@@ -544,13 +548,13 @@ func (j *jsiiProxy_CfnDeliveryDestination)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDeliveryDestinationRef from an ARN.
-func CfnDeliveryDestination_FromDeliveryDestinationArn(scope constructs.Construct, id *string, arn *string) IDeliveryDestinationRef {
+func CfnDeliveryDestination_FromDeliveryDestinationArn(scope constructs.Construct, id *string, arn *string) interfacesawslogs.IDeliveryDestinationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeliveryDestination_FromDeliveryDestinationArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDeliveryDestinationRef
+	var returns interfacesawslogs.IDeliveryDestinationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnDeliveryDestination",
@@ -563,13 +567,13 @@ func CfnDeliveryDestination_FromDeliveryDestinationArn(scope constructs.Construc
 }
 
 // Creates a new IDeliveryDestinationRef from a deliveryDestinationName.
-func CfnDeliveryDestination_FromDeliveryDestinationName(scope constructs.Construct, id *string, deliveryDestinationName *string) IDeliveryDestinationRef {
+func CfnDeliveryDestination_FromDeliveryDestinationName(scope constructs.Construct, id *string, deliveryDestinationName *string) interfacesawslogs.IDeliveryDestinationRef {
 	_init_.Initialize()
 
 	if err := validateCfnDeliveryDestination_FromDeliveryDestinationNameParameters(scope, id, deliveryDestinationName); err != nil {
 		panic(err)
 	}
-	var returns IDeliveryDestinationRef
+	var returns interfacesawslogs.IDeliveryDestinationRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnDeliveryDestination",

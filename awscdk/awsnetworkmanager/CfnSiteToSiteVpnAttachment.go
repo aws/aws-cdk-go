@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -54,8 +56,8 @@ import (
 //
 type CfnSiteToSiteVpnAttachment interface {
 	awscdk.CfnResource
-	ISiteToSiteVpnAttachmentRef
 	awscdk.IInspectable
+	interfacesawsnetworkmanager.ISiteToSiteVpnAttachmentRef
 	awscdk.ITaggable
 	// The ID of the site-to-site VPN attachment.
 	AttrAttachmentId() *string
@@ -97,7 +99,7 @@ type CfnSiteToSiteVpnAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -125,7 +127,7 @@ type CfnSiteToSiteVpnAttachment interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SiteToSiteVpnAttachment resource.
-	SiteToSiteVpnAttachmentRef() *SiteToSiteVpnAttachmentReference
+	SiteToSiteVpnAttachmentRef() *interfacesawsnetworkmanager.SiteToSiteVpnAttachmentReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -281,8 +283,8 @@ type CfnSiteToSiteVpnAttachment interface {
 // The jsii proxy struct for CfnSiteToSiteVpnAttachment
 type jsiiProxy_CfnSiteToSiteVpnAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISiteToSiteVpnAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnetworkmanagerISiteToSiteVpnAttachmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -456,8 +458,8 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -526,8 +528,8 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) SiteToSiteVpnAttachmentRef() *SiteToSiteVpnAttachmentReference {
-	var returns *SiteToSiteVpnAttachmentReference
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) SiteToSiteVpnAttachmentRef() *interfacesawsnetworkmanager.SiteToSiteVpnAttachmentReference {
+	var returns *interfacesawsnetworkmanager.SiteToSiteVpnAttachmentReference
 	_jsii_.Get(
 		j,
 		"siteToSiteVpnAttachmentRef",
@@ -597,6 +599,7 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) VpnConnectionArn() *string {
 }
 
 
+// Create a new `AWS::NetworkManager::SiteToSiteVpnAttachment`.
 func NewCfnSiteToSiteVpnAttachment(scope constructs.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) CfnSiteToSiteVpnAttachment {
 	_init_.Initialize()
 
@@ -614,6 +617,7 @@ func NewCfnSiteToSiteVpnAttachment(scope constructs.Construct, id *string, props
 	return &j
 }
 
+// Create a new `AWS::NetworkManager::SiteToSiteVpnAttachment`.
 func NewCfnSiteToSiteVpnAttachment_Override(c CfnSiteToSiteVpnAttachment, scope constructs.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) {
 	_init_.Initialize()
 

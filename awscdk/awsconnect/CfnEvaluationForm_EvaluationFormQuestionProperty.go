@@ -141,6 +141,7 @@ type CfnEvaluationForm_EvaluationFormQuestionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-title
 	//
 	Title *string `field:"required" json:"title" yaml:"title"`
+	// A question conditional enablement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-enablement
 	//
 	Enablement interface{} `field:"optional" json:"enablement" yaml:"enablement"`

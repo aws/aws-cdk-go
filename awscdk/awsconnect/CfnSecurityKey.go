@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnSecurityKey interface {
 	awscdk.CfnResource
-	ISecurityKeyRef
 	awscdk.IInspectable
+	interfacesawsconnect.ISecurityKeyRef
 	// An `AssociationId` is automatically generated when a storage config is associated with an instance.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -40,7 +42,7 @@ type CfnSecurityKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -67,7 +69,7 @@ type CfnSecurityKey interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SecurityKey resource.
-	SecurityKeyRef() *SecurityKeyReference
+	SecurityKeyRef() *interfacesawsconnect.SecurityKeyReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -215,8 +217,8 @@ type CfnSecurityKey interface {
 // The jsii proxy struct for CfnSecurityKey
 type jsiiProxy_CfnSecurityKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISecurityKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectISecurityKeyRef
 }
 
 func (j *jsiiProxy_CfnSecurityKey) AttrAssociationId() *string {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnSecurityKey) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSecurityKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -329,8 +331,8 @@ func (j *jsiiProxy_CfnSecurityKey) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityKey) SecurityKeyRef() *SecurityKeyReference {
-	var returns *SecurityKeyReference
+func (j *jsiiProxy_CfnSecurityKey) SecurityKeyRef() *interfacesawsconnect.SecurityKeyReference {
+	var returns *interfacesawsconnect.SecurityKeyReference
 	_jsii_.Get(
 		j,
 		"securityKeyRef",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnSecurityKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Connect::SecurityKey`.
 func NewCfnSecurityKey(scope constructs.Construct, id *string, props *CfnSecurityKeyProps) CfnSecurityKey {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnSecurityKey(scope constructs.Construct, id *string, props *CfnSecurit
 	return &j
 }
 
+// Create a new `AWS::Connect::SecurityKey`.
 func NewCfnSecurityKey_Override(c CfnSecurityKey, scope constructs.Construct, id *string, props *CfnSecurityKeyProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsfsx/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsfsx"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -186,8 +188,8 @@ import (
 //
 type CfnFileSystem interface {
 	awscdk.CfnResource
-	IFileSystemRef
 	awscdk.IInspectable
+	interfacesawsfsx.IFileSystemRef
 	awscdk.ITaggable
 	// Returns the FSx for Windows file system's DNSName.
 	//
@@ -220,9 +222,9 @@ type CfnFileSystem interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FileSystem resource.
-	FileSystemRef() *FileSystemReference
+	FileSystemRef() *interfacesawsfsx.FileSystemReference
 	// The type of Amazon FSx file system, which can be `LUSTRE` , `WINDOWS` , `ONTAP` , or `OPENZFS` .
 	FileSystemType() *string
 	SetFileSystemType(val *string)
@@ -428,8 +430,8 @@ type CfnFileSystem interface {
 // The jsii proxy struct for CfnFileSystem
 type jsiiProxy_CfnFileSystem struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFileSystemRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsfsxIFileSystemRef
 	internal.Type__awscdkITaggable
 }
 
@@ -533,8 +535,8 @@ func (j *jsiiProxy_CfnFileSystem) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFileSystem) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFileSystem) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -543,8 +545,8 @@ func (j *jsiiProxy_CfnFileSystem) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFileSystem) FileSystemRef() *FileSystemReference {
-	var returns *FileSystemReference
+func (j *jsiiProxy_CfnFileSystem) FileSystemRef() *interfacesawsfsx.FileSystemReference {
+	var returns *interfacesawsfsx.FileSystemReference
 	_jsii_.Get(
 		j,
 		"fileSystemRef",
@@ -754,6 +756,7 @@ func (j *jsiiProxy_CfnFileSystem) WindowsConfiguration() interface{} {
 }
 
 
+// Create a new `AWS::FSx::FileSystem`.
 func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSystemProps) CfnFileSystem {
 	_init_.Initialize()
 
@@ -771,6 +774,7 @@ func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSyst
 	return &j
 }
 
+// Create a new `AWS::FSx::FileSystem`.
 func NewCfnFileSystem_Override(c CfnFileSystem, scope constructs.Construct, id *string, props *CfnFileSystemProps) {
 	_init_.Initialize()
 

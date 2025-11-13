@@ -52,8 +52,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnOrganizationCentralizationRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOrganizationCentralizationRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsobservabilityadminIOrganizationCentralizationRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -135,8 +135,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnOrganizationTelemetryRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOrganizationTelemetryRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsobservabilityadminIOrganizationTelemetryRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -202,8 +202,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnTelemetryRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITelemetryRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsobservabilityadminITelemetryRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
@@ -223,62 +223,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRuleProps",
 		reflect.TypeOf((*CfnTelemetryRuleProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_observabilityadmin.IOrganizationCentralizationRuleRef",
-		reflect.TypeOf((*IOrganizationCentralizationRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "organizationCentralizationRuleRef", GoGetter: "OrganizationCentralizationRuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IOrganizationCentralizationRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_observabilityadmin.IOrganizationTelemetryRuleRef",
-		reflect.TypeOf((*IOrganizationTelemetryRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "organizationTelemetryRuleRef", GoGetter: "OrganizationTelemetryRuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IOrganizationTelemetryRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_observabilityadmin.ITelemetryRuleRef",
-		reflect.TypeOf((*ITelemetryRuleRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "telemetryRuleRef", GoGetter: "TelemetryRuleRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITelemetryRuleRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_observabilityadmin.OrganizationCentralizationRuleReference",
-		reflect.TypeOf((*OrganizationCentralizationRuleReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_observabilityadmin.OrganizationTelemetryRuleReference",
-		reflect.TypeOf((*OrganizationTelemetryRuleReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_observabilityadmin.TelemetryRuleReference",
-		reflect.TypeOf((*TelemetryRuleReference)(nil)).Elem(),
 	)
 }

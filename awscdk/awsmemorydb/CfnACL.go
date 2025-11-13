@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmemorydb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmemorydb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,14 +39,14 @@ import (
 //
 type CfnACL interface {
 	awscdk.CfnResource
-	IACLRef
 	awscdk.IInspectable
+	interfacesawsmemorydb.IACLRef
 	awscdk.ITaggable
 	// The name of the Access Control List.
 	AclName() *string
 	SetAclName(val *string)
 	// A reference to a ACL resource.
-	AclRef() *ACLReference
+	AclRef() *interfacesawsmemorydb.ACLReference
 	// When you pass the logical ID of this resource to the intrinsic `Ref` function, Ref returns the ARN of the Access Control List, such as `arn:aws:memorydb:us-east-1:123456789012:acl/my-acl`.
 	AttrArn() *string
 	// Indicates ACL status.
@@ -60,7 +62,7 @@ type CfnACL interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -233,8 +235,8 @@ type CfnACL interface {
 // The jsii proxy struct for CfnACL
 type jsiiProxy_CfnACL struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IACLRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmemorydbIACLRef
 	internal.Type__awscdkITaggable
 }
 
@@ -248,8 +250,8 @@ func (j *jsiiProxy_CfnACL) AclName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnACL) AclRef() *ACLReference {
-	var returns *ACLReference
+func (j *jsiiProxy_CfnACL) AclRef() *interfacesawsmemorydb.ACLReference {
+	var returns *interfacesawsmemorydb.ACLReference
 	_jsii_.Get(
 		j,
 		"aclRef",
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnACL) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnACL) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnACL) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -419,6 +421,7 @@ func (j *jsiiProxy_CfnACL) UserNames() *[]*string {
 }
 
 
+// Create a new `AWS::MemoryDB::ACL`.
 func NewCfnACL(scope constructs.Construct, id *string, props *CfnACLProps) CfnACL {
 	_init_.Initialize()
 
@@ -436,6 +439,7 @@ func NewCfnACL(scope constructs.Construct, id *string, props *CfnACLProps) CfnAC
 	return &j
 }
 
+// Create a new `AWS::MemoryDB::ACL`.
 func NewCfnACL_Override(c CfnACL, scope constructs.Construct, id *string, props *CfnACLProps) {
 	_init_.Initialize()
 
@@ -477,13 +481,13 @@ func (j *jsiiProxy_CfnACL)SetUserNames(val *[]*string) {
 }
 
 // Creates a new IACLRef from an ARN.
-func CfnACL_FromACLArn(scope constructs.Construct, id *string, arn *string) IACLRef {
+func CfnACL_FromACLArn(scope constructs.Construct, id *string, arn *string) interfacesawsmemorydb.IACLRef {
 	_init_.Initialize()
 
 	if err := validateCfnACL_FromACLArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IACLRef
+	var returns interfacesawsmemorydb.IACLRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_memorydb.CfnACL",
@@ -496,13 +500,13 @@ func CfnACL_FromACLArn(scope constructs.Construct, id *string, arn *string) IACL
 }
 
 // Creates a new IACLRef from a aclName.
-func CfnACL_FromAclName(scope constructs.Construct, id *string, aclName *string) IACLRef {
+func CfnACL_FromAclName(scope constructs.Construct, id *string, aclName *string) interfacesawsmemorydb.IACLRef {
 	_init_.Initialize()
 
 	if err := validateCfnACL_FromAclNameParameters(scope, id, aclName); err != nil {
 		panic(err)
 	}
-	var returns IACLRef
+	var returns interfacesawsmemorydb.IACLRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_memorydb.CfnACL",

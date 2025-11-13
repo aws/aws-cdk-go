@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssagemaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -83,14 +85,14 @@ import (
 //
 type CfnAppImageConfig interface {
 	awscdk.CfnResource
-	IAppImageConfigRef
 	awscdk.IInspectable
+	interfacesawssagemaker.IAppImageConfigRef
 	awscdk.ITaggable
 	// The name of the AppImageConfig.
 	AppImageConfigName() *string
 	SetAppImageConfigName(val *string)
 	// A reference to a AppImageConfig resource.
-	AppImageConfigRef() *AppImageConfigReference
+	AppImageConfigRef() *interfacesawssagemaker.AppImageConfigReference
 	// The Amazon Resource Name (ARN) of the AppImageConfig, such as `arn:aws:sagemaker:us-west-2:account-id:app-image-config/my-app-image-config-name` .
 	AttrAppImageConfigArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -105,7 +107,7 @@ type CfnAppImageConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The configuration for the file system and the runtime, such as the environment variables and entry point.
 	JupyterLabAppImageConfig() interface{}
 	SetJupyterLabAppImageConfig(val interface{})
@@ -281,8 +283,8 @@ type CfnAppImageConfig interface {
 // The jsii proxy struct for CfnAppImageConfig
 type jsiiProxy_CfnAppImageConfig struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAppImageConfigRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssagemakerIAppImageConfigRef
 	internal.Type__awscdkITaggable
 }
 
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnAppImageConfig) AppImageConfigName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppImageConfig) AppImageConfigRef() *AppImageConfigReference {
-	var returns *AppImageConfigReference
+func (j *jsiiProxy_CfnAppImageConfig) AppImageConfigRef() *interfacesawssagemaker.AppImageConfigReference {
+	var returns *interfacesawssagemaker.AppImageConfigReference
 	_jsii_.Get(
 		j,
 		"appImageConfigRef",
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnAppImageConfig) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppImageConfig) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAppImageConfig) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -477,6 +479,7 @@ func (j *jsiiProxy_CfnAppImageConfig) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::SageMaker::AppImageConfig`.
 func NewCfnAppImageConfig(scope constructs.Construct, id *string, props *CfnAppImageConfigProps) CfnAppImageConfig {
 	_init_.Initialize()
 
@@ -494,6 +497,7 @@ func NewCfnAppImageConfig(scope constructs.Construct, id *string, props *CfnAppI
 	return &j
 }
 
+// Create a new `AWS::SageMaker::AppImageConfig`.
 func NewCfnAppImageConfig_Override(c CfnAppImageConfig, scope constructs.Construct, id *string, props *CfnAppImageConfigProps) {
 	_init_.Initialize()
 
@@ -560,13 +564,13 @@ func (j *jsiiProxy_CfnAppImageConfig)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IAppImageConfigRef from an ARN.
-func CfnAppImageConfig_FromAppImageConfigArn(scope constructs.Construct, id *string, arn *string) IAppImageConfigRef {
+func CfnAppImageConfig_FromAppImageConfigArn(scope constructs.Construct, id *string, arn *string) interfacesawssagemaker.IAppImageConfigRef {
 	_init_.Initialize()
 
 	if err := validateCfnAppImageConfig_FromAppImageConfigArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IAppImageConfigRef
+	var returns interfacesawssagemaker.IAppImageConfigRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig",
@@ -579,13 +583,13 @@ func CfnAppImageConfig_FromAppImageConfigArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IAppImageConfigRef from a appImageConfigName.
-func CfnAppImageConfig_FromAppImageConfigName(scope constructs.Construct, id *string, appImageConfigName *string) IAppImageConfigRef {
+func CfnAppImageConfig_FromAppImageConfigName(scope constructs.Construct, id *string, appImageConfigName *string) interfacesawssagemaker.IAppImageConfigRef {
 	_init_.Initialize()
 
 	if err := validateCfnAppImageConfig_FromAppImageConfigNameParameters(scope, id, appImageConfigName); err != nil {
 		panic(err)
 	}
-	var returns IAppImageConfigRef
+	var returns interfacesawssagemaker.IAppImageConfigRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig",

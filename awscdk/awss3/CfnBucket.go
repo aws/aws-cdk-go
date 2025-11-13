@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnBucket interface {
 	awscdk.CfnResource
-	IBucketRef
 	awscdk.IInspectable
+	interfacesawss3.IBucketRef
 	awscdk.ITaggable
 	// Configures the transfer acceleration state for an Amazon S3 bucket.
 	AccelerateConfiguration() interface{}
@@ -97,7 +99,7 @@ type CfnBucket interface {
 	BucketName() *string
 	SetBucketName(val *string)
 	// A reference to a Bucket resource.
-	BucketRef() *BucketReference
+	BucketRef() *interfacesawss3.BucketReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -110,7 +112,7 @@ type CfnBucket interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
 	IntelligentTieringConfigurations() interface{}
 	SetIntelligentTieringConfigurations(val interface{})
@@ -325,8 +327,8 @@ type CfnBucket interface {
 // The jsii proxy struct for CfnBucket
 type jsiiProxy_CfnBucket struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBucketRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IBucketRef
 	internal.Type__awscdkITaggable
 }
 
@@ -500,8 +502,8 @@ func (j *jsiiProxy_CfnBucket) BucketName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) BucketRef() *BucketReference {
-	var returns *BucketReference
+func (j *jsiiProxy_CfnBucket) BucketRef() *interfacesawss3.BucketReference {
+	var returns *interfacesawss3.BucketReference
 	_jsii_.Get(
 		j,
 		"bucketRef",
@@ -560,8 +562,8 @@ func (j *jsiiProxy_CfnBucket) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBucket) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -801,6 +803,7 @@ func (j *jsiiProxy_CfnBucket) WebsiteConfiguration() interface{} {
 }
 
 
+// Create a new `AWS::S3::Bucket`.
 func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps) CfnBucket {
 	_init_.Initialize()
 
@@ -818,6 +821,7 @@ func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps)
 	return &j
 }
 
+// Create a new `AWS::S3::Bucket`.
 func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, props *CfnBucketProps) {
 	_init_.Initialize()
 
@@ -1065,13 +1069,13 @@ func (j *jsiiProxy_CfnBucket)SetWebsiteConfiguration(val interface{}) {
 }
 
 // Creates a new IBucketRef from an ARN.
-func CfnBucket_FromBucketArn(scope constructs.Construct, id *string, arn *string) IBucketRef {
+func CfnBucket_FromBucketArn(scope constructs.Construct, id *string, arn *string) interfacesawss3.IBucketRef {
 	_init_.Initialize()
 
 	if err := validateCfnBucket_FromBucketArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IBucketRef
+	var returns interfacesawss3.IBucketRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3.CfnBucket",
@@ -1084,13 +1088,13 @@ func CfnBucket_FromBucketArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IBucketRef from a bucketName.
-func CfnBucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) IBucketRef {
+func CfnBucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) interfacesawss3.IBucketRef {
 	_init_.Initialize()
 
 	if err := validateCfnBucket_FromBucketNameParameters(scope, id, bucketName); err != nil {
 		panic(err)
 	}
-	var returns IBucketRef
+	var returns interfacesawss3.IBucketRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3.CfnBucket",

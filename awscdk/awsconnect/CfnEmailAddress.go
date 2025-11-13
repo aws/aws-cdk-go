@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnEmailAddress interface {
 	awscdk.CfnResource
-	IEmailAddressRef
 	awscdk.IInspectable
+	interfacesawsconnect.IEmailAddressRef
 	awscdk.ITaggableV2
 	// A list of alias configurations for this email address, showing which email addresses forward to this primary address.
 	AliasConfigurations() interface{}
@@ -71,8 +73,8 @@ type CfnEmailAddress interface {
 	EmailAddress() *string
 	SetEmailAddress(val *string)
 	// A reference to a EmailAddress resource.
-	EmailAddressRef() *EmailAddressReference
-	Env() *awscdk.ResourceEnvironment
+	EmailAddressRef() *interfacesawsconnect.EmailAddressReference
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -243,8 +245,8 @@ type CfnEmailAddress interface {
 // The jsii proxy struct for CfnEmailAddress
 type jsiiProxy_CfnEmailAddress struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEmailAddressRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIEmailAddressRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnEmailAddress) EmailAddress() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailAddress) EmailAddressRef() *EmailAddressReference {
-	var returns *EmailAddressReference
+func (j *jsiiProxy_CfnEmailAddress) EmailAddressRef() *interfacesawsconnect.EmailAddressReference {
+	var returns *interfacesawsconnect.EmailAddressReference
 	_jsii_.Get(
 		j,
 		"emailAddressRef",
@@ -358,8 +360,8 @@ func (j *jsiiProxy_CfnEmailAddress) EmailAddressRef() *EmailAddressReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailAddress) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEmailAddress) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -449,6 +451,7 @@ func (j *jsiiProxy_CfnEmailAddress) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Connect::EmailAddress`.
 func NewCfnEmailAddress(scope constructs.Construct, id *string, props *CfnEmailAddressProps) CfnEmailAddress {
 	_init_.Initialize()
 
@@ -466,6 +469,7 @@ func NewCfnEmailAddress(scope constructs.Construct, id *string, props *CfnEmailA
 	return &j
 }
 
+// Create a new `AWS::Connect::EmailAddress`.
 func NewCfnEmailAddress_Override(c CfnEmailAddress, scope constructs.Construct, id *string, props *CfnEmailAddressProps) {
 	_init_.Initialize()
 

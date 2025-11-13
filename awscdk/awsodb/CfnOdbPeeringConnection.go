@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnOdbPeeringConnection interface {
 	awscdk.CfnResource
-	IOdbPeeringConnectionRef
 	awscdk.IInspectable
+	interfacesawsodb.IOdbPeeringConnectionRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the ODB network that initiated the peering connection.
 	AttrOdbNetworkArn() *string
@@ -61,7 +63,7 @@ type CfnOdbPeeringConnection interface {
 	// The display name of the ODB peering connection.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -78,7 +80,7 @@ type CfnOdbPeeringConnection interface {
 	OdbNetworkId() *string
 	SetOdbNetworkId(val *string)
 	// A reference to a OdbPeeringConnection resource.
-	OdbPeeringConnectionRef() *OdbPeeringConnectionReference
+	OdbPeeringConnectionRef() *interfacesawsodb.OdbPeeringConnectionReference
 	// The unique identifier of the peer network.
 	PeerNetworkId() *string
 	SetPeerNetworkId(val *string)
@@ -237,8 +239,8 @@ type CfnOdbPeeringConnection interface {
 // The jsii proxy struct for CfnOdbPeeringConnection
 type jsiiProxy_CfnOdbPeeringConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOdbPeeringConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsodbIOdbPeeringConnectionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnOdbPeeringConnection) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOdbPeeringConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOdbPeeringConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnOdbPeeringConnection) OdbNetworkId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOdbPeeringConnection) OdbPeeringConnectionRef() *OdbPeeringConnectionReference {
-	var returns *OdbPeeringConnectionReference
+func (j *jsiiProxy_CfnOdbPeeringConnection) OdbPeeringConnectionRef() *interfacesawsodb.OdbPeeringConnectionReference {
+	var returns *interfacesawsodb.OdbPeeringConnectionReference
 	_jsii_.Get(
 		j,
 		"odbPeeringConnectionRef",
@@ -453,6 +455,7 @@ func (j *jsiiProxy_CfnOdbPeeringConnection) UpdatedProperties() *map[string]inte
 }
 
 
+// Create a new `AWS::ODB::OdbPeeringConnection`.
 func NewCfnOdbPeeringConnection(scope constructs.Construct, id *string, props *CfnOdbPeeringConnectionProps) CfnOdbPeeringConnection {
 	_init_.Initialize()
 
@@ -470,6 +473,7 @@ func NewCfnOdbPeeringConnection(scope constructs.Construct, id *string, props *C
 	return &j
 }
 
+// Create a new `AWS::ODB::OdbPeeringConnection`.
 func NewCfnOdbPeeringConnection_Override(c CfnOdbPeeringConnection, scope constructs.Construct, id *string, props *CfnOdbPeeringConnectionProps) {
 	_init_.Initialize()
 

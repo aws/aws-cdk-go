@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatapipeline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatapipeline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -81,8 +83,8 @@ import (
 //
 type CfnPipeline interface {
 	awscdk.CfnResource
-	IPipelineRef
 	awscdk.IInspectable
+	interfacesawsdatapipeline.IPipelineRef
 	awscdk.ITaggableV2
 	// Indicates whether to validate and start the pipeline or stop an active pipeline.
 	Activate() interface{}
@@ -104,7 +106,7 @@ type CfnPipeline interface {
 	// A description of the pipeline.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -130,7 +132,7 @@ type CfnPipeline interface {
 	PipelineObjects() interface{}
 	SetPipelineObjects(val interface{})
 	// A reference to a Pipeline resource.
-	PipelineRef() *PipelineReference
+	PipelineRef() *interfacesawsdatapipeline.PipelineReference
 	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions.
 	PipelineTags() *[]*CfnPipeline_PipelineTagProperty
 	SetPipelineTags(val *[]*CfnPipeline_PipelineTagProperty)
@@ -286,8 +288,8 @@ type CfnPipeline interface {
 // The jsii proxy struct for CfnPipeline
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPipelineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatapipelineIPipelineRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnPipeline) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPipeline) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -451,8 +453,8 @@ func (j *jsiiProxy_CfnPipeline) PipelineObjects() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) PipelineRef() *PipelineReference {
-	var returns *PipelineReference
+func (j *jsiiProxy_CfnPipeline) PipelineRef() *interfacesawsdatapipeline.PipelineReference {
+	var returns *interfacesawsdatapipeline.PipelineReference
 	_jsii_.Get(
 		j,
 		"pipelineRef",
@@ -512,6 +514,7 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataPipeline::Pipeline`.
 func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
@@ -529,6 +532,7 @@ func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelinePr
 	return &j
 }
 
+// Create a new `AWS::DataPipeline::Pipeline`.
 func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
@@ -614,13 +618,13 @@ func (j *jsiiProxy_CfnPipeline)SetPipelineTags(val *[]*CfnPipeline_PipelineTagPr
 }
 
 // Creates a new IPipelineRef from a pipelineId.
-func CfnPipeline_FromPipelineID(scope constructs.Construct, id *string, pipelineId *string) IPipelineRef {
+func CfnPipeline_FromPipelineID(scope constructs.Construct, id *string, pipelineId *string) interfacesawsdatapipeline.IPipelineRef {
 	_init_.Initialize()
 
 	if err := validateCfnPipeline_FromPipelineIDParameters(scope, id, pipelineId); err != nil {
 		panic(err)
 	}
-	var returns IPipelineRef
+	var returns interfacesawsdatapipeline.IPipelineRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_datapipeline.CfnPipeline",

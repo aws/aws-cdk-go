@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -126,8 +128,8 @@ import (
 //
 type CfnComputeEnvironment interface {
 	awscdk.CfnResource
-	IComputeEnvironmentRef
 	awscdk.IInspectable
+	interfacesawsbatch.IComputeEnvironmentRef
 	awscdk.ITaggable
 	// Returns the compute environment ARN, such as `batch: *us-east-1* : *111122223333* :compute-environment/ *ComputeEnvironmentName*` .
 	AttrComputeEnvironmentArn() *string
@@ -140,7 +142,7 @@ type CfnComputeEnvironment interface {
 	ComputeEnvironmentName() *string
 	SetComputeEnvironmentName(val *string)
 	// A reference to a ComputeEnvironment resource.
-	ComputeEnvironmentRef() *ComputeEnvironmentReference
+	ComputeEnvironmentRef() *interfacesawsbatch.ComputeEnvironmentReference
 	// The ComputeResources property type specifies details of the compute resources managed by the compute environment.
 	ComputeResources() interface{}
 	SetComputeResources(val interface{})
@@ -154,7 +156,7 @@ type CfnComputeEnvironment interface {
 	// The details for the Amazon EKS cluster that supports the compute environment.
 	EksConfiguration() interface{}
 	SetEksConfiguration(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -342,8 +344,8 @@ type CfnComputeEnvironment interface {
 // The jsii proxy struct for CfnComputeEnvironment
 type jsiiProxy_CfnComputeEnvironment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IComputeEnvironmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbatchIComputeEnvironmentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -397,8 +399,8 @@ func (j *jsiiProxy_CfnComputeEnvironment) ComputeEnvironmentName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComputeEnvironment) ComputeEnvironmentRef() *ComputeEnvironmentReference {
-	var returns *ComputeEnvironmentReference
+func (j *jsiiProxy_CfnComputeEnvironment) ComputeEnvironmentRef() *interfacesawsbatch.ComputeEnvironmentReference {
+	var returns *interfacesawsbatch.ComputeEnvironmentReference
 	_jsii_.Get(
 		j,
 		"computeEnvironmentRef",
@@ -447,8 +449,8 @@ func (j *jsiiProxy_CfnComputeEnvironment) EksConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComputeEnvironment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnComputeEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -598,6 +600,7 @@ func (j *jsiiProxy_CfnComputeEnvironment) UpdatePolicy() interface{} {
 }
 
 
+// Create a new `AWS::Batch::ComputeEnvironment`.
 func NewCfnComputeEnvironment(scope constructs.Construct, id *string, props *CfnComputeEnvironmentProps) CfnComputeEnvironment {
 	_init_.Initialize()
 
@@ -615,6 +618,7 @@ func NewCfnComputeEnvironment(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::Batch::ComputeEnvironment`.
 func NewCfnComputeEnvironment_Override(c CfnComputeEnvironment, scope constructs.Construct, id *string, props *CfnComputeEnvironmentProps) {
 	_init_.Initialize()
 

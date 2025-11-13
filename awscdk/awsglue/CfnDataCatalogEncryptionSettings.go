@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnDataCatalogEncryptionSettings interface {
 	awscdk.CfnResource
-	IDataCatalogEncryptionSettingsRef
 	awscdk.IInspectable
+	interfacesawsglue.IDataCatalogEncryptionSettingsRef
 	AttrId() *string
 	// The ID of the Data Catalog in which the settings are created.
 	CatalogId() *string
@@ -56,8 +58,8 @@ type CfnDataCatalogEncryptionSettings interface {
 	DataCatalogEncryptionSettings() interface{}
 	SetDataCatalogEncryptionSettings(val interface{})
 	// A reference to a DataCatalogEncryptionSettings resource.
-	DataCatalogEncryptionSettingsRef() *DataCatalogEncryptionSettingsReference
-	Env() *awscdk.ResourceEnvironment
+	DataCatalogEncryptionSettingsRef() *interfacesawsglue.DataCatalogEncryptionSettingsReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -222,8 +224,8 @@ type CfnDataCatalogEncryptionSettings interface {
 // The jsii proxy struct for CfnDataCatalogEncryptionSettings
 type jsiiProxy_CfnDataCatalogEncryptionSettings struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataCatalogEncryptionSettingsRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglueIDataCatalogEncryptionSettingsRef
 }
 
 func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) AttrId() *string {
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) DataCatalogEncryptionSettin
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsRef() *DataCatalogEncryptionSettingsReference {
-	var returns *DataCatalogEncryptionSettingsReference
+func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsRef() *interfacesawsglue.DataCatalogEncryptionSettingsReference {
+	var returns *interfacesawsglue.DataCatalogEncryptionSettingsReference
 	_jsii_.Get(
 		j,
 		"dataCatalogEncryptionSettingsRef",
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) DataCatalogEncryptionSettin
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,6 +379,7 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::Glue::DataCatalogEncryptionSettings`.
 func NewCfnDataCatalogEncryptionSettings(scope constructs.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) CfnDataCatalogEncryptionSettings {
 	_init_.Initialize()
 
@@ -394,6 +397,7 @@ func NewCfnDataCatalogEncryptionSettings(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::Glue::DataCatalogEncryptionSettings`.
 func NewCfnDataCatalogEncryptionSettings_Override(c CfnDataCatalogEncryptionSettings, scope constructs.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) {
 	_init_.Initialize()
 

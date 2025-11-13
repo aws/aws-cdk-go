@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -72,8 +74,8 @@ import (
 //
 type CfnImage interface {
 	awscdk.CfnResource
-	IImageRef
 	awscdk.IInspectable
+	interfacesawsimagebuilder.IImageRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the image.
 	//
@@ -126,7 +128,7 @@ type CfnImage interface {
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
@@ -137,7 +139,7 @@ type CfnImage interface {
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
 	// A reference to a Image resource.
-	ImageRef() *ImageReference
+	ImageRef() *interfacesawsimagebuilder.ImageReference
 	// Contains settings for vulnerability scans.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
@@ -322,8 +324,8 @@ type CfnImage interface {
 // The jsii proxy struct for CfnImage
 type jsiiProxy_CfnImage struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IImageRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsimagebuilderIImageRef
 	internal.Type__awscdkITaggable
 }
 
@@ -497,8 +499,8 @@ func (j *jsiiProxy_CfnImage) EnhancedImageMetadataEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImage) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnImage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -537,8 +539,8 @@ func (j *jsiiProxy_CfnImage) ImageRecipeArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImage) ImageRef() *ImageReference {
-	var returns *ImageReference
+func (j *jsiiProxy_CfnImage) ImageRef() *interfacesawsimagebuilder.ImageReference {
+	var returns *interfacesawsimagebuilder.ImageReference
 	_jsii_.Get(
 		j,
 		"imageRef",
@@ -678,6 +680,7 @@ func (j *jsiiProxy_CfnImage) Workflows() interface{} {
 }
 
 
+// Create a new `AWS::ImageBuilder::Image`.
 func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) CfnImage {
 	_init_.Initialize()
 
@@ -695,6 +698,7 @@ func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) C
 	return &j
 }
 
+// Create a new `AWS::ImageBuilder::Image`.
 func NewCfnImage_Override(c CfnImage, scope constructs.Construct, id *string, props *CfnImageProps) {
 	_init_.Initialize()
 

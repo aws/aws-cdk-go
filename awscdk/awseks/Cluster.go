@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,7 +20,7 @@ import (
 // The user is still required to create the worker nodes.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //
 //   // or
 //   var vpc Vpc
@@ -27,8 +28,8 @@ import (
 //
 //   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 //   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-//   	Version: eks.KubernetesVersion_V1_33(),
-//   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
+//   	Version: eks.KubernetesVersion_V1_34(),
+//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 //   })
 //   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
 //   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
@@ -127,7 +128,7 @@ type Cluster interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
 	//
@@ -481,8 +482,8 @@ func (j *jsiiProxy_Cluster) EksPodIdentityAgent() IAddon {
 	return returns
 }
 
-func (j *jsiiProxy_Cluster) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Cluster) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

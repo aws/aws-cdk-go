@@ -49,8 +49,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnPreferences{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPreferencesRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmguiconnectIPreferencesRef)
 			return &j
 		},
 	)
@@ -69,24 +69,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ssmguiconnect.CfnPreferencesProps",
 		reflect.TypeOf((*CfnPreferencesProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ssmguiconnect.IPreferencesRef",
-		reflect.TypeOf((*IPreferencesRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "preferencesRef", GoGetter: "PreferencesRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IPreferencesRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ssmguiconnect.PreferencesReference",
-		reflect.TypeOf((*PreferencesReference)(nil)).Elem(),
 	)
 }

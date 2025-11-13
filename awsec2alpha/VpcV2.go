@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,7 +64,7 @@ type VpcV2 interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// If this is set to true, don't error out on trying to select subnets.
 	// Experimental.
 	IncompleteSubnetDefinition() *bool
@@ -147,7 +149,7 @@ type VpcV2 interface {
 	VpcName() *string
 	// A reference to a VPC resource.
 	// Experimental.
-	VpcRef() *awsec2.VPCReference
+	VpcRef() *interfacesawsec2.VPCReference
 	// Returns the id of the VPN Gateway (if enabled).
 	// Experimental.
 	VpnGatewayId() *string
@@ -278,8 +280,8 @@ func (j *jsiiProxy_VpcV2) EgressOnlyInternetGatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_VpcV2) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_VpcV2) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -508,8 +510,8 @@ func (j *jsiiProxy_VpcV2) VpcName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_VpcV2) VpcRef() *awsec2.VPCReference {
-	var returns *awsec2.VPCReference
+func (j *jsiiProxy_VpcV2) VpcRef() *interfacesawsec2.VPCReference {
+	var returns *interfacesawsec2.VPCReference
 	_jsii_.Get(
 		j,
 		"vpcRef",

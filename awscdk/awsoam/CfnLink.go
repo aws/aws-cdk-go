@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsoam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsoam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +51,8 @@ import (
 //
 type CfnLink interface {
 	awscdk.CfnResource
-	ILinkRef
 	awscdk.IInspectable
+	interfacesawsoam.ILinkRef
 	awscdk.ITaggable
 	// The ARN of the link.
 	//
@@ -69,7 +71,7 @@ type CfnLink interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate() *string
 	SetLabelTemplate(val *string)
@@ -77,7 +79,7 @@ type CfnLink interface {
 	LinkConfiguration() interface{}
 	SetLinkConfiguration(val interface{})
 	// A reference to a Link resource.
-	LinkRef() *LinkReference
+	LinkRef() *interfacesawsoam.LinkReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -253,8 +255,8 @@ type CfnLink interface {
 // The jsii proxy struct for CfnLink
 type jsiiProxy_CfnLink struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILinkRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsoamILinkRef
 	internal.Type__awscdkITaggable
 }
 
@@ -318,8 +320,8 @@ func (j *jsiiProxy_CfnLink) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLink) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLink) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnLink) LinkConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLink) LinkRef() *LinkReference {
-	var returns *LinkReference
+func (j *jsiiProxy_CfnLink) LinkRef() *interfacesawsoam.LinkReference {
+	var returns *interfacesawsoam.LinkReference
 	_jsii_.Get(
 		j,
 		"linkRef",
@@ -459,6 +461,7 @@ func (j *jsiiProxy_CfnLink) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Oam::Link`.
 func NewCfnLink(scope constructs.Construct, id *string, props *CfnLinkProps) CfnLink {
 	_init_.Initialize()
 
@@ -476,6 +479,7 @@ func NewCfnLink(scope constructs.Construct, id *string, props *CfnLinkProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Oam::Link`.
 func NewCfnLink_Override(c CfnLink, scope constructs.Construct, id *string, props *CfnLinkProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnOrganizationConformancePack interface {
 	awscdk.CfnResource
-	IOrganizationConformancePackRef
 	awscdk.IInspectable
+	interfacesawsconfig.IOrganizationConformancePackRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -61,7 +63,7 @@ type CfnOrganizationConformancePack interface {
 	// Any folder structure you want to add to an Amazon S3 bucket.
 	DeliveryS3KeyPrefix() *string
 	SetDeliveryS3KeyPrefix(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A comma-separated list of accounts excluded from organization conformance pack.
 	ExcludedAccounts() *[]*string
 	SetExcludedAccounts(val *[]*string)
@@ -81,7 +83,7 @@ type CfnOrganizationConformancePack interface {
 	OrganizationConformancePackName() *string
 	SetOrganizationConformancePackName(val *string)
 	// A reference to a OrganizationConformancePack resource.
-	OrganizationConformancePackRef() *OrganizationConformancePackReference
+	OrganizationConformancePackRef() *interfacesawsconfig.OrganizationConformancePackReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -240,8 +242,8 @@ type CfnOrganizationConformancePack interface {
 // The jsii proxy struct for CfnOrganizationConformancePack
 type jsiiProxy_CfnOrganizationConformancePack struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOrganizationConformancePackRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIOrganizationConformancePackRef
 }
 
 func (j *jsiiProxy_CfnOrganizationConformancePack) CfnOptions() awscdk.ICfnResourceOptions {
@@ -314,8 +316,8 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) DeliveryS3KeyPrefix() *string
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationConformancePack) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOrganizationConformancePack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -364,8 +366,8 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) OrganizationConformancePackNa
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationConformancePack) OrganizationConformancePackRef() *OrganizationConformancePackReference {
-	var returns *OrganizationConformancePackReference
+func (j *jsiiProxy_CfnOrganizationConformancePack) OrganizationConformancePackRef() *interfacesawsconfig.OrganizationConformancePackReference {
+	var returns *interfacesawsconfig.OrganizationConformancePackReference
 	_jsii_.Get(
 		j,
 		"organizationConformancePackRef",
@@ -435,6 +437,7 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::Config::OrganizationConformancePack`.
 func NewCfnOrganizationConformancePack(scope constructs.Construct, id *string, props *CfnOrganizationConformancePackProps) CfnOrganizationConformancePack {
 	_init_.Initialize()
 
@@ -452,6 +455,7 @@ func NewCfnOrganizationConformancePack(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::Config::OrganizationConformancePack`.
 func NewCfnOrganizationConformancePack_Override(c CfnOrganizationConformancePack, scope constructs.Construct, id *string, props *CfnOrganizationConformancePackProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnDatabase interface {
 	awscdk.CfnResource
-	IDatabaseRef
 	awscdk.IInspectable
+	interfacesawslightsail.IDatabaseRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	AttrDatabaseArn() *string
@@ -80,8 +82,8 @@ type CfnDatabase interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a Database resource.
-	DatabaseRef() *DatabaseReference
-	Env() *awscdk.ResourceEnvironment
+	DatabaseRef() *interfacesawslightsail.DatabaseReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -284,8 +286,8 @@ type CfnDatabase interface {
 // The jsii proxy struct for CfnDatabase
 type jsiiProxy_CfnDatabase struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatabaseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIDatabaseRef
 	internal.Type__awscdkITaggable
 }
 
@@ -369,8 +371,8 @@ func (j *jsiiProxy_CfnDatabase) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatabase) DatabaseRef() *DatabaseReference {
-	var returns *DatabaseReference
+func (j *jsiiProxy_CfnDatabase) DatabaseRef() *interfacesawslightsail.DatabaseReference {
+	var returns *interfacesawslightsail.DatabaseReference
 	_jsii_.Get(
 		j,
 		"databaseRef",
@@ -379,8 +381,8 @@ func (j *jsiiProxy_CfnDatabase) DatabaseRef() *DatabaseReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatabase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDatabase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -580,6 +582,7 @@ func (j *jsiiProxy_CfnDatabase) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Lightsail::Database`.
 func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
 	_init_.Initialize()
 
@@ -597,6 +600,7 @@ func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabasePr
 	return &j
 }
 
+// Create a new `AWS::Lightsail::Database`.
 func NewCfnDatabase_Override(c CfnDatabase, scope constructs.Construct, id *string, props *CfnDatabaseProps) {
 	_init_.Initialize()
 

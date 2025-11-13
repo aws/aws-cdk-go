@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpoint/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpoint"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnEmailChannel interface {
 	awscdk.CfnResource
-	IEmailChannelRef
 	awscdk.IInspectable
+	interfacesawspinpoint.IEmailChannelRef
 	// The unique identifier for the Amazon Pinpoint application that you're specifying the email channel for.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -58,11 +60,11 @@ type CfnEmailChannel interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a EmailChannel resource.
-	EmailChannelRef() *EmailChannelReference
+	EmailChannelRef() *interfacesawspinpoint.EmailChannelReference
 	// Specifies whether to enable the email channel for the application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The verified email address that you want to send email from when you send email through the channel.
 	FromAddress() *string
 	SetFromAddress(val *string)
@@ -239,8 +241,8 @@ type CfnEmailChannel interface {
 // The jsii proxy struct for CfnEmailChannel
 type jsiiProxy_CfnEmailChannel struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEmailChannelRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointIEmailChannelRef
 }
 
 func (j *jsiiProxy_CfnEmailChannel) ApplicationId() *string {
@@ -313,8 +315,8 @@ func (j *jsiiProxy_CfnEmailChannel) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailChannel) EmailChannelRef() *EmailChannelReference {
-	var returns *EmailChannelReference
+func (j *jsiiProxy_CfnEmailChannel) EmailChannelRef() *interfacesawspinpoint.EmailChannelReference {
+	var returns *interfacesawspinpoint.EmailChannelReference
 	_jsii_.Get(
 		j,
 		"emailChannelRef",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnEmailChannel) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEmailChannel) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEmailChannel) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -444,6 +446,7 @@ func (j *jsiiProxy_CfnEmailChannel) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Pinpoint::EmailChannel`.
 func NewCfnEmailChannel(scope constructs.Construct, id *string, props *CfnEmailChannelProps) CfnEmailChannel {
 	_init_.Initialize()
 
@@ -461,6 +464,7 @@ func NewCfnEmailChannel(scope constructs.Construct, id *string, props *CfnEmailC
 	return &j
 }
 
+// Create a new `AWS::Pinpoint::EmailChannel`.
 func NewCfnEmailChannel_Override(c CfnEmailChannel, scope constructs.Construct, id *string, props *CfnEmailChannelProps) {
 	_init_.Initialize()
 

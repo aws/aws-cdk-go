@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevicefarm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevicefarm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnInstanceProfile interface {
 	awscdk.CfnResource
-	IInstanceProfileRef
 	awscdk.IInspectable
+	interfacesawsdevicefarm.IInstanceProfileRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the instance profile.
 	//
@@ -57,12 +59,12 @@ type CfnInstanceProfile interface {
 	// The description of the instance profile.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
 	ExcludeAppPackagesFromCleanup() *[]*string
 	SetExcludeAppPackagesFromCleanup(val *[]*string)
 	// A reference to a InstanceProfile resource.
-	InstanceProfileRef() *InstanceProfileReference
+	InstanceProfileRef() *interfacesawsdevicefarm.InstanceProfileReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,8 +243,8 @@ type CfnInstanceProfile interface {
 // The jsii proxy struct for CfnInstanceProfile
 type jsiiProxy_CfnInstanceProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInstanceProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdevicefarmIInstanceProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnInstanceProfile) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInstanceProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnInstanceProfile) ExcludeAppPackagesFromCleanup() *[]*strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceProfile) InstanceProfileRef() *InstanceProfileReference {
-	var returns *InstanceProfileReference
+func (j *jsiiProxy_CfnInstanceProfile) InstanceProfileRef() *interfacesawsdevicefarm.InstanceProfileReference {
+	var returns *interfacesawsdevicefarm.InstanceProfileReference
 	_jsii_.Get(
 		j,
 		"instanceProfileRef",
@@ -447,6 +449,7 @@ func (j *jsiiProxy_CfnInstanceProfile) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::DeviceFarm::InstanceProfile`.
 func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnInstanceProfileProps) CfnInstanceProfile {
 	_init_.Initialize()
 
@@ -464,6 +467,7 @@ func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnIns
 	return &j
 }
 
+// Create a new `AWS::DeviceFarm::InstanceProfile`.
 func NewCfnInstanceProfile_Override(c CfnInstanceProfile, scope constructs.Construct, id *string, props *CfnInstanceProfileProps) {
 	_init_.Initialize()
 

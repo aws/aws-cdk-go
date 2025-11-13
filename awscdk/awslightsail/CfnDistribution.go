@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -79,8 +81,8 @@ import (
 //
 type CfnDistribution interface {
 	awscdk.CfnResource
-	IDistributionRef
 	awscdk.IInspectable
+	interfacesawslightsail.IDistributionRef
 	awscdk.ITaggable
 	// Indicates whether you can update the distribution’s current bundle to another bundle.
 	AttrAbleToUpdateBundle() awscdk.IResolvable
@@ -116,8 +118,8 @@ type CfnDistribution interface {
 	DistributionName() *string
 	SetDistributionName(val *string)
 	// A reference to a Distribution resource.
-	DistributionRef() *DistributionReference
-	Env() *awscdk.ResourceEnvironment
+	DistributionRef() *interfacesawslightsail.DistributionReference
+	Env() *interfaces.ResourceEnvironment
 	// The IP address type of the distribution.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
@@ -296,8 +298,8 @@ type CfnDistribution interface {
 // The jsii proxy struct for CfnDistribution
 type jsiiProxy_CfnDistribution struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDistributionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslightsailIDistributionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -431,8 +433,8 @@ func (j *jsiiProxy_CfnDistribution) DistributionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDistribution) DistributionRef() *DistributionReference {
-	var returns *DistributionReference
+func (j *jsiiProxy_CfnDistribution) DistributionRef() *interfacesawslightsail.DistributionReference {
+	var returns *interfacesawslightsail.DistributionReference
 	_jsii_.Get(
 		j,
 		"distributionRef",
@@ -441,8 +443,8 @@ func (j *jsiiProxy_CfnDistribution) DistributionRef() *DistributionReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDistribution) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDistribution) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -562,6 +564,7 @@ func (j *jsiiProxy_CfnDistribution) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Lightsail::Distribution`.
 func NewCfnDistribution(scope constructs.Construct, id *string, props *CfnDistributionProps) CfnDistribution {
 	_init_.Initialize()
 
@@ -579,6 +582,7 @@ func NewCfnDistribution(scope constructs.Construct, id *string, props *CfnDistri
 	return &j
 }
 
+// Create a new `AWS::Lightsail::Distribution`.
 func NewCfnDistribution_Override(c CfnDistribution, scope constructs.Construct, id *string, props *CfnDistributionProps) {
 	_init_.Initialize()
 

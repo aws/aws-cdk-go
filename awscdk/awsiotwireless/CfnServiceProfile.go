@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotwireless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnServiceProfile interface {
 	awscdk.CfnResource
-	IServiceProfileRef
 	awscdk.IInspectable
+	interfacesawsiotwireless.IServiceProfileRef
 	awscdk.ITaggable
 	// The ARN of the service profile created.
 	AttrArn() *string
@@ -100,7 +102,7 @@ type CfnServiceProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -125,7 +127,7 @@ type CfnServiceProfile interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a ServiceProfile resource.
-	ServiceProfileRef() *ServiceProfileReference
+	ServiceProfileRef() *interfacesawsiotwireless.ServiceProfileReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -278,8 +280,8 @@ type CfnServiceProfile interface {
 // The jsii proxy struct for CfnServiceProfile
 type jsiiProxy_CfnServiceProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IServiceProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotwirelessIServiceProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -513,8 +515,8 @@ func (j *jsiiProxy_CfnServiceProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnServiceProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -573,8 +575,8 @@ func (j *jsiiProxy_CfnServiceProfile) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceProfile) ServiceProfileRef() *ServiceProfileReference {
-	var returns *ServiceProfileReference
+func (j *jsiiProxy_CfnServiceProfile) ServiceProfileRef() *interfacesawsiotwireless.ServiceProfileReference {
+	var returns *interfacesawsiotwireless.ServiceProfileReference
 	_jsii_.Get(
 		j,
 		"serviceProfileRef",
@@ -634,6 +636,7 @@ func (j *jsiiProxy_CfnServiceProfile) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::IoTWireless::ServiceProfile`.
 func NewCfnServiceProfile(scope constructs.Construct, id *string, props *CfnServiceProfileProps) CfnServiceProfile {
 	_init_.Initialize()
 
@@ -651,6 +654,7 @@ func NewCfnServiceProfile(scope constructs.Construct, id *string, props *CfnServ
 	return &j
 }
 
+// Create a new `AWS::IoTWireless::ServiceProfile`.
 func NewCfnServiceProfile_Override(c CfnServiceProfile, scope constructs.Construct, id *string, props *CfnServiceProfileProps) {
 	_init_.Initialize()
 
@@ -692,13 +696,13 @@ func (j *jsiiProxy_CfnServiceProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IServiceProfileRef from an ARN.
-func CfnServiceProfile_FromServiceProfileArn(scope constructs.Construct, id *string, arn *string) IServiceProfileRef {
+func CfnServiceProfile_FromServiceProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IServiceProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnServiceProfile_FromServiceProfileArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IServiceProfileRef
+	var returns interfacesawsiotwireless.IServiceProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
@@ -711,13 +715,13 @@ func CfnServiceProfile_FromServiceProfileArn(scope constructs.Construct, id *str
 }
 
 // Creates a new IServiceProfileRef from a serviceProfileId.
-func CfnServiceProfile_FromServiceProfileId(scope constructs.Construct, id *string, serviceProfileId *string) IServiceProfileRef {
+func CfnServiceProfile_FromServiceProfileId(scope constructs.Construct, id *string, serviceProfileId *string) interfacesawsiotwireless.IServiceProfileRef {
 	_init_.Initialize()
 
 	if err := validateCfnServiceProfile_FromServiceProfileIdParameters(scope, id, serviceProfileId); err != nil {
 		panic(err)
 	}
-	var returns IServiceProfileRef
+	var returns interfacesawsiotwireless.IServiceProfileRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",

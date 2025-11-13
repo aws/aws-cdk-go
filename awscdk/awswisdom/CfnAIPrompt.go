@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswisdom"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,11 +42,11 @@ import (
 //
 type CfnAIPrompt interface {
 	awscdk.CfnResource
-	IAIPromptRef
 	awscdk.IInspectable
+	interfacesawswisdom.IAIPromptRef
 	awscdk.ITaggableV2
 	// A reference to a AIPrompt resource.
-	AiPromptRef() *AIPromptReference
+	AiPromptRef() *interfacesawswisdom.AIPromptReference
 	// The API format used for this AI Prompt.
 	ApiFormat() *string
 	SetApiFormat(val *string)
@@ -72,7 +74,7 @@ type CfnAIPrompt interface {
 	// The description of the AI Prompt.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -257,13 +259,13 @@ type CfnAIPrompt interface {
 // The jsii proxy struct for CfnAIPrompt
 type jsiiProxy_CfnAIPrompt struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAIPromptRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswisdomIAIPromptRef
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnAIPrompt) AiPromptRef() *AIPromptReference {
-	var returns *AIPromptReference
+func (j *jsiiProxy_CfnAIPrompt) AiPromptRef() *interfacesawswisdom.AIPromptReference {
+	var returns *interfacesawswisdom.AIPromptReference
 	_jsii_.Get(
 		j,
 		"aiPromptRef",
@@ -392,8 +394,8 @@ func (j *jsiiProxy_CfnAIPrompt) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAIPrompt) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAIPrompt) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -523,6 +525,7 @@ func (j *jsiiProxy_CfnAIPrompt) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Wisdom::AIPrompt`.
 func NewCfnAIPrompt(scope constructs.Construct, id *string, props *CfnAIPromptProps) CfnAIPrompt {
 	_init_.Initialize()
 
@@ -540,6 +543,7 @@ func NewCfnAIPrompt(scope constructs.Construct, id *string, props *CfnAIPromptPr
 	return &j
 }
 
+// Create a new `AWS::Wisdom::AIPrompt`.
 func NewCfnAIPrompt_Override(c CfnAIPrompt, scope constructs.Construct, id *string, props *CfnAIPromptProps) {
 	_init_.Initialize()
 

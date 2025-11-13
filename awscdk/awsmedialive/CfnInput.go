@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -122,8 +124,8 @@ import (
 //
 type CfnInput interface {
 	awscdk.CfnResource
-	IInputRef
 	awscdk.IInspectable
+	interfacesawsmedialive.IInputRef
 	awscdk.ITaggable
 	// The ARN of the MediaLive input.
 	//
@@ -151,14 +153,14 @@ type CfnInput interface {
 	// Settings that apply only if the input is a push type of input.
 	Destinations() interface{}
 	SetDestinations(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Settings that apply only if the input is an Elemental Link input.
 	InputDevices() interface{}
 	SetInputDevices(val interface{})
 	InputNetworkLocation() *string
 	SetInputNetworkLocation(val *string)
 	// A reference to a Input resource.
-	InputRef() *InputReference
+	InputRef() *interfacesawsmedialive.InputReference
 	// The list of input security groups (referenced by IDs) to attach to the input if the input is a push type.
 	InputSecurityGroups() *[]*string
 	SetInputSecurityGroups(val *[]*string)
@@ -357,8 +359,8 @@ type CfnInput interface {
 // The jsii proxy struct for CfnInput
 type jsiiProxy_CfnInput struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IInputRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveIInputRef
 	internal.Type__awscdkITaggable
 }
 
@@ -452,8 +454,8 @@ func (j *jsiiProxy_CfnInput) Destinations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInput) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnInput) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -482,8 +484,8 @@ func (j *jsiiProxy_CfnInput) InputNetworkLocation() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInput) InputRef() *InputReference {
-	var returns *InputReference
+func (j *jsiiProxy_CfnInput) InputRef() *interfacesawsmedialive.InputReference {
+	var returns *interfacesawsmedialive.InputReference
 	_jsii_.Get(
 		j,
 		"inputRef",
@@ -683,6 +685,7 @@ func (j *jsiiProxy_CfnInput) Vpc() interface{} {
 }
 
 
+// Create a new `AWS::MediaLive::Input`.
 func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) CfnInput {
 	_init_.Initialize()
 
@@ -700,6 +703,7 @@ func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) C
 	return &j
 }
 
+// Create a new `AWS::MediaLive::Input`.
 func NewCfnInput_Override(c CfnInput, scope constructs.Construct, id *string, props *CfnInputProps) {
 	_init_.Initialize()
 
@@ -855,13 +859,13 @@ func (j *jsiiProxy_CfnInput)SetVpc(val interface{}) {
 }
 
 // Creates a new IInputRef from an ARN.
-func CfnInput_FromInputArn(scope constructs.Construct, id *string, arn *string) IInputRef {
+func CfnInput_FromInputArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IInputRef {
 	_init_.Initialize()
 
 	if err := validateCfnInput_FromInputArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IInputRef
+	var returns interfacesawsmedialive.IInputRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnInput",
@@ -874,13 +878,13 @@ func CfnInput_FromInputArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IInputRef from a inputId.
-func CfnInput_FromInputId(scope constructs.Construct, id *string, inputId *string) IInputRef {
+func CfnInput_FromInputId(scope constructs.Construct, id *string, inputId *string) interfacesawsmedialive.IInputRef {
 	_init_.Initialize()
 
 	if err := validateCfnInput_FromInputIdParameters(scope, id, inputId); err != nil {
 		panic(err)
 	}
-	var returns IInputRef
+	var returns interfacesawsmedialive.IInputRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_medialive.CfnInput",

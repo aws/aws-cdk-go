@@ -1,7 +1,7 @@
 package awsroute53
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 )
 
 // Properties to configure a VPC Endpoint Service domain name.
@@ -28,7 +28,7 @@ type VpcEndpointServiceDomainNameProps struct {
 	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The VPC Endpoint Service to configure Private DNS for.
-	EndpointService awsec2.IVPCEndpointServiceRef `field:"required" json:"endpointService" yaml:"endpointService"`
+	EndpointService interfacesawsec2.IVPCEndpointServiceRef `field:"required" json:"endpointService" yaml:"endpointService"`
 	// The public hosted zone to use for the domain.
 	PublicHostedZone IPublicHostedZone `field:"required" json:"publicHostedZone" yaml:"publicHostedZone"`
 }

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnVirtualMFADevice interface {
 	awscdk.CfnResource
-	IVirtualMFADeviceRef
 	awscdk.IInspectable
+	interfacesawsiam.IVirtualMFADeviceRef
 	awscdk.ITaggable
 	// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
 	AttrSerialNumber() *string
@@ -56,7 +58,7 @@ type CfnVirtualMFADevice interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -106,7 +108,7 @@ type CfnVirtualMFADevice interface {
 	VirtualMfaDeviceName() *string
 	SetVirtualMfaDeviceName(val *string)
 	// A reference to a VirtualMFADevice resource.
-	VirtualMfaDeviceRef() *VirtualMFADeviceReference
+	VirtualMfaDeviceRef() *interfacesawsiam.VirtualMFADeviceReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -237,8 +239,8 @@ type CfnVirtualMFADevice interface {
 // The jsii proxy struct for CfnVirtualMFADevice
 type jsiiProxy_CfnVirtualMFADevice struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVirtualMFADeviceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIVirtualMFADeviceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -292,8 +294,8 @@ func (j *jsiiProxy_CfnVirtualMFADevice) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualMFADevice) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVirtualMFADevice) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -412,8 +414,8 @@ func (j *jsiiProxy_CfnVirtualMFADevice) VirtualMfaDeviceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualMFADevice) VirtualMfaDeviceRef() *VirtualMFADeviceReference {
-	var returns *VirtualMFADeviceReference
+func (j *jsiiProxy_CfnVirtualMFADevice) VirtualMfaDeviceRef() *interfacesawsiam.VirtualMFADeviceReference {
+	var returns *interfacesawsiam.VirtualMFADeviceReference
 	_jsii_.Get(
 		j,
 		"virtualMfaDeviceRef",
@@ -423,6 +425,7 @@ func (j *jsiiProxy_CfnVirtualMFADevice) VirtualMfaDeviceRef() *VirtualMFADeviceR
 }
 
 
+// Create a new `AWS::IAM::VirtualMFADevice`.
 func NewCfnVirtualMFADevice(scope constructs.Construct, id *string, props *CfnVirtualMFADeviceProps) CfnVirtualMFADevice {
 	_init_.Initialize()
 
@@ -440,6 +443,7 @@ func NewCfnVirtualMFADevice(scope constructs.Construct, id *string, props *CfnVi
 	return &j
 }
 
+// Create a new `AWS::IAM::VirtualMFADevice`.
 func NewCfnVirtualMFADevice_Override(c CfnVirtualMFADevice, scope constructs.Construct, id *string, props *CfnVirtualMFADeviceProps) {
 	_init_.Initialize()
 

@@ -6,12 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecurityhub"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The `AWS::SecurityHub::AutomationRule` resource specifies an automation rule based on input parameters.
 //
-// For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+// For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -306,8 +308,8 @@ import (
 //
 type CfnAutomationRule interface {
 	awscdk.CfnResource
-	IAutomationRuleRef
 	awscdk.IInspectable
+	interfacesawssecurityhub.IAutomationRuleRef
 	awscdk.ITaggableV2
 	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 	Actions() interface{}
@@ -329,7 +331,7 @@ type CfnAutomationRule interface {
 	// Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
 	AttrUpdatedAt() *string
 	// A reference to a AutomationRule resource.
-	AutomationRuleRef() *AutomationRuleReference
+	AutomationRuleRef() *interfacesawssecurityhub.AutomationRuleReference
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -347,7 +349,7 @@ type CfnAutomationRule interface {
 	// A description of the rule.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria.
 	IsTerminal() interface{}
 	SetIsTerminal(val interface{})
@@ -527,8 +529,8 @@ type CfnAutomationRule interface {
 // The jsii proxy struct for CfnAutomationRule
 type jsiiProxy_CfnAutomationRule struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAutomationRuleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssecurityhubIAutomationRuleRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -582,8 +584,8 @@ func (j *jsiiProxy_CfnAutomationRule) AttrUpdatedAt() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomationRule) AutomationRuleRef() *AutomationRuleReference {
-	var returns *AutomationRuleReference
+func (j *jsiiProxy_CfnAutomationRule) AutomationRuleRef() *interfacesawssecurityhub.AutomationRuleReference {
+	var returns *interfacesawssecurityhub.AutomationRuleReference
 	_jsii_.Get(
 		j,
 		"automationRuleRef",
@@ -662,8 +664,8 @@ func (j *jsiiProxy_CfnAutomationRule) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomationRule) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAutomationRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -783,6 +785,7 @@ func (j *jsiiProxy_CfnAutomationRule) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::SecurityHub::AutomationRule`.
 func NewCfnAutomationRule(scope constructs.Construct, id *string, props *CfnAutomationRuleProps) CfnAutomationRule {
 	_init_.Initialize()
 
@@ -800,6 +803,7 @@ func NewCfnAutomationRule(scope constructs.Construct, id *string, props *CfnAuto
 	return &j
 }
 
+// Create a new `AWS::SecurityHub::AutomationRule`.
 func NewCfnAutomationRule_Override(c CfnAutomationRule, scope constructs.Construct, id *string, props *CfnAutomationRuleProps) {
 	_init_.Initialize()
 

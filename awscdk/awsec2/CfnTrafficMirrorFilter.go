@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnTrafficMirrorFilter interface {
 	awscdk.CfnResource
-	ITrafficMirrorFilterRef
 	awscdk.IInspectable
+	interfacesawsec2.ITrafficMirrorFilterRef
 	awscdk.ITaggable
 	// The ID of a traffic mirror filter.
 	AttrId() *string
@@ -54,7 +56,7 @@ type CfnTrafficMirrorFilter interface {
 	// The description of the Traffic Mirror filter.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -85,7 +87,7 @@ type CfnTrafficMirrorFilter interface {
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// A reference to a TrafficMirrorFilter resource.
-	TrafficMirrorFilterRef() *TrafficMirrorFilterReference
+	TrafficMirrorFilterRef() *interfacesawsec2.TrafficMirrorFilterReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -229,8 +231,8 @@ type CfnTrafficMirrorFilter interface {
 // The jsii proxy struct for CfnTrafficMirrorFilter
 type jsiiProxy_CfnTrafficMirrorFilter struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITrafficMirrorFilterRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITrafficMirrorFilterRef
 	internal.Type__awscdkITaggable
 }
 
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnTrafficMirrorFilter) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilter) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTrafficMirrorFilter) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -374,8 +376,8 @@ func (j *jsiiProxy_CfnTrafficMirrorFilter) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilter) TrafficMirrorFilterRef() *TrafficMirrorFilterReference {
-	var returns *TrafficMirrorFilterReference
+func (j *jsiiProxy_CfnTrafficMirrorFilter) TrafficMirrorFilterRef() *interfacesawsec2.TrafficMirrorFilterReference {
+	var returns *interfacesawsec2.TrafficMirrorFilterReference
 	_jsii_.Get(
 		j,
 		"trafficMirrorFilterRef",
@@ -405,6 +407,7 @@ func (j *jsiiProxy_CfnTrafficMirrorFilter) UpdatedProperties() *map[string]inter
 }
 
 
+// Create a new `AWS::EC2::TrafficMirrorFilter`.
 func NewCfnTrafficMirrorFilter(scope constructs.Construct, id *string, props *CfnTrafficMirrorFilterProps) CfnTrafficMirrorFilter {
 	_init_.Initialize()
 
@@ -422,6 +425,7 @@ func NewCfnTrafficMirrorFilter(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::EC2::TrafficMirrorFilter`.
 func NewCfnTrafficMirrorFilter_Override(c CfnTrafficMirrorFilter, scope constructs.Construct, id *string, props *CfnTrafficMirrorFilterProps) {
 	_init_.Initialize()
 
@@ -460,13 +464,13 @@ func (j *jsiiProxy_CfnTrafficMirrorFilter)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ITrafficMirrorFilterRef from a trafficMirrorFilterId.
-func CfnTrafficMirrorFilter_FromTrafficMirrorFilterId(scope constructs.Construct, id *string, trafficMirrorFilterId *string) ITrafficMirrorFilterRef {
+func CfnTrafficMirrorFilter_FromTrafficMirrorFilterId(scope constructs.Construct, id *string, trafficMirrorFilterId *string) interfacesawsec2.ITrafficMirrorFilterRef {
 	_init_.Initialize()
 
 	if err := validateCfnTrafficMirrorFilter_FromTrafficMirrorFilterIdParameters(scope, id, trafficMirrorFilterId); err != nil {
 		panic(err)
 	}
-	var returns ITrafficMirrorFilterRef
+	var returns interfacesawsec2.ITrafficMirrorFilterRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilter",

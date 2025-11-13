@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnSoftwarePackage interface {
 	awscdk.CfnResource
-	ISoftwarePackageRef
 	awscdk.IInspectable
+	interfacesawsiot.ISoftwarePackageRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the package.
 	AttrPackageArn() *string
@@ -52,7 +54,7 @@ type CfnSoftwarePackage interface {
 	// A summary of the package being created.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnSoftwarePackage interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a SoftwarePackage resource.
-	SoftwarePackageRef() *SoftwarePackageReference
+	SoftwarePackageRef() *interfacesawsiot.SoftwarePackageReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -225,8 +227,8 @@ type CfnSoftwarePackage interface {
 // The jsii proxy struct for CfnSoftwarePackage
 type jsiiProxy_CfnSoftwarePackage struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISoftwarePackageRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotISoftwarePackageRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnSoftwarePackage) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSoftwarePackage) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSoftwarePackage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnSoftwarePackage) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSoftwarePackage) SoftwarePackageRef() *SoftwarePackageReference {
-	var returns *SoftwarePackageReference
+func (j *jsiiProxy_CfnSoftwarePackage) SoftwarePackageRef() *interfacesawsiot.SoftwarePackageReference {
+	var returns *interfacesawsiot.SoftwarePackageReference
 	_jsii_.Get(
 		j,
 		"softwarePackageRef",
@@ -401,6 +403,7 @@ func (j *jsiiProxy_CfnSoftwarePackage) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::IoT::SoftwarePackage`.
 func NewCfnSoftwarePackage(scope constructs.Construct, id *string, props *CfnSoftwarePackageProps) CfnSoftwarePackage {
 	_init_.Initialize()
 
@@ -418,6 +421,7 @@ func NewCfnSoftwarePackage(scope constructs.Construct, id *string, props *CfnSof
 	return &j
 }
 
+// Create a new `AWS::IoT::SoftwarePackage`.
 func NewCfnSoftwarePackage_Override(c CfnSoftwarePackage, scope constructs.Construct, id *string, props *CfnSoftwarePackageProps) {
 	_init_.Initialize()
 
@@ -456,13 +460,13 @@ func (j *jsiiProxy_CfnSoftwarePackage)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ISoftwarePackageRef from a packageName.
-func CfnSoftwarePackage_FromPackageName(scope constructs.Construct, id *string, packageName *string) ISoftwarePackageRef {
+func CfnSoftwarePackage_FromPackageName(scope constructs.Construct, id *string, packageName *string) interfacesawsiot.ISoftwarePackageRef {
 	_init_.Initialize()
 
 	if err := validateCfnSoftwarePackage_FromPackageNameParameters(scope, id, packageName); err != nil {
 		panic(err)
 	}
-	var returns ISoftwarePackageRef
+	var returns interfacesawsiot.ISoftwarePackageRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnSoftwarePackage",

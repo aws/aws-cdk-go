@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscassandra/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscassandra"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnType interface {
 	awscdk.CfnResource
-	ITypeRef
 	awscdk.IInspectable
+	interfacesawscassandra.ITypeRef
 	// A list of user-defined types that use this type.
 	AttrDirectParentTypes() *[]*string
 	// A list of tables that use this type.
@@ -58,7 +60,7 @@ type CfnType interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A list of fields that define this type.
 	Fields() interface{}
 	SetFields(val interface{})
@@ -90,7 +92,7 @@ type CfnType interface {
 	TypeName() *string
 	SetTypeName(val *string)
 	// A reference to a Type resource.
-	TypeRef() *TypeReference
+	TypeRef() *interfacesawscassandra.TypeReference
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,8 +236,8 @@ type CfnType interface {
 // The jsii proxy struct for CfnType
 type jsiiProxy_CfnType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscassandraITypeRef
 }
 
 func (j *jsiiProxy_CfnType) AttrDirectParentTypes() *[]*string {
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnType) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -408,8 +410,8 @@ func (j *jsiiProxy_CfnType) TypeName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnType) TypeRef() *TypeReference {
-	var returns *TypeReference
+func (j *jsiiProxy_CfnType) TypeRef() *interfacesawscassandra.TypeReference {
+	var returns *interfacesawscassandra.TypeReference
 	_jsii_.Get(
 		j,
 		"typeRef",
@@ -439,6 +441,7 @@ func (j *jsiiProxy_CfnType) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Cassandra::Type`.
 func NewCfnType(scope constructs.Construct, id *string, props *CfnTypeProps) CfnType {
 	_init_.Initialize()
 
@@ -456,6 +459,7 @@ func NewCfnType(scope constructs.Construct, id *string, props *CfnTypeProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Cassandra::Type`.
 func NewCfnType_Override(c CfnType, scope constructs.Construct, id *string, props *CfnTypeProps) {
 	_init_.Initialize()
 

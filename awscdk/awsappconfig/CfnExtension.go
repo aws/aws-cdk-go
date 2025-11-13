@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,8 +58,8 @@ import (
 //
 type CfnExtension interface {
 	awscdk.CfnResource
-	IExtensionRef
 	awscdk.IInspectable
+	interfacesawsappconfig.IExtensionRef
 	awscdk.ITaggable
 	// The actions defined in the extension.
 	Actions() interface{}
@@ -80,9 +82,9 @@ type CfnExtension interface {
 	// Information about the extension.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Extension resource.
-	ExtensionRef() *ExtensionReference
+	ExtensionRef() *interfacesawsappconfig.ExtensionReference
 	// You can omit this field when you create an extension.
 	LatestVersionNumber() *float64
 	SetLatestVersionNumber(val *float64)
@@ -261,8 +263,8 @@ type CfnExtension interface {
 // The jsii proxy struct for CfnExtension
 type jsiiProxy_CfnExtension struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IExtensionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsappconfigIExtensionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnExtension) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExtension) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnExtension) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnExtension) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExtension) ExtensionRef() *ExtensionReference {
-	var returns *ExtensionReference
+func (j *jsiiProxy_CfnExtension) ExtensionRef() *interfacesawsappconfig.ExtensionReference {
+	var returns *interfacesawsappconfig.ExtensionReference
 	_jsii_.Get(
 		j,
 		"extensionRef",
@@ -487,6 +489,7 @@ func (j *jsiiProxy_CfnExtension) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::AppConfig::Extension`.
 func NewCfnExtension(scope constructs.Construct, id *string, props *CfnExtensionProps) CfnExtension {
 	_init_.Initialize()
 
@@ -504,6 +507,7 @@ func NewCfnExtension(scope constructs.Construct, id *string, props *CfnExtension
 	return &j
 }
 
+// Create a new `AWS::AppConfig::Extension`.
 func NewCfnExtension_Override(c CfnExtension, scope constructs.Construct, id *string, props *CfnExtensionProps) {
 	_init_.Initialize()
 

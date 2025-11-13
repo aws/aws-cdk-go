@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrobomaker/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrobomaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnRobot interface {
 	awscdk.CfnResource
-	IRobotRef
 	awscdk.IInspectable
+	interfacesawsrobomaker.IRobotRef
 	awscdk.ITaggable
 	// The architecture of the robot.
 	Architecture() *string
@@ -55,7 +57,7 @@ type CfnRobot interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the fleet to which the robot will be registered.
 	Fleet() *string
 	SetFleet(val *string)
@@ -83,7 +85,7 @@ type CfnRobot interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Robot resource.
-	RobotRef() *RobotReference
+	RobotRef() *interfacesawsrobomaker.RobotReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -236,8 +238,8 @@ type CfnRobot interface {
 // The jsii proxy struct for CfnRobot
 type jsiiProxy_CfnRobot struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRobotRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrobomakerIRobotRef
 	internal.Type__awscdkITaggable
 }
 
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnRobot) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRobot) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRobot) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -371,8 +373,8 @@ func (j *jsiiProxy_CfnRobot) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRobot) RobotRef() *RobotReference {
-	var returns *RobotReference
+func (j *jsiiProxy_CfnRobot) RobotRef() *interfacesawsrobomaker.RobotReference {
+	var returns *interfacesawsrobomaker.RobotReference
 	_jsii_.Get(
 		j,
 		"robotRef",
@@ -432,6 +434,7 @@ func (j *jsiiProxy_CfnRobot) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::RoboMaker::Robot`.
 func NewCfnRobot(scope constructs.Construct, id *string, props *CfnRobotProps) CfnRobot {
 	_init_.Initialize()
 
@@ -449,6 +452,7 @@ func NewCfnRobot(scope constructs.Construct, id *string, props *CfnRobotProps) C
 	return &j
 }
 
+// Create a new `AWS::RoboMaker::Robot`.
 func NewCfnRobot_Override(c CfnRobot, scope constructs.Construct, id *string, props *CfnRobotProps) {
 	_init_.Initialize()
 

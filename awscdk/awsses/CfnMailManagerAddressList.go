@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnMailManagerAddressList interface {
 	awscdk.CfnResource
-	IMailManagerAddressListRef
 	awscdk.IInspectable
+	interfacesawsses.IMailManagerAddressListRef
 	awscdk.ITaggableV2
 	// A user-friendly name for the address list.
 	AddressListName() *string
@@ -51,7 +53,7 @@ type CfnMailManagerAddressList interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -63,7 +65,7 @@ type CfnMailManagerAddressList interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// A reference to a MailManagerAddressList resource.
-	MailManagerAddressListRef() *MailManagerAddressListReference
+	MailManagerAddressListRef() *interfacesawsses.MailManagerAddressListReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -221,8 +223,8 @@ type CfnMailManagerAddressList interface {
 // The jsii proxy struct for CfnMailManagerAddressList
 type jsiiProxy_CfnMailManagerAddressList struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMailManagerAddressListRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssesIMailManagerAddressListRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -306,8 +308,8 @@ func (j *jsiiProxy_CfnMailManagerAddressList) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerAddressList) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMailManagerAddressList) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -326,8 +328,8 @@ func (j *jsiiProxy_CfnMailManagerAddressList) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMailManagerAddressList) MailManagerAddressListRef() *MailManagerAddressListReference {
-	var returns *MailManagerAddressListReference
+func (j *jsiiProxy_CfnMailManagerAddressList) MailManagerAddressListRef() *interfacesawsses.MailManagerAddressListReference {
+	var returns *interfacesawsses.MailManagerAddressListReference
 	_jsii_.Get(
 		j,
 		"mailManagerAddressListRef",
@@ -397,6 +399,7 @@ func (j *jsiiProxy_CfnMailManagerAddressList) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::SES::MailManagerAddressList`.
 func NewCfnMailManagerAddressList(scope constructs.Construct, id *string, props *CfnMailManagerAddressListProps) CfnMailManagerAddressList {
 	_init_.Initialize()
 
@@ -414,6 +417,7 @@ func NewCfnMailManagerAddressList(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::SES::MailManagerAddressList`.
 func NewCfnMailManagerAddressList_Override(c CfnMailManagerAddressList, scope constructs.Construct, id *string, props *CfnMailManagerAddressListProps) {
 	_init_.Initialize()
 
@@ -444,13 +448,13 @@ func (j *jsiiProxy_CfnMailManagerAddressList)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IMailManagerAddressListRef from a addressListId.
-func CfnMailManagerAddressList_FromAddressListId(scope constructs.Construct, id *string, addressListId *string) IMailManagerAddressListRef {
+func CfnMailManagerAddressList_FromAddressListId(scope constructs.Construct, id *string, addressListId *string) interfacesawsses.IMailManagerAddressListRef {
 	_init_.Initialize()
 
 	if err := validateCfnMailManagerAddressList_FromAddressListIdParameters(scope, id, addressListId); err != nil {
 		panic(err)
 	}
-	var returns IMailManagerAddressListRef
+	var returns interfacesawsses.IMailManagerAddressListRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerAddressList",

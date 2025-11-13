@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a VPC origin.
 type IVpcOrigin interface {
 	awscdk.IResource
-	IVpcOriginRef
+	interfacesawscloudfront.IVpcOriginRef
 	// The domain name of the CloudFront VPC origin endpoint configuration.
 	DomainName() *string
 	// The VPC origin ARN.
@@ -23,7 +25,7 @@ type IVpcOrigin interface {
 // The jsii proxy for IVpcOrigin
 type jsiiProxy_IVpcOrigin struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_IVpcOriginRef
+	internal.Type__interfacesawscloudfrontIVpcOriginRef
 }
 
 func (i *jsiiProxy_IVpcOrigin) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -67,8 +69,8 @@ func (j *jsiiProxy_IVpcOrigin) VpcOriginId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcOrigin) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IVpcOrigin) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -97,8 +99,8 @@ func (j *jsiiProxy_IVpcOrigin) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcOrigin) VpcOriginRef() *VpcOriginReference {
-	var returns *VpcOriginReference
+func (j *jsiiProxy_IVpcOrigin) VpcOriginRef() *interfacesawscloudfront.VpcOriginReference {
+	var returns *interfacesawscloudfront.VpcOriginReference
 	_jsii_.Get(
 		j,
 		"vpcOriginRef",

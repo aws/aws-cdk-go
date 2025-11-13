@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnNetworkPerformanceMetricSubscription interface {
 	awscdk.CfnResource
-	INetworkPerformanceMetricSubscriptionRef
 	awscdk.IInspectable
+	interfacesawsec2.INetworkPerformanceMetricSubscriptionRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -41,7 +43,7 @@ type CfnNetworkPerformanceMetricSubscription interface {
 	// The Region or Availability Zone that's the target for the subscription.
 	Destination() *string
 	SetDestination(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -56,7 +58,7 @@ type CfnNetworkPerformanceMetricSubscription interface {
 	Metric() *string
 	SetMetric(val *string)
 	// A reference to a NetworkPerformanceMetricSubscription resource.
-	NetworkPerformanceMetricSubscriptionRef() *NetworkPerformanceMetricSubscriptionReference
+	NetworkPerformanceMetricSubscriptionRef() *interfacesawsec2.NetworkPerformanceMetricSubscriptionReference
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -217,8 +219,8 @@ type CfnNetworkPerformanceMetricSubscription interface {
 // The jsii proxy struct for CfnNetworkPerformanceMetricSubscription
 type jsiiProxy_CfnNetworkPerformanceMetricSubscription struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_INetworkPerformanceMetricSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2INetworkPerformanceMetricSubscriptionRef
 }
 
 func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) CfnOptions() awscdk.ICfnResourceOptions {
@@ -271,8 +273,8 @@ func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) Destination() *strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) Metric() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) NetworkPerformanceMetricSubscriptionRef() *NetworkPerformanceMetricSubscriptionReference {
-	var returns *NetworkPerformanceMetricSubscriptionReference
+func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) NetworkPerformanceMetricSubscriptionRef() *interfacesawsec2.NetworkPerformanceMetricSubscriptionReference {
+	var returns *interfacesawsec2.NetworkPerformanceMetricSubscriptionReference
 	_jsii_.Get(
 		j,
 		"networkPerformanceMetricSubscriptionRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) UpdatedProperties() 
 }
 
 
+// Create a new `AWS::EC2::NetworkPerformanceMetricSubscription`.
 func NewCfnNetworkPerformanceMetricSubscription(scope constructs.Construct, id *string, props *CfnNetworkPerformanceMetricSubscriptionProps) CfnNetworkPerformanceMetricSubscription {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnNetworkPerformanceMetricSubscription(scope constructs.Construct, id *
 	return &j
 }
 
+// Create a new `AWS::EC2::NetworkPerformanceMetricSubscription`.
 func NewCfnNetworkPerformanceMetricSubscription_Override(c CfnNetworkPerformanceMetricSubscription, scope constructs.Construct, id *string, props *CfnNetworkPerformanceMetricSubscriptionProps) {
 	_init_.Initialize()
 

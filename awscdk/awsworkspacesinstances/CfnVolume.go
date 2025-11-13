@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspacesinstances/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesinstances"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,8 +46,8 @@ import (
 //
 type CfnVolume interface {
 	awscdk.CfnResource
-	IVolumeRef
 	awscdk.IInspectable
+	interfacesawsworkspacesinstances.IVolumeRef
 	// Unique identifier for the volume.
 	AttrVolumeId() *string
 	// The Availability Zone in which to create the volume.
@@ -63,7 +65,7 @@ type CfnVolume interface {
 	// Indicates whether the volume should be encrypted.
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The number of I/O operations per second (IOPS).
 	Iops() *float64
 	SetIops(val *float64)
@@ -117,7 +119,7 @@ type CfnVolume interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a Volume resource.
-	VolumeRef() *VolumeReference
+	VolumeRef() *interfacesawsworkspacesinstances.VolumeReference
 	// The volume type.
 	VolumeType() *string
 	SetVolumeType(val *string)
@@ -251,8 +253,8 @@ type CfnVolume interface {
 // The jsii proxy struct for CfnVolume
 type jsiiProxy_CfnVolume struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVolumeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsworkspacesinstancesIVolumeRef
 }
 
 func (j *jsiiProxy_CfnVolume) AttrVolumeId() *string {
@@ -325,8 +327,8 @@ func (j *jsiiProxy_CfnVolume) Encrypted() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVolume) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -455,8 +457,8 @@ func (j *jsiiProxy_CfnVolume) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) VolumeRef() *VolumeReference {
-	var returns *VolumeReference
+func (j *jsiiProxy_CfnVolume) VolumeRef() *interfacesawsworkspacesinstances.VolumeReference {
+	var returns *interfacesawsworkspacesinstances.VolumeReference
 	_jsii_.Get(
 		j,
 		"volumeRef",
@@ -476,6 +478,7 @@ func (j *jsiiProxy_CfnVolume) VolumeType() *string {
 }
 
 
+// Create a new `AWS::WorkspacesInstances::Volume`.
 func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
@@ -493,6 +496,7 @@ func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps)
 	return &j
 }
 
+// Create a new `AWS::WorkspacesInstances::Volume`.
 func NewCfnVolume_Override(c CfnVolume, scope constructs.Construct, id *string, props *CfnVolumeProps) {
 	_init_.Initialize()
 

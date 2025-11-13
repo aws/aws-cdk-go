@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnEnvironmentBlueprintConfiguration interface {
 	awscdk.CfnResource
-	IEnvironmentBlueprintConfigurationRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IEnvironmentBlueprintConfigurationRef
 	// The timestamp of when an environment blueprint was created.
 	AttrCreatedAt() *string
 	// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
@@ -78,9 +80,9 @@ type CfnEnvironmentBlueprintConfiguration interface {
 	// The enabled AWS Regions specified in a blueprint configuration.
 	EnabledRegions() *[]*string
 	SetEnabledRegions(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EnvironmentBlueprintConfiguration resource.
-	EnvironmentBlueprintConfigurationRef() *EnvironmentBlueprintConfigurationReference
+	EnvironmentBlueprintConfigurationRef() *interfacesawsdatazone.EnvironmentBlueprintConfigurationReference
 	// The identifier of the environment blueprint.
 	EnvironmentBlueprintIdentifier() *string
 	SetEnvironmentBlueprintIdentifier(val *string)
@@ -263,8 +265,8 @@ type CfnEnvironmentBlueprintConfiguration interface {
 // The jsii proxy struct for CfnEnvironmentBlueprintConfiguration
 type jsiiProxy_CfnEnvironmentBlueprintConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentBlueprintConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIEnvironmentBlueprintConfigurationRef
 }
 
 func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) AttrCreatedAt() *string {
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) EnabledRegions() *[]*st
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) Env() *awscdk.ResourceE
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) EnvironmentBlueprintConfigurationRef() *EnvironmentBlueprintConfigurationReference {
-	var returns *EnvironmentBlueprintConfigurationReference
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) EnvironmentBlueprintConfigurationRef() *interfacesawsdatazone.EnvironmentBlueprintConfigurationReference {
+	var returns *interfacesawsdatazone.EnvironmentBlueprintConfigurationReference
 	_jsii_.Get(
 		j,
 		"environmentBlueprintConfigurationRef",
@@ -508,6 +510,7 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) UpdatedProperties() *ma
 }
 
 
+// Create a new `AWS::DataZone::EnvironmentBlueprintConfiguration`.
 func NewCfnEnvironmentBlueprintConfiguration(scope constructs.Construct, id *string, props *CfnEnvironmentBlueprintConfigurationProps) CfnEnvironmentBlueprintConfiguration {
 	_init_.Initialize()
 
@@ -525,6 +528,7 @@ func NewCfnEnvironmentBlueprintConfiguration(scope constructs.Construct, id *str
 	return &j
 }
 
+// Create a new `AWS::DataZone::EnvironmentBlueprintConfiguration`.
 func NewCfnEnvironmentBlueprintConfiguration_Override(c CfnEnvironmentBlueprintConfiguration, scope constructs.Construct, id *string, props *CfnEnvironmentBlueprintConfigurationProps) {
 	_init_.Initialize()
 

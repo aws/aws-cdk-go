@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 )
 
 // Use CloudWatch Logs as a custom access log destination for API Gateway.
@@ -22,7 +23,7 @@ import (
 type LogGroupLogDestination interface {
 	IAccessLogDestination
 	// Binds this destination to the CloudWatch Logs.
-	Bind(stage IStageRef) *AccessLogDestinationConfig
+	Bind(stage interfacesawsapigateway.IStageRef) *AccessLogDestinationConfig
 }
 
 // The jsii proxy struct for LogGroupLogDestination
@@ -57,7 +58,7 @@ func NewLogGroupLogDestination_Override(l LogGroupLogDestination, logGroup awslo
 	)
 }
 
-func (l *jsiiProxy_LogGroupLogDestination) Bind(stage IStageRef) *AccessLogDestinationConfig {
+func (l *jsiiProxy_LogGroupLogDestination) Bind(stage interfacesawsapigateway.IStageRef) *AccessLogDestinationConfig {
 	if err := l.validateBindParameters(stage); err != nil {
 		panic(err)
 	}

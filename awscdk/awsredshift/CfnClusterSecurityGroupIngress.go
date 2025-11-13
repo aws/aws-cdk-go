@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsredshift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsredshift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,8 +39,8 @@ import (
 //
 type CfnClusterSecurityGroupIngress interface {
 	awscdk.CfnResource
-	IClusterSecurityGroupIngressRef
 	awscdk.IInspectable
+	interfacesawsredshift.IClusterSecurityGroupIngressRef
 	// Specifies an inbound (ingress) rule for an Amazon Redshift security group.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -50,7 +52,7 @@ type CfnClusterSecurityGroupIngress interface {
 	Cidrip() *string
 	SetCidrip(val *string)
 	// A reference to a ClusterSecurityGroupIngress resource.
-	ClusterSecurityGroupIngressRef() *ClusterSecurityGroupIngressReference
+	ClusterSecurityGroupIngressRef() *interfacesawsredshift.ClusterSecurityGroupIngressReference
 	// The name of the security group to which the ingress rule is added.
 	ClusterSecurityGroupName() *string
 	SetClusterSecurityGroupName(val *string)
@@ -64,7 +66,7 @@ type CfnClusterSecurityGroupIngress interface {
 	// The AWS account number of the owner of the security group specified by the *EC2SecurityGroupName* parameter.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -229,8 +231,8 @@ type CfnClusterSecurityGroupIngress interface {
 // The jsii proxy struct for CfnClusterSecurityGroupIngress
 type jsiiProxy_CfnClusterSecurityGroupIngress struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClusterSecurityGroupIngressRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsredshiftIClusterSecurityGroupIngressRef
 }
 
 func (j *jsiiProxy_CfnClusterSecurityGroupIngress) AttrId() *string {
@@ -283,8 +285,8 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) Cidrip() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterSecurityGroupIngress) ClusterSecurityGroupIngressRef() *ClusterSecurityGroupIngressReference {
-	var returns *ClusterSecurityGroupIngressReference
+func (j *jsiiProxy_CfnClusterSecurityGroupIngress) ClusterSecurityGroupIngressRef() *interfacesawsredshift.ClusterSecurityGroupIngressReference {
+	var returns *interfacesawsredshift.ClusterSecurityGroupIngressReference
 	_jsii_.Get(
 		j,
 		"clusterSecurityGroupIngressRef",
@@ -333,8 +335,8 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) Ec2SecurityGroupOwnerId() *st
 	return returns
 }
 
-func (j *jsiiProxy_CfnClusterSecurityGroupIngress) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClusterSecurityGroupIngress) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -404,6 +406,7 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::Redshift::ClusterSecurityGroupIngress`.
 func NewCfnClusterSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnClusterSecurityGroupIngressProps) CfnClusterSecurityGroupIngress {
 	_init_.Initialize()
 
@@ -421,6 +424,7 @@ func NewCfnClusterSecurityGroupIngress(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::Redshift::ClusterSecurityGroupIngress`.
 func NewCfnClusterSecurityGroupIngress_Override(c CfnClusterSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnClusterSecurityGroupIngressProps) {
 	_init_.Initialize()
 

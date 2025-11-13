@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnLayerVersion interface {
 	awscdk.CfnResource
-	ILayerVersionRef
 	awscdk.IInspectable
+	interfacesawslambda.ILayerVersionRef
 	// The ARN of the layer version.
 	AttrLayerVersionArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -66,12 +68,12 @@ type CfnLayerVersion interface {
 	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name or Amazon Resource Name (ARN) of the layer.
 	LayerName() *string
 	SetLayerName(val *string)
 	// A reference to a LayerVersion resource.
-	LayerVersionRef() *LayerVersionReference
+	LayerVersionRef() *interfacesawslambda.LayerVersionReference
 	// The layer's software license.
 	//
 	// It can be any of the following:.
@@ -241,8 +243,8 @@ type CfnLayerVersion interface {
 // The jsii proxy struct for CfnLayerVersion
 type jsiiProxy_CfnLayerVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILayerVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslambdaILayerVersionRef
 }
 
 func (j *jsiiProxy_CfnLayerVersion) AttrLayerVersionArn() *string {
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnLayerVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayerVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLayerVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -355,8 +357,8 @@ func (j *jsiiProxy_CfnLayerVersion) LayerName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayerVersion) LayerVersionRef() *LayerVersionReference {
-	var returns *LayerVersionReference
+func (j *jsiiProxy_CfnLayerVersion) LayerVersionRef() *interfacesawslambda.LayerVersionReference {
+	var returns *interfacesawslambda.LayerVersionReference
 	_jsii_.Get(
 		j,
 		"layerVersionRef",
@@ -436,6 +438,7 @@ func (j *jsiiProxy_CfnLayerVersion) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Lambda::LayerVersion`.
 func NewCfnLayerVersion(scope constructs.Construct, id *string, props *CfnLayerVersionProps) CfnLayerVersion {
 	_init_.Initialize()
 
@@ -453,6 +456,7 @@ func NewCfnLayerVersion(scope constructs.Construct, id *string, props *CfnLayerV
 	return &j
 }
 
+// Create a new `AWS::Lambda::LayerVersion`.
 func NewCfnLayerVersion_Override(c CfnLayerVersion, scope constructs.Construct, id *string, props *CfnLayerVersionProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevopsguru/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevopsguru"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -23,8 +25,8 @@ import (
 //
 type CfnLogAnomalyDetectionIntegration interface {
 	awscdk.CfnResource
-	ILogAnomalyDetectionIntegrationRef
 	awscdk.IInspectable
+	interfacesawsdevopsguru.ILogAnomalyDetectionIntegrationRef
 	// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -36,9 +38,9 @@ type CfnLogAnomalyDetectionIntegration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a LogAnomalyDetectionIntegration resource.
-	LogAnomalyDetectionIntegrationRef() *LogAnomalyDetectionIntegrationReference
+	LogAnomalyDetectionIntegrationRef() *interfacesawsdevopsguru.LogAnomalyDetectionIntegrationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -203,8 +205,8 @@ type CfnLogAnomalyDetectionIntegration interface {
 // The jsii proxy struct for CfnLogAnomalyDetectionIntegration
 type jsiiProxy_CfnLogAnomalyDetectionIntegration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILogAnomalyDetectionIntegrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdevopsguruILogAnomalyDetectionIntegrationRef
 }
 
 func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) AttrAccountId() *string {
@@ -257,8 +259,8 @@ func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) CreationStack() *[]*string
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -267,8 +269,8 @@ func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) Env() *awscdk.ResourceEnvi
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) LogAnomalyDetectionIntegrationRef() *LogAnomalyDetectionIntegrationReference {
-	var returns *LogAnomalyDetectionIntegrationReference
+func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) LogAnomalyDetectionIntegrationRef() *interfacesawsdevopsguru.LogAnomalyDetectionIntegrationReference {
+	var returns *interfacesawsdevopsguru.LogAnomalyDetectionIntegrationReference
 	_jsii_.Get(
 		j,
 		"logAnomalyDetectionIntegrationRef",
@@ -338,6 +340,7 @@ func (j *jsiiProxy_CfnLogAnomalyDetectionIntegration) UpdatedProperties() *map[s
 }
 
 
+// Create a new `AWS::DevOpsGuru::LogAnomalyDetectionIntegration`.
 func NewCfnLogAnomalyDetectionIntegration(scope constructs.Construct, id *string, props *CfnLogAnomalyDetectionIntegrationProps) CfnLogAnomalyDetectionIntegration {
 	_init_.Initialize()
 
@@ -355,6 +358,7 @@ func NewCfnLogAnomalyDetectionIntegration(scope constructs.Construct, id *string
 	return &j
 }
 
+// Create a new `AWS::DevOpsGuru::LogAnomalyDetectionIntegration`.
 func NewCfnLogAnomalyDetectionIntegration_Override(c CfnLogAnomalyDetectionIntegration, scope constructs.Construct, id *string, props *CfnLogAnomalyDetectionIntegrationProps) {
 	_init_.Initialize()
 

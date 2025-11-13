@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsemr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnStudio interface {
 	awscdk.CfnResource
-	IStudioRef
 	awscdk.IInspectable
+	interfacesawsemr.IStudioRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the Amazon EMR Studio.
 	//
@@ -90,7 +92,7 @@ type CfnStudio interface {
 	// The ID of the Amazon EMR Studio Engine security group.
 	EngineSecurityGroupId() *string
 	SetEngineSecurityGroupId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the IAM Identity Center instance the Studio application belongs to.
 	IdcInstanceArn() *string
 	SetIdcInstanceArn(val *string)
@@ -131,7 +133,7 @@ type CfnStudio interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A reference to a Studio resource.
-	StudioRef() *StudioReference
+	StudioRef() *interfacesawsemr.StudioReference
 	// A list of subnet IDs to associate with the Amazon EMR Studio.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
@@ -295,8 +297,8 @@ type CfnStudio interface {
 // The jsii proxy struct for CfnStudio
 type jsiiProxy_CfnStudio struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IStudioRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsemrIStudioRef
 	internal.Type__awscdkITaggable
 }
 
@@ -420,8 +422,8 @@ func (j *jsiiProxy_CfnStudio) EngineSecurityGroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudio) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnStudio) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -530,8 +532,8 @@ func (j *jsiiProxy_CfnStudio) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudio) StudioRef() *StudioReference {
-	var returns *StudioReference
+func (j *jsiiProxy_CfnStudio) StudioRef() *interfacesawsemr.StudioReference {
+	var returns *interfacesawsemr.StudioReference
 	_jsii_.Get(
 		j,
 		"studioRef",
@@ -631,6 +633,7 @@ func (j *jsiiProxy_CfnStudio) WorkspaceSecurityGroupId() *string {
 }
 
 
+// Create a new `AWS::EMR::Studio`.
 func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps) CfnStudio {
 	_init_.Initialize()
 
@@ -648,6 +651,7 @@ func NewCfnStudio(scope constructs.Construct, id *string, props *CfnStudioProps)
 	return &j
 }
 
+// Create a new `AWS::EMR::Studio`.
 func NewCfnStudio_Override(c CfnStudio, scope constructs.Construct, id *string, props *CfnStudioProps) {
 	_init_.Initialize()
 
@@ -825,13 +829,13 @@ func (j *jsiiProxy_CfnStudio)SetWorkspaceSecurityGroupId(val *string) {
 }
 
 // Creates a new IStudioRef from an ARN.
-func CfnStudio_FromStudioArn(scope constructs.Construct, id *string, arn *string) IStudioRef {
+func CfnStudio_FromStudioArn(scope constructs.Construct, id *string, arn *string) interfacesawsemr.IStudioRef {
 	_init_.Initialize()
 
 	if err := validateCfnStudio_FromStudioArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IStudioRef
+	var returns interfacesawsemr.IStudioRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_emr.CfnStudio",
@@ -844,13 +848,13 @@ func CfnStudio_FromStudioArn(scope constructs.Construct, id *string, arn *string
 }
 
 // Creates a new IStudioRef from a studioId.
-func CfnStudio_FromStudioId(scope constructs.Construct, id *string, studioId *string) IStudioRef {
+func CfnStudio_FromStudioId(scope constructs.Construct, id *string, studioId *string) interfacesawsemr.IStudioRef {
 	_init_.Initialize()
 
 	if err := validateCfnStudio_FromStudioIdParameters(scope, id, studioId); err != nil {
 		panic(err)
 	}
-	var returns IStudioRef
+	var returns interfacesawsemr.IStudioRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_emr.CfnStudio",

@@ -1,0 +1,56 @@
+package interfacesawsssm
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssm/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a MaintenanceWindowTarget.
+// Experimental.
+type IMaintenanceWindowTargetRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a MaintenanceWindowTarget resource.
+	// Experimental.
+	MaintenanceWindowTargetRef() *MaintenanceWindowTargetReference
+}
+
+// The jsii proxy for IMaintenanceWindowTargetRef
+type jsiiProxy_IMaintenanceWindowTargetRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IMaintenanceWindowTargetRef) MaintenanceWindowTargetRef() *MaintenanceWindowTargetReference {
+	var returns *MaintenanceWindowTargetReference
+	_jsii_.Get(
+		j,
+		"maintenanceWindowTargetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMaintenanceWindowTargetRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMaintenanceWindowTargetRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

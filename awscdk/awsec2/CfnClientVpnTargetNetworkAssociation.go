@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnClientVpnTargetNetworkAssociation interface {
 	awscdk.CfnResource
-	IClientVpnTargetNetworkAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.IClientVpnTargetNetworkAssociationRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -39,12 +41,12 @@ type CfnClientVpnTargetNetworkAssociation interface {
 	ClientVpnEndpointId() *string
 	SetClientVpnEndpointId(val *string)
 	// A reference to a ClientVpnTargetNetworkAssociation resource.
-	ClientVpnTargetNetworkAssociationRef() *ClientVpnTargetNetworkAssociationReference
+	ClientVpnTargetNetworkAssociationRef() *interfacesawsec2.ClientVpnTargetNetworkAssociationReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -212,8 +214,8 @@ type CfnClientVpnTargetNetworkAssociation interface {
 // The jsii proxy struct for CfnClientVpnTargetNetworkAssociation
 type jsiiProxy_CfnClientVpnTargetNetworkAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClientVpnTargetNetworkAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IClientVpnTargetNetworkAssociationRef
 }
 
 func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AttrId() *string {
@@ -266,8 +268,8 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ClientVpnEndpointId() *
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ClientVpnTargetNetworkAssociationRef() *ClientVpnTargetNetworkAssociationReference {
-	var returns *ClientVpnTargetNetworkAssociationReference
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ClientVpnTargetNetworkAssociationRef() *interfacesawsec2.ClientVpnTargetNetworkAssociationReference {
+	var returns *interfacesawsec2.ClientVpnTargetNetworkAssociationReference
 	_jsii_.Get(
 		j,
 		"clientVpnTargetNetworkAssociationRef",
@@ -286,8 +288,8 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) CreationStack() *[]*str
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -367,6 +369,7 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) UpdatedProperties() *ma
 }
 
 
+// Create a new `AWS::EC2::ClientVpnTargetNetworkAssociation`.
 func NewCfnClientVpnTargetNetworkAssociation(scope constructs.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) CfnClientVpnTargetNetworkAssociation {
 	_init_.Initialize()
 
@@ -384,6 +387,7 @@ func NewCfnClientVpnTargetNetworkAssociation(scope constructs.Construct, id *str
 	return &j
 }
 
+// Create a new `AWS::EC2::ClientVpnTargetNetworkAssociation`.
 func NewCfnClientVpnTargetNetworkAssociation_Override(c CfnClientVpnTargetNetworkAssociation, scope constructs.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) {
 	_init_.Initialize()
 

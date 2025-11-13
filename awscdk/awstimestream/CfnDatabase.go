@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstimestream/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstimestream"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnDatabase interface {
 	awscdk.CfnResource
-	IDatabaseRef
 	awscdk.IInspectable
+	interfacesawstimestream.IDatabaseRef
 	awscdk.ITaggable
 	// The `arn` of the database.
 	AttrArn() *string
@@ -51,8 +53,8 @@ type CfnDatabase interface {
 	DatabaseName() *string
 	SetDatabaseName(val *string)
 	// A reference to a Database resource.
-	DatabaseRef() *DatabaseReference
-	Env() *awscdk.ResourceEnvironment
+	DatabaseRef() *interfacesawstimestream.DatabaseReference
+	Env() *interfaces.ResourceEnvironment
 	// The identifier of the AWS KMS key used to encrypt the data stored in the database.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -225,8 +227,8 @@ type CfnDatabase interface {
 // The jsii proxy struct for CfnDatabase
 type jsiiProxy_CfnDatabase struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDatabaseRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstimestreamIDatabaseRef
 	internal.Type__awscdkITaggable
 }
 
@@ -290,8 +292,8 @@ func (j *jsiiProxy_CfnDatabase) DatabaseName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatabase) DatabaseRef() *DatabaseReference {
-	var returns *DatabaseReference
+func (j *jsiiProxy_CfnDatabase) DatabaseRef() *interfacesawstimestream.DatabaseReference {
+	var returns *interfacesawstimestream.DatabaseReference
 	_jsii_.Get(
 		j,
 		"databaseRef",
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnDatabase) DatabaseRef() *DatabaseReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatabase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDatabase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -401,6 +403,7 @@ func (j *jsiiProxy_CfnDatabase) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Timestream::Database`.
 func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
 	_init_.Initialize()
 
@@ -418,6 +421,7 @@ func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabasePr
 	return &j
 }
 
+// Create a new `AWS::Timestream::Database`.
 func NewCfnDatabase_Override(c CfnDatabase, scope constructs.Construct, id *string, props *CfnDatabaseProps) {
 	_init_.Initialize()
 
@@ -456,13 +460,13 @@ func (j *jsiiProxy_CfnDatabase)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDatabaseRef from an ARN.
-func CfnDatabase_FromDatabaseArn(scope constructs.Construct, id *string, arn *string) IDatabaseRef {
+func CfnDatabase_FromDatabaseArn(scope constructs.Construct, id *string, arn *string) interfacesawstimestream.IDatabaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnDatabase_FromDatabaseArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDatabaseRef
+	var returns interfacesawstimestream.IDatabaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_timestream.CfnDatabase",
@@ -475,13 +479,13 @@ func CfnDatabase_FromDatabaseArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new IDatabaseRef from a databaseName.
-func CfnDatabase_FromDatabaseName(scope constructs.Construct, id *string, databaseName *string) IDatabaseRef {
+func CfnDatabase_FromDatabaseName(scope constructs.Construct, id *string, databaseName *string) interfacesawstimestream.IDatabaseRef {
 	_init_.Initialize()
 
 	if err := validateCfnDatabase_FromDatabaseNameParameters(scope, id, databaseName); err != nil {
 		panic(err)
 	}
-	var returns IDatabaseRef
+	var returns interfacesawstimestream.IDatabaseRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_timestream.CfnDatabase",

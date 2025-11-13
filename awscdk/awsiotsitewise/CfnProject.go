@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotsitewise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnProject interface {
 	awscdk.CfnResource
-	IProjectRef
 	awscdk.IInspectable
+	interfacesawsiotsitewise.IProjectRef
 	awscdk.ITaggable
 	// A list that contains the IDs of each asset associated with the project.
 	AssetIds() *[]*string
@@ -64,7 +66,7 @@ type CfnProject interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -87,7 +89,7 @@ type CfnProject interface {
 	ProjectName() *string
 	SetProjectName(val *string)
 	// A reference to a Project resource.
-	ProjectRef() *ProjectReference
+	ProjectRef() *interfacesawsiotsitewise.ProjectReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -245,8 +247,8 @@ type CfnProject interface {
 // The jsii proxy struct for CfnProject
 type jsiiProxy_CfnProject struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProjectRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotsitewiseIProjectRef
 	internal.Type__awscdkITaggable
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnProject) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProject) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -380,8 +382,8 @@ func (j *jsiiProxy_CfnProject) ProjectName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) ProjectRef() *ProjectReference {
-	var returns *ProjectReference
+func (j *jsiiProxy_CfnProject) ProjectRef() *interfacesawsiotsitewise.ProjectReference {
+	var returns *interfacesawsiotsitewise.ProjectReference
 	_jsii_.Get(
 		j,
 		"projectRef",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnProject) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTSiteWise::Project`.
 func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProp
 	return &j
 }
 
+// Create a new `AWS::IoTSiteWise::Project`.
 func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 
@@ -528,13 +532,13 @@ func (j *jsiiProxy_CfnProject)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IProjectRef from an ARN.
-func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *string) IProjectRef {
+func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IProjectRef {
 	_init_.Initialize()
 
 	if err := validateCfnProject_FromProjectArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IProjectRef
+	var returns interfacesawsiotsitewise.IProjectRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnProject",
@@ -547,13 +551,13 @@ func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *stri
 }
 
 // Creates a new IProjectRef from a projectId.
-func CfnProject_FromProjectId(scope constructs.Construct, id *string, projectId *string) IProjectRef {
+func CfnProject_FromProjectId(scope constructs.Construct, id *string, projectId *string) interfacesawsiotsitewise.IProjectRef {
 	_init_.Initialize()
 
 	if err := validateCfnProject_FromProjectIdParameters(scope, id, projectId); err != nil {
 		panic(err)
 	}
-	var returns IProjectRef
+	var returns interfacesawsiotsitewise.IProjectRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotsitewise.CfnProject",

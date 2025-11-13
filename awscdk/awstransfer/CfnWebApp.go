@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awstransfer/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstransfer"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnWebApp interface {
 	awscdk.CfnResource
-	IWebAppRef
 	awscdk.IInspectable
+	interfacesawstransfer.IWebAppRef
 	awscdk.ITaggableV2
 	// The `AccessEndpoint` is the URL that you provide to your users for them to interact with the Transfer Family web app.
 	AccessEndpoint() *string
@@ -69,7 +71,7 @@ type CfnWebApp interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// You can provide a structure that contains the details for the identity provider to use with your web app.
 	IdentityProviderDetails() interface{}
 	SetIdentityProviderDetails(val interface{})
@@ -119,7 +121,7 @@ type CfnWebApp interface {
 	WebAppEndpointPolicy() *string
 	SetWebAppEndpointPolicy(val *string)
 	// A reference to a WebApp resource.
-	WebAppRef() *WebAppReference
+	WebAppRef() *interfacesawstransfer.WebAppReference
 	// A union that contains the value for number of concurrent connections or the user sessions on your web app.
 	WebAppUnits() interface{}
 	SetWebAppUnits(val interface{})
@@ -253,8 +255,8 @@ type CfnWebApp interface {
 // The jsii proxy struct for CfnWebApp
 type jsiiProxy_CfnWebApp struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IWebAppRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawstransferIWebAppRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnWebApp) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebApp) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnWebApp) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -458,8 +460,8 @@ func (j *jsiiProxy_CfnWebApp) WebAppEndpointPolicy() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebApp) WebAppRef() *WebAppReference {
-	var returns *WebAppReference
+func (j *jsiiProxy_CfnWebApp) WebAppRef() *interfacesawstransfer.WebAppReference {
+	var returns *interfacesawstransfer.WebAppReference
 	_jsii_.Get(
 		j,
 		"webAppRef",
@@ -479,6 +481,7 @@ func (j *jsiiProxy_CfnWebApp) WebAppUnits() interface{} {
 }
 
 
+// Create a new `AWS::Transfer::WebApp`.
 func NewCfnWebApp(scope constructs.Construct, id *string, props *CfnWebAppProps) CfnWebApp {
 	_init_.Initialize()
 
@@ -496,6 +499,7 @@ func NewCfnWebApp(scope constructs.Construct, id *string, props *CfnWebAppProps)
 	return &j
 }
 
+// Create a new `AWS::Transfer::WebApp`.
 func NewCfnWebApp_Override(c CfnWebApp, scope constructs.Construct, id *string, props *CfnWebAppProps) {
 	_init_.Initialize()
 

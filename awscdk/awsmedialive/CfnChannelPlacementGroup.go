@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,8 +36,8 @@ import (
 //
 type CfnChannelPlacementGroup interface {
 	awscdk.CfnResource
-	IChannelPlacementGroupRef
 	awscdk.IInspectable
+	interfacesawsmedialive.IChannelPlacementGroupRef
 	awscdk.ITaggableV2
 	// The ARN of the channel placement group.
 	AttrArn() *string
@@ -53,7 +55,7 @@ type CfnChannelPlacementGroup interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ChannelPlacementGroup resource.
-	ChannelPlacementGroupRef() *ChannelPlacementGroupReference
+	ChannelPlacementGroupRef() *interfacesawsmedialive.ChannelPlacementGroupReference
 	// The ID of the cluster the node is on.
 	ClusterId() *string
 	SetClusterId(val *string)
@@ -61,7 +63,7 @@ type CfnChannelPlacementGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnChannelPlacementGroup interface {
 // The jsii proxy struct for CfnChannelPlacementGroup
 type jsiiProxy_CfnChannelPlacementGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IChannelPlacementGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmedialiveIChannelPlacementGroupRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnChannelPlacementGroup) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelPlacementGroup) ChannelPlacementGroupRef() *ChannelPlacementGroupReference {
-	var returns *ChannelPlacementGroupReference
+func (j *jsiiProxy_CfnChannelPlacementGroup) ChannelPlacementGroupRef() *interfacesawsmedialive.ChannelPlacementGroupReference {
+	var returns *interfacesawsmedialive.ChannelPlacementGroupReference
 	_jsii_.Get(
 		j,
 		"channelPlacementGroupRef",
@@ -350,8 +352,8 @@ func (j *jsiiProxy_CfnChannelPlacementGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannelPlacementGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnChannelPlacementGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnChannelPlacementGroup) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::MediaLive::ChannelPlacementGroup`.
 func NewCfnChannelPlacementGroup(scope constructs.Construct, id *string, props *CfnChannelPlacementGroupProps) CfnChannelPlacementGroup {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnChannelPlacementGroup(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::MediaLive::ChannelPlacementGroup`.
 func NewCfnChannelPlacementGroup_Override(c CfnChannelPlacementGroup, scope constructs.Construct, id *string, props *CfnChannelPlacementGroupProps) {
 	_init_.Initialize()
 

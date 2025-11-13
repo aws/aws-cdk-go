@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationinsights/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationinsights"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -319,11 +321,11 @@ import (
 //
 type CfnApplication interface {
 	awscdk.CfnResource
-	IApplicationRef
 	awscdk.IInspectable
+	interfacesawsapplicationinsights.IApplicationRef
 	awscdk.ITaggable
 	// A reference to a Application resource.
-	ApplicationRef() *ApplicationReference
+	ApplicationRef() *interfacesawsapplicationinsights.ApplicationReference
 	// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.
 	AttachMissingPermission() interface{}
 	SetAttachMissingPermission(val interface{})
@@ -350,7 +352,7 @@ type CfnApplication interface {
 	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated` , `failed deployment` , and others.
 	CweMonitorEnabled() interface{}
 	SetCweMonitorEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Application Insights can create applications based on a resource group or on an account.
 	GroupingType() *string
 	SetGroupingType(val *string)
@@ -538,13 +540,13 @@ type CfnApplication interface {
 // The jsii proxy struct for CfnApplication
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IApplicationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapplicationinsightsIApplicationRef
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnApplication) ApplicationRef() *ApplicationReference {
-	var returns *ApplicationReference
+func (j *jsiiProxy_CfnApplication) ApplicationRef() *interfacesawsapplicationinsights.ApplicationReference {
+	var returns *interfacesawsapplicationinsights.ApplicationReference
 	_jsii_.Get(
 		j,
 		"applicationRef",
@@ -653,8 +655,8 @@ func (j *jsiiProxy_CfnApplication) CweMonitorEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -804,6 +806,7 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::ApplicationInsights::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
@@ -821,6 +824,7 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 	return &j
 }
 
+// Create a new `AWS::ApplicationInsights::Application`.
 func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 

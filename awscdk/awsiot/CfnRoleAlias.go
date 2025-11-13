@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnRoleAlias interface {
 	awscdk.CfnResource
-	IRoleAliasRef
 	awscdk.IInspectable
+	interfacesawsiot.IRoleAliasRef
 	awscdk.ITaggable
 	// The role alias ARN.
 	AttrRoleAliasArn() *string
@@ -53,7 +55,7 @@ type CfnRoleAlias interface {
 	// The number of seconds for which the credential is valid.
 	CredentialDurationSeconds() *float64
 	SetCredentialDurationSeconds(val *float64)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -75,7 +77,7 @@ type CfnRoleAlias interface {
 	RoleAlias() *string
 	SetRoleAlias(val *string)
 	// A reference to a RoleAlias resource.
-	RoleAliasRef() *RoleAliasReference
+	RoleAliasRef() *interfacesawsiot.RoleAliasReference
 	// The role ARN.
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -231,8 +233,8 @@ type CfnRoleAlias interface {
 // The jsii proxy struct for CfnRoleAlias
 type jsiiProxy_CfnRoleAlias struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRoleAliasRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIRoleAliasRef
 	internal.Type__awscdkITaggable
 }
 
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnRoleAlias) CredentialDurationSeconds() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoleAlias) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRoleAlias) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -346,8 +348,8 @@ func (j *jsiiProxy_CfnRoleAlias) RoleAlias() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoleAlias) RoleAliasRef() *RoleAliasReference {
-	var returns *RoleAliasReference
+func (j *jsiiProxy_CfnRoleAlias) RoleAliasRef() *interfacesawsiot.RoleAliasReference {
+	var returns *interfacesawsiot.RoleAliasReference
 	_jsii_.Get(
 		j,
 		"roleAliasRef",
@@ -417,6 +419,7 @@ func (j *jsiiProxy_CfnRoleAlias) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoT::RoleAlias`.
 func NewCfnRoleAlias(scope constructs.Construct, id *string, props *CfnRoleAliasProps) CfnRoleAlias {
 	_init_.Initialize()
 
@@ -434,6 +437,7 @@ func NewCfnRoleAlias(scope constructs.Construct, id *string, props *CfnRoleAlias
 	return &j
 }
 
+// Create a new `AWS::IoT::RoleAlias`.
 func NewCfnRoleAlias_Override(c CfnRoleAlias, scope constructs.Construct, id *string, props *CfnRoleAliasProps) {
 	_init_.Initialize()
 
@@ -483,13 +487,13 @@ func (j *jsiiProxy_CfnRoleAlias)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IRoleAliasRef from a roleAlias.
-func CfnRoleAlias_FromRoleAlias(scope constructs.Construct, id *string, roleAlias *string) IRoleAliasRef {
+func CfnRoleAlias_FromRoleAlias(scope constructs.Construct, id *string, roleAlias *string) interfacesawsiot.IRoleAliasRef {
 	_init_.Initialize()
 
 	if err := validateCfnRoleAlias_FromRoleAliasParameters(scope, id, roleAlias); err != nil {
 		panic(err)
 	}
-	var returns IRoleAliasRef
+	var returns interfacesawsiot.IRoleAliasRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnRoleAlias",
@@ -502,13 +506,13 @@ func CfnRoleAlias_FromRoleAlias(scope constructs.Construct, id *string, roleAlia
 }
 
 // Creates a new IRoleAliasRef from an ARN.
-func CfnRoleAlias_FromRoleAliasArn(scope constructs.Construct, id *string, arn *string) IRoleAliasRef {
+func CfnRoleAlias_FromRoleAliasArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IRoleAliasRef {
 	_init_.Initialize()
 
 	if err := validateCfnRoleAlias_FromRoleAliasArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IRoleAliasRef
+	var returns interfacesawsiot.IRoleAliasRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnRoleAlias",

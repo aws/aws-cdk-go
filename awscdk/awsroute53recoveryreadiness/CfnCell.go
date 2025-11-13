@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoveryreadiness/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoveryreadiness"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnCell interface {
 	awscdk.CfnResource
-	ICellRef
 	awscdk.IInspectable
+	interfacesawsroute53recoveryreadiness.ICellRef
 	awscdk.ITaggable
 	// The ARN of the cell.
 	AttrCellArn() *string
@@ -54,7 +56,7 @@ type CfnCell interface {
 	CellName() *string
 	SetCellName(val *string)
 	// A reference to a Cell resource.
-	CellRef() *CellReference
+	CellRef() *interfacesawsroute53recoveryreadiness.CellReference
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells.
 	Cells() *[]*string
 	SetCells(val *[]*string)
@@ -67,7 +69,7 @@ type CfnCell interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,8 +239,8 @@ type CfnCell interface {
 // The jsii proxy struct for CfnCell
 type jsiiProxy_CfnCell struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICellRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsroute53recoveryreadinessICellRef
 	internal.Type__awscdkITaggable
 }
 
@@ -272,8 +274,8 @@ func (j *jsiiProxy_CfnCell) CellName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCell) CellRef() *CellReference {
-	var returns *CellReference
+func (j *jsiiProxy_CfnCell) CellRef() *interfacesawsroute53recoveryreadiness.CellReference {
+	var returns *interfacesawsroute53recoveryreadiness.CellReference
 	_jsii_.Get(
 		j,
 		"cellRef",
@@ -332,8 +334,8 @@ func (j *jsiiProxy_CfnCell) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCell) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCell) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -423,6 +425,7 @@ func (j *jsiiProxy_CfnCell) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Route53RecoveryReadiness::Cell`.
 func NewCfnCell(scope constructs.Construct, id *string, props *CfnCellProps) CfnCell {
 	_init_.Initialize()
 
@@ -440,6 +443,7 @@ func NewCfnCell(scope constructs.Construct, id *string, props *CfnCellProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::Route53RecoveryReadiness::Cell`.
 func NewCfnCell_Override(c CfnCell, scope constructs.Construct, id *string, props *CfnCellProps) {
 	_init_.Initialize()
 
@@ -478,13 +482,13 @@ func (j *jsiiProxy_CfnCell)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new ICellRef from an ARN.
-func CfnCell_FromCellArn(scope constructs.Construct, id *string, arn *string) ICellRef {
+func CfnCell_FromCellArn(scope constructs.Construct, id *string, arn *string) interfacesawsroute53recoveryreadiness.ICellRef {
 	_init_.Initialize()
 
 	if err := validateCfnCell_FromCellArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ICellRef
+	var returns interfacesawsroute53recoveryreadiness.ICellRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
@@ -497,13 +501,13 @@ func CfnCell_FromCellArn(scope constructs.Construct, id *string, arn *string) IC
 }
 
 // Creates a new ICellRef from a cellName.
-func CfnCell_FromCellName(scope constructs.Construct, id *string, cellName *string) ICellRef {
+func CfnCell_FromCellName(scope constructs.Construct, id *string, cellName *string) interfacesawsroute53recoveryreadiness.ICellRef {
 	_init_.Initialize()
 
 	if err := validateCfnCell_FromCellNameParameters(scope, id, cellName); err != nil {
 		panic(err)
 	}
-	var returns ICellRef
+	var returns interfacesawsroute53recoveryreadiness.ICellRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",

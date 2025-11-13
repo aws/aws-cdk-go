@@ -1,9 +1,18 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawswafregionalIByteMatchSetRef = interfacesawswafregional.IByteMatchSetRef
+type Type__interfacesawswafregionalIGeoMatchSetRef = interfacesawswafregional.IGeoMatchSetRef
+type Type__interfacesawswafregionalIIPSetRef = interfacesawswafregional.IIPSetRef
+type Type__interfacesawswafregionalIRateBasedRuleRef = interfacesawswafregional.IRateBasedRuleRef
+type Type__interfacesawswafregionalIRegexPatternSetRef = interfacesawswafregional.IRegexPatternSetRef
+type Type__interfacesawswafregionalIRuleRef = interfacesawswafregional.IRuleRef
+type Type__interfacesawswafregionalISizeConstraintSetRef = interfacesawswafregional.ISizeConstraintSetRef
+type Type__interfacesawswafregionalISqlInjectionMatchSetRef = interfacesawswafregional.ISqlInjectionMatchSetRef
+type Type__interfacesawswafregionalIWebACLRef = interfacesawswafregional.IWebACLRef
+type Type__interfacesawswafregionalIWebACLAssociationRef = interfacesawswafregional.IWebACLAssociationRef
+type Type__interfacesawswafregionalIXssMatchSetRef = interfacesawswafregional.IXssMatchSetRef

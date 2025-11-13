@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,7 +47,7 @@ type VpcEndpointService interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -65,7 +67,7 @@ type VpcEndpointService interface {
 	// The service name of the VPC Endpoint Service that clients use to connect to, like com.amazonaws.vpce.<region>.vpce-svc-xxxxxxxxxxxxxxxx.
 	VpcEndpointServiceName() *string
 	// A reference to a VPCEndpointService resource.
-	VpcEndpointServiceRef() *VPCEndpointServiceReference
+	VpcEndpointServiceRef() *interfacesawsec2.VPCEndpointServiceReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -130,8 +132,8 @@ func (j *jsiiProxy_VpcEndpointService) ContributorInsightsEnabled() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_VpcEndpointService) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_VpcEndpointService) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -200,8 +202,8 @@ func (j *jsiiProxy_VpcEndpointService) VpcEndpointServiceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_VpcEndpointService) VpcEndpointServiceRef() *VPCEndpointServiceReference {
-	var returns *VPCEndpointServiceReference
+func (j *jsiiProxy_VpcEndpointService) VpcEndpointServiceRef() *interfacesawsec2.VPCEndpointServiceReference {
+	var returns *interfacesawsec2.VPCEndpointServiceReference
 	_jsii_.Get(
 		j,
 		"vpcEndpointServiceRef",

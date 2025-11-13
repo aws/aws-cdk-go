@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsproton/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsproton"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnEnvironmentAccountConnection interface {
 	awscdk.CfnResource
-	IEnvironmentAccountConnectionRef
 	awscdk.IInspectable
+	interfacesawsproton.IEnvironmentAccountConnectionRef
 	awscdk.ITaggable
 	// Returns the environment account connection ARN.
 	AttrArn() *string
@@ -59,9 +61,9 @@ type CfnEnvironmentAccountConnection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a EnvironmentAccountConnection resource.
-	EnvironmentAccountConnectionRef() *EnvironmentAccountConnectionReference
+	EnvironmentAccountConnectionRef() *interfacesawsproton.EnvironmentAccountConnectionReference
 	// The environment account that's connected to the environment account connection.
 	EnvironmentAccountId() *string
 	SetEnvironmentAccountId(val *string)
@@ -243,8 +245,8 @@ type CfnEnvironmentAccountConnection interface {
 // The jsii proxy struct for CfnEnvironmentAccountConnection
 type jsiiProxy_CfnEnvironmentAccountConnection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IEnvironmentAccountConnectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsprotonIEnvironmentAccountConnectionRef
 	internal.Type__awscdkITaggable
 }
 
@@ -338,8 +340,8 @@ func (j *jsiiProxy_CfnEnvironmentAccountConnection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentAccountConnection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnEnvironmentAccountConnection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnEnvironmentAccountConnection) Env() *awscdk.ResourceEnviro
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentAccountConnection) EnvironmentAccountConnectionRef() *EnvironmentAccountConnectionReference {
-	var returns *EnvironmentAccountConnectionReference
+func (j *jsiiProxy_CfnEnvironmentAccountConnection) EnvironmentAccountConnectionRef() *interfacesawsproton.EnvironmentAccountConnectionReference {
+	var returns *interfacesawsproton.EnvironmentAccountConnectionReference
 	_jsii_.Get(
 		j,
 		"environmentAccountConnectionRef",
@@ -479,6 +481,7 @@ func (j *jsiiProxy_CfnEnvironmentAccountConnection) UpdatedProperties() *map[str
 }
 
 
+// Create a new `AWS::Proton::EnvironmentAccountConnection`.
 func NewCfnEnvironmentAccountConnection(scope constructs.Construct, id *string, props *CfnEnvironmentAccountConnectionProps) CfnEnvironmentAccountConnection {
 	_init_.Initialize()
 
@@ -496,6 +499,7 @@ func NewCfnEnvironmentAccountConnection(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::Proton::EnvironmentAccountConnection`.
 func NewCfnEnvironmentAccountConnection_Override(c CfnEnvironmentAccountConnection, scope constructs.Construct, id *string, props *CfnEnvironmentAccountConnectionProps) {
 	_init_.Initialize()
 

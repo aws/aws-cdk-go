@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -27,8 +29,8 @@ import (
 //
 type CfnVPCDHCPOptionsAssociation interface {
 	awscdk.CfnResource
-	IVPCDHCPOptionsAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPCDHCPOptionsAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -41,7 +43,7 @@ type CfnVPCDHCPOptionsAssociation interface {
 	// The ID of the DHCP options set, or `default` to associate no DHCP options with the VPC.
 	DhcpOptionsId() *string
 	SetDhcpOptionsId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -77,7 +79,7 @@ type CfnVPCDHCPOptionsAssociation interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// A reference to a VPCDHCPOptionsAssociation resource.
-	VpcdhcpOptionsAssociationRef() *VPCDHCPOptionsAssociationReference
+	VpcdhcpOptionsAssociationRef() *interfacesawsec2.VPCDHCPOptionsAssociationReference
 	// The ID of the VPC.
 	VpcId() *string
 	SetVpcId(val *string)
@@ -211,8 +213,8 @@ type CfnVPCDHCPOptionsAssociation interface {
 // The jsii proxy struct for CfnVPCDHCPOptionsAssociation
 type jsiiProxy_CfnVPCDHCPOptionsAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPCDHCPOptionsAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPCDHCPOptionsAssociationRef
 }
 
 func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) DhcpOptionsId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -335,8 +337,8 @@ func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) UpdatedProperties() *map[string
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) VpcdhcpOptionsAssociationRef() *VPCDHCPOptionsAssociationReference {
-	var returns *VPCDHCPOptionsAssociationReference
+func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) VpcdhcpOptionsAssociationRef() *interfacesawsec2.VPCDHCPOptionsAssociationReference {
+	var returns *interfacesawsec2.VPCDHCPOptionsAssociationReference
 	_jsii_.Get(
 		j,
 		"vpcdhcpOptionsAssociationRef",
@@ -356,6 +358,7 @@ func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) VpcId() *string {
 }
 
 
+// Create a new `AWS::EC2::VPCDHCPOptionsAssociation`.
 func NewCfnVPCDHCPOptionsAssociation(scope constructs.Construct, id *string, props *CfnVPCDHCPOptionsAssociationProps) CfnVPCDHCPOptionsAssociation {
 	_init_.Initialize()
 
@@ -373,6 +376,7 @@ func NewCfnVPCDHCPOptionsAssociation(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::EC2::VPCDHCPOptionsAssociation`.
 func NewCfnVPCDHCPOptionsAssociation_Override(c CfnVPCDHCPOptionsAssociation, scope constructs.Construct, id *string, props *CfnVPCDHCPOptionsAssociationProps) {
 	_init_.Initialize()
 

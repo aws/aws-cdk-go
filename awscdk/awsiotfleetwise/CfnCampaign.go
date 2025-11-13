@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotfleetwise/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotfleetwise"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -139,8 +141,8 @@ import (
 //
 type CfnCampaign interface {
 	awscdk.CfnResource
-	ICampaignRef
 	awscdk.IInspectable
+	interfacesawsiotfleetwise.ICampaignRef
 	awscdk.ITaggable
 	// Specifies how to update a campaign.
 	//
@@ -158,7 +160,7 @@ type CfnCampaign interface {
 	// The status can be one of: `CREATING` , `WAITING_FOR_APPROVAL` , `RUNNING` , and `SUSPENDED` .
 	AttrStatus() *string
 	// A reference to a Campaign resource.
-	CampaignRef() *CampaignReference
+	CampaignRef() *interfacesawsiotfleetwise.CampaignReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -189,7 +191,7 @@ type CfnCampaign interface {
 	// Option for a vehicle to send diagnostic trouble codes to AWS IoT FleetWise .
 	DiagnosticsMode() *string
 	SetDiagnosticsMode(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	ExpiryTime() *string
 	SetExpiryTime(val *string)
@@ -391,8 +393,8 @@ type CfnCampaign interface {
 // The jsii proxy struct for CfnCampaign
 type jsiiProxy_CfnCampaign struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICampaignRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotfleetwiseICampaignRef
 	internal.Type__awscdkITaggable
 }
 
@@ -446,8 +448,8 @@ func (j *jsiiProxy_CfnCampaign) AttrStatus() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCampaign) CampaignRef() *CampaignReference {
-	var returns *CampaignReference
+func (j *jsiiProxy_CfnCampaign) CampaignRef() *interfacesawsiotfleetwise.CampaignReference {
+	var returns *interfacesawsiotfleetwise.CampaignReference
 	_jsii_.Get(
 		j,
 		"campaignRef",
@@ -566,8 +568,8 @@ func (j *jsiiProxy_CfnCampaign) DiagnosticsMode() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCampaign) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCampaign) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -757,6 +759,7 @@ func (j *jsiiProxy_CfnCampaign) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IoTFleetWise::Campaign`.
 func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignProps) CfnCampaign {
 	_init_.Initialize()
 
@@ -774,6 +777,7 @@ func NewCfnCampaign(scope constructs.Construct, id *string, props *CfnCampaignPr
 	return &j
 }
 
+// Create a new `AWS::IoTFleetWise::Campaign`.
 func NewCfnCampaign_Override(c CfnCampaign, scope constructs.Construct, id *string, props *CfnCampaignProps) {
 	_init_.Initialize()
 
@@ -964,13 +968,13 @@ func (j *jsiiProxy_CfnCampaign)SetTargetArn(val *string) {
 }
 
 // Creates a new ICampaignRef from an ARN.
-func CfnCampaign_FromCampaignArn(scope constructs.Construct, id *string, arn *string) ICampaignRef {
+func CfnCampaign_FromCampaignArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotfleetwise.ICampaignRef {
 	_init_.Initialize()
 
 	if err := validateCfnCampaign_FromCampaignArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns ICampaignRef
+	var returns interfacesawsiotfleetwise.ICampaignRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign",
@@ -983,13 +987,13 @@ func CfnCampaign_FromCampaignArn(scope constructs.Construct, id *string, arn *st
 }
 
 // Creates a new ICampaignRef from a campaignName.
-func CfnCampaign_FromCampaignName(scope constructs.Construct, id *string, campaignName *string) ICampaignRef {
+func CfnCampaign_FromCampaignName(scope constructs.Construct, id *string, campaignName *string) interfacesawsiotfleetwise.ICampaignRef {
 	_init_.Initialize()
 
 	if err := validateCfnCampaign_FromCampaignNameParameters(scope, id, campaignName); err != nil {
 		panic(err)
 	}
-	var returns ICampaignRef
+	var returns interfacesawsiotfleetwise.ICampaignRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign",

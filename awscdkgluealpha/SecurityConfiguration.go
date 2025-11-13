@@ -5,7 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/aws-cdk-go/awscdkgluealpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -53,7 +54,7 @@ type SecurityConfiguration interface {
 	ISecurityConfiguration
 	// The KMS key used in CloudWatch encryption if it requires a kms key.
 	// Experimental.
-	CloudWatchEncryptionKey() awskms.IKeyRef
+	CloudWatchEncryptionKey() interfacesawskms.IKeyRef
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -64,10 +65,10 @@ type SecurityConfiguration interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The KMS key used in job bookmarks encryption if it requires a kms key.
 	// Experimental.
-	JobBookmarksEncryptionKey() awskms.IKeyRef
+	JobBookmarksEncryptionKey() interfacesawskms.IKeyRef
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -82,7 +83,7 @@ type SecurityConfiguration interface {
 	PhysicalName() *string
 	// The KMS key used in S3 encryption if it requires a kms key.
 	// Experimental.
-	S3EncryptionKey() awskms.IKeyRef
+	S3EncryptionKey() interfacesawskms.IKeyRef
 	// The name of the security configuration.
 	// Experimental.
 	SecurityConfigurationName() *string
@@ -128,8 +129,8 @@ type jsiiProxy_SecurityConfiguration struct {
 	jsiiProxy_ISecurityConfiguration
 }
 
-func (j *jsiiProxy_SecurityConfiguration) CloudWatchEncryptionKey() awskms.IKeyRef {
-	var returns awskms.IKeyRef
+func (j *jsiiProxy_SecurityConfiguration) CloudWatchEncryptionKey() interfacesawskms.IKeyRef {
+	var returns interfacesawskms.IKeyRef
 	_jsii_.Get(
 		j,
 		"cloudWatchEncryptionKey",
@@ -138,8 +139,8 @@ func (j *jsiiProxy_SecurityConfiguration) CloudWatchEncryptionKey() awskms.IKeyR
 	return returns
 }
 
-func (j *jsiiProxy_SecurityConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_SecurityConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -148,8 +149,8 @@ func (j *jsiiProxy_SecurityConfiguration) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SecurityConfiguration) JobBookmarksEncryptionKey() awskms.IKeyRef {
-	var returns awskms.IKeyRef
+func (j *jsiiProxy_SecurityConfiguration) JobBookmarksEncryptionKey() interfacesawskms.IKeyRef {
+	var returns interfacesawskms.IKeyRef
 	_jsii_.Get(
 		j,
 		"jobBookmarksEncryptionKey",
@@ -178,8 +179,8 @@ func (j *jsiiProxy_SecurityConfiguration) PhysicalName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SecurityConfiguration) S3EncryptionKey() awskms.IKeyRef {
-	var returns awskms.IKeyRef
+func (j *jsiiProxy_SecurityConfiguration) S3EncryptionKey() interfacesawskms.IKeyRef {
+	var returns interfacesawskms.IKeyRef
 	_jsii_.Get(
 		j,
 		"s3EncryptionKey",

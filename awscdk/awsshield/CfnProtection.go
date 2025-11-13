@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsshield/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsshield"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -66,8 +68,8 @@ import (
 //
 type CfnProtection interface {
 	awscdk.CfnResource
-	IProtectionRef
 	awscdk.IInspectable
+	interfacesawsshield.IProtectionRef
 	awscdk.ITaggableV2
 	// The automatic application layer DDoS mitigation settings for the protection.
 	ApplicationLayerAutomaticResponseConfiguration() interface{}
@@ -87,7 +89,7 @@ type CfnProtection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN (Amazon Resource Name) of the health check to associate with the protection.
 	HealthCheckArns() *[]*string
 	SetHealthCheckArns(val *[]*string)
@@ -109,7 +111,7 @@ type CfnProtection interface {
 	// The tree node.
 	Node() constructs.Node
 	// A reference to a Protection resource.
-	ProtectionRef() *ProtectionReference
+	ProtectionRef() *interfacesawsshield.ProtectionReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -268,8 +270,8 @@ type CfnProtection interface {
 // The jsii proxy struct for CfnProtection
 type jsiiProxy_CfnProtection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IProtectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsshieldIProtectionRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -353,8 +355,8 @@ func (j *jsiiProxy_CfnProtection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProtection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnProtection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnProtection) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProtection) ProtectionRef() *ProtectionReference {
-	var returns *ProtectionReference
+func (j *jsiiProxy_CfnProtection) ProtectionRef() *interfacesawsshield.ProtectionReference {
+	var returns *interfacesawsshield.ProtectionReference
 	_jsii_.Get(
 		j,
 		"protectionRef",
@@ -474,6 +476,7 @@ func (j *jsiiProxy_CfnProtection) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Shield::Protection`.
 func NewCfnProtection(scope constructs.Construct, id *string, props *CfnProtectionProps) CfnProtection {
 	_init_.Initialize()
 
@@ -491,6 +494,7 @@ func NewCfnProtection(scope constructs.Construct, id *string, props *CfnProtecti
 	return &j
 }
 
+// Create a new `AWS::Shield::Protection`.
 func NewCfnProtection_Override(c CfnProtection, scope constructs.Construct, id *string, props *CfnProtectionProps) {
 	_init_.Initialize()
 

@@ -52,8 +52,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnScalingPlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IScalingPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsautoscalingplansIScalingPlanRef)
 			return &j
 		},
 	)
@@ -96,24 +96,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlanProps",
 		reflect.TypeOf((*CfnScalingPlanProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_autoscalingplans.IScalingPlanRef",
-		reflect.TypeOf((*IScalingPlanRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scalingPlanRef", GoGetter: "ScalingPlanRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IScalingPlanRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscalingplans.ScalingPlanReference",
-		reflect.TypeOf((*ScalingPlanReference)(nil)).Elem(),
 	)
 }

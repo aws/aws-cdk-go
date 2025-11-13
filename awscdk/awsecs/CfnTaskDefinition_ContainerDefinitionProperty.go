@@ -230,7 +230,7 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The number of `cpu` units reserved for the container.
 	//
-	// This parameter maps to `CpuShares` in the docker container create commandand the `--cpu-shares` option to docker run.
+	// This parameter maps to `CpuShares` in the docker container create command and the `--cpu-shares` option to docker run.
 	//
 	// This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level `cpu` value.
 	//

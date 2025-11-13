@@ -8,6 +8,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,7 +54,7 @@ type Secret interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The string of the characters that are excluded in this secret when it is generated.
 	ExcludeCharacters() *string
 	// The tree node.
@@ -84,7 +86,7 @@ type Secret interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds a replica region for the secret.
-	AddReplicaRegion(region *string, encryptionKey awskms.IKeyRef)
+	AddReplicaRegion(region *string, encryptionKey interfacesawskms.IKeyRef)
 	// Adds a rotation schedule to the secret.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
 	// Adds a statement to the IAM resource policy associated with this secret.
@@ -107,6 +109,10 @@ type Secret interface {
 	//
 	// Returns: An attached secret.
 	Attach(target ISecretAttachmentTarget) ISecret
+	// Returns a key which can be used within an AWS CloudFormation dynamic reference to dynamically load this secret from AWS Secrets Manager.
+	// See: https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html
+	//
+	CfnDynamicReferenceKey(options *awscdk.SecretsManagerSecretOptions) *string
 	// Denies the `DeleteSecret` action to all principals within the current account.
 	DenyAccountRootDelete()
 	GeneratePhysicalName() *string
@@ -169,8 +175,8 @@ func (j *jsiiProxy_Secret) EncryptionKey() awskms.IKey {
 	return returns
 }
 
-func (j *jsiiProxy_Secret) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Secret) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -478,7 +484,7 @@ func Secret_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey awskms.IKeyRef) {
+func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey interfacesawskms.IKeyRef) {
 	if err := s.validateAddReplicaRegionParameters(region); err != nil {
 		panic(err)
 	}
@@ -542,6 +548,22 @@ func (s *jsiiProxy_Secret) Attach(target ISecretAttachmentTarget) ISecret {
 		s,
 		"attach",
 		[]interface{}{target},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Secret) CfnDynamicReferenceKey(options *awscdk.SecretsManagerSecretOptions) *string {
+	if err := s.validateCfnDynamicReferenceKeyParameters(options); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"cfnDynamicReferenceKey",
+		[]interface{}{options},
 		&returns,
 	)
 

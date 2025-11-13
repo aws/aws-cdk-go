@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,8 +45,8 @@ import (
 //
 type CfnLocationFSxOpenZFS interface {
 	awscdk.CfnResource
-	ILocationFSxOpenZFSRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationFSxOpenZFSRef
 	awscdk.ITaggable
 	// The ARN of the specified FSx for OpenZFS file system location.
 	AttrLocationArn() *string
@@ -59,12 +61,12 @@ type CfnLocationFSxOpenZFS interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.
 	FsxFilesystemArn() *string
 	SetFsxFilesystemArn(val *string)
 	// A reference to a LocationFSxOpenZFS resource.
-	LocationFSxOpenZfsRef() *LocationFSxOpenZFSReference
+	LocationFSxOpenZfsRef() *interfacesawsdatasync.LocationFSxOpenZFSReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -243,8 +245,8 @@ type CfnLocationFSxOpenZFS interface {
 // The jsii proxy struct for CfnLocationFSxOpenZFS
 type jsiiProxy_CfnLocationFSxOpenZFS struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationFSxOpenZFSRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationFSxOpenZFSRef
 	internal.Type__awscdkITaggable
 }
 
@@ -308,8 +310,8 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxOpenZFS) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationFSxOpenZFS) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) FsxFilesystemArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxOpenZFS) LocationFSxOpenZfsRef() *LocationFSxOpenZFSReference {
-	var returns *LocationFSxOpenZFSReference
+func (j *jsiiProxy_CfnLocationFSxOpenZFS) LocationFSxOpenZfsRef() *interfacesawsdatasync.LocationFSxOpenZFSReference {
+	var returns *interfacesawsdatasync.LocationFSxOpenZFSReference
 	_jsii_.Get(
 		j,
 		"locationFSxOpenZfsRef",
@@ -449,6 +451,7 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) UpdatedProperties() *map[string]interf
 }
 
 
+// Create a new `AWS::DataSync::LocationFSxOpenZFS`.
 func NewCfnLocationFSxOpenZFS(scope constructs.Construct, id *string, props *CfnLocationFSxOpenZFSProps) CfnLocationFSxOpenZFS {
 	_init_.Initialize()
 
@@ -466,6 +469,7 @@ func NewCfnLocationFSxOpenZFS(scope constructs.Construct, id *string, props *Cfn
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationFSxOpenZFS`.
 func NewCfnLocationFSxOpenZFS_Override(c CfnLocationFSxOpenZFS, scope constructs.Construct, id *string, props *CfnLocationFSxOpenZFSProps) {
 	_init_.Initialize()
 

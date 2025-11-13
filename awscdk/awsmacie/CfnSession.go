@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmacie/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmacie"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnSession interface {
 	awscdk.CfnResource
-	ISessionRef
 	awscdk.IInspectable
+	interfacesawsmacie.ISessionRef
 	// The status of automated sensitive data discovery for the account.
 	//
 	// Possible values are: `ENABLED` , perform automated sensitive data discovery activities for the account; and, `DISABLED` , don't perform automated sensitive data discovery activities for the account.
@@ -48,7 +50,7 @@ type CfnSession interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies how often Amazon Macie publishes updates to policy findings for the account.
 	FindingPublishingFrequency() *string
 	SetFindingPublishingFrequency(val *string)
@@ -70,7 +72,7 @@ type CfnSession interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// A reference to a Session resource.
-	SessionRef() *SessionReference
+	SessionRef() *interfacesawsmacie.SessionReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -221,8 +223,8 @@ type CfnSession interface {
 // The jsii proxy struct for CfnSession
 type jsiiProxy_CfnSession struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ISessionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsmacieISessionRef
 }
 
 func (j *jsiiProxy_CfnSession) AttrAutomatedDiscoveryStatus() *string {
@@ -295,8 +297,8 @@ func (j *jsiiProxy_CfnSession) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSession) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnSession) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -345,8 +347,8 @@ func (j *jsiiProxy_CfnSession) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSession) SessionRef() *SessionReference {
-	var returns *SessionReference
+func (j *jsiiProxy_CfnSession) SessionRef() *interfacesawsmacie.SessionReference {
+	var returns *interfacesawsmacie.SessionReference
 	_jsii_.Get(
 		j,
 		"sessionRef",
@@ -396,6 +398,7 @@ func (j *jsiiProxy_CfnSession) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Macie::Session`.
 func NewCfnSession(scope constructs.Construct, id *string, props *CfnSessionProps) CfnSession {
 	_init_.Initialize()
 
@@ -413,6 +416,7 @@ func NewCfnSession(scope constructs.Construct, id *string, props *CfnSessionProp
 	return &j
 }
 
+// Create a new `AWS::Macie::Session`.
 func NewCfnSession_Override(c CfnSession, scope constructs.Construct, id *string, props *CfnSessionProps) {
 	_init_.Initialize()
 

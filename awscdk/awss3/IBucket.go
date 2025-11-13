@@ -8,11 +8,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IBucket interface {
-	IBucketRef
+	interfacesawss3.IBucketRef
 	awscdk.IResource
 	// Adds a bucket notification event destination.
 	//
@@ -236,7 +238,7 @@ type IBucket interface {
 
 // The jsii proxy for IBucket
 type jsiiProxy_IBucket struct {
-	jsiiProxy_IBucketRef
+	internal.Type__interfacesawss3IBucketRef
 	internal.Type__awscdkIResource
 }
 
@@ -712,8 +714,8 @@ func (j *jsiiProxy_IBucket)SetReplicationRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_IBucket) BucketRef() *BucketReference {
-	var returns *BucketReference
+func (j *jsiiProxy_IBucket) BucketRef() *interfacesawss3.BucketReference {
+	var returns *interfacesawss3.BucketReference
 	_jsii_.Get(
 		j,
 		"bucketRef",
@@ -722,8 +724,8 @@ func (j *jsiiProxy_IBucket) BucketRef() *BucketReference {
 	return returns
 }
 
-func (j *jsiiProxy_IBucket) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_IBucket) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",

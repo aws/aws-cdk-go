@@ -54,8 +54,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnVirtualCluster{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVirtualClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsemrcontainersIVirtualClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -75,24 +75,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrcontainers.CfnVirtualClusterProps",
 		reflect.TypeOf((*CfnVirtualClusterProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_emrcontainers.IVirtualClusterRef",
-		reflect.TypeOf((*IVirtualClusterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualClusterRef", GoGetter: "VirtualClusterRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IVirtualClusterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_emrcontainers.VirtualClusterReference",
-		reflect.TypeOf((*VirtualClusterReference)(nil)).Elem(),
 	)
 }

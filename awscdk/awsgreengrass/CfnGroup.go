@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgreengrass"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -57,8 +59,8 @@ import (
 //
 type CfnGroup interface {
 	awscdk.CfnResource
-	IGroupRef
 	awscdk.IInspectable
+	interfacesawsgreengrass.IGroupRef
 	awscdk.ITaggable
 	// The ARN of the `Group` , such as `arn:aws:greengrass:us-east-1:  :/greengrass/definition/groups/1234a5b6-78cd-901e-2fgh-3i45j6k178l9` .
 	AttrArn() *string
@@ -81,9 +83,9 @@ type CfnGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Group resource.
-	GroupRef() *GroupReference
+	GroupRef() *interfacesawsgreengrass.GroupReference
 	// The group version to include when the group is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -262,8 +264,8 @@ type CfnGroup interface {
 // The jsii proxy struct for CfnGroup
 type jsiiProxy_CfnGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgreengrassIGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -367,8 +369,8 @@ func (j *jsiiProxy_CfnGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -377,8 +379,8 @@ func (j *jsiiProxy_CfnGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) GroupRef() *GroupReference {
-	var returns *GroupReference
+func (j *jsiiProxy_CfnGroup) GroupRef() *interfacesawsgreengrass.GroupReference {
+	var returns *interfacesawsgreengrass.GroupReference
 	_jsii_.Get(
 		j,
 		"groupRef",
@@ -498,6 +500,7 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Greengrass::Group`.
 func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
@@ -515,6 +518,7 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 	return &j
 }
 
+// Create a new `AWS::Greengrass::Group`.
 func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 
@@ -564,13 +568,13 @@ func (j *jsiiProxy_CfnGroup)SetTagsRaw(val interface{}) {
 }
 
 // Creates a new IGroupRef from an ARN.
-func CfnGroup_FromGroupArn(scope constructs.Construct, id *string, arn *string) IGroupRef {
+func CfnGroup_FromGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.IGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnGroup_FromGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IGroupRef
+	var returns interfacesawsgreengrass.IGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnGroup",
@@ -583,13 +587,13 @@ func CfnGroup_FromGroupArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IGroupRef from a groupId.
-func CfnGroup_FromGroupId(scope constructs.Construct, id *string, groupId *string) IGroupRef {
+func CfnGroup_FromGroupId(scope constructs.Construct, id *string, groupId *string) interfacesawsgreengrass.IGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnGroup_FromGroupIdParameters(scope, id, groupId); err != nil {
 		panic(err)
 	}
-	var returns IGroupRef
+	var returns interfacesawsgreengrass.IGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_greengrass.CfnGroup",

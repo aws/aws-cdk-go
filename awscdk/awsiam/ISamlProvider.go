@@ -5,13 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A SAML provider.
 type ISamlProvider interface {
 	awscdk.IResource
-	ISAMLProviderRef
+	interfacesawsiam.ISAMLProviderRef
 	// The Amazon Resource Name (ARN) of the provider.
 	SamlProviderArn() *string
 }
@@ -19,7 +21,7 @@ type ISamlProvider interface {
 // The jsii proxy for ISamlProvider
 type jsiiProxy_ISamlProvider struct {
 	internal.Type__awscdkIResource
-	jsiiProxy_ISAMLProviderRef
+	internal.Type__interfacesawsiamISAMLProviderRef
 }
 
 func (i *jsiiProxy_ISamlProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -43,8 +45,8 @@ func (j *jsiiProxy_ISamlProvider) SamlProviderArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ISamlProvider) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_ISamlProvider) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -63,8 +65,8 @@ func (j *jsiiProxy_ISamlProvider) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_ISamlProvider) SamlProviderRef() *SAMLProviderReference {
-	var returns *SAMLProviderReference
+func (j *jsiiProxy_ISamlProvider) SamlProviderRef() *interfacesawsiam.SAMLProviderReference {
+	var returns *interfacesawsiam.SAMLProviderReference
 	_jsii_.Get(
 		j,
 		"samlProviderRef",

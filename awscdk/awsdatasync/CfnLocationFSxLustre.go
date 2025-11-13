@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatasync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,8 +38,8 @@ import (
 //
 type CfnLocationFSxLustre interface {
 	awscdk.CfnResource
-	ILocationFSxLustreRef
 	awscdk.IInspectable
+	interfacesawsdatasync.ILocationFSxLustreRef
 	awscdk.ITaggable
 	// The ARN of the specified FSx for Lustre file system location.
 	AttrLocationArn() *string
@@ -52,12 +54,12 @@ type CfnLocationFSxLustre interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies the Amazon Resource Name (ARN) of the FSx for Lustre file system.
 	FsxFilesystemArn() *string
 	SetFsxFilesystemArn(val *string)
 	// A reference to a LocationFSxLustre resource.
-	LocationFSxLustreRef() *LocationFSxLustreReference
+	LocationFSxLustreRef() *interfacesawsdatasync.LocationFSxLustreReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnLocationFSxLustre interface {
 // The jsii proxy struct for CfnLocationFSxLustre
 type jsiiProxy_CfnLocationFSxLustre struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILocationFSxLustreRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatasyncILocationFSxLustreRef
 	internal.Type__awscdkITaggable
 }
 
@@ -300,8 +302,8 @@ func (j *jsiiProxy_CfnLocationFSxLustre) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxLustre) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLocationFSxLustre) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnLocationFSxLustre) FsxFilesystemArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxLustre) LocationFSxLustreRef() *LocationFSxLustreReference {
-	var returns *LocationFSxLustreReference
+func (j *jsiiProxy_CfnLocationFSxLustre) LocationFSxLustreRef() *interfacesawsdatasync.LocationFSxLustreReference {
+	var returns *interfacesawsdatasync.LocationFSxLustreReference
 	_jsii_.Get(
 		j,
 		"locationFSxLustreRef",
@@ -431,6 +433,7 @@ func (j *jsiiProxy_CfnLocationFSxLustre) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::DataSync::LocationFSxLustre`.
 func NewCfnLocationFSxLustre(scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) CfnLocationFSxLustre {
 	_init_.Initialize()
 
@@ -448,6 +451,7 @@ func NewCfnLocationFSxLustre(scope constructs.Construct, id *string, props *CfnL
 	return &j
 }
 
+// Create a new `AWS::DataSync::LocationFSxLustre`.
 func NewCfnLocationFSxLustre_Override(c CfnLocationFSxLustre, scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) {
 	_init_.Initialize()
 

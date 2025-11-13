@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,8 +52,8 @@ import (
 //
 type CfnQuickConnect interface {
 	awscdk.CfnResource
-	IQuickConnectRef
 	awscdk.IInspectable
+	interfacesawsconnect.IQuickConnectRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) for the quick connect.
 	AttrQuickConnectArn() *string
@@ -71,7 +73,7 @@ type CfnQuickConnect interface {
 	// The description of the quick connect.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -94,7 +96,7 @@ type CfnQuickConnect interface {
 	QuickConnectConfig() interface{}
 	SetQuickConnectConfig(val interface{})
 	// A reference to a QuickConnect resource.
-	QuickConnectRef() *QuickConnectReference
+	QuickConnectRef() *interfacesawsconnect.QuickConnectReference
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -252,8 +254,8 @@ type CfnQuickConnect interface {
 // The jsii proxy struct for CfnQuickConnect
 type jsiiProxy_CfnQuickConnect struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IQuickConnectRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconnectIQuickConnectRef
 	internal.Type__awscdkITaggable
 }
 
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnQuickConnect) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQuickConnect) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnQuickConnect) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -387,8 +389,8 @@ func (j *jsiiProxy_CfnQuickConnect) QuickConnectConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQuickConnect) QuickConnectRef() *QuickConnectReference {
-	var returns *QuickConnectReference
+func (j *jsiiProxy_CfnQuickConnect) QuickConnectRef() *interfacesawsconnect.QuickConnectReference {
+	var returns *interfacesawsconnect.QuickConnectReference
 	_jsii_.Get(
 		j,
 		"quickConnectRef",
@@ -458,6 +460,7 @@ func (j *jsiiProxy_CfnQuickConnect) UpdatedProperties() *map[string]interface{} 
 }
 
 
+// Create a new `AWS::Connect::QuickConnect`.
 func NewCfnQuickConnect(scope constructs.Construct, id *string, props *CfnQuickConnectProps) CfnQuickConnect {
 	_init_.Initialize()
 
@@ -475,6 +478,7 @@ func NewCfnQuickConnect(scope constructs.Construct, id *string, props *CfnQuickC
 	return &j
 }
 
+// Create a new `AWS::Connect::QuickConnect`.
 func NewCfnQuickConnect_Override(c CfnQuickConnect, scope constructs.Construct, id *string, props *CfnQuickConnectProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslookoutmetrics/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslookoutmetrics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -132,8 +134,8 @@ import (
 //
 type CfnAnomalyDetector interface {
 	awscdk.CfnResource
-	IAnomalyDetectorRef
 	awscdk.IInspectable
+	interfacesawslookoutmetrics.IAnomalyDetectorRef
 	// Contains information about the configuration of the anomaly detector.
 	AnomalyDetectorConfig() interface{}
 	SetAnomalyDetectorConfig(val interface{})
@@ -144,7 +146,7 @@ type CfnAnomalyDetector interface {
 	AnomalyDetectorName() *string
 	SetAnomalyDetectorName(val *string)
 	// A reference to a AnomalyDetector resource.
-	AnomalyDetectorRef() *AnomalyDetectorReference
+	AnomalyDetectorRef() *interfacesawslookoutmetrics.AnomalyDetectorReference
 	// The Amazon Resource Name (ARN) of the detector.
 	//
 	// For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`.
@@ -158,7 +160,7 @@ type CfnAnomalyDetector interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The ARN of the KMS key to use to encrypt your data.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -329,8 +331,8 @@ type CfnAnomalyDetector interface {
 // The jsii proxy struct for CfnAnomalyDetector
 type jsiiProxy_CfnAnomalyDetector struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAnomalyDetectorRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslookoutmetricsIAnomalyDetectorRef
 }
 
 func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorConfig() interface{} {
@@ -363,8 +365,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorRef() *AnomalyDetectorReference {
-	var returns *AnomalyDetectorReference
+func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorRef() *interfacesawslookoutmetrics.AnomalyDetectorReference {
+	var returns *interfacesawslookoutmetrics.AnomalyDetectorReference
 	_jsii_.Get(
 		j,
 		"anomalyDetectorRef",
@@ -423,8 +425,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyDetector) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAnomalyDetector) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -514,6 +516,7 @@ func (j *jsiiProxy_CfnAnomalyDetector) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::LookoutMetrics::AnomalyDetector`.
 func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) CfnAnomalyDetector {
 	_init_.Initialize()
 
@@ -531,6 +534,7 @@ func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAno
 	return &j
 }
 
+// Create a new `AWS::LookoutMetrics::AnomalyDetector`.
 func NewCfnAnomalyDetector_Override(c CfnAnomalyDetector, scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) {
 	_init_.Initialize()
 

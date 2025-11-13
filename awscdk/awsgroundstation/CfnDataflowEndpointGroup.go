@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgroundstation/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgroundstation"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -80,8 +82,8 @@ import (
 //
 type CfnDataflowEndpointGroup interface {
 	awscdk.CfnResource
-	IDataflowEndpointGroupRef
 	awscdk.IInspectable
+	interfacesawsgroundstation.IDataflowEndpointGroupRef
 	awscdk.ITaggable
 	// The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	AttrArn() *string
@@ -103,11 +105,11 @@ type CfnDataflowEndpointGroup interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DataflowEndpointGroup resource.
-	DataflowEndpointGroupRef() *DataflowEndpointGroupReference
+	DataflowEndpointGroupRef() *interfacesawsgroundstation.DataflowEndpointGroupReference
 	// List of Endpoint Details, containing address and port for each endpoint.
 	EndpointDetails() interface{}
 	SetEndpointDetails(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -277,8 +279,8 @@ type CfnDataflowEndpointGroup interface {
 // The jsii proxy struct for CfnDataflowEndpointGroup
 type jsiiProxy_CfnDataflowEndpointGroup struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDataflowEndpointGroupRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgroundstationIDataflowEndpointGroupRef
 	internal.Type__awscdkITaggable
 }
 
@@ -362,8 +364,8 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataflowEndpointGroup) DataflowEndpointGroupRef() *DataflowEndpointGroupReference {
-	var returns *DataflowEndpointGroupReference
+func (j *jsiiProxy_CfnDataflowEndpointGroup) DataflowEndpointGroupRef() *interfacesawsgroundstation.DataflowEndpointGroupReference {
+	var returns *interfacesawsgroundstation.DataflowEndpointGroupReference
 	_jsii_.Get(
 		j,
 		"dataflowEndpointGroupRef",
@@ -382,8 +384,8 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup) EndpointDetails() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataflowEndpointGroup) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDataflowEndpointGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -473,6 +475,7 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::GroundStation::DataflowEndpointGroup`.
 func NewCfnDataflowEndpointGroup(scope constructs.Construct, id *string, props *CfnDataflowEndpointGroupProps) CfnDataflowEndpointGroup {
 	_init_.Initialize()
 
@@ -490,6 +493,7 @@ func NewCfnDataflowEndpointGroup(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::GroundStation::DataflowEndpointGroup`.
 func NewCfnDataflowEndpointGroup_Override(c CfnDataflowEndpointGroup, scope constructs.Construct, id *string, props *CfnDataflowEndpointGroupProps) {
 	_init_.Initialize()
 
@@ -539,13 +543,13 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IDataflowEndpointGroupRef from an ARN.
-func CfnDataflowEndpointGroup_FromDataflowEndpointGroupArn(scope constructs.Construct, id *string, arn *string) IDataflowEndpointGroupRef {
+func CfnDataflowEndpointGroup_FromDataflowEndpointGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsgroundstation.IDataflowEndpointGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnDataflowEndpointGroup_FromDataflowEndpointGroupArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IDataflowEndpointGroupRef
+	var returns interfacesawsgroundstation.IDataflowEndpointGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_groundstation.CfnDataflowEndpointGroup",
@@ -558,13 +562,13 @@ func CfnDataflowEndpointGroup_FromDataflowEndpointGroupArn(scope constructs.Cons
 }
 
 // Creates a new IDataflowEndpointGroupRef from a dataflowEndpointGroupId.
-func CfnDataflowEndpointGroup_FromDataflowEndpointGroupId(scope constructs.Construct, id *string, dataflowEndpointGroupId *string) IDataflowEndpointGroupRef {
+func CfnDataflowEndpointGroup_FromDataflowEndpointGroupId(scope constructs.Construct, id *string, dataflowEndpointGroupId *string) interfacesawsgroundstation.IDataflowEndpointGroupRef {
 	_init_.Initialize()
 
 	if err := validateCfnDataflowEndpointGroup_FromDataflowEndpointGroupIdParameters(scope, id, dataflowEndpointGroupId); err != nil {
 		panic(err)
 	}
-	var returns IDataflowEndpointGroupRef
+	var returns interfacesawsgroundstation.IDataflowEndpointGroupRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_groundstation.CfnDataflowEndpointGroup",

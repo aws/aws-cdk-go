@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsaps/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsaps"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -84,8 +86,8 @@ import (
 //
 type CfnScraper interface {
 	awscdk.CfnResource
-	IScraperRef
 	awscdk.IInspectable
+	interfacesawsaps.IScraperRef
 	awscdk.ITaggableV2
 	// An optional user-assigned scraper alias.
 	Alias() *string
@@ -116,7 +118,7 @@ type CfnScraper interface {
 	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
 	Destination() interface{}
 	SetDestination(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -144,7 +146,7 @@ type CfnScraper interface {
 	ScraperLoggingConfiguration() interface{}
 	SetScraperLoggingConfiguration(val interface{})
 	// A reference to a Scraper resource.
-	ScraperRef() *ScraperReference
+	ScraperRef() *interfacesawsaps.ScraperReference
 	// The Amazon EKS cluster from which the scraper collects metrics.
 	Source() interface{}
 	SetSource(val interface{})
@@ -298,8 +300,8 @@ type CfnScraper interface {
 // The jsii proxy struct for CfnScraper
 type jsiiProxy_CfnScraper struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IScraperRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapsIScraperRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -403,8 +405,8 @@ func (j *jsiiProxy_CfnScraper) Destination() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScraper) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnScraper) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -473,8 +475,8 @@ func (j *jsiiProxy_CfnScraper) ScraperLoggingConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScraper) ScraperRef() *ScraperReference {
-	var returns *ScraperReference
+func (j *jsiiProxy_CfnScraper) ScraperRef() *interfacesawsaps.ScraperReference {
+	var returns *interfacesawsaps.ScraperReference
 	_jsii_.Get(
 		j,
 		"scraperRef",
@@ -534,6 +536,7 @@ func (j *jsiiProxy_CfnScraper) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::APS::Scraper`.
 func NewCfnScraper(scope constructs.Construct, id *string, props *CfnScraperProps) CfnScraper {
 	_init_.Initialize()
 
@@ -551,6 +554,7 @@ func NewCfnScraper(scope constructs.Construct, id *string, props *CfnScraperProp
 	return &j
 }
 
+// Create a new `AWS::APS::Scraper`.
 func NewCfnScraper_Override(c CfnScraper, scope constructs.Construct, id *string, props *CfnScraperProps) {
 	_init_.Initialize()
 

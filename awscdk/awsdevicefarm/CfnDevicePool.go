@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevicefarm/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevicefarm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,8 +44,8 @@ import (
 //
 type CfnDevicePool interface {
 	awscdk.CfnResource
-	IDevicePoolRef
 	awscdk.IInspectable
+	interfacesawsdevicefarm.IDevicePoolRef
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the device pool.
 	//
@@ -62,8 +64,8 @@ type CfnDevicePool interface {
 	Description() *string
 	SetDescription(val *string)
 	// A reference to a DevicePool resource.
-	DevicePoolRef() *DevicePoolReference
-	Env() *awscdk.ResourceEnvironment
+	DevicePoolRef() *interfacesawsdevicefarm.DevicePoolReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -245,8 +247,8 @@ type CfnDevicePool interface {
 // The jsii proxy struct for CfnDevicePool
 type jsiiProxy_CfnDevicePool struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDevicePoolRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdevicefarmIDevicePoolRef
 	internal.Type__awscdkITaggable
 }
 
@@ -310,8 +312,8 @@ func (j *jsiiProxy_CfnDevicePool) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevicePool) DevicePoolRef() *DevicePoolReference {
-	var returns *DevicePoolReference
+func (j *jsiiProxy_CfnDevicePool) DevicePoolRef() *interfacesawsdevicefarm.DevicePoolReference {
+	var returns *interfacesawsdevicefarm.DevicePoolReference
 	_jsii_.Get(
 		j,
 		"devicePoolRef",
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnDevicePool) DevicePoolRef() *DevicePoolReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevicePool) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDevicePool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -451,6 +453,7 @@ func (j *jsiiProxy_CfnDevicePool) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DeviceFarm::DevicePool`.
 func NewCfnDevicePool(scope constructs.Construct, id *string, props *CfnDevicePoolProps) CfnDevicePool {
 	_init_.Initialize()
 
@@ -468,6 +471,7 @@ func NewCfnDevicePool(scope constructs.Construct, id *string, props *CfnDevicePo
 	return &j
 }
 
+// Create a new `AWS::DeviceFarm::DevicePool`.
 func NewCfnDevicePool_Override(c CfnDevicePool, scope constructs.Construct, id *string, props *CfnDevicePoolProps) {
 	_init_.Initialize()
 

@@ -49,6 +49,7 @@ type CfnVolumeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// The ID of the Availability Zone for the volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-availabilityzoneid
 	//
 	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
@@ -120,6 +121,9 @@ type CfnVolumeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-snapshotid
 	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
+	// The ID of the source volume from which the volume copy was created.
+	//
+	// Only for volume copies.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-sourcevolumeid
 	//
 	SourceVolumeId *string `field:"optional" json:"sourceVolumeId" yaml:"sourceVolumeId"`

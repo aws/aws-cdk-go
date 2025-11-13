@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,8 +27,8 @@ import (
 //
 type CfnIpPoolRouteTableAssociation interface {
 	awscdk.CfnResource
-	IIpPoolRouteTableAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.IIpPoolRouteTableAssociationRef
 	// The ID of a route table association.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -38,9 +40,9 @@ type CfnIpPoolRouteTableAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a IpPoolRouteTableAssociation resource.
-	IpPoolRouteTableAssociationRef() *IpPoolRouteTableAssociationReference
+	IpPoolRouteTableAssociationRef() *interfacesawsec2.IpPoolRouteTableAssociationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -211,8 +213,8 @@ type CfnIpPoolRouteTableAssociation interface {
 // The jsii proxy struct for CfnIpPoolRouteTableAssociation
 type jsiiProxy_CfnIpPoolRouteTableAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IIpPoolRouteTableAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IIpPoolRouteTableAssociationRef
 }
 
 func (j *jsiiProxy_CfnIpPoolRouteTableAssociation) AttrAssociationId() *string {
@@ -265,8 +267,8 @@ func (j *jsiiProxy_CfnIpPoolRouteTableAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIpPoolRouteTableAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnIpPoolRouteTableAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -275,8 +277,8 @@ func (j *jsiiProxy_CfnIpPoolRouteTableAssociation) Env() *awscdk.ResourceEnviron
 	return returns
 }
 
-func (j *jsiiProxy_CfnIpPoolRouteTableAssociation) IpPoolRouteTableAssociationRef() *IpPoolRouteTableAssociationReference {
-	var returns *IpPoolRouteTableAssociationReference
+func (j *jsiiProxy_CfnIpPoolRouteTableAssociation) IpPoolRouteTableAssociationRef() *interfacesawsec2.IpPoolRouteTableAssociationReference {
+	var returns *interfacesawsec2.IpPoolRouteTableAssociationReference
 	_jsii_.Get(
 		j,
 		"ipPoolRouteTableAssociationRef",
@@ -366,6 +368,7 @@ func (j *jsiiProxy_CfnIpPoolRouteTableAssociation) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::EC2::IpPoolRouteTableAssociation`.
 func NewCfnIpPoolRouteTableAssociation(scope constructs.Construct, id *string, props *CfnIpPoolRouteTableAssociationProps) CfnIpPoolRouteTableAssociation {
 	_init_.Initialize()
 
@@ -383,6 +386,7 @@ func NewCfnIpPoolRouteTableAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::EC2::IpPoolRouteTableAssociation`.
 func NewCfnIpPoolRouteTableAssociation_Override(c CfnIpPoolRouteTableAssociation, scope constructs.Construct, id *string, props *CfnIpPoolRouteTableAssociationProps) {
 	_init_.Initialize()
 

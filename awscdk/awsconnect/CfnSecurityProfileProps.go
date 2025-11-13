@@ -32,6 +32,21 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	GranularAccessControlConfiguration: &GranularAccessControlConfigurationProperty{
+//   		DataTableAccessControlConfiguration: &DataTableAccessControlConfigurationProperty{
+//   			PrimaryAttributeAccessControlConfiguration: &PrimaryAttributeAccessControlConfigurationItemProperty{
+//   				PrimaryAttributeValues: []interface{}{
+//   					&PrimaryAttributeValueProperty{
+//   						AccessType: jsii.String("accessType"),
+//   						AttributeName: jsii.String("attributeName"),
+//   						Values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	HierarchyRestrictedResources: []*string{
 //   		jsii.String("hierarchyRestrictedResources"),
 //   	},
@@ -76,6 +91,9 @@ type CfnSecurityProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-granularaccesscontrolconfiguration
+	//
+	GranularAccessControlConfiguration interface{} `field:"optional" json:"granularAccessControlConfiguration" yaml:"granularAccessControlConfiguration"`
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
 	//
 	// Following are acceptable ResourceNames: `User` .

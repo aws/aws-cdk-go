@@ -1,11 +1,22 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsvpclattice"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsvpclatticeIAccessLogSubscriptionRef = interfacesawsvpclattice.IAccessLogSubscriptionRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsvpclatticeIAuthPolicyRef = interfacesawsvpclattice.IAuthPolicyRef
+type Type__interfacesawsvpclatticeIListenerRef = interfacesawsvpclattice.IListenerRef
+type Type__interfacesawsvpclatticeIResourceConfigurationRef = interfacesawsvpclattice.IResourceConfigurationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawsvpclatticeIResourceGatewayRef = interfacesawsvpclattice.IResourceGatewayRef
+type Type__interfacesawsvpclatticeIResourcePolicyRef = interfacesawsvpclattice.IResourcePolicyRef
+type Type__interfacesawsvpclatticeIRuleRef = interfacesawsvpclattice.IRuleRef
+type Type__interfacesawsvpclatticeIServiceRef = interfacesawsvpclattice.IServiceRef
+type Type__interfacesawsvpclatticeIServiceNetworkRef = interfacesawsvpclattice.IServiceNetworkRef
+type Type__interfacesawsvpclatticeIServiceNetworkResourceAssociationRef = interfacesawsvpclattice.IServiceNetworkResourceAssociationRef
+type Type__interfacesawsvpclatticeIServiceNetworkServiceAssociationRef = interfacesawsvpclattice.IServiceNetworkServiceAssociationRef
+type Type__interfacesawsvpclatticeIServiceNetworkVpcAssociationRef = interfacesawsvpclattice.IServiceNetworkVpcAssociationRef
+type Type__interfacesawsvpclatticeITargetGroupRef = interfacesawsvpclattice.ITargetGroupRef

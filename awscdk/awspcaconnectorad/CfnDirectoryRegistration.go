@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspcaconnectorad/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspcaconnectorad"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnDirectoryRegistration interface {
 	awscdk.CfnResource
-	IDirectoryRegistrationRef
 	awscdk.IInspectable
+	interfacesawspcaconnectorad.IDirectoryRegistrationRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	AttrDirectoryRegistrationArn() *string
@@ -49,8 +51,8 @@ type CfnDirectoryRegistration interface {
 	DirectoryId() *string
 	SetDirectoryId(val *string)
 	// A reference to a DirectoryRegistration resource.
-	DirectoryRegistrationRef() *DirectoryRegistrationReference
-	Env() *awscdk.ResourceEnvironment
+	DirectoryRegistrationRef() *interfacesawspcaconnectorad.DirectoryRegistrationReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -218,8 +220,8 @@ type CfnDirectoryRegistration interface {
 // The jsii proxy struct for CfnDirectoryRegistration
 type jsiiProxy_CfnDirectoryRegistration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDirectoryRegistrationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspcaconnectoradIDirectoryRegistrationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -293,8 +295,8 @@ func (j *jsiiProxy_CfnDirectoryRegistration) DirectoryId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectoryRegistration) DirectoryRegistrationRef() *DirectoryRegistrationReference {
-	var returns *DirectoryRegistrationReference
+func (j *jsiiProxy_CfnDirectoryRegistration) DirectoryRegistrationRef() *interfacesawspcaconnectorad.DirectoryRegistrationReference {
+	var returns *interfacesawspcaconnectorad.DirectoryRegistrationReference
 	_jsii_.Get(
 		j,
 		"directoryRegistrationRef",
@@ -303,8 +305,8 @@ func (j *jsiiProxy_CfnDirectoryRegistration) DirectoryRegistrationRef() *Directo
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectoryRegistration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDirectoryRegistration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -384,6 +386,7 @@ func (j *jsiiProxy_CfnDirectoryRegistration) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::PCAConnectorAD::DirectoryRegistration`.
 func NewCfnDirectoryRegistration(scope constructs.Construct, id *string, props *CfnDirectoryRegistrationProps) CfnDirectoryRegistration {
 	_init_.Initialize()
 
@@ -401,6 +404,7 @@ func NewCfnDirectoryRegistration(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::PCAConnectorAD::DirectoryRegistration`.
 func NewCfnDirectoryRegistration_Override(c CfnDirectoryRegistration, scope constructs.Construct, id *string, props *CfnDirectoryRegistrationProps) {
 	_init_.Initialize()
 

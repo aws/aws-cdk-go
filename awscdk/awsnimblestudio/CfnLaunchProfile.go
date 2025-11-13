@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnimblestudio/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnimblestudio"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -75,8 +77,8 @@ import (
 //
 type CfnLaunchProfile interface {
 	awscdk.CfnResource
-	ILaunchProfileRef
 	awscdk.IInspectable
+	interfacesawsnimblestudio.ILaunchProfileRef
 	awscdk.ITaggable
 	AttrLaunchProfileId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -92,11 +94,11 @@ type CfnLaunchProfile interface {
 	SetDescription(val *string)
 	Ec2SubnetIds() *[]*string
 	SetEc2SubnetIds(val *[]*string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	LaunchProfileProtocolVersions() *[]*string
 	SetLaunchProfileProtocolVersions(val *[]*string)
 	// A reference to a LaunchProfile resource.
-	LaunchProfileRef() *LaunchProfileReference
+	LaunchProfileRef() *interfacesawsnimblestudio.LaunchProfileReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -273,8 +275,8 @@ type CfnLaunchProfile interface {
 // The jsii proxy struct for CfnLaunchProfile
 type jsiiProxy_CfnLaunchProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILaunchProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnimblestudioILaunchProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnLaunchProfile) Ec2SubnetIds() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLaunchProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -368,8 +370,8 @@ func (j *jsiiProxy_CfnLaunchProfile) LaunchProfileProtocolVersions() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchProfile) LaunchProfileRef() *LaunchProfileReference {
-	var returns *LaunchProfileReference
+func (j *jsiiProxy_CfnLaunchProfile) LaunchProfileRef() *interfacesawsnimblestudio.LaunchProfileReference {
+	var returns *interfacesawsnimblestudio.LaunchProfileReference
 	_jsii_.Get(
 		j,
 		"launchProfileRef",
@@ -499,6 +501,7 @@ func (j *jsiiProxy_CfnLaunchProfile) UpdatedProperties() *map[string]interface{}
 }
 
 
+// Create a new `AWS::NimbleStudio::LaunchProfile`.
 func NewCfnLaunchProfile(scope constructs.Construct, id *string, props *CfnLaunchProfileProps) CfnLaunchProfile {
 	_init_.Initialize()
 
@@ -516,6 +519,7 @@ func NewCfnLaunchProfile(scope constructs.Construct, id *string, props *CfnLaunc
 	return &j
 }
 
+// Create a new `AWS::NimbleStudio::LaunchProfile`.
 func NewCfnLaunchProfile_Override(c CfnLaunchProfile, scope constructs.Construct, id *string, props *CfnLaunchProfileProps) {
 	_init_.Initialize()
 

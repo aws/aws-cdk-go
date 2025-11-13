@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +54,8 @@ import (
 //
 type CfnCrossAccountAttachment interface {
 	awscdk.CfnResource
-	ICrossAccountAttachmentRef
 	awscdk.IInspectable
+	interfacesawsglobalaccelerator.ICrossAccountAttachmentRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the cross-account attachment.
 	AttrAttachmentArn() *string
@@ -69,8 +71,8 @@ type CfnCrossAccountAttachment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a CrossAccountAttachment resource.
-	CrossAccountAttachmentRef() *CrossAccountAttachmentReference
-	Env() *awscdk.ResourceEnvironment
+	CrossAccountAttachmentRef() *interfacesawsglobalaccelerator.CrossAccountAttachmentReference
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -247,8 +249,8 @@ type CfnCrossAccountAttachment interface {
 // The jsii proxy struct for CfnCrossAccountAttachment
 type jsiiProxy_CfnCrossAccountAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ICrossAccountAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsglobalacceleratorICrossAccountAttachmentRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -312,8 +314,8 @@ func (j *jsiiProxy_CfnCrossAccountAttachment) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCrossAccountAttachment) CrossAccountAttachmentRef() *CrossAccountAttachmentReference {
-	var returns *CrossAccountAttachmentReference
+func (j *jsiiProxy_CfnCrossAccountAttachment) CrossAccountAttachmentRef() *interfacesawsglobalaccelerator.CrossAccountAttachmentReference {
+	var returns *interfacesawsglobalaccelerator.CrossAccountAttachmentReference
 	_jsii_.Get(
 		j,
 		"crossAccountAttachmentRef",
@@ -322,8 +324,8 @@ func (j *jsiiProxy_CfnCrossAccountAttachment) CrossAccountAttachmentRef() *Cross
 	return returns
 }
 
-func (j *jsiiProxy_CfnCrossAccountAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnCrossAccountAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -433,6 +435,7 @@ func (j *jsiiProxy_CfnCrossAccountAttachment) UpdatedProperties() *map[string]in
 }
 
 
+// Create a new `AWS::GlobalAccelerator::CrossAccountAttachment`.
 func NewCfnCrossAccountAttachment(scope constructs.Construct, id *string, props *CfnCrossAccountAttachmentProps) CfnCrossAccountAttachment {
 	_init_.Initialize()
 
@@ -450,6 +453,7 @@ func NewCfnCrossAccountAttachment(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Create a new `AWS::GlobalAccelerator::CrossAccountAttachment`.
 func NewCfnCrossAccountAttachment_Override(c CfnCrossAccountAttachment, scope constructs.Construct, id *string, props *CfnCrossAccountAttachmentProps) {
 	_init_.Initialize()
 

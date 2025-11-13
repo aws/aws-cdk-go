@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslicensemanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslicensemanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,8 +37,8 @@ import (
 //
 type CfnGrant interface {
 	awscdk.CfnResource
-	IGrantRef
 	awscdk.IInspectable
+	interfacesawslicensemanager.IGrantRef
 	// Allowed operations for the grant.
 	AllowedOperations() *[]*string
 	SetAllowedOperations(val *[]*string)
@@ -53,12 +55,12 @@ type CfnGrant interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Grant name.
 	GrantName() *string
 	SetGrantName(val *string)
 	// A reference to a Grant resource.
-	GrantRef() *GrantReference
+	GrantRef() *interfacesawslicensemanager.GrantReference
 	// Home Region of the grant.
 	HomeRegion() *string
 	SetHomeRegion(val *string)
@@ -237,8 +239,8 @@ type CfnGrant interface {
 // The jsii proxy struct for CfnGrant
 type jsiiProxy_CfnGrant struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGrantRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawslicensemanagerIGrantRef
 }
 
 func (j *jsiiProxy_CfnGrant) AllowedOperations() *[]*string {
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnGrant) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGrant) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGrant) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnGrant) GrantName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGrant) GrantRef() *GrantReference {
-	var returns *GrantReference
+func (j *jsiiProxy_CfnGrant) GrantRef() *interfacesawslicensemanager.GrantReference {
+	var returns *interfacesawslicensemanager.GrantReference
 	_jsii_.Get(
 		j,
 		"grantRef",
@@ -442,6 +444,7 @@ func (j *jsiiProxy_CfnGrant) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::LicenseManager::Grant`.
 func NewCfnGrant(scope constructs.Construct, id *string, props *CfnGrantProps) CfnGrant {
 	_init_.Initialize()
 
@@ -459,6 +462,7 @@ func NewCfnGrant(scope constructs.Construct, id *string, props *CfnGrantProps) C
 	return &j
 }
 
+// Create a new `AWS::LicenseManager::Grant`.
 func NewCfnGrant_Override(c CfnGrant, scope constructs.Construct, id *string, props *CfnGrantProps) {
 	_init_.Initialize()
 

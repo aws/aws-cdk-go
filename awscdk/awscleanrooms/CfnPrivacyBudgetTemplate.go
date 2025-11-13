@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanrooms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscleanrooms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,7 +22,17 @@ import (
 //   	AutoRefresh: jsii.String("autoRefresh"),
 //   	MembershipIdentifier: jsii.String("membershipIdentifier"),
 //   	Parameters: &ParametersProperty{
+//   		BudgetParameters: []interface{}{
+//   			&BudgetParameterProperty{
+//   				Budget: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				AutoRefresh: jsii.String("autoRefresh"),
+//   			},
+//   		},
 //   		Epsilon: jsii.Number(123),
+//   		ResourceArn: jsii.String("resourceArn"),
 //   		UsersNoisePerQuery: jsii.Number(123),
 //   	},
 //   	PrivacyBudgetType: jsii.String("privacyBudgetType"),
@@ -38,8 +50,8 @@ import (
 //
 type CfnPrivacyBudgetTemplate interface {
 	awscdk.CfnResource
-	IPrivacyBudgetTemplateRef
 	awscdk.IInspectable
+	interfacesawscleanrooms.IPrivacyBudgetTemplateRef
 	awscdk.ITaggableV2
 	// The ARN of the privacy budget template.
 	AttrArn() *string
@@ -67,7 +79,7 @@ type CfnPrivacyBudgetTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -87,7 +99,7 @@ type CfnPrivacyBudgetTemplate interface {
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// A reference to a PrivacyBudgetTemplate resource.
-	PrivacyBudgetTemplateRef() *PrivacyBudgetTemplateReference
+	PrivacyBudgetTemplateRef() *interfacesawscleanrooms.PrivacyBudgetTemplateReference
 	// Specifies the type of the privacy budget template.
 	PrivacyBudgetType() *string
 	SetPrivacyBudgetType(val *string)
@@ -246,8 +258,8 @@ type CfnPrivacyBudgetTemplate interface {
 // The jsii proxy struct for CfnPrivacyBudgetTemplate
 type jsiiProxy_CfnPrivacyBudgetTemplate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IPrivacyBudgetTemplateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscleanroomsIPrivacyBudgetTemplateRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -361,8 +373,8 @@ func (j *jsiiProxy_CfnPrivacyBudgetTemplate) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrivacyBudgetTemplate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnPrivacyBudgetTemplate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -411,8 +423,8 @@ func (j *jsiiProxy_CfnPrivacyBudgetTemplate) Parameters() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrivacyBudgetTemplate) PrivacyBudgetTemplateRef() *PrivacyBudgetTemplateReference {
-	var returns *PrivacyBudgetTemplateReference
+func (j *jsiiProxy_CfnPrivacyBudgetTemplate) PrivacyBudgetTemplateRef() *interfacesawscleanrooms.PrivacyBudgetTemplateReference {
+	var returns *interfacesawscleanrooms.PrivacyBudgetTemplateReference
 	_jsii_.Get(
 		j,
 		"privacyBudgetTemplateRef",
@@ -482,6 +494,7 @@ func (j *jsiiProxy_CfnPrivacyBudgetTemplate) UpdatedProperties() *map[string]int
 }
 
 
+// Create a new `AWS::CleanRooms::PrivacyBudgetTemplate`.
 func NewCfnPrivacyBudgetTemplate(scope constructs.Construct, id *string, props *CfnPrivacyBudgetTemplateProps) CfnPrivacyBudgetTemplate {
 	_init_.Initialize()
 
@@ -499,6 +512,7 @@ func NewCfnPrivacyBudgetTemplate(scope constructs.Construct, id *string, props *
 	return &j
 }
 
+// Create a new `AWS::CleanRooms::PrivacyBudgetTemplate`.
 func NewCfnPrivacyBudgetTemplate_Override(c CfnPrivacyBudgetTemplate, scope constructs.Construct, id *string, props *CfnPrivacyBudgetTemplateProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +64,8 @@ import (
 //
 type CfnFargateProfile interface {
 	awscdk.CfnResource
-	IFargateProfileRef
 	awscdk.IInspectable
+	interfacesawseks.IFargateProfileRef
 	awscdk.ITaggable
 	// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
 	AttrArn() *string
@@ -79,12 +81,12 @@ type CfnFargateProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the Fargate profile.
 	FargateProfileName() *string
 	SetFargateProfileName(val *string)
 	// A reference to a FargateProfile resource.
-	FargateProfileRef() *FargateProfileReference
+	FargateProfileRef() *interfacesawseks.FargateProfileReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -263,8 +265,8 @@ type CfnFargateProfile interface {
 // The jsii proxy struct for CfnFargateProfile
 type jsiiProxy_CfnFargateProfile struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFargateProfileRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawseksIFargateProfileRef
 	internal.Type__awscdkITaggable
 }
 
@@ -328,8 +330,8 @@ func (j *jsiiProxy_CfnFargateProfile) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFargateProfile) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFargateProfile) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -348,8 +350,8 @@ func (j *jsiiProxy_CfnFargateProfile) FargateProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFargateProfile) FargateProfileRef() *FargateProfileReference {
-	var returns *FargateProfileReference
+func (j *jsiiProxy_CfnFargateProfile) FargateProfileRef() *interfacesawseks.FargateProfileReference {
+	var returns *interfacesawseks.FargateProfileReference
 	_jsii_.Get(
 		j,
 		"fargateProfileRef",
@@ -469,6 +471,7 @@ func (j *jsiiProxy_CfnFargateProfile) UpdatedProperties() *map[string]interface{
 }
 
 
+// Create a new `AWS::EKS::FargateProfile`.
 func NewCfnFargateProfile(scope constructs.Construct, id *string, props *CfnFargateProfileProps) CfnFargateProfile {
 	_init_.Initialize()
 
@@ -486,6 +489,7 @@ func NewCfnFargateProfile(scope constructs.Construct, id *string, props *CfnFarg
 	return &j
 }
 
+// Create a new `AWS::EKS::FargateProfile`.
 func NewCfnFargateProfile_Override(c CfnFargateProfile, scope constructs.Construct, id *string, props *CfnFargateProfileProps) {
 	_init_.Initialize()
 

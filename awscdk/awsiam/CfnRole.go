@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,8 +53,8 @@ import (
 //
 type CfnRole interface {
 	awscdk.CfnResource
-	IRoleRef
 	awscdk.IInspectable
+	interfacesawsiam.IRoleRef
 	awscdk.ITaggable
 	// The trust policy that is associated with this role.
 	AssumeRolePolicyDocument() interface{}
@@ -79,7 +81,7 @@ type CfnRole interface {
 	// A description of the role that you provide.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -118,7 +120,7 @@ type CfnRole interface {
 	RoleName() *string
 	SetRoleName(val *string)
 	// A reference to a Role resource.
-	RoleRef() *RoleReference
+	RoleRef() *interfacesawsiam.RoleReference
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -271,8 +273,8 @@ type CfnRole interface {
 // The jsii proxy struct for CfnRole
 type jsiiProxy_CfnRole struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IRoleRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiamIRoleRef
 	internal.Type__awscdkITaggable
 }
 
@@ -356,8 +358,8 @@ func (j *jsiiProxy_CfnRole) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRole) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnRole) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -456,8 +458,8 @@ func (j *jsiiProxy_CfnRole) RoleName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRole) RoleRef() *RoleReference {
-	var returns *RoleReference
+func (j *jsiiProxy_CfnRole) RoleRef() *interfacesawsiam.RoleReference {
+	var returns *interfacesawsiam.RoleReference
 	_jsii_.Get(
 		j,
 		"roleRef",
@@ -517,6 +519,7 @@ func (j *jsiiProxy_CfnRole) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::IAM::Role`.
 func NewCfnRole(scope constructs.Construct, id *string, props *CfnRoleProps) CfnRole {
 	_init_.Initialize()
 
@@ -534,6 +537,7 @@ func NewCfnRole(scope constructs.Construct, id *string, props *CfnRoleProps) Cfn
 	return &j
 }
 
+// Create a new `AWS::IAM::Role`.
 func NewCfnRole_Override(c CfnRole, scope constructs.Construct, id *string, props *CfnRoleProps) {
 	_init_.Initialize()
 

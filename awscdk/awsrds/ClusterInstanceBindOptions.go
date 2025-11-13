@@ -2,7 +2,7 @@ package awsrds
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Options for binding the instance to the cluster.
@@ -33,7 +33,7 @@ type ClusterInstanceBindOptions struct {
 	// Role that will be used to manage DB instances monitoring.
 	// Default: - A role is automatically created for you.
 	//
-	MonitoringRole awsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
+	MonitoringRole interfacesawsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
 	// The promotion tier of the cluster instance.
 	//
 	// This matters more for serverlessV2 instances. If a serverless

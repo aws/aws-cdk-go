@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnotifications"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,8 +27,8 @@ import (
 //
 type CfnOrganizationalUnitAssociation interface {
 	awscdk.CfnResource
-	IOrganizationalUnitAssociationRef
 	awscdk.IInspectable
+	interfacesawsnotifications.IOrganizationalUnitAssociationRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -36,7 +38,7 @@ type CfnOrganizationalUnitAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -53,7 +55,7 @@ type CfnOrganizationalUnitAssociation interface {
 	NotificationConfigurationArn() *string
 	SetNotificationConfigurationArn(val *string)
 	// A reference to a OrganizationalUnitAssociation resource.
-	OrganizationalUnitAssociationRef() *OrganizationalUnitAssociationReference
+	OrganizationalUnitAssociationRef() *interfacesawsnotifications.OrganizationalUnitAssociationReference
 	// The ID of the organizational unit.
 	OrganizationalUnitId() *string
 	SetOrganizationalUnitId(val *string)
@@ -209,8 +211,8 @@ type CfnOrganizationalUnitAssociation interface {
 // The jsii proxy struct for CfnOrganizationalUnitAssociation
 type jsiiProxy_CfnOrganizationalUnitAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IOrganizationalUnitAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsnotificationsIOrganizationalUnitAssociationRef
 }
 
 func (j *jsiiProxy_CfnOrganizationalUnitAssociation) CfnOptions() awscdk.ICfnResourceOptions {
@@ -253,8 +255,8 @@ func (j *jsiiProxy_CfnOrganizationalUnitAssociation) CreationStack() *[]*string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationalUnitAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnOrganizationalUnitAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -293,8 +295,8 @@ func (j *jsiiProxy_CfnOrganizationalUnitAssociation) NotificationConfigurationAr
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationalUnitAssociation) OrganizationalUnitAssociationRef() *OrganizationalUnitAssociationReference {
-	var returns *OrganizationalUnitAssociationReference
+func (j *jsiiProxy_CfnOrganizationalUnitAssociation) OrganizationalUnitAssociationRef() *interfacesawsnotifications.OrganizationalUnitAssociationReference {
+	var returns *interfacesawsnotifications.OrganizationalUnitAssociationReference
 	_jsii_.Get(
 		j,
 		"organizationalUnitAssociationRef",
@@ -354,6 +356,7 @@ func (j *jsiiProxy_CfnOrganizationalUnitAssociation) UpdatedProperties() *map[st
 }
 
 
+// Create a new `AWS::Notifications::OrganizationalUnitAssociation`.
 func NewCfnOrganizationalUnitAssociation(scope constructs.Construct, id *string, props *CfnOrganizationalUnitAssociationProps) CfnOrganizationalUnitAssociation {
 	_init_.Initialize()
 
@@ -371,6 +374,7 @@ func NewCfnOrganizationalUnitAssociation(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Create a new `AWS::Notifications::OrganizationalUnitAssociation`.
 func NewCfnOrganizationalUnitAssociation_Override(c CfnOrganizationalUnitAssociation, scope constructs.Construct, id *string, props *CfnOrganizationalUnitAssociationProps) {
 	_init_.Initialize()
 

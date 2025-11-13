@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,8 +43,8 @@ import (
 //
 type CfnConformancePack interface {
 	awscdk.CfnResource
-	IConformancePackRef
 	awscdk.IInspectable
+	interfacesawsconfig.IConformancePackRef
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -55,7 +57,7 @@ type CfnConformancePack interface {
 	ConformancePackName() *string
 	SetConformancePackName(val *string)
 	// A reference to a ConformancePack resource.
-	ConformancePackRef() *ConformancePackReference
+	ConformancePackRef() *interfacesawsconfig.ConformancePackReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -66,7 +68,7 @@ type CfnConformancePack interface {
 	// The prefix for the Amazon S3 bucket.
 	DeliveryS3KeyPrefix() *string
 	SetDeliveryS3KeyPrefix(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -240,8 +242,8 @@ type CfnConformancePack interface {
 // The jsii proxy struct for CfnConformancePack
 type jsiiProxy_CfnConformancePack struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConformancePackRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsconfigIConformancePackRef
 }
 
 func (j *jsiiProxy_CfnConformancePack) CfnOptions() awscdk.ICfnResourceOptions {
@@ -294,8 +296,8 @@ func (j *jsiiProxy_CfnConformancePack) ConformancePackName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConformancePack) ConformancePackRef() *ConformancePackReference {
-	var returns *ConformancePackReference
+func (j *jsiiProxy_CfnConformancePack) ConformancePackRef() *interfacesawsconfig.ConformancePackReference {
+	var returns *interfacesawsconfig.ConformancePackReference
 	_jsii_.Get(
 		j,
 		"conformancePackRef",
@@ -334,8 +336,8 @@ func (j *jsiiProxy_CfnConformancePack) DeliveryS3KeyPrefix() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConformancePack) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConformancePack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -435,6 +437,7 @@ func (j *jsiiProxy_CfnConformancePack) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Config::ConformancePack`.
 func NewCfnConformancePack(scope constructs.Construct, id *string, props *CfnConformancePackProps) CfnConformancePack {
 	_init_.Initialize()
 
@@ -452,6 +455,7 @@ func NewCfnConformancePack(scope constructs.Construct, id *string, props *CfnCon
 	return &j
 }
 
+// Create a new `AWS::Config::ConformancePack`.
 func NewCfnConformancePack_Override(c CfnConformancePack, scope constructs.Construct, id *string, props *CfnConformancePackProps) {
 	_init_.Initialize()
 

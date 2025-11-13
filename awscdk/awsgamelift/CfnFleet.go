@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgamelift/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsgamelift"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -122,8 +124,8 @@ import (
 //
 type CfnFleet interface {
 	awscdk.CfnResource
-	IFleetRef
 	awscdk.IInspectable
+	interfacesawsgamelift.IFleetRef
 	awscdk.ITaggableV2
 	// Amazon GameLift Servers Anywhere configuration options.
 	AnywhereConfiguration() interface{}
@@ -169,9 +171,9 @@ type CfnFleet interface {
 	// The Amazon GameLift Servers-supported Amazon EC2 instance type to use with managed EC2 fleets.
 	Ec2InstanceType() *string
 	SetEc2InstanceType(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a Fleet resource.
-	FleetRef() *FleetReference
+	FleetRef() *interfacesawsgamelift.FleetReference
 	// Indicates whether to use On-Demand or Spot instances for this fleet.
 	FleetType() *string
 	SetFleetType(val *string)
@@ -403,8 +405,8 @@ type CfnFleet interface {
 // The jsii proxy struct for CfnFleet
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFleetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsgameliftIFleetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -568,8 +570,8 @@ func (j *jsiiProxy_CfnFleet) Ec2InstanceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFleet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -578,8 +580,8 @@ func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) FleetRef() *FleetReference {
-	var returns *FleetReference
+func (j *jsiiProxy_CfnFleet) FleetRef() *interfacesawsgamelift.FleetReference {
+	var returns *interfacesawsgamelift.FleetReference
 	_jsii_.Get(
 		j,
 		"fleetRef",
@@ -839,6 +841,7 @@ func (j *jsiiProxy_CfnFleet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::GameLift::Fleet`.
 func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) CfnFleet {
 	_init_.Initialize()
 
@@ -856,6 +859,7 @@ func NewCfnFleet(scope constructs.Construct, id *string, props *CfnFleetProps) C
 	return &j
 }
 
+// Create a new `AWS::GameLift::Fleet`.
 func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, props *CfnFleetProps) {
 	_init_.Initialize()
 
@@ -1118,13 +1122,13 @@ func (j *jsiiProxy_CfnFleet)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IFleetRef from an ARN.
-func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) IFleetRef {
+func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IFleetRef {
 	_init_.Initialize()
 
 	if err := validateCfnFleet_FromFleetArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IFleetRef
+	var returns interfacesawsgamelift.IFleetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnFleet",
@@ -1137,13 +1141,13 @@ func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) 
 }
 
 // Creates a new IFleetRef from a fleetId.
-func CfnFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IFleetRef {
+func CfnFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) interfacesawsgamelift.IFleetRef {
 	_init_.Initialize()
 
 	if err := validateCfnFleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
 		panic(err)
 	}
-	var returns IFleetRef
+	var returns interfacesawsgamelift.IFleetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnFleet",

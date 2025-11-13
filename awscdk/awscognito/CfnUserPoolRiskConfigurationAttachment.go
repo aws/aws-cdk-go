@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -93,8 +95,8 @@ import (
 //
 type CfnUserPoolRiskConfigurationAttachment interface {
 	awscdk.CfnResource
-	IUserPoolRiskConfigurationAttachmentRef
 	awscdk.IInspectable
+	interfacesawscognito.IUserPoolRiskConfigurationAttachmentRef
 	// The settings for automated responses and notification templates for adaptive authentication with threat protection.
 	AccountTakeoverRiskConfiguration() interface{}
 	SetAccountTakeoverRiskConfiguration(val interface{})
@@ -113,7 +115,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -155,7 +157,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// A reference to a UserPoolRiskConfigurationAttachment resource.
-	UserPoolRiskConfigurationAttachmentRef() *UserPoolRiskConfigurationAttachmentReference
+	UserPoolRiskConfigurationAttachmentRef() *interfacesawscognito.UserPoolRiskConfigurationAttachmentReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -286,8 +288,8 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 // The jsii proxy struct for CfnUserPoolRiskConfigurationAttachment
 type jsiiProxy_CfnUserPoolRiskConfigurationAttachment struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IUserPoolRiskConfigurationAttachmentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawscognitoIUserPoolRiskConfigurationAttachmentRef
 }
 
 func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) AccountTakeoverRiskConfiguration() interface{} {
@@ -360,8 +362,8 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) CreationStack() *[]*s
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -450,8 +452,8 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) UserPoolId() *string 
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) UserPoolRiskConfigurationAttachmentRef() *UserPoolRiskConfigurationAttachmentReference {
-	var returns *UserPoolRiskConfigurationAttachmentReference
+func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) UserPoolRiskConfigurationAttachmentRef() *interfacesawscognito.UserPoolRiskConfigurationAttachmentReference {
+	var returns *interfacesawscognito.UserPoolRiskConfigurationAttachmentReference
 	_jsii_.Get(
 		j,
 		"userPoolRiskConfigurationAttachmentRef",
@@ -461,6 +463,7 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) UserPoolRiskConfigura
 }
 
 
+// Create a new `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
 func NewCfnUserPoolRiskConfigurationAttachment(scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) CfnUserPoolRiskConfigurationAttachment {
 	_init_.Initialize()
 
@@ -478,6 +481,7 @@ func NewCfnUserPoolRiskConfigurationAttachment(scope constructs.Construct, id *s
 	return &j
 }
 
+// Create a new `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
 func NewCfnUserPoolRiskConfigurationAttachment_Override(c CfnUserPoolRiskConfigurationAttachment, scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) {
 	_init_.Initialize()
 

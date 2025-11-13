@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsimagebuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsimagebuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -78,8 +80,8 @@ import (
 //
 type CfnImagePipeline interface {
 	awscdk.CfnResource
-	IImagePipelineRef
 	awscdk.IInspectable
+	interfacesawsimagebuilder.IImagePipelineRef
 	awscdk.ITaggable
 	// Returns the Amazon Resource Name (ARN) of the image pipeline.
 	//
@@ -110,12 +112,12 @@ type CfnImagePipeline interface {
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
 	// A reference to a ImagePipeline resource.
-	ImagePipelineRef() *ImagePipelineReference
+	ImagePipelineRef() *interfacesawsimagebuilder.ImagePipelineReference
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
@@ -312,8 +314,8 @@ type CfnImagePipeline interface {
 // The jsii proxy struct for CfnImagePipeline
 type jsiiProxy_CfnImagePipeline struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IImagePipelineRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsimagebuilderIImagePipelineRef
 	internal.Type__awscdkITaggable
 }
 
@@ -427,8 +429,8 @@ func (j *jsiiProxy_CfnImagePipeline) EnhancedImageMetadataEnabled() interface{} 
 	return returns
 }
 
-func (j *jsiiProxy_CfnImagePipeline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnImagePipeline) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -447,8 +449,8 @@ func (j *jsiiProxy_CfnImagePipeline) ExecutionRole() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImagePipeline) ImagePipelineRef() *ImagePipelineReference {
-	var returns *ImagePipelineReference
+func (j *jsiiProxy_CfnImagePipeline) ImagePipelineRef() *interfacesawsimagebuilder.ImagePipelineReference {
+	var returns *interfacesawsimagebuilder.ImagePipelineReference
 	_jsii_.Get(
 		j,
 		"imagePipelineRef",
@@ -628,6 +630,7 @@ func (j *jsiiProxy_CfnImagePipeline) Workflows() interface{} {
 }
 
 
+// Create a new `AWS::ImageBuilder::ImagePipeline`.
 func NewCfnImagePipeline(scope constructs.Construct, id *string, props *CfnImagePipelineProps) CfnImagePipeline {
 	_init_.Initialize()
 
@@ -645,6 +648,7 @@ func NewCfnImagePipeline(scope constructs.Construct, id *string, props *CfnImage
 	return &j
 }
 
+// Create a new `AWS::ImageBuilder::ImagePipeline`.
 func NewCfnImagePipeline_Override(c CfnImagePipeline, scope constructs.Construct, id *string, props *CfnImagePipelineProps) {
 	_init_.Initialize()
 

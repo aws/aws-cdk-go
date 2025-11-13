@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,13 +34,13 @@ type Function interface {
 	// For referenced resources (those obtained from referencing methods like
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// the ARN of the CloudFront function.
 	FunctionArn() *string
 	// the name of the CloudFront function.
 	FunctionName() *string
 	// A reference to a Function resource.
-	FunctionRef() *FunctionReference
+	FunctionRef() *interfacesawscloudfront.FunctionReference
 	// the runtime of the CloudFront function.
 	FunctionRuntime() *string
 	// the deployment stage of the CloudFront function.
@@ -89,8 +91,8 @@ type jsiiProxy_Function struct {
 	jsiiProxy_IFunction
 }
 
-func (j *jsiiProxy_Function) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_Function) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -119,8 +121,8 @@ func (j *jsiiProxy_Function) FunctionName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Function) FunctionRef() *FunctionReference {
-	var returns *FunctionReference
+func (j *jsiiProxy_Function) FunctionRef() *interfacesawscloudfront.FunctionReference {
+	var returns *interfacesawscloudfront.FunctionReference
 	_jsii_.Get(
 		j,
 		"functionRef",

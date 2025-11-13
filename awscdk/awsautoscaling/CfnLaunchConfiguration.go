@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -75,8 +77,8 @@ import (
 //
 type CfnLaunchConfiguration interface {
 	awscdk.CfnResource
-	ILaunchConfigurationRef
 	awscdk.IInspectable
+	interfacesawsautoscaling.ILaunchConfigurationRef
 	// Specifies whether to assign a public IPv4 address to the group's instances.
 	AssociatePublicIpAddress() interface{}
 	SetAssociatePublicIpAddress(val interface{})
@@ -101,7 +103,7 @@ type CfnLaunchConfiguration interface {
 	// Specifies whether the launch configuration is optimized for EBS I/O ( `true` ) or not ( `false` ).
 	EbsOptimized() interface{}
 	SetEbsOptimized(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance.
 	IamInstanceProfile() *string
 	SetIamInstanceProfile(val *string)
@@ -127,7 +129,7 @@ type CfnLaunchConfiguration interface {
 	LaunchConfigurationName() *string
 	SetLaunchConfigurationName(val *string)
 	// A reference to a LaunchConfiguration resource.
-	LaunchConfigurationRef() *LaunchConfigurationReference
+	LaunchConfigurationRef() *interfacesawsautoscaling.LaunchConfigurationReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -310,8 +312,8 @@ type CfnLaunchConfiguration interface {
 // The jsii proxy struct for CfnLaunchConfiguration
 type jsiiProxy_CfnLaunchConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ILaunchConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsautoscalingILaunchConfigurationRef
 }
 
 func (j *jsiiProxy_CfnLaunchConfiguration) AssociatePublicIpAddress() interface{} {
@@ -404,8 +406,8 @@ func (j *jsiiProxy_CfnLaunchConfiguration) EbsOptimized() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnLaunchConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -494,8 +496,8 @@ func (j *jsiiProxy_CfnLaunchConfiguration) LaunchConfigurationName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchConfiguration) LaunchConfigurationRef() *LaunchConfigurationReference {
-	var returns *LaunchConfigurationReference
+func (j *jsiiProxy_CfnLaunchConfiguration) LaunchConfigurationRef() *interfacesawsautoscaling.LaunchConfigurationReference {
+	var returns *interfacesawsautoscaling.LaunchConfigurationReference
 	_jsii_.Get(
 		j,
 		"launchConfigurationRef",
@@ -625,6 +627,7 @@ func (j *jsiiProxy_CfnLaunchConfiguration) UserData() *string {
 }
 
 
+// Create a new `AWS::AutoScaling::LaunchConfiguration`.
 func NewCfnLaunchConfiguration(scope constructs.Construct, id *string, props *CfnLaunchConfigurationProps) CfnLaunchConfiguration {
 	_init_.Initialize()
 
@@ -642,6 +645,7 @@ func NewCfnLaunchConfiguration(scope constructs.Construct, id *string, props *Cf
 	return &j
 }
 
+// Create a new `AWS::AutoScaling::LaunchConfiguration`.
 func NewCfnLaunchConfiguration_Override(c CfnLaunchConfiguration, scope constructs.Construct, id *string, props *CfnLaunchConfigurationProps) {
 	_init_.Initialize()
 

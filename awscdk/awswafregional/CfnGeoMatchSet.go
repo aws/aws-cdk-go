@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawswafregional"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +41,8 @@ import (
 //
 type CfnGeoMatchSet interface {
 	awscdk.CfnResource
-	IGeoMatchSetRef
 	awscdk.IInspectable
+	interfacesawswafregional.IGeoMatchSetRef
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -51,12 +53,12 @@ type CfnGeoMatchSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An array of `GeoMatchConstraint` objects, which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints() interface{}
 	SetGeoMatchConstraints(val interface{})
 	// A reference to a GeoMatchSet resource.
-	GeoMatchSetRef() *GeoMatchSetReference
+	GeoMatchSetRef() *interfacesawswafregional.GeoMatchSetReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -224,8 +226,8 @@ type CfnGeoMatchSet interface {
 // The jsii proxy struct for CfnGeoMatchSet
 type jsiiProxy_CfnGeoMatchSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IGeoMatchSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawswafregionalIGeoMatchSetRef
 }
 
 func (j *jsiiProxy_CfnGeoMatchSet) AttrId() *string {
@@ -278,8 +280,8 @@ func (j *jsiiProxy_CfnGeoMatchSet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGeoMatchSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnGeoMatchSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -298,8 +300,8 @@ func (j *jsiiProxy_CfnGeoMatchSet) GeoMatchConstraints() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGeoMatchSet) GeoMatchSetRef() *GeoMatchSetReference {
-	var returns *GeoMatchSetReference
+func (j *jsiiProxy_CfnGeoMatchSet) GeoMatchSetRef() *interfacesawswafregional.GeoMatchSetReference {
+	var returns *interfacesawswafregional.GeoMatchSetReference
 	_jsii_.Get(
 		j,
 		"geoMatchSetRef",
@@ -379,6 +381,7 @@ func (j *jsiiProxy_CfnGeoMatchSet) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::WAFRegional::GeoMatchSet`.
 func NewCfnGeoMatchSet(scope constructs.Construct, id *string, props *CfnGeoMatchSetProps) CfnGeoMatchSet {
 	_init_.Initialize()
 
@@ -396,6 +399,7 @@ func NewCfnGeoMatchSet(scope constructs.Construct, id *string, props *CfnGeoMatc
 	return &j
 }
 
+// Create a new `AWS::WAFRegional::GeoMatchSet`.
 func NewCfnGeoMatchSet_Override(c CfnGeoMatchSet, scope constructs.Construct, id *string, props *CfnGeoMatchSetProps) {
 	_init_.Initialize()
 

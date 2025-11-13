@@ -3,6 +3,8 @@ package awsiam
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // A principal that represents a federated identity provider as from a OpenID Connect provider.
@@ -134,7 +136,7 @@ func (j *jsiiProxy_OpenIdConnectPrincipal) PrincipalAccount() *string {
 }
 
 
-func NewOpenIdConnectPrincipal(openIdConnectProvider IOIDCProviderRef, conditions *map[string]interface{}) OpenIdConnectPrincipal {
+func NewOpenIdConnectPrincipal(openIdConnectProvider interfacesawsiam.IOIDCProviderRef, conditions *map[string]interface{}) OpenIdConnectPrincipal {
 	_init_.Initialize()
 
 	if err := validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider); err != nil {
@@ -151,7 +153,7 @@ func NewOpenIdConnectPrincipal(openIdConnectProvider IOIDCProviderRef, condition
 	return &j
 }
 
-func NewOpenIdConnectPrincipal_Override(o OpenIdConnectPrincipal, openIdConnectProvider IOIDCProviderRef, conditions *map[string]interface{}) {
+func NewOpenIdConnectPrincipal_Override(o OpenIdConnectPrincipal, openIdConnectProvider interfacesawsiam.IOIDCProviderRef, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(

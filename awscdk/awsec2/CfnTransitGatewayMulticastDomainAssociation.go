@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,8 +30,8 @@ import (
 //
 type CfnTransitGatewayMulticastDomainAssociation interface {
 	awscdk.CfnResource
-	ITransitGatewayMulticastDomainAssociationRef
 	awscdk.IInspectable
+	interfacesawsec2.ITransitGatewayMulticastDomainAssociationRef
 	// The ID of the resource.
 	AttrResourceId() *string
 	// The type of resource, for example a VPC attachment.
@@ -45,7 +47,7 @@ type CfnTransitGatewayMulticastDomainAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,7 +76,7 @@ type CfnTransitGatewayMulticastDomainAssociation interface {
 	TransitGatewayAttachmentId() *string
 	SetTransitGatewayAttachmentId(val *string)
 	// A reference to a TransitGatewayMulticastDomainAssociation resource.
-	TransitGatewayMulticastDomainAssociationRef() *TransitGatewayMulticastDomainAssociationReference
+	TransitGatewayMulticastDomainAssociationRef() *interfacesawsec2.TransitGatewayMulticastDomainAssociationReference
 	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId() *string
 	SetTransitGatewayMulticastDomainId(val *string)
@@ -221,8 +223,8 @@ type CfnTransitGatewayMulticastDomainAssociation interface {
 // The jsii proxy struct for CfnTransitGatewayMulticastDomainAssociation
 type jsiiProxy_CfnTransitGatewayMulticastDomainAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_ITransitGatewayMulticastDomainAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2ITransitGatewayMulticastDomainAssociationRef
 }
 
 func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) AttrResourceId() *string {
@@ -295,8 +297,8 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) CreationStack() 
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -365,8 +367,8 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) TransitGatewayAt
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) TransitGatewayMulticastDomainAssociationRef() *TransitGatewayMulticastDomainAssociationReference {
-	var returns *TransitGatewayMulticastDomainAssociationReference
+func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) TransitGatewayMulticastDomainAssociationRef() *interfacesawsec2.TransitGatewayMulticastDomainAssociationReference {
+	var returns *interfacesawsec2.TransitGatewayMulticastDomainAssociationReference
 	_jsii_.Get(
 		j,
 		"transitGatewayMulticastDomainAssociationRef",
@@ -406,6 +408,7 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) UpdatedPropertie
 }
 
 
+// Create a new `AWS::EC2::TransitGatewayMulticastDomainAssociation`.
 func NewCfnTransitGatewayMulticastDomainAssociation(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainAssociationProps) CfnTransitGatewayMulticastDomainAssociation {
 	_init_.Initialize()
 
@@ -423,6 +426,7 @@ func NewCfnTransitGatewayMulticastDomainAssociation(scope constructs.Construct, 
 	return &j
 }
 
+// Create a new `AWS::EC2::TransitGatewayMulticastDomainAssociation`.
 func NewCfnTransitGatewayMulticastDomainAssociation_Override(c CfnTransitGatewayMulticastDomainAssociation, scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainAssociationProps) {
 	_init_.Initialize()
 

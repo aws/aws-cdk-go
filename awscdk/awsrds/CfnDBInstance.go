@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -83,8 +85,8 @@ import (
 //
 type CfnDBInstance interface {
 	awscdk.CfnResource
-	IDBInstanceRef
 	awscdk.IInspectable
+	interfacesawsrds.IDBInstanceRef
 	awscdk.ITaggable
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	AllocatedStorage() *string
@@ -243,7 +245,7 @@ type CfnDBInstance interface {
 	DbInstanceIdentifier() *string
 	SetDbInstanceIdentifier(val *string)
 	// A reference to a DBInstance resource.
-	DbInstanceRef() *DBInstanceReference
+	DbInstanceRef() *interfacesawsrds.DBInstanceReference
 	// The meaning of this parameter differs according to the database engine you use.
 	DbName() *string
 	SetDbName(val *string)
@@ -307,7 +309,7 @@ type CfnDBInstance interface {
 	// The version number of the database engine to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	Iops() *float64
 	SetIops(val *float64)
@@ -600,8 +602,8 @@ type CfnDBInstance interface {
 // The jsii proxy struct for CfnDBInstance
 type jsiiProxy_CfnDBInstance struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDBInstanceRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsrdsIDBInstanceRef
 	internal.Type__awscdkITaggable
 }
 
@@ -1115,8 +1117,8 @@ func (j *jsiiProxy_CfnDBInstance) DbInstanceIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBInstance) DbInstanceRef() *DBInstanceReference {
-	var returns *DBInstanceReference
+func (j *jsiiProxy_CfnDBInstance) DbInstanceRef() *interfacesawsrds.DBInstanceReference {
+	var returns *interfacesawsrds.DBInstanceReference
 	_jsii_.Get(
 		j,
 		"dbInstanceRef",
@@ -1335,8 +1337,8 @@ func (j *jsiiProxy_CfnDBInstance) EngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBInstance) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDBInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -1816,6 +1818,7 @@ func (j *jsiiProxy_CfnDBInstance) VpcSecurityGroups() *[]*string {
 }
 
 
+// Create a new `AWS::RDS::DBInstance`.
 func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
 	_init_.Initialize()
 
@@ -1833,6 +1836,7 @@ func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstan
 	return &j
 }
 
+// Create a new `AWS::RDS::DBInstance`.
 func NewCfnDBInstance_Override(c CfnDBInstance, scope constructs.Construct, id *string, props *CfnDBInstanceProps) {
 	_init_.Initialize()
 

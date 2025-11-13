@@ -3,9 +3,9 @@ package awsstepfunctionstasks
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Properties for invoking a Bedrock Model.
@@ -247,7 +247,7 @@ type BedrockCreateModelCustomizationJobProps struct {
 	// To pass this role to Amazon Bedrock, the caller of this API must have the iam:PassRole permission.
 	// Default: - use auto generated role.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role interfacesawsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 	// The S3 bucket configuration where the validation data is stored.
 	//
 	// If you don't provide a validation dataset, specify the evaluation percentage by the `Evaluation percentage` hyperparameter.

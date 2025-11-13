@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpointemail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspinpointemail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,8 +48,8 @@ import (
 //
 type CfnConfigurationSet interface {
 	awscdk.CfnResource
-	IConfigurationSetRef
 	awscdk.IInspectable
+	interfacesawspinpointemail.IConfigurationSetRef
 	awscdk.ITaggableV2
 	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
@@ -58,7 +60,7 @@ type CfnConfigurationSet interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ConfigurationSet resource.
-	ConfigurationSetRef() *ConfigurationSetReference
+	ConfigurationSetRef() *interfacesawspinpointemail.ConfigurationSetReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -66,7 +68,7 @@ type CfnConfigurationSet interface {
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 	DeliveryOptions() interface{}
 	SetDeliveryOptions(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -246,8 +248,8 @@ type CfnConfigurationSet interface {
 // The jsii proxy struct for CfnConfigurationSet
 type jsiiProxy_CfnConfigurationSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspinpointemailIConfigurationSetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -301,8 +303,8 @@ func (j *jsiiProxy_CfnConfigurationSet) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) ConfigurationSetRef() *ConfigurationSetReference {
-	var returns *ConfigurationSetReference
+func (j *jsiiProxy_CfnConfigurationSet) ConfigurationSetRef() *interfacesawspinpointemail.ConfigurationSetReference {
+	var returns *interfacesawspinpointemail.ConfigurationSetReference
 	_jsii_.Get(
 		j,
 		"configurationSetRef",
@@ -331,8 +333,8 @@ func (j *jsiiProxy_CfnConfigurationSet) DeliveryOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -452,6 +454,7 @@ func (j *jsiiProxy_CfnConfigurationSet) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::PinpointEmail::ConfigurationSet`.
 func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnConfigurationSetProps) CfnConfigurationSet {
 	_init_.Initialize()
 
@@ -469,6 +472,7 @@ func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
+// Create a new `AWS::PinpointEmail::ConfigurationSet`.
 func NewCfnConfigurationSet_Override(c CfnConfigurationSet, scope constructs.Construct, id *string, props *CfnConfigurationSetProps) {
 	_init_.Initialize()
 

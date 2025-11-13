@@ -1,11 +1,23 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawslightsailIAlarmRef = interfacesawslightsail.IAlarmRef
+type Type__interfacesawslightsailIBucketRef = interfacesawslightsail.IBucketRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawslightsailICertificateRef = interfacesawslightsail.ICertificateRef
+type Type__interfacesawslightsailIContainerRef = interfacesawslightsail.IContainerRef
+type Type__interfacesawslightsailIDatabaseRef = interfacesawslightsail.IDatabaseRef
+type Type__interfacesawslightsailIDiskRef = interfacesawslightsail.IDiskRef
+type Type__interfacesawslightsailIDiskSnapshotRef = interfacesawslightsail.IDiskSnapshotRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__constructsIConstruct = constructs.IConstruct
-type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
+type Type__interfacesawslightsailIDistributionRef = interfacesawslightsail.IDistributionRef
+type Type__interfacesawslightsailIDomainRef = interfacesawslightsail.IDomainRef
+type Type__interfacesawslightsailIInstanceRef = interfacesawslightsail.IInstanceRef
+type Type__interfacesawslightsailIInstanceSnapshotRef = interfacesawslightsail.IInstanceSnapshotRef
+type Type__interfacesawslightsailILoadBalancerRef = interfacesawslightsail.ILoadBalancerRef
+type Type__interfacesawslightsailILoadBalancerTlsCertificateRef = interfacesawslightsail.ILoadBalancerTlsCertificateRef
+type Type__interfacesawslightsailIStaticIpRef = interfacesawslightsail.IStaticIpRef

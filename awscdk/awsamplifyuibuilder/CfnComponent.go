@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplifyuibuilder/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsamplifyuibuilder"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,8 +22,8 @@ import (
 //
 type CfnComponent interface {
 	awscdk.CfnResource
-	IComponentRef
 	awscdk.IInspectable
+	interfacesawsamplifyuibuilder.IComponentRef
 	awscdk.ITaggable
 	// The unique ID of the Amplify app associated with the component.
 	AppId() *string
@@ -47,7 +49,7 @@ type CfnComponent interface {
 	CollectionProperties() interface{}
 	SetCollectionProperties(val interface{})
 	// A reference to a Component resource.
-	ComponentRef() *ComponentReference
+	ComponentRef() *interfacesawsamplifyuibuilder.ComponentReference
 	// The type of the component.
 	ComponentType() *string
 	SetComponentType(val *string)
@@ -55,7 +57,7 @@ type CfnComponent interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
@@ -249,8 +251,8 @@ type CfnComponent interface {
 // The jsii proxy struct for CfnComponent
 type jsiiProxy_CfnComponent struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IComponentRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsamplifyuibuilderIComponentRef
 	internal.Type__awscdkITaggable
 }
 
@@ -354,8 +356,8 @@ func (j *jsiiProxy_CfnComponent) CollectionProperties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponent) ComponentRef() *ComponentReference {
-	var returns *ComponentReference
+func (j *jsiiProxy_CfnComponent) ComponentRef() *interfacesawsamplifyuibuilder.ComponentReference {
+	var returns *interfacesawsamplifyuibuilder.ComponentReference
 	_jsii_.Get(
 		j,
 		"componentRef",
@@ -384,8 +386,8 @@ func (j *jsiiProxy_CfnComponent) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponent) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnComponent) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -555,6 +557,7 @@ func (j *jsiiProxy_CfnComponent) Variants() interface{} {
 }
 
 
+// Create a new `AWS::AmplifyUIBuilder::Component`.
 func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponentProps) CfnComponent {
 	_init_.Initialize()
 
@@ -572,6 +575,7 @@ func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponent
 	return &j
 }
 
+// Create a new `AWS::AmplifyUIBuilder::Component`.
 func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *string, props *CfnComponentProps) {
 	_init_.Initialize()
 

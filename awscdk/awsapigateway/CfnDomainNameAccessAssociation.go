@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,8 +40,8 @@ import (
 //
 type CfnDomainNameAccessAssociation interface {
 	awscdk.CfnResource
-	IDomainNameAccessAssociationRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IDomainNameAccessAssociationRef
 	awscdk.ITaggableV2
 	// The identifier of the domain name access association source.
 	AccessAssociationSource() *string
@@ -63,11 +65,11 @@ type CfnDomainNameAccessAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// A reference to a DomainNameAccessAssociation resource.
-	DomainNameAccessAssociationRef() *DomainNameAccessAssociationReference
+	DomainNameAccessAssociationRef() *interfacesawsapigateway.DomainNameAccessAssociationReference
 	// The ARN of the domain name.
 	DomainNameArn() *string
 	SetDomainNameArn(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,8 +237,8 @@ type CfnDomainNameAccessAssociation interface {
 // The jsii proxy struct for CfnDomainNameAccessAssociation
 type jsiiProxy_CfnDomainNameAccessAssociation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IDomainNameAccessAssociationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIDomainNameAccessAssociationRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -320,8 +322,8 @@ func (j *jsiiProxy_CfnDomainNameAccessAssociation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainNameAccessAssociation) DomainNameAccessAssociationRef() *DomainNameAccessAssociationReference {
-	var returns *DomainNameAccessAssociationReference
+func (j *jsiiProxy_CfnDomainNameAccessAssociation) DomainNameAccessAssociationRef() *interfacesawsapigateway.DomainNameAccessAssociationReference {
+	var returns *interfacesawsapigateway.DomainNameAccessAssociationReference
 	_jsii_.Get(
 		j,
 		"domainNameAccessAssociationRef",
@@ -340,8 +342,8 @@ func (j *jsiiProxy_CfnDomainNameAccessAssociation) DomainNameArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainNameAccessAssociation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnDomainNameAccessAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,6 +423,7 @@ func (j *jsiiProxy_CfnDomainNameAccessAssociation) UpdatedProperties() *map[stri
 }
 
 
+// Create a new `AWS::ApiGateway::DomainNameAccessAssociation`.
 func NewCfnDomainNameAccessAssociation(scope constructs.Construct, id *string, props *CfnDomainNameAccessAssociationProps) CfnDomainNameAccessAssociation {
 	_init_.Initialize()
 
@@ -438,6 +441,7 @@ func NewCfnDomainNameAccessAssociation(scope constructs.Construct, id *string, p
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::DomainNameAccessAssociation`.
 func NewCfnDomainNameAccessAssociation_Override(c CfnDomainNameAccessAssociation, scope constructs.Construct, id *string, props *CfnDomainNameAccessAssociationProps) {
 	_init_.Initialize()
 

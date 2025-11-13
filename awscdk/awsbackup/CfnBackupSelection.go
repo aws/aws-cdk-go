@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,8 +50,8 @@ import (
 //
 type CfnBackupSelection interface {
 	awscdk.CfnResource
-	IBackupSelectionRef
 	awscdk.IInspectable
+	interfacesawsbackup.IBackupSelectionRef
 	// Uniquely identifies a backup plan.
 	AttrBackupPlanId() *string
 	// Uniquely identifies the backup selection.
@@ -63,7 +65,7 @@ type CfnBackupSelection interface {
 	BackupSelection() interface{}
 	SetBackupSelection(val interface{})
 	// A reference to a BackupSelection resource.
-	BackupSelectionRef() *BackupSelectionReference
+	BackupSelectionRef() *interfacesawsbackup.BackupSelectionReference
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -73,7 +75,7 @@ type CfnBackupSelection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -238,8 +240,8 @@ type CfnBackupSelection interface {
 // The jsii proxy struct for CfnBackupSelection
 type jsiiProxy_CfnBackupSelection struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IBackupSelectionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbackupIBackupSelectionRef
 }
 
 func (j *jsiiProxy_CfnBackupSelection) AttrBackupPlanId() *string {
@@ -292,8 +294,8 @@ func (j *jsiiProxy_CfnBackupSelection) BackupSelection() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupSelection) BackupSelectionRef() *BackupSelectionReference {
-	var returns *BackupSelectionReference
+func (j *jsiiProxy_CfnBackupSelection) BackupSelectionRef() *interfacesawsbackup.BackupSelectionReference {
+	var returns *interfacesawsbackup.BackupSelectionReference
 	_jsii_.Get(
 		j,
 		"backupSelectionRef",
@@ -342,8 +344,8 @@ func (j *jsiiProxy_CfnBackupSelection) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupSelection) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnBackupSelection) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -413,6 +415,7 @@ func (j *jsiiProxy_CfnBackupSelection) UpdatedProperties() *map[string]interface
 }
 
 
+// Create a new `AWS::Backup::BackupSelection`.
 func NewCfnBackupSelection(scope constructs.Construct, id *string, props *CfnBackupSelectionProps) CfnBackupSelection {
 	_init_.Initialize()
 
@@ -430,6 +433,7 @@ func NewCfnBackupSelection(scope constructs.Construct, id *string, props *CfnBac
 	return &j
 }
 
+// Create a new `AWS::Backup::BackupSelection`.
 func NewCfnBackupSelection_Override(c CfnBackupSelection, scope constructs.Construct, id *string, props *CfnBackupSelectionProps) {
 	_init_.Initialize()
 

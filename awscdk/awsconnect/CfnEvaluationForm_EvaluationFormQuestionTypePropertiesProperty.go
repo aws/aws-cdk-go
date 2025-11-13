@@ -93,6 +93,7 @@ type CfnEvaluationForm_EvaluationFormQuestionTypePropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-singleselect
 	//
 	SingleSelect interface{} `field:"optional" json:"singleSelect" yaml:"singleSelect"`
+	// The properties of the text question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-text
 	//
 	Text interface{} `field:"optional" json:"text" yaml:"text"`

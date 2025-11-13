@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -92,10 +94,10 @@ import (
 //
 type CfnAccountAuditConfiguration interface {
 	awscdk.CfnResource
-	IAccountAuditConfigurationRef
 	awscdk.IInspectable
+	interfacesawsiot.IAccountAuditConfigurationRef
 	// A reference to a AccountAuditConfiguration resource.
-	AccountAuditConfigurationRef() *AccountAuditConfigurationReference
+	AccountAuditConfigurationRef() *interfacesawsiot.AccountAuditConfigurationReference
 	// The ID of the account.
 	AccountId() *string
 	SetAccountId(val *string)
@@ -114,7 +116,7 @@ type CfnAccountAuditConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -282,12 +284,12 @@ type CfnAccountAuditConfiguration interface {
 // The jsii proxy struct for CfnAccountAuditConfiguration
 type jsiiProxy_CfnAccountAuditConfiguration struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IAccountAuditConfigurationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsiotIAccountAuditConfigurationRef
 }
 
-func (j *jsiiProxy_CfnAccountAuditConfiguration) AccountAuditConfigurationRef() *AccountAuditConfigurationReference {
-	var returns *AccountAuditConfigurationReference
+func (j *jsiiProxy_CfnAccountAuditConfiguration) AccountAuditConfigurationRef() *interfacesawsiot.AccountAuditConfigurationReference {
+	var returns *interfacesawsiot.AccountAuditConfigurationReference
 	_jsii_.Get(
 		j,
 		"accountAuditConfigurationRef",
@@ -366,8 +368,8 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccountAuditConfiguration) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnAccountAuditConfiguration) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -447,6 +449,7 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) UpdatedProperties() *map[string
 }
 
 
+// Create a new `AWS::IoT::AccountAuditConfiguration`.
 func NewCfnAccountAuditConfiguration(scope constructs.Construct, id *string, props *CfnAccountAuditConfigurationProps) CfnAccountAuditConfiguration {
 	_init_.Initialize()
 
@@ -464,6 +467,7 @@ func NewCfnAccountAuditConfiguration(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Create a new `AWS::IoT::AccountAuditConfiguration`.
 func NewCfnAccountAuditConfiguration_Override(c CfnAccountAuditConfiguration, scope constructs.Construct, id *string, props *CfnAccountAuditConfigurationProps) {
 	_init_.Initialize()
 

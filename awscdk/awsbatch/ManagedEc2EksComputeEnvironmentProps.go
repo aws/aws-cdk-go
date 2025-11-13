@@ -5,6 +5,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 )
 
 // Props for a ManagedEc2EksComputeEnvironment.
@@ -13,6 +14,7 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -257,7 +259,7 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	//
 	// Default: - no placement group.
 	//
-	PlacementGroup awsec2.IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup interfacesawsec2.IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched.
 	//
 	// For example, if your maximum percentage is 20%, the Spot price must be

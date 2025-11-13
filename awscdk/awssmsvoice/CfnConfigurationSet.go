@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssmsvoice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssmsvoice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,8 +63,8 @@ import (
 //
 type CfnConfigurationSet interface {
 	awscdk.CfnResource
-	IConfigurationSetRef
 	awscdk.IInspectable
+	interfacesawssmsvoice.IConfigurationSetRef
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the ConfigurationSet.
 	AttrArn() *string
@@ -77,7 +79,7 @@ type CfnConfigurationSet interface {
 	ConfigurationSetName() *string
 	SetConfigurationSetName(val *string)
 	// A reference to a ConfigurationSet resource.
-	ConfigurationSetRef() *ConfigurationSetReference
+	ConfigurationSetRef() *interfacesawssmsvoice.ConfigurationSetReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -85,7 +87,7 @@ type CfnConfigurationSet interface {
 	// The default sender ID used by the ConfigurationSet.
 	DefaultSenderId() *string
 	SetDefaultSenderId(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// An array of EventDestination objects that describe any events to log and where to log them.
 	EventDestinations() interface{}
 	SetEventDestinations(val interface{})
@@ -262,8 +264,8 @@ type CfnConfigurationSet interface {
 // The jsii proxy struct for CfnConfigurationSet
 type jsiiProxy_CfnConfigurationSet struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IConfigurationSetRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawssmsvoiceIConfigurationSetRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -327,8 +329,8 @@ func (j *jsiiProxy_CfnConfigurationSet) ConfigurationSetName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) ConfigurationSetRef() *ConfigurationSetReference {
-	var returns *ConfigurationSetReference
+func (j *jsiiProxy_CfnConfigurationSet) ConfigurationSetRef() *interfacesawssmsvoice.ConfigurationSetReference {
+	var returns *interfacesawssmsvoice.ConfigurationSetReference
 	_jsii_.Get(
 		j,
 		"configurationSetRef",
@@ -357,8 +359,8 @@ func (j *jsiiProxy_CfnConfigurationSet) DefaultSenderId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnConfigurationSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -468,6 +470,7 @@ func (j *jsiiProxy_CfnConfigurationSet) UpdatedProperties() *map[string]interfac
 }
 
 
+// Create a new `AWS::SMSVOICE::ConfigurationSet`.
 func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnConfigurationSetProps) CfnConfigurationSet {
 	_init_.Initialize()
 
@@ -485,6 +488,7 @@ func NewCfnConfigurationSet(scope constructs.Construct, id *string, props *CfnCo
 	return &j
 }
 
+// Create a new `AWS::SMSVOICE::ConfigurationSet`.
 func NewCfnConfigurationSet_Override(c CfnConfigurationSet, scope constructs.Construct, id *string, props *CfnConfigurationSetProps) {
 	_init_.Initialize()
 
@@ -553,13 +557,13 @@ func (j *jsiiProxy_CfnConfigurationSet)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IConfigurationSetRef from an ARN.
-func CfnConfigurationSet_FromConfigurationSetArn(scope constructs.Construct, id *string, arn *string) IConfigurationSetRef {
+func CfnConfigurationSet_FromConfigurationSetArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IConfigurationSetRef {
 	_init_.Initialize()
 
 	if err := validateCfnConfigurationSet_FromConfigurationSetArnParameters(scope, id, arn); err != nil {
 		panic(err)
 	}
-	var returns IConfigurationSetRef
+	var returns interfacesawssmsvoice.IConfigurationSetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnConfigurationSet",
@@ -572,13 +576,13 @@ func CfnConfigurationSet_FromConfigurationSetArn(scope constructs.Construct, id 
 }
 
 // Creates a new IConfigurationSetRef from a configurationSetName.
-func CfnConfigurationSet_FromConfigurationSetName(scope constructs.Construct, id *string, configurationSetName *string) IConfigurationSetRef {
+func CfnConfigurationSet_FromConfigurationSetName(scope constructs.Construct, id *string, configurationSetName *string) interfacesawssmsvoice.IConfigurationSetRef {
 	_init_.Initialize()
 
 	if err := validateCfnConfigurationSet_FromConfigurationSetNameParameters(scope, id, configurationSetName); err != nil {
 		panic(err)
 	}
-	var returns IConfigurationSetRef
+	var returns interfacesawssmsvoice.IConfigurationSetRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_smsvoice.CfnConfigurationSet",

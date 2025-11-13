@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrock/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrock"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnFlowVersion interface {
 	awscdk.CfnResource
-	IFlowVersionRef
 	awscdk.IInspectable
+	interfacesawsbedrock.IFlowVersionRef
 	// The time at the version was created.
 	AttrCreatedAt() *string
 	// The Amazon Resource Name (ARN) of the KMS key that the flow version is encrypted with.
@@ -61,12 +63,12 @@ type CfnFlowVersion interface {
 	// The description of the flow version.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow that the version belongs to.
 	FlowArn() *string
 	SetFlowArn(val *string)
 	// A reference to a FlowVersion resource.
-	FlowVersionRef() *FlowVersionReference
+	FlowVersionRef() *interfacesawsbedrock.FlowVersionReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -231,8 +233,8 @@ type CfnFlowVersion interface {
 // The jsii proxy struct for CfnFlowVersion
 type jsiiProxy_CfnFlowVersion struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFlowVersionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsbedrockIFlowVersionRef
 }
 
 func (j *jsiiProxy_CfnFlowVersion) AttrCreatedAt() *string {
@@ -365,8 +367,8 @@ func (j *jsiiProxy_CfnFlowVersion) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowVersion) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFlowVersion) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -385,8 +387,8 @@ func (j *jsiiProxy_CfnFlowVersion) FlowArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowVersion) FlowVersionRef() *FlowVersionReference {
-	var returns *FlowVersionReference
+func (j *jsiiProxy_CfnFlowVersion) FlowVersionRef() *interfacesawsbedrock.FlowVersionReference {
+	var returns *interfacesawsbedrock.FlowVersionReference
 	_jsii_.Get(
 		j,
 		"flowVersionRef",
@@ -456,6 +458,7 @@ func (j *jsiiProxy_CfnFlowVersion) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::Bedrock::FlowVersion`.
 func NewCfnFlowVersion(scope constructs.Construct, id *string, props *CfnFlowVersionProps) CfnFlowVersion {
 	_init_.Initialize()
 
@@ -473,6 +476,7 @@ func NewCfnFlowVersion(scope constructs.Construct, id *string, props *CfnFlowVer
 	return &j
 }
 
+// Create a new `AWS::Bedrock::FlowVersion`.
 func NewCfnFlowVersion_Override(c CfnFlowVersion, scope constructs.Construct, id *string, props *CfnFlowVersionProps) {
 	_init_.Initialize()
 

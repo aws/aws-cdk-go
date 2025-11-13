@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnVPNGatewayRoutePropagation interface {
 	awscdk.CfnResource
-	IVPNGatewayRoutePropagationRef
 	awscdk.IInspectable
+	interfacesawsec2.IVPNGatewayRoutePropagationRef
 	// The ID of the VPN gateway.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -42,7 +44,7 @@ type CfnVPNGatewayRoutePropagation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,7 +86,7 @@ type CfnVPNGatewayRoutePropagation interface {
 	VpnGatewayId() *string
 	SetVpnGatewayId(val *string)
 	// A reference to a VPNGatewayRoutePropagation resource.
-	VpnGatewayRoutePropagationRef() *VPNGatewayRoutePropagationReference
+	VpnGatewayRoutePropagationRef() *interfacesawsec2.VPNGatewayRoutePropagationReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -215,8 +217,8 @@ type CfnVPNGatewayRoutePropagation interface {
 // The jsii proxy struct for CfnVPNGatewayRoutePropagation
 type jsiiProxy_CfnVPNGatewayRoutePropagation struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IVPNGatewayRoutePropagationRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsec2IVPNGatewayRoutePropagationRef
 }
 
 func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) AttrId() *string {
@@ -269,8 +271,8 @@ func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -359,8 +361,8 @@ func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) VpnGatewayId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) VpnGatewayRoutePropagationRef() *VPNGatewayRoutePropagationReference {
-	var returns *VPNGatewayRoutePropagationReference
+func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) VpnGatewayRoutePropagationRef() *interfacesawsec2.VPNGatewayRoutePropagationReference {
+	var returns *interfacesawsec2.VPNGatewayRoutePropagationReference
 	_jsii_.Get(
 		j,
 		"vpnGatewayRoutePropagationRef",
@@ -370,6 +372,7 @@ func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) VpnGatewayRoutePropagationRef(
 }
 
 
+// Create a new `AWS::EC2::VPNGatewayRoutePropagation`.
 func NewCfnVPNGatewayRoutePropagation(scope constructs.Construct, id *string, props *CfnVPNGatewayRoutePropagationProps) CfnVPNGatewayRoutePropagation {
 	_init_.Initialize()
 
@@ -387,6 +390,7 @@ func NewCfnVPNGatewayRoutePropagation(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Create a new `AWS::EC2::VPNGatewayRoutePropagation`.
 func NewCfnVPNGatewayRoutePropagation_Override(c CfnVPNGatewayRoutePropagation, scope constructs.Construct, id *string, props *CfnVPNGatewayRoutePropagationProps) {
 	_init_.Initialize()
 

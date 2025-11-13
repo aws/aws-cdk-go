@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatazone/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdatazone"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,8 +35,8 @@ import (
 //
 type CfnFormType interface {
 	awscdk.CfnResource
-	IFormTypeRef
 	awscdk.IInspectable
+	interfacesawsdatazone.IFormTypeRef
 	// The timestamp of when the metadata form type was created.
 	AttrCreatedAt() *string
 	// The Amazon DataZone user who created teh metadata form type.
@@ -62,9 +64,9 @@ type CfnFormType interface {
 	// The identifier of the Amazon DataZone domain in which the form type exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// A reference to a FormType resource.
-	FormTypeRef() *FormTypeReference
+	FormTypeRef() *interfacesawsdatazone.FormTypeReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,8 +243,8 @@ type CfnFormType interface {
 // The jsii proxy struct for CfnFormType
 type jsiiProxy_CfnFormType struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IFormTypeRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsdatazoneIFormTypeRef
 }
 
 func (j *jsiiProxy_CfnFormType) AttrCreatedAt() *string {
@@ -365,8 +367,8 @@ func (j *jsiiProxy_CfnFormType) DomainIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFormType) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnFormType) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -375,8 +377,8 @@ func (j *jsiiProxy_CfnFormType) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFormType) FormTypeRef() *FormTypeReference {
-	var returns *FormTypeReference
+func (j *jsiiProxy_CfnFormType) FormTypeRef() *interfacesawsdatazone.FormTypeReference {
+	var returns *interfacesawsdatazone.FormTypeReference
 	_jsii_.Get(
 		j,
 		"formTypeRef",
@@ -486,6 +488,7 @@ func (j *jsiiProxy_CfnFormType) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::DataZone::FormType`.
 func NewCfnFormType(scope constructs.Construct, id *string, props *CfnFormTypeProps) CfnFormType {
 	_init_.Initialize()
 
@@ -503,6 +506,7 @@ func NewCfnFormType(scope constructs.Construct, id *string, props *CfnFormTypePr
 	return &j
 }
 
+// Create a new `AWS::DataZone::FormType`.
 func NewCfnFormType_Override(c CfnFormType, scope constructs.Construct, id *string, props *CfnFormTypeProps) {
 	_init_.Initialize()
 

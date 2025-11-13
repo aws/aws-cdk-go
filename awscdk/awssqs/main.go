@@ -67,8 +67,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnQueue{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IQueueRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssqsIQueueRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
@@ -115,8 +115,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnQueueInlinePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IQueueInlinePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssqsIQueueInlinePolicyRef)
 			return &j
 		},
 	)
@@ -167,8 +167,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CfnQueuePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IQueuePolicyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssqsIQueuePolicyRef)
 			return &j
 		},
 	)
@@ -233,51 +233,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IQueue{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_sqs.IQueueInlinePolicyRef",
-		reflect.TypeOf((*IQueueInlinePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queueInlinePolicyRef", GoGetter: "QueueInlinePolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IQueueInlinePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_sqs.IQueuePolicyRef",
-		reflect.TypeOf((*IQueuePolicyRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queuePolicyRef", GoGetter: "QueuePolicyRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IQueuePolicyRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_sqs.IQueueRef",
-		reflect.TypeOf((*IQueueRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queueRef", GoGetter: "QueueRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IQueueRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -381,10 +336,6 @@ func init() {
 			"SQS_MANAGED": QueueEncryption_SQS_MANAGED,
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sqs.QueueInlinePolicyReference",
-		reflect.TypeOf((*QueueInlinePolicyReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sqs.QueuePolicy",
 		reflect.TypeOf((*QueuePolicy)(nil)).Elem(),
@@ -412,16 +363,8 @@ func init() {
 		reflect.TypeOf((*QueuePolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sqs.QueuePolicyReference",
-		reflect.TypeOf((*QueuePolicyReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sqs.QueueProps",
 		reflect.TypeOf((*QueueProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sqs.QueueReference",
-		reflect.TypeOf((*QueueReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sqs.RedriveAllowPolicy",

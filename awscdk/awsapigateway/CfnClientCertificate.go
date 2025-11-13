@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +32,8 @@ import (
 //
 type CfnClientCertificate interface {
 	awscdk.CfnResource
-	IClientCertificateRef
 	awscdk.IInspectable
+	interfacesawsapigateway.IClientCertificateRef
 	awscdk.ITaggable
 	// The ID for the client certificate.
 	//
@@ -43,7 +45,7 @@ type CfnClientCertificate interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a ClientCertificate resource.
-	ClientCertificateRef() *ClientCertificateReference
+	ClientCertificateRef() *interfacesawsapigateway.ClientCertificateReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -51,7 +53,7 @@ type CfnClientCertificate interface {
 	// The description of the client certificate.
 	Description() *string
 	SetDescription(val *string)
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,8 +223,8 @@ type CfnClientCertificate interface {
 // The jsii proxy struct for CfnClientCertificate
 type jsiiProxy_CfnClientCertificate struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IClientCertificateRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawsapigatewayIClientCertificateRef
 	internal.Type__awscdkITaggable
 }
 
@@ -266,8 +268,8 @@ func (j *jsiiProxy_CfnClientCertificate) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientCertificate) ClientCertificateRef() *ClientCertificateReference {
-	var returns *ClientCertificateReference
+func (j *jsiiProxy_CfnClientCertificate) ClientCertificateRef() *interfacesawsapigateway.ClientCertificateReference {
+	var returns *interfacesawsapigateway.ClientCertificateReference
 	_jsii_.Get(
 		j,
 		"clientCertificateRef",
@@ -296,8 +298,8 @@ func (j *jsiiProxy_CfnClientCertificate) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientCertificate) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnClientCertificate) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -387,6 +389,7 @@ func (j *jsiiProxy_CfnClientCertificate) UpdatedProperties() *map[string]interfa
 }
 
 
+// Create a new `AWS::ApiGateway::ClientCertificate`.
 func NewCfnClientCertificate(scope constructs.Construct, id *string, props *CfnClientCertificateProps) CfnClientCertificate {
 	_init_.Initialize()
 
@@ -404,6 +407,7 @@ func NewCfnClientCertificate(scope constructs.Construct, id *string, props *CfnC
 	return &j
 }
 
+// Create a new `AWS::ApiGateway::ClientCertificate`.
 func NewCfnClientCertificate_Override(c CfnClientCertificate, scope constructs.Construct, id *string, props *CfnClientCertificateProps) {
 	_init_.Initialize()
 
@@ -434,13 +438,13 @@ func (j *jsiiProxy_CfnClientCertificate)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 // Creates a new IClientCertificateRef from a clientCertificateId.
-func CfnClientCertificate_FromClientCertificateId(scope constructs.Construct, id *string, clientCertificateId *string) IClientCertificateRef {
+func CfnClientCertificate_FromClientCertificateId(scope constructs.Construct, id *string, clientCertificateId *string) interfacesawsapigateway.IClientCertificateRef {
 	_init_.Initialize()
 
 	if err := validateCfnClientCertificate_FromClientCertificateIdParameters(scope, id, clientCertificateId); err != nil {
 		panic(err)
 	}
-	var returns IClientCertificateRef
+	var returns interfacesawsapigateway.IClientCertificateRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigateway.CfnClientCertificate",

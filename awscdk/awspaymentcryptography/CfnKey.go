@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspaymentcryptography/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawspaymentcryptography"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,8 +73,8 @@ import (
 //
 type CfnKey interface {
 	awscdk.CfnResource
-	IKeyRef
 	awscdk.IInspectable
+	interfacesawspaymentcryptography.IKeyRef
 	awscdk.ITaggableV2
 	AttrKeyIdentifier() *string
 	// The source of the key material.
@@ -98,7 +100,7 @@ type CfnKey interface {
 	// Specifies whether the key is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// Specifies whether the key is exportable.
 	Exportable() interface{}
 	SetExportable(val interface{})
@@ -109,7 +111,7 @@ type CfnKey interface {
 	KeyCheckValueAlgorithm() *string
 	SetKeyCheckValueAlgorithm(val *string)
 	// A reference to a Key resource.
-	KeyRef() *KeyReference
+	KeyRef() *interfacesawspaymentcryptography.KeyReference
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -276,8 +278,8 @@ type CfnKey interface {
 // The jsii proxy struct for CfnKey
 type jsiiProxy_CfnKey struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IKeyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawspaymentcryptographyIKeyRef
 	internal.Type__awscdkITaggableV2
 }
 
@@ -381,8 +383,8 @@ func (j *jsiiProxy_CfnKey) Enabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKey) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnKey) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -421,8 +423,8 @@ func (j *jsiiProxy_CfnKey) KeyCheckValueAlgorithm() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKey) KeyRef() *KeyReference {
-	var returns *KeyReference
+func (j *jsiiProxy_CfnKey) KeyRef() *interfacesawspaymentcryptography.KeyReference {
+	var returns *interfacesawspaymentcryptography.KeyReference
 	_jsii_.Get(
 		j,
 		"keyRef",
@@ -502,6 +504,7 @@ func (j *jsiiProxy_CfnKey) UpdatedProperties() *map[string]interface{} {
 }
 
 
+// Create a new `AWS::PaymentCryptography::Key`.
 func NewCfnKey(scope constructs.Construct, id *string, props *CfnKeyProps) CfnKey {
 	_init_.Initialize()
 
@@ -519,6 +522,7 @@ func NewCfnKey(scope constructs.Construct, id *string, props *CfnKeyProps) CfnKe
 	return &j
 }
 
+// Create a new `AWS::PaymentCryptography::Key`.
 func NewCfnKey_Override(c CfnKey, scope constructs.Construct, id *string, props *CfnKeyProps) {
 	_init_.Initialize()
 

@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,8 +31,8 @@ import (
 //
 type CfnMultiRegionAccessPointPolicy interface {
 	awscdk.CfnResource
-	IMultiRegionAccessPointPolicyRef
 	awscdk.IInspectable
+	interfacesawss3.IMultiRegionAccessPointPolicyRef
 	// The Policy Status associated with this Multi Region Access Point.
 	AttrPolicyStatus() awscdk.IResolvable
 	// Specifies whether the policy is public or not.
@@ -44,7 +46,7 @@ type CfnMultiRegionAccessPointPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -59,7 +61,7 @@ type CfnMultiRegionAccessPointPolicy interface {
 	MrapName() *string
 	SetMrapName(val *string)
 	// A reference to a MultiRegionAccessPointPolicy resource.
-	MultiRegionAccessPointPolicyRef() *MultiRegionAccessPointPolicyReference
+	MultiRegionAccessPointPolicyRef() *interfacesawss3.MultiRegionAccessPointPolicyReference
 	// The tree node.
 	Node() constructs.Node
 	// The access policy associated with the Multi-Region Access Point.
@@ -217,8 +219,8 @@ type CfnMultiRegionAccessPointPolicy interface {
 // The jsii proxy struct for CfnMultiRegionAccessPointPolicy
 type jsiiProxy_CfnMultiRegionAccessPointPolicy struct {
 	internal.Type__awscdkCfnResource
-	jsiiProxy_IMultiRegionAccessPointPolicyRef
 	internal.Type__awscdkIInspectable
+	internal.Type__interfacesawss3IMultiRegionAccessPointPolicyRef
 }
 
 func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) AttrPolicyStatus() awscdk.IResolvable {
@@ -281,8 +283,8 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -311,8 +313,8 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) MrapName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) MultiRegionAccessPointPolicyRef() *MultiRegionAccessPointPolicyReference {
-	var returns *MultiRegionAccessPointPolicyReference
+func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) MultiRegionAccessPointPolicyRef() *interfacesawss3.MultiRegionAccessPointPolicyReference {
+	var returns *interfacesawss3.MultiRegionAccessPointPolicyReference
 	_jsii_.Get(
 		j,
 		"multiRegionAccessPointPolicyRef",
@@ -382,6 +384,7 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) UpdatedProperties() *map[str
 }
 
 
+// Create a new `AWS::S3::MultiRegionAccessPointPolicy`.
 func NewCfnMultiRegionAccessPointPolicy(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) CfnMultiRegionAccessPointPolicy {
 	_init_.Initialize()
 
@@ -399,6 +402,7 @@ func NewCfnMultiRegionAccessPointPolicy(scope constructs.Construct, id *string, 
 	return &j
 }
 
+// Create a new `AWS::S3::MultiRegionAccessPointPolicy`.
 func NewCfnMultiRegionAccessPointPolicy_Override(c CfnMultiRegionAccessPointPolicy, scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) {
 	_init_.Initialize()
 

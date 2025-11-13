@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnTableBucket) validateSetTableBucketNameParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnTableBucket) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTableBucket) validateSetUnreferencedFileRemovalParameters(val interface{}) error {
 	return nil
 }
