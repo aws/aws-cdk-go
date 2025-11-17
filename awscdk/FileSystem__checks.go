@@ -52,3 +52,11 @@ func validateFileSystem_MkdtempParameters(prefix *string) error {
 	return nil
 }
 
+func validateFileSystem_RmrfParameters(dirname *string) error {
+	if dirname == nil {
+		return fmt.Errorf("parameter dirname is required, but nil was provided")
+	}
+
+	return nil
+}
+

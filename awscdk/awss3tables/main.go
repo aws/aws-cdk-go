@@ -161,6 +161,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "metricsConfiguration", GoGetter: "MetricsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -192,6 +193,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnTableBucket_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket.MetricsConfigurationProperty",
+		reflect.TypeOf((*CfnTableBucket_MetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.UnreferencedFileRemovalProperty",

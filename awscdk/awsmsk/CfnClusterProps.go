@@ -122,6 +122,9 @@ package awsmsk
 //   			},
 //   		},
 //   	},
+//   	Rebalancing: &RebalancingProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	StorageMode: jsii.String("storageMode"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -177,6 +180,9 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-openmonitoring
 	//
 	OpenMonitoring interface{} `field:"optional" json:"openMonitoring" yaml:"openMonitoring"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-rebalancing
+	//
+	Rebalancing interface{} `field:"optional" json:"rebalancing" yaml:"rebalancing"`
 	// This controls storage mode for supported storage tiers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-storagemode
 	//

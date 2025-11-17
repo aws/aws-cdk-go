@@ -27,6 +27,10 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	ExternalAuthorityConfiguration: &IpamScopeExternalAuthorityConfigurationProperty{
+//   		ExternalResourceIdentifier: jsii.String("externalResourceIdentifier"),
+//   		IpamScopeExternalAuthorityType: jsii.String("ipamScopeExternalAuthorityType"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -67,6 +71,9 @@ type CfnIPAMScope interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The configuration that links an Amazon VPC IPAM scope to an external authority system.
+	ExternalAuthorityConfiguration() interface{}
+	SetExternalAuthorityConfiguration(val interface{})
 	// The ID of the IPAM for which you're creating this scope.
 	IpamId() *string
 	SetIpamId(val *string)
@@ -366,6 +373,16 @@ func (j *jsiiProxy_CfnIPAMScope) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAMScope) ExternalAuthorityConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"externalAuthorityConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAMScope) IpamId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -500,6 +517,17 @@ func (j *jsiiProxy_CfnIPAMScope)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAMScope)SetExternalAuthorityConfiguration(val interface{}) {
+	if err := j.validateSetExternalAuthorityConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"externalAuthorityConfiguration",
 		val,
 	)
 }

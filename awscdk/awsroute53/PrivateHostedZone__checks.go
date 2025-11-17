@@ -63,9 +63,13 @@ func (p *jsiiProxy_PrivateHostedZone) validateGetResourceNameAttributeParameters
 	return nil
 }
 
-func (p *jsiiProxy_PrivateHostedZone) validateGrantDelegationParameters(grantee awsiam.IGrantable) error {
+func (p *jsiiProxy_PrivateHostedZone) validateGrantDelegationParameters(grantee awsiam.IGrantable, options *GrantDelegationOptions) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

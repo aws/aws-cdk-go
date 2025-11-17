@@ -12,7 +12,7 @@ import (
 type IHostedZone interface {
 	awscdk.IResource
 	// Grant permissions to add delegation records to this zone.
-	GrantDelegation(grantee awsiam.IGrantable) awsiam.Grant
+	GrantDelegation(grantee awsiam.IGrantable, options *GrantDelegationOptions) awsiam.Grant
 	// ARN of this hosted zone, such as arn:${Partition}:route53:::hostedzone/${Id}.
 	HostedZoneArn() *string
 	// ID of this hosted zone, such as "Z23ABC4XYZL05B".
@@ -30,8 +30,8 @@ type jsiiProxy_IHostedZone struct {
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_IHostedZone) GrantDelegation(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := i.validateGrantDelegationParameters(grantee); err != nil {
+func (i *jsiiProxy_IHostedZone) GrantDelegation(grantee awsiam.IGrantable, options *GrantDelegationOptions) awsiam.Grant {
+	if err := i.validateGrantDelegationParameters(grantee, options); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -39,7 +39,7 @@ func (i *jsiiProxy_IHostedZone) GrantDelegation(grantee awsiam.IGrantable) awsia
 	_jsii_.Invoke(
 		i,
 		"grantDelegation",
-		[]interface{}{grantee},
+		[]interface{}{grantee, options},
 		&returns,
 	)
 

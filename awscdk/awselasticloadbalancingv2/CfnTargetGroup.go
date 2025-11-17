@@ -56,6 +56,7 @@ import (
 //   			// the properties below are optional
 //   			AvailabilityZone: jsii.String("availabilityZone"),
 //   			Port: jsii.Number(123),
+//   			QuicServerId: jsii.String("quicServerId"),
 //   		},
 //   	},
 //   	TargetType: jsii.String("targetType"),

@@ -16,6 +16,10 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	ExternalAuthorityConfiguration: &IpamScopeExternalAuthorityConfigurationProperty{
+//   		ExternalResourceIdentifier: jsii.String("externalResourceIdentifier"),
+//   		IpamScopeExternalAuthorityType: jsii.String("ipamScopeExternalAuthorityType"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -35,6 +39,14 @@ type CfnIPAMScopeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The configuration that links an Amazon VPC IPAM scope to an external authority system.
+	//
+	// It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+	//
+	// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* ..
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-externalauthorityconfiguration
+	//
+	ExternalAuthorityConfiguration interface{} `field:"optional" json:"externalAuthorityConfiguration" yaml:"externalAuthorityConfiguration"`
 	// The key/value combination of a tag assigned to the resource.
 	//
 	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.

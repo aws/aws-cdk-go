@@ -29,6 +29,7 @@ import (
 //   	CloneFrom: jsii.String("cloneFrom"),
 //   	Description: jsii.String("description"),
 //   	DisableExecuteApiEndpoint: jsii.Boolean(false),
+//   	EndpointAccessMode: jsii.String("endpointAccessMode"),
 //   	EndpointConfiguration: &EndpointConfigurationProperty{
 //   		IpAddressType: jsii.String("ipAddressType"),
 //   		Types: []*string{
@@ -94,6 +95,9 @@ type CfnRestApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-disableexecuteapiendpoint
 	//
 	DisableExecuteApiEndpoint interface{} `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-endpointaccessmode
+	//
+	EndpointAccessMode *string `field:"optional" json:"endpointAccessMode" yaml:"endpointAccessMode"`
 	// A list of the endpoint types and IP address types of the API.
 	//
 	// Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the `Parameters` property.

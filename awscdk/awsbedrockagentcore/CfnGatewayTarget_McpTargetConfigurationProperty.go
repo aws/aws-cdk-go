@@ -54,6 +54,9 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	McpServer: &McpServerTargetConfigurationProperty{
+//   		Endpoint: jsii.String("endpoint"),
+//   	},
 //   	OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   		InlinePayload: jsii.String("inlinePayload"),
 //   		S3: &S3ConfigurationProperty{
@@ -77,6 +80,9 @@ type CfnGatewayTarget_McpTargetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcptargetconfiguration-lambda
 	//
 	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcptargetconfiguration-mcpserver
+	//
+	McpServer interface{} `field:"optional" json:"mcpServer" yaml:"mcpServer"`
 	// The OpenApi schema for the gateway target MCP configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcptargetconfiguration-openapischema
 	//

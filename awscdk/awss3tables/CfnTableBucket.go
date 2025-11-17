@@ -34,6 +34,9 @@ import (
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		SseAlgorithm: jsii.String("sseAlgorithm"),
 //   	},
+//   	MetricsConfiguration: &MetricsConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -81,6 +84,9 @@ type CfnTableBucket interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Settings governing the Metric configuration for the table bucket.
+	MetricsConfiguration() interface{}
+	SetMetricsConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -341,6 +347,16 @@ func (j *jsiiProxy_CfnTableBucket) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTableBucket) MetricsConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"metricsConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTableBucket) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -468,6 +484,17 @@ func (j *jsiiProxy_CfnTableBucket)SetEncryptionConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"encryptionConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTableBucket)SetMetricsConfiguration(val interface{}) {
+	if err := j.validateSetMetricsConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"metricsConfiguration",
 		val,
 	)
 }

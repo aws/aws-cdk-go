@@ -639,7 +639,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "schema", GoMethod: "Schema"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberProperty{JsiiProperty: "table", GoGetter: "Table"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},

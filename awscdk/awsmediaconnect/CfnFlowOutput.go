@@ -20,6 +20,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var automatic interface{}
+//
 //   cfnFlowOutput := awscdk.Aws_mediaconnect.NewCfnFlowOutput(this, jsii.String("MyCfnFlowOutput"), &CfnFlowOutputProps{
 //   	FlowArn: jsii.String("flowArn"),
 //   	Protocol: jsii.String("protocol"),
@@ -69,6 +71,19 @@ import (
 //   	OutputStatus: jsii.String("outputStatus"),
 //   	Port: jsii.Number(123),
 //   	RemoteId: jsii.String("remoteId"),
+//   	RouterIntegrationState: jsii.String("routerIntegrationState"),
+//   	RouterIntegrationTransitEncryption: &FlowTransitEncryptionProperty{
+//   		EncryptionKeyConfiguration: &FlowTransitEncryptionKeyConfigurationProperty{
+//   			Automatic: automatic,
+//   			SecretsManager: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
 //   	VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
@@ -158,6 +173,11 @@ type CfnFlowOutput interface {
 	// The remote ID for the Zixi-pull stream.
 	RemoteId() *string
 	SetRemoteId(val *string)
+	RouterIntegrationState() *string
+	SetRouterIntegrationState(val *string)
+	// The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+	RouterIntegrationTransitEncryption() interface{}
+	SetRouterIntegrationTransitEncryption(val interface{})
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency() *float64
 	SetSmoothingLatency(val *float64)
@@ -568,6 +588,26 @@ func (j *jsiiProxy_CfnFlowOutput) RemoteId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowOutput) RouterIntegrationState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"routerIntegrationState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowOutput) RouterIntegrationTransitEncryption() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"routerIntegrationTransitEncryption",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowOutput) SmoothingLatency() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -786,6 +826,25 @@ func (j *jsiiProxy_CfnFlowOutput)SetRemoteId(val *string) {
 	_jsii_.Set(
 		j,
 		"remoteId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetRouterIntegrationState(val *string) {
+	_jsii_.Set(
+		j,
+		"routerIntegrationState",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetRouterIntegrationTransitEncryption(val interface{}) {
+	if err := j.validateSetRouterIntegrationTransitEncryptionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"routerIntegrationTransitEncryption",
 		val,
 	)
 }

@@ -71,6 +71,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrWarmThroughputObject", GoGetter: "AttrWarmThroughputObject"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -104,6 +105,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "warmThroughputMiBps", GoGetter: "WarmThroughputMiBps"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnStream{}
@@ -121,6 +123,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesis.CfnStream.StreamModeDetailsProperty",
 		reflect.TypeOf((*CfnStream_StreamModeDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesis.CfnStream.WarmThroughputObjectProperty",
+		reflect.TypeOf((*CfnStream_WarmThroughputObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesis.CfnStreamConsumer",

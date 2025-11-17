@@ -85,6 +85,9 @@ package awsbedrockagentcore
 //   					},
 //   				},
 //   			},
+//   			McpServer: &McpServerTargetConfigurationProperty{
+//   				Endpoint: jsii.String("endpoint"),
+//   			},
 //   			OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   				InlinePayload: jsii.String("inlinePayload"),
 //   				S3: &S3ConfigurationProperty{

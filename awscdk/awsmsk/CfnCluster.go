@@ -132,6 +132,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Rebalancing: &RebalancingProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	StorageMode: jsii.String("storageMode"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -147,6 +150,8 @@ type CfnCluster interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the MSK cluster.
 	AttrArn() *string
+	// The current version of the MSK cluster.
+	AttrCurrentVersion() *string
 	// Information about the broker nodes in the cluster.
 	BrokerNodeGroupInfo() interface{}
 	SetBrokerNodeGroupInfo(val interface{})
@@ -204,6 +209,8 @@ type CfnCluster interface {
 	// The settings for open monitoring.
 	OpenMonitoring() interface{}
 	SetOpenMonitoring(val interface{})
+	Rebalancing() interface{}
+	SetRebalancing(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -374,6 +381,16 @@ func (j *jsiiProxy_CfnCluster) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrCurrentVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCurrentVersion",
 		&returns,
 	)
 	return returns
@@ -564,6 +581,16 @@ func (j *jsiiProxy_CfnCluster) OpenMonitoring() interface{} {
 	_jsii_.Get(
 		j,
 		"openMonitoring",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Rebalancing() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rebalancing",
 		&returns,
 	)
 	return returns
@@ -780,6 +807,17 @@ func (j *jsiiProxy_CfnCluster)SetOpenMonitoring(val interface{}) {
 	_jsii_.Set(
 		j,
 		"openMonitoring",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetRebalancing(val interface{}) {
+	if err := j.validateSetRebalancingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rebalancing",
 		val,
 	)
 }

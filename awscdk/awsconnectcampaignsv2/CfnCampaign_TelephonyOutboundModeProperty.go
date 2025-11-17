@@ -42,7 +42,7 @@ type CfnCampaign_TelephonyOutboundModeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-predictiveconfig
 	//
 	PredictiveConfig interface{} `field:"optional" json:"predictiveConfig" yaml:"predictiveConfig"`
-	// Preview config.
+	// Contains preview outbound mode configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-previewconfig
 	//
 	PreviewConfig interface{} `field:"optional" json:"previewConfig" yaml:"previewConfig"`

@@ -279,6 +279,30 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetProtocolParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowOutput) validateSetRouterIntegrationTransitEncryptionParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFlowOutput_FlowTransitEncryptionProperty:
+		val := val.(*CfnFlowOutput_FlowTransitEncryptionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFlowOutput_FlowTransitEncryptionProperty:
+		val_ := val.(CfnFlowOutput_FlowTransitEncryptionProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlowOutput_FlowTransitEncryptionProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowOutput) validateSetVpcInterfaceAttachmentParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

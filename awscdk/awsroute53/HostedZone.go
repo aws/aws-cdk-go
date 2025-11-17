@@ -104,7 +104,7 @@ type HostedZone interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant permissions to add delegation records to this zone.
-	GrantDelegation(grantee awsiam.IGrantable) awsiam.Grant
+	GrantDelegation(grantee awsiam.IGrantable, options *GrantDelegationOptions) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -468,8 +468,8 @@ func (h *jsiiProxy_HostedZone) GetResourceNameAttribute(nameAttr *string) *strin
 	return returns
 }
 
-func (h *jsiiProxy_HostedZone) GrantDelegation(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := h.validateGrantDelegationParameters(grantee); err != nil {
+func (h *jsiiProxy_HostedZone) GrantDelegation(grantee awsiam.IGrantable, options *GrantDelegationOptions) awsiam.Grant {
+	if err := h.validateGrantDelegationParameters(grantee, options); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -477,7 +477,7 @@ func (h *jsiiProxy_HostedZone) GrantDelegation(grantee awsiam.IGrantable) awsiam
 	_jsii_.Invoke(
 		h,
 		"grantDelegation",
-		[]interface{}{grantee},
+		[]interface{}{grantee, options},
 		&returns,
 	)
 

@@ -211,6 +211,30 @@ func validateCfnIPAMScope_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPAMScope) validateSetExternalAuthorityConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnIPAMScope_IpamScopeExternalAuthorityConfigurationProperty:
+		val := val.(*CfnIPAMScope_IpamScopeExternalAuthorityConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnIPAMScope_IpamScopeExternalAuthorityConfigurationProperty:
+		val_ := val.(CfnIPAMScope_IpamScopeExternalAuthorityConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIPAMScope_IpamScopeExternalAuthorityConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnIPAMScope) validateSetIpamIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

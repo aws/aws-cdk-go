@@ -295,6 +295,10 @@ func init() {
 		reflect.TypeOf((*CfnScraper_SourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.VpcConfigurationProperty",
+		reflect.TypeOf((*CfnScraper_VpcConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnScraperProps",
 		reflect.TypeOf((*CfnScraperProps)(nil)).Elem(),
 	)

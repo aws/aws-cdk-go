@@ -20,6 +20,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var automatic interface{}
+//
 //   cfnFlow := awscdk.Aws_mediaconnect.NewCfnFlow(this, jsii.String("MyCfnFlow"), &CfnFlowProps{
 //   	Name: jsii.String("name"),
 //   	Source: &SourceProperty{
@@ -70,6 +72,19 @@ import (
 //   		MinLatency: jsii.Number(123),
 //   		Name: jsii.String("name"),
 //   		Protocol: jsii.String("protocol"),
+//   		RouterIntegrationState: jsii.String("routerIntegrationState"),
+//   		RouterIntegrationTransitDecryption: &FlowTransitEncryptionProperty{
+//   			EncryptionKeyConfiguration: &FlowTransitEncryptionKeyConfigurationProperty{
+//   				Automatic: automatic,
+//   				SecretsManager: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   					RoleArn: jsii.String("roleArn"),
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   		},
 //   		SenderControlPort: jsii.Number(123),
 //   		SenderIpAddress: jsii.String("senderIpAddress"),
 //   		SourceArn: jsii.String("sourceArn"),

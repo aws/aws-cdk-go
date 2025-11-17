@@ -5,7 +5,8 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsrtbfabricILinkRef = interfacesawsrtbfabric.ILinkRef
+type Type__interfacesawsrtbfabricIInboundExternalLinkRef = interfacesawsrtbfabric.IInboundExternalLinkRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsrtbfabricILinkRef = interfacesawsrtbfabric.ILinkRef
 type Type__interfacesawsrtbfabricIRequesterGatewayRef = interfacesawsrtbfabric.IRequesterGatewayRef
 type Type__interfacesawsrtbfabricIResponderGatewayRef = interfacesawsrtbfabric.IResponderGatewayRef

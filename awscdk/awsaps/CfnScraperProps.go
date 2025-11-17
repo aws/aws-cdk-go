@@ -32,6 +32,14 @@ import (
 //   				jsii.String("securityGroupIds"),
 //   			},
 //   		},
+//   		VpcConfiguration: &VpcConfigurationProperty{
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   		},
 //   	},
 //
 //   	// the properties below are optional

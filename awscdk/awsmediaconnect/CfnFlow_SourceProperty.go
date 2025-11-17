@@ -14,6 +14,8 @@ package awsmediaconnect
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var automatic interface{}
+//
 //   sourceProperty := &SourceProperty{
 //   	Decryption: &EncryptionProperty{
 //   		RoleArn: jsii.String("roleArn"),
@@ -62,6 +64,19 @@ package awsmediaconnect
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Protocol: jsii.String("protocol"),
+//   	RouterIntegrationState: jsii.String("routerIntegrationState"),
+//   	RouterIntegrationTransitDecryption: &FlowTransitEncryptionProperty{
+//   		EncryptionKeyConfiguration: &FlowTransitEncryptionKeyConfigurationProperty{
+//   			Automatic: automatic,
+//   			SecretsManager: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   	},
 //   	SenderControlPort: jsii.Number(123),
 //   	SenderIpAddress: jsii.String("senderIpAddress"),
 //   	SourceArn: jsii.String("sourceArn"),
@@ -138,6 +153,13 @@ type CfnFlow_SourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-protocol
 	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-routerintegrationstate
+	//
+	RouterIntegrationState *string `field:"optional" json:"routerIntegrationState" yaml:"routerIntegrationState"`
+	// The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-routerintegrationtransitdecryption
+	//
+	RouterIntegrationTransitDecryption interface{} `field:"optional" json:"routerIntegrationTransitDecryption" yaml:"routerIntegrationTransitDecryption"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-sendercontrolport
 	//

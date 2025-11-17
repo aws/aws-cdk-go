@@ -14,6 +14,7 @@ import (
 //   cfnDomainNameProps := &CfnDomainNameProps{
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	DomainName: jsii.String("domainName"),
+//   	EndpointAccessMode: jsii.String("endpointAccessMode"),
 //   	EndpointConfiguration: &EndpointConfigurationProperty{
 //   		IpAddressType: jsii.String("ipAddressType"),
 //   		Types: []*string{
@@ -49,6 +50,9 @@ type CfnDomainNameProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
 	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointaccessmode
+	//
+	EndpointAccessMode *string `field:"optional" json:"endpointAccessMode" yaml:"endpointAccessMode"`
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
 	//

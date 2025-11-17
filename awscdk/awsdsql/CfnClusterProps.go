@@ -20,6 +20,7 @@ import (
 //   		},
 //   		WitnessRegion: jsii.String("witnessRegion"),
 //   	},
+//   	PolicyDocument: jsii.String("policyDocument"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -43,6 +44,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-multiregionproperties
 	//
 	MultiRegionProperties interface{} `field:"optional" json:"multiRegionProperties" yaml:"multiRegionProperties"`
+	// The IAM policy applied to the cluster resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-policydocument
+	//
+	PolicyDocument *string `field:"optional" json:"policyDocument" yaml:"policyDocument"`
 	// A map of key and value pairs this cluster is tagged with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-tags
 	//

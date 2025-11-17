@@ -350,6 +350,30 @@ func (j *jsiiProxy_CfnCluster) validateSetOpenMonitoringParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetRebalancingParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_RebalancingProperty:
+		val := val.(*CfnCluster_RebalancingProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_RebalancingProperty:
+		val_ := val.(CfnCluster_RebalancingProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_RebalancingProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnClusterParameters(scope constructs.Construct, id *string, props *CfnClusterProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

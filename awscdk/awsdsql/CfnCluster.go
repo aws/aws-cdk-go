@@ -54,6 +54,7 @@ import (
 //   		},
 //   		WitnessRegion: jsii.String("witnessRegion"),
 //   	},
+//   	PolicyDocument: jsii.String("policyDocument"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -75,6 +76,8 @@ type CfnCluster interface {
 	AttrEncryptionDetails() awscdk.IResolvable
 	// The unique identifier assigned to the cluster upon creation.
 	AttrIdentifier() *string
+	// The version number of the cluster's resource based policy.
+	AttrPolicyVersion() *string
 	// The Amazon Resource Name (ARN) of the cluster.
 	//
 	// Used for IAM permissions and resource identification.
@@ -128,6 +131,9 @@ type CfnCluster interface {
 	SetMultiRegionProperties(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// The IAM policy applied to the cluster resource.
+	PolicyDocument() *string
+	SetPolicyDocument(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -318,6 +324,16 @@ func (j *jsiiProxy_CfnCluster) AttrIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) AttrPolicyVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPolicyVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) AttrResourceArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -468,6 +484,16 @@ func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) PolicyDocument() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"policyDocument",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -574,6 +600,14 @@ func (j *jsiiProxy_CfnCluster)SetMultiRegionProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"multiRegionProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetPolicyDocument(val *string) {
+	_jsii_.Set(
+		j,
+		"policyDocument",
 		val,
 	)
 }

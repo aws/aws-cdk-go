@@ -71,6 +71,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCurrentVersion", GoGetter: "AttrCurrentVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "brokerNodeGroupInfo", GoGetter: "BrokerNodeGroupInfo"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -96,6 +97,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "openMonitoring", GoGetter: "OpenMonitoring"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "rebalancing", GoGetter: "Rebalancing"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -194,6 +196,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnCluster.PublicAccessProperty",
 		reflect.TypeOf((*CfnCluster_PublicAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnCluster.RebalancingProperty",
+		reflect.TypeOf((*CfnCluster_RebalancingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnCluster.S3Property",

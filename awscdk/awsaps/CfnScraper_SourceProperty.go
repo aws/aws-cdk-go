@@ -20,6 +20,14 @@ package awsaps
 //   			jsii.String("securityGroupIds"),
 //   		},
 //   	},
+//   	VpcConfiguration: &VpcConfigurationProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		SubnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html
@@ -28,6 +36,10 @@ type CfnScraper_SourceProperty struct {
 	// The Amazon EKS cluster from which a scraper collects metrics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html#cfn-aps-scraper-source-eksconfiguration
 	//
-	EksConfiguration interface{} `field:"required" json:"eksConfiguration" yaml:"eksConfiguration"`
+	EksConfiguration interface{} `field:"optional" json:"eksConfiguration" yaml:"eksConfiguration"`
+	// Configuration for VPC metrics source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html#cfn-aps-scraper-source-vpcconfiguration
+	//
+	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 

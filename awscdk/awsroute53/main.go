@@ -718,6 +718,10 @@ func init() {
 			return &jsiiProxy_GeoLocation{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.GrantDelegationOptions",
+		reflect.TypeOf((*GrantDelegationOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.HealthCheck",
 		reflect.TypeOf((*HealthCheck)(nil)).Elem(),

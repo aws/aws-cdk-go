@@ -40,6 +40,7 @@ import (
 //   	CloneFrom: jsii.String("cloneFrom"),
 //   	Description: jsii.String("description"),
 //   	DisableExecuteApiEndpoint: jsii.Boolean(false),
+//   	EndpointAccessMode: jsii.String("endpointAccessMode"),
 //   	EndpointConfiguration: &EndpointConfigurationProperty{
 //   		IpAddressType: jsii.String("ipAddressType"),
 //   		Types: []*string{
@@ -107,6 +108,8 @@ type CfnRestApi interface {
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
 	DisableExecuteApiEndpoint() interface{}
 	SetDisableExecuteApiEndpoint(val interface{})
+	EndpointAccessMode() *string
+	SetEndpointAccessMode(val *string)
 	// A list of the endpoint types and IP address types of the API.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
@@ -437,6 +440,16 @@ func (j *jsiiProxy_CfnRestApi) DisableExecuteApiEndpoint() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRestApi) EndpointAccessMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"endpointAccessMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRestApi) EndpointConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -705,6 +718,14 @@ func (j *jsiiProxy_CfnRestApi)SetDisableExecuteApiEndpoint(val interface{}) {
 	_jsii_.Set(
 		j,
 		"disableExecuteApiEndpoint",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRestApi)SetEndpointAccessMode(val *string) {
+	_jsii_.Set(
+		j,
+		"endpointAccessMode",
 		val,
 	)
 }

@@ -14,6 +14,7 @@ package awselasticloadbalancingv2
 //   	// the properties below are optional
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	Port: jsii.Number(123),
+//   	QuicServerId: jsii.String("quicServerId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html
@@ -47,5 +48,9 @@ type CfnTargetGroup_TargetDescriptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	// The Server ID used by targets when using QUIC or TCP_QUIC protocols.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-quicserverid
+	//
+	QuicServerId *string `field:"optional" json:"quicServerId" yaml:"quicServerId"`
 }
 

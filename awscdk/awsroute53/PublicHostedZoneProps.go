@@ -7,55 +7,28 @@ import (
 // Construction properties for a PublicHostedZone.
 //
 // Example:
-//   parentZone := route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
-//   	ZoneName: jsii.String("someexample.com"),
+//   subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &PublicHostedZoneProps{
+//   	ZoneName: jsii.String("sub.someexample.com"),
 //   })
-//   crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProps{
-//   	// The role name must be predictable
-//   	RoleName: jsii.String("MyDelegationRole"),
-//   	// The other account
-//   	AssumedBy: iam.NewAccountPrincipal(jsii.String("12345678901")),
-//   	// You can scope down this role policy to be least privileged.
-//   	// If you want the other account to be able to manage specific records,
-//   	// you can scope down by resource and/or normalized record names
-//   	InlinePolicies: map[string]PolicyDocument{
-//   		"crossAccountPolicy": iam.NewPolicyDocument(&PolicyDocumentProps{
-//   			"statements": []PolicyStatement{
-//   				iam.NewPolicyStatement(&PolicyStatementProps{
-//   					"sid": jsii.String("ListHostedZonesByName"),
-//   					"effect": iam.Effect_ALLOW,
-//   					"actions": []*string{
-//   						jsii.String("route53:ListHostedZonesByName"),
-//   					},
-//   					"resources": []*string{
-//   						jsii.String("*"),
-//   					},
-//   				}),
-//   				iam.NewPolicyStatement(&PolicyStatementProps{
-//   					"sid": jsii.String("GetHostedZoneAndChangeResourceRecordSets"),
-//   					"effect": iam.Effect_ALLOW,
-//   					"actions": []*string{
-//   						jsii.String("route53:GetHostedZone"),
-//   						jsii.String("route53:ChangeResourceRecordSets"),
-//   					},
-//   					// This example assumes the RecordSet subdomain.somexample.com
-//   					// is contained in the HostedZone
-//   					"resources": []*string{
-//   						jsii.String("arn:aws:route53:::hostedzone/HZID00000000000000000"),
-//   					},
-//   					"conditions": map[string]interface{}{
-//   						"ForAllValues:StringLike": map[string][]*string{
-//   							"route53:ChangeResourceRecordSetsNormalizedRecordNames": []*string{
-//   								jsii.String("subdomain.someexample.com"),
-//   							},
-//   						},
-//   					},
-//   				}),
-//   			},
-//   		}),
-//   	},
+//
+//   // import the delegation role by constructing the roleArn
+//   delegationRoleArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
+//   	Region: jsii.String(""),
+//   	 // IAM is global in each partition
+//   	Service: jsii.String("iam"),
+//   	Account: jsii.String("parent-account-id"),
+//   	Resource: jsii.String("role"),
+//   	ResourceName: jsii.String("MyDelegationRole"),
 //   })
-//   parentZone.GrantDelegation(crossAccountRole)
+//   delegationRole := iam.Role_FromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
+//
+//   route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &CrossAccountZoneDelegationRecordProps{
+//   	DelegatedZone: subZone,
+//   	ParentHostedZoneName: jsii.String("someexample.com"),
+//   	 // or you can use parentHostedZoneId
+//   	DelegationRole: DelegationRole,
+//   	AssumeRoleRegion: jsii.String("us-east-1"),
+//   })
 //
 type PublicHostedZoneProps struct {
 	// The name of the domain.

@@ -439,6 +439,14 @@ func init() {
 		reflect.TypeOf((*CfnListener_ForwardConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener.JwtValidationActionAdditionalClaimProperty",
+		reflect.TypeOf((*CfnListener_JwtValidationActionAdditionalClaimProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener.JwtValidationConfigProperty",
+		reflect.TypeOf((*CfnListener_JwtValidationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener.ListenerAttributeProperty",
 		reflect.TypeOf((*CfnListener_ListenerAttributeProperty)(nil)).Elem(),
 	)
@@ -601,6 +609,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.HttpRequestMethodConfigProperty",
 		reflect.TypeOf((*CfnListenerRule_HttpRequestMethodConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.JwtValidationActionAdditionalClaimProperty",
+		reflect.TypeOf((*CfnListenerRule_JwtValidationActionAdditionalClaimProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.JwtValidationConfigProperty",
+		reflect.TypeOf((*CfnListenerRule_JwtValidationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.PathPatternConfigProperty",

@@ -25,6 +25,7 @@ import (
 //   cfnDomainName := awscdk.Aws_apigateway.NewCfnDomainName(this, jsii.String("MyCfnDomainName"), &CfnDomainNameProps{
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	DomainName: jsii.String("domainName"),
+//   	EndpointAccessMode: jsii.String("endpointAccessMode"),
 //   	EndpointConfiguration: &EndpointConfigurationProperty{
 //   		IpAddressType: jsii.String("ipAddressType"),
 //   		Types: []*string{
@@ -89,6 +90,8 @@ type CfnDomainName interface {
 	SetDomainName(val *string)
 	// A reference to a DomainName resource.
 	DomainNameRef() *interfacesawsapigateway.DomainNameReference
+	EndpointAccessMode() *string
+	SetEndpointAccessMode(val *string)
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
@@ -402,6 +405,16 @@ func (j *jsiiProxy_CfnDomainName) DomainNameRef() *interfacesawsapigateway.Domai
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomainName) EndpointAccessMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"endpointAccessMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainName) EndpointConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -594,6 +607,14 @@ func (j *jsiiProxy_CfnDomainName)SetDomainName(val *string) {
 	_jsii_.Set(
 		j,
 		"domainName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainName)SetEndpointAccessMode(val *string) {
+	_jsii_.Set(
+		j,
+		"endpointAccessMode",
 		val,
 	)
 }

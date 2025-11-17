@@ -10,19 +10,26 @@ import (
 // The IAM Policy that will be applied to the different calls.
 //
 // Example:
-//   getParameter := cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsCustomResourceProps{
-//   	OnUpdate: &AwsSdkCall{
-//   		Service: jsii.String("SSM"),
-//   		Action: jsii.String("GetParameter"),
-//   		Parameters: map[string]interface{}{
-//   			"Name": jsii.String("my-parameter"),
-//   			"WithDecryption": jsii.Boolean(true),
-//   		},
-//   		PhysicalResourceId: cr.PhysicalResourceId_Of(date.now().toString()),
-//   		Logging: cr.Logging_WithDataHidden(),
+//   crossAccountRoleArn := "arn:aws:iam::OTHERACCOUNT:role/CrossAccountRoleName" // arn of role deployed in separate account
+//
+//   callRegion := "us-west-1" // sdk call to be made in specified region (optional)
+//
+//    // sdk call to be made in specified region (optional)
+//   cr.NewAwsCustomResource(this, jsii.String("CrossAccount"), &AwsCustomResourceProps{
+//   	OnCreate: &AwsSdkCall{
+//   		AssumedRoleArn: crossAccountRoleArn,
+//   		Region: callRegion,
+//   		 // optional
+//   		Service: jsii.String("sts"),
+//   		Action: jsii.String("GetCallerIdentity"),
+//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
 //   	},
-//   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
-//   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
+//   	Policy: cr.AwsCustomResourcePolicy_FromStatements([]PolicyStatement{
+//   		iam.PolicyStatement_FromJson(map[string]*string{
+//   			"Effect": jsii.String("Allow"),
+//   			"Action": jsii.String("sts:AssumeRole"),
+//   			"Resource": crossAccountRoleArn,
+//   		}),
 //   	}),
 //   })
 //

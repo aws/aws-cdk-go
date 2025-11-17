@@ -20,3 +20,7 @@ func validateFileSystem_MkdtempParameters(prefix *string) error {
 	return nil
 }
 
+func validateFileSystem_RmrfParameters(dirname *string) error {
+	return nil
+}
+

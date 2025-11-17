@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnProject) validateSetProjectNameParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnProjectParameters(scope constructs.Construct, id *string, props *CfnProjectProps) error {
 	return nil
 }

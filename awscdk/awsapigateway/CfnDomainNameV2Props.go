@@ -16,6 +16,7 @@ import (
 //   cfnDomainNameV2Props := &CfnDomainNameV2Props{
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	DomainName: jsii.String("domainName"),
+//   	EndpointAccessMode: jsii.String("endpointAccessMode"),
 //   	EndpointConfiguration: &EndpointConfigurationProperty{
 //   		IpAddressType: jsii.String("ipAddressType"),
 //   		Types: []*string{
@@ -46,6 +47,9 @@ type CfnDomainNameV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-domainname
 	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-endpointaccessmode
+	//
+	EndpointAccessMode *string `field:"optional" json:"endpointAccessMode" yaml:"endpointAccessMode"`
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-endpointconfiguration
 	//

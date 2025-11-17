@@ -63,6 +63,21 @@ package awselasticloadbalancingv2
 //   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
+//   	JwtValidationConfig: &JwtValidationConfigProperty{
+//   		Issuer: jsii.String("issuer"),
+//   		JwksEndpoint: jsii.String("jwksEndpoint"),
+//
+//   		// the properties below are optional
+//   		AdditionalClaims: []interface{}{
+//   			&JwtValidationActionAdditionalClaimProperty{
+//   				Format: jsii.String("format"),
+//   				Name: jsii.String("name"),
+//   				Values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Order: jsii.Number(123),
 //   	RedirectConfig: &RedirectConfigProperty{
 //   		StatusCode: jsii.String("statusCode"),
@@ -108,6 +123,9 @@ type CfnListenerRule_ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
 	//
 	ForwardConfig interface{} `field:"optional" json:"forwardConfig" yaml:"forwardConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-jwtvalidationconfig
+	//
+	JwtValidationConfig interface{} `field:"optional" json:"jwtValidationConfig" yaml:"jwtValidationConfig"`
 	// The order for the action.
 	//
 	// This value is required for rules with multiple actions. The action with the lowest value for order is performed first.

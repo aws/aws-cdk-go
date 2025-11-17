@@ -411,47 +411,41 @@ crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProp
 	RoleName: jsii.String("MyDelegationRole"),
 	// The other account
 	AssumedBy: iam.NewAccountPrincipal(jsii.String("12345678901")),
-	// You can scope down this role policy to be least privileged.
-	// If you want the other account to be able to manage specific records,
-	// you can scope down by resource and/or normalized record names
-	InlinePolicies: map[string]PolicyDocument{
-		"crossAccountPolicy": iam.NewPolicyDocument(&PolicyDocumentProps{
-			"statements": []PolicyStatement{
-				iam.NewPolicyStatement(&PolicyStatementProps{
-					"sid": jsii.String("ListHostedZonesByName"),
-					"effect": iam.Effect_ALLOW,
-					"actions": []*string{
-						jsii.String("route53:ListHostedZonesByName"),
-					},
-					"resources": []*string{
-						jsii.String("*"),
-					},
-				}),
-				iam.NewPolicyStatement(&PolicyStatementProps{
-					"sid": jsii.String("GetHostedZoneAndChangeResourceRecordSets"),
-					"effect": iam.Effect_ALLOW,
-					"actions": []*string{
-						jsii.String("route53:GetHostedZone"),
-						jsii.String("route53:ChangeResourceRecordSets"),
-					},
-					// This example assumes the RecordSet subdomain.somexample.com
-					// is contained in the HostedZone
-					"resources": []*string{
-						jsii.String("arn:aws:route53:::hostedzone/HZID00000000000000000"),
-					},
-					"conditions": map[string]interface{}{
-						"ForAllValues:StringLike": map[string][]*string{
-							"route53:ChangeResourceRecordSetsNormalizedRecordNames": []*string{
-								jsii.String("subdomain.someexample.com"),
-							},
-						},
-					},
-				}),
-			},
-		}),
-	},
 })
 parentZone.GrantDelegation(crossAccountRole)
+```
+
+To restrict the records that can be created with the delegation IAM role, use the optional `delegatedZoneNames` property in the delegation options,
+which enforces the `route53:ChangeResourceRecordSetsNormalizedRecordNames` condition key for record names that match those hosted zone names.
+The `delegatedZoneNames` list may only consist of hosted zones names that are subzones of the parent hosted zone.
+
+If the delegated zone name contains an unresolved token,
+it must resolve to a zone name that satisfies the requirements according to the documentation:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/specifying-conditions-route53.html#route53_rrset_conditionkeys_normalization
+
+> All letters must be lowercase.
+> The DNS name must be without the trailing dot.
+> Characters other than a–z, 0–9, - (hyphen), _ (underscore), and . (period, as a delimiter between labels) must use escape codes in the format \three-digit octal code. For example, \052 is the octal code for character *.
+
+This feature allows you to better follow the minimum permissions privilege principle:
+
+```go
+var betaCrossAccountRole Role
+
+var prodCrossAccountRole Role
+parentZone := route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
+	ZoneName: jsii.String("someexample.com"),
+})
+parentZone.GrantDelegation(betaCrossAccountRole, &GrantDelegationOptions{
+	DelegatedZoneNames: []*string{
+		jsii.String("beta.someexample.com"),
+	},
+})
+parentZone.GrantDelegation(prodCrossAccountRole, &GrantDelegationOptions{
+	DelegatedZoneNames: []*string{
+		jsii.String("prod.someexample.com"),
+	},
+})
 ```
 
 In the account containing the child zone to be delegated:
@@ -602,6 +596,7 @@ zone := route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("MyZone"),
 
 Alternatively, use the `HostedZone.fromHostedZoneId` to import hosted zones if
 you know the ID and the retrieval for the `zoneName` is undesirable.
+Note that any records created with a hosted zone obtained this way must have their name be fully qualified
 
 ```go
 zone := route53.HostedZone_FromHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))

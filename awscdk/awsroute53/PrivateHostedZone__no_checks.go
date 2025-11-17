@@ -24,7 +24,7 @@ func (p *jsiiProxy_PrivateHostedZone) validateGetResourceNameAttributeParameters
 	return nil
 }
 
-func (p *jsiiProxy_PrivateHostedZone) validateGrantDelegationParameters(grantee awsiam.IGrantable) error {
+func (p *jsiiProxy_PrivateHostedZone) validateGrantDelegationParameters(grantee awsiam.IGrantable, options *GrantDelegationOptions) error {
 	return nil
 }
 

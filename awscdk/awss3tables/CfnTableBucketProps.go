@@ -19,6 +19,9 @@ import (
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		SseAlgorithm: jsii.String("sseAlgorithm"),
 //   	},
+//   	MetricsConfiguration: &MetricsConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -45,6 +48,10 @@ type CfnTableBucketProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-encryptionconfiguration
 	//
 	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	// Settings governing the Metric configuration for the table bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-metricsconfiguration
+	//
+	MetricsConfiguration interface{} `field:"optional" json:"metricsConfiguration" yaml:"metricsConfiguration"`
 	// User tags (key-value pairs) to associate with the table bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-tags
 	//

@@ -48,6 +48,7 @@ package awsapigateway
 //   				SelectionPattern: jsii.String("selectionPattern"),
 //   			},
 //   		},
+//   		IntegrationTarget: jsii.String("integrationTarget"),
 //   		PassthroughBehavior: jsii.String("passthroughBehavior"),
 //   		RequestParameters: map[string]*string{
 //   			"requestParametersKey": jsii.String("requestParameters"),

@@ -77,7 +77,6 @@ type Table interface {
 	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	Table() CfnTable
 	// Arn of the dynamodb table.
 	TableArn() *string
 	// Table name of the dynamodb table.
@@ -319,16 +318,6 @@ func (j *jsiiProxy_Table) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Table) Table() CfnTable {
-	var returns CfnTable
-	_jsii_.Get(
-		j,
-		"table",
 		&returns,
 	)
 	return returns

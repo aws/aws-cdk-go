@@ -41,6 +41,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WarmThroughputMiBps: jsii.Number(123),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
@@ -52,6 +53,10 @@ type CfnStream interface {
 	awscdk.ITaggable
 	// The Amazon resource name (ARN) of the Kinesis stream, such as `arn:aws:kinesis:us-east-2:123456789012:stream/mystream` .
 	AttrArn() *string
+	// Warm throughput configuration details for the stream.
+	//
+	// Only present for ON_DEMAND streams.
+	AttrWarmThroughputObject() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -124,6 +129,9 @@ type CfnStream interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The target warm throughput in MB/s that the stream should be scaled to handle.
+	WarmThroughputMiBps() *float64
+	SetWarmThroughputMiBps(val *float64)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -264,6 +272,16 @@ func (j *jsiiProxy_CfnStream) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStream) AttrWarmThroughputObject() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrWarmThroughputObject",
 		&returns,
 	)
 	return returns
@@ -479,6 +497,16 @@ func (j *jsiiProxy_CfnStream) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStream) WarmThroughputMiBps() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"warmThroughputMiBps",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Kinesis::Stream`.
 func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps) CfnStream {
@@ -578,6 +606,14 @@ func (j *jsiiProxy_CfnStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStream)SetWarmThroughputMiBps(val *float64) {
+	_jsii_.Set(
+		j,
+		"warmThroughputMiBps",
 		val,
 	)
 }

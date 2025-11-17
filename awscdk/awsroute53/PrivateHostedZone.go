@@ -94,7 +94,7 @@ type PrivateHostedZone interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant permissions to add delegation records to this zone.
-	GrantDelegation(grantee awsiam.IGrantable) awsiam.Grant
+	GrantDelegation(grantee awsiam.IGrantable, options *GrantDelegationOptions) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -501,8 +501,8 @@ func (p *jsiiProxy_PrivateHostedZone) GetResourceNameAttribute(nameAttr *string)
 	return returns
 }
 
-func (p *jsiiProxy_PrivateHostedZone) GrantDelegation(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := p.validateGrantDelegationParameters(grantee); err != nil {
+func (p *jsiiProxy_PrivateHostedZone) GrantDelegation(grantee awsiam.IGrantable, options *GrantDelegationOptions) awsiam.Grant {
+	if err := p.validateGrantDelegationParameters(grantee, options); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -510,7 +510,7 @@ func (p *jsiiProxy_PrivateHostedZone) GrantDelegation(grantee awsiam.IGrantable)
 	_jsii_.Invoke(
 		p,
 		"grantDelegation",
-		[]interface{}{grantee},
+		[]interface{}{grantee, options},
 		&returns,
 	)
 

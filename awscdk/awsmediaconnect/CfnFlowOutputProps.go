@@ -8,6 +8,8 @@ package awsmediaconnect
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var automatic interface{}
+//
 //   cfnFlowOutputProps := &CfnFlowOutputProps{
 //   	FlowArn: jsii.String("flowArn"),
 //   	Protocol: jsii.String("protocol"),
@@ -57,6 +59,19 @@ package awsmediaconnect
 //   	OutputStatus: jsii.String("outputStatus"),
 //   	Port: jsii.Number(123),
 //   	RemoteId: jsii.String("remoteId"),
+//   	RouterIntegrationState: jsii.String("routerIntegrationState"),
+//   	RouterIntegrationTransitEncryption: &FlowTransitEncryptionProperty{
+//   		EncryptionKeyConfiguration: &FlowTransitEncryptionKeyConfigurationProperty{
+//   			Automatic: automatic,
+//   			SecretsManager: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
 //   	VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
@@ -141,6 +156,13 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
 	//
 	RemoteId *string `field:"optional" json:"remoteId" yaml:"remoteId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-routerintegrationstate
+	//
+	RouterIntegrationState *string `field:"optional" json:"routerIntegrationState" yaml:"routerIntegrationState"`
+	// The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-routerintegrationtransitencryption
+	//
+	RouterIntegrationTransitEncryption interface{} `field:"optional" json:"routerIntegrationTransitEncryption" yaml:"routerIntegrationTransitEncryption"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
 	//

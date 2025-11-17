@@ -123,6 +123,20 @@ func FileSystem_Mkdtemp(prefix *string) *string {
 	return returns
 }
 
+// Deletes a directory.
+func FileSystem_Rmrf(dirname *string) {
+	_init_.Initialize()
+
+	if err := validateFileSystem_RmrfParameters(dirname); err != nil {
+		panic(err)
+	}
+	_jsii_.StaticInvokeVoid(
+		"aws-cdk-lib.FileSystem",
+		"rmrf",
+		[]interface{}{dirname},
+	)
+}
+
 func FileSystem_Tmpdir() *string {
 	_init_.Initialize()
 	var returns *string

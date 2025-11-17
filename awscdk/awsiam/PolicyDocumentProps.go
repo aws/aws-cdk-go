@@ -4,34 +4,30 @@ package awsiam
 // Properties for a new PolicyDocument.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   myFileSystemPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   topic := sns.NewTopic(this, jsii.String("Topic"))
+//   policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   	AssignSids: jsii.Boolean(true),
 //   	Statements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
-//   				jsii.String("elasticfilesystem:ClientWrite"),
-//   				jsii.String("elasticfilesystem:ClientMount"),
+//   				jsii.String("sns:Publish"),
 //   			},
 //   			Principals: []IPrincipal{
-//   				iam.NewAccountRootPrincipal(),
+//   				iam.NewServicePrincipal(jsii.String("s3.amazonaws.com")),
 //   			},
 //   			Resources: []*string{
-//   				jsii.String("*"),
-//   			},
-//   			Conditions: map[string]interface{}{
-//   				"Bool": map[string]*string{
-//   					"elasticfilesystem:AccessedViaMountTarget": jsii.String("true"),
-//   				},
+//   				topic.TopicArn,
 //   			},
 //   		}),
 //   	},
 //   })
 //
-//   fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
-//   	Vpc: ec2.NewVpc(this, jsii.String("VPC")),
-//   	FileSystemPolicy: myFileSystemPolicy,
+//   topicPolicy := sns.NewTopicPolicy(this, jsii.String("Policy"), &TopicPolicyProps{
+//   	Topics: []ITopic{
+//   		topic,
+//   	},
+//   	PolicyDocument: PolicyDocument,
+//   	EnforceSSL: jsii.Boolean(true),
 //   })
 //
 type PolicyDocumentProps struct {

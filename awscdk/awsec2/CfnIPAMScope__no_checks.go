@@ -88,6 +88,10 @@ func validateCfnIPAMScope_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPAMScope) validateSetExternalAuthorityConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnIPAMScope) validateSetIpamIdParameters(val *string) error {
 	return nil
 }

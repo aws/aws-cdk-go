@@ -99,6 +99,9 @@ import (
 //   					},
 //   				},
 //   			},
+//   			McpServer: &McpServerTargetConfigurationProperty{
+//   				Endpoint: jsii.String("endpoint"),
+//   			},
 //   			OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   				InlinePayload: jsii.String("inlinePayload"),
 //   				S3: &S3ConfigurationProperty{
@@ -130,6 +133,7 @@ type CfnGatewayTarget interface {
 	// The date and time at which the gateway target was created.
 	AttrCreatedAt() *string
 	AttrGatewayArn() *string
+	AttrLastSynchronizedAt() *string
 	// The status for the gateway target.
 	AttrStatus() *string
 	// The status reasons for the gateway target.
@@ -348,6 +352,16 @@ func (j *jsiiProxy_CfnGatewayTarget) AttrGatewayArn() *string {
 	_jsii_.Get(
 		j,
 		"attrGatewayArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGatewayTarget) AttrLastSynchronizedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastSynchronizedAt",
 		&returns,
 	)
 	return returns

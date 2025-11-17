@@ -27,6 +27,9 @@ import (
 //   	Version: jsii.String("version"),
 //
 //   	// the properties below are optional
+//   	RemediationTypes: []*string{
+//   		jsii.String("remediationTypes"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -88,6 +91,9 @@ type CfnLandingZone interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+	RemediationTypes() *[]*string
+	SetRemediationTypes(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -406,6 +412,16 @@ func (j *jsiiProxy_CfnLandingZone) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLandingZone) RemediationTypes() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"remediationTypes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLandingZone) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -493,6 +509,14 @@ func (j *jsiiProxy_CfnLandingZone)SetManifest(val interface{}) {
 	_jsii_.Set(
 		j,
 		"manifest",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLandingZone)SetRemediationTypes(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"remediationTypes",
 		val,
 	)
 }

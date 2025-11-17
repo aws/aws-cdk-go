@@ -79,6 +79,21 @@ import (
 //   					Enabled: jsii.Boolean(false),
 //   				},
 //   			},
+//   			JwtValidationConfig: &JwtValidationConfigProperty{
+//   				Issuer: jsii.String("issuer"),
+//   				JwksEndpoint: jsii.String("jwksEndpoint"),
+//
+//   				// the properties below are optional
+//   				AdditionalClaims: []interface{}{
+//   					&JwtValidationActionAdditionalClaimProperty{
+//   						Format: jsii.String("format"),
+//   						Name: jsii.String("name"),
+//   						Values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   			},
 //   			Order: jsii.Number(123),
 //   			RedirectConfig: &RedirectConfigProperty{
 //   				StatusCode: jsii.String("statusCode"),

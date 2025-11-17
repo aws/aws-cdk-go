@@ -867,6 +867,72 @@ cr.NewAwsCustomResource(this, jsii.String("CrossAccount"), &AwsCustomResourcePro
 })
 ```
 
+#### Using External IDs for Enhanced Security
+
+When assuming cross-account roles, you can specify an external ID to prevent the "confused deputy" problem. The external ID is a unique identifier provided by the third-party service that helps ensure the service is acting on behalf of the correct customer:
+
+```go
+crossAccountRoleArn := "arn:aws:iam::OTHERACCOUNT:role/CrossAccountRoleName"
+serviceExternalId := "unique-secret-value-12345" // External ID provided by the third party service. This value should be unique among the third-party service's customers.
+
+
+ // External ID provided by the third party service. This value should be unique among the third-party service's customers.
+cr.NewAwsCustomResource(this, jsii.String("SecureCrossAccount"), &AwsCustomResourceProps{
+	OnCreate: &AwsSdkCall{
+		AssumedRoleArn: crossAccountRoleArn,
+		ExternalId: serviceExternalId,
+		 // Prevents confused deputy attacks
+		Service: jsii.String("sts"),
+		Action: jsii.String("GetCallerIdentity"),
+		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
+	},
+	Policy: cr.AwsCustomResourcePolicy_FromStatements([]PolicyStatement{
+		iam.PolicyStatement_FromJson(map[string]*string{
+			"Effect": jsii.String("Allow"),
+			"Action": jsii.String("sts:AssumeRole"),
+			"Resource": crossAccountRoleArn,
+		}),
+	}),
+})
+```
+
+The external ID can also be different for each lifecycle operation:
+
+```go
+var createRoleArn string
+var updateRoleArn string
+
+
+cr.NewAwsCustomResource(this, jsii.String("MultiRoleSecure"), &AwsCustomResourceProps{
+	OnCreate: &AwsSdkCall{
+		AssumedRoleArn: createRoleArn,
+		ExternalId: jsii.String("create-secret-123"),
+		Service: jsii.String("ec2"),
+		Action: jsii.String("DescribeInstances"),
+		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
+	},
+	OnUpdate: &AwsSdkCall{
+		AssumedRoleArn: updateRoleArn,
+		ExternalId: jsii.String("update-secret-456"),
+		Service: jsii.String("ec2"),
+		Action: jsii.String("DescribeInstances"),
+	},
+	Policy: cr.AwsCustomResourcePolicy_FromStatements([]PolicyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
+				jsii.String("sts:AssumeRole"),
+			},
+			Resources: []*string{
+				createRoleArn,
+				updateRoleArn,
+			},
+		}),
+	}),
+})
+```
+
+For more information on external IDs and preventing confused deputy attacks, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
+
 #### Custom Resource Config
 
 **This feature is currently experimental**

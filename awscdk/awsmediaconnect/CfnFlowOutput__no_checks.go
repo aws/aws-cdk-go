@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetProtocolParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowOutput) validateSetRouterIntegrationTransitEncryptionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowOutput) validateSetVpcInterfaceAttachmentParameters(val interface{}) error {
 	return nil
 }

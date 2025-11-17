@@ -32,6 +32,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WarmThroughputMiBps: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
@@ -83,5 +84,11 @@ type CfnStreamProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The target warm throughput in MB/s that the stream should be scaled to handle.
+	//
+	// This represents the throughput capacity that will be immediately available for write operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-warmthroughputmibps
+	//
+	WarmThroughputMiBps *float64 `field:"optional" json:"warmThroughputMiBps" yaml:"warmThroughputMiBps"`
 }
 

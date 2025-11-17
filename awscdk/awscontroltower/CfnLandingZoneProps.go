@@ -18,6 +18,9 @@ import (
 //   	Version: jsii.String("version"),
 //
 //   	// the properties below are optional
+//   	RemediationTypes: []*string{
+//   		jsii.String("remediationTypes"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -37,6 +40,10 @@ type CfnLandingZoneProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-version
 	//
 	Version *string `field:"required" json:"version" yaml:"version"`
+	// The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-remediationtypes
+	//
+	RemediationTypes *[]*string `field:"optional" json:"remediationTypes" yaml:"remediationTypes"`
 	// Tags to be applied to the landing zone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-tags
 	//
