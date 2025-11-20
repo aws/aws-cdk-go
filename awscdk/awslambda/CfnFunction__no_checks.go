@@ -88,6 +88,10 @@ func validateCfnFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetCapacityProviderConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetCodeParameters(val interface{}) error {
 	return nil
 }
@@ -108,11 +112,23 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetFunctionScalingConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetImageConfigParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnFunction) validateSetLoggingConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFunction) validateSetPublicAccessBlockConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFunction) validateSetPublishToLatestPublishedParameters(val interface{}) error {
 	return nil
 }
 
@@ -129,6 +145,10 @@ func (j *jsiiProxy_CfnFunction) validateSetSnapStartParameters(val interface{}) 
 }
 
 func (j *jsiiProxy_CfnFunction) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFunction) validateSetTenancyConfigParameters(val interface{}) error {
 	return nil
 }
 

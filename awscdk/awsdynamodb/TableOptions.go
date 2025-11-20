@@ -25,13 +25,7 @@ import (
 //   var policyDocument PolicyDocument
 //
 //   tableOptions := &TableOptions{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("name"),
-//   		Type: awscdk.Aws_dynamodb.AttributeType_BINARY,
-//   	},
-//
-//   	// the properties below are optional
-//   	BillingMode: awscdk.*Aws_dynamodb.BillingMode_PAY_PER_REQUEST,
+//   	BillingMode: awscdk.Aws_dynamodb.BillingMode_PAY_PER_REQUEST,
 //   	ContributorInsightsEnabled: jsii.Boolean(false),
 //   	ContributorInsightsSpecification: &ContributorInsightsSpecification{
 //   		Enabled: jsii.Boolean(false),
@@ -53,6 +47,10 @@ import (
 //   	},
 //   	MaxReadRequestUnits: jsii.Number(123),
 //   	MaxWriteRequestUnits: jsii.Number(123),
+//   	PartitionKey: &Attribute{
+//   		Name: jsii.String("name"),
+//   		Type: awscdk.*Aws_dynamodb.AttributeType_BINARY,
+//   	},
 //   	PointInTimeRecovery: jsii.Boolean(false),
 //   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
 //   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
@@ -85,9 +83,19 @@ import (
 //
 type TableOptions struct {
 	// Partition key attribute definition.
-	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
+	//
+	// If a single field forms the partition key, you can use this field.  Use the
+	// `partitionKeys` field if the partition key is a compound key (consists of
+	// multiple fields).
+	// Default: - exactly one of `partitionKey` and `partitionKeys` must be specified.
+	//
+	PartitionKey *Attribute `field:"optional" json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	// Default: no sort key.
+	//
+	// If a single field forms the sort key, you can use this field.  Use the
+	// `sortKeys` field if the sort key is a compound key (consists of multiple
+	// fields).
+	// Default: - no sort key.
 	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.

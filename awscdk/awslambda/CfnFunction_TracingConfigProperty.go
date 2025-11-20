@@ -1,7 +1,9 @@
 package awslambda
 
 
-// The function's [AWS X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set `Mode` to `Active` .
+// The function's AWS X-Ray tracing configuration.
+//
+// To sample and record incoming requests, set Mode to Active.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

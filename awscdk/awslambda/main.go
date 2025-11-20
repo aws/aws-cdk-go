@@ -131,6 +131,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourceArnsForGrantInvoke", GoGetter: "ResourceArnsForGrantInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 			_jsii_.MemberMethod{JsiiMethod: "warnInvokeFunctionPermissions", GoMethod: "WarnInvokeFunctionPermissions"},
@@ -579,6 +580,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponse", GoGetter: "AttrSnapStartResponse"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponseApplyOn", GoGetter: "AttrSnapStartResponseApplyOn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponseOptimizationStatus", GoGetter: "AttrSnapStartResponseOptimizationStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderConfig", GoGetter: "CapacityProviderConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -593,6 +595,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "fileSystemConfigs", GoGetter: "FileSystemConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
 			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "functionScalingConfig", GoGetter: "FunctionScalingConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "handler", GoGetter: "Handler"},
@@ -608,6 +611,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "packageType", GoGetter: "PackageType"},
+			_jsii_.MemberProperty{JsiiProperty: "publicAccessBlockConfig", GoGetter: "PublicAccessBlockConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "publishToLatestPublished", GoGetter: "PublishToLatestPublished"},
 			_jsii_.MemberProperty{JsiiProperty: "recursiveLoop", GoGetter: "RecursiveLoop"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -622,6 +627,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "tracingConfig", GoGetter: "TracingConfig"},
@@ -640,12 +646,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.CapacityProviderConfigProperty",
+		reflect.TypeOf((*CfnFunction_CapacityProviderConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.CodeProperty",
 		reflect.TypeOf((*CfnFunction_CodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.DeadLetterConfigProperty",
 		reflect.TypeOf((*CfnFunction_DeadLetterConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.EC2ManagedInstancesCapacityProviderConfigProperty",
+		reflect.TypeOf((*CfnFunction_EC2ManagedInstancesCapacityProviderConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.EnvironmentProperty",
@@ -660,12 +674,20 @@ func init() {
 		reflect.TypeOf((*CfnFunction_FileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.FunctionScalingConfigProperty",
+		reflect.TypeOf((*CfnFunction_FunctionScalingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.ImageConfigProperty",
 		reflect.TypeOf((*CfnFunction_ImageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.LoggingConfigProperty",
 		reflect.TypeOf((*CfnFunction_LoggingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.PublicAccessBlockConfigProperty",
+		reflect.TypeOf((*CfnFunction_PublicAccessBlockConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.RuntimeManagementConfigProperty",
@@ -678,6 +700,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.SnapStartResponseProperty",
 		reflect.TypeOf((*CfnFunction_SnapStartResponseProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.TenancyConfigProperty",
+		reflect.TypeOf((*CfnFunction_TenancyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.TracingConfigProperty",
@@ -1142,6 +1168,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "warnInvokeFunctionPermissions", GoMethod: "WarnInvokeFunctionPermissions"},
@@ -1328,6 +1355,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "warnInvokeFunctionPermissions", GoMethod: "WarnInvokeFunctionPermissions"},
@@ -1383,6 +1411,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourceArnsForGrantInvoke", GoGetter: "ResourceArnsForGrantInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "warnInvokeFunctionPermissions", GoMethod: "WarnInvokeFunctionPermissions"},
 		},
@@ -1518,6 +1547,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourceArnsForGrantInvoke", GoGetter: "ResourceArnsForGrantInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
 		func() interface{} {
@@ -1630,6 +1660,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourceArnsForGrantInvoke", GoGetter: "ResourceArnsForGrantInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IFunction{}
@@ -1741,6 +1772,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourceArnsForGrantInvoke", GoGetter: "ResourceArnsForGrantInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 			_jsii_.MemberProperty{JsiiProperty: "versionRef", GoGetter: "VersionRef"},
 		},
@@ -1972,6 +2004,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourceArnsForGrantInvoke", GoGetter: "ResourceArnsForGrantInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "warnInvokeFunctionPermissions", GoMethod: "WarnInvokeFunctionPermissions"},
 		},
@@ -2118,6 +2151,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "warnInvokeFunctionPermissions", GoMethod: "WarnInvokeFunctionPermissions"},
 		},
@@ -2169,6 +2203,16 @@ func init() {
 			"INFO": SystemLogLevel_INFO,
 			"DEBUG": SystemLogLevel_DEBUG,
 			"WARN": SystemLogLevel_WARN,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.TenancyConfig",
+		reflect.TypeOf((*TenancyConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfigProperty", GoGetter: "TenancyConfigProperty"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TenancyConfig{}
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -2237,6 +2281,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourceArnsForGrantInvoke", GoGetter: "ResourceArnsForGrantInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 			_jsii_.MemberProperty{JsiiProperty: "versionRef", GoGetter: "VersionRef"},

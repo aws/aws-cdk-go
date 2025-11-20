@@ -49,6 +49,7 @@ import (
 //   var snapStartConf SnapStartConf
 //   var subnet Subnet
 //   var subnetFilter SubnetFilter
+//   var tenancyConfig TenancyConfig
 //   var topic Topic
 //   var vpc Vpc
 //
@@ -124,6 +125,7 @@ import (
 //   	SnapStart: snapStartConf,
 //   	SystemLogLevel: jsii.String("systemLogLevel"),
 //   	SystemLogLevelV2: awscdk.*Aws_lambda.SystemLogLevel_INFO,
+//   	TenancyConfig: tenancyConfig,
 //   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	Tracing: awscdk.*Aws_lambda.Tracing_ACTIVE,
 //   	Vpc: vpc,
@@ -453,6 +455,10 @@ type FunctionOptions struct {
 	// Default: SystemLogLevel.INFO
 	//
 	SystemLogLevelV2 SystemLogLevel `field:"optional" json:"systemLogLevelV2" yaml:"systemLogLevelV2"`
+	// The tenancy configuration for the function.
+	// Default: - Tenant isolation is not enabled.
+	//
+	TenancyConfig TenancyConfig `field:"optional" json:"tenancyConfig" yaml:"tenancyConfig"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value

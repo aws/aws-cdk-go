@@ -113,6 +113,8 @@ type TriggerFunction interface {
 	Runtime() awslambda.Runtime
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The tenancy configuration for this function.
+	TenancyConfig() awslambda.TenancyConfig
 	// The timeout configured for this lambda.
 	Timeout() awscdk.Duration
 	// The underlying trigger resource.
@@ -465,6 +467,16 @@ func (j *jsiiProxy_TriggerFunction) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TriggerFunction) TenancyConfig() awslambda.TenancyConfig {
+	var returns awslambda.TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
 		&returns,
 	)
 	return returns

@@ -16,15 +16,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Deploys a file from inside the construct library as a function.
-//
-// The supplied file is subject to the 4096 bytes limit of being embedded in a
-// CloudFormation template.
-//
-// The construct includes an associated role with the lambda.
-//
-// This construct does not yet reproduce all features from the underlying resource
-// library.
+// This construct does not yet reproduce all features from the underlying resource library.
 //
 // Example:
 //   // Create or reference an existing L1 CfnApplicationInferenceProfile
@@ -130,6 +122,8 @@ type Function interface {
 	Runtime() Runtime
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The tenancy configuration for this function.
+	TenancyConfig() TenancyConfig
 	// The timeout configured for this lambda.
 	Timeout() awscdk.Duration
 	// Defines an alias for this function.
@@ -469,6 +463,16 @@ func (j *jsiiProxy_Function) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Function) TenancyConfig() TenancyConfig {
+	var returns TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
 		&returns,
 	)
 	return returns

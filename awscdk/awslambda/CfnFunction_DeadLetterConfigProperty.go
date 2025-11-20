@@ -1,7 +1,7 @@
 package awslambda
 
 
-// The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq) for failed asynchronous invocations.
+// The dead-letter queue for failed asynchronous invocations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

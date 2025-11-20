@@ -102,6 +102,8 @@ type IFunction interface {
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
 	Role() awsiam.IRole
+	// The tenancy configuration for this function.
+	TenancyConfig() TenancyConfig
 }
 
 // The jsii proxy for IFunction
@@ -434,6 +436,16 @@ func (j *jsiiProxy_IFunction) Role() awsiam.IRole {
 	_jsii_.Get(
 		j,
 		"role",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFunction) TenancyConfig() TenancyConfig {
+	var returns TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
 		&returns,
 	)
 	return returns

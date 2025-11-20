@@ -466,6 +466,16 @@ func (j *jsiiProxy_IVersion) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_IVersion) TenancyConfig() TenancyConfig {
+	var returns TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IVersion) VersionRef() *interfacesawslambda.VersionReference {
 	var returns *interfacesawslambda.VersionReference
 	_jsii_.Get(

@@ -47,6 +47,15 @@ import (
 //   	Architectures: []*string{
 //   		jsii.String("architectures"),
 //   	},
+//   	CapacityProviderConfig: &CapacityProviderConfigProperty{
+//   		Ec2ManagedInstancesCapacityProviderConfig: &EC2ManagedInstancesCapacityProviderConfigProperty{
+//   			CapacityProviderArn: jsii.String("capacityProviderArn"),
+//
+//   			// the properties below are optional
+//   			ExecutionEnvironmentMaxConcurrency: jsii.Number(123),
+//   			ExecutionEnvironmentMemoryGiBPerVCpu: jsii.Number(123),
+//   		},
+//   	},
 //   	CodeSigningConfigArn: jsii.String("codeSigningConfigArn"),
 //   	DeadLetterConfig: &DeadLetterConfigProperty{
 //   		TargetArn: jsii.String("targetArn"),
@@ -67,6 +76,10 @@ import (
 //   		},
 //   	},
 //   	FunctionName: jsii.String("functionName"),
+//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
+//   	},
 //   	Handler: jsii.String("handler"),
 //   	ImageConfig: &ImageConfigProperty{
 //   		Command: []*string{
@@ -89,6 +102,11 @@ import (
 //   	},
 //   	MemorySize: jsii.Number(123),
 //   	PackageType: jsii.String("packageType"),
+//   	PublicAccessBlockConfig: &PublicAccessBlockConfigProperty{
+//   		BlockPublicPolicy: jsii.Boolean(false),
+//   		RestrictPublicResource: jsii.Boolean(false),
+//   	},
+//   	PublishToLatestPublished: jsii.Boolean(false),
 //   	RecursiveLoop: jsii.String("recursiveLoop"),
 //   	ReservedConcurrentExecutions: jsii.Number(123),
 //   	Runtime: jsii.String("runtime"),
@@ -106,6 +124,9 @@ import (
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
+//   	},
+//   	TenancyConfig: &TenancyConfigProperty{
+//   		TenantIsolationMode: jsii.String("tenantIsolationMode"),
 //   	},
 //   	Timeout: jsii.Number(123),
 //   	TracingConfig: &TracingConfigProperty{
@@ -132,14 +153,18 @@ type CfnFunction interface {
 	// The instruction set architecture that the function supports.
 	Architectures() *[]*string
 	SetArchitectures(val *[]*string)
-	// The Amazon Resource Name (ARN) of the function.
+	// Unique identifier for function resources.
 	AttrArn() *string
-	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+	// The function's SnapStart Response.
+	//
+	// When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
 	AttrSnapStartResponse() awscdk.IResolvable
-	// When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
+	// Applying SnapStart setting on function resource type.
 	AttrSnapStartResponseApplyOn() *string
-	// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+	// Indicates whether SnapStart is activated for the specified function version.
 	AttrSnapStartResponseOptimizationStatus() *string
+	CapacityProviderConfig() interface{}
+	SetCapacityProviderConfig(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -150,24 +175,24 @@ type CfnFunction interface {
 	// You can define your function code in multiple ways:.
 	Code() interface{}
 	SetCode(val interface{})
-	// To enable code signing for this function, specify the ARN of a code-signing configuration.
+	// A unique Arn for CodeSigningConfig resource.
 	CodeSigningConfigArn() *string
 	SetCodeSigningConfigArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+	// The dead-letter queue for failed asynchronous invocations.
 	DeadLetterConfig() interface{}
 	SetDeadLetterConfig(val interface{})
 	// A description of the function.
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// Environment variables that are accessible from function code during execution.
+	// A function's environment variable settings.
 	Environment() interface{}
 	SetEnvironment(val interface{})
-	// The size of the function's `/tmp` directory in MB.
+	// A function's ephemeral storage settings.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
 	// Connection settings for an Amazon EFS file system.
@@ -178,19 +203,22 @@ type CfnFunction interface {
 	SetFunctionName(val *string)
 	// A reference to a Function resource.
 	FunctionRef() *interfacesawslambda.FunctionReference
-	// The name of the method within your code that Lambda calls to run your function.
+	// The scaling config of a version published into a capacity provider.
+	FunctionScalingConfig() interface{}
+	SetFunctionScalingConfig(val interface{})
+	// The name of the method within your code that Lambda calls to execute your function.
 	Handler() *string
 	SetHandler(val *string)
 	// Configuration values that override the container image Dockerfile settings.
 	ImageConfig() interface{}
 	SetImageConfig(val interface{})
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt the following resources:.
+	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
-	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
+	// A list of function layers to add to the function's execution environment.
 	Layers() *[]*string
 	SetLayers(val *[]*string)
-	// The function's Amazon CloudWatch Logs configuration settings.
+	// The function's logging configuration.
 	LoggingConfig() interface{}
 	SetLoggingConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -203,15 +231,20 @@ type CfnFunction interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
+	// The amount of memory that your function has access to.
 	MemorySize() *float64
 	SetMemorySize(val *float64)
 	// The tree node.
 	Node() constructs.Node
-	// The type of deployment package.
+	// PackageType.
 	PackageType() *string
 	SetPackageType(val *string)
-	// The status of your function's recursive loop detection configuration.
+	PublicAccessBlockConfig() interface{}
+	SetPublicAccessBlockConfig(val interface{})
+	// A boolean indicating whether to publish $LATEST.PUBLISHED version.
+	PublishToLatestPublished() interface{}
+	SetPublishToLatestPublished(val interface{})
+	// The function recursion configuration.
 	RecursiveLoop() *string
 	SetRecursiveLoop(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -225,13 +258,13 @@ type CfnFunction interface {
 	// The Amazon Resource Name (ARN) of the function's execution role.
 	Role() *string
 	SetRole(val *string)
-	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
+	// The identifier of the function's runtime.
 	Runtime() *string
 	SetRuntime(val *string)
 	// Sets the runtime management configuration for a function's version.
 	RuntimeManagementConfig() interface{}
 	SetRuntimeManagementConfig(val interface{})
-	// The function's [AWS Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+	// The function's SnapStart setting.
 	SnapStart() interface{}
 	SetSnapStart(val interface{})
 	// The stack in which this element is defined.
@@ -240,13 +273,16 @@ type CfnFunction interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
+	// A list of tags to apply to the function.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.
+	// Controls how your Lambda function handles multi-tenant execution environments.
+	TenancyConfig() interface{}
+	SetTenancyConfig(val interface{})
+	// The amount of time that Lambda allows a function to run before stopping it.
 	Timeout() *float64
 	SetTimeout(val *float64)
-	// Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) .
+	// The function's AWS X-Ray tracing configuration.
 	TracingConfig() interface{}
 	SetTracingConfig(val interface{})
 	// Deprecated.
@@ -262,7 +298,7 @@ type CfnFunction interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+	// The VPC security groups and subnets that are attached to a Lambda function.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -450,6 +486,16 @@ func (j *jsiiProxy_CfnFunction) AttrSnapStartResponseOptimizationStatus() *strin
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) CapacityProviderConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"capacityProviderConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -590,6 +636,16 @@ func (j *jsiiProxy_CfnFunction) FunctionRef() *interfacesawslambda.FunctionRefer
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) FunctionScalingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"functionScalingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) Handler() *string {
 	var returns *string
 	_jsii_.Get(
@@ -675,6 +731,26 @@ func (j *jsiiProxy_CfnFunction) PackageType() *string {
 	_jsii_.Get(
 		j,
 		"packageType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) PublicAccessBlockConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"publicAccessBlockConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) PublishToLatestPublished() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"publishToLatestPublished",
 		&returns,
 	)
 	return returns
@@ -780,6 +856,16 @@ func (j *jsiiProxy_CfnFunction) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) TenancyConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) Timeout() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -868,6 +954,17 @@ func (j *jsiiProxy_CfnFunction)SetArchitectures(val *[]*string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFunction)SetCapacityProviderConfig(val interface{}) {
+	if err := j.validateSetCapacityProviderConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"capacityProviderConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFunction)SetCode(val interface{}) {
 	if err := j.validateSetCodeParameters(val); err != nil {
 		panic(err)
@@ -947,6 +1044,17 @@ func (j *jsiiProxy_CfnFunction)SetFunctionName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFunction)SetFunctionScalingConfig(val interface{}) {
+	if err := j.validateSetFunctionScalingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"functionScalingConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFunction)SetHandler(val *string) {
 	_jsii_.Set(
 		j,
@@ -1005,6 +1113,28 @@ func (j *jsiiProxy_CfnFunction)SetPackageType(val *string) {
 	_jsii_.Set(
 		j,
 		"packageType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetPublicAccessBlockConfig(val interface{}) {
+	if err := j.validateSetPublicAccessBlockConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"publicAccessBlockConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetPublishToLatestPublished(val interface{}) {
+	if err := j.validateSetPublishToLatestPublishedParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"publishToLatestPublished",
 		val,
 	)
 }
@@ -1073,6 +1203,17 @@ func (j *jsiiProxy_CfnFunction)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetTenancyConfig(val interface{}) {
+	if err := j.validateSetTenancyConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tenancyConfig",
 		val,
 	)
 }

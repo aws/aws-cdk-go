@@ -524,7 +524,7 @@ https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt
 
 Secondary indexes allow efficient access to data with attributes other than the `primaryKey`. DynamoDB supports two types of secondary indexes:
 
-* Global secondary index - An index with a `partitionKey` and a `sortKey` that can be different from those on the base table. A `globalSecondaryIndex` is considered "global" because queries on the index can span all of the data in the base table, across all partitions. A `globalSecondaryIndex` is stored in its own partition space away from the base table and scales separately from the base table.
+* Global secondary index - An index with partition key(s) and optional sort key(s) that can be different from those on the base table. A `globalSecondaryIndex` is considered "global" because queries on the index can span all of the data in the base table, across all partitions. A `globalSecondaryIndex` is stored in its own partition space away from the base table and scales separately from the base table.
 * Local secondary index - An index that has the same `partitionKey` as the base table, but a different `sortKey`. A `localSecondaryIndex` is "local" in the sense that every partition of a `localSecondaryIndex` is scoped to a base table partition that has the same `partitionKey` value.
 
 Further reading:
@@ -552,7 +552,57 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 })
 ```
 
-Alternatively, you can add a `globalSecondaryIndex` using the `addGlobalSecondaryIndex` method:
+#### Compound Keys
+
+Global secondary indexes support compound keys, allowing you to specify multiple partition keys and/or multiple sort keys. This enables more flexible query patterns for complex data models.
+
+**Key Constraints:**
+
+* You can specify up to **4 partition keys** per global secondary index
+* You can specify up to **4 sort keys** per global secondary index
+* Use **either** `partitionKey` (singular) **or** `partitionKeys` (plural), but not both
+* Use **either** `sortKey` (singular) **or** `sortKeys` (plural), but not both
+* At least one partition key must be specified (either `partitionKey` or `partitionKeys`)
+* For multiple keys, you **must** use the plural parameters (`partitionKeys` and/or `sortKeys`)
+* **Keys cannot be added or modified after index creation** - attempting to add additional keys to an existing index will result in an error
+
+**Example with compound partition and sort keys:**
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	GlobalSecondaryIndexes: []GlobalSecondaryIndexPropsV2{
+		&GlobalSecondaryIndexPropsV2{
+			IndexName: jsii.String("compound-gsi"),
+			PartitionKeys: []Attribute{
+				&Attribute{
+					Name: jsii.String("gsi_pk1"),
+					Type: dynamodb.AttributeType_STRING,
+				},
+				&Attribute{
+					Name: jsii.String("gsi_pk2"),
+					Type: dynamodb.AttributeType_NUMBER,
+				},
+			},
+			SortKeys: []Attribute{
+				&Attribute{
+					Name: jsii.String("gsi_sk1"),
+					Type: dynamodb.AttributeType_STRING,
+				},
+				&Attribute{
+					Name: jsii.String("gsi_sk2"),
+					Type: dynamodb.AttributeType_BINARY,
+				},
+			},
+		},
+	},
+})
+```
+
+You can also add a `globalSecondaryIndex` using the `addGlobalSecondaryIndex` method:
 
 ```go
 table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
@@ -575,6 +625,25 @@ table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexPropsV2{
 	IndexName: jsii.String("gsi2"),
 	PartitionKey: &Attribute{
 		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+})
+
+// Add a GSI with compound keys
+table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexPropsV2{
+	IndexName: jsii.String("compound-gsi2"),
+	PartitionKeys: []Attribute{
+		&Attribute{
+			Name: jsii.String("compound_pk1"),
+			Type: dynamodb.AttributeType_STRING,
+		},
+		&Attribute{
+			Name: jsii.String("compound_pk2"),
+			Type: dynamodb.AttributeType_NUMBER,
+		},
+	},
+	SortKey: &Attribute{
+		Name: jsii.String("sk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
 })

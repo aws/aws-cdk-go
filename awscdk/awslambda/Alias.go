@@ -115,6 +115,8 @@ type Alias interface {
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The tenancy configuration for this function.
+	TenancyConfig() TenancyConfig
 	// The underlying Lambda function version.
 	Version() IVersion
 	// Configure provisioned concurrency autoscaling on a function alias.
@@ -409,6 +411,16 @@ func (j *jsiiProxy_Alias) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Alias) TenancyConfig() TenancyConfig {
+	var returns TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
 		&returns,
 	)
 	return returns

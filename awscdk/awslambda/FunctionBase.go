@@ -80,6 +80,8 @@ type FunctionBase interface {
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The tenancy configuration for this function.
+	TenancyConfig() TenancyConfig
 	// Adds an event source to this function.
 	//
 	// Event sources are implemented in the aws-cdk-lib/aws-lambda-event-sources module.
@@ -328,6 +330,16 @@ func (j *jsiiProxy_FunctionBase) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FunctionBase) TenancyConfig() TenancyConfig {
+	var returns TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
 		&returns,
 	)
 	return returns

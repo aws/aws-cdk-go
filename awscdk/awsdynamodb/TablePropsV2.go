@@ -29,8 +29,10 @@ import (
 //   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
+//   		&ReplicaTableProps{
+//   			Region: jsii.String("us-east-2"),
+//   		},
 //   	},
-//   	WitnessRegion: jsii.String("us-east-2"),
 //   })
 //
 type TablePropsV2 struct {

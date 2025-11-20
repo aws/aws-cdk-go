@@ -139,6 +139,9 @@ type PythonFunction interface {
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
+	// The tenancy configuration for this function.
+	// Experimental.
+	TenancyConfig() awslambda.TenancyConfig
 	// The timeout configured for this lambda.
 	// Experimental.
 	Timeout() awscdk.Duration
@@ -506,6 +509,16 @@ func (j *jsiiProxy_PythonFunction) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PythonFunction) TenancyConfig() awslambda.TenancyConfig {
+	var returns awslambda.TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
 		&returns,
 	)
 	return returns

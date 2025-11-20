@@ -63,5 +63,9 @@ type FunctionAttributes struct {
 	// Default: false.
 	//
 	SkipPermissions *bool `field:"optional" json:"skipPermissions" yaml:"skipPermissions"`
+	// The tenancy configuration of this Lambda Function.
+	// Default: - Tenant isolation is not enabled.
+	//
+	TenancyConfig TenancyConfig `field:"optional" json:"tenancyConfig" yaml:"tenancyConfig"`
 }
 

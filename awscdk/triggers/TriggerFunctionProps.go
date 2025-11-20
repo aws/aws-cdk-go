@@ -336,6 +336,10 @@ type TriggerFunctionProps struct {
 	// Default: SystemLogLevel.INFO
 	//
 	SystemLogLevelV2 awslambda.SystemLogLevel `field:"optional" json:"systemLogLevelV2" yaml:"systemLogLevelV2"`
+	// The tenancy configuration for the function.
+	// Default: - Tenant isolation is not enabled.
+	//
+	TenancyConfig awslambda.TenancyConfig `field:"optional" json:"tenancyConfig" yaml:"tenancyConfig"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value

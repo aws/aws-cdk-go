@@ -38,9 +38,19 @@ import (
 //
 type TableProps struct {
 	// Partition key attribute definition.
-	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
+	//
+	// If a single field forms the partition key, you can use this field.  Use the
+	// `partitionKeys` field if the partition key is a compound key (consists of
+	// multiple fields).
+	// Default: - exactly one of `partitionKey` and `partitionKeys` must be specified.
+	//
+	PartitionKey *Attribute `field:"optional" json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	// Default: no sort key.
+	//
+	// If a single field forms the sort key, you can use this field.  Use the
+	// `sortKeys` field if the sort key is a compound key (consists of multiple
+	// fields).
+	// Default: - no sort key.
 	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.

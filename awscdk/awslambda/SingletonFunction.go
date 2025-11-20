@@ -112,6 +112,8 @@ type SingletonFunction interface {
 	Runtime() Runtime
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The tenancy configuration for this function.
+	TenancyConfig() TenancyConfig
 	// Using node.addDependency() does not work on this method as the underlying lambda function is modeled as a singleton across the stack. Use this method instead to declare dependencies.
 	AddDependency(up ...constructs.IDependable)
 	// Adds an environment variable to this Lambda function.
@@ -410,6 +412,16 @@ func (j *jsiiProxy_SingletonFunction) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SingletonFunction) TenancyConfig() TenancyConfig {
+	var returns TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
 		&returns,
 	)
 	return returns

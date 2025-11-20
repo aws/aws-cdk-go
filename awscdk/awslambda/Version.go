@@ -121,6 +121,8 @@ type Version interface {
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The tenancy configuration for this function.
+	TenancyConfig() TenancyConfig
 	// The most recently deployed version of this function.
 	Version() *string
 	// A reference to a Version resource.
@@ -405,6 +407,16 @@ func (j *jsiiProxy_Version) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Version) TenancyConfig() TenancyConfig {
+	var returns TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
 		&returns,
 	)
 	return returns

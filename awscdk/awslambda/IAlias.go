@@ -445,3 +445,13 @@ func (j *jsiiProxy_IAlias) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_IAlias) TenancyConfig() TenancyConfig {
+	var returns TenancyConfig
+	_jsii_.Get(
+		j,
+		"tenancyConfig",
+		&returns,
+	)
+	return returns
+}
+

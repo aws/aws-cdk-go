@@ -514,6 +514,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.KeySchema",
+		reflect.TypeOf((*KeySchema)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.LocalSecondaryIndexProps",
 		reflect.TypeOf((*LocalSecondaryIndexProps)(nil)).Elem(),
 	)
@@ -638,6 +642,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "regionalArns", GoGetter: "RegionalArns"},
 			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "schema", GoMethod: "Schema"},
+			_jsii_.MemberMethod{JsiiMethod: "schemaV2", GoMethod: "SchemaV2"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},

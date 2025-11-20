@@ -40,9 +40,19 @@ type GlobalSecondaryIndexProps struct {
 	//
 	ProjectionType ProjectionType `field:"optional" json:"projectionType" yaml:"projectionType"`
 	// Partition key attribute definition.
-	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
+	//
+	// If a single field forms the partition key, you can use this field.  Use the
+	// `partitionKeys` field if the partition key is a compound key (consists of
+	// multiple fields).
+	// Default: - exactly one of `partitionKey` and `partitionKeys` must be specified.
+	//
+	PartitionKey *Attribute `field:"optional" json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	// Default: no sort key.
+	//
+	// If a single field forms the sort key, you can use this field.  Use the
+	// `sortKeys` field if the sort key is a compound key (consists of multiple
+	// fields).
+	// Default: - no sort key.
 	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
 	// Whether CloudWatch contributor insights is enabled for the specified global secondary index.
@@ -66,12 +76,46 @@ type GlobalSecondaryIndexProps struct {
 	// Default: - on-demand throughput is disabled.
 	//
 	MaxWriteRequestUnits *float64 `field:"optional" json:"maxWriteRequestUnits" yaml:"maxWriteRequestUnits"`
+	// Compound partition key.
+	//
+	// If a single field forms the partition key, you can use either
+	// `partitionKey` or `partitionKeys` to specify the partition key. Exactly
+	// one of these must be specified.
+	//
+	// You must use `partitionKeys` field if the partition key is a compound key
+	// (consists of multiple fields).
+	//
+	// NOTE: although the name of this field makes it sound like it creates
+	// multiple keys, it does not. It defines a single key that consists of
+	// of multiple fields.
+	//
+	// The order of fields is not important.
+	// Default: - exactly one of `partitionKey` and `partitionKeys` must be specified.
+	//
+	PartitionKeys *[]*Attribute `field:"optional" json:"partitionKeys" yaml:"partitionKeys"`
 	// The read capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
 	// Default: 5.
 	//
 	ReadCapacity *float64 `field:"optional" json:"readCapacity" yaml:"readCapacity"`
+	// Compound sort key.
+	//
+	// If a single field forms the sort key, you can use either
+	// `sortKey` or `sortKeys` to specify the sort key. At most one of these
+	// may be specified.
+	//
+	// You must use `sortKeys` field if the sort key is a compound key
+	// (consists of multiple fields).
+	//
+	// NOTE: although the name of this field makes it sound like it creates
+	// multiple keys, it does not. It defines a single key that consists of
+	// of multiple fields at the same time.
+	//
+	// NOTE: The order of fields is important!
+	// Default: - no sort key.
+	//
+	SortKeys *[]*Attribute `field:"optional" json:"sortKeys" yaml:"sortKeys"`
 	// The warm throughput configuration for the global secondary index.
 	// Default: - no warm throughput is configured.
 	//

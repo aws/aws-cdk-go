@@ -233,7 +233,12 @@ type Table interface {
 	// Get schema attributes of table or index.
 	//
 	// Returns: Schema of table or index.
+	// Deprecated: - use `schemaV2()` instead.
 	Schema(indexName *string) *SchemaOptions
+	// Get schema attributes of table or index.
+	//
+	// Returns: Schema of table or index.
+	SchemaV2(indexName *string) *KeySchema
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -1008,6 +1013,19 @@ func (t *jsiiProxy_Table) Schema(indexName *string) *SchemaOptions {
 	_jsii_.Invoke(
 		t,
 		"schema",
+		[]interface{}{indexName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_Table) SchemaV2(indexName *string) *KeySchema {
+	var returns *KeySchema
+
+	_jsii_.Invoke(
+		t,
+		"schemaV2",
 		[]interface{}{indexName},
 		&returns,
 	)

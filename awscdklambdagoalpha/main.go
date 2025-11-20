@@ -62,6 +62,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancyConfig", GoGetter: "TenancyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "warnInvokeFunctionPermissions", GoMethod: "WarnInvokeFunctionPermissions"},
