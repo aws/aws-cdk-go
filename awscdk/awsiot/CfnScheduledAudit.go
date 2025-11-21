@@ -535,6 +535,24 @@ func (j *jsiiProxy_CfnScheduledAudit)SetTargetCheckNames(val *[]*string) {
 	)
 }
 
+func CfnScheduledAudit_ArnForScheduledAudit(resource interfacesawsiot.IScheduledAuditRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnScheduledAudit_ArnForScheduledAuditParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnScheduledAudit",
+		"arnForScheduledAudit",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IScheduledAuditRef from an ARN.
 func CfnScheduledAudit_FromScheduledAuditArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IScheduledAuditRef {
 	_init_.Initialize()

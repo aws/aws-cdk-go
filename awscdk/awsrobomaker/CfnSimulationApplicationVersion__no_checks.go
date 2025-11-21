@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) validateValidatePropertiesPa
 	return nil
 }
 
+func validateCfnSimulationApplicationVersion_ArnForSimulationApplicationVersionParameters(resource interfacesawsrobomaker.ISimulationApplicationVersionRef) error {
+	return nil
+}
+
 func validateCfnSimulationApplicationVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

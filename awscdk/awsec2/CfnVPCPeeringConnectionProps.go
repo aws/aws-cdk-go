@@ -35,11 +35,11 @@ type CfnVPCPeeringConnectionProps struct {
 	// You must specify this parameter in the request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peervpcid
 	//
-	PeerVpcId *string `field:"required" json:"peerVpcId" yaml:"peerVpcId"`
+	PeerVpcId interface{} `field:"required" json:"peerVpcId" yaml:"peerVpcId"`
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-vpcid
 	//
-	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The AWS account ID of the owner of the accepter VPC.
 	//
 	// Default: Your AWS account ID.

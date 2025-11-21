@@ -446,6 +446,24 @@ func (j *jsiiProxy_CfnStateMachineVersion)SetStateMachineRevisionId(val *string)
 	)
 }
 
+func CfnStateMachineVersion_ArnForStateMachineVersion(resource interfacesawsstepfunctions.IStateMachineVersionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStateMachineVersion_ArnForStateMachineVersionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.CfnStateMachineVersion",
+		"arnForStateMachineVersion",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

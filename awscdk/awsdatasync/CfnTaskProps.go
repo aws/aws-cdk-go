@@ -108,11 +108,11 @@ type CfnTaskProps struct {
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
 	//
-	DestinationLocationArn *string `field:"required" json:"destinationLocationArn" yaml:"destinationLocationArn"`
+	DestinationLocationArn interface{} `field:"required" json:"destinationLocationArn" yaml:"destinationLocationArn"`
 	// Specifies the ARN of your transfer's source location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
 	//
-	SourceLocationArn *string `field:"required" json:"sourceLocationArn" yaml:"sourceLocationArn"`
+	SourceLocationArn interface{} `field:"required" json:"sourceLocationArn" yaml:"sourceLocationArn"`
 	// Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring your task.
 	//
 	// For Enhanced mode tasks, you don't need to specify anything. DataSync automatically sends logs to a CloudWatch log group named `/aws/datasync` .
@@ -120,7 +120,7 @@ type CfnTaskProps struct {
 	// For more information, see [Monitoring data transfers with CloudWatch Logs](https://docs.aws.amazon.com/datasync/latest/userguide/configure-logging.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
 	//
-	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn interface{} `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer.
 	//
 	// For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .

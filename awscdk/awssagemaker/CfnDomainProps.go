@@ -337,7 +337,7 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	TagPropagation: jsii.String("tagPropagation"),
@@ -415,7 +415,7 @@ type CfnDomainProps struct {
 	// *Pattern* : `[-0-9a-zA-Z]+`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tagpropagation
 	//
@@ -437,6 +437,6 @@ type CfnDomainProps struct {
 	// *Pattern* : `[-0-9a-zA-Z]+`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

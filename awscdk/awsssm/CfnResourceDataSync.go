@@ -615,6 +615,24 @@ func (j *jsiiProxy_CfnResourceDataSync)SetSyncType(val *string) {
 	)
 }
 
+func CfnResourceDataSync_ArnForResourceDataSync(resource interfacesawsssm.IResourceDataSyncRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResourceDataSync_ArnForResourceDataSyncParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnResourceDataSync",
+		"arnForResourceDataSync",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IResourceDataSyncRef from a syncName.
 func CfnResourceDataSync_FromSyncName(scope constructs.Construct, id *string, syncName *string) interfacesawsssm.IResourceDataSyncRef {
 	_init_.Initialize()

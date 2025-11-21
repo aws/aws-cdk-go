@@ -3,7 +3,7 @@ package awslogs
 
 // This processor converts logs into [Open Cybersecurity Schema Framework (OCSF)](https://docs.aws.amazon.com/https://ocsf.io) events.
 //
-// For more information about this processor including examples, see [parseToOSCF](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseToOCSF) in the *CloudWatch Logs User Guide* .
+// For more information about this processor including examples, see [parseToOCSF](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseToOCSF) in the *CloudWatch Logs User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

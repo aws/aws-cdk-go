@@ -17,7 +17,7 @@ import (
 //
 // For more information, see [Create reusable resource configurations that can be included across templates with CloudFormation modules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html) in the *CloudFormation User Guide* .
 //
-// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -512,6 +512,24 @@ func (j *jsiiProxy_CfnModuleVersion)SetModulePackage(val *string) {
 		"modulePackage",
 		val,
 	)
+}
+
+func CfnModuleVersion_ArnForModuleVersion(resource interfacesawscloudformation.IModuleVersionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnModuleVersion_ArnForModuleVersionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudformation.CfnModuleVersion",
+		"arnForModuleVersion",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

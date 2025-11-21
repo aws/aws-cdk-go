@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVirtualService) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnVirtualService_ArnForVirtualServiceParameters(resource interfacesawsappmesh.IVirtualServiceRef) error {
+	return nil
+}
+
 func validateCfnVirtualService_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

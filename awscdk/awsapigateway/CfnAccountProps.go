@@ -18,6 +18,6 @@ type CfnAccountProps struct {
 	// The ARN of an Amazon CloudWatch role for the current Account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
 	//
-	CloudWatchRoleArn *string `field:"optional" json:"cloudWatchRoleArn" yaml:"cloudWatchRoleArn"`
+	CloudWatchRoleArn interface{} `field:"optional" json:"cloudWatchRoleArn" yaml:"cloudWatchRoleArn"`
 }
 

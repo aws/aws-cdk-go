@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnSubscriptionDefinition_ArnForSubscriptionDefinitionParameters(resource interfacesawsgreengrass.ISubscriptionDefinitionRef) error {
+	return nil
+}
+
 func validateCfnSubscriptionDefinition_FromSubscriptionDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

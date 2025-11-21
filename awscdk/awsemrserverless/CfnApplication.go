@@ -912,6 +912,24 @@ func (j *jsiiProxy_CfnApplication)SetWorkerTypeSpecifications(val interface{}) {
 	)
 }
 
+func CfnApplication_ArnForApplication(resource interfacesawsemrserverless.IApplicationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApplication_ArnForApplicationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication",
+		"arnForApplication",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IApplicationRef from an ARN.
 func CfnApplication_FromApplicationArn(scope constructs.Construct, id *string, arn *string) interfacesawsemrserverless.IApplicationRef {
 	_init_.Initialize()

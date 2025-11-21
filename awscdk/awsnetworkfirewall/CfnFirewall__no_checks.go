@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFirewall) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnFirewall_ArnForFirewallParameters(resource interfacesawsnetworkfirewall.IFirewallRef) error {
+	return nil
+}
+
 func validateCfnFirewall_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

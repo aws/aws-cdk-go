@@ -529,6 +529,24 @@ func (j *jsiiProxy_CfnRegexPatternSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnRegexPatternSet_ArnForRegexPatternSet(resource interfacesawswafv2.IRegexPatternSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRegexPatternSet_ArnForRegexPatternSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"arnForRegexPatternSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

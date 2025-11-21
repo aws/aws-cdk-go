@@ -132,7 +132,7 @@ type CfnDocumentClassifier interface {
 	// Indicates the mode in which the classifier will be trained.
 	Mode() *string
 	SetMode(val *string)
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models.
 	ModelKmsKeyId() *string
 	SetModelKmsKeyId(val *string)
 	// The resource-based policy to attach to your custom document classifier model.
@@ -717,6 +717,24 @@ func (j *jsiiProxy_CfnDocumentClassifier)SetVpcConfig(val interface{}) {
 		"vpcConfig",
 		val,
 	)
+}
+
+func CfnDocumentClassifier_ArnForDocumentClassifier(resource interfacesawscomprehend.IDocumentClassifierRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDocumentClassifier_ArnForDocumentClassifierParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_comprehend.CfnDocumentClassifier",
+		"arnForDocumentClassifier",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

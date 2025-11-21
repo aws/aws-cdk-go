@@ -45,7 +45,9 @@ import (
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   	TransportTransitGatewayAttachmentId: jsii.String("transportTransitGatewayAttachmentId"),
+//   	TunnelBandwidth: jsii.String("tunnelBandwidth"),
 //   	TunnelInsideIpVersion: jsii.String("tunnelInsideIpVersion"),
+//   	VpnConcentratorId: jsii.String("vpnConcentratorId"),
 //   	VpnGatewayId: jsii.String("vpnGatewayId"),
 //   	VpnTunnelOptionsSpecifications: []interface{}{
 //   		&VpnTunnelOptionsSpecificationProperty{
@@ -59,6 +61,9 @@ import (
 //   			},
 //   			LogOptions: &VpnTunnelLogOptionsSpecificationProperty{
 //   				CloudwatchLogOptions: &CloudwatchLogOptionsSpecificationProperty{
+//   					BgpLogEnabled: jsii.Boolean(false),
+//   					BgpLogGroupArn: jsii.String("bgpLogGroupArn"),
+//   					BgpLogOutputFormat: jsii.String("bgpLogOutputFormat"),
 //   					LogEnabled: jsii.Boolean(false),
 //   					LogGroupArn: jsii.String("logGroupArn"),
 //   					LogOutputFormat: jsii.String("logOutputFormat"),
@@ -185,6 +190,8 @@ type CfnVPNConnection interface {
 	// The transit gateway attachment ID to use for the VPN tunnel.
 	TransportTransitGatewayAttachmentId() *string
 	SetTransportTransitGatewayAttachmentId(val *string)
+	TunnelBandwidth() *string
+	SetTunnelBandwidth(val *string)
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 	TunnelInsideIpVersion() *string
 	SetTunnelInsideIpVersion(val *string)
@@ -204,6 +211,8 @@ type CfnVPNConnection interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	VpnConcentratorId() *string
+	SetVpnConcentratorId(val *string)
 	// A reference to a VPNConnection resource.
 	VpnConnectionRef() *interfacesawsec2.VPNConnectionReference
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
@@ -577,6 +586,16 @@ func (j *jsiiProxy_CfnVPNConnection) TransportTransitGatewayAttachmentId() *stri
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPNConnection) TunnelBandwidth() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tunnelBandwidth",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPNConnection) TunnelInsideIpVersion() *string {
 	var returns *string
 	_jsii_.Get(
@@ -612,6 +631,16 @@ func (j *jsiiProxy_CfnVPNConnection) UpdatedProperties() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNConnection) VpnConcentratorId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpnConcentratorId",
 		&returns,
 	)
 	return returns
@@ -785,6 +814,14 @@ func (j *jsiiProxy_CfnVPNConnection)SetTransportTransitGatewayAttachmentId(val *
 	)
 }
 
+func (j *jsiiProxy_CfnVPNConnection)SetTunnelBandwidth(val *string) {
+	_jsii_.Set(
+		j,
+		"tunnelBandwidth",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnVPNConnection)SetTunnelInsideIpVersion(val *string) {
 	_jsii_.Set(
 		j,
@@ -800,6 +837,14 @@ func (j *jsiiProxy_CfnVPNConnection)SetType(val *string) {
 	_jsii_.Set(
 		j,
 		"type",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetVpnConcentratorId(val *string) {
+	_jsii_.Set(
+		j,
+		"vpnConcentratorId",
 		val,
 	)
 }
@@ -821,6 +866,24 @@ func (j *jsiiProxy_CfnVPNConnection)SetVpnTunnelOptionsSpecifications(val interf
 		"vpnTunnelOptionsSpecifications",
 		val,
 	)
+}
+
+func CfnVPNConnection_ArnForVPNConnection(resource interfacesawsec2.IVPNConnectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPNConnection_ArnForVPNConnectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection",
+		"arnForVPNConnection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IVPNConnectionRef from a vpnConnectionId.

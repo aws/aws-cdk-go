@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLoadBalancer) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnLoadBalancer_ArnForLoadBalancerParameters(resource interfacesawslightsail.ILoadBalancerRef) error {
+	return nil
+}
+
 func validateCfnLoadBalancer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

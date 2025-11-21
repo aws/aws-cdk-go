@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTheme) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnTheme_ArnForThemeParameters(resource interfacesawsquicksight.IThemeRef) error {
+	return nil
+}
+
 func validateCfnTheme_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -8,10 +8,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssqs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an SQS queue.
 type IQueue interface {
+	interfacesawssqs.IQueueRef
 	awscdk.IResource
 	// Adds a statement to the IAM resource policy associated with this queue.
 	//
@@ -103,6 +107,7 @@ type IQueue interface {
 
 // The jsii proxy for IQueue
 type jsiiProxy_IQueue struct {
+	internal.Type__interfacesawssqsIQueueRef
 	internal.Type__awscdkIResource
 }
 
@@ -351,6 +356,17 @@ func (i *jsiiProxy_IQueue) MetricSentMessageSize(props *awscloudwatch.MetricOpti
 	return returns
 }
 
+func (i *jsiiProxy_IQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IQueue) EncryptionMasterKey() awskms.IKey {
 	var returns awskms.IKey
 	_jsii_.Get(
@@ -406,6 +422,46 @@ func (j *jsiiProxy_IQueue) QueueUrl() *string {
 	_jsii_.Get(
 		j,
 		"queueUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IQueue) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IQueue) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IQueue) QueueRef() *interfacesawssqs.QueueReference {
+	var returns *interfacesawssqs.QueueReference
+	_jsii_.Get(
+		j,
+		"queueRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IQueue) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

@@ -8,12 +8,294 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AmiDistribution",
+		reflect.TypeOf((*AmiDistribution)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AmiLaunchPermission",
+		reflect.TypeOf((*AmiLaunchPermission)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.AwsManagedComponent",
+		reflect.TypeOf((*AwsManagedComponent)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_AwsManagedComponent{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AwsManagedComponentAttributes",
+		reflect.TypeOf((*AwsManagedComponentAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.AwsMarketplaceComponent",
+		reflect.TypeOf((*AwsMarketplaceComponent)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_AwsMarketplaceComponent{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AwsMarketplaceComponentAttributes",
+		reflect.TypeOf((*AwsMarketplaceComponentAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.Component",
+		reflect.TypeOf((*Component)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "componentArn", GoGetter: "ComponentArn"},
+			_jsii_.MemberProperty{JsiiProperty: "componentName", GoGetter: "ComponentName"},
+			_jsii_.MemberProperty{JsiiProperty: "componentType", GoGetter: "ComponentType"},
+			_jsii_.MemberProperty{JsiiProperty: "componentVersion", GoGetter: "ComponentVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "encrypted", GoGetter: "Encrypted"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Component{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IComponent)
+			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentAction",
+		reflect.TypeOf((*ComponentAction)(nil)).Elem(),
+		map[string]interface{}{
+			"APPEND_FILE": ComponentAction_APPEND_FILE,
+			"ASSERT": ComponentAction_ASSERT,
+			"COPY_FILE": ComponentAction_COPY_FILE,
+			"COPY_FOLDER": ComponentAction_COPY_FOLDER,
+			"CREATE_FILE": ComponentAction_CREATE_FILE,
+			"CREATE_FOLDER": ComponentAction_CREATE_FOLDER,
+			"CREATE_SYMLINK": ComponentAction_CREATE_SYMLINK,
+			"DELETE_FILE": ComponentAction_DELETE_FILE,
+			"DELETE_FOLDER": ComponentAction_DELETE_FOLDER,
+			"EXECUTE_BASH": ComponentAction_EXECUTE_BASH,
+			"EXECUTE_BINARY": ComponentAction_EXECUTE_BINARY,
+			"EXECUTE_DOCUMENT": ComponentAction_EXECUTE_DOCUMENT,
+			"EXECUTE_POWERSHELL": ComponentAction_EXECUTE_POWERSHELL,
+			"INSTALL_MSI": ComponentAction_INSTALL_MSI,
+			"LIST_FILES": ComponentAction_LIST_FILES,
+			"MOVE_FILE": ComponentAction_MOVE_FILE,
+			"MOVE_FOLDER": ComponentAction_MOVE_FOLDER,
+			"READ_FILE": ComponentAction_READ_FILE,
+			"REBOOT": ComponentAction_REBOOT,
+			"SET_FILE_ENCODING": ComponentAction_SET_FILE_ENCODING,
+			"SET_FILE_OWNER": ComponentAction_SET_FILE_OWNER,
+			"SET_FOLDER_OWNER": ComponentAction_SET_FOLDER_OWNER,
+			"SET_FILE_PERMISSIONS": ComponentAction_SET_FILE_PERMISSIONS,
+			"SET_FOLDER_PERMISSIONS": ComponentAction_SET_FOLDER_PERMISSIONS,
+			"SET_REGISTRY": ComponentAction_SET_REGISTRY,
+			"S3_DOWNLOAD": ComponentAction_S3_DOWNLOAD,
+			"S3_UPLOAD": ComponentAction_S3_UPLOAD,
+			"UNINSTALL_MSI": ComponentAction_UNINSTALL_MSI,
+			"UPDATE_OS": ComponentAction_UPDATE_OS,
+			"WEB_DOWNLOAD": ComponentAction_WEB_DOWNLOAD,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentAttributes",
+		reflect.TypeOf((*ComponentAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentConstantValue",
+		reflect.TypeOf((*ComponentConstantValue)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ComponentConstantValue{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentData",
+		reflect.TypeOf((*ComponentData)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "isS3Reference", GoGetter: "IsS3Reference"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ComponentData{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentDocument",
+		reflect.TypeOf((*ComponentDocument)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentDocumentForLoop",
+		reflect.TypeOf((*ComponentDocumentForLoop)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentDocumentLoop",
+		reflect.TypeOf((*ComponentDocumentLoop)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentDocumentParameterDefinition",
+		reflect.TypeOf((*ComponentDocumentParameterDefinition)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentDocumentPhase",
+		reflect.TypeOf((*ComponentDocumentPhase)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentDocumentStep",
+		reflect.TypeOf((*ComponentDocumentStep)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentOnFailure",
+		reflect.TypeOf((*ComponentOnFailure)(nil)).Elem(),
+		map[string]interface{}{
+			"ABORT": ComponentOnFailure_ABORT,
+			"CONTINUE": ComponentOnFailure_CONTINUE,
+			"IGNORE": ComponentOnFailure_IGNORE,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentParameterType",
+		reflect.TypeOf((*ComponentParameterType)(nil)).Elem(),
+		map[string]interface{}{
+			"STRING": ComponentParameterType_STRING,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentPhaseName",
+		reflect.TypeOf((*ComponentPhaseName)(nil)).Elem(),
+		map[string]interface{}{
+			"BUILD": ComponentPhaseName_BUILD,
+			"CONTAINER_HOST_TEST": ComponentPhaseName_CONTAINER_HOST_TEST,
+			"TEST": ComponentPhaseName_TEST,
+			"VALIDATE": ComponentPhaseName_VALIDATE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentProps",
+		reflect.TypeOf((*ComponentProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentSchemaVersion",
+		reflect.TypeOf((*ComponentSchemaVersion)(nil)).Elem(),
+		map[string]interface{}{
+			"V1_0": ComponentSchemaVersion_V1_0,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentStepIfCondition",
+		reflect.TypeOf((*ComponentStepIfCondition)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ifCondition", GoGetter: "IfCondition"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ComponentStepIfCondition{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentStepInputs",
+		reflect.TypeOf((*ComponentStepInputs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "inputs", GoGetter: "Inputs"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ComponentStepInputs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ContainerDistribution",
+		reflect.TypeOf((*ContainerDistribution)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.DistributionConfiguration",
+		reflect.TypeOf((*DistributionConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addAmiDistributions", GoMethod: "AddAmiDistributions"},
+			_jsii_.MemberMethod{JsiiMethod: "addContainerDistributions", GoMethod: "AddContainerDistributions"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "distributionConfigurationArn", GoGetter: "DistributionConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "distributionConfigurationName", GoGetter: "DistributionConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DistributionConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDistributionConfiguration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.DistributionConfigurationProps",
+		reflect.TypeOf((*DistributionConfigurationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.FastLaunchConfiguration",
+		reflect.TypeOf((*FastLaunchConfiguration)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-imagebuilder-alpha.HttpTokens",
 		reflect.TypeOf((*HttpTokens)(nil)).Elem(),
 		map[string]interface{}{
 			"OPTIONAL": HttpTokens_OPTIONAL,
 			"REQUIRED": HttpTokens_REQUIRED,
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-imagebuilder-alpha.IComponent",
+		reflect.TypeOf((*IComponent)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "componentArn", GoGetter: "ComponentArn"},
+			_jsii_.MemberProperty{JsiiProperty: "componentName", GoGetter: "ComponentName"},
+			_jsii_.MemberProperty{JsiiProperty: "componentVersion", GoGetter: "ComponentVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IComponent{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-imagebuilder-alpha.IDistributionConfiguration",
+		reflect.TypeOf((*IDistributionConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "distributionConfigurationArn", GoGetter: "DistributionConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "distributionConfigurationName", GoGetter: "DistributionConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDistributionConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -70,6 +352,69 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-imagebuilder-alpha.InfrastructureConfigurationProps",
 		reflect.TypeOf((*InfrastructureConfigurationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LaunchTemplateConfiguration",
+		reflect.TypeOf((*LaunchTemplateConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.OSVersion",
+		reflect.TypeOf((*OSVersion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "osVersion", GoGetter: "OsVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "platform", GoGetter: "Platform"},
+		},
+		func() interface{} {
+			return &jsiiProxy_OSVersion{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.Platform",
+		reflect.TypeOf((*Platform)(nil)).Elem(),
+		map[string]interface{}{
+			"LINUX": Platform_LINUX,
+			"WINDOWS": Platform_WINDOWS,
+			"MAC_OS": Platform_MAC_OS,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.Repository",
+		reflect.TypeOf((*Repository)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
+			_jsii_.MemberProperty{JsiiProperty: "service", GoGetter: "Service"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Repository{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.RepositoryService",
+		reflect.TypeOf((*RepositoryService)(nil)).Elem(),
+		map[string]interface{}{
+			"ECR": RepositoryService_ECR,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.S3ComponentData",
+		reflect.TypeOf((*S3ComponentData)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPut", GoMethod: "GrantPut"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "isS3Reference", GoGetter: "IsS3Reference"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3ComponentData{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ComponentData)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.SSMParameterConfigurations",
+		reflect.TypeOf((*SSMParameterConfigurations)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-imagebuilder-alpha.Tenancy",

@@ -41,7 +41,7 @@ type CfnNatGatewayProps struct {
 	// This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-allocationid
 	//
-	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
+	AllocationId interface{} `field:"optional" json:"allocationId" yaml:"allocationId"`
 	// Indicates whether the NAT gateway supports public or private connectivity.
 	//
 	// The default is public connectivity.
@@ -85,7 +85,7 @@ type CfnNatGatewayProps struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
 	//
-	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The tags for the NAT gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-tags
 	//

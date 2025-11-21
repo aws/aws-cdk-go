@@ -578,6 +578,24 @@ func (j *jsiiProxy_CfnMultiplex)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMultiplex_ArnForMultiplex(resource interfacesawsmedialive.IMultiplexRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMultiplex_ArnForMultiplexParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnMultiplex",
+		"arnForMultiplex",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMultiplexRef from an ARN.
 func CfnMultiplex_FromMultiplexArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IMultiplexRef {
 	_init_.Initialize()

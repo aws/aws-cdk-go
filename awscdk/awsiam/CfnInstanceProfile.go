@@ -21,7 +21,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnInstanceProfile := awscdk.Aws_iam.NewCfnInstanceProfile(this, jsii.String("MyCfnInstanceProfile"), &CfnInstanceProfileProps{
-//   	Roles: []*string{
+//   	Roles: []interface{}{
 //   		jsii.String("roles"),
 //   	},
 //
@@ -446,6 +446,24 @@ func (j *jsiiProxy_CfnInstanceProfile)SetRoles(val *[]*string) {
 		"roles",
 		val,
 	)
+}
+
+func CfnInstanceProfile_ArnForInstanceProfile(resource interfacesawsiam.IInstanceProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceProfile_ArnForInstanceProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.CfnInstanceProfile",
+		"arnForInstanceProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

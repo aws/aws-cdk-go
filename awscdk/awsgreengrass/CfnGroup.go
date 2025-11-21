@@ -15,7 +15,7 @@ import (
 //
 // With AWS IoT Greengrass , connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely – even when not connected to the internet. For more information, see the [Developer Guide](https://docs.aws.amazon.com/greengrass/v1/developerguide/what-is-gg.html) .
 //
-// > For AWS Region support, see [AWS CloudFormation Support for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v1/developerguide/cloudformation-support.html) in the *Developer Guide* .
+// > For AWS Region support, see [CloudFormation Support for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v1/developerguide/cloudformation-support.html) in the *Developer Guide* .
 //
 // The `AWS::Greengrass::Group` resource represents a group in AWS IoT Greengrass . In the AWS IoT Greengrass API, groups are used to organize your group versions.
 //
@@ -29,7 +29,7 @@ import (
 //
 // *Deploying a Group Version*
 //
-// After you create the group version in your AWS CloudFormation template, you can deploy it using the [`aws greengrass create-deployment`](https://docs.aws.amazon.com/greengrass/v1/apireference/createdeployment-post.html) command in the AWS CLI or from the *Greengrass* node in the AWS IoT console. To deploy a group version, you must have a Greengrass service role associated with your AWS account . For more information, see [AWS CloudFormation Support for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v1/developerguide/cloudformation-support.html) in the *Developer Guide* .
+// After you create the group version in your CloudFormation template, you can deploy it using the [`aws greengrass create-deployment`](https://docs.aws.amazon.com/greengrass/v1/apireference/createdeployment-post.html) command in the AWS CLI or from the *Greengrass* node in the AWS IoT console. To deploy a group version, you must have a Greengrass service role associated with your AWS account . For more information, see [CloudFormation Support for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v1/developerguide/cloudformation-support.html) in the *Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -565,6 +565,24 @@ func (j *jsiiProxy_CfnGroup)SetTagsRaw(val interface{}) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnGroup_ArnForGroup(resource interfacesawsgreengrass.IGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGroup_ArnForGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnGroup",
+		"arnForGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IGroupRef from an ARN.

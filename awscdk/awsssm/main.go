@@ -666,11 +666,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterArn", GoGetter: "ParameterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterName", GoGetter: "ParameterName"},
+			_jsii_.MemberProperty{JsiiProperty: "parameterRef", GoGetter: "ParameterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterType", GoGetter: "ParameterType"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IParameter{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsssmIParameterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -686,6 +688,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterArn", GoGetter: "ParameterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterName", GoGetter: "ParameterName"},
+			_jsii_.MemberProperty{JsiiProperty: "parameterRef", GoGetter: "ParameterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterType", GoGetter: "ParameterType"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stringListValue", GoGetter: "StringListValue"},
@@ -707,6 +710,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterArn", GoGetter: "ParameterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterName", GoGetter: "ParameterName"},
+			_jsii_.MemberProperty{JsiiProperty: "parameterRef", GoGetter: "ParameterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterType", GoGetter: "ParameterType"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stringValue", GoGetter: "StringValue"},
@@ -783,11 +787,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterArn", GoGetter: "ParameterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterName", GoGetter: "ParameterName"},
+			_jsii_.MemberProperty{JsiiProperty: "parameterRef", GoGetter: "ParameterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterType", GoGetter: "ParameterType"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -797,6 +803,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_StringListParameter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIEncryptedResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IParameter)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStringListParameter)
 			return &j
@@ -816,11 +823,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterArn", GoGetter: "ParameterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterName", GoGetter: "ParameterName"},
+			_jsii_.MemberProperty{JsiiProperty: "parameterRef", GoGetter: "ParameterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterType", GoGetter: "ParameterType"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -830,6 +839,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_StringParameter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIEncryptedResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IParameter)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStringParameter)
 			return &j

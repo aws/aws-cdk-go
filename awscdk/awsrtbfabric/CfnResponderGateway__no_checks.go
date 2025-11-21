@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResponderGateway) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnResponderGateway_ArnForResponderGatewayParameters(resource interfacesawsrtbfabric.IResponderGatewayRef) error {
+	return nil
+}
+
 func validateCfnResponderGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsaiops"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,14 @@ func (c *jsiiProxy_CfnInvestigationGroup) validateReplaceDependencyParameters(ta
 func (c *jsiiProxy_CfnInvestigationGroup) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnInvestigationGroup_ArnForInvestigationGroupParameters(resource interfacesawsaiops.IInvestigationGroupRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
 	}
 
 	return nil

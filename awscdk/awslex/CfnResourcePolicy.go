@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > Amazon Lex V2 is the only supported version in AWS CloudFormation .
+// > Amazon Lex V2 is the only supported version in CloudFormation .
 //
 // Specifies a new resource policy with the specified policy statements.
 //

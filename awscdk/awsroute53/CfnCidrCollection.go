@@ -447,6 +447,24 @@ func (j *jsiiProxy_CfnCidrCollection)SetName(val *string) {
 	)
 }
 
+func CfnCidrCollection_ArnForCidrCollection(resource interfacesawsroute53.ICidrCollectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCidrCollection_ArnForCidrCollectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53.CfnCidrCollection",
+		"arnForCidrCollection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

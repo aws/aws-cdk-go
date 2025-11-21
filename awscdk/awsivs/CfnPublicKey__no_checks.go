@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPublicKey) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnPublicKey_ArnForPublicKeyParameters(resource interfacesawsivs.IPublicKeyRef) error {
+	return nil
+}
+
 func validateCfnPublicKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -3,7 +3,7 @@ package awsgreengrass
 
 // The environment configuration for a Lambda function on the AWS IoT Greengrass core.
 //
-// In an AWS CloudFormation template, `Environment` is a property of the [`FunctionConfiguration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html) property type.
+// In an CloudFormation template, `Environment` is a property of the [`FunctionConfiguration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html) property type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

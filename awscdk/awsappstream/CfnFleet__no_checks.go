@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnFleet) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetRootVolumeConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetSessionScriptS3LocationParameters(val interface{}) error {
 	return nil
 }

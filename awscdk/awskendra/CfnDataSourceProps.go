@@ -576,7 +576,7 @@ type CfnDataSourceProps struct {
 	// The identifier of the index you want to use with the data source connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
 	//
-	IndexId *string `field:"required" json:"indexId" yaml:"indexId"`
+	IndexId interface{} `field:"required" json:"indexId" yaml:"indexId"`
 	// The name of the data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-name
 	//
@@ -616,7 +616,7 @@ type CfnDataSourceProps struct {
 	// The `RoleArn` parameter is required for all other data sources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index.
 	//
 	// If you don't set a schedule, Amazon Kendra doesn't periodically update the index.

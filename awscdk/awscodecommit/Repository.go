@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodecommit"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -72,6 +73,8 @@ type Repository interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a Repository.
+	Grants() RepositoryGrants
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -97,6 +100,8 @@ type Repository interface {
 	RepositoryCloneUrlSsh() *string
 	// The human-visible name of this Repository.
 	RepositoryName() *string
+	// A reference to a Repository resource.
+	RepositoryRef() *interfacesawscodecommit.RepositoryReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -197,6 +202,16 @@ func (j *jsiiProxy_Repository) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_Repository) Grants() RepositoryGrants {
+	var returns RepositoryGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Repository) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -262,6 +277,16 @@ func (j *jsiiProxy_Repository) RepositoryName() *string {
 	_jsii_.Get(
 		j,
 		"repositoryName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Repository) RepositoryRef() *interfacesawscodecommit.RepositoryReference {
+	var returns *interfacesawscodecommit.RepositoryReference
+	_jsii_.Get(
+		j,
+		"repositoryRef",
 		&returns,
 	)
 	return returns

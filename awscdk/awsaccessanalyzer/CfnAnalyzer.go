@@ -573,6 +573,24 @@ func (j *jsiiProxy_CfnAnalyzer)SetType(val *string) {
 	)
 }
 
+func CfnAnalyzer_ArnForAnalyzer(resource interfacesawsaccessanalyzer.IAnalyzerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAnalyzer_ArnForAnalyzerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
+		"arnForAnalyzer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

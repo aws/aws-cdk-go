@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTopicRule) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnTopicRule_ArnForTopicRuleParameters(resource interfacesawsiot.ITopicRuleRef) error {
+	return nil
+}
+
 func validateCfnTopicRule_FromRuleNameParameters(scope constructs.Construct, id *string, ruleName *string) error {
 	return nil
 }

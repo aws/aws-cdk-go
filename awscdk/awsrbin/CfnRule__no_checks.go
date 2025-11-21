@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRule) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnRule_ArnForRuleParameters(resource interfacesawsrbin.IRuleRef) error {
+	return nil
+}
+
 func validateCfnRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

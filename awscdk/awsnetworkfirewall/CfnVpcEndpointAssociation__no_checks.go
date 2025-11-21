@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVpcEndpointAssociation) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnVpcEndpointAssociation_ArnForVpcEndpointAssociationParameters(resource interfacesawsnetworkfirewall.IVpcEndpointAssociationRef) error {
+	return nil
+}
+
 func validateCfnVpcEndpointAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

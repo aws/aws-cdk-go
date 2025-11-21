@@ -220,7 +220,7 @@ type CfnAgent interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the AWS KMS key that encrypts the agent.
+	// The Amazon Resource Name (ARN) of the AWS  key that encrypts the agent.
 	CustomerEncryptionKeyArn() *string
 	SetCustomerEncryptionKeyArn(val *string)
 	// Contains custom orchestration configurations for the agent.
@@ -1077,6 +1077,24 @@ func (j *jsiiProxy_CfnAgent)SetTestAliasTags(val interface{}) {
 		"testAliasTags",
 		val,
 	)
+}
+
+func CfnAgent_ArnForAgent(resource interfacesawsbedrock.IAgentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAgent_ArnForAgentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnAgent",
+		"arnForAgent",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IAgentRef from an ARN.

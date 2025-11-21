@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnGlobalReplicationGroup_ArnForGlobalReplicationGroupParameters(resource interfacesawselasticache.IGlobalReplicationGroupRef) error {
+	return nil
+}
+
 func validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupIdParameters(scope constructs.Construct, id *string, globalReplicationGroupId *string) error {
 	return nil
 }

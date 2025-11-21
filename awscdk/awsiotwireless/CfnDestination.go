@@ -534,6 +534,24 @@ func (j *jsiiProxy_CfnDestination)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDestination_ArnForDestination(resource interfacesawsiotwireless.IDestinationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDestination_ArnForDestinationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnDestination",
+		"arnForDestination",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDestinationRef from an ARN.
 func CfnDestination_FromDestinationArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IDestinationRef {
 	_init_.Initialize()

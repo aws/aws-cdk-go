@@ -13,7 +13,7 @@ import (
 
 // Creates an OAuth 2.0 customer managed application in IAM Identity Center for the given application provider.
 //
-// > This API does not support creating SAML 2.0 customer managed applications or AWS managed applications. To learn how to create an AWS managed application, see the application user guide. You can create a SAML 2.0 customer managed application in the AWS Management Console only. See [Setting up customer managed SAML 2.0 applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html) . For more information on these application types, see [AWS managed applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html) .
+// > This API does not support creating SAML 2.0 customer managed applications or AWS managed applications. To learn how to create an AWS managed application, see the application user guide. You can create a SAML 2.0 customer managed application in the the console only. See [Setting up customer managed SAML 2.0 applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html) . For more information on these application types, see [AWS managed applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -567,6 +567,24 @@ func (j *jsiiProxy_CfnApplication)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnApplication_ArnForApplication(resource interfacesawssso.IApplicationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApplication_ArnForApplicationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sso.CfnApplication",
+		"arnForApplication",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -25,7 +25,7 @@ package awscloudformation
 type CfnHookVersionProps struct {
 	// A URL to the Amazon S3 bucket for the Hook project package that contains the necessary files for the Hook you want to register.
 	//
-	// For information on generating a schema handler package, see [Modeling custom CloudFormation Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-model.html) in the *AWS CloudFormation Hooks User Guide* .
+	// For information on generating a schema handler package, see [Modeling custom CloudFormation Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-model.html) in the *CloudFormation Hooks User Guide* .
 	//
 	// > To register the Hook, you must have `s3:GetObject` permissions to access the S3 objects.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html#cfn-cloudformation-hookversion-schemahandlerpackage

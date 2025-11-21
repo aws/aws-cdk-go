@@ -544,6 +544,24 @@ func (j *jsiiProxy_CfnExtensionAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnExtensionAssociation_ArnForExtensionAssociation(resource interfacesawsappconfig.IExtensionAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnExtensionAssociation_ArnForExtensionAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appconfig.CfnExtensionAssociation",
+		"arnForExtensionAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IExtensionAssociationRef from an ARN.
 func CfnExtensionAssociation_FromExtensionAssociationArn(scope constructs.Construct, id *string, arn *string) interfacesawsappconfig.IExtensionAssociationRef {
 	_init_.Initialize()

@@ -547,6 +547,24 @@ func (j *jsiiProxy_CfnComputationModel)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnComputationModel_ArnForComputationModel(resource interfacesawsiotsitewise.IComputationModelRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnComputationModel_ArnForComputationModelParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnComputationModel",
+		"arnForComputationModel",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IComputationModelRef from an ARN.
 func CfnComputationModel_FromComputationModelArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IComputationModelRef {
 	_init_.Initialize()

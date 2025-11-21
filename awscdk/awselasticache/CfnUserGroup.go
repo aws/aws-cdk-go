@@ -21,7 +21,7 @@ import (
 //   cfnUserGroup := awscdk.Aws_elasticache.NewCfnUserGroup(this, jsii.String("MyCfnUserGroup"), &CfnUserGroupProps{
 //   	Engine: jsii.String("engine"),
 //   	UserGroupId: jsii.String("userGroupId"),
-//   	UserIds: []*string{
+//   	UserIds: []interface{}{
 //   		jsii.String("userIds"),
 //   	},
 //
@@ -504,6 +504,24 @@ func (j *jsiiProxy_CfnUserGroup)SetUserIds(val *[]*string) {
 		"userIds",
 		val,
 	)
+}
+
+func CfnUserGroup_ArnForUserGroup(resource interfacesawselasticache.IUserGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUserGroup_ArnForUserGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
+		"arnForUserGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IUserGroupRef from an ARN.

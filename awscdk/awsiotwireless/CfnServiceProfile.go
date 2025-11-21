@@ -695,6 +695,24 @@ func (j *jsiiProxy_CfnServiceProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnServiceProfile_ArnForServiceProfile(resource interfacesawsiotwireless.IServiceProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnServiceProfile_ArnForServiceProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"arnForServiceProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IServiceProfileRef from an ARN.
 func CfnServiceProfile_FromServiceProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IServiceProfileRef {
 	_init_.Initialize()

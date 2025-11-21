@@ -28,7 +28,7 @@ import (
 //
 //   	// the properties below are optional
 //   	ActionsEnabled: jsii.Boolean(false),
-//   	AlarmActions: []*string{
+//   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
 //   	},
 //   	AlarmDescription: jsii.String("alarmDescription"),
@@ -42,7 +42,7 @@ import (
 //   	},
 //   	EvaluateLowSampleCountPercentile: jsii.String("evaluateLowSampleCountPercentile"),
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
-//   	InsufficientDataActions: []*string{
+//   	InsufficientDataActions: []interface{}{
 //   		jsii.String("insufficientDataActions"),
 //   	},
 //   	MetricName: jsii.String("metricName"),
@@ -76,7 +76,7 @@ import (
 //   		},
 //   	},
 //   	Namespace: jsii.String("namespace"),
-//   	OkActions: []*string{
+//   	OkActions: []interface{}{
 //   		jsii.String("okActions"),
 //   	},
 //   	Period: jsii.Number(123),
@@ -937,6 +937,24 @@ func (j *jsiiProxy_CfnAlarm)SetUnit(val *string) {
 		"unit",
 		val,
 	)
+}
+
+func CfnAlarm_ArnForAlarm(resource interfacesawscloudwatch.IAlarmRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAlarm_ArnForAlarmParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
+		"arnForAlarm",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IAlarmRef from an ARN.

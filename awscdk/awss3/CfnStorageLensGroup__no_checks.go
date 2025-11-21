@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStorageLensGroup) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnStorageLensGroup_ArnForStorageLensGroupParameters(resource interfacesawss3.IStorageLensGroupRef) error {
+	return nil
+}
+
 func validateCfnStorageLensGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

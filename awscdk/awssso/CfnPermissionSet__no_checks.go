@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPermissionSet) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnPermissionSet_ArnForPermissionSetParameters(resource interfacesawssso.IPermissionSetRef) error {
+	return nil
+}
+
 func validateCfnPermissionSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

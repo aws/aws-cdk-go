@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnReportDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnReportDefinition_ArnForReportDefinitionParameters(resource interfacesawscur.IReportDefinitionRef) error {
+	return nil
+}
+
 func validateCfnReportDefinition_FromReportNameParameters(scope constructs.Construct, id *string, reportName *string) error {
 	return nil
 }

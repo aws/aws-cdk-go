@@ -37,7 +37,7 @@ type CfnContactFlowModuleProps struct {
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-instancearn
 	//
-	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the flow module.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-name
 	//

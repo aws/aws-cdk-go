@@ -542,6 +542,24 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDataflowEndpointGroup_ArnForDataflowEndpointGroup(resource interfacesawsgroundstation.IDataflowEndpointGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDataflowEndpointGroup_ArnForDataflowEndpointGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_groundstation.CfnDataflowEndpointGroup",
+		"arnForDataflowEndpointGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDataflowEndpointGroupRef from an ARN.
 func CfnDataflowEndpointGroup_FromDataflowEndpointGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsgroundstation.IDataflowEndpointGroupRef {
 	_init_.Initialize()

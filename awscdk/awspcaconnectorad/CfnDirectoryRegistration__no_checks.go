@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDirectoryRegistration) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnDirectoryRegistration_ArnForDirectoryRegistrationParameters(resource interfacesawspcaconnectorad.IDirectoryRegistrationRef) error {
+	return nil
+}
+
 func validateCfnDirectoryRegistration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

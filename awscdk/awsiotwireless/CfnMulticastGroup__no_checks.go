@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMulticastGroup) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnMulticastGroup_ArnForMulticastGroupParameters(resource interfacesawsiotwireless.IMulticastGroupRef) error {
+	return nil
+}
+
 func validateCfnMulticastGroup_FromMulticastGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

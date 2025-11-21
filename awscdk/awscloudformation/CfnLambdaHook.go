@@ -15,7 +15,7 @@ import (
 //
 // You can use a Lambda Hook to evaluate your resources before allowing stack operations. This resource forwards requests for resource evaluation to a Lambda function.
 //
-// For more information, see [Lambda Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/lambda-hooks.html) in the *AWS CloudFormation Hooks User Guide* .
+// For more information, see [Lambda Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/lambda-hooks.html) in the *CloudFormation Hooks User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

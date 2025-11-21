@@ -36,7 +36,9 @@ import (
 //   			"argumentsKey": jsii.String("arguments"),
 //   		},
 //   	},
+//   	AppVersion: jsii.String("appVersion"),
 //   	ClientToken: jsii.String("clientToken"),
+//   	EnableAutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	EnableIamSessionBasedIdentity: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MaintenanceConfig: &PartnerAppMaintenanceConfigProperty{
@@ -60,10 +62,15 @@ type CfnPartnerApp interface {
 	// Configuration settings for the Partner AI App.
 	ApplicationConfig() interface{}
 	SetApplicationConfig(val interface{})
+	// The version of the PartnerApp.
+	AppVersion() *string
+	SetAppVersion(val *string)
 	// The Amazon Resource Name (ARN) of the created PartnerApp.
 	AttrArn() *string
 	// The AppServerUrl based on app and account-info.
 	AttrBaseUrl() *string
+	// The end-of-life date for the current version of the PartnerApp.
+	AttrCurrentVersionEolDate() *string
 	// Defines the authentication type used for the Partner AI App.
 	AuthType() *string
 	SetAuthType(val *string)
@@ -83,6 +90,9 @@ type CfnPartnerApp interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Enables automatic minor version upgrades for the PartnerApp.
+	EnableAutoMinorVersionUpgrade() interface{}
+	SetEnableAutoMinorVersionUpgrade(val interface{})
 	// Enables IAM Session based Identity for PartnerApp.
 	EnableIamSessionBasedIdentity() interface{}
 	SetEnableIamSessionBasedIdentity(val interface{})
@@ -289,6 +299,16 @@ func (j *jsiiProxy_CfnPartnerApp) ApplicationConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPartnerApp) AppVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"appVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPartnerApp) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -304,6 +324,16 @@ func (j *jsiiProxy_CfnPartnerApp) AttrBaseUrl() *string {
 	_jsii_.Get(
 		j,
 		"attrBaseUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPartnerApp) AttrCurrentVersionEolDate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCurrentVersionEolDate",
 		&returns,
 	)
 	return returns
@@ -374,6 +404,16 @@ func (j *jsiiProxy_CfnPartnerApp) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPartnerApp) EnableAutoMinorVersionUpgrade() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableAutoMinorVersionUpgrade",
 		&returns,
 	)
 	return returns
@@ -580,6 +620,14 @@ func (j *jsiiProxy_CfnPartnerApp)SetApplicationConfig(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnPartnerApp)SetAppVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"appVersion",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPartnerApp)SetAuthType(val *string) {
 	if err := j.validateSetAuthTypeParameters(val); err != nil {
 		panic(err)
@@ -595,6 +643,17 @@ func (j *jsiiProxy_CfnPartnerApp)SetClientToken(val *string) {
 	_jsii_.Set(
 		j,
 		"clientToken",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPartnerApp)SetEnableAutoMinorVersionUpgrade(val interface{}) {
+	if err := j.validateSetEnableAutoMinorVersionUpgradeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enableAutoMinorVersionUpgrade",
 		val,
 	)
 }
@@ -682,6 +741,24 @@ func (j *jsiiProxy_CfnPartnerApp)SetType(val *string) {
 		"type",
 		val,
 	)
+}
+
+func CfnPartnerApp_ArnForPartnerApp(resource interfacesawssagemaker.IPartnerAppRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPartnerApp_ArnForPartnerAppParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnPartnerApp",
+		"arnForPartnerApp",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

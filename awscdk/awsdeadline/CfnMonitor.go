@@ -555,6 +555,24 @@ func (j *jsiiProxy_CfnMonitor)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMonitor_ArnForMonitor(resource interfacesawsdeadline.IMonitorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMonitor_ArnForMonitorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_deadline.CfnMonitor",
+		"arnForMonitor",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApiDestination) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnApiDestination_ArnForApiDestinationParameters(resource interfacesawsevents.IApiDestinationRef) error {
+	return nil
+}
+
 func validateCfnApiDestination_FromApiDestinationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

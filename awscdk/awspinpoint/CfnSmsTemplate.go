@@ -516,6 +516,24 @@ func (j *jsiiProxy_CfnSmsTemplate)SetTemplateName(val *string) {
 	)
 }
 
+func CfnSmsTemplate_ArnForSmsTemplate(resource interfacesawspinpoint.ISmsTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSmsTemplate_ArnForSmsTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnSmsTemplate",
+		"arnForSmsTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

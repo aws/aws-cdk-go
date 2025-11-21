@@ -845,6 +845,24 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetVpnPort(val *float64) {
 	)
 }
 
+func CfnClientVpnEndpoint_ArnForClientVpnEndpoint(resource interfacesawsec2.IClientVpnEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnClientVpnEndpoint_ArnForClientVpnEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint",
+		"arnForClientVpnEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IClientVpnEndpointRef from a clientVpnEndpointId.
 func CfnClientVpnEndpoint_FromClientVpnEndpointId(scope constructs.Construct, id *string, clientVpnEndpointId *string) interfacesawsec2.IClientVpnEndpointRef {
 	_init_.Initialize()

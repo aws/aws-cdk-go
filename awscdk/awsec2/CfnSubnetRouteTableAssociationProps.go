@@ -21,10 +21,10 @@ type CfnSubnetRouteTableAssociationProps struct {
 	// The physical ID changes when the route table ID is changed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html#cfn-ec2-subnetroutetableassociation-routetableid
 	//
-	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId interface{} `field:"required" json:"routeTableId" yaml:"routeTableId"`
 	// The ID of the subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html#cfn-ec2-subnetroutetableassociation-subnetid
 	//
-	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"required" json:"subnetId" yaml:"subnetId"`
 }
 

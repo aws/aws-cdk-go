@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDirectoryBucket) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDirectoryBucket_ArnForDirectoryBucketParameters(resource interfacesawss3express.IDirectoryBucketRef) error {
+	return nil
+}
+
 func validateCfnDirectoryBucket_FromBucketNameParameters(scope constructs.Construct, id *string, bucketName *string) error {
 	return nil
 }

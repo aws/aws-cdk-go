@@ -19,7 +19,7 @@ type CfnDetectorModelProps struct {
 	// The ARN of the role that grants permission to AWS IoT Events to perform its operations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
 	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A brief description of the detector model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
 	//

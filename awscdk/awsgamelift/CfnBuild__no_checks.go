@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBuild) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnBuild_ArnForBuildParameters(resource interfacesawsgamelift.IBuildRef) error {
+	return nil
+}
+
 func validateCfnBuild_FromBuildArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

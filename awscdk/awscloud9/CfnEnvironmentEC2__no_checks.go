@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEnvironmentEC2) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnEnvironmentEC2_ArnForEnvironmentEC2Parameters(resource interfacesawscloud9.IEnvironmentEC2Ref) error {
+	return nil
+}
+
 func validateCfnEnvironmentEC2_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

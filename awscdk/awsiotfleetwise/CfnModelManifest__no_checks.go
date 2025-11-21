@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnModelManifest) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnModelManifest_ArnForModelManifestParameters(resource interfacesawsiotfleetwise.IModelManifestRef) error {
+	return nil
+}
+
 func validateCfnModelManifest_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

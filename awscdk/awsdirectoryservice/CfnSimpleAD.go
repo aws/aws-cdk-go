@@ -11,9 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::DirectoryService::SimpleAD` resource specifies an AWS Directory Service Simple Active Directory ( Simple AD ) in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials.
+// The `AWS::DirectoryService::SimpleAD` resource specifies an Directory Service Simple Active Directory ( Simple AD ) in AWS so that your directory users and groups can access the the console and AWS applications using their existing credentials.
 //
-// Simple AD is a Microsoft Active Directory–compatible directory. For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html) in the *AWS Directory Service Admin Guide* .
+// Simple AD is a Microsoft Active Directory–compatible directory. For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html) in the *Directory Service Admin Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -606,6 +606,24 @@ func (j *jsiiProxy_CfnSimpleAD)SetVpcSettings(val interface{}) {
 		"vpcSettings",
 		val,
 	)
+}
+
+func CfnSimpleAD_ArnForSimpleAD(resource interfacesawsdirectoryservice.ISimpleADRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSimpleAD_ArnForSimpleADParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",
+		"arnForSimpleAD",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ISimpleADRef from a directoryId.

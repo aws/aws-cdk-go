@@ -454,6 +454,24 @@ func (j *jsiiProxy_CfnMailManagerAddonSubscription)SetTags(val *[]*awscdk.CfnTag
 	)
 }
 
+func CfnMailManagerAddonSubscription_ArnForMailManagerAddonSubscription(resource interfacesawsses.IMailManagerAddonSubscriptionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerAddonSubscription_ArnForMailManagerAddonSubscriptionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddonSubscription",
+		"arnForMailManagerAddonSubscription",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerAddonSubscriptionRef from a addonSubscriptionId.
 func CfnMailManagerAddonSubscription_FromAddonSubscriptionId(scope constructs.Construct, id *string, addonSubscriptionId *string) interfacesawsses.IMailManagerAddonSubscriptionRef {
 	_init_.Initialize()

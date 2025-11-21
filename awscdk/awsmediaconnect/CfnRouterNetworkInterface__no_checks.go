@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRouterNetworkInterface) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnRouterNetworkInterface_ArnForRouterNetworkInterfaceParameters(resource interfacesawsmediaconnect.IRouterNetworkInterfaceRef) error {
+	return nil
+}
+
 func validateCfnRouterNetworkInterface_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

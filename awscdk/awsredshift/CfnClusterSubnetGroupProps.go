@@ -13,7 +13,7 @@ import (
 //
 //   cfnClusterSubnetGroupProps := &CfnClusterSubnetGroupProps{
 //   	Description: jsii.String("description"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //
@@ -38,7 +38,7 @@ type CfnClusterSubnetGroupProps struct {
 	// A maximum of 20 subnets can be modified in a single request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-subnetids
 	//
-	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// Specifies an arbitrary set of tags (key–value pairs) to associate with this subnet group.
 	//
 	// Use tags to manage your resources.

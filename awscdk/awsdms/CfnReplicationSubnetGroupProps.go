@@ -40,7 +40,7 @@ type CfnReplicationSubnetGroupProps struct {
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The identifier for the replication subnet group.
 	//
-	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the identifier.
+	// If you don't specify a name, CloudFormation generates a unique ID and uses that ID for the identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-replicationsubnetgroupidentifier
 	//
 	ReplicationSubnetGroupIdentifier *string `field:"optional" json:"replicationSubnetGroupIdentifier" yaml:"replicationSubnetGroupIdentifier"`

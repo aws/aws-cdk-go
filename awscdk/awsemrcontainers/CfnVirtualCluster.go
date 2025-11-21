@@ -509,6 +509,24 @@ func (j *jsiiProxy_CfnVirtualCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnVirtualCluster_ArnForVirtualCluster(resource interfacesawsemrcontainers.IVirtualClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVirtualCluster_ArnForVirtualClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emrcontainers.CfnVirtualCluster",
+		"arnForVirtualCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVirtualClusterRef from an ARN.
 func CfnVirtualCluster_FromVirtualClusterArn(scope constructs.Construct, id *string, arn *string) interfacesawsemrcontainers.IVirtualClusterRef {
 	_init_.Initialize()

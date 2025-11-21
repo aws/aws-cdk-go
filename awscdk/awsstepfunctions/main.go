@@ -848,11 +848,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stateMachineArn", GoGetter: "StateMachineArn"},
+			_jsii_.MemberProperty{JsiiProperty: "stateMachineRef", GoGetter: "StateMachineRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStateMachine{}
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsstepfunctionsIStateMachineRef)
 			return &j
 		},
 	)
@@ -1553,6 +1555,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRedriveExecution", GoMethod: "GrantRedriveExecution"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStartExecution", GoMethod: "GrantStartExecution"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStartSyncExecution", GoMethod: "GrantStartSyncExecution"},
 			_jsii_.MemberMethod{JsiiMethod: "grantTaskResponse", GoMethod: "GrantTaskResponse"},
@@ -1570,6 +1573,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stateMachineArn", GoGetter: "StateMachineArn"},
 			_jsii_.MemberProperty{JsiiProperty: "stateMachineName", GoGetter: "StateMachineName"},
+			_jsii_.MemberProperty{JsiiProperty: "stateMachineRef", GoGetter: "StateMachineRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stateMachineRevisionId", GoGetter: "StateMachineRevisionId"},
 			_jsii_.MemberProperty{JsiiProperty: "stateMachineType", GoGetter: "StateMachineType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -1600,6 +1604,27 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IChainable)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.StateMachineGrants",
+		reflect.TypeOf((*StateMachineGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
+			_jsii_.MemberMethod{JsiiMethod: "execution", GoMethod: "Execution"},
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+			_jsii_.MemberMethod{JsiiMethod: "redriveExecution", GoMethod: "RedriveExecution"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "startExecution", GoMethod: "StartExecution"},
+			_jsii_.MemberMethod{JsiiMethod: "startSyncExecution", GoMethod: "StartSyncExecution"},
+			_jsii_.MemberMethod{JsiiMethod: "taskResponse", GoMethod: "TaskResponse"},
+		},
+		func() interface{} {
+			return &jsiiProxy_StateMachineGrants{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.StateMachineGrantsProps",
+		reflect.TypeOf((*StateMachineGrantsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.StateMachineProps",

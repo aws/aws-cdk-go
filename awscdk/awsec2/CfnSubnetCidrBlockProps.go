@@ -23,7 +23,7 @@ type CfnSubnetCidrBlockProps struct {
 	// The ID of the subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-subnetid
 	//
-	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The IPv6 network range for the subnet, in CIDR notation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6cidrblock
 	//

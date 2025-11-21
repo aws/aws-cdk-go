@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIPAMPool) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnIPAMPool_ArnForIPAMPoolParameters(resource interfacesawsec2.IIPAMPoolRef) error {
+	return nil
+}
+
 func validateCfnIPAMPool_FromIPAMPoolArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

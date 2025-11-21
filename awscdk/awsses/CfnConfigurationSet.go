@@ -612,6 +612,24 @@ func (j *jsiiProxy_CfnConfigurationSet)SetVdmOptions(val interface{}) {
 	)
 }
 
+func CfnConfigurationSet_ArnForConfigurationSet(resource interfacesawsses.IConfigurationSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConfigurationSet_ArnForConfigurationSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
+		"arnForConfigurationSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IConfigurationSetRef from a configurationSetName.
 func CfnConfigurationSet_FromConfigurationSetName(scope constructs.Construct, id *string, configurationSetName *string) interfacesawsses.IConfigurationSetRef {
 	_init_.Initialize()

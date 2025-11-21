@@ -1,7 +1,7 @@
 package awsdsql
 
 
-// Configuration details about encryption for the cluster including the AWS KMS key ARN, encryption type, and encryption status.
+// Configuration details about encryption for the cluster including the AWS  key ARN, encryption type, and encryption status.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,7 +25,7 @@ type CfnCluster_EncryptionDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dsql-cluster-encryptiondetails.html#cfn-dsql-cluster-encryptiondetails-encryptiontype
 	//
 	EncryptionType *string `field:"optional" json:"encryptionType" yaml:"encryptionType"`
-	// The ARN of the AWS KMS key that encrypts data in the cluster.
+	// The ARN of the AWS  key that encrypts data in the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dsql-cluster-encryptiondetails.html#cfn-dsql-cluster-encryptiondetails-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`

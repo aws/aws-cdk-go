@@ -68,7 +68,7 @@ type CfnInferenceSchedulerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-inferenceschedulername
 	//
 	InferenceSchedulerName *string `field:"optional" json:"inferenceSchedulerName" yaml:"inferenceSchedulerName"`
-	// Provides the identifier of the AWS KMS key used to encrypt inference scheduler data by Amazon Lookout for Equipment .
+	// Provides the identifier of the AWS KMS key used to encrypt inference scheduler data by  .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html#cfn-lookoutequipment-inferencescheduler-serversidekmskeyid
 	//
 	ServerSideKmsKeyId *string `field:"optional" json:"serverSideKmsKeyId" yaml:"serverSideKmsKeyId"`

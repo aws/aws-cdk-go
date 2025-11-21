@@ -81,7 +81,7 @@ type CfnJobQueueProps struct {
 	// The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-schedulingpolicyarn
 	//
-	SchedulingPolicyArn *string `field:"optional" json:"schedulingPolicyArn" yaml:"schedulingPolicyArn"`
+	SchedulingPolicyArn interface{} `field:"optional" json:"schedulingPolicyArn" yaml:"schedulingPolicyArn"`
 	// The order of the service environment associated with the job queue.
 	//
 	// Job queues with a higher priority are evaluated first when associated with the same service environment.

@@ -21,7 +21,7 @@ type CfnLogStreamProps struct {
 	// The name of the log group where the log stream is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-loggroupname
 	//
-	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName interface{} `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The name of the log stream.
 	//
 	// The name must be unique within the log group.

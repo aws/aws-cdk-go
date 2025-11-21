@@ -752,6 +752,24 @@ func (j *jsiiProxy_CfnChannel)SetVpc(val interface{}) {
 	)
 }
 
+func CfnChannel_ArnForChannel(resource interfacesawsmedialive.IChannelRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnChannel_ArnForChannelParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"arnForChannel",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IChannelRef from an ARN.
 func CfnChannel_FromChannelArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IChannelRef {
 	_init_.Initialize()

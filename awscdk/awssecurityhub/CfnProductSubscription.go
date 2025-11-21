@@ -400,6 +400,24 @@ func (j *jsiiProxy_CfnProductSubscription)SetProductArn(val *string) {
 	)
 }
 
+func CfnProductSubscription_ArnForProductSubscription(resource interfacesawssecurityhub.IProductSubscriptionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProductSubscription_ArnForProductSubscriptionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnProductSubscription",
+		"arnForProductSubscription",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

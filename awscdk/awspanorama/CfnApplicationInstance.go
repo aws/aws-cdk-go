@@ -671,6 +671,24 @@ func (j *jsiiProxy_CfnApplicationInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnApplicationInstance_ArnForApplicationInstance(resource interfacesawspanorama.IApplicationInstanceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApplicationInstance_ArnForApplicationInstanceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_panorama.CfnApplicationInstance",
+		"arnForApplicationInstance",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IApplicationInstanceRef from an ARN.
 func CfnApplicationInstance_FromApplicationInstanceArn(scope constructs.Construct, id *string, arn *string) interfacesawspanorama.IApplicationInstanceRef {
 	_init_.Initialize()

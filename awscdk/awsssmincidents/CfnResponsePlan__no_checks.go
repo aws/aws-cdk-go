@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResponsePlan) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnResponsePlan_ArnForResponsePlanParameters(resource interfacesawsssmincidents.IResponsePlanRef) error {
+	return nil
+}
+
 func validateCfnResponsePlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

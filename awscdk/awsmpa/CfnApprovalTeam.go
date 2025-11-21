@@ -660,6 +660,24 @@ func (j *jsiiProxy_CfnApprovalTeam)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnApprovalTeam_ArnForApprovalTeam(resource interfacesawsmpa.IApprovalTeamRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApprovalTeam_ArnForApprovalTeamParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mpa.CfnApprovalTeam",
+		"arnForApprovalTeam",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLabel) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnLabel_ArnForLabelParameters(resource interfacesawsfrauddetector.ILabelRef) error {
+	return nil
+}
+
 func validateCfnLabel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -632,6 +632,24 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterface)SetVlan(val *float64) {
 	)
 }
 
+func CfnLocalGatewayVirtualInterface_ArnForLocalGatewayVirtualInterface(resource interfacesawsec2.ILocalGatewayVirtualInterfaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLocalGatewayVirtualInterface_ArnForLocalGatewayVirtualInterfaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterface",
+		"arnForLocalGatewayVirtualInterface",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ILocalGatewayVirtualInterfaceRef from a localGatewayVirtualInterfaceId.
 func CfnLocalGatewayVirtualInterface_FromLocalGatewayVirtualInterfaceId(scope constructs.Construct, id *string, localGatewayVirtualInterfaceId *string) interfacesawsec2.ILocalGatewayVirtualInterfaceRef {
 	_init_.Initialize()

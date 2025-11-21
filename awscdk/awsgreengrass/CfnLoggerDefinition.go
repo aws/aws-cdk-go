@@ -515,6 +515,24 @@ func (j *jsiiProxy_CfnLoggerDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
+func CfnLoggerDefinition_ArnForLoggerDefinition(resource interfacesawsgreengrass.ILoggerDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLoggerDefinition_ArnForLoggerDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"arnForLoggerDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ILoggerDefinitionRef from an ARN.
 func CfnLoggerDefinition_FromLoggerDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.ILoggerDefinitionRef {
 	_init_.Initialize()

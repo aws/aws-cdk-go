@@ -18,7 +18,7 @@ package awseks
 type CfnCluster_AccessConfigProperty struct {
 	// The desired authentication mode for the cluster.
 	//
-	// If you create a cluster by using the EKS API, AWS SDKs, or AWS CloudFormation , the default is `CONFIG_MAP` . If you create the cluster by using the AWS Management Console , the default value is `API_AND_CONFIG_MAP` .
+	// If you create a cluster by using the EKS API, AWS SDKs, or AWS CloudFormation , the default is `CONFIG_MAP` . If you create the cluster by using the the console , the default value is `API_AND_CONFIG_MAP` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-accessconfig.html#cfn-eks-cluster-accessconfig-authenticationmode
 	//
 	AuthenticationMode *string `field:"optional" json:"authenticationMode" yaml:"authenticationMode"`

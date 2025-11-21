@@ -32,7 +32,7 @@ import (
 //   	AuthType: jsii.String("authType"),
 //   	IdentitySource: jsii.String("identitySource"),
 //   	IdentityValidationExpression: jsii.String("identityValidationExpression"),
-//   	ProviderArns: []*string{
+//   	ProviderArns: []interface{}{
 //   		jsii.String("providerArns"),
 //   	},
 //   })

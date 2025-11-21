@@ -543,6 +543,24 @@ func (j *jsiiProxy_CfnDetector)SetTagsRaw(val *[]*CfnDetector_TagItemProperty) {
 	)
 }
 
+func CfnDetector_ArnForDetector(resource interfacesawsguardduty.IDetectorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDetector_ArnForDetectorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_guardduty.CfnDetector",
+		"arnForDetector",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDetectorRef from a detectorId.
 func CfnDetector_FromDetectorId(scope constructs.Construct, id *string, detectorId *string) interfacesawsguardduty.IDetectorRef {
 	_init_.Initialize()

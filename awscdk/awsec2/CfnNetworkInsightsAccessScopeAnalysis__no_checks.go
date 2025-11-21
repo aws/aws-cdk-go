@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateValidateProper
 	return nil
 }
 
+func validateCfnNetworkInsightsAccessScopeAnalysis_ArnForNetworkInsightsAccessScopeAnalysisParameters(resource interfacesawsec2.INetworkInsightsAccessScopeAnalysisRef) error {
+	return nil
+}
+
 func validateCfnNetworkInsightsAccessScopeAnalysis_FromNetworkInsightsAccessScopeAnalysisArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -1,7 +1,7 @@
 package awscloudformation
 
 
-// The Output data type.
+// The `Output` data type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

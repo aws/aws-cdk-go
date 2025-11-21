@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEventRule) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnEventRule_ArnForEventRuleParameters(resource interfacesawsnotifications.IEventRuleRef) error {
+	return nil
+}
+
 func validateCfnEventRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -447,6 +447,24 @@ func (j *jsiiProxy_CfnMailManagerAddressList)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMailManagerAddressList_ArnForMailManagerAddressList(resource interfacesawsses.IMailManagerAddressListRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerAddressList_ArnForMailManagerAddressListParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddressList",
+		"arnForMailManagerAddressList",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerAddressListRef from a addressListId.
 func CfnMailManagerAddressList_FromAddressListId(scope constructs.Construct, id *string, addressListId *string) interfacesawsses.IMailManagerAddressListRef {
 	_init_.Initialize()

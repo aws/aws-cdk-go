@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRetriever) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnRetriever_ArnForRetrieverParameters(resource interfacesawsqbusiness.IRetrieverRef) error {
+	return nil
+}
+
 func validateCfnRetriever_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

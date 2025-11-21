@@ -77,6 +77,9 @@ import (
 //   		jsii.String("functionResponseTypes"),
 //   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	LoggingConfig: &LoggingConfigProperty{
+//   		SystemLogLevel: jsii.String("systemLogLevel"),
+//   	},
 //   	MaximumBatchingWindowInSeconds: jsii.Number(123),
 //   	MaximumRecordAgeInSeconds: jsii.Number(123),
 //   	MaximumRetryAttempts: jsii.Number(123),
@@ -89,6 +92,7 @@ import (
 //   	ProvisionedPollerConfig: &ProvisionedPollerConfigProperty{
 //   		MaximumPollers: jsii.Number(123),
 //   		MinimumPollers: jsii.Number(123),
+//   		PollerGroupName: jsii.String("pollerGroupName"),
 //   	},
 //   	Queues: []*string{
 //   		jsii.String("queues"),
@@ -198,9 +202,12 @@ type CfnEventSourceMapping interface {
 	// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
 	FunctionResponseTypes() *[]*string
 	SetFunctionResponseTypes(val *[]*string)
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+	// The ARN of the AWS Key Management Service ( AWS  ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
+	// The function's Amazon CloudWatch Logs configuration settings.
+	LoggingConfig() interface{}
+	SetLoggingConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -228,7 +235,7 @@ type CfnEventSourceMapping interface {
 	// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard.
 	ParallelizationFactor() *float64
 	SetParallelizationFactor(val *float64)
-	// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
+	// (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
 	ProvisionedPollerConfig() interface{}
 	SetProvisionedPollerConfig(val interface{})
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
@@ -239,7 +246,7 @@ type CfnEventSourceMapping interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// (Amazon SQS only) The scaling configuration for the event source.
+	// This property is for Amazon SQS event sources only.
 	ScalingConfig() interface{}
 	SetScalingConfig(val interface{})
 	// The self-managed Apache Kafka cluster for your event source.
@@ -620,6 +627,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) KmsKeyArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) LoggingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"loggingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventSourceMapping) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -979,6 +996,17 @@ func (j *jsiiProxy_CfnEventSourceMapping)SetKmsKeyArn(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping)SetLoggingConfig(val interface{}) {
+	if err := j.validateSetLoggingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"loggingConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEventSourceMapping)SetMaximumBatchingWindowInSeconds(val *float64) {
 	_jsii_.Set(
 		j,
@@ -1126,6 +1154,24 @@ func (j *jsiiProxy_CfnEventSourceMapping)SetTumblingWindowInSeconds(val *float64
 		"tumblingWindowInSeconds",
 		val,
 	)
+}
+
+func CfnEventSourceMapping_ArnForEventSourceMapping(resource interfacesawslambda.IEventSourceMappingRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventSourceMapping_ArnForEventSourceMappingParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
+		"arnForEventSourceMapping",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -17,7 +17,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	Tags: []CfnTag{
@@ -45,7 +45,7 @@ type CfnVpcConnectorProps struct {
 	// If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// A list of metadata items that you can associate with your VPC connector resource.
 	//
 	// A tag is a key-value pair.
@@ -56,7 +56,7 @@ type CfnVpcConnectorProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A name for the VPC connector.
 	//
-	// If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
+	// If you don't specify a name, CloudFormation generates a name for your VPC connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-vpcconnectorname
 	//
 	VpcConnectorName *string `field:"optional" json:"vpcConnectorName" yaml:"vpcConnectorName"`

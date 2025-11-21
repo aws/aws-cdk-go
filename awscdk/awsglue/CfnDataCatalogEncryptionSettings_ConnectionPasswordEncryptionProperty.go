@@ -5,9 +5,9 @@ package awsglue
 //
 // You can enable catalog encryption or only password encryption.
 //
-// When a `CreationConnection` request arrives containing a password, the Data Catalog first encrypts the password using your AWS KMS key. It then encrypts the whole connection object again if catalog encryption is also enabled.
+// When a `CreationConnection` request arrives containing a password, the Data Catalog first encrypts the password using your AWS  key. It then encrypts the whole connection object again if catalog encryption is also enabled.
 //
-// This encryption requires that you set AWS KMS key permissions to enable or restrict access on the password key according to your security requirements. For example, you might want only administrators to have decrypt permission on the password key.
+// This encryption requires that you set AWS  key permissions to enable or restrict access on the password key according to your security requirements. For example, you might want only administrators to have decrypt permission on the password key.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,9 +22,9 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html
 //
 type CfnDataCatalogEncryptionSettings_ConnectionPasswordEncryptionProperty struct {
-	// An AWS KMS key that is used to encrypt the connection password.
+	// An AWS  key that is used to encrypt the connection password.
 	//
-	// If connection password protection is enabled, the caller of `CreateConnection` and `UpdateConnection` needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog. You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
+	// If connection password protection is enabled, the caller of `CreateConnection` and `UpdateConnection` needs at least `kms:Encrypt` permission on the specified AWS  key, to encrypt passwords before storing them in the Data Catalog. You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

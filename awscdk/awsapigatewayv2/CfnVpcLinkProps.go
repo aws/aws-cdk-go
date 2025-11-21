@@ -10,12 +10,12 @@ package awsapigatewayv2
 //
 //   cfnVpcLinkProps := &CfnVpcLinkProps{
 //   	Name: jsii.String("name"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //
 //   	// the properties below are optional
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	Tags: map[string]*string{
@@ -33,11 +33,11 @@ type CfnVpcLinkProps struct {
 	// A list of subnet IDs to include in the VPC link.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html#cfn-apigatewayv2-vpclink-subnetids
 	//
-	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// A list of security group IDs for the VPC link.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html#cfn-apigatewayv2-vpclink-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.

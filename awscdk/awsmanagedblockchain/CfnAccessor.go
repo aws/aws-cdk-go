@@ -516,6 +516,24 @@ func (j *jsiiProxy_CfnAccessor)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAccessor_ArnForAccessor(resource interfacesawsmanagedblockchain.IAccessorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAccessor_ArnForAccessorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_managedblockchain.CfnAccessor",
+		"arnForAccessor",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAccessorRef from an ARN.
 func CfnAccessor_FromAccessorArn(scope constructs.Construct, id *string, arn *string) interfacesawsmanagedblockchain.IAccessorRef {
 	_init_.Initialize()

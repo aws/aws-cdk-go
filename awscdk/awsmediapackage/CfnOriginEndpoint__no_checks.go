@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnOriginEndpoint) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnOriginEndpoint_ArnForOriginEndpointParameters(resource interfacesawsmediapackage.IOriginEndpointRef) error {
+	return nil
+}
+
 func validateCfnOriginEndpoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

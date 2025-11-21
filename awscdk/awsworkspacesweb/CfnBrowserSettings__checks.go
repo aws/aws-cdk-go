@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspacesweb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,6 +156,14 @@ func (c *jsiiProxy_CfnBrowserSettings) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnBrowserSettings_ArnForBrowserSettingsParameters(resource interfacesawsworkspacesweb.IBrowserSettingsRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBrowserSettings_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -200,6 +209,30 @@ func (j *jsiiProxy_CfnBrowserSettings) validateSetTagsParameters(val *[]*awscdk.
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnBrowserSettings) validateSetWebContentFilteringPolicyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnBrowserSettings_WebContentFilteringPolicyProperty:
+		val := val.(*CfnBrowserSettings_WebContentFilteringPolicyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnBrowserSettings_WebContentFilteringPolicyProperty:
+		val_ := val.(CfnBrowserSettings_WebContentFilteringPolicyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnBrowserSettings_WebContentFilteringPolicyProperty; received %#v (a %T)", val, val)
 		}
 	}
 

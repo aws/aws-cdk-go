@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomLineItem) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnCustomLineItem_ArnForCustomLineItemParameters(resource interfacesawsbillingconductor.ICustomLineItemRef) error {
+	return nil
+}
+
 func validateCfnCustomLineItem_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

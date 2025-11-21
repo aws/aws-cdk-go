@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCidrCollection) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnCidrCollection_ArnForCidrCollectionParameters(resource interfacesawsroute53.ICidrCollectionRef) error {
+	return nil
+}
+
 func validateCfnCidrCollection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

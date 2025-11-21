@@ -12,3 +12,7 @@ func (i *jsiiProxy_IVirtualGateway) validateGrantStreamAggregatedResourcesParame
 	return nil
 }
 
+func (i *jsiiProxy_IVirtualGateway) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

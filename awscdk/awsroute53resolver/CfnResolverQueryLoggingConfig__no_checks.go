@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnResolverQueryLoggingConfig_ArnForResolverQueryLoggingConfigParameters(resource interfacesawsroute53resolver.IResolverQueryLoggingConfigRef) error {
+	return nil
+}
+
 func validateCfnResolverQueryLoggingConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -582,6 +582,24 @@ func (j *jsiiProxy_CfnMailManagerTrafficPolicy)SetTrafficPolicyName(val *string)
 	)
 }
 
+func CfnMailManagerTrafficPolicy_ArnForMailManagerTrafficPolicy(resource interfacesawsses.IMailManagerTrafficPolicyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerTrafficPolicy_ArnForMailManagerTrafficPolicyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy",
+		"arnForMailManagerTrafficPolicy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerTrafficPolicyRef from a trafficPolicyId.
 func CfnMailManagerTrafficPolicy_FromTrafficPolicyId(scope constructs.Construct, id *string, trafficPolicyId *string) interfacesawsses.IMailManagerTrafficPolicyRef {
 	_init_.Initialize()

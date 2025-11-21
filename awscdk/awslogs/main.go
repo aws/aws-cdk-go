@@ -1137,6 +1137,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logGroupArn", GoGetter: "LogGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logGroupName", GoGetter: "LogGroupName"},
 			_jsii_.MemberMethod{JsiiMethod: "logGroupPhysicalName", GoMethod: "LogGroupPhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroupRef", GoGetter: "LogGroupRef"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricIncomingBytes", GoMethod: "MetricIncomingBytes"},
 			_jsii_.MemberMethod{JsiiMethod: "metricIncomingLogEvents", GoMethod: "MetricIncomingLogEvents"},
@@ -1145,6 +1146,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ILogGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslogsILogGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIResourceWithPolicy)
 			return &j
 		},
@@ -1263,10 +1265,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "logGroupArn", GoGetter: "LogGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logGroupName", GoGetter: "LogGroupName"},
 			_jsii_.MemberMethod{JsiiMethod: "logGroupPhysicalName", GoMethod: "LogGroupPhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroupRef", GoGetter: "LogGroupRef"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricIncomingBytes", GoMethod: "MetricIncomingBytes"},
 			_jsii_.MemberMethod{JsiiMethod: "metricIncomingLogEvents", GoMethod: "MetricIncomingLogEvents"},
@@ -1288,6 +1292,19 @@ func init() {
 		map[string]interface{}{
 			"STANDARD": LogGroupClass_STANDARD,
 			"INFREQUENT_ACCESS": LogGroupClass_INFREQUENT_ACCESS,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_logs.LogGroupGrants",
+		reflect.TypeOf((*LogGroupGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "policyResource", GoGetter: "PolicyResource"},
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "write", GoMethod: "Write"},
+		},
+		func() interface{} {
+			return &jsiiProxy_LogGroupGrants{}
 		},
 	)
 	_jsii_.RegisterStruct(

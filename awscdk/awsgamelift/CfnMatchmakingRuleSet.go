@@ -503,6 +503,24 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMatchmakingRuleSet_ArnForMatchmakingRuleSet(resource interfacesawsgamelift.IMatchmakingRuleSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMatchmakingRuleSet_ArnForMatchmakingRuleSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
+		"arnForMatchmakingRuleSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMatchmakingRuleSetRef from an ARN.
 func CfnMatchmakingRuleSet_FromMatchmakingRuleSetArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IMatchmakingRuleSetRef {
 	_init_.Initialize()

@@ -17,7 +17,7 @@ package awsamplify
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-backend.html
 //
 type CfnBranch_BackendProperty struct {
-	// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+	// The Amazon Resource Name (ARN) for the CloudFormation stack.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-backend.html#cfn-amplify-branch-backend-stackarn
 	//
 	StackArn *string `field:"optional" json:"stackArn" yaml:"stackArn"`

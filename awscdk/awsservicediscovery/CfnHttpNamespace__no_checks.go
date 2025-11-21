@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnHttpNamespace) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnHttpNamespace_ArnForHttpNamespaceParameters(resource interfacesawsservicediscovery.IHttpNamespaceRef) error {
+	return nil
+}
+
 func validateCfnHttpNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

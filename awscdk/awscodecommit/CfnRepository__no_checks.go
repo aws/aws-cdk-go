@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRepository) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnRepository_ArnForRepositoryParameters(resource interfacesawscodecommit.IRepositoryRef) error {
+	return nil
+}
+
 func validateCfnRepository_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

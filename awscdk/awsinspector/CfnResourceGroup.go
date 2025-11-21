@@ -401,6 +401,24 @@ func (j *jsiiProxy_CfnResourceGroup)SetResourceGroupTags(val interface{}) {
 	)
 }
 
+func CfnResourceGroup_ArnForResourceGroup(resource interfacesawsinspector.IResourceGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResourceGroup_ArnForResourceGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_inspector.CfnResourceGroup",
+		"arnForResourceGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

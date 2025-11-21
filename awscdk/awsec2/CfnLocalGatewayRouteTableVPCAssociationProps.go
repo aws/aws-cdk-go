@@ -34,7 +34,7 @@ type CfnLocalGatewayRouteTableVPCAssociationProps struct {
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
 	//
-	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The tags assigned to the association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
 	//

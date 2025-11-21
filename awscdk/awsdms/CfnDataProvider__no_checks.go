@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataProvider) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnDataProvider_ArnForDataProviderParameters(resource interfacesawsdms.IDataProviderRef) error {
+	return nil
+}
+
 func validateCfnDataProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

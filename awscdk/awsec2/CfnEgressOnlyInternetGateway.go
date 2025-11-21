@@ -444,6 +444,24 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway)SetVpcId(val *string) {
 	)
 }
 
+func CfnEgressOnlyInternetGateway_ArnForEgressOnlyInternetGateway(resource interfacesawsec2.IEgressOnlyInternetGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEgressOnlyInternetGateway_ArnForEgressOnlyInternetGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnEgressOnlyInternetGateway",
+		"arnForEgressOnlyInternetGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IEgressOnlyInternetGatewayRef from a egressOnlyInternetGatewayId.
 func CfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayId(scope constructs.Construct, id *string, egressOnlyInternetGatewayId *string) interfacesawsec2.IEgressOnlyInternetGatewayRef {
 	_init_.Initialize()

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAppImageConfig) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnAppImageConfig_ArnForAppImageConfigParameters(resource interfacesawssagemaker.IAppImageConfigRef) error {
+	return nil
+}
+
 func validateCfnAppImageConfig_FromAppImageConfigArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

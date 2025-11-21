@@ -939,6 +939,24 @@ func (j *jsiiProxy_CfnPipeline)SetVariables(val interface{}) {
 	)
 }
 
+func CfnPipeline_ArnForPipeline(resource interfacesawscodepipeline.IPipelineRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPipeline_ArnForPipelineParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
+		"arnForPipeline",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPipelineRef from a pipelineName.
 func CfnPipeline_FromPipelineName(scope constructs.Construct, id *string, pipelineName *string) interfacesawscodepipeline.IPipelineRef {
 	_init_.Initialize()

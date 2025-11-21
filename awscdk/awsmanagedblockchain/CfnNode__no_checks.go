@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNode) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnNode_ArnForNodeParameters(resource interfacesawsmanagedblockchain.INodeRef) error {
+	return nil
+}
+
 func validateCfnNode_FromNodeArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

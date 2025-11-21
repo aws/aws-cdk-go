@@ -525,6 +525,24 @@ func (j *jsiiProxy_CfnServiceTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnServiceTemplate_ArnForServiceTemplate(resource interfacesawsproton.IServiceTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnServiceTemplate_ArnForServiceTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_proton.CfnServiceTemplate",
+		"arnForServiceTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnThing) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnThing_ArnForThingParameters(resource interfacesawsiot.IThingRef) error {
+	return nil
+}
+
 func validateCfnThing_FromThingArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

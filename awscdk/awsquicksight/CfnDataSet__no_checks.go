@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataSet) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnDataSet_ArnForDataSetParameters(resource interfacesawsquicksight.IDataSetRef) error {
+	return nil
+}
+
 func validateCfnDataSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

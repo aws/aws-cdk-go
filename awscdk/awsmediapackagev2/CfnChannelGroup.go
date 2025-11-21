@@ -498,6 +498,24 @@ func (j *jsiiProxy_CfnChannelGroup)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnChannelGroup_ArnForChannelGroup(resource interfacesawsmediapackagev2.IChannelGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnChannelGroup_ArnForChannelGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediapackagev2.CfnChannelGroup",
+		"arnForChannelGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

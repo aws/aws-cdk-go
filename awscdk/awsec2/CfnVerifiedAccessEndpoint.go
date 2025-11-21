@@ -896,6 +896,24 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetVerifiedAccessGroupId(val *strin
 	)
 }
 
+func CfnVerifiedAccessEndpoint_ArnForVerifiedAccessEndpoint(resource interfacesawsec2.IVerifiedAccessEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVerifiedAccessEndpoint_ArnForVerifiedAccessEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessEndpoint",
+		"arnForVerifiedAccessEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVerifiedAccessEndpointRef from a verifiedAccessEndpointId.
 func CfnVerifiedAccessEndpoint_FromVerifiedAccessEndpointId(scope constructs.Construct, id *string, verifiedAccessEndpointId *string) interfacesawsec2.IVerifiedAccessEndpointRef {
 	_init_.Initialize()

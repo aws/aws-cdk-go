@@ -80,7 +80,7 @@ type CfnScalableTargetProps struct {
 	// - Pool of WorkSpaces - The resource type is `workspacespool` and the unique identifier is the pool ID. Example: `workspacespool/wspool-123456` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid
 	//
-	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
+	ResourceId interface{} `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The scalable dimension associated with the scalable target.
 	//
 	// This string consists of the service namespace, resource type, and scaling property.
@@ -123,7 +123,7 @@ type CfnScalableTargetProps struct {
 	// To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide* . Look for the ARN in the table at the bottom of the page.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The scheduled actions for the scalable target.
 	//
 	// Duplicates aren't allowed.

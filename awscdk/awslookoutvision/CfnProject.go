@@ -396,6 +396,24 @@ func (j *jsiiProxy_CfnProject)SetProjectName(val *string) {
 	)
 }
 
+func CfnProject_ArnForProject(resource interfacesawslookoutvision.IProjectRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProject_ArnForProjectParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lookoutvision.CfnProject",
+		"arnForProject",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IProjectRef from an ARN.
 func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *string) interfacesawslookoutvision.IProjectRef {
 	_init_.Initialize()

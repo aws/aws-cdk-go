@@ -480,6 +480,24 @@ func (j *jsiiProxy_CfnInput)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnInput_ArnForInput(resource interfacesawsiotevents.IInputRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInput_ArnForInputParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotevents.CfnInput",
+		"arnForInput",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IInputRef from a inputName.
 func CfnInput_FromInputName(scope constructs.Construct, id *string, inputName *string) interfacesawsiotevents.IInputRef {
 	_init_.Initialize()

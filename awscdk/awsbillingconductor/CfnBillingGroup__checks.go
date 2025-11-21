@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbillingconductor"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,6 +156,14 @@ func (c *jsiiProxy_CfnBillingGroup) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnBillingGroup_ArnForBillingGroupParameters(resource interfacesawsbillingconductor.IBillingGroupRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBillingGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -234,14 +243,6 @@ func (j *jsiiProxy_CfnBillingGroup) validateSetComputationPreferenceParameters(v
 }
 
 func (j *jsiiProxy_CfnBillingGroup) validateSetNameParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnBillingGroup) validateSetPrimaryAccountIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}

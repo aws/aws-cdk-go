@@ -12,6 +12,7 @@ package awsfsx
 //   	DnsIps: []*string{
 //   		jsii.String("dnsIps"),
 //   	},
+//   	DomainJoinServiceAccountSecret: jsii.String("domainJoinServiceAccountSecret"),
 //   	DomainName: jsii.String("domainName"),
 //   	FileSystemAdministratorsGroup: jsii.String("fileSystemAdministratorsGroup"),
 //   	OrganizationalUnitDistinguishedName: jsii.String("organizationalUnitDistinguishedName"),
@@ -26,6 +27,9 @@ type CfnStorageVirtualMachine_SelfManagedActiveDirectoryConfigurationProperty st
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-storagevirtualmachine-selfmanagedactivedirectoryconfiguration-dnsips
 	//
 	DnsIps *[]*string `field:"optional" json:"dnsIps" yaml:"dnsIps"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-storagevirtualmachine-selfmanagedactivedirectoryconfiguration-domainjoinserviceaccountsecret
+	//
+	DomainJoinServiceAccountSecret *string `field:"optional" json:"domainJoinServiceAccountSecret" yaml:"domainJoinServiceAccountSecret"`
 	// The fully qualified domain name of the self-managed AD directory, such as `corp.example.com` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-storagevirtualmachine-selfmanagedactivedirectoryconfiguration-domainname
 	//

@@ -776,6 +776,24 @@ func (j *jsiiProxy_CfnAssociation)SetWaitForSuccessTimeoutSeconds(val *float64) 
 	)
 }
 
+func CfnAssociation_ArnForAssociation(resource interfacesawsssm.IAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAssociation_ArnForAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnAssociation",
+		"arnForAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAssociationRef from a associationId.
 func CfnAssociation_FromAssociationId(scope constructs.Construct, id *string, associationId *string) interfacesawsssm.IAssociationRef {
 	_init_.Initialize()

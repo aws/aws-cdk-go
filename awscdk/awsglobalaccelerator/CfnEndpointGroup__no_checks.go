@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEndpointGroup) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnEndpointGroup_ArnForEndpointGroupParameters(resource interfacesawsglobalaccelerator.IEndpointGroupRef) error {
+	return nil
+}
+
 func validateCfnEndpointGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

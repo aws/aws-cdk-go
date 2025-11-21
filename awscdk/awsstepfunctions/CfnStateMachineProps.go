@@ -63,7 +63,7 @@ type CfnStateMachineProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
 	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon States Language definition of the state machine.
 	//
 	// The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
@@ -81,7 +81,7 @@ type CfnStateMachineProps struct {
 	// The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
 	//
-	DefinitionString *string `field:"optional" json:"definitionString" yaml:"definitionString"`
+	DefinitionString interface{} `field:"optional" json:"definitionString" yaml:"definitionString"`
 	// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition.
 	//
 	// This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDetector) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnDetector_ArnForDetectorParameters(resource interfacesawsfrauddetector.IDetectorRef) error {
+	return nil
+}
+
 func validateCfnDetector_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

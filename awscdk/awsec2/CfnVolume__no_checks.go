@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVolume) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnVolume_ArnForVolumeParameters(resource interfacesawsec2.IVolumeRef) error {
+	return nil
+}
+
 func validateCfnVolume_FromVolumeIdParameters(scope constructs.Construct, id *string, volumeId *string) error {
 	return nil
 }

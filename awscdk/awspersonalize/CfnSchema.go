@@ -453,6 +453,24 @@ func (j *jsiiProxy_CfnSchema)SetSchema(val *string) {
 	)
 }
 
+func CfnSchema_ArnForSchema(resource interfacesawspersonalize.ISchemaRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSchema_ArnForSchemaParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_personalize.CfnSchema",
+		"arnForSchema",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

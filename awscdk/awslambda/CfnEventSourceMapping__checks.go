@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,14 @@ func (c *jsiiProxy_CfnEventSourceMapping) validateReplaceDependencyParameters(ta
 func (c *jsiiProxy_CfnEventSourceMapping) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnEventSourceMapping_ArnForEventSourceMappingParameters(resource interfacesawslambda.IEventSourceMappingRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
 	}
 
 	return nil
@@ -312,6 +321,30 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetFilterCriteriaParameters(va
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetFunctionNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetLoggingConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEventSourceMapping_LoggingConfigProperty:
+		val := val.(*CfnEventSourceMapping_LoggingConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEventSourceMapping_LoggingConfigProperty:
+		val_ := val.(CfnEventSourceMapping_LoggingConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_LoggingConfigProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

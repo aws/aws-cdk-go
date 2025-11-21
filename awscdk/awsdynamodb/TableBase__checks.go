@@ -68,6 +68,14 @@ func (t *jsiiProxy_TableBase) validateGrantFullAccessParameters(grantee awsiam.I
 	return nil
 }
 
+func (t *jsiiProxy_TableBase) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TableBase) validateGrantReadDataParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

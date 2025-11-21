@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnImageVersion) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnImageVersion_ArnForImageVersionParameters(resource interfacesawssagemaker.IImageVersionRef) error {
+	return nil
+}
+
 func validateCfnImageVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

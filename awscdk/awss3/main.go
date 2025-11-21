@@ -56,12 +56,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantDelete", GoMethod: "GrantDelete"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPublicAccess", GoMethod: "GrantPublicAccess"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPut", GoMethod: "GrantPut"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPutAcl", GoMethod: "GrantPutAcl"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReplicationPermission", GoMethod: "GrantReplicationPermission"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "isWebsite", GoGetter: "IsWebsite"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -133,12 +135,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantDelete", GoMethod: "GrantDelete"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPublicAccess", GoMethod: "GrantPublicAccess"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPut", GoMethod: "GrantPut"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPutAcl", GoMethod: "GrantPutAcl"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReplicationPermission", GoMethod: "GrantReplicationPermission"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "isWebsite", GoGetter: "IsWebsite"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -161,6 +165,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_BucketBase{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIEncryptedResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBucket)
 			return &j
 		},
@@ -175,6 +180,23 @@ func init() {
 			"KMS": BucketEncryption_KMS,
 			"DSSE_MANAGED": BucketEncryption_DSSE_MANAGED,
 			"DSSE": BucketEncryption_DSSE,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_s3.BucketGrants",
+		reflect.TypeOf((*BucketGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "delete", GoMethod: "Delete"},
+			_jsii_.MemberMethod{JsiiMethod: "publicAccess", GoMethod: "PublicAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "put", GoMethod: "Put"},
+			_jsii_.MemberMethod{JsiiMethod: "putAcl", GoMethod: "PutAcl"},
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+			_jsii_.MemberMethod{JsiiMethod: "readWrite", GoMethod: "ReadWrite"},
+			_jsii_.MemberMethod{JsiiMethod: "replicationPermission", GoMethod: "ReplicationPermission"},
+			_jsii_.MemberMethod{JsiiMethod: "write", GoMethod: "Write"},
+		},
+		func() interface{} {
+			return &jsiiProxy_BucketGrants{}
 		},
 	)
 	_jsii_.RegisterStruct(

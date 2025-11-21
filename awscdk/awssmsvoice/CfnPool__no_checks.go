@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPool) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnPool_ArnForPoolParameters(resource interfacesawssmsvoice.IPoolRef) error {
+	return nil
+}
+
 func validateCfnPool_FromPoolArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

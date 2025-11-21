@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnActivity) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnActivity_ArnForActivityParameters(resource interfacesawsstepfunctions.IActivityRef) error {
+	return nil
+}
+
 func validateCfnActivity_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

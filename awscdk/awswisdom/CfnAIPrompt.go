@@ -641,6 +641,24 @@ func (j *jsiiProxy_CfnAIPrompt)SetType(val *string) {
 	)
 }
 
+func CfnAIPrompt_ArnForAIPrompt(resource interfacesawswisdom.IAIPromptRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAIPrompt_ArnForAIPromptParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAIPrompt",
+		"arnForAIPrompt",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

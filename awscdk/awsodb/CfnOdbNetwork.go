@@ -720,6 +720,24 @@ func (j *jsiiProxy_CfnOdbNetwork)SetZeroEtlAccess(val *string) {
 	)
 }
 
+func CfnOdbNetwork_ArnForOdbNetwork(resource interfacesawsodb.IOdbNetworkRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnOdbNetwork_ArnForOdbNetworkParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_odb.CfnOdbNetwork",
+		"arnForOdbNetwork",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

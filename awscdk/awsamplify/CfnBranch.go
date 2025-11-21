@@ -73,7 +73,7 @@ type CfnBranch interface {
 	AttrBranchName() *string
 	// The backend for a `Branch` of an Amplify app.
 	//
-	// Use for a backend created from an AWS CloudFormation stack.
+	// Use for a backend created from an CloudFormation stack.
 	Backend() interface{}
 	SetBackend(val interface{})
 	// The basic authorization credentials for a branch of an Amplify app.
@@ -797,6 +797,24 @@ func (j *jsiiProxy_CfnBranch)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnBranch_ArnForBranch(resource interfacesawsamplify.IBranchRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBranch_ArnForBranchParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_amplify.CfnBranch",
+		"arnForBranch",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

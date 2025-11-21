@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomAction) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnCustomAction_ArnForCustomActionParameters(resource interfacesawschatbot.ICustomActionRef) error {
+	return nil
+}
+
 func validateCfnCustomAction_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

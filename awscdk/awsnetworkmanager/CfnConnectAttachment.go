@@ -733,6 +733,24 @@ func (j *jsiiProxy_CfnConnectAttachment)SetTransportAttachmentId(val *string) {
 	)
 }
 
+func CfnConnectAttachment_ArnForConnectAttachment(resource interfacesawsnetworkmanager.IConnectAttachmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnectAttachment_ArnForConnectAttachmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment",
+		"arnForConnectAttachment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IConnectAttachmentRef from a attachmentId.
 func CfnConnectAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) interfacesawsnetworkmanager.IConnectAttachmentRef {
 	_init_.Initialize()

@@ -15,6 +15,10 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_vpclattice.AuthPolicyReference",
 		reflect.TypeOf((*AuthPolicyReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_vpclattice.DomainVerificationReference",
+		reflect.TypeOf((*DomainVerificationReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_vpclattice.IAccessLogSubscriptionRef",
 		reflect.TypeOf((*IAccessLogSubscriptionRef)(nil)).Elem(),
@@ -40,6 +44,21 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAuthPolicyRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_vpclattice.IDomainVerificationRef",
+		reflect.TypeOf((*IDomainVerificationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainVerificationRef", GoGetter: "DomainVerificationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDomainVerificationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

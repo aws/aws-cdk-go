@@ -497,6 +497,24 @@ func (j *jsiiProxy_CfnAttributeGroup)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnAttributeGroup_ArnForAttributeGroup(resource interfacesawsservicecatalogappregistry.IAttributeGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAttributeGroup_ArnForAttributeGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalogappregistry.CfnAttributeGroup",
+		"arnForAttributeGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAttributeGroupRef from an ARN.
 func CfnAttributeGroup_FromAttributeGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsservicecatalogappregistry.IAttributeGroupRef {
 	_init_.Initialize()

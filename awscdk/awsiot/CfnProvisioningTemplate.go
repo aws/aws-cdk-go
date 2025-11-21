@@ -584,6 +584,24 @@ func (j *jsiiProxy_CfnProvisioningTemplate)SetTemplateType(val *string) {
 	)
 }
 
+func CfnProvisioningTemplate_ArnForProvisioningTemplate(resource interfacesawsiot.IProvisioningTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProvisioningTemplate_ArnForProvisioningTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnProvisioningTemplate",
+		"arnForProvisioningTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IProvisioningTemplateRef from a templateName.
 func CfnProvisioningTemplate_FromTemplateName(scope constructs.Construct, id *string, templateName *string) interfacesawsiot.IProvisioningTemplateRef {
 	_init_.Initialize()

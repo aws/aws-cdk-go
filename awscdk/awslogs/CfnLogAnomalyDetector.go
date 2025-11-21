@@ -77,7 +77,7 @@ type CfnLogAnomalyDetector interface {
 	// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here.
 	FilterPattern() *string
 	SetFilterPattern(val *string)
-	// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings.
+	// Optionally assigns a AWS  key to secure this anomaly detector and its findings.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// A reference to a LogAnomalyDetector resource.

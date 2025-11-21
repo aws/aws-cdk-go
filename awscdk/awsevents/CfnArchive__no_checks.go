@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnArchive) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnArchive_ArnForArchiveParameters(resource interfacesawsevents.IArchiveRef) error {
+	return nil
+}
+
 func validateCfnArchive_FromArchiveArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

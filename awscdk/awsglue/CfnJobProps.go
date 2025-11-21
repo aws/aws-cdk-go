@@ -63,7 +63,7 @@ type CfnJobProps struct {
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-role
 	//
-	Role *string `field:"required" json:"role" yaml:"role"`
+	Role interface{} `field:"required" json:"role" yaml:"role"`
 	// This parameter is no longer supported. Use `MaxCapacity` instead.
 	//
 	// The number of capacity units that are allocated to this job.

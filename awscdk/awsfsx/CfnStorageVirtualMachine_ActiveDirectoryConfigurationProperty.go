@@ -16,6 +16,7 @@ package awsfsx
 //   		DnsIps: []*string{
 //   			jsii.String("dnsIps"),
 //   		},
+//   		DomainJoinServiceAccountSecret: jsii.String("domainJoinServiceAccountSecret"),
 //   		DomainName: jsii.String("domainName"),
 //   		FileSystemAdministratorsGroup: jsii.String("fileSystemAdministratorsGroup"),
 //   		OrganizationalUnitDistinguishedName: jsii.String("organizationalUnitDistinguishedName"),

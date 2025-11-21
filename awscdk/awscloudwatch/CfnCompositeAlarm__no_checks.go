@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCompositeAlarm) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnCompositeAlarm_ArnForCompositeAlarmParameters(resource interfacesawscloudwatch.ICompositeAlarmRef) error {
+	return nil
+}
+
 func validateCfnCompositeAlarm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

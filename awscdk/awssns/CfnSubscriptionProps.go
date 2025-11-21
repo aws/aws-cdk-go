@@ -34,29 +34,29 @@ package awssns
 type CfnSubscriptionProps struct {
 	// The subscription's protocol.
 	//
-	// For more information, see the `Protocol` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
+	// For more information, see the `Protocol` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon  API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-protocol
 	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// The ARN of the topic to subscribe to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-topicarn
 	//
-	TopicArn *string `field:"required" json:"topicArn" yaml:"topicArn"`
+	TopicArn interface{} `field:"required" json:"topicArn" yaml:"topicArn"`
 	// The delivery policy JSON assigned to the subscription.
 	//
-	// Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message delivery retries](https://docs.aws.amazon.com/sns/latest/dg/sns-message-delivery-retries.html) in the *Amazon SNS Developer Guide* .
+	// Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon  API Reference* and [Message delivery retries](https://docs.aws.amazon.com/sns/latest/dg/sns-message-delivery-retries.html) in the *Amazon  Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-deliverypolicy
 	//
 	DeliveryPolicy interface{} `field:"optional" json:"deliveryPolicy" yaml:"deliveryPolicy"`
 	// The subscription's endpoint.
 	//
-	// The endpoint value depends on the protocol that you specify. For more information, see the `Endpoint` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
+	// The endpoint value depends on the protocol that you specify. For more information, see the `Endpoint` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon  API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-endpoint
 	//
-	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The filter policy JSON assigned to the subscription.
 	//
-	// Enables the subscriber to filter out unwanted messages. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon SNS Developer Guide* .
+	// Enables the subscriber to filter out unwanted messages. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon  API Reference* and [Message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon  Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicy
 	//
 	FilterPolicy interface{} `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
@@ -71,7 +71,7 @@ type CfnSubscriptionProps struct {
 	FilterPolicyScope *string `field:"optional" json:"filterPolicyScope" yaml:"filterPolicyScope"`
 	// When set to `true` , enables raw message delivery.
 	//
-	// Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* .
+	// Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon  API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-rawmessagedelivery
 	//
 	RawMessageDelivery interface{} `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
@@ -85,7 +85,7 @@ type CfnSubscriptionProps struct {
 	RedrivePolicy interface{} `field:"optional" json:"redrivePolicy" yaml:"redrivePolicy"`
 	// For cross-region subscriptions, the region in which the topic resides.
 	//
-	// If no region is specified, AWS CloudFormation uses the region of the caller as the default.
+	// If no region is specified, CloudFormation uses the region of the caller as the default.
 	//
 	// If you perform an update operation that only updates the `Region` property of a `AWS::SNS::Subscription` resource, that operation will fail unless you are either:
 	//
@@ -94,7 +94,7 @@ type CfnSubscriptionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
-	// Specifies whether Amazon SNS resends the notification to the subscription when a message's attribute changes.
+	// Specifies whether Amazon  resends the notification to the subscription when a message's attribute changes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-replaypolicy
 	//
 	ReplayPolicy interface{} `field:"optional" json:"replayPolicy" yaml:"replayPolicy"`
@@ -103,11 +103,11 @@ type CfnSubscriptionProps struct {
 	// Specify the ARN of the IAM role that has the following:
 	//
 	// - Permission to write to the Amazon Data Firehose delivery stream
-	// - Amazon SNS listed as a trusted entity
+	// - Amazon  listed as a trusted entity
 	//
-	// Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see [Fanout to Amazon Data Firehose delivery streams](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html) in the *Amazon SNS Developer Guide.*
+	// Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see [Fanout to Amazon Data Firehose delivery streams](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html) in the *Amazon  Developer Guide.*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
 	//
-	SubscriptionRoleArn *string `field:"optional" json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
+	SubscriptionRoleArn interface{} `field:"optional" json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 }
 

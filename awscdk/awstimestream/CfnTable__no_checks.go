@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTable) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnTable_ArnForTableParameters(resource interfacesawstimestream.ITableRef) error {
+	return nil
+}
+
 func validateCfnTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

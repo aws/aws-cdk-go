@@ -520,6 +520,24 @@ func (j *jsiiProxy_CfnSyncJob)SetWorkspaceId(val *string) {
 	)
 }
 
+func CfnSyncJob_ArnForSyncJob(resource interfacesawsiottwinmaker.ISyncJobRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSyncJob_ArnForSyncJobParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iottwinmaker.CfnSyncJob",
+		"arnForSyncJob",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

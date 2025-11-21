@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSafetyRule) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnSafetyRule_ArnForSafetyRuleParameters(resource interfacesawsroute53recoverycontrol.ISafetyRuleRef) error {
+	return nil
+}
+
 func validateCfnSafetyRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

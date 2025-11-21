@@ -44,7 +44,7 @@ type CfnTransitGatewayPeeringAttachmentProps struct {
 	// The ID of the transit gateway peering attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
 	//
-	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId interface{} `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The tags for the transit gateway peering attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
 	//

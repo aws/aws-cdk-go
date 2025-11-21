@@ -486,6 +486,24 @@ func (j *jsiiProxy_CfnRoleAlias)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnRoleAlias_ArnForRoleAlias(resource interfacesawsiot.IRoleAliasRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRoleAlias_ArnForRoleAliasParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnRoleAlias",
+		"arnForRoleAlias",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IRoleAliasRef from a roleAlias.
 func CfnRoleAlias_FromRoleAlias(scope constructs.Construct, id *string, roleAlias *string) interfacesawsiot.IRoleAliasRef {
 	_init_.Initialize()

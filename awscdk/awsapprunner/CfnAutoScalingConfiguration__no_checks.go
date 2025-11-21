@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAutoScalingConfiguration) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnAutoScalingConfiguration_ArnForAutoScalingConfigurationParameters(resource interfacesawsapprunner.IAutoScalingConfigurationRef) error {
+	return nil
+}
+
 func validateCfnAutoScalingConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

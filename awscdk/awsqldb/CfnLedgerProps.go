@@ -52,13 +52,13 @@ type CfnLedgerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html#cfn-qldb-ledger-deletionprotection
 	//
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
-	// The key in AWS Key Management Service ( AWS KMS ) to use for encryption of data at rest in the ledger.
+	// The key in AWS Key Management Service ( AWS  ) to use for encryption of data at rest in the ledger.
 	//
 	// For more information, see [Encryption at rest](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html) in the *Amazon QLDB Developer Guide* .
 	//
 	// Use one of the following options to specify this parameter:
 	//
-	// - `AWS_OWNED_KMS_KEY` : Use an AWS KMS key that is owned and managed by AWS on your behalf.
+	// - `AWS_OWNED_KMS_KEY` : Use an AWS  key that is owned and managed by AWS on your behalf.
 	// - *Undefined* : By default, use an AWS owned KMS key.
 	// - *A valid symmetric customer managed KMS key* : Use the specified symmetric encryption KMS key in your account that you create, own, and manage.
 	//

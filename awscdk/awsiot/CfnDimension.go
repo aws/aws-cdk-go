@@ -491,6 +491,24 @@ func (j *jsiiProxy_CfnDimension)SetType(val *string) {
 	)
 }
 
+func CfnDimension_ArnForDimension(resource interfacesawsiot.IDimensionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDimension_ArnForDimensionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnDimension",
+		"arnForDimension",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDimensionRef from an ARN.
 func CfnDimension_FromDimensionArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IDimensionRef {
 	_init_.Initialize()

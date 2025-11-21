@@ -36,6 +36,6 @@ type CfnDocumentationPartProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html#cfn-apigateway-documentationpart-restapiid
 	//
-	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"required" json:"restApiId" yaml:"restApiId"`
 }
 

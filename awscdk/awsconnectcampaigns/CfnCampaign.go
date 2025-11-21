@@ -543,6 +543,24 @@ func (j *jsiiProxy_CfnCampaign)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCampaign_ArnForCampaign(resource interfacesawsconnectcampaigns.ICampaignRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCampaign_ArnForCampaignParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connectcampaigns.CfnCampaign",
+		"arnForCampaign",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

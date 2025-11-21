@@ -13,7 +13,7 @@ import (
 
 // A resource that is used to connect third-party source providers with services like CodePipeline.
 //
-// Note: A connection created through AWS CloudFormation , the CLI, or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the connection in the console.
+// Note: A connection created through CloudFormation , the CLI, or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the connection in the console.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -514,6 +514,24 @@ func (j *jsiiProxy_CfnConnection)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnConnection_ArnForConnection(resource interfacesawscodeconnections.IConnectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnection_ArnForConnectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codeconnections.CfnConnection",
+		"arnForConnection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

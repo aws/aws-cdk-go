@@ -25,7 +25,7 @@ import (
 //   		jsii.String("guardrailPolicies"),
 //   	},
 //   	LoggingLevel: jsii.String("loggingLevel"),
-//   	SnsTopicArns: []*string{
+//   	SnsTopicArns: []interface{}{
 //   		jsii.String("snsTopicArns"),
 //   	},
 //   	Tags: []CfnTag{
@@ -49,7 +49,7 @@ type CfnSlackChannelConfigurationProps struct {
 	// This is a user-defined role that  will assume. This is not the service-linked role. For more information, see [IAM Policies for  in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
 	//
-	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
+	IamRoleArn interface{} `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The ID of the Slack channel.
 	//
 	// To get the ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the character string at the end of the URL. For example, `ABCBBLZZZ` .
@@ -83,7 +83,7 @@ type CfnSlackChannelConfigurationProps struct {
 	// The ARNs of the SNS topics that deliver notifications to  .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
 	//
-	SnsTopicArns *[]*string `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`
+	SnsTopicArns *[]interface{} `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`
 	// The tags to add to the configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-tags
 	//

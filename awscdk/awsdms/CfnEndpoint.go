@@ -374,7 +374,7 @@ type CfnEndpoint interface {
 	// Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams.
 	KinesisSettings() interface{}
 	SetKinesisSettings(val interface{})
-	// An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
+	// An AWS  key identifier that is used to encrypt the connection parameters for the endpoint.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -1397,6 +1397,24 @@ func (j *jsiiProxy_CfnEndpoint)SetUsername(val *string) {
 		"username",
 		val,
 	)
+}
+
+func CfnEndpoint_ArnForEndpoint(resource interfacesawsdms.IEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEndpoint_ArnForEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dms.CfnEndpoint",
+		"arnForEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IEndpointRef from a endpointId.

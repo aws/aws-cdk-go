@@ -13,7 +13,7 @@ import (
 
 // The `AWS::CloudFormation::HookVersion` resource publishes new or first version of a Hook to the CloudFormation registry.
 //
-// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *CloudFormation User Guide* .
 //
 // This resource type is not compatible with Guard and Lambda Hooks.
 //
@@ -524,6 +524,24 @@ func (j *jsiiProxy_CfnHookVersion)SetTypeName(val *string) {
 		"typeName",
 		val,
 	)
+}
+
+func CfnHookVersion_ArnForHookVersion(resource interfacesawscloudformation.IHookVersionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnHookVersion_ArnForHookVersionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudformation.CfnHookVersion",
+		"arnForHookVersion",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

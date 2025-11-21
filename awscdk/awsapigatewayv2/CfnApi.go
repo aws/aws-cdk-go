@@ -834,6 +834,24 @@ func (j *jsiiProxy_CfnApi)SetVersion(val *string) {
 	)
 }
 
+func CfnApi_ArnForApi(resource interfacesawsapigatewayv2.IApiRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApi_ArnForApiParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigatewayv2.CfnApi",
+		"arnForApi",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IApiRef from a apiId.
 func CfnApi_FromApiId(scope constructs.Construct, id *string, apiId *string) interfacesawsapigatewayv2.IApiRef {
 	_init_.Initialize()

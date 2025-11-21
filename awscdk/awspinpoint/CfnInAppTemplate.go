@@ -589,6 +589,24 @@ func (j *jsiiProxy_CfnInAppTemplate)SetTemplateName(val *string) {
 	)
 }
 
+func CfnInAppTemplate_ArnForInAppTemplate(resource interfacesawspinpoint.IInAppTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInAppTemplate_ArnForInAppTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnInAppTemplate",
+		"arnForInAppTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IInAppTemplateRef from an ARN.
 func CfnInAppTemplate_FromInAppTemplateArn(scope constructs.Construct, id *string, arn *string) interfacesawspinpoint.IInAppTemplateRef {
 	_init_.Initialize()

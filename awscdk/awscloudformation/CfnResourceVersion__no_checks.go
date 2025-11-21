@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResourceVersion) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnResourceVersion_ArnForResourceVersionParameters(resource interfacesawscloudformation.IResourceVersionRef) error {
+	return nil
+}
+
 func validateCfnResourceVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

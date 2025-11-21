@@ -526,6 +526,24 @@ func (j *jsiiProxy_CfnAssistant)SetType(val *string) {
 	)
 }
 
+func CfnAssistant_ArnForAssistant(resource interfacesawswisdom.IAssistantRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAssistant_ArnForAssistantParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"arnForAssistant",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAssistantRef from an ARN.
 func CfnAssistant_FromAssistantArn(scope constructs.Construct, id *string, arn *string) interfacesawswisdom.IAssistantRef {
 	_init_.Initialize()

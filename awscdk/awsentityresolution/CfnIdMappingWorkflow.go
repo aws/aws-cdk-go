@@ -660,6 +660,24 @@ func (j *jsiiProxy_CfnIdMappingWorkflow)SetWorkflowName(val *string) {
 	)
 }
 
+func CfnIdMappingWorkflow_ArnForIdMappingWorkflow(resource interfacesawsentityresolution.IIdMappingWorkflowRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIdMappingWorkflow_ArnForIdMappingWorkflowParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow",
+		"arnForIdMappingWorkflow",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IIdMappingWorkflowRef from a workflowName.
 func CfnIdMappingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) interfacesawsentityresolution.IIdMappingWorkflowRef {
 	_init_.Initialize()

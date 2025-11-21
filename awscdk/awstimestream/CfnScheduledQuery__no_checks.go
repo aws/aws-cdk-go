@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnScheduledQuery) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnScheduledQuery_ArnForScheduledQueryParameters(resource interfacesawstimestream.IScheduledQueryRef) error {
+	return nil
+}
+
 func validateCfnScheduledQuery_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

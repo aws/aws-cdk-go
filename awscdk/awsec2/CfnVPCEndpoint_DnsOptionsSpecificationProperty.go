@@ -11,6 +11,10 @@ package awsec2
 //   dnsOptionsSpecificationProperty := &DnsOptionsSpecificationProperty{
 //   	DnsRecordIpType: jsii.String("dnsRecordIpType"),
 //   	PrivateDnsOnlyForInboundResolverEndpoint: jsii.String("privateDnsOnlyForInboundResolverEndpoint"),
+//   	PrivateDnsPreference: jsii.String("privateDnsPreference"),
+//   	PrivateDnsSpecifiedDomains: []*string{
+//   		jsii.String("privateDnsSpecifiedDomains"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html
@@ -26,5 +30,11 @@ type CfnVPCEndpoint_DnsOptionsSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html#cfn-ec2-vpcendpoint-dnsoptionsspecification-privatednsonlyforinboundresolverendpoint
 	//
 	PrivateDnsOnlyForInboundResolverEndpoint *string `field:"optional" json:"privateDnsOnlyForInboundResolverEndpoint" yaml:"privateDnsOnlyForInboundResolverEndpoint"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html#cfn-ec2-vpcendpoint-dnsoptionsspecification-privatednspreference
+	//
+	PrivateDnsPreference *string `field:"optional" json:"privateDnsPreference" yaml:"privateDnsPreference"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html#cfn-ec2-vpcendpoint-dnsoptionsspecification-privatednsspecifieddomains
+	//
+	PrivateDnsSpecifiedDomains *[]*string `field:"optional" json:"privateDnsSpecifiedDomains" yaml:"privateDnsSpecifiedDomains"`
 }
 

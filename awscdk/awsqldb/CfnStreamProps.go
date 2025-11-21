@@ -57,7 +57,7 @@ type CfnStreamProps struct {
 	// To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
 	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name that you want to assign to the QLDB journal stream.
 	//
 	// User-defined names can help identify and indicate the purpose of a stream.

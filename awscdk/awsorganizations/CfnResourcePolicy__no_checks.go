@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResourcePolicy) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnResourcePolicy_ArnForResourcePolicyParameters(resource interfacesawsorganizations.IResourcePolicyRef) error {
+	return nil
+}
+
 func validateCfnResourcePolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

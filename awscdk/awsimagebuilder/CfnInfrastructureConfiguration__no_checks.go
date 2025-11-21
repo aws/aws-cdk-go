@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) validateValidatePropertiesPar
 	return nil
 }
 
+func validateCfnInfrastructureConfiguration_ArnForInfrastructureConfigurationParameters(resource interfacesawsimagebuilder.IInfrastructureConfigurationRef) error {
+	return nil
+}
+
 func validateCfnInfrastructureConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

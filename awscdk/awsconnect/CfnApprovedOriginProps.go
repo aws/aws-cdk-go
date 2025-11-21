@@ -23,7 +23,7 @@ type CfnApprovedOriginProps struct {
 	// *Maximum* : `100`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html#cfn-connect-approvedorigin-instanceid
 	//
-	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
+	InstanceId interface{} `field:"required" json:"instanceId" yaml:"instanceId"`
 	// Domain name to be added to the allow-list of the instance.
 	//
 	// *Maximum* : `267`.

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnComponentVersion) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnComponentVersion_ArnForComponentVersionParameters(resource interfacesawsgreengrassv2.IComponentVersionRef) error {
+	return nil
+}
+
 func validateCfnComponentVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

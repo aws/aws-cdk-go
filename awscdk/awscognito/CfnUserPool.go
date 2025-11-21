@@ -1206,6 +1206,24 @@ func (j *jsiiProxy_CfnUserPool)SetWebAuthnUserVerification(val *string) {
 	)
 }
 
+func CfnUserPool_ArnForUserPool(resource interfacesawscognito.IUserPoolRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUserPool_ArnForUserPoolParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
+		"arnForUserPool",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IUserPoolRef from an ARN.
 func CfnUserPool_FromUserPoolArn(scope constructs.Construct, id *string, arn *string) interfacesawscognito.IUserPoolRef {
 	_init_.Initialize()

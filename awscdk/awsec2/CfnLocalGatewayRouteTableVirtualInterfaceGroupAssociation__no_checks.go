@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) va
 	return nil
 }
 
+func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_ArnForLocalGatewayRouteTableVirtualInterfaceGroupAssociationParameters(resource interfacesawsec2.ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef) error {
+	return nil
+}
+
 func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_FromLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdParameters(scope constructs.Construct, id *string, localGatewayRouteTableVirtualInterfaceGroupAssociationId *string) error {
 	return nil
 }

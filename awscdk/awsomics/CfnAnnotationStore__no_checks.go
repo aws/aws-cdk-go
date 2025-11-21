@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAnnotationStore) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnAnnotationStore_ArnForAnnotationStoreParameters(resource interfacesawsomics.IAnnotationStoreRef) error {
+	return nil
+}
+
 func validateCfnAnnotationStore_FromAnnotationStoreNameParameters(scope constructs.Construct, id *string, annotationStoreName *string) error {
 	return nil
 }

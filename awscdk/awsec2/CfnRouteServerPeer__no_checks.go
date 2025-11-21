@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRouteServerPeer) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnRouteServerPeer_ArnForRouteServerPeerParameters(resource interfacesawsec2.IRouteServerPeerRef) error {
+	return nil
+}
+
 func validateCfnRouteServerPeer_FromRouteServerPeerArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

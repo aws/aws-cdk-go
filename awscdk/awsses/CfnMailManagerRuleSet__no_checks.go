@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMailManagerRuleSet) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnMailManagerRuleSet_ArnForMailManagerRuleSetParameters(resource interfacesawsses.IMailManagerRuleSetRef) error {
+	return nil
+}
+
 func validateCfnMailManagerRuleSet_FromRuleSetIdParameters(scope constructs.Construct, id *string, ruleSetId *string) error {
 	return nil
 }

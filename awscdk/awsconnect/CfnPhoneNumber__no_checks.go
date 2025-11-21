@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPhoneNumber) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnPhoneNumber_ArnForPhoneNumberParameters(resource interfacesawsconnect.IPhoneNumberRef) error {
+	return nil
+}
+
 func validateCfnPhoneNumber_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

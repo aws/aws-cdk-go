@@ -52,7 +52,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html
 //
 type CfnTopicProps struct {
-	// The `ArchivePolicy` determines the number of days Amazon SNS retains messages in FIFO topics.
+	// The `ArchivePolicy` determines the number of days Amazon  retains messages in FIFO topics.
 	//
 	// You can set a retention period ranging from 1 to 365 days. This property is only applicable to FIFO topics; attempting to use it with standard topics will result in a creation failure.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-archivepolicy
@@ -60,7 +60,7 @@ type CfnTopicProps struct {
 	ArchivePolicy interface{} `field:"optional" json:"archivePolicy" yaml:"archivePolicy"`
 	// `ContentBasedDeduplication` enables deduplication of messages based on their content for FIFO topics.
 	//
-	// By default, this property is set to false. If you create a FIFO topic with `ContentBasedDeduplication` set to false, you must provide a `MessageDeduplicationId` for each `Publish` action. When set to true, Amazon SNS automatically generates a `MessageDeduplicationId` using a SHA-256 hash of the message body (excluding message attributes). You can optionally override this generated value by specifying a `MessageDeduplicationId` in the `Publish` action. Note that this property only applies to FIFO topics; using it with standard topics will cause the creation to fail.
+	// By default, this property is set to false. If you create a FIFO topic with `ContentBasedDeduplication` set to false, you must provide a `MessageDeduplicationId` for each `Publish` action. When set to true, Amazon  automatically generates a `MessageDeduplicationId` using a SHA-256 hash of the message body (excluding message attributes). You can optionally override this generated value by specifying a `MessageDeduplicationId` in the `Publish` action. Note that this property only applies to FIFO topics; using it with standard topics will cause the creation to fail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-contentbaseddeduplication
 	//
 	ContentBasedDeduplication interface{} `field:"optional" json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
@@ -86,7 +86,7 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-deliverystatuslogging
 	//
 	DeliveryStatusLogging interface{} `field:"optional" json:"deliveryStatusLogging" yaml:"deliveryStatusLogging"`
-	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	// The display name to use for an Amazon  topic with SMS subscriptions.
 	//
 	// The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-displayname
@@ -102,21 +102,21 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-fifotopic
 	//
 	FifoTopic interface{} `field:"optional" json:"fifoTopic" yaml:"fifoTopic"`
-	// The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom CMK.
+	// The ID of an AWS managed customer master key (CMK) for Amazon  or a custom CMK.
 	//
 	// For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms) . For more examples, see `[KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters)` in the *AWS Key Management Service API Reference* .
 	//
 	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-kmsmasterkeyid
 	//
-	KmsMasterKeyId *string `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
+	KmsMasterKeyId interface{} `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
 	//
 	// By default, `SignatureVersion` is set to `1` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-signatureversion
 	//
 	SignatureVersion *string `field:"optional" json:"signatureVersion" yaml:"signatureVersion"`
-	// The Amazon SNS subscriptions (endpoints) for this topic.
+	// The Amazon  subscriptions (endpoints) for this topic.
 	//
 	// > If you specify the `Subscription` property in the `AWS::SNS::Topic` resource and it creates an associated subscription resource, the associated subscription is not deleted when the `AWS::SNS::Topic` resource is deleted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-subscription
@@ -132,15 +132,15 @@ type CfnTopicProps struct {
 	//
 	// Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with `.fifo` .
 	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	// If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-topicname
 	//
 	TopicName *string `field:"optional" json:"topicName" yaml:"topicName"`
-	// Tracing mode of an Amazon SNS topic.
+	// Tracing mode of an Amazon  topic.
 	//
-	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to `Active` , Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
+	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an Amazon  publisher to its subscriptions. If set to `Active` , Amazon  will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-tracingconfig
 	//
 	TracingConfig *string `field:"optional" json:"tracingConfig" yaml:"tracingConfig"`

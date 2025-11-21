@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEventBridgeRuleTemplateGroup) validateValidatePropertiesPa
 	return nil
 }
 
+func validateCfnEventBridgeRuleTemplateGroup_ArnForEventBridgeRuleTemplateGroupParameters(resource interfacesawsmedialive.IEventBridgeRuleTemplateGroupRef) error {
+	return nil
+}
+
 func validateCfnEventBridgeRuleTemplateGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

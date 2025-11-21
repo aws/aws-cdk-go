@@ -516,6 +516,24 @@ func (j *jsiiProxy_CfnCustomPermissions)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCustomPermissions_ArnForCustomPermissions(resource interfacesawsquicksight.ICustomPermissionsRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCustomPermissions_ArnForCustomPermissionsParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_quicksight.CfnCustomPermissions",
+		"arnForCustomPermissions",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

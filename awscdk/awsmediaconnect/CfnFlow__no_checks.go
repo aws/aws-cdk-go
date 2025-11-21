@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFlow) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnFlow_ArnForFlowParameters(resource interfacesawsmediaconnect.IFlowRef) error {
+	return nil
+}
+
 func validateCfnFlow_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

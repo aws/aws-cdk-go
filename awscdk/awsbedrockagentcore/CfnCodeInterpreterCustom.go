@@ -581,6 +581,24 @@ func (j *jsiiProxy_CfnCodeInterpreterCustom)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnCodeInterpreterCustom_ArnForCodeInterpreterCustom(resource interfacesawsbedrockagentcore.ICodeInterpreterCustomRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCodeInterpreterCustom_ArnForCodeInterpreterCustomParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterCustom",
+		"arnForCodeInterpreterCustom",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICodeInterpreterCustomRef from a codeInterpreterId.
 func CfnCodeInterpreterCustom_FromCodeInterpreterId(scope constructs.Construct, id *string, codeInterpreterId *string) interfacesawsbedrockagentcore.ICodeInterpreterCustomRef {
 	_init_.Initialize()

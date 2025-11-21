@@ -575,6 +575,24 @@ func (j *jsiiProxy_CfnDiskSnapshot)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDiskSnapshot_ArnForDiskSnapshot(resource interfacesawslightsail.IDiskSnapshotRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDiskSnapshot_ArnForDiskSnapshotParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lightsail.CfnDiskSnapshot",
+		"arnForDiskSnapshot",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

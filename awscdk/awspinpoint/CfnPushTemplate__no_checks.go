@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPushTemplate) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnPushTemplate_ArnForPushTemplateParameters(resource interfacesawspinpoint.IPushTemplateRef) error {
+	return nil
+}
+
 func validateCfnPushTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

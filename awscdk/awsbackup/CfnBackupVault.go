@@ -17,7 +17,7 @@ import (
 //
 // Do not include sensitive data, such as passport numbers, in the name of a backup vault.
 //
-// For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
+// For a sample CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -561,6 +561,24 @@ func (j *jsiiProxy_CfnBackupVault)SetNotifications(val interface{}) {
 		"notifications",
 		val,
 	)
+}
+
+func CfnBackupVault_ArnForBackupVault(resource interfacesawsbackup.IBackupVaultRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBackupVault_ArnForBackupVaultParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnBackupVault",
+		"arnForBackupVault",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IBackupVaultRef from an ARN.

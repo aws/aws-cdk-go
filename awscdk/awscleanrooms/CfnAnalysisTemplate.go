@@ -765,6 +765,24 @@ func (j *jsiiProxy_CfnAnalysisTemplate)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAnalysisTemplate_ArnForAnalysisTemplate(resource interfacesawscleanrooms.IAnalysisTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAnalysisTemplate_ArnForAnalysisTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate",
+		"arnForAnalysisTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnComponentType) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnComponentType_ArnForComponentTypeParameters(resource interfacesawsiottwinmaker.IComponentTypeRef) error {
+	return nil
+}
+
 func validateCfnComponentType_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

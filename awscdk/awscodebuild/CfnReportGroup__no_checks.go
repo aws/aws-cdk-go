@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnReportGroup) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnReportGroup_ArnForReportGroupParameters(resource interfacesawscodebuild.IReportGroupRef) error {
+	return nil
+}
+
 func validateCfnReportGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

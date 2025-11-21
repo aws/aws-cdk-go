@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPublicRepository) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnPublicRepository_ArnForPublicRepositoryParameters(resource interfacesawsecr.IPublicRepositoryRef) error {
+	return nil
+}
+
 func validateCfnPublicRepository_FromPublicRepositoryArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

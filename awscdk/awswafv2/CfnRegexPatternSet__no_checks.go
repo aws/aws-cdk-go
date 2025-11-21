@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRegexPatternSet) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnRegexPatternSet_ArnForRegexPatternSetParameters(resource interfacesawswafv2.IRegexPatternSetRef) error {
+	return nil
+}
+
 func validateCfnRegexPatternSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

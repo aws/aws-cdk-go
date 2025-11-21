@@ -56,3 +56,7 @@ func (i *jsiiProxy_IScheduleGroup) validateMetricThrottledParameters(props *awsc
 	return nil
 }
 
+func (i *jsiiProxy_IScheduleGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

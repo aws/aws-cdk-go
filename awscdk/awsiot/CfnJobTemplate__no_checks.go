@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnJobTemplate) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnJobTemplate_ArnForJobTemplateParameters(resource interfacesawsiot.IJobTemplateRef) error {
+	return nil
+}
+
 func validateCfnJobTemplate_FromJobTemplateArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

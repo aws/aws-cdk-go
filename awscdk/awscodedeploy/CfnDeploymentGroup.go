@@ -15,7 +15,7 @@ import (
 //
 // For more information, see [CreateDeploymentGroup](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html) in the *CodeDeploy API Reference* .
 //
-// > Amazon ECS blue/green deployments through CodeDeploy do not use the `AWS::CodeDeploy::DeploymentGroup` resource. To perform Amazon ECS blue/green deployments, use the `AWS::CodeDeploy::BlueGreen` hook. See [Perform Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html) for more information.
+// > Amazon ECS blue/green deployments through CodeDeploy do not use the `AWS::CodeDeploy::DeploymentGroup` resource. To perform Amazon ECS blue/green deployments, use the `AWS::CodeDeploy::BlueGreen` hook. See [Perform Amazon ECS blue/green deployments through CodeDeploy using CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html) for more information.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -199,7 +199,7 @@ type CfnDeploymentGroup interface {
 	// Information about the automatic rollback configuration that is associated with the deployment group.
 	AutoRollbackConfiguration() interface{}
 	SetAutoRollbackConfiguration(val interface{})
-	// A list of associated Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created.
+	// A list of associated Amazon EC2 Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created.
 	AutoScalingGroups() *[]*string
 	SetAutoScalingGroups(val *[]*string)
 	// Information about blue/green deployment options for a deployment group.

@@ -622,6 +622,24 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation)SetVpcId(val *string) {
 	)
 }
 
+func CfnFirewallRuleGroupAssociation_ArnForFirewallRuleGroupAssociation(resource interfacesawsroute53resolver.IFirewallRuleGroupAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFirewallRuleGroupAssociation_ArnForFirewallRuleGroupAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnFirewallRuleGroupAssociation",
+		"arnForFirewallRuleGroupAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

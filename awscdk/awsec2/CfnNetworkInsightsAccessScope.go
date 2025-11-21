@@ -665,6 +665,24 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScope)SetTagsRaw(val *[]*awscdk.CfnTa
 	)
 }
 
+func CfnNetworkInsightsAccessScope_ArnForNetworkInsightsAccessScope(resource interfacesawsec2.INetworkInsightsAccessScopeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInsightsAccessScope_ArnForNetworkInsightsAccessScopeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope",
+		"arnForNetworkInsightsAccessScope",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new INetworkInsightsAccessScopeRef from an ARN.
 func CfnNetworkInsightsAccessScope_FromNetworkInsightsAccessScopeArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.INetworkInsightsAccessScopeRef {
 	_init_.Initialize()

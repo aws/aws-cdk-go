@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIndex) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnIndex_ArnForIndexParameters(resource interfacesawsqbusiness.IIndexRef) error {
+	return nil
+}
+
 func validateCfnIndex_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

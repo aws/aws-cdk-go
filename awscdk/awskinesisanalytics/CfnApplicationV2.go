@@ -820,6 +820,25 @@ func (j *jsiiProxy_CfnApplicationV2)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Deprecated: use `aws-kinesisanalyticsv2` instead.
+func CfnApplicationV2_ArnForApplication(resource interfacesawskinesisanalyticsv2.IApplicationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApplicationV2_ArnForApplicationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2",
+		"arnForApplication",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IApplicationRef from a applicationName.
 // Deprecated: use `aws-kinesisanalyticsv2` instead.
 func CfnApplicationV2_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) interfacesawskinesisanalyticsv2.IApplicationRef {

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSpace) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnSpace_ArnForSpaceParameters(resource interfacesawssagemaker.ISpaceRef) error {
+	return nil
+}
+
 func validateCfnSpace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

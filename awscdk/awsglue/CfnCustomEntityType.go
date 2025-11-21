@@ -476,6 +476,24 @@ func (j *jsiiProxy_CfnCustomEntityType)SetTags(val interface{}) {
 	)
 }
 
+func CfnCustomEntityType_ArnForCustomEntityType(resource interfacesawsglue.ICustomEntityTypeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCustomEntityType_ArnForCustomEntityTypeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnCustomEntityType",
+		"arnForCustomEntityType",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICustomEntityTypeRef from a customEntityTypeId.
 func CfnCustomEntityType_FromCustomEntityTypeId(scope constructs.Construct, id *string, customEntityTypeId *string) interfacesawsglue.ICustomEntityTypeRef {
 	_init_.Initialize()

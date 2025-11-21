@@ -642,6 +642,24 @@ func (j *jsiiProxy_CfnGameSessionQueue)SetTimeoutInSeconds(val *float64) {
 	)
 }
 
+func CfnGameSessionQueue_ArnForGameSessionQueue(resource interfacesawsgamelift.IGameSessionQueueRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGameSessionQueue_ArnForGameSessionQueueParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"arnForGameSessionQueue",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IGameSessionQueueRef from an ARN.
 func CfnGameSessionQueue_FromGameSessionQueueArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IGameSessionQueueRef {
 	_init_.Initialize()

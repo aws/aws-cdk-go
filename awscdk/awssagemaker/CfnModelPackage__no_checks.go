@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnModelPackage) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnModelPackage_ArnForModelPackageParameters(resource interfacesawssagemaker.IModelPackageRef) error {
+	return nil
+}
+
 func validateCfnModelPackage_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

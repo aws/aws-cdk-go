@@ -32,13 +32,13 @@ import (
 //   	},
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	RecoveryPointId: jsii.String("recoveryPointId"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SnapshotArn: jsii.String("snapshotArn"),
 //   	SnapshotName: jsii.String("snapshotName"),
 //   	SnapshotOwnerAccount: jsii.String("snapshotOwnerAccount"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -153,7 +153,7 @@ type CfnWorkgroupProps struct {
 	// A list of security group IDs to associate with the workgroup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The Amazon Resource Name (ARN) of the snapshot to restore from.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-snapshotarn
 	//
@@ -169,7 +169,7 @@ type CfnWorkgroupProps struct {
 	// A list of subnet IDs the workgroup is associated with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The map of the key-value pairs used to tag the workgroup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-tags
 	//

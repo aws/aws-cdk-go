@@ -53,14 +53,19 @@ import (
 //   // Add the capacity provider to the cluster
 //   cluster.AddManagedInstancesCapacityProvider(miCapacityProvider)
 //
-//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
+//   	MemoryMiB: jsii.String("512"),
+//   	Cpu: jsii.String("256"),
+//   	NetworkMode: ecs.NetworkMode_AWS_VPC,
+//   	Compatibility: ecs.Compatibility_MANAGED_INSTANCES,
+//   })
 //
 //   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	MemoryReservationMiB: jsii.Number(256),
 //   })
 //
-//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
+//   ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),

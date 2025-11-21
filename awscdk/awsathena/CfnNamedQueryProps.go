@@ -40,6 +40,6 @@ type CfnNamedQueryProps struct {
 	// The name of the workgroup that contains the named query.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
 	//
-	WorkGroup *string `field:"optional" json:"workGroup" yaml:"workGroup"`
+	WorkGroup interface{} `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeviceDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnDeviceDefinition_ArnForDeviceDefinitionParameters(resource interfacesawsgreengrass.IDeviceDefinitionRef) error {
+	return nil
+}
+
 func validateCfnDeviceDefinition_FromDeviceDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

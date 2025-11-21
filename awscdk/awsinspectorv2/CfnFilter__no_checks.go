@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFilter) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnFilter_ArnForFilterParameters(resource interfacesawsinspectorv2.IFilterRef) error {
+	return nil
+}
+
 func validateCfnFilter_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

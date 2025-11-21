@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNetworkProfile) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnNetworkProfile_ArnForNetworkProfileParameters(resource interfacesawsdevicefarm.INetworkProfileRef) error {
+	return nil
+}
+
 func validateCfnNetworkProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

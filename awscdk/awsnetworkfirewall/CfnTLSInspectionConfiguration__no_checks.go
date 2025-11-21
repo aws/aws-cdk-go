@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTLSInspectionConfiguration) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnTLSInspectionConfiguration_ArnForTLSInspectionConfigurationParameters(resource interfacesawsnetworkfirewall.ITLSInspectionConfigurationRef) error {
+	return nil
+}
+
 func validateCfnTLSInspectionConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > Amazon Lex V2 is the only supported version in AWS CloudFormation .
+// > Amazon Lex V2 is the only supported version in CloudFormation .
 //
 // Specifies an Amazon Lex conversational bot.
 //
@@ -685,6 +685,24 @@ func (j *jsiiProxy_CfnBot)SetTestBotAliasTags(val interface{}) {
 		"testBotAliasTags",
 		val,
 	)
+}
+
+func CfnBot_ArnForBot(resource interfacesawslex.IBotRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBot_ArnForBotParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lex.CfnBot",
+		"arnForBot",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

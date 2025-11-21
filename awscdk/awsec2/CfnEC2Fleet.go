@@ -827,6 +827,24 @@ func (j *jsiiProxy_CfnEC2Fleet)SetValidUntil(val *string) {
 	)
 }
 
+func CfnEC2Fleet_ArnForEC2Fleet(resource interfacesawsec2.IEC2FleetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEC2Fleet_ArnForEC2FleetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet",
+		"arnForEC2Fleet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IEC2FleetRef from a fleetId.
 func CfnEC2Fleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) interfacesawsec2.IEC2FleetRef {
 	_init_.Initialize()

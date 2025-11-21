@@ -31,7 +31,7 @@ type CfnPreparedStatementProps struct {
 	// The workgroup to which the prepared statement belongs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
 	//
-	WorkGroup *string `field:"required" json:"workGroup" yaml:"workGroup"`
+	WorkGroup interface{} `field:"required" json:"workGroup" yaml:"workGroup"`
 	// The description of the prepared statement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
 	//

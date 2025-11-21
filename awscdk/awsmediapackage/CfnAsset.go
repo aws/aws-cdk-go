@@ -583,6 +583,24 @@ func (j *jsiiProxy_CfnAsset)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAsset_ArnForAsset(resource interfacesawsmediapackage.IAssetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAsset_ArnForAssetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediapackage.CfnAsset",
+		"arnForAsset",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeliveryStream) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnDeliveryStream_ArnForDeliveryStreamParameters(resource interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+	return nil
+}
+
 func validateCfnDeliveryStream_FromDeliveryStreamArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

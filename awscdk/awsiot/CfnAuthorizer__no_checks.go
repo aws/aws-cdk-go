@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAuthorizer) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnAuthorizer_ArnForAuthorizerParameters(resource interfacesawsiot.IAuthorizerRef) error {
+	return nil
+}
+
 func validateCfnAuthorizer_FromAuthorizerArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

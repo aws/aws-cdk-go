@@ -15,7 +15,7 @@ import (
 //
 // This document defines the actions that Systems Manager performs on your AWS resources.
 //
-// > This resource does not support AWS CloudFormation drift detection.
+// > This resource does not support CloudFormation drift detection.
 //
 // Example:
 //   var application Application
@@ -597,6 +597,24 @@ func (j *jsiiProxy_CfnDocument)SetVersionName(val *string) {
 		"versionName",
 		val,
 	)
+}
+
+func CfnDocument_ArnForDocument(resource interfacesawsssm.IDocumentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDocument_ArnForDocumentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnDocument",
+		"arnForDocument",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IDocumentRef from a documentName.

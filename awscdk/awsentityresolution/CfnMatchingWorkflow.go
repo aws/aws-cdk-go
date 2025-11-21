@@ -676,6 +676,24 @@ func (j *jsiiProxy_CfnMatchingWorkflow)SetWorkflowName(val *string) {
 	)
 }
 
+func CfnMatchingWorkflow_ArnForMatchingWorkflow(resource interfacesawsentityresolution.IMatchingWorkflowRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMatchingWorkflow_ArnForMatchingWorkflowParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow",
+		"arnForMatchingWorkflow",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMatchingWorkflowRef from a workflowName.
 func CfnMatchingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) interfacesawsentityresolution.IMatchingWorkflowRef {
 	_init_.Initialize()

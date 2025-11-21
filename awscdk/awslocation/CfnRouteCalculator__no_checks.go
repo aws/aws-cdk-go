@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRouteCalculator) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnRouteCalculator_ArnForRouteCalculatorParameters(resource interfacesawslocation.IRouteCalculatorRef) error {
+	return nil
+}
+
 func validateCfnRouteCalculator_FromCalculatorNameParameters(scope constructs.Construct, id *string, calculatorName *string) error {
 	return nil
 }

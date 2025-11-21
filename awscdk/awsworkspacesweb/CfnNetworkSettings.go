@@ -512,6 +512,24 @@ func (j *jsiiProxy_CfnNetworkSettings)SetVpcId(val *string) {
 	)
 }
 
+func CfnNetworkSettings_ArnForNetworkSettings(resource interfacesawsworkspacesweb.INetworkSettingsRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkSettings_ArnForNetworkSettingsParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnNetworkSettings",
+		"arnForNetworkSettings",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

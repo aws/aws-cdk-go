@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGraph) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnGraph_ArnForGraphParameters(resource interfacesawsneptunegraph.IGraphRef) error {
+	return nil
+}
+
 func validateCfnGraph_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

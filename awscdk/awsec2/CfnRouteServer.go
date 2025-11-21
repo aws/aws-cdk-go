@@ -525,6 +525,24 @@ func (j *jsiiProxy_CfnRouteServer)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnRouteServer_ArnForRouteServer(resource interfacesawsec2.IRouteServerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRouteServer_ArnForRouteServerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnRouteServer",
+		"arnForRouteServer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IRouteServerRef from an ARN.
 func CfnRouteServer_FromRouteServerArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IRouteServerRef {
 	_init_.Initialize()

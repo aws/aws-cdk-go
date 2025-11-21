@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDistributionTenant) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnDistributionTenant_ArnForDistributionTenantParameters(resource interfacesawscloudfront.IDistributionTenantRef) error {
+	return nil
+}
+
 func validateCfnDistributionTenant_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

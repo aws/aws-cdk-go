@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSimulation) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnSimulation_ArnForSimulationParameters(resource interfacesawssimspaceweaver.ISimulationRef) error {
+	return nil
+}
+
 func validateCfnSimulation_FromSimulationNameParameters(scope constructs.Construct, id *string, simulationName *string) error {
 	return nil
 }

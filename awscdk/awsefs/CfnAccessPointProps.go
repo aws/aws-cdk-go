@@ -46,7 +46,7 @@ type CfnAccessPointProps struct {
 	// Accepts only the ID format for input when specifying a file system, for example `fs-0123456789abcedf2` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
 	//
-	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId interface{} `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

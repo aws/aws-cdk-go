@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCapacityManagerDataExport) validateValidatePropertiesParam
 	return nil
 }
 
+func validateCfnCapacityManagerDataExport_ArnForCapacityManagerDataExportParameters(resource interfacesawsec2.ICapacityManagerDataExportRef) error {
+	return nil
+}
+
 func validateCfnCapacityManagerDataExport_FromCapacityManagerDataExportIdParameters(scope constructs.Construct, id *string, capacityManagerDataExportId *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInstanceConnectEndpoint) validateValidatePropertiesParamet
 	return nil
 }
 
+func validateCfnInstanceConnectEndpoint_ArnForInstanceConnectEndpointParameters(resource interfacesawsec2.IInstanceConnectEndpointRef) error {
+	return nil
+}
+
 func validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointIdParameters(scope constructs.Construct, id *string, instanceConnectEndpointId *string) error {
 	return nil
 }

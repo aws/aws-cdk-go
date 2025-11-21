@@ -22,7 +22,7 @@ import (
 // - If you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.
 // - To successfully create a new queue, you must provide a queue name that adheres to the [limits related to queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html) and is unique within the scope of your queues.
 //
-// For more information about creating FIFO (first-in-first-out) queues, see [Creating an Amazon SQS queue ( AWS CloudFormation )](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/create-queue-cloudformation.html) in the *Amazon SQS Developer Guide* .
+// For more information about creating FIFO (first-in-first-out) queues, see [Creating an Amazon SQS queue ( CloudFormation )](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/create-queue-cloudformation.html) in the *Amazon SQS Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -98,7 +98,7 @@ type CfnQueue interface {
 	// For high throughput for FIFO queues, specifies whether the FIFO queue throughput quota applies to the entire queue or per message group.
 	FifoThroughputLimit() *string
 	SetFifoThroughputLimit(val *string)
-	// The length of time in seconds for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again.
+	// The length of time in seconds for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS  again.
 	KmsDataKeyReusePeriodSeconds() *float64
 	SetKmsDataKeyReusePeriodSeconds(val *float64)
 	// The ID of an AWS Key Management Service (KMS) for Amazon SQS , or a custom KMS.
@@ -792,6 +792,24 @@ func (j *jsiiProxy_CfnQueue)SetVisibilityTimeout(val *float64) {
 		"visibilityTimeout",
 		val,
 	)
+}
+
+func CfnQueue_ArnForQueue(resource interfacesawssqs.IQueueRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnQueue_ArnForQueueParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"arnForQueue",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

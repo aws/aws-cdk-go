@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCapacityReservation) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnCapacityReservation_ArnForCapacityReservationParameters(resource interfacesawsathena.ICapacityReservationRef) error {
+	return nil
+}
+
 func validateCfnCapacityReservation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

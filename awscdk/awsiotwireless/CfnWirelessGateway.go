@@ -565,6 +565,24 @@ func (j *jsiiProxy_CfnWirelessGateway)SetThingName(val *string) {
 	)
 }
 
+func CfnWirelessGateway_ArnForWirelessGateway(resource interfacesawsiotwireless.IWirelessGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWirelessGateway_ArnForWirelessGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
+		"arnForWirelessGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IWirelessGatewayRef from an ARN.
 func CfnWirelessGateway_FromWirelessGatewayArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IWirelessGatewayRef {
 	_init_.Initialize()

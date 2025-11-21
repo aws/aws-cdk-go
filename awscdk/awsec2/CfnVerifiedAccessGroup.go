@@ -587,6 +587,24 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup)SetVerifiedAccessInstanceId(val *strin
 	)
 }
 
+func CfnVerifiedAccessGroup_ArnForVerifiedAccessGroup(resource interfacesawsec2.IVerifiedAccessGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVerifiedAccessGroup_ArnForVerifiedAccessGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessGroup",
+		"arnForVerifiedAccessGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVerifiedAccessGroupRef from an ARN.
 func CfnVerifiedAccessGroup_FromVerifiedAccessGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IVerifiedAccessGroupRef {
 	_init_.Initialize()

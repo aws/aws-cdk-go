@@ -11,12 +11,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssns"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Either a new or imported Topic.
 type TopicBase interface {
 	awscdk.Resource
+	awsiam.IEncryptedResource
 	ITopic
 	// Controls automatic creation of policy objects.
 	//
@@ -41,6 +43,8 @@ type TopicBase interface {
 	//
 	// If false, this is a standard topic.
 	Fifo() *bool
+	// Collection of grant methods for a Topic.
+	Grants() TopicGrants
 	// A KMS Key, either managed by this CDK app, or imported.
 	//
 	// This property applies only to server-side encryption.
@@ -61,6 +65,8 @@ type TopicBase interface {
 	TopicArn() *string
 	// The name of the topic.
 	TopicName() *string
+	// A reference to a Topic resource.
+	TopicRef() *interfacesawssns.TopicReference
 	// Adds a SSL policy to the topic resource policy.
 	AddSSLPolicy()
 	// Subscribe some endpoint to this topic.
@@ -106,6 +112,8 @@ type TopicBase interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Gives permissions to a grantable entity to perform actions on the encryption key.
+	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
 	// Grant topic publishing permissions to the given identity.
 	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
 	// Grant topic subscribing permissions to the given identity.
@@ -155,6 +163,7 @@ type TopicBase interface {
 // The jsii proxy struct for TopicBase
 type jsiiProxy_TopicBase struct {
 	internal.Type__awscdkResource
+	internal.Type__awsiamIEncryptedResource
 	jsiiProxy_ITopic
 }
 
@@ -203,6 +212,16 @@ func (j *jsiiProxy_TopicBase) Fifo() *bool {
 	_jsii_.Get(
 		j,
 		"fifo",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TopicBase) Grants() TopicGrants {
+	var returns TopicGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns
@@ -263,6 +282,16 @@ func (j *jsiiProxy_TopicBase) TopicName() *string {
 	_jsii_.Get(
 		j,
 		"topicName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TopicBase) TopicRef() *interfacesawssns.TopicReference {
+	var returns *interfacesawssns.TopicReference
+	_jsii_.Get(
+		j,
+		"topicRef",
 		&returns,
 	)
 	return returns
@@ -487,6 +516,27 @@ func (t *jsiiProxy_TopicBase) GetResourceNameAttribute(nameAttr *string) *string
 		t,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TopicBase) GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult {
+	if err := t.validateGrantOnKeyParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns *awsiam.GrantOnKeyResult
+
+	_jsii_.Invoke(
+		t,
+		"grantOnKey",
+		args,
 		&returns,
 	)
 

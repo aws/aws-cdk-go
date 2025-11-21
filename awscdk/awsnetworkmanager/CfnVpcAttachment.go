@@ -738,6 +738,24 @@ func (j *jsiiProxy_CfnVpcAttachment)SetVpcArn(val *string) {
 	)
 }
 
+func CfnVpcAttachment_ArnForVpcAttachment(resource interfacesawsnetworkmanager.IVpcAttachmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVpcAttachment_ArnForVpcAttachmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnVpcAttachment",
+		"arnForVpcAttachment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVpcAttachmentRef from a attachmentId.
 func CfnVpcAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) interfacesawsnetworkmanager.IVpcAttachmentRef {
 	_init_.Initialize()

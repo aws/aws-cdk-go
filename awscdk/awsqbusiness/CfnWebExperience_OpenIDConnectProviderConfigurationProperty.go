@@ -20,7 +20,7 @@ type CfnWebExperience_OpenIDConnectProviderConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html#cfn-qbusiness-webexperience-openidconnectproviderconfiguration-secretsarn
 	//
 	SecretsArn *string `field:"required" json:"secretsArn" yaml:"secretsArn"`
-	// An IAM role with permissions to access AWS KMS to decrypt the Secrets Manager secret containing your OIDC client secret.
+	// An IAM role with permissions to access AWS  to decrypt the Secrets Manager secret containing your OIDC client secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html#cfn-qbusiness-webexperience-openidconnectproviderconfiguration-secretsrole
 	//
 	SecretsRole *string `field:"required" json:"secretsRole" yaml:"secretsRole"`

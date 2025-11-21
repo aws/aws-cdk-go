@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGlobalTable) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnGlobalTable_ArnForGlobalTableParameters(resource interfacesawsdynamodb.IGlobalTableRef) error {
+	return nil
+}
+
 func validateCfnGlobalTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

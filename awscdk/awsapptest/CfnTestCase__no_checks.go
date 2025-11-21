@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTestCase) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnTestCase_ArnForTestCaseParameters(resource interfacesawsapptest.ITestCaseRef) error {
+	return nil
+}
+
 func validateCfnTestCase_FromTestCaseArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -29,7 +29,7 @@ type CfnStreamKeyProps struct {
 	// Channel ARN for the stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
 	//
-	ChannelArn *string `field:"required" json:"channelArn" yaml:"channelArn"`
+	ChannelArn interface{} `field:"required" json:"channelArn" yaml:"channelArn"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-streamkey-tag.html) .

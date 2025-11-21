@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnOptOutList) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnOptOutList_ArnForOptOutListParameters(resource interfacesawssmsvoice.IOptOutListRef) error {
+	return nil
+}
+
 func validateCfnOptOutList_FromOptOutListArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

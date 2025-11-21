@@ -24,7 +24,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Force: jsii.Boolean(false),
-//   	VpcIds: []*string{
+//   	VpcIds: []interface{}{
 //   		jsii.String("vpcIds"),
 //   	},
 //   })

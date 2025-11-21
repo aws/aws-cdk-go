@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNodegroup) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnNodegroup_ArnForNodegroupParameters(resource interfacesawseks.INodegroupRef) error {
+	return nil
+}
+
 func validateCfnNodegroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

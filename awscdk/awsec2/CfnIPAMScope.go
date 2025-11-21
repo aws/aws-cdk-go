@@ -554,6 +554,24 @@ func (j *jsiiProxy_CfnIPAMScope)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnIPAMScope_ArnForIPAMScope(resource interfacesawsec2.IIPAMScopeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMScope_ArnForIPAMScopeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMScope",
+		"arnForIPAMScope",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IIPAMScopeRef from an ARN.
 func CfnIPAMScope_FromIPAMScopeArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IIPAMScopeRef {
 	_init_.Initialize()

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGeofenceCollection) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnGeofenceCollection_ArnForGeofenceCollectionParameters(resource interfacesawslocation.IGeofenceCollectionRef) error {
+	return nil
+}
+
 func validateCfnGeofenceCollection_FromCollectionNameParameters(scope constructs.Construct, id *string, collectionName *string) error {
 	return nil
 }

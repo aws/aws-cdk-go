@@ -28,7 +28,7 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	Scheme: jsii.String("scheme"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	SubnetMappings: []interface{}{
@@ -42,7 +42,7 @@ import (
 //   			SourceNatIpv6Prefix: jsii.String("sourceNatIpv6Prefix"),
 //   		},
 //   	},
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //   	Tags: []CfnTag{
@@ -126,7 +126,7 @@ type CfnLoadBalancerProps struct {
 	// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The IDs of the subnets.
 	//
 	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
@@ -156,7 +156,7 @@ type CfnLoadBalancerProps struct {
 	// [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
 	//
-	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
+	Subnets *[]interface{} `field:"optional" json:"subnets" yaml:"subnets"`
 	// The tags to assign to the load balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
 	//

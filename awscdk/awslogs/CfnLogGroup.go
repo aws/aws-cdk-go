@@ -73,7 +73,7 @@ type CfnLogGroup interface {
 	// Creates or updates a *field index policy* for the specified log group.
 	FieldIndexPolicies() interface{}
 	SetFieldIndexPolicies(val interface{})
-	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
+	// The Amazon Resource Name (ARN) of the AWS  key to use when encrypting log data.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// Specifies the log group class for this log group.
@@ -584,6 +584,24 @@ func (j *jsiiProxy_CfnLogGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnLogGroup_ArnForLogGroup(resource interfacesawslogs.ILogGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLogGroup_ArnForLogGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"arnForLogGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ILogGroupRef from an ARN.

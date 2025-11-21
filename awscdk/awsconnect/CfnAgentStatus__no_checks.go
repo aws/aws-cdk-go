@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAgentStatus) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnAgentStatus_ArnForAgentStatusParameters(resource interfacesawsconnect.IAgentStatusRef) error {
+	return nil
+}
+
 func validateCfnAgentStatus_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

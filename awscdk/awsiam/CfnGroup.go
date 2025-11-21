@@ -24,7 +24,7 @@ import (
 //
 //   cfnGroup := awscdk.Aws_iam.NewCfnGroup(this, jsii.String("MyCfnGroup"), &CfnGroupProps{
 //   	GroupName: jsii.String("groupName"),
-//   	ManagedPolicyArns: []*string{
+//   	ManagedPolicyArns: []interface{}{
 //   		jsii.String("managedPolicyArns"),
 //   	},
 //   	Path: jsii.String("path"),
@@ -475,6 +475,24 @@ func (j *jsiiProxy_CfnGroup)SetPolicies(val interface{}) {
 		"policies",
 		val,
 	)
+}
+
+func CfnGroup_ArnForGroup(resource interfacesawsiam.IGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGroup_ArnForGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.CfnGroup",
+		"arnForGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

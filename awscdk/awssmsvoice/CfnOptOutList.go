@@ -439,6 +439,24 @@ func (j *jsiiProxy_CfnOptOutList)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnOptOutList_ArnForOptOutList(resource interfacesawssmsvoice.IOptOutListRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnOptOutList_ArnForOptOutListParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnOptOutList",
+		"arnForOptOutList",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IOptOutListRef from an ARN.
 func CfnOptOutList_FromOptOutListArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IOptOutListRef {
 	_init_.Initialize()

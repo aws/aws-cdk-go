@@ -45,7 +45,7 @@ type CfnDeviceFleetProps struct {
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
 	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A description of the fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
 	//

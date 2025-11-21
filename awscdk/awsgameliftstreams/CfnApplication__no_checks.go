@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApplication) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnApplication_ArnForApplicationParameters(resource interfacesawsgameliftstreams.IApplicationRef) error {
+	return nil
+}
+
 func validateCfnApplication_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

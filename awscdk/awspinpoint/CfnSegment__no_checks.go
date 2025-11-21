@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSegment) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnSegment_ArnForSegmentParameters(resource interfacesawspinpoint.ISegmentRef) error {
+	return nil
+}
+
 func validateCfnSegment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

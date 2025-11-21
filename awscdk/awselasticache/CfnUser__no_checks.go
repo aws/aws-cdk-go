@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnUser) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnUser_ArnForUserParameters(resource interfacesawselasticache.IUserRef) error {
+	return nil
+}
+
 func validateCfnUser_FromUserArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -721,6 +721,24 @@ func (j *jsiiProxy_CfnEvaluationForm)SetTitle(val *string) {
 	)
 }
 
+func CfnEvaluationForm_ArnForEvaluationForm(resource interfacesawsconnect.IEvaluationFormRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEvaluationForm_ArnForEvaluationFormParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm",
+		"arnForEvaluationForm",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnHoursOfOperation) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnHoursOfOperation_ArnForHoursOfOperationParameters(resource interfacesawsconnect.IHoursOfOperationRef) error {
+	return nil
+}
+
 func validateCfnHoursOfOperation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -25,7 +25,7 @@ package awscloudformation
 type CfnResourceVersionProps struct {
 	// A URL to the S3 bucket for the resource project package that contains the necessary files for the resource you want to register.
 	//
-	// For information on generating a schema handler package, see [Modeling resource types to use with AWS CloudFormation](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html) in the *AWS CloudFormation Command Line Interface (CLI) User Guide* .
+	// For information on generating a schema handler package, see [Modeling resource types to use with CloudFormation](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html) in the *CloudFormation Command Line Interface (CLI) User Guide* .
 	//
 	// > To register the resource version, you must have `s3:GetObject` permissions to access the S3 objects.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage

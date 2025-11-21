@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSecurityProfile) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnSecurityProfile_ArnForSecurityProfileParameters(resource interfacesawsiot.ISecurityProfileRef) error {
+	return nil
+}
+
 func validateCfnSecurityProfile_FromSecurityProfileArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

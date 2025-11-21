@@ -24,7 +24,7 @@ type CfnKeySigningKeyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-hostedzoneid
 	//
 	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
-	// The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service ( AWS KMS ).
+	// The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service ( AWS  ).
 	//
 	// The `KeyManagementServiceArn` must be unique for each key-signing key (KSK) in a single hosted zone. For example: `arn:aws:kms:us-east-1:111122223333:key/111a2222-a11b-1ab1-2ab2-1ab21a2b3a111` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-keymanagementservicearn

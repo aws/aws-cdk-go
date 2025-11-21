@@ -116,6 +116,8 @@ type CfnFleet interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	RootVolumeConfig() interface{}
+	SetRootVolumeConfig(val interface{})
 	// The S3 location of the session scripts configuration zip file.
 	SessionScriptS3Location() interface{}
 	SetSessionScriptS3Location(val interface{})
@@ -555,6 +557,16 @@ func (j *jsiiProxy_CfnFleet) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) RootVolumeConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rootVolumeConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) SessionScriptS3Location() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -822,6 +834,17 @@ func (j *jsiiProxy_CfnFleet)SetPlatform(val *string) {
 	_jsii_.Set(
 		j,
 		"platform",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetRootVolumeConfig(val interface{}) {
+	if err := j.validateSetRootVolumeConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rootVolumeConfig",
 		val,
 	)
 }

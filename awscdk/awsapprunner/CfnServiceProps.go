@@ -167,7 +167,7 @@ type CfnServiceProps struct {
 	//
 	// It must be unique across all the running App Runner services in your AWS account in the AWS Region .
 	//
-	// If you don't specify a name, AWS CloudFormation generates a name for your service.
+	// If you don't specify a name, CloudFormation generates a name for your service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
 	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`

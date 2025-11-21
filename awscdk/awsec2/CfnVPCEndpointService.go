@@ -31,7 +31,7 @@ import (
 //   	GatewayLoadBalancerArns: []*string{
 //   		jsii.String("gatewayLoadBalancerArns"),
 //   	},
-//   	NetworkLoadBalancerArns: []*string{
+//   	NetworkLoadBalancerArns: []interface{}{
 //   		jsii.String("networkLoadBalancerArns"),
 //   	},
 //   	PayerResponsibility: jsii.String("payerResponsibility"),

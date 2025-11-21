@@ -668,6 +668,24 @@ func (j *jsiiProxy_CfnCertificate)SetValidityNotBefore(val interface{}) {
 	)
 }
 
+func CfnCertificate_ArnForCertificate(resource interfacesawsacmpca.ICertificateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCertificate_ArnForCertificateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_acmpca.CfnCertificate",
+		"arnForCertificate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

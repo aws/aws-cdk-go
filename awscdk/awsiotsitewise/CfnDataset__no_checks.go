@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataset) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnDataset_ArnForDatasetParameters(resource interfacesawsiotsitewise.IDatasetRef) error {
+	return nil
+}
+
 func validateCfnDataset_FromDatasetArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

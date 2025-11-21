@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfigurationAggregator) validateValidatePropertiesParamet
 	return nil
 }
 
+func validateCfnConfigurationAggregator_ArnForConfigurationAggregatorParameters(resource interfacesawsconfig.IConfigurationAggregatorRef) error {
+	return nil
+}
+
 func validateCfnConfigurationAggregator_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

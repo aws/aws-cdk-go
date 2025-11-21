@@ -704,11 +704,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "eventBusArn", GoGetter: "EventBusArn"},
 			_jsii_.MemberProperty{JsiiProperty: "eventBusName", GoGetter: "EventBusName"},
 			_jsii_.MemberProperty{JsiiProperty: "eventBusPolicy", GoGetter: "EventBusPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "eventBusRef", GoGetter: "EventBusRef"},
 			_jsii_.MemberProperty{JsiiProperty: "eventSourceName", GoGetter: "EventSourceName"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPutEventsTo", GoMethod: "GrantPutEventsTo"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -725,6 +727,17 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.EventBusAttributes",
 		reflect.TypeOf((*EventBusAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events.EventBusGrants",
+		reflect.TypeOf((*EventBusGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "allPutEvents", GoMethod: "AllPutEvents"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			return &jsiiProxy_EventBusGrants{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events.EventBusPolicy",
@@ -846,6 +859,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "eventBusArn", GoGetter: "EventBusArn"},
 			_jsii_.MemberProperty{JsiiProperty: "eventBusName", GoGetter: "EventBusName"},
 			_jsii_.MemberProperty{JsiiProperty: "eventBusPolicy", GoGetter: "EventBusPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "eventBusRef", GoGetter: "EventBusRef"},
 			_jsii_.MemberProperty{JsiiProperty: "eventSourceName", GoGetter: "EventSourceName"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPutEventsTo", GoMethod: "GrantPutEventsTo"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -853,6 +867,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IEventBus{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseventsIEventBusRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

@@ -15,7 +15,7 @@ import (
 //
 // We strongly recommend that you use AWS Secrets Manager to store your credentials. If you use Secrets Manager , you must have secrets in your secrets manager. For more information, see [Using Dynamic References to Specify Template Values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) .
 //
-// > For security purposes, do not use plain text in your AWS CloudFormation template to store your credentials.
+// > For security purposes, do not use plain text in your CloudFormation template to store your credentials.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

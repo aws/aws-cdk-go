@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfigurationPolicy) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnConfigurationPolicy_ArnForConfigurationPolicyParameters(resource interfacesawssecurityhub.IConfigurationPolicyRef) error {
+	return nil
+}
+
 func validateCfnConfigurationPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

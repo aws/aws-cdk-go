@@ -31,11 +31,11 @@ type CfnVPCEndpointConnectionNotificationProps struct {
 	// The ARN of the SNS topic for the notifications.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-connectionnotificationarn
 	//
-	ConnectionNotificationArn *string `field:"required" json:"connectionNotificationArn" yaml:"connectionNotificationArn"`
+	ConnectionNotificationArn interface{} `field:"required" json:"connectionNotificationArn" yaml:"connectionNotificationArn"`
 	// The ID of the endpoint service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-serviceid
 	//
-	ServiceId *string `field:"optional" json:"serviceId" yaml:"serviceId"`
+	ServiceId interface{} `field:"optional" json:"serviceId" yaml:"serviceId"`
 	// The ID of the endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html#cfn-ec2-vpcendpointconnectionnotification-vpcendpointid
 	//

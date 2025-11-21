@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPermission) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnPermission_ArnForPermissionParameters(resource interfacesawsram.IPermissionRef) error {
+	return nil
+}
+
 func validateCfnPermission_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

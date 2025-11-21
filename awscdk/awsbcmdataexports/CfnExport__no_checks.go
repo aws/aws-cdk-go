@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnExport) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnExport_ArnForExportParameters(resource interfacesawsbcmdataexports.IExportRef) error {
+	return nil
+}
+
 func validateCfnExport_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

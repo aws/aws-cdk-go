@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInvestigationGroup) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnInvestigationGroup_ArnForInvestigationGroupParameters(resource interfacesawsaiops.IInvestigationGroupRef) error {
+	return nil
+}
+
 func validateCfnInvestigationGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

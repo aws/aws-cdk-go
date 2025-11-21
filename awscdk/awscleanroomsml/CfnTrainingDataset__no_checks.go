@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTrainingDataset) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnTrainingDataset_ArnForTrainingDatasetParameters(resource interfacesawscleanroomsml.ITrainingDatasetRef) error {
+	return nil
+}
+
 func validateCfnTrainingDataset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

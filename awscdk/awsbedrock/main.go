@@ -575,6 +575,10 @@ func init() {
 		reflect.TypeOf((*CfnDataAutomationProject_AudioExtractionCategoryTypeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.AudioLanguageConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationProject_AudioLanguageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.AudioOverrideConfigurationProperty",
 		reflect.TypeOf((*CfnDataAutomationProject_AudioOverrideConfigurationProperty)(nil)).Elem(),
 	)

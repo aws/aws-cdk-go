@@ -19,7 +19,7 @@ import (
 //
 // For Amazon Redshift admin user credentials, see [AWS::Redshift::Cluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html) .
 //
-// To retrieve a secret in a CloudFormation template, use a *dynamic reference* . For more information, see [Retrieve a secret in an AWS CloudFormation resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html) .
+// To retrieve a secret in a CloudFormation template, use a *dynamic reference* . For more information, see [Retrieve a secret in an CloudFormation resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html) .
 //
 // For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html) . For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html) .
 //
@@ -88,7 +88,7 @@ type CfnSecret interface {
 	// A structure that specifies how to generate a password to encrypt and store in the secret.
 	GenerateSecretString() interface{}
 	SetGenerateSecretString(val interface{})
-	// The ARN, key ID, or alias of the AWS KMS key that Secrets Manager uses to encrypt the secret value in the secret.
+	// The ARN, key ID, or alias of the AWS  key that Secrets Manager uses to encrypt the secret value in the secret.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -579,6 +579,24 @@ func (j *jsiiProxy_CfnSecret)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnSecret_ArnForSecret(resource interfacesawssecretsmanager.ISecretRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSecret_ArnForSecretParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
+		"arnForSecret",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ISecretRef from a secretId.

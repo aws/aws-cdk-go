@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTemplate) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnTemplate_ArnForTemplateParameters(resource interfacesawsquicksight.ITemplateRef) error {
+	return nil
+}
+
 func validateCfnTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

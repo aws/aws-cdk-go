@@ -100,6 +100,10 @@ func validateStateMachine_IsResourceParameters(construct constructs.IConstruct) 
 	return nil
 }
 
+func (j *jsiiProxy_StateMachine) validateSetGrantsParameters(val StateMachineGrants) error {
+	return nil
+}
+
 func validateNewStateMachineParameters(scope constructs.Construct, id *string, props *StateMachineProps) error {
 	return nil
 }

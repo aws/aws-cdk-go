@@ -12,7 +12,7 @@ import (
 
 // The `AWS::CloudFormation::TypeActivation` resource activates a public third-party extension, making it available for use in stack templates.
 //
-// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -597,6 +597,24 @@ func (j *jsiiProxy_CfnTypeActivation)SetVersionBump(val *string) {
 		"versionBump",
 		val,
 	)
+}
+
+func CfnTypeActivation_ArnForTypeActivation(resource interfacesawscloudformation.ITypeActivationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTypeActivation_ArnForTypeActivationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnTypeActivation",
+		"arnForTypeActivation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

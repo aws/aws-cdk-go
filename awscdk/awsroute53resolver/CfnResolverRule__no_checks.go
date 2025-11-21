@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResolverRule) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnResolverRule_ArnForResolverRuleParameters(resource interfacesawsroute53resolver.IResolverRuleRef) error {
+	return nil
+}
+
 func validateCfnResolverRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

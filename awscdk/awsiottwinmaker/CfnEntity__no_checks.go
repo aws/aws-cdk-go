@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEntity) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnEntity_ArnForEntityParameters(resource interfacesawsiottwinmaker.IEntityRef) error {
+	return nil
+}
+
 func validateCfnEntity_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -17,7 +17,7 @@ import (
 //   	GatewayLoadBalancerArns: []*string{
 //   		jsii.String("gatewayLoadBalancerArns"),
 //   	},
-//   	NetworkLoadBalancerArns: []*string{
+//   	NetworkLoadBalancerArns: []interface{}{
 //   		jsii.String("networkLoadBalancerArns"),
 //   	},
 //   	PayerResponsibility: jsii.String("payerResponsibility"),
@@ -53,7 +53,7 @@ type CfnVPCEndpointServiceProps struct {
 	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns
 	//
-	NetworkLoadBalancerArns *[]*string `field:"optional" json:"networkLoadBalancerArns" yaml:"networkLoadBalancerArns"`
+	NetworkLoadBalancerArns *[]interface{} `field:"optional" json:"networkLoadBalancerArns" yaml:"networkLoadBalancerArns"`
 	// The entity that is responsible for the endpoint costs.
 	//
 	// The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.

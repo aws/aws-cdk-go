@@ -41,7 +41,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   })
@@ -731,6 +731,24 @@ func (j *jsiiProxy_CfnCluster)SetVpcSecurityGroupIds(val *[]*string) {
 		"vpcSecurityGroupIds",
 		val,
 	)
+}
+
+func CfnCluster_ArnForCluster(resource interfacesawsdocdbelastic.IClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_ArnForClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_docdbelastic.CfnCluster",
+		"arnForCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

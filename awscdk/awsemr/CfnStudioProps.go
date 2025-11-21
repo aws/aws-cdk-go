@@ -17,7 +17,7 @@ import (
 //   	EngineSecurityGroupId: jsii.String("engineSecurityGroupId"),
 //   	Name: jsii.String("name"),
 //   	ServiceRole: jsii.String("serviceRole"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	VpcId: jsii.String("vpcId"),
@@ -50,13 +50,13 @@ type CfnStudioProps struct {
 	// The Amazon S3 location to back up EMR Studio Workspaces and notebook files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-defaults3location
 	//
-	DefaultS3Location *string `field:"required" json:"defaultS3Location" yaml:"defaultS3Location"`
+	DefaultS3Location interface{} `field:"required" json:"defaultS3Location" yaml:"defaultS3Location"`
 	// The ID of the Amazon EMR Studio Engine security group.
 	//
 	// The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-enginesecuritygroupid
 	//
-	EngineSecurityGroupId *string `field:"required" json:"engineSecurityGroupId" yaml:"engineSecurityGroupId"`
+	EngineSecurityGroupId interface{} `field:"required" json:"engineSecurityGroupId" yaml:"engineSecurityGroupId"`
 	// A descriptive name for the Amazon EMR Studio.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-name
 	//
@@ -66,31 +66,31 @@ type CfnStudioProps struct {
 	// The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-servicerole
 	//
-	ServiceRole *string `field:"required" json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole interface{} `field:"required" json:"serviceRole" yaml:"serviceRole"`
 	// A list of subnet IDs to associate with the Amazon EMR Studio.
 	//
 	// A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId` . Studio users can create a Workspace in any of the specified subnets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-subnetids
 	//
-	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-vpcid
 	//
-	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The ID of the Workspace security group associated with the Amazon EMR Studio.
 	//
 	// The Workspace security group allows outbound network traffic to resources in the Engine security group and to the internet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-workspacesecuritygroupid
 	//
-	WorkspaceSecurityGroupId *string `field:"required" json:"workspaceSecurityGroupId" yaml:"workspaceSecurityGroupId"`
+	WorkspaceSecurityGroupId interface{} `field:"required" json:"workspaceSecurityGroupId" yaml:"workspaceSecurityGroupId"`
 	// A detailed description of the Amazon EMR Studio.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+	// The AWS  key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-encryptionkeyarn
 	//
-	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
+	EncryptionKeyArn interface{} `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// The ARN of the IAM Identity Center instance the Studio application belongs to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idcinstancearn
 	//
@@ -128,6 +128,6 @@ type CfnStudioProps struct {
 	// The permissions attached to this IAM role can be scoped down for each user or group using session policies. You only need to specify `UserRole` when you set `AuthMode` to `SSO` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-userrole
 	//
-	UserRole *string `field:"optional" json:"userRole" yaml:"userRole"`
+	UserRole interface{} `field:"optional" json:"userRole" yaml:"userRole"`
 }
 

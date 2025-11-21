@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEventSubscription) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnEventSubscription_ArnForEventSubscriptionParameters(resource interfacesawsrds.IEventSubscriptionRef) error {
+	return nil
+}
+
 func validateCfnEventSubscription_FromSubscriptionNameParameters(scope constructs.Construct, id *string, subscriptionName *string) error {
 	return nil
 }

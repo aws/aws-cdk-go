@@ -150,7 +150,7 @@ import (
 //   	PrivateIpAddress: jsii.String("privateIpAddress"),
 //   	PropagateTagsToVolumeOnCreation: jsii.Boolean(false),
 //   	RamdiskId: jsii.String("ramdiskId"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SecurityGroups: []*string{
@@ -1572,6 +1572,24 @@ func (j *jsiiProxy_CfnInstance)SetVolumes(val interface{}) {
 		"volumes",
 		val,
 	)
+}
+
+func CfnInstance_ArnForInstance(resource interfacesawsec2.IInstanceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInstance_ArnForInstanceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnInstance",
+		"arnForInstance",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IInstanceRef from a instanceId.

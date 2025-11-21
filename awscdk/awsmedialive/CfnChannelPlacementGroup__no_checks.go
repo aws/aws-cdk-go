@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnChannelPlacementGroup) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnChannelPlacementGroup_ArnForChannelPlacementGroupParameters(resource interfacesawsmedialive.IChannelPlacementGroupRef) error {
+	return nil
+}
+
 func validateCfnChannelPlacementGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

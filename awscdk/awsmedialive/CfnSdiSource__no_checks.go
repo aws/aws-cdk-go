@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSdiSource) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnSdiSource_ArnForSdiSourceParameters(resource interfacesawsmedialive.ISdiSourceRef) error {
+	return nil
+}
+
 func validateCfnSdiSource_FromSdiSourceArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) validateValidatePropertiesParam
 	return nil
 }
 
+func validateCfnSlackChannelConfiguration_ArnForSlackChannelConfigurationParameters(resource interfacesawschatbot.ISlackChannelConfigurationRef) error {
+	return nil
+}
+
 func validateCfnSlackChannelConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -625,6 +625,24 @@ func (j *jsiiProxy_CfnIdNamespace)SetType(val *string) {
 	)
 }
 
+func CfnIdNamespace_ArnForIdNamespace(resource interfacesawsentityresolution.IIdNamespaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIdNamespace_ArnForIdNamespaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace",
+		"arnForIdNamespace",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IIdNamespaceRef from an ARN.
 func CfnIdNamespace_FromIdNamespaceArn(scope constructs.Construct, id *string, arn *string) interfacesawsentityresolution.IIdNamespaceRef {
 	_init_.Initialize()

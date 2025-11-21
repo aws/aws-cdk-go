@@ -21,7 +21,7 @@ type CfnSimulationApplicationVersionProps struct {
 	// The application information for the simulation application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
 	//
-	Application *string `field:"required" json:"application" yaml:"application"`
+	Application interface{} `field:"required" json:"application" yaml:"application"`
 	// The current revision id for the simulation application.
 	//
 	// If you provide a value and it matches the latest revision ID, a new version will be created.

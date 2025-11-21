@@ -29,11 +29,11 @@ type CfnIntegrationResponseProps struct {
 	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-apiid
 	//
-	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"required" json:"apiId" yaml:"apiId"`
 	// The integration ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-integrationid
 	//
-	IntegrationId *string `field:"required" json:"integrationId" yaml:"integrationId"`
+	IntegrationId interface{} `field:"required" json:"integrationId" yaml:"integrationId"`
 	// The integration response key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-integrationresponsekey
 	//

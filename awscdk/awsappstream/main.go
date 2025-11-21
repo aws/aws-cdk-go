@@ -489,6 +489,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "rootVolumeConfig", GoGetter: "RootVolumeConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "sessionScriptS3Location", GoGetter: "SessionScriptS3Location"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -522,6 +523,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appstream.CfnFleet.S3LocationProperty",
 		reflect.TypeOf((*CfnFleet_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appstream.CfnFleet.VolumeConfigProperty",
+		reflect.TypeOf((*CfnFleet_VolumeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appstream.CfnFleet.VpcConfigProperty",

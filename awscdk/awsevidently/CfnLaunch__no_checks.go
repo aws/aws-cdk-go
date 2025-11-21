@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLaunch) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnLaunch_ArnForLaunchParameters(resource interfacesawsevidently.ILaunchRef) error {
+	return nil
+}
+
 func validateCfnLaunch_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

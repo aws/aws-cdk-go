@@ -30,7 +30,7 @@ type CfnTable_S3ConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-s3configuration.html#cfn-timestream-table-s3configuration-encryptionoption
 	//
 	EncryptionOption *string `field:"required" json:"encryptionOption" yaml:"encryptionOption"`
-	// The AWS KMS key ID for the customer S3 location when encrypting with an AWS managed key.
+	// The AWS  key ID for the customer S3 location when encrypting with an AWS managed key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-s3configuration.html#cfn-timestream-table-s3configuration-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

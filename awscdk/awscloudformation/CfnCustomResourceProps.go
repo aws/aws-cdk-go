@@ -18,7 +18,7 @@ package awscloudformation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html
 //
 type CfnCustomResourceProps struct {
-	// The service token, such as an Amazon SNS topic ARN or Lambda function ARN.
+	// The service token, such as an Amazon  topic ARN or Lambda function ARN.
 	//
 	// The service token must be from the same Region as the stack.
 	//

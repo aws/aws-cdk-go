@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEmailContact) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnEmailContact_ArnForEmailContactParameters(resource interfacesawsnotificationscontacts.IEmailContactRef) error {
+	return nil
+}
+
 func validateCfnEmailContact_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

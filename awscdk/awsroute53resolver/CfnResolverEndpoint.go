@@ -713,6 +713,24 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnResolverEndpoint_ArnForResolverEndpoint(resource interfacesawsroute53resolver.IResolverEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResolverEndpoint_ArnForResolverEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnResolverEndpoint",
+		"arnForResolverEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

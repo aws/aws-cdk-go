@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPackage) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnPackage_ArnForPackageParameters(resource interfacesawspanorama.IPackageRef) error {
+	return nil
+}
+
 func validateCfnPackage_FromPackageArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

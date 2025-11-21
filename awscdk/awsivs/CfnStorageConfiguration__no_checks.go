@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStorageConfiguration) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnStorageConfiguration_ArnForStorageConfigurationParameters(resource interfacesawsivs.IStorageConfigurationRef) error {
+	return nil
+}
+
 func validateCfnStorageConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

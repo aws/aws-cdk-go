@@ -490,6 +490,24 @@ func (j *jsiiProxy_CfnCustomMetric)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCustomMetric_ArnForCustomMetric(resource interfacesawsiot.ICustomMetricRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCustomMetric_ArnForCustomMetricParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCustomMetric",
+		"arnForCustomMetric",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICustomMetricRef from a metricName.
 func CfnCustomMetric_FromMetricName(scope constructs.Construct, id *string, metricName *string) interfacesawsiot.ICustomMetricRef {
 	_init_.Initialize()

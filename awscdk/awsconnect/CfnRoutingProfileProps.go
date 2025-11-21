@@ -70,7 +70,7 @@ type CfnRoutingProfileProps struct {
 	// The identifier of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-instancearn
 	//
-	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-mediaconcurrencies
 	//

@@ -32,7 +32,7 @@ type CfnStudioProps struct {
 	// <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
 	//
-	AdminRoleArn *string `field:"required" json:"adminRoleArn" yaml:"adminRoleArn"`
+	AdminRoleArn interface{} `field:"required" json:"adminRoleArn" yaml:"adminRoleArn"`
 	// <p>A friendly name for the studio.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
 	//
@@ -44,7 +44,7 @@ type CfnStudioProps struct {
 	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
 	//
-	UserRoleArn *string `field:"required" json:"userRoleArn" yaml:"userRoleArn"`
+	UserRoleArn interface{} `field:"required" json:"userRoleArn" yaml:"userRoleArn"`
 	// <p>Configuration of the encryption method that is used for the studio.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
 	//

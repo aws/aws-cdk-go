@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnLocalGatewayRouteTable_ArnForLocalGatewayRouteTableParameters(resource interfacesawsec2.ILocalGatewayRouteTableRef) error {
+	return nil
+}
+
 func validateCfnLocalGatewayRouteTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

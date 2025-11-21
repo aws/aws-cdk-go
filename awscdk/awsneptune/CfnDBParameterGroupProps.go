@@ -43,7 +43,7 @@ type CfnDBParameterGroupProps struct {
 	//
 	// The parameters are expressed as a JSON object consisting of key-value pairs.
 	//
-	// Changes to dynamic parameters are applied immediately. During an update, if you have static parameters (whether they were changed or not), it triggers AWS CloudFormation to reboot the associated DB instance without failover.
+	// Changes to dynamic parameters are applied immediately. During an update, if you have static parameters (whether they were changed or not), it triggers CloudFormation to reboot the associated DB instance without failover.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html#cfn-neptune-dbparametergroup-parameters
 	//
 	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`

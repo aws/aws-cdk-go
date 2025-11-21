@@ -29,7 +29,7 @@ import (
 //   cfnNodegroup := awscdk.Aws_eks.NewCfnNodegroup(this, jsii.String("MyCfnNodegroup"), &CfnNodegroupProps{
 //   	ClusterName: jsii.String("clusterName"),
 //   	NodeRole: jsii.String("nodeRole"),
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //
@@ -924,6 +924,24 @@ func (j *jsiiProxy_CfnNodegroup)SetVersion(val *string) {
 		"version",
 		val,
 	)
+}
+
+func CfnNodegroup_ArnForNodegroup(resource interfacesawseks.INodegroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNodegroup_ArnForNodegroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"arnForNodegroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

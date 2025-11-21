@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnReplicationSet) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnReplicationSet_ArnForReplicationSetParameters(resource interfacesawsssmincidents.IReplicationSetRef) error {
+	return nil
+}
+
 func validateCfnReplicationSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

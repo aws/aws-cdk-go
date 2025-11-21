@@ -22,7 +22,7 @@ type CfnModuleDefaultVersionProps struct {
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
 	//
-	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	Arn interface{} `field:"optional" json:"arn" yaml:"arn"`
 	// The name of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .

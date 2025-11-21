@@ -25,7 +25,7 @@ import (
 //   cfnDBProxyEndpoint := awscdk.Aws_rds.NewCfnDBProxyEndpoint(this, jsii.String("MyCfnDBProxyEndpoint"), &CfnDBProxyEndpointProps{
 //   	DbProxyEndpointName: jsii.String("dbProxyEndpointName"),
 //   	DbProxyName: jsii.String("dbProxyName"),
-//   	VpcSubnetIds: []*string{
+//   	VpcSubnetIds: []interface{}{
 //   		jsii.String("vpcSubnetIds"),
 //   	},
 //
@@ -38,7 +38,7 @@ import (
 //   		},
 //   	},
 //   	TargetRole: jsii.String("targetRole"),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   })
@@ -602,6 +602,24 @@ func (j *jsiiProxy_CfnDBProxyEndpoint)SetVpcSubnetIds(val *[]*string) {
 		"vpcSubnetIds",
 		val,
 	)
+}
+
+func CfnDBProxyEndpoint_ArnForDBProxyEndpoint(resource interfacesawsrds.IDBProxyEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDBProxyEndpoint_ArnForDBProxyEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"arnForDBProxyEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

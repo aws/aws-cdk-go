@@ -896,6 +896,24 @@ func (j *jsiiProxy_CfnSubnet)SetVpcId(val *string) {
 	)
 }
 
+func CfnSubnet_ArnForSubnet(resource interfacesawsec2.ISubnetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSubnet_ArnForSubnetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnSubnet",
+		"arnForSubnet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISubnetRef from a subnetId.
 func CfnSubnet_FromSubnetId(scope constructs.Construct, id *string, subnetId *string) interfacesawsec2.ISubnetRef {
 	_init_.Initialize()

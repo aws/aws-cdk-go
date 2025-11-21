@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnViewVersion) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnViewVersion_ArnForViewVersionParameters(resource interfacesawsconnect.IViewVersionRef) error {
+	return nil
+}
+
 func validateCfnViewVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

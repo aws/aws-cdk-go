@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResourceShare) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnResourceShare_ArnForResourceShareParameters(resource interfacesawsram.IResourceShareRef) error {
+	return nil
+}
+
 func validateCfnResourceShare_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

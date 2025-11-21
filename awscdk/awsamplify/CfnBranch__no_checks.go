@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBranch) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnBranch_ArnForBranchParameters(resource interfacesawsamplify.IBranchRef) error {
+	return nil
+}
+
 func validateCfnBranch_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

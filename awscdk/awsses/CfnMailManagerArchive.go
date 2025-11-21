@@ -511,6 +511,24 @@ func (j *jsiiProxy_CfnMailManagerArchive)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMailManagerArchive_ArnForMailManagerArchive(resource interfacesawsses.IMailManagerArchiveRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerArchive_ArnForMailManagerArchiveParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerArchive",
+		"arnForMailManagerArchive",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerArchiveRef from a archiveId.
 func CfnMailManagerArchive_FromArchiveId(scope constructs.Construct, id *string, archiveId *string) interfacesawsses.IMailManagerArchiveRef {
 	_init_.Initialize()

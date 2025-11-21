@@ -505,6 +505,24 @@ func (j *jsiiProxy_CfnCodeSigningConfig)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCodeSigningConfig_ArnForCodeSigningConfig(resource interfacesawslambda.ICodeSigningConfigRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCodeSigningConfig_ArnForCodeSigningConfigParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
+		"arnForCodeSigningConfig",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

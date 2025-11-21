@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnRoomProps := &CfnRoomProps{
-//   	LoggingConfigurationIdentifiers: []*string{
+//   	LoggingConfigurationIdentifiers: []interface{}{
 //   		jsii.String("loggingConfigurationIdentifiers"),
 //   	},
 //   	MaximumMessageLength: jsii.Number(123),
@@ -36,7 +36,7 @@ type CfnRoomProps struct {
 	// List of logging-configuration identifiers attached to the room.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-room.html#cfn-ivschat-room-loggingconfigurationidentifiers
 	//
-	LoggingConfigurationIdentifiers *[]*string `field:"optional" json:"loggingConfigurationIdentifiers" yaml:"loggingConfigurationIdentifiers"`
+	LoggingConfigurationIdentifiers *[]interface{} `field:"optional" json:"loggingConfigurationIdentifiers" yaml:"loggingConfigurationIdentifiers"`
 	// Maximum number of characters in a single message.
 	//
 	// Messages are expected to be UTF-8 encoded and this limit applies specifically to rune/code-point count, not number of bytes.

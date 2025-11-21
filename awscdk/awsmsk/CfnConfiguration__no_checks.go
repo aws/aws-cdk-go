@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfiguration) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnConfiguration_ArnForConfigurationParameters(resource interfacesawsmsk.IConfigurationRef) error {
+	return nil
+}
+
 func validateCfnConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

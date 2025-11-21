@@ -1606,6 +1606,8 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 		jsii.String("general"),
 		jsii.String("slowquery"),
 		jsii.String("audit"),
+		jsii.String("instance"),
+		jsii.String("iam-db-auth-error"),
 	},
 	 // Export all available MySQL-based logs
 	CloudwatchLogsRetention: logs.RetentionDays_THREE_MONTHS,

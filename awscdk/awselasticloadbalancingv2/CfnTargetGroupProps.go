@@ -34,6 +34,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetControlPort: jsii.Number(123),
 //   	TargetGroupAttributes: []interface{}{
 //   		&TargetGroupAttributeProperty{
 //   			Key: jsii.String("key"),
@@ -142,6 +143,10 @@ type CfnTargetGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targetcontrolport
+	//
+	TargetControlPort *float64 `field:"optional" json:"targetControlPort" yaml:"targetControlPort"`
 	// The target group attributes.
 	//
 	// Attributes that you do not modify retain their current values.
@@ -174,6 +179,6 @@ type CfnTargetGroupProps struct {
 	// If the target is a Lambda function, this parameter does not apply. Otherwise, this parameter is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

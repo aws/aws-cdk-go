@@ -493,6 +493,24 @@ func (j *jsiiProxy_CfnDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDomain_ArnForDomain(resource interfacesawsvoiceid.IDomainRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDomain_ArnForDomainParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_voiceid.CfnDomain",
+		"arnForDomain",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDomainRef from a domainId.
 func CfnDomain_FromDomainId(scope constructs.Construct, id *string, domainId *string) interfacesawsvoiceid.IDomainRef {
 	_init_.Initialize()

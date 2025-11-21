@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAttributeGroup) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnAttributeGroup_ArnForAttributeGroupParameters(resource interfacesawsservicecatalogappregistry.IAttributeGroupRef) error {
+	return nil
+}
+
 func validateCfnAttributeGroup_FromAttributeGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

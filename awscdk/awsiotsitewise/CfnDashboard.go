@@ -530,6 +530,24 @@ func (j *jsiiProxy_CfnDashboard)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDashboard_ArnForDashboard(resource interfacesawsiotsitewise.IDashboardRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDashboard_ArnForDashboardParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"arnForDashboard",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDashboardRef from an ARN.
 func CfnDashboard_FromDashboardArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IDashboardRef {
 	_init_.Initialize()

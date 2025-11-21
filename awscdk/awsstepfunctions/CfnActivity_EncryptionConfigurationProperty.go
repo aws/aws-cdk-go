@@ -3,7 +3,7 @@ package awsstepfunctions
 
 // Settings to configure server-side encryption for an activity.
 //
-// By default, Step Functions provides transparent server-side encryption. With this configuration, you can specify a customer managed AWS KMS key for encryption.
+// By default, Step Functions provides transparent server-side encryption. With this configuration, you can specify a customer managed AWS  key for encryption.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,9 +31,9 @@ type CfnActivity_EncryptionConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-encryptionconfiguration.html#cfn-stepfunctions-activity-encryptionconfiguration-kmsdatakeyreuseperiodseconds
 	//
 	KmsDataKeyReusePeriodSeconds *float64 `field:"optional" json:"kmsDataKeyReusePeriodSeconds" yaml:"kmsDataKeyReusePeriodSeconds"`
-	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data.
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data.
 	//
-	// To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	// To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-encryptionconfiguration.html#cfn-stepfunctions-activity-encryptionconfiguration-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,14 @@ func (c *jsiiProxy_CfnContainer) validateReplaceDependencyParameters(target awsc
 func (c *jsiiProxy_CfnContainer) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnContainer_ArnForContainerParameters(resource interfacesawslightsail.IContainerRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
 	}
 
 	return nil

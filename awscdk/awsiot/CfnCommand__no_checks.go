@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCommand) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnCommand_ArnForCommandParameters(resource interfacesawsiot.ICommandRef) error {
+	return nil
+}
+
 func validateCfnCommand_FromCommandArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

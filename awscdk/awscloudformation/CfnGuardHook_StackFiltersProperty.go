@@ -5,7 +5,7 @@ package awscloudformation
 //
 // The `StackNames` or `StackRoles` properties are optional. However, you must specify at least one of these properties.
 //
-// For more information, see [AWS CloudFormation Hooks stack level filters](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-stack-level-filtering.html) .
+// For more information, see [CloudFormation Hooks stack level filters](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-stack-level-filtering.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

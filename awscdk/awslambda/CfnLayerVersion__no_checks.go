@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLayerVersion) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnLayerVersion_ArnForLayerVersionParameters(resource interfacesawslambda.ILayerVersionRef) error {
+	return nil
+}
+
 func validateCfnLayerVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

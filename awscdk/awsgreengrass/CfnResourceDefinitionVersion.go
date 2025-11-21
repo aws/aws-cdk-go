@@ -13,7 +13,7 @@ import (
 
 // The `AWS::Greengrass::ResourceDefinitionVersion` resource represents a resource definition version for AWS IoT Greengrass .
 //
-// A resource definition version contains a list of resources. (In AWS CloudFormation , resources are named *resource instances* .)
+// A resource definition version contains a list of resources. (In CloudFormation , resources are named *resource instances* .)
 //
 // > To create a resource definition version, you must specify the ID of the resource definition that you want to associate with the version. For information about creating a resource definition, see [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) .
 // >

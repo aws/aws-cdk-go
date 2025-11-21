@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAlert) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAlert_ArnForAlertParameters(resource interfacesawslookoutmetrics.IAlertRef) error {
+	return nil
+}
+
 func validateCfnAlert_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -240,11 +240,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleGroupArn", GoGetter: "ScheduleGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleGroupName", GoGetter: "ScheduleGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "scheduleGroupRef", GoGetter: "ScheduleGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScheduleGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsschedulerIScheduleGroupRef)
 			return &j
 		},
 	)
@@ -306,6 +308,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantDeleteSchedules", GoMethod: "GrantDeleteSchedules"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadSchedules", GoMethod: "GrantReadSchedules"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWriteSchedules", GoMethod: "GrantWriteSchedules"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricAttempts", GoMethod: "MetricAttempts"},
@@ -320,6 +323,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleGroupArn", GoGetter: "ScheduleGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleGroupName", GoGetter: "ScheduleGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "scheduleGroupRef", GoGetter: "ScheduleGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -328,6 +332,19 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IScheduleGroup)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_scheduler.ScheduleGroupGrants",
+		reflect.TypeOf((*ScheduleGroupGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "deleteSchedules", GoMethod: "DeleteSchedules"},
+			_jsii_.MemberMethod{JsiiMethod: "readSchedules", GoMethod: "ReadSchedules"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "writeSchedules", GoMethod: "WriteSchedules"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ScheduleGroupGrants{}
 		},
 	)
 	_jsii_.RegisterStruct(

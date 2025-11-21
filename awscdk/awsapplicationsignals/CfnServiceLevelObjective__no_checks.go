@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnServiceLevelObjective) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnServiceLevelObjective_ArnForServiceLevelObjectiveParameters(resource interfacesawsapplicationsignals.IServiceLevelObjectiveRef) error {
+	return nil
+}
+
 func validateCfnServiceLevelObjective_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

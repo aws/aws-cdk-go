@@ -19,10 +19,10 @@ type CfnSubnetNetworkAclAssociationProps struct {
 	// The ID of the network ACL.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetnetworkaclassociation.html#cfn-ec2-subnetnetworkaclassociation-networkaclid
 	//
-	NetworkAclId *string `field:"required" json:"networkAclId" yaml:"networkAclId"`
+	NetworkAclId interface{} `field:"required" json:"networkAclId" yaml:"networkAclId"`
 	// The ID of the subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetnetworkaclassociation.html#cfn-ec2-subnetnetworkaclassociation-subnetid
 	//
-	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"required" json:"subnetId" yaml:"subnetId"`
 }
 

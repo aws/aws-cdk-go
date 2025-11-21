@@ -609,6 +609,24 @@ func (j *jsiiProxy_CfnTrafficMirrorSession)SetVirtualNetworkId(val *float64) {
 	)
 }
 
+func CfnTrafficMirrorSession_ArnForTrafficMirrorSession(resource interfacesawsec2.ITrafficMirrorSessionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTrafficMirrorSession_ArnForTrafficMirrorSessionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorSession",
+		"arnForTrafficMirrorSession",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITrafficMirrorSessionRef from a trafficMirrorSessionId.
 func CfnTrafficMirrorSession_FromTrafficMirrorSessionId(scope constructs.Construct, id *string, trafficMirrorSessionId *string) interfacesawsec2.ITrafficMirrorSessionRef {
 	_init_.Initialize()

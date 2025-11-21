@@ -9,11 +9,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodecommit"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IRepository interface {
 	awscodestarnotifications.INotificationRuleSource
+	interfacesawscodecommit.IRepositoryRef
 	awscdk.IResource
 	// Grant the given principal identity permissions to perform the actions on this repository.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
@@ -87,6 +89,7 @@ type IRepository interface {
 // The jsii proxy for IRepository
 type jsiiProxy_IRepository struct {
 	internal.Type__awscodestarnotificationsINotificationRuleSource
+	internal.Type__interfacesawscodecommitIRepositoryRef
 	internal.Type__awscdkIResource
 }
 
@@ -523,6 +526,16 @@ func (j *jsiiProxy_IRepository) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRepository) RepositoryRef() *interfacesawscodecommit.RepositoryReference {
+	var returns *interfacesawscodecommit.RepositoryReference
+	_jsii_.Get(
+		j,
+		"repositoryRef",
 		&returns,
 	)
 	return returns

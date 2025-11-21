@@ -48,7 +48,7 @@ type CfnVPCCidrBlockProps struct {
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-vpcid
 	//
-	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
 	//
 	// You cannot specify the range of IPv6 addresses or the size of the CIDR block.

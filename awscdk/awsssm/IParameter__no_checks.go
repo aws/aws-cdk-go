@@ -12,3 +12,7 @@ func (i *jsiiProxy_IParameter) validateGrantWriteParameters(grantee awsiam.IGran
 	return nil
 }
 
+func (i *jsiiProxy_IParameter) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

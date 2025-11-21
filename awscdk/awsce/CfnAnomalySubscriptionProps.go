@@ -10,7 +10,7 @@ package awsce
 //
 //   cfnAnomalySubscriptionProps := &CfnAnomalySubscriptionProps{
 //   	Frequency: jsii.String("frequency"),
-//   	MonitorArnList: []*string{
+//   	MonitorArnList: []interface{}{
 //   		jsii.String("monitorArnList"),
 //   	},
 //   	Subscribers: []interface{}{
@@ -47,7 +47,7 @@ type CfnAnomalySubscriptionProps struct {
 	// A list of cost anomaly monitors.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-monitorarnlist
 	//
-	MonitorArnList *[]*string `field:"required" json:"monitorArnList" yaml:"monitorArnList"`
+	MonitorArnList *[]interface{} `field:"required" json:"monitorArnList" yaml:"monitorArnList"`
 	// A list of subscribers to notify.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-subscribers
 	//

@@ -600,6 +600,24 @@ func (j *jsiiProxy_CfnFeature)SetVariations(val interface{}) {
 	)
 }
 
+func CfnFeature_ArnForFeature(resource interfacesawsevidently.IFeatureRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFeature_ArnForFeatureParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_evidently.CfnFeature",
+		"arnForFeature",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

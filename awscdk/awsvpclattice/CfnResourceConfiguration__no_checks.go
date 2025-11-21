@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResourceConfiguration) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnResourceConfiguration_ArnForResourceConfigurationParameters(resource interfacesawsvpclattice.IResourceConfigurationRef) error {
+	return nil
+}
+
 func validateCfnResourceConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

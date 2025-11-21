@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCapacityReservation) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnCapacityReservation_ArnForCapacityReservationParameters(resource interfacesawsec2.ICapacityReservationRef) error {
+	return nil
+}
+
 func validateCfnCapacityReservation_FromCapacityReservationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSignalCatalog) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnSignalCatalog_ArnForSignalCatalogParameters(resource interfacesawsiotfleetwise.ISignalCatalogRef) error {
+	return nil
+}
+
 func validateCfnSignalCatalog_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTaskTemplate) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnTaskTemplate_ArnForTaskTemplateParameters(resource interfacesawsconnect.ITaskTemplateRef) error {
+	return nil
+}
+
 func validateCfnTaskTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

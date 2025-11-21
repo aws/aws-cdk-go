@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWorkloadIdentity) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnWorkloadIdentity_ArnForWorkloadIdentityParameters(resource interfacesawsbedrockagentcore.IWorkloadIdentityRef) error {
+	return nil
+}
+
 func validateCfnWorkloadIdentity_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

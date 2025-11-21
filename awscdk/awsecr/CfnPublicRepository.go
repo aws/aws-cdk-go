@@ -486,6 +486,24 @@ func (j *jsiiProxy_CfnPublicRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPublicRepository_ArnForPublicRepository(resource interfacesawsecr.IPublicRepositoryRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPublicRepository_ArnForPublicRepositoryParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnPublicRepository",
+		"arnForPublicRepository",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPublicRepositoryRef from an ARN.
 func CfnPublicRepository_FromPublicRepositoryArn(scope constructs.Construct, id *string, arn *string) interfacesawsecr.IPublicRepositoryRef {
 	_init_.Initialize()

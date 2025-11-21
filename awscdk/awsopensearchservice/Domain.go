@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchservice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,6 +51,8 @@ type Domain interface {
 	DomainId() *string
 	// Domain name of the Amazon OpenSearch Service domain.
 	DomainName() *string
+	// A reference to a Domain resource.
+	DomainRef() *interfacesawsopensearchservice.DomainReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -60,6 +63,8 @@ type Domain interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a Domain.
+	Grants() DomainGrants
 	// Master user password if fine grained access control is configured.
 	MasterUserPassword() awscdk.SecretValue
 	// The tree node.
@@ -265,11 +270,31 @@ func (j *jsiiProxy_Domain) DomainName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Domain) DomainRef() *interfacesawsopensearchservice.DomainReference {
+	var returns *interfacesawsopensearchservice.DomainReference
+	_jsii_.Get(
+		j,
+		"domainRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Domain) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Domain) Grants() DomainGrants {
+	var returns DomainGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

@@ -391,7 +391,7 @@ type CfnFlowProps struct {
 	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
 	//
-	KmsArn *string `field:"optional" json:"kmsArn" yaml:"kmsArn"`
+	KmsArn interface{} `field:"optional" json:"kmsArn" yaml:"kmsArn"`
 	// Specifies the configuration that Amazon AppFlow uses when it catalogs your data.
 	//
 	// When Amazon AppFlow catalogs your data, it stores metadata in a data catalog.

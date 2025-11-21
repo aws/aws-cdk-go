@@ -28,6 +28,10 @@ func (q *jsiiProxy_Queue) validateGrantConsumeMessagesParameters(grantee awsiam.
 	return nil
 }
 
+func (q *jsiiProxy_Queue) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (q *jsiiProxy_Queue) validateGrantPurgeParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

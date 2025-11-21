@@ -462,6 +462,24 @@ func (j *jsiiProxy_CfnVectorBucket)SetVectorBucketName(val *string) {
 	)
 }
 
+func CfnVectorBucket_ArnForVectorBucket(resource interfacesawss3vectors.IVectorBucketRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVectorBucket_ArnForVectorBucketParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3vectors.CfnVectorBucket",
+		"arnForVectorBucket",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

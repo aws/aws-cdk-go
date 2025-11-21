@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnHookVersion) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnHookVersion_ArnForHookVersionParameters(resource interfacesawscloudformation.IHookVersionRef) error {
+	return nil
+}
+
 func validateCfnHookVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

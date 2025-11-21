@@ -597,6 +597,24 @@ func (j *jsiiProxy_CfnHoursOfOperation)SetTimeZone(val *string) {
 	)
 }
 
+func CfnHoursOfOperation_ArnForHoursOfOperation(resource interfacesawsconnect.IHoursOfOperationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnHoursOfOperation_ArnForHoursOfOperationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnHoursOfOperation",
+		"arnForHoursOfOperation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

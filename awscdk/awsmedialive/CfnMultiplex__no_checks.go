@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMultiplex) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnMultiplex_ArnForMultiplexParameters(resource interfacesawsmedialive.IMultiplexRef) error {
+	return nil
+}
+
 func validateCfnMultiplex_FromMultiplexArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

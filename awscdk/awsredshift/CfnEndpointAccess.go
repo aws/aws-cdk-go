@@ -22,7 +22,7 @@ import (
 //   	ClusterIdentifier: jsii.String("clusterIdentifier"),
 //   	EndpointName: jsii.String("endpointName"),
 //   	SubnetGroupName: jsii.String("subnetGroupName"),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //

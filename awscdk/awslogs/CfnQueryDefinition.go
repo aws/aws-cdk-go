@@ -25,7 +25,7 @@ import (
 //   	QueryString: jsii.String("queryString"),
 //
 //   	// the properties below are optional
-//   	LogGroupNames: []*string{
+//   	LogGroupNames: []interface{}{
 //   		jsii.String("logGroupNames"),
 //   	},
 //   	QueryLanguage: jsii.String("queryLanguage"),

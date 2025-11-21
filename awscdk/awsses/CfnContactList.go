@@ -479,6 +479,24 @@ func (j *jsiiProxy_CfnContactList)SetTopics(val interface{}) {
 	)
 }
 
+func CfnContactList_ArnForContactList(resource interfacesawsses.IContactListRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnContactList_ArnForContactListParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnContactList",
+		"arnForContactList",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IContactListRef from a contactListName.
 func CfnContactList_FromContactListName(scope constructs.Construct, id *string, contactListName *string) interfacesawsses.IContactListRef {
 	_init_.Initialize()

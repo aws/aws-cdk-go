@@ -691,6 +691,24 @@ func (j *jsiiProxy_CfnAssessment)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAssessment_ArnForAssessment(resource interfacesawsauditmanager.IAssessmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAssessment_ArnForAssessmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
+		"arnForAssessment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAssessmentRef from an ARN.
 func CfnAssessment_FromAssessmentArn(scope constructs.Construct, id *string, arn *string) interfacesawsauditmanager.IAssessmentRef {
 	_init_.Initialize()

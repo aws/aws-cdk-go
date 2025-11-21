@@ -87,7 +87,7 @@ type CfnChannelProps struct {
 	//
 	// Default: - "".
 	//
-	RecordingConfigurationArn *string `field:"optional" json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
+	RecordingConfigurationArn interface{} `field:"optional" json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
 	//

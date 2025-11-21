@@ -648,6 +648,24 @@ func (j *jsiiProxy_CfnQueue)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnQueue_ArnForQueue(resource interfacesawsconnect.IQueueRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnQueue_ArnForQueueParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnQueue",
+		"arnForQueue",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

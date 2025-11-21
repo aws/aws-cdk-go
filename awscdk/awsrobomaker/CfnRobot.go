@@ -509,6 +509,24 @@ func (j *jsiiProxy_CfnRobot)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnRobot_ArnForRobot(resource interfacesawsrobomaker.IRobotRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRobot_ArnForRobotParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_robomaker.CfnRobot",
+		"arnForRobot",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

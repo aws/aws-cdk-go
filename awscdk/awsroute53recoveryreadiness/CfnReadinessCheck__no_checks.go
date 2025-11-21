@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnReadinessCheck) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnReadinessCheck_ArnForReadinessCheckParameters(resource interfacesawsroute53recoveryreadiness.IReadinessCheckRef) error {
+	return nil
+}
+
 func validateCfnReadinessCheck_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

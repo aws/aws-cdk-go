@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTransitGatewayAttachment) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnTransitGatewayAttachment_ArnForTransitGatewayAttachmentParameters(resource interfacesawsec2.ITransitGatewayAttachmentRef) error {
+	return nil
+}
+
 func validateCfnTransitGatewayAttachment_FromTransitGatewayAttachmentIdParameters(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) error {
 	return nil
 }

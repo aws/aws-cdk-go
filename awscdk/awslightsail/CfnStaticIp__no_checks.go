@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStaticIp) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnStaticIp_ArnForStaticIpParameters(resource interfacesawslightsail.IStaticIpRef) error {
+	return nil
+}
+
 func validateCfnStaticIp_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

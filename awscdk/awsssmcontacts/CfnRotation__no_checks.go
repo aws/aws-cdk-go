@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRotation) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnRotation_ArnForRotationParameters(resource interfacesawsssmcontacts.IRotationRef) error {
+	return nil
+}
+
 func validateCfnRotation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

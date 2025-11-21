@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTaskDefinition) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnTaskDefinition_ArnForTaskDefinitionParameters(resource interfacesawsecs.ITaskDefinitionRef) error {
+	return nil
+}
+
 func validateCfnTaskDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

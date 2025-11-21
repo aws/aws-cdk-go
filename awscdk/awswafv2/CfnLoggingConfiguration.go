@@ -45,7 +45,7 @@ import (
 //   var uriPath interface{}
 //
 //   cfnLoggingConfiguration := awscdk.Aws_wafv2.NewCfnLoggingConfiguration(this, jsii.String("MyCfnLoggingConfiguration"), &CfnLoggingConfigurationProps{
-//   	LogDestinationConfigs: []*string{
+//   	LogDestinationConfigs: []interface{}{
 //   		jsii.String("logDestinationConfigs"),
 //   	},
 //   	ResourceArn: jsii.String("resourceArn"),

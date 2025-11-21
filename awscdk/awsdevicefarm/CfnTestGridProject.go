@@ -499,6 +499,24 @@ func (j *jsiiProxy_CfnTestGridProject)SetVpcConfig(val interface{}) {
 	)
 }
 
+func CfnTestGridProject_ArnForTestGridProject(resource interfacesawsdevicefarm.ITestGridProjectRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTestGridProject_ArnForTestGridProjectParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devicefarm.CfnTestGridProject",
+		"arnForTestGridProject",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

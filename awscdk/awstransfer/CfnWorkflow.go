@@ -558,6 +558,24 @@ func (j *jsiiProxy_CfnWorkflow)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnWorkflow_ArnForWorkflow(resource interfacesawstransfer.IWorkflowRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkflow_ArnForWorkflowParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnWorkflow",
+		"arnForWorkflow",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IWorkflowRef from an ARN.
 func CfnWorkflow_FromWorkflowArn(scope constructs.Construct, id *string, arn *string) interfacesawstransfer.IWorkflowRef {
 	_init_.Initialize()

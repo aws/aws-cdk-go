@@ -396,15 +396,15 @@ type CfnPipeProps struct {
 	// The ARN of the role that allows the pipe to send data to the target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-rolearn
 	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the source resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-source
 	//
-	Source *string `field:"required" json:"source" yaml:"source"`
+	Source interface{} `field:"required" json:"source" yaml:"source"`
 	// The ARN of the target resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-target
 	//
-	Target *string `field:"required" json:"target" yaml:"target"`
+	Target interface{} `field:"required" json:"target" yaml:"target"`
 	// A description of the pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-description
 	//
@@ -416,12 +416,12 @@ type CfnPipeProps struct {
 	// The ARN of the enrichment resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichment
 	//
-	Enrichment *string `field:"optional" json:"enrichment" yaml:"enrichment"`
+	Enrichment interface{} `field:"optional" json:"enrichment" yaml:"enrichment"`
 	// The parameters required to set up enrichment on your pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichmentparameters
 	//
 	EnrichmentParameters interface{} `field:"optional" json:"enrichmentParameters" yaml:"enrichmentParameters"`
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data.
 	//
 	// The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	//

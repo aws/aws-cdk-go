@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInstance) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnInstance_ArnForInstanceParameters(resource interfacesawsec2.IInstanceRef) error {
+	return nil
+}
+
 func validateCfnInstance_FromInstanceIdParameters(scope constructs.Construct, id *string, instanceId *string) error {
 	return nil
 }

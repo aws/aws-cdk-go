@@ -443,7 +443,7 @@ type CfnPipe interface {
 	EnrichmentParameters() interface{}
 	SetEnrichmentParameters(val interface{})
 	Env() *interfaces.ResourceEnvironment
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
 	// The logging configuration settings for the pipe.
@@ -1106,6 +1106,24 @@ func (j *jsiiProxy_CfnPipe)SetTargetParameters(val interface{}) {
 		"targetParameters",
 		val,
 	)
+}
+
+func CfnPipe_ArnForPipe(resource interfacesawspipes.IPipeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPipe_ArnForPipeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pipes.CfnPipe",
+		"arnForPipe",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -68,7 +68,7 @@ type CfnReportDefinitionProps struct {
 	// The S3 bucket where Amazon Web Services delivers the report.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html#cfn-cur-reportdefinition-s3bucket
 	//
-	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket interface{} `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The prefix that Amazon Web Services adds to the report name when Amazon Web Services delivers the report.
 	//
 	// Your prefix can't include spaces.

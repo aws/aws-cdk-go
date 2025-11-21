@@ -536,6 +536,24 @@ func (j *jsiiProxy_CfnSchemaMapping)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnSchemaMapping_ArnForSchemaMapping(resource interfacesawsentityresolution.ISchemaMappingRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSchemaMapping_ArnForSchemaMappingParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnSchemaMapping",
+		"arnForSchemaMapping",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISchemaMappingRef from a schemaName.
 func CfnSchemaMapping_FromSchemaName(scope constructs.Construct, id *string, schemaName *string) interfacesawsentityresolution.ISchemaMappingRef {
 	_init_.Initialize()

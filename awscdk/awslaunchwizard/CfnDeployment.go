@@ -579,6 +579,24 @@ func (j *jsiiProxy_CfnDeployment)SetWorkloadName(val *string) {
 	)
 }
 
+func CfnDeployment_ArnForDeployment(resource interfacesawslaunchwizard.IDeploymentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDeployment_ArnForDeploymentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_launchwizard.CfnDeployment",
+		"arnForDeployment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -481,6 +481,24 @@ func (j *jsiiProxy_CfnSignalingChannel)SetType(val *string) {
 	)
 }
 
+func CfnSignalingChannel_ArnForSignalingChannel(resource interfacesawskinesisvideo.ISignalingChannelRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSignalingChannel_ArnForSignalingChannelParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesisvideo.CfnSignalingChannel",
+		"arnForSignalingChannel",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

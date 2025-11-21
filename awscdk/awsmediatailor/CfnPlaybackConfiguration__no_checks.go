@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnPlaybackConfiguration_ArnForPlaybackConfigurationParameters(resource interfacesawsmediatailor.IPlaybackConfigurationRef) error {
+	return nil
+}
+
 func validateCfnPlaybackConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

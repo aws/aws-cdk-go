@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMembership) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnMembership_ArnForMembershipParameters(resource interfacesawscleanrooms.IMembershipRef) error {
+	return nil
+}
+
 func validateCfnMembership_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

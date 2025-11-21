@@ -57,6 +57,8 @@ type Distribution interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a Distribution.
+	Grants() DistributionGrants
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -246,6 +248,16 @@ func (j *jsiiProxy_Distribution) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Distribution) Grants() DistributionGrants {
+	var returns DistributionGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

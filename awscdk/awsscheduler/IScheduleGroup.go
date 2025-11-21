@@ -7,11 +7,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsscheduler"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface representing a created or an imported `ScheduleGroup`.
 type IScheduleGroup interface {
 	awscdk.IResource
+	interfacesawsscheduler.IScheduleGroupRef
 	// Grant the indicated permissions on this group to the given principal.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant delete schedule permission for schedules in this group to the given principal.
@@ -67,6 +71,7 @@ type IScheduleGroup interface {
 // The jsii proxy for IScheduleGroup
 type jsiiProxy_IScheduleGroup struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawsschedulerIScheduleGroupRef
 }
 
 func (i *jsiiProxy_IScheduleGroup) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
@@ -282,6 +287,17 @@ func (i *jsiiProxy_IScheduleGroup) MetricThrottled(props *awscloudwatch.MetricOp
 	return returns
 }
 
+func (i *jsiiProxy_IScheduleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IScheduleGroup) ScheduleGroupArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -297,6 +313,46 @@ func (j *jsiiProxy_IScheduleGroup) ScheduleGroupName() *string {
 	_jsii_.Get(
 		j,
 		"scheduleGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IScheduleGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IScheduleGroup) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IScheduleGroup) ScheduleGroupRef() *interfacesawsscheduler.ScheduleGroupReference {
+	var returns *interfacesawsscheduler.ScheduleGroupReference
+	_jsii_.Get(
+		j,
+		"scheduleGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IScheduleGroup) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGroup) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnGroup_ArnForGroupParameters(resource interfacesawsgreengrass.IGroupRef) error {
+	return nil
+}
+
 func validateCfnGroup_FromGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

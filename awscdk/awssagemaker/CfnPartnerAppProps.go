@@ -27,7 +27,9 @@ import (
 //   			"argumentsKey": jsii.String("arguments"),
 //   		},
 //   	},
+//   	AppVersion: jsii.String("appVersion"),
 //   	ClientToken: jsii.String("clientToken"),
+//   	EnableAutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	EnableIamSessionBasedIdentity: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MaintenanceConfig: &PartnerAppMaintenanceConfigProperty{
@@ -72,11 +74,19 @@ type CfnPartnerAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-applicationconfig
 	//
 	ApplicationConfig interface{} `field:"optional" json:"applicationConfig" yaml:"applicationConfig"`
+	// The version of the PartnerApp.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-appversion
+	//
+	AppVersion *string `field:"optional" json:"appVersion" yaml:"appVersion"`
 	// The client token for the PartnerApp.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-clienttoken
 	//
 	// Deprecated: this property has been deprecated.
 	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
+	// Enables automatic minor version upgrades for the PartnerApp.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-enableautominorversionupgrade
+	//
+	EnableAutoMinorVersionUpgrade interface{} `field:"optional" json:"enableAutoMinorVersionUpgrade" yaml:"enableAutoMinorVersionUpgrade"`
 	// Enables IAM Session based Identity for PartnerApp.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-enableiamsessionbasedidentity
 	//

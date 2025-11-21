@@ -11,7 +11,7 @@ package awsrds
 //   cfnDBProxyEndpointProps := &CfnDBProxyEndpointProps{
 //   	DbProxyEndpointName: jsii.String("dbProxyEndpointName"),
 //   	DbProxyName: jsii.String("dbProxyName"),
-//   	VpcSubnetIds: []*string{
+//   	VpcSubnetIds: []interface{}{
 //   		jsii.String("vpcSubnetIds"),
 //   	},
 //
@@ -24,7 +24,7 @@ package awsrds
 //   		},
 //   	},
 //   	TargetRole: jsii.String("targetRole"),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   }
@@ -45,7 +45,7 @@ type CfnDBProxyEndpointProps struct {
 	// You can specify a different set of subnet IDs than for the original DB proxy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
 	//
-	VpcSubnetIds *[]*string `field:"required" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
+	VpcSubnetIds *[]interface{} `field:"required" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
 	// The network type of the DB proxy endpoint.
 	//
 	// The network type determines the IP version that the proxy endpoint supports.
@@ -71,6 +71,6 @@ type CfnDBProxyEndpointProps struct {
 	// You can specify a different set of security group IDs than for the original DB proxy. The default is the default security group for the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
 	//
-	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]interface{} `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

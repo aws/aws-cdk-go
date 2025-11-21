@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInferenceScheduler) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnInferenceScheduler_ArnForInferenceSchedulerParameters(resource interfacesawslookoutequipment.IInferenceSchedulerRef) error {
+	return nil
+}
+
 func validateCfnInferenceScheduler_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

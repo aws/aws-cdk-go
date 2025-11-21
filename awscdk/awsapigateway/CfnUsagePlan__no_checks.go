@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnUsagePlan) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnUsagePlan_ArnForUsagePlanParameters(resource interfacesawsapigateway.IUsagePlanRef) error {
+	return nil
+}
+
 func validateCfnUsagePlan_FromUsagePlanIdParameters(scope constructs.Construct, id *string, usagePlanId *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDocumentClassifier) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnDocumentClassifier_ArnForDocumentClassifierParameters(resource interfacesawscomprehend.IDocumentClassifierRef) error {
+	return nil
+}
+
 func validateCfnDocumentClassifier_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

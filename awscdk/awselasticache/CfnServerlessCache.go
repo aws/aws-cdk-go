@@ -49,14 +49,14 @@ import (
 //   		Address: jsii.String("address"),
 //   		Port: jsii.String("port"),
 //   	},
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SnapshotArnsToRestore: []*string{
 //   		jsii.String("snapshotArnsToRestore"),
 //   	},
 //   	SnapshotRetentionLimit: jsii.Number(123),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -868,6 +868,24 @@ func (j *jsiiProxy_CfnServerlessCache)SetUserGroupId(val *string) {
 		"userGroupId",
 		val,
 	)
+}
+
+func CfnServerlessCache_ArnForServerlessCache(resource interfacesawselasticache.IServerlessCacheRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnServerlessCache_ArnForServerlessCacheParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnServerlessCache",
+		"arnForServerlessCache",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IServerlessCacheRef from a serverlessCacheName.

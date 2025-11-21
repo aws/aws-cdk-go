@@ -26,7 +26,7 @@ type CfnViewVersionProps struct {
 	// `arn:<partition>:connect:<region>:<accountId>:instance/00000000-0000-0000-0000-000000000000/view/00000000-0000-0000-0000-000000000000`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html#cfn-connect-viewversion-viewarn
 	//
-	ViewArn *string `field:"required" json:"viewArn" yaml:"viewArn"`
+	ViewArn interface{} `field:"required" json:"viewArn" yaml:"viewArn"`
 	// The description of the view version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html#cfn-connect-viewversion-versiondescription
 	//

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnRuleGroupsNamespace_ArnForRuleGroupsNamespaceParameters(resource interfacesawsaps.IRuleGroupsNamespaceRef) error {
+	return nil
+}
+
 func validateCfnRuleGroupsNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

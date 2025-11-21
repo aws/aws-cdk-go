@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCisScanConfiguration) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnCisScanConfiguration_ArnForCisScanConfigurationParameters(resource interfacesawsinspectorv2.ICisScanConfigurationRef) error {
+	return nil
+}
+
 func validateCfnCisScanConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

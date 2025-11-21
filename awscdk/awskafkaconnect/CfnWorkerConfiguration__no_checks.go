@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWorkerConfiguration) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnWorkerConfiguration_ArnForWorkerConfigurationParameters(resource interfacesawskafkaconnect.IWorkerConfigurationRef) error {
+	return nil
+}
+
 func validateCfnWorkerConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnScheduleGroup) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnScheduleGroup_ArnForScheduleGroupParameters(resource interfacesawsscheduler.IScheduleGroupRef) error {
+	return nil
+}
+
 func validateCfnScheduleGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

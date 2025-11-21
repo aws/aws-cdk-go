@@ -32,7 +32,7 @@ type CfnResourcePolicyProps struct {
 	// For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid
 	//
-	SecretId *string `field:"required" json:"secretId" yaml:"secretId"`
+	SecretId interface{} `field:"required" json:"secretId" yaml:"secretId"`
 	// Specifies whether to block resource-based policies that allow broad access to the secret.
 	//
 	// By default, Secrets Manager blocks policies that allow broad access, for example those that use a wildcard for the principal.

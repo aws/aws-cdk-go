@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnUserHierarchyStructure) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnUserHierarchyStructure_ArnForUserHierarchyStructureParameters(resource interfacesawsconnect.IUserHierarchyStructureRef) error {
+	return nil
+}
+
 func validateCfnUserHierarchyStructure_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

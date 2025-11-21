@@ -522,6 +522,24 @@ func (j *jsiiProxy_CfnDeliverySource)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDeliverySource_ArnForDeliverySource(resource interfacesawslogs.IDeliverySourceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDeliverySource_ArnForDeliverySourceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnDeliverySource",
+		"arnForDeliverySource",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDeliverySourceRef from an ARN.
 func CfnDeliverySource_FromDeliverySourceArn(scope constructs.Construct, id *string, arn *string) interfacesawslogs.IDeliverySourceRef {
 	_init_.Initialize()

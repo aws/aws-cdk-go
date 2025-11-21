@@ -136,7 +136,7 @@ import (
 //   		},
 //   	},
 //   	UseLatestRestorableTime: jsii.Boolean(false),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   })
@@ -1958,6 +1958,24 @@ func (j *jsiiProxy_CfnDBCluster)SetVpcSecurityGroupIds(val *[]*string) {
 		"vpcSecurityGroupIds",
 		val,
 	)
+}
+
+func CfnDBCluster_ArnForDBCluster(resource interfacesawsrds.IDBClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDBCluster_ArnForDBClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"arnForDBCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -665,6 +665,24 @@ func (j *jsiiProxy_CfnNetworkProfile)SetUplinkLossPercent(val *float64) {
 	)
 }
 
+func CfnNetworkProfile_ArnForNetworkProfile(resource interfacesawsdevicefarm.INetworkProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkProfile_ArnForNetworkProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devicefarm.CfnNetworkProfile",
+		"arnForNetworkProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

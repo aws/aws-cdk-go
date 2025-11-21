@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEnvironmentAccountConnection) validateValidatePropertiesPa
 	return nil
 }
 
+func validateCfnEnvironmentAccountConnection_ArnForEnvironmentAccountConnectionParameters(resource interfacesawsproton.IEnvironmentAccountConnectionRef) error {
+	return nil
+}
+
 func validateCfnEnvironmentAccountConnection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

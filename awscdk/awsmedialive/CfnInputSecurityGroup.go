@@ -452,6 +452,24 @@ func (j *jsiiProxy_CfnInputSecurityGroup)SetWhitelistRules(val interface{}) {
 	)
 }
 
+func CfnInputSecurityGroup_ArnForInputSecurityGroup(resource interfacesawsmedialive.IInputSecurityGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInputSecurityGroup_ArnForInputSecurityGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"arnForInputSecurityGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IInputSecurityGroupRef from an ARN.
 func CfnInputSecurityGroup_FromInputSecurityGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IInputSecurityGroupRef {
 	_init_.Initialize()

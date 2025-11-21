@@ -41,7 +41,7 @@ type CfnUserPoolUserProps struct {
 	// The ID of the user pool where you want to create a user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userpoolid
 	//
-	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 	//
 	// You create custom workflows by assigning AWS Lambda functions to user pool triggers.

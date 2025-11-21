@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPartnerApp) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnPartnerApp_ArnForPartnerAppParameters(resource interfacesawssagemaker.IPartnerAppRef) error {
+	return nil
+}
+
 func validateCfnPartnerApp_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -85,6 +89,10 @@ func (j *jsiiProxy_CfnPartnerApp) validateSetApplicationConfigParameters(val int
 }
 
 func (j *jsiiProxy_CfnPartnerApp) validateSetAuthTypeParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnPartnerApp) validateSetEnableAutoMinorVersionUpgradeParameters(val interface{}) error {
 	return nil
 }
 

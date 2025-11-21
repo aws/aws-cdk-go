@@ -625,6 +625,24 @@ func (j *jsiiProxy_CfnServiceNetworkServiceAssociation)SetTagsRaw(val *[]*awscdk
 	)
 }
 
+func CfnServiceNetworkServiceAssociation_ArnForServiceNetworkServiceAssociation(resource interfacesawsvpclattice.IServiceNetworkServiceAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnServiceNetworkServiceAssociation_ArnForServiceNetworkServiceAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_vpclattice.CfnServiceNetworkServiceAssociation",
+		"arnForServiceNetworkServiceAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

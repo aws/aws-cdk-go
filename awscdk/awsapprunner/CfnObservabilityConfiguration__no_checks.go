@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnObservabilityConfiguration) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnObservabilityConfiguration_ArnForObservabilityConfigurationParameters(resource interfacesawsapprunner.IObservabilityConfigurationRef) error {
+	return nil
+}
+
 func validateCfnObservabilityConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

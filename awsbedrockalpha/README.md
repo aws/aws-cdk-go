@@ -1529,7 +1529,7 @@ Use the `grantProfileUsage` method to grant appropriate permissions to resources
 // Create an application inference profile
 profile := bedrock.NewApplicationInferenceProfile(this, jsii.String("MyProfile"), &ApplicationInferenceProfileProps{
 	ApplicationInferenceProfileName: jsii.String("my-profile"),
-	ModelSource: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
+	ModelSource: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_SONNET_4_5_V1_0(),
 })
 
 // Create a Lambda function
@@ -1545,7 +1545,7 @@ profile.GrantProfileUsage(lambdaFunction)
 // Use a system defined inference profile
 crossRegionProfile := bedrock.CrossRegionInferenceProfile_FromConfig(&CrossRegionInferenceProfileProps{
 	GeoRegion: bedrock.CrossRegionInferenceProfileRegion_US,
-	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
+	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_SONNET_4_5_V1_0(),
 })
 
 // Grant permissions to use the cross-region inference profile

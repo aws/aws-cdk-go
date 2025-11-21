@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAsset) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAsset_ArnForAssetParameters(resource interfacesawsiotsitewise.IAssetRef) error {
+	return nil
+}
+
 func validateCfnAsset_FromAssetArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

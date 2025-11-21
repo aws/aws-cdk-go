@@ -501,6 +501,24 @@ func (j *jsiiProxy_CfnProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnProfile_ArnForProfile(resource interfacesawstransfer.IProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProfile_ArnForProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnProfile",
+		"arnForProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IProfileRef from an ARN.
 func CfnProfile_FromProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawstransfer.IProfileRef {
 	_init_.Initialize()

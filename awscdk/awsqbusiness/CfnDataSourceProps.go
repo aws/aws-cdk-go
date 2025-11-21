@@ -142,7 +142,7 @@ type CfnDataSourceProps struct {
 	// Similarly, you can find configuration templates and properties for your specific data source using the following steps:
 	//
 	// - Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source connector of your choice.
-	// - Then, from that specific data source connector's page, choose the topic containing *Using AWS CloudFormation* to find the schemas for your data source connector, including configuration parameter descriptions and examples.
+	// - Then, from that specific data source connector's page, choose the topic containing *Using CloudFormation* to find the schemas for your data source connector, including configuration parameter descriptions and examples.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-configuration
 	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`

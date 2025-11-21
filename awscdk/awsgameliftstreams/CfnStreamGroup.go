@@ -22,7 +22,7 @@ import (
 //
 // Values for capacity must be whole number multiples of the tenancy value of the stream group's stream class.
 //
-// > Application association is not currently supported in AWS CloudFormation . To link additional applications to a stream group, use the Amazon GameLift Streams console or the AWS CLI .
+// > Application association is not currently supported in CloudFormation . To link additional applications to a stream group, use the Amazon GameLift Streams console or the AWS CLI .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -543,6 +543,24 @@ func (j *jsiiProxy_CfnStreamGroup)SetTags(val *map[string]*string) {
 		"tags",
 		val,
 	)
+}
+
+func CfnStreamGroup_ArnForStreamGroup(resource interfacesawsgameliftstreams.IStreamGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStreamGroup_ArnForStreamGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gameliftstreams.CfnStreamGroup",
+		"arnForStreamGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

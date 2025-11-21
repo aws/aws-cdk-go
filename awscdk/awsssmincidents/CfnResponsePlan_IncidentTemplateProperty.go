@@ -55,9 +55,9 @@ type CfnResponsePlan_IncidentTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-incidenttags
 	//
 	IncidentTags interface{} `field:"optional" json:"incidentTags" yaml:"incidentTags"`
-	// The Amazon Simple Notification Service ( Amazon SNS ) targets that  uses to notify the chat channel of updates to an incident.
+	// The Amazon Simple Notification Service ( Amazon  ) targets that  uses to notify the chat channel of updates to an incident.
 	//
-	// You can also make updates to the incident through the chat channel using the Amazon SNS topics.
+	// You can also make updates to the incident through the chat channel using the Amazon  topics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
 	//
 	NotificationTargets interface{} `field:"optional" json:"notificationTargets" yaml:"notificationTargets"`

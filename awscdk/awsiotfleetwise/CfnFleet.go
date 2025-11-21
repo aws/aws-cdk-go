@@ -515,6 +515,24 @@ func (j *jsiiProxy_CfnFleet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnFleet_ArnForFleet(resource interfacesawsiotfleetwise.IFleetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFleet_ArnForFleetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotfleetwise.CfnFleet",
+		"arnForFleet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IFleetRef from an ARN.
 func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotfleetwise.IFleetRef {
 	_init_.Initialize()

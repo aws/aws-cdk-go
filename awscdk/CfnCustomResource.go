@@ -14,9 +14,9 @@ import (
 //
 // Custom resources provide a way for you to write custom provisioning logic into your CloudFormation templates and have CloudFormation run it anytime you create, update (if you changed the custom resource), or delete a stack.
 //
-// For more information, see [Create custom provisioning logic with custom resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) in the *AWS CloudFormation User Guide* .
+// For more information, see [Create custom provisioning logic with custom resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) in the *CloudFormation User Guide* .
 //
-// > If you use AWS PrivateLink , custom resources in the VPC must have access to CloudFormation -specific Amazon S3 buckets. Custom resources must send responses to a presigned Amazon S3 URL. If they can't send responses to Amazon S3 , CloudFormation won't receive a response and the stack operation fails. For more information, see [Access CloudFormation using an interface endpoint ( AWS PrivateLink )](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/vpc-interface-endpoints.html) in the *AWS CloudFormation User Guide* .
+// > If you use AWS PrivateLink , custom resources in the VPC must have access to CloudFormation -specific Amazon S3 buckets. Custom resources must send responses to a presigned Amazon S3 URL. If they can't send responses to Amazon S3 , CloudFormation won't receive a response and the stack operation fails. For more information, see [Access CloudFormation using an interface endpoint ( AWS PrivateLink )](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/vpc-interface-endpoints.html) in the *CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -69,7 +69,7 @@ type CfnCustomResource interface {
 	// The maximum time, in seconds, that can elapse before a custom resource operation times out.
 	ServiceTimeout() *float64
 	SetServiceTimeout(val *float64)
-	// The service token, such as an Amazon SNS topic ARN or Lambda function ARN.
+	// The service token, such as an Amazon  topic ARN or Lambda function ARN.
 	ServiceToken() *string
 	SetServiceToken(val *string)
 	// The stack in which this element is defined.

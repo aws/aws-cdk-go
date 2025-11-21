@@ -89,6 +89,16 @@ type CfnImageRecipe interface {
 	//
 	// For example, `arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/mybasicrecipe/2019.12.03` .
 	AttrArn() *string
+	// The latest version references of the image recipe.
+	AttrLatestVersion() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the image recipe.
+	AttrLatestVersionArn() *string
+	// The latest version ARN of the created image recipe, with the same major version.
+	AttrLatestVersionMajor() *string
+	// The latest version ARN of the created image recipe, with the same minor version.
+	AttrLatestVersionMinor() *string
+	// The latest version ARN of the created image recipe, with the same patch version.
+	AttrLatestVersionPatch() *string
 	// The name of the image recipe.
 	AttrName() *string
 	// The block device mappings to apply when creating images from this recipe.
@@ -323,6 +333,56 @@ func (j *jsiiProxy_CfnImageRecipe) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageRecipe) AttrLatestVersion() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLatestVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageRecipe) AttrLatestVersionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageRecipe) AttrLatestVersionMajor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMajor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageRecipe) AttrLatestVersionMinor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMinor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageRecipe) AttrLatestVersionPatch() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionPatch",
 		&returns,
 	)
 	return returns
@@ -677,6 +737,24 @@ func (j *jsiiProxy_CfnImageRecipe)SetWorkingDirectory(val *string) {
 		"workingDirectory",
 		val,
 	)
+}
+
+func CfnImageRecipe_ArnForImageRecipe(resource interfacesawsimagebuilder.IImageRecipeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnImageRecipe_ArnForImageRecipeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe",
+		"arnForImageRecipe",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

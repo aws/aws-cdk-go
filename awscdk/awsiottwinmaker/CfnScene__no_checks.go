@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnScene) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnScene_ArnForSceneParameters(resource interfacesawsiottwinmaker.ISceneRef) error {
+	return nil
+}
+
 func validateCfnScene_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

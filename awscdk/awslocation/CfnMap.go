@@ -572,6 +572,24 @@ func (j *jsiiProxy_CfnMap)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMap_ArnForMap(resource interfacesawslocation.IMapRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMap_ArnForMapParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnMap",
+		"arnForMap",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMapRef from an ARN.
 func CfnMap_FromMapArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.IMapRef {
 	_init_.Initialize()

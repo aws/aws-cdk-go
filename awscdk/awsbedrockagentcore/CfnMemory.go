@@ -719,6 +719,24 @@ func (j *jsiiProxy_CfnMemory)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnMemory_ArnForMemory(resource interfacesawsbedrockagentcore.IMemoryRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMemory_ArnForMemoryParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory",
+		"arnForMemory",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnScraper) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnScraper_ArnForScraperParameters(resource interfacesawsaps.IScraperRef) error {
+	return nil
+}
+
 func validateCfnScraper_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

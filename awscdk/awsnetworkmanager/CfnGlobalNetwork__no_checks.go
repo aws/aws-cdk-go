@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGlobalNetwork) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnGlobalNetwork_ArnForGlobalNetworkParameters(resource interfacesawsnetworkmanager.IGlobalNetworkRef) error {
+	return nil
+}
+
 func validateCfnGlobalNetwork_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -863,6 +863,24 @@ func (j *jsiiProxy_CfnModelCard)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnModelCard_ArnForModelCard(resource interfacesawssagemaker.IModelCardRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnModelCard_ArnForModelCardParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard",
+		"arnForModelCard",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IModelCardRef from an ARN.
 func CfnModelCard_FromModelCardArn(scope constructs.Construct, id *string, arn *string) interfacesawssagemaker.IModelCardRef {
 	_init_.Initialize()

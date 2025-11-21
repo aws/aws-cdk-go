@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscustomerprofiles"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,6 +156,14 @@ func (c *jsiiProxy_CfnDomain) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDomain_ArnForDomainParameters(resource interfacesawscustomerprofiles.IDomainRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDomain_FromDomainNameParameters(scope constructs.Construct, id *string, domainName *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -190,6 +199,30 @@ func validateCfnDomain_IsCfnResourceParameters(x interface{}) error {
 func validateCfnDomain_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetDataStoreParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDomain_DataStoreProperty:
+		val := val.(*CfnDomain_DataStoreProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomain_DataStoreProperty:
+		val_ := val.(CfnDomain_DataStoreProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_DataStoreProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

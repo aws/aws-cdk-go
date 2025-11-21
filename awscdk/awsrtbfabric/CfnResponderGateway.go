@@ -23,10 +23,10 @@ import (
 //   cfnResponderGateway := awscdk.Aws_rtbfabric.NewCfnResponderGateway(this, jsii.String("MyCfnResponderGateway"), &CfnResponderGatewayProps{
 //   	Port: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	VpcId: jsii.String("vpcId"),
@@ -700,6 +700,24 @@ func (j *jsiiProxy_CfnResponderGateway)SetVpcId(val *string) {
 		"vpcId",
 		val,
 	)
+}
+
+func CfnResponderGateway_ArnForResponderGateway(resource interfacesawsrtbfabric.IResponderGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResponderGateway_ArnForResponderGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rtbfabric.CfnResponderGateway",
+		"arnForResponderGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

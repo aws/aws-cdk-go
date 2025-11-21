@@ -32,6 +32,10 @@ func (t *jsiiProxy_Topic) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
+func (t *jsiiProxy_Topic) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (t *jsiiProxy_Topic) validateGrantPublishParameters(identity awsiam.IGrantable) error {
 	return nil
 }

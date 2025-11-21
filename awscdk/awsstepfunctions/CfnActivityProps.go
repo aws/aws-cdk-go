@@ -50,7 +50,7 @@ type CfnActivityProps struct {
 	//
 	// Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
 	//
-	// To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+	// To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-encryptionconfiguration
 	//
 	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`

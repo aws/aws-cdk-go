@@ -675,6 +675,24 @@ func (j *jsiiProxy_CfnNetworkInsightsPath)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnNetworkInsightsPath_ArnForNetworkInsightsPath(resource interfacesawsec2.INetworkInsightsPathRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInsightsPath_ArnForNetworkInsightsPathParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsPath",
+		"arnForNetworkInsightsPath",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new INetworkInsightsPathRef from an ARN.
 func CfnNetworkInsightsPath_FromNetworkInsightsPathArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.INetworkInsightsPathRef {
 	_init_.Initialize()

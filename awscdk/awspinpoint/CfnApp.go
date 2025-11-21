@@ -457,6 +457,24 @@ func (j *jsiiProxy_CfnApp)SetTagsRaw(val interface{}) {
 	)
 }
 
+func CfnApp_ArnForApp(resource interfacesawspinpoint.IAppRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApp_ArnForAppParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnApp",
+		"arnForApp",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAppRef from an ARN.
 func CfnApp_FromAppArn(scope constructs.Construct, id *string, arn *string) interfacesawspinpoint.IAppRef {
 	_init_.Initialize()

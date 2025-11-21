@@ -58,6 +58,9 @@ import (
 //   		jsii.String("functionResponseTypes"),
 //   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	LoggingConfig: &LoggingConfigProperty{
+//   		SystemLogLevel: jsii.String("systemLogLevel"),
+//   	},
 //   	MaximumBatchingWindowInSeconds: jsii.Number(123),
 //   	MaximumRecordAgeInSeconds: jsii.Number(123),
 //   	MaximumRetryAttempts: jsii.Number(123),
@@ -70,6 +73,7 @@ import (
 //   	ProvisionedPollerConfig: &ProvisionedPollerConfigProperty{
 //   		MaximumPollers: jsii.Number(123),
 //   		MinimumPollers: jsii.Number(123),
+//   		PollerGroupName: jsii.String("pollerGroupName"),
 //   	},
 //   	Queues: []*string{
 //   		jsii.String("queues"),
@@ -135,7 +139,7 @@ type CfnEventSourceMappingProps struct {
 	// The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
 	//
-	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"required" json:"functionName" yaml:"functionName"`
 	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig
 	//
@@ -186,7 +190,7 @@ type CfnEventSourceMappingProps struct {
 	// - *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
 	//
-	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
+	EventSourceArn interface{} `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
 	// An object that defines the filter criteria that determine whether Lambda should process an event.
 	//
 	// For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) .
@@ -199,10 +203,14 @@ type CfnEventSourceMappingProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
 	//
 	FunctionResponseTypes *[]*string `field:"optional" json:"functionResponseTypes" yaml:"functionResponseTypes"`
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+	// The ARN of the AWS Key Management Service ( AWS  ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	// The function's Amazon CloudWatch Logs configuration settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-loggingconfig
+	//
+	LoggingConfig interface{} `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//
 	// *Default ( Kinesis , DynamoDB , Amazon SQS event sources)* : 0
@@ -241,7 +249,7 @@ type CfnEventSourceMappingProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
 	//
 	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
-	// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
+	// (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
 	//
 	// For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-provisionedpollerconfig
@@ -251,9 +259,9 @@ type CfnEventSourceMappingProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
 	//
 	Queues *[]*string `field:"optional" json:"queues" yaml:"queues"`
-	// (Amazon SQS only) The scaling configuration for the event source.
+	// This property is for Amazon SQS event sources only.
 	//
-	// For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency) .
+	// You cannot use `ProvisionedPollerConfig` while using `ScalingConfig` . These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-scalingconfig
 	//
 	ScalingConfig interface{} `field:"optional" json:"scalingConfig" yaml:"scalingConfig"`
@@ -285,7 +293,7 @@ type CfnEventSourceMappingProps struct {
 	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 	// A list of tags to add to the event source mapping.
 	//
-	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

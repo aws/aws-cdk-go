@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRecoveryGroup) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnRecoveryGroup_ArnForRecoveryGroupParameters(resource interfacesawsroute53recoveryreadiness.IRecoveryGroupRef) error {
+	return nil
+}
+
 func validateCfnRecoveryGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

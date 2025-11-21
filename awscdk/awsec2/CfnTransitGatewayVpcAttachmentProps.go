@@ -46,7 +46,7 @@ type CfnTransitGatewayVpcAttachmentProps struct {
 	// The ID of the transit gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-transitgatewayid
 	//
-	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId interface{} `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid
 	//

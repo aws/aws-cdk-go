@@ -524,6 +524,24 @@ func (j *jsiiProxy_CfnDistribution)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDistribution_ArnForDistribution(resource interfacesawscloudfront.IDistributionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDistribution_ArnForDistributionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution",
+		"arnForDistribution",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDistributionRef from a distributionId.
 func CfnDistribution_FromDistributionId(scope constructs.Construct, id *string, distributionId *string) interfacesawscloudfront.IDistributionRef {
 	_init_.Initialize()

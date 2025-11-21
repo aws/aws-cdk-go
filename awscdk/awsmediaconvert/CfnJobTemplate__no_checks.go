@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnJobTemplate) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnJobTemplate_ArnForJobTemplateParameters(resource interfacesawsmediaconvert.IJobTemplateRef) error {
+	return nil
+}
+
 func validateCfnJobTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

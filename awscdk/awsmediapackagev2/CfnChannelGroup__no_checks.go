@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnChannelGroup) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnChannelGroup_ArnForChannelGroupParameters(resource interfacesawsmediapackagev2.IChannelGroupRef) error {
+	return nil
+}
+
 func validateCfnChannelGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

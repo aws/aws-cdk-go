@@ -13,7 +13,7 @@ import (
 //
 //   cfnProfileProps := &CfnProfileProps{
 //   	Name: jsii.String("name"),
-//   	RoleArns: []*string{
+//   	RoleArns: []interface{}{
 //   		jsii.String("roleArns"),
 //   	},
 //
@@ -54,7 +54,7 @@ type CfnProfileProps struct {
 	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-rolearns
 	//
-	RoleArns *[]*string `field:"required" json:"roleArns" yaml:"roleArns"`
+	RoleArns *[]interface{} `field:"required" json:"roleArns" yaml:"roleArns"`
 	// Used to determine if a custom role session name will be accepted in a temporary credential request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-acceptrolesessionname
 	//

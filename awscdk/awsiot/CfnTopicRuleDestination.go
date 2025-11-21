@@ -464,6 +464,24 @@ func (j *jsiiProxy_CfnTopicRuleDestination)SetVpcProperties(val interface{}) {
 	)
 }
 
+func CfnTopicRuleDestination_ArnForTopicRuleDestination(resource interfacesawsiot.ITopicRuleDestinationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTopicRuleDestination_ArnForTopicRuleDestinationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnTopicRuleDestination",
+		"arnForTopicRuleDestination",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

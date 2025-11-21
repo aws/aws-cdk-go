@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDBProxyEndpoint_ArnForDBProxyEndpointParameters(resource interfacesawsrds.IDBProxyEndpointRef) error {
+	return nil
+}
+
 func validateCfnDBProxyEndpoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIdentitySource) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnIdentitySource_ArnForIdentitySourceParameters(resource interfacesawsmpa.IIdentitySourceRef) error {
+	return nil
+}
+
 func validateCfnIdentitySource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

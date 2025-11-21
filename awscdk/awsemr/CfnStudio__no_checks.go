@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStudio) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnStudio_ArnForStudioParameters(resource interfacesawsemr.IStudioRef) error {
+	return nil
+}
+
 func validateCfnStudio_FromStudioArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

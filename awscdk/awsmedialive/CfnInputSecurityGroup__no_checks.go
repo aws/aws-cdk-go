@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInputSecurityGroup) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnInputSecurityGroup_ArnForInputSecurityGroupParameters(resource interfacesawsmedialive.IInputSecurityGroupRef) error {
+	return nil
+}
+
 func validateCfnInputSecurityGroup_FromInputSecurityGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

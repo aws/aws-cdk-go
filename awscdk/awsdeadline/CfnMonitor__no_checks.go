@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMonitor) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnMonitor_ArnForMonitorParameters(resource interfacesawsdeadline.IMonitorRef) error {
+	return nil
+}
+
 func validateCfnMonitor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

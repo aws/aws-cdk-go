@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResourceSet) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnResourceSet_ArnForResourceSetParameters(resource interfacesawsroute53recoveryreadiness.IResourceSetRef) error {
+	return nil
+}
+
 func validateCfnResourceSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

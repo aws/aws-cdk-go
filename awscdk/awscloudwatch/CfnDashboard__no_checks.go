@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDashboard) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnDashboard_ArnForDashboardParameters(resource interfacesawscloudwatch.IDashboardRef) error {
+	return nil
+}
+
 func validateCfnDashboard_FromDashboardNameParameters(scope constructs.Construct, id *string, dashboardName *string) error {
 	return nil
 }

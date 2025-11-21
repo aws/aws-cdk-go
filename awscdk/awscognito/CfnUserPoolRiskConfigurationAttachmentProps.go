@@ -91,7 +91,7 @@ type CfnUserPoolRiskConfigurationAttachmentProps struct {
 	// The ID of the user pool that has the risk configuration applied.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-userpoolid
 	//
-	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// The settings for automated responses and notification templates for adaptive authentication with threat protection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfiguration
 	//

@@ -499,6 +499,24 @@ func (j *jsiiProxy_CfnDatastore)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnDatastore_ArnForDatastore(resource interfacesawshealthimaging.IDatastoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDatastore_ArnForDatastoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_healthimaging.CfnDatastore",
+		"arnForDatastore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDatastoreRef from an ARN.
 func CfnDatastore_FromDatastoreArn(scope constructs.Construct, id *string, arn *string) interfacesawshealthimaging.IDatastoreRef {
 	_init_.Initialize()

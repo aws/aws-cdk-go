@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDiscoverer) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnDiscoverer_ArnForDiscovererParameters(resource interfacesawseventschemas.IDiscovererRef) error {
+	return nil
+}
+
 func validateCfnDiscoverer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

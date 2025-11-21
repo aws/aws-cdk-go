@@ -489,6 +489,24 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation)SetVpcId(val *string)
 	)
 }
 
+func CfnLocalGatewayRouteTableVPCAssociation_ArnForLocalGatewayRouteTableVPCAssociation(resource interfacesawsec2.ILocalGatewayRouteTableVPCAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLocalGatewayRouteTableVPCAssociation_ArnForLocalGatewayRouteTableVPCAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteTableVPCAssociation",
+		"arnForLocalGatewayRouteTableVPCAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ILocalGatewayRouteTableVPCAssociationRef from a localGatewayRouteTableVpcAssociationId.
 func CfnLocalGatewayRouteTableVPCAssociation_FromLocalGatewayRouteTableVpcAssociationId(scope constructs.Construct, id *string, localGatewayRouteTableVpcAssociationId *string) interfacesawsec2.ILocalGatewayRouteTableVPCAssociationRef {
 	_init_.Initialize()

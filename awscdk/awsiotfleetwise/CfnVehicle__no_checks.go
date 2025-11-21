@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVehicle) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnVehicle_ArnForVehicleParameters(resource interfacesawsiotfleetwise.IVehicleRef) error {
+	return nil
+}
+
 func validateCfnVehicle_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

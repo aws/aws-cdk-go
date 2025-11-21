@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDomain) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDomain_ArnForDomainParameters(resource interfacesawsopensearchservice.IDomainRef) error {
+	return nil
+}
+
 func validateCfnDomain_FromDomainArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }
@@ -93,6 +97,10 @@ func (j *jsiiProxy_CfnDomain) validateSetAdvancedOptionsParameters(val interface
 }
 
 func (j *jsiiProxy_CfnDomain) validateSetAdvancedSecurityOptionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetAimlOptionsParameters(val interface{}) error {
 	return nil
 }
 

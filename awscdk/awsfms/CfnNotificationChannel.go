@@ -60,7 +60,7 @@ type CfnNotificationChannel interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 	SnsRoleName() *string
 	SetSnsRoleName(val *string)
 	// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .

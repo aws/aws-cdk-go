@@ -709,6 +709,24 @@ func (j *jsiiProxy_CfnRuleGroup)SetType(val *string) {
 	)
 }
 
+func CfnRuleGroup_ArnForRuleGroup(resource interfacesawsnetworkfirewall.IRuleGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRuleGroup_ArnForRuleGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"arnForRuleGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

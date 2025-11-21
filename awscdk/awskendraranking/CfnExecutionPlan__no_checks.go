@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnExecutionPlan) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnExecutionPlan_ArnForExecutionPlanParameters(resource interfacesawskendraranking.IExecutionPlanRef) error {
+	return nil
+}
+
 func validateCfnExecutionPlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

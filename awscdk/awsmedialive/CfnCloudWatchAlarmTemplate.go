@@ -763,6 +763,24 @@ func (j *jsiiProxy_CfnCloudWatchAlarmTemplate)SetTreatMissingData(val *string) {
 	)
 }
 
+func CfnCloudWatchAlarmTemplate_ArnForCloudWatchAlarmTemplate(resource interfacesawsmedialive.ICloudWatchAlarmTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCloudWatchAlarmTemplate_ArnForCloudWatchAlarmTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnCloudWatchAlarmTemplate",
+		"arnForCloudWatchAlarmTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

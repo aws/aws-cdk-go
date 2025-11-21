@@ -84,7 +84,7 @@ type CfnGlobalClusterProps struct {
 	// - `StorageEncrypted`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
 	//
-	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
+	SourceDbClusterIdentifier interface{} `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// Specifies whether to enable storage encryption for the new global database cluster.
 	//
 	// Constraints:

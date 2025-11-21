@@ -908,6 +908,24 @@ func (j *jsiiProxy_CfnEnvironment)SetVpcId(val *string) {
 	)
 }
 
+func CfnEnvironment_ArnForEnvironment(resource interfacesawsevs.IEnvironmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironment_ArnForEnvironmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_evs.CfnEnvironment",
+		"arnForEnvironment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

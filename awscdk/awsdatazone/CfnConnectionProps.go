@@ -138,6 +138,7 @@ package awsdatazone
 //   			InstanceProfileArn: jsii.String("instanceProfileArn"),
 //   			JavaVirtualEnv: jsii.String("javaVirtualEnv"),
 //   			LogUri: jsii.String("logUri"),
+//   			ManagedEndpointArn: jsii.String("managedEndpointArn"),
 //   			PythonVirtualEnv: jsii.String("pythonVirtualEnv"),
 //   			RuntimeRole: jsii.String("runtimeRole"),
 //   			TrustedCertificatesS3Uri: jsii.String("trustedCertificatesS3Uri"),

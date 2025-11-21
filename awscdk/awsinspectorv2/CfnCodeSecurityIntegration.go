@@ -574,6 +574,24 @@ func (j *jsiiProxy_CfnCodeSecurityIntegration)SetUpdateIntegrationDetails(val in
 	)
 }
 
+func CfnCodeSecurityIntegration_ArnForCodeSecurityIntegration(resource interfacesawsinspectorv2.ICodeSecurityIntegrationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCodeSecurityIntegration_ArnForCodeSecurityIntegrationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_inspectorv2.CfnCodeSecurityIntegration",
+		"arnForCodeSecurityIntegration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

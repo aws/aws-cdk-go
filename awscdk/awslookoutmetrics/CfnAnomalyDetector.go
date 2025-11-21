@@ -591,6 +591,24 @@ func (j *jsiiProxy_CfnAnomalyDetector)SetMetricSetList(val interface{}) {
 	)
 }
 
+func CfnAnomalyDetector_ArnForAnomalyDetector(resource interfacesawslookoutmetrics.IAnomalyDetectorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAnomalyDetector_ArnForAnomalyDetectorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector",
+		"arnForAnomalyDetector",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

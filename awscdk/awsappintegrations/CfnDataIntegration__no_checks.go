@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataIntegration) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDataIntegration_ArnForDataIntegrationParameters(resource interfacesawsappintegrations.IDataIntegrationRef) error {
+	return nil
+}
+
 func validateCfnDataIntegration_FromDataIntegrationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

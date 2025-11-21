@@ -102,7 +102,7 @@ type CfnDocumentClassifierProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifier.html#cfn-comprehend-documentclassifier-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models.
 	//
 	// The ModelKmsKeyId can be either of the following formats:
 	//

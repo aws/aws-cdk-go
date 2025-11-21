@@ -545,6 +545,24 @@ func (j *jsiiProxy_CfnPipeline)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPipeline_ArnForPipeline(resource interfacesawsiotanalytics.IPipelineRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPipeline_ArnForPipelineParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotanalytics.CfnPipeline",
+		"arnForPipeline",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPipelineRef from a pipelineName.
 func CfnPipeline_FromPipelineName(scope constructs.Construct, id *string, pipelineName *string) interfacesawsiotanalytics.IPipelineRef {
 	_init_.Initialize()

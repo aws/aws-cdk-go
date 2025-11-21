@@ -187,15 +187,15 @@ type CfnStackProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-defaultsubnetid
 	//
 	DefaultSubnetId *string `field:"optional" json:"defaultSubnetId" yaml:"defaultSubnetId"`
-	// The Amazon Resource Name (ARN) of the Amazon Elastic Container Service ( Amazon ECS ) cluster to register with the OpsWorks stack.
+	// The Amazon Resource Name (ARN) of the  ( Amazon ECS ) cluster to register with the OpsWorks stack.
 	//
-	// > If you specify a cluster that's registered with another OpsWorks stack, AWS CloudFormation deregisters the existing association before registering the cluster.
+	// > If you specify a cluster that's registered with another OpsWorks stack, CloudFormation deregisters the existing association before registering the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-ecsclusterarn
 	//
 	EcsClusterArn *string `field:"optional" json:"ecsClusterArn" yaml:"ecsClusterArn"`
 	// A list of Elastic IP addresses to register with the OpsWorks stack.
 	//
-	// > If you specify an IP address that's registered with another OpsWorks stack, AWS CloudFormation deregisters the existing association before registering the IP address.
+	// > If you specify an IP address that's registered with another OpsWorks stack, CloudFormation deregisters the existing association before registering the IP address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-elasticips
 	//
 	ElasticIps interface{} `field:"optional" json:"elasticIps" yaml:"elasticIps"`
@@ -221,7 +221,7 @@ type CfnStackProps struct {
 	HostnameTheme *string `field:"optional" json:"hostnameTheme" yaml:"hostnameTheme"`
 	// The Amazon Relational Database Service ( Amazon RDS ) database instance to register with the OpsWorks stack.
 	//
-	// > If you specify a database instance that's registered with another OpsWorks stack, AWS CloudFormation deregisters the existing association before registering the database instance.
+	// > If you specify a database instance that's registered with another OpsWorks stack, CloudFormation deregisters the existing association before registering the database instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-rdsdbinstances
 	//
 	RdsDbInstances interface{} `field:"optional" json:"rdsDbInstances" yaml:"rdsDbInstances"`

@@ -516,6 +516,24 @@ func (j *jsiiProxy_CfnEventIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnEventIntegration_ArnForEventIntegration(resource interfacesawsappintegrations.IEventIntegrationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventIntegration_ArnForEventIntegrationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appintegrations.CfnEventIntegration",
+		"arnForEventIntegration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IEventIntegrationRef from an ARN.
 func CfnEventIntegration_FromEventIntegrationArn(scope constructs.Construct, id *string, arn *string) interfacesawsappintegrations.IEventIntegrationRef {
 	_init_.Initialize()

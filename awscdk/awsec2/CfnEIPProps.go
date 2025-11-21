@@ -39,7 +39,7 @@ type CfnEIPProps struct {
 	// > Updates to the `InstanceId` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-instanceid
 	//
-	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	InstanceId interface{} `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
 	//
 	// For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .

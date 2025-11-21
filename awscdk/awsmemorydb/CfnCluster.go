@@ -45,7 +45,7 @@ import (
 //   	NumShards: jsii.Number(123),
 //   	ParameterGroupName: jsii.String("parameterGroupName"),
 //   	Port: jsii.Number(123),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SnapshotArns: []*string{
@@ -1106,6 +1106,24 @@ func (j *jsiiProxy_CfnCluster)SetTlsEnabled(val interface{}) {
 		"tlsEnabled",
 		val,
 	)
+}
+
+func CfnCluster_ArnForCluster(resource interfacesawsmemorydb.IClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_ArnForClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnCluster",
+		"arnForCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IClusterRef from a clusterName.

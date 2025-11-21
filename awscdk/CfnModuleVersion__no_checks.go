@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnModuleVersion) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnModuleVersion_ArnForModuleVersionParameters(resource interfacesawscloudformation.IModuleVersionRef) error {
+	return nil
+}
+
 func validateCfnModuleVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

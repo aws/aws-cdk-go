@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRoute) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnRoute_ArnForRouteParameters(resource interfacesawsrefactorspaces.IRouteRef) error {
+	return nil
+}
+
 func validateCfnRoute_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

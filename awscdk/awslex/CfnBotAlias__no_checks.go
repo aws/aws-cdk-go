@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBotAlias) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnBotAlias_ArnForBotAliasParameters(resource interfacesawslex.IBotAliasRef) error {
+	return nil
+}
+
 func validateCfnBotAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

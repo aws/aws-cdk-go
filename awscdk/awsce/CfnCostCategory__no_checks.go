@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCostCategory) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnCostCategory_ArnForCostCategoryParameters(resource interfacesawsce.ICostCategoryRef) error {
+	return nil
+}
+
 func validateCfnCostCategory_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

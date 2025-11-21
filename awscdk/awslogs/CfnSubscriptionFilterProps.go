@@ -30,7 +30,7 @@ type CfnSubscriptionFilterProps struct {
 	// The Amazon Resource Name (ARN) of the destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-destinationarn
 	//
-	DestinationArn *string `field:"required" json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn interface{} `field:"required" json:"destinationArn" yaml:"destinationArn"`
 	// The filtering expressions that restrict what gets delivered to the destination AWS resource.
 	//
 	// For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
@@ -42,7 +42,7 @@ type CfnSubscriptionFilterProps struct {
 	// All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-loggroupname
 	//
-	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName interface{} `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// This parameter is valid only for log groups that have an active log transformer.
 	//
 	// For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
@@ -76,6 +76,6 @@ type CfnSubscriptionFilterProps struct {
 	// You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

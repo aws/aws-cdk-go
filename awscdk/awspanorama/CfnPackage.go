@@ -560,6 +560,24 @@ func (j *jsiiProxy_CfnPackage)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPackage_ArnForPackage(resource interfacesawspanorama.IPackageRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPackage_ArnForPackageParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_panorama.CfnPackage",
+		"arnForPackage",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPackageRef from an ARN.
 func CfnPackage_FromPackageArn(scope constructs.Construct, id *string, arn *string) interfacesawspanorama.IPackageRef {
 	_init_.Initialize()

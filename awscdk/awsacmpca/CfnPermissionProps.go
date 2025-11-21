@@ -31,7 +31,7 @@ type CfnPermissionProps struct {
 	// The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html#cfn-acmpca-permission-certificateauthorityarn
 	//
-	CertificateAuthorityArn *string `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
+	CertificateAuthorityArn interface{} `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The AWS service or entity that holds the permission.
 	//
 	// At this time, the only valid principal is `acm.amazonaws.com` .

@@ -5,7 +5,7 @@ package awsgreengrass
 //
 // The group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
 //
-// In an AWS CloudFormation template, `GroupVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) resource.
+// In an CloudFormation template, `GroupVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

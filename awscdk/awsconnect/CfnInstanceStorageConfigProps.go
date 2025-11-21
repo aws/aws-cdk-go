@@ -46,7 +46,7 @@ type CfnInstanceStorageConfigProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-instancearn
 	//
-	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// A valid resource type.
 	//
 	// Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`.

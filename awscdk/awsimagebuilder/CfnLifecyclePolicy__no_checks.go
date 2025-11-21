@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLifecyclePolicy) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnLifecyclePolicy_ArnForLifecyclePolicyParameters(resource interfacesawsimagebuilder.ILifecyclePolicyRef) error {
+	return nil
+}
+
 func validateCfnLifecyclePolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

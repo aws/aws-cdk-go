@@ -834,6 +834,24 @@ func (j *jsiiProxy_CfnImage)SetWorkflows(val interface{}) {
 	)
 }
 
+func CfnImage_ArnForImage(resource interfacesawsimagebuilder.IImageRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnImage_ArnForImageParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage",
+		"arnForImage",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

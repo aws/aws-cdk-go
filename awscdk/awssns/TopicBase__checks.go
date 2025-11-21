@@ -68,6 +68,14 @@ func (t *jsiiProxy_TopicBase) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
+func (t *jsiiProxy_TopicBase) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TopicBase) validateGrantPublishParameters(identity awsiam.IGrantable) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")

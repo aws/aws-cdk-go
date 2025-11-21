@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSchedulingPolicy) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnSchedulingPolicy_ArnForSchedulingPolicyParameters(resource interfacesawsbatch.ISchedulingPolicyRef) error {
+	return nil
+}
+
 func validateCfnSchedulingPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -533,6 +533,24 @@ func (j *jsiiProxy_CfnPermission)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPermission_ArnForPermission(resource interfacesawsram.IPermissionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPermission_ArnForPermissionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ram.CfnPermission",
+		"arnForPermission",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

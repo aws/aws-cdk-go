@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomPermissions) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnCustomPermissions_ArnForCustomPermissionsParameters(resource interfacesawsquicksight.ICustomPermissionsRef) error {
+	return nil
+}
+
 func validateCfnCustomPermissions_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

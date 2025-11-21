@@ -592,6 +592,24 @@ func (j *jsiiProxy_CfnFlowAlias)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnFlowAlias_ArnForFlowAlias(resource interfacesawsbedrock.IFlowAliasRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFlowAlias_ArnForFlowAliasParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnFlowAlias",
+		"arnForFlowAlias",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

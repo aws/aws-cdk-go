@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMonitoringSchedule) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnMonitoringSchedule_ArnForMonitoringScheduleParameters(resource interfacesawssagemaker.IMonitoringScheduleRef) error {
+	return nil
+}
+
 func validateCfnMonitoringSchedule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

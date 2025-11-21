@@ -80,7 +80,7 @@ type CfnDataSourceProps struct {
 	// Unique AWS AppSync GraphQL API identifier where this data source will be created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-apiid
 	//
-	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"required" json:"apiId" yaml:"apiId"`
 	// Friendly name for you to identify your AppSync data source after creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-name
 	//
@@ -148,6 +148,6 @@ type CfnDataSourceProps struct {
 	// Required if `Type` is specified as `AWS_LAMBDA` , `AMAZON_DYNAMODB` , `AMAZON_ELASTICSEARCH` , `AMAZON_EVENTBRIDGE` , `AMAZON_OPENSEARCH_SERVICE` , `RELATIONAL_DATABASE` , or `AMAZON_BEDROCK_RUNTIME` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-servicerolearn
 	//
-	ServiceRoleArn *string `field:"optional" json:"serviceRoleArn" yaml:"serviceRoleArn"`
+	ServiceRoleArn interface{} `field:"optional" json:"serviceRoleArn" yaml:"serviceRoleArn"`
 }
 

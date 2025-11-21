@@ -30,7 +30,7 @@ type CfnBotProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-rolearn
 	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-autobuildbotlocales
 	//

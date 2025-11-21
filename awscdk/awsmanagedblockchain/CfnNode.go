@@ -486,6 +486,24 @@ func (j *jsiiProxy_CfnNode)SetNodeConfiguration(val interface{}) {
 	)
 }
 
+func CfnNode_ArnForNode(resource interfacesawsmanagedblockchain.INodeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNode_ArnForNodeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
+		"arnForNode",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new INodeRef from an ARN.
 func CfnNode_FromNodeArn(scope constructs.Construct, id *string, arn *string) interfacesawsmanagedblockchain.INodeRef {
 	_init_.Initialize()

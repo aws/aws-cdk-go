@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnContainerFleet) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnContainerFleet_ArnForContainerFleetParameters(resource interfacesawsgamelift.IContainerFleetRef) error {
+	return nil
+}
+
 func validateCfnContainerFleet_FromFleetIdParameters(scope constructs.Construct, id *string, fleetId *string) error {
 	return nil
 }

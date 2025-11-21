@@ -23,7 +23,7 @@ type CfnVPCEndpointServicePermissionsProps struct {
 	// The ID of the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-serviceid
 	//
-	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
+	ServiceId interface{} `field:"required" json:"serviceId" yaml:"serviceId"`
 	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ).
 	//
 	// Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.

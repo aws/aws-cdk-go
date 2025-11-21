@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,6 +68,8 @@ type VirtualGateway interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a VirtualGateway.
+	Grants() VirtualGatewayGrants
 	Listeners() *[]*VirtualGatewayListenerConfig
 	// The Mesh that the VirtualGateway belongs to.
 	Mesh() IMesh
@@ -86,6 +89,8 @@ type VirtualGateway interface {
 	VirtualGatewayArn() *string
 	// The name of the VirtualGateway.
 	VirtualGatewayName() *string
+	// A reference to a VirtualGateway resource.
+	VirtualGatewayRef() *interfacesawsappmesh.VirtualGatewayReference
 	// Utility method to add a new GatewayRoute to the VirtualGateway.
 	AddGatewayRoute(id *string, route *GatewayRouteBaseProps) GatewayRoute
 	// Apply the given removal policy to this resource.
@@ -129,6 +134,16 @@ func (j *jsiiProxy_VirtualGateway) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VirtualGateway) Grants() VirtualGatewayGrants {
+	var returns VirtualGatewayGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns
@@ -199,6 +214,16 @@ func (j *jsiiProxy_VirtualGateway) VirtualGatewayName() *string {
 	_jsii_.Get(
 		j,
 		"virtualGatewayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VirtualGateway) VirtualGatewayRef() *interfacesawsappmesh.VirtualGatewayReference {
+	var returns *interfacesawsappmesh.VirtualGatewayReference
+	_jsii_.Get(
+		j,
+		"virtualGatewayRef",
 		&returns,
 	)
 	return returns

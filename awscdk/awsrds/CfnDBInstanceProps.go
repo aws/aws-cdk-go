@@ -117,7 +117,7 @@ import (
 //   	Timezone: jsii.String("timezone"),
 //   	UseDefaultProcessorFeatures: jsii.Boolean(false),
 //   	UseLatestRestorableTime: jsii.Boolean(false),
-//   	VpcSecurityGroups: []*string{
+//   	VpcSecurityGroups: []interface{}{
 //   		jsii.String("vpcSecurityGroups"),
 //   	},
 //   }
@@ -351,7 +351,7 @@ type CfnDBInstanceProps struct {
 	// This setting doesn't apply to RDS Custom DB instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclusteridentifier
 	//
-	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	DbClusterIdentifier interface{} `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// The identifier for the Multi-AZ DB cluster snapshot to restore from.
 	//
 	// For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide* .
@@ -453,7 +453,7 @@ type CfnDBInstanceProps struct {
 	// If you don't specify a value for `DBParameterGroupName` property, the default DB parameter group for the specified engine and engine version is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbparametergroupname
 	//
-	DbParameterGroupName *string `field:"optional" json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
+	DbParameterGroupName interface{} `field:"optional" json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance.
 	//
 	// The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
@@ -528,7 +528,7 @@ type CfnDBInstanceProps struct {
 	// This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsubnetgroupname
 	//
-	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	DbSubnetGroupName interface{} `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files.
 	//
 	// In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to `RDSCDB` . The Oracle SID is also the name of your CDB.
@@ -782,7 +782,7 @@ type CfnDBInstanceProps struct {
 	// Not applicable. The KMS key identifier is managed by the DB cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// License model information for this DB instance.
 	//
 	// Valid Values:
@@ -954,7 +954,7 @@ type CfnDBInstanceProps struct {
 	// This setting doesn't apply to RDS Custom DB instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-monitoringrolearn
 	//
-	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
+	MonitoringRoleArn interface{} `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
 	// Specifies whether the DB instance is a Multi-AZ deployment.
 	//
 	// You can't set the `AvailabilityZone` parameter if the DB instance is a Multi-AZ deployment.
@@ -997,7 +997,7 @@ type CfnDBInstanceProps struct {
 	// For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-performanceinsightskmskeyid
 	//
-	PerformanceInsightsKmsKeyId *string `field:"optional" json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
+	PerformanceInsightsKmsKeyId interface{} `field:"optional" json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
 	// The number of days to retain Performance Insights data.
 	//
 	// When creating a DB instance without enabling Performance Insights, you can't specify the parameter `PerformanceInsightsRetentionPeriod` .
@@ -1155,7 +1155,7 @@ type CfnDBInstanceProps struct {
 	// > - For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier
 	//
-	SourceDbInstanceIdentifier *string `field:"optional" json:"sourceDbInstanceIdentifier" yaml:"sourceDbInstanceIdentifier"`
+	SourceDbInstanceIdentifier interface{} `field:"optional" json:"sourceDbInstanceIdentifier" yaml:"sourceDbInstanceIdentifier"`
 	// The resource ID of the source DB instance from which to restore.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourcedbiresourceid
 	//
@@ -1255,6 +1255,6 @@ type CfnDBInstanceProps struct {
 	// Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-vpcsecuritygroups
 	//
-	VpcSecurityGroups *[]*string `field:"optional" json:"vpcSecurityGroups" yaml:"vpcSecurityGroups"`
+	VpcSecurityGroups *[]interface{} `field:"optional" json:"vpcSecurityGroups" yaml:"vpcSecurityGroups"`
 }
 

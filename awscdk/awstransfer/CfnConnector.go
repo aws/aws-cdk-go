@@ -659,6 +659,24 @@ func (j *jsiiProxy_CfnConnector)SetUrl(val *string) {
 	)
 }
 
+func CfnConnector_ArnForConnector(resource interfacesawstransfer.IConnectorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnector_ArnForConnectorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnConnector",
+		"arnForConnector",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IConnectorRef from an ARN.
 func CfnConnector_FromConnectorArn(scope constructs.Construct, id *string, arn *string) interfacesawstransfer.IConnectorRef {
 	_init_.Initialize()

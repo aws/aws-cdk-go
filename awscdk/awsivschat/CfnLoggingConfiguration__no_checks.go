@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLoggingConfiguration) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnLoggingConfiguration_ArnForLoggingConfigurationParameters(resource interfacesawsivschat.ILoggingConfigurationRef) error {
+	return nil
+}
+
 func validateCfnLoggingConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

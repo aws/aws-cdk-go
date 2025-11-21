@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnUserSettings) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnUserSettings_ArnForUserSettingsParameters(resource interfacesawsworkspacesweb.IUserSettingsRef) error {
+	return nil
+}
+
 func validateCfnUserSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

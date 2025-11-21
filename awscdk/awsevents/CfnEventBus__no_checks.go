@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEventBus) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnEventBus_ArnForEventBusParameters(resource interfacesawsevents.IEventBusRef) error {
+	return nil
+}
+
 func validateCfnEventBus_FromEventBusArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

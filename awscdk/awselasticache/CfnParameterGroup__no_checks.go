@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnParameterGroup) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnParameterGroup_ArnForParameterGroupParameters(resource interfacesawselasticache.IParameterGroupRef) error {
+	return nil
+}
+
 func validateCfnParameterGroup_FromCacheParameterGroupNameParameters(scope constructs.Construct, id *string, cacheParameterGroupName *string) error {
 	return nil
 }

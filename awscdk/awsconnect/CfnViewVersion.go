@@ -452,6 +452,24 @@ func (j *jsiiProxy_CfnViewVersion)SetViewContentSha256(val *string) {
 	)
 }
 
+func CfnViewVersion_ArnForViewVersion(resource interfacesawsconnect.IViewVersionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnViewVersion_ArnForViewVersionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnViewVersion",
+		"arnForViewVersion",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

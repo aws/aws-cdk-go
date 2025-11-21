@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnNetworkInsightsPath_ArnForNetworkInsightsPathParameters(resource interfacesawsec2.INetworkInsightsPathRef) error {
+	return nil
+}
+
 func validateCfnNetworkInsightsPath_FromNetworkInsightsPathArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

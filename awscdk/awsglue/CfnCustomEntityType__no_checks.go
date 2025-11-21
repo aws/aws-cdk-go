@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomEntityType) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnCustomEntityType_ArnForCustomEntityTypeParameters(resource interfacesawsglue.ICustomEntityTypeRef) error {
+	return nil
+}
+
 func validateCfnCustomEntityType_FromCustomEntityTypeIdParameters(scope constructs.Construct, id *string, customEntityTypeId *string) error {
 	return nil
 }

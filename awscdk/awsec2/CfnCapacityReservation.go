@@ -953,6 +953,24 @@ func (j *jsiiProxy_CfnCapacityReservation)SetUnusedReservationBillingOwnerId(val
 	)
 }
 
+func CfnCapacityReservation_ArnForCapacityReservation(resource interfacesawsec2.ICapacityReservationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityReservation_ArnForCapacityReservationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservation",
+		"arnForCapacityReservation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICapacityReservationRef from an ARN.
 func CfnCapacityReservation_FromCapacityReservationArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.ICapacityReservationRef {
 	_init_.Initialize()

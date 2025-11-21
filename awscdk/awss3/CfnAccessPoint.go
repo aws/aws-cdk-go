@@ -605,6 +605,24 @@ func (j *jsiiProxy_CfnAccessPoint)SetVpcConfiguration(val interface{}) {
 	)
 }
 
+func CfnAccessPoint_ArnForAccessPoint(resource interfacesawss3.IAccessPointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPoint_ArnForAccessPointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
+		"arnForAccessPoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAccessPointRef from an ARN.
 func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, arn *string) interfacesawss3.IAccessPointRef {
 	_init_.Initialize()

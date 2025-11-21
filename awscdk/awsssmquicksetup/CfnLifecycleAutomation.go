@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a lifecycle automation resource that executes SSM Automation documents during AWS CloudFormation stack operations.
+// Creates a lifecycle automation resource that executes SSM Automation documents during CloudFormation stack operations.
 //
 // This resource replaces inline AWS Lambda custom resources and provides a managed way to handle lifecycle events in Quick Setup configurations.
 //
@@ -44,7 +44,7 @@ type CfnLifecycleAutomation interface {
 	awscdk.ITaggableV2
 	// Returns the ID of the SSM Association created to manage the automation document execution lifecycle.
 	AttrAssociationId() *string
-	// The name of the SSM Automation document to execute in response to AWS CloudFormation lifecycle events (CREATE, UPDATE, DELETE).
+	// The name of the SSM Automation document to execute in response to CloudFormation lifecycle events (CREATE, UPDATE, DELETE).
 	AutomationDocument() *string
 	SetAutomationDocument(val *string)
 	// A map of key-value parameters passed to the Automation document during execution.

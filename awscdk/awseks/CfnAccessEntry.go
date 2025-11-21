@@ -574,6 +574,24 @@ func (j *jsiiProxy_CfnAccessEntry)SetUsername(val *string) {
 	)
 }
 
+func CfnAccessEntry_ArnForAccessEntry(resource interfacesawseks.IAccessEntryRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAccessEntry_ArnForAccessEntryParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.CfnAccessEntry",
+		"arnForAccessEntry",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

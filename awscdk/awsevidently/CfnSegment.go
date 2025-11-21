@@ -494,6 +494,24 @@ func (j *jsiiProxy_CfnSegment)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnSegment_ArnForSegment(resource interfacesawsevidently.ISegmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSegment_ArnForSegmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_evidently.CfnSegment",
+		"arnForSegment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

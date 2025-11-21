@@ -496,6 +496,24 @@ func (j *jsiiProxy_CfnLiveSource)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnLiveSource_ArnForLiveSource(resource interfacesawsmediatailor.ILiveSourceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLiveSource_ArnForLiveSourceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediatailor.CfnLiveSource",
+		"arnForLiveSource",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -183,7 +183,7 @@ type CfnRuleProps struct {
 	// If you omit this, the default event bus is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventbusname
 	//
-	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
+	EventBusName interface{} `field:"optional" json:"eventBusName" yaml:"eventBusName"`
 	// The event pattern of the rule.
 	//
 	// For more information, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) in the **Amazon EventBridge User Guide** .
@@ -199,7 +199,7 @@ type CfnRuleProps struct {
 	// If you're setting an event bus in another account as the target and that account granted permission to your account through an organization instead of directly by the account ID, you must specify a `RoleArn` with proper permissions in the `Target` structure, instead of here in this parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The scheduling expression.
 	//
 	// For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see [Creating an Amazon EventBridge rule that runs on a schedule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html) .
@@ -234,7 +234,7 @@ type CfnRuleProps struct {
 	//
 	// For a list of services you can configure as targets for events, see [EventBridge targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) in the **Amazon EventBridge User Guide** .
 	//
-	// Creating rules with built-in targets is supported only in the AWS Management Console . The built-in targets are:
+	// Creating rules with built-in targets is supported only in the the console . The built-in targets are:
 	//
 	// - `Amazon EBS CreateSnapshot API call`
 	// - `Amazon EC2 RebootInstances API call`

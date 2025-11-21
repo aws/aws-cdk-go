@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAccessLogSubscription) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnAccessLogSubscription_ArnForAccessLogSubscriptionParameters(resource interfacesawsvpclattice.IAccessLogSubscriptionRef) error {
+	return nil
+}
+
 func validateCfnAccessLogSubscription_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

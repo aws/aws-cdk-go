@@ -20,7 +20,7 @@ package awsapigateway
 //   	AuthType: jsii.String("authType"),
 //   	IdentitySource: jsii.String("identitySource"),
 //   	IdentityValidationExpression: jsii.String("identityValidationExpression"),
-//   	ProviderArns: []*string{
+//   	ProviderArns: []interface{}{
 //   		jsii.String("providerArns"),
 //   	},
 //   }
@@ -35,7 +35,7 @@ type CfnAuthorizerProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-restapiid
 	//
-	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"required" json:"restApiId" yaml:"restApiId"`
 	// The authorizer type.
 	//
 	// Valid values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, and `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
@@ -47,7 +47,7 @@ type CfnAuthorizerProps struct {
 	// To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizercredentials
 	//
-	AuthorizerCredentials *string `field:"optional" json:"authorizerCredentials" yaml:"authorizerCredentials"`
+	AuthorizerCredentials interface{} `field:"optional" json:"authorizerCredentials" yaml:"authorizerCredentials"`
 	// The TTL in seconds of cached authorizer results.
 	//
 	// If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
@@ -81,6 +81,6 @@ type CfnAuthorizerProps struct {
 	// Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}` . For a `TOKEN` or `REQUEST` authorizer, this is not defined.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-providerarns
 	//
-	ProviderArns *[]*string `field:"optional" json:"providerArns" yaml:"providerArns"`
+	ProviderArns *[]interface{} `field:"optional" json:"providerArns" yaml:"providerArns"`
 }
 

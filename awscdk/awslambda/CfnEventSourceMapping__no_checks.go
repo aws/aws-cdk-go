@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEventSourceMapping) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnEventSourceMapping_ArnForEventSourceMappingParameters(resource interfacesawslambda.IEventSourceMappingRef) error {
+	return nil
+}
+
 func validateCfnEventSourceMapping_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetFilterCriteriaParameters(va
 }
 
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetFunctionNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetLoggingConfigParameters(val interface{}) error {
 	return nil
 }
 

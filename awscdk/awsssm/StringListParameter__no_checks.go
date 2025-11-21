@@ -16,6 +16,10 @@ func (s *jsiiProxy_StringListParameter) validateGetResourceNameAttributeParamete
 	return nil
 }
 
+func (s *jsiiProxy_StringListParameter) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (s *jsiiProxy_StringListParameter) validateGrantReadParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

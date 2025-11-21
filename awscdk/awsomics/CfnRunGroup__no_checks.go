@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRunGroup) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnRunGroup_ArnForRunGroupParameters(resource interfacesawsomics.IRunGroupRef) error {
+	return nil
+}
+
 func validateCfnRunGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -664,6 +664,24 @@ func (j *jsiiProxy_CfnLaunch)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnLaunch_ArnForLaunch(resource interfacesawsevidently.ILaunchRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLaunch_ArnForLaunchParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_evidently.CfnLaunch",
+		"arnForLaunch",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

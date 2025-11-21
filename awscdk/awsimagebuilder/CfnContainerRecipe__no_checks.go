@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnContainerRecipe) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnContainerRecipe_ArnForContainerRecipeParameters(resource interfacesawsimagebuilder.IContainerRecipeRef) error {
+	return nil
+}
+
 func validateCfnContainerRecipe_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

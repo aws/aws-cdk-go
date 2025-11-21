@@ -645,6 +645,24 @@ func (j *jsiiProxy_CfnResponsePlan)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnResponsePlan_ArnForResponsePlan(resource interfacesawsssmincidents.IResponsePlanRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResponsePlan_ArnForResponsePlanParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan",
+		"arnForResponsePlan",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPackagingConfiguration) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnPackagingConfiguration_ArnForPackagingConfigurationParameters(resource interfacesawsmediapackage.IPackagingConfigurationRef) error {
+	return nil
+}
+
 func validateCfnPackagingConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

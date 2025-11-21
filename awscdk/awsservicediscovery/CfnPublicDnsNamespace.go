@@ -521,6 +521,24 @@ func (j *jsiiProxy_CfnPublicDnsNamespace)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPublicDnsNamespace_ArnForPublicDnsNamespace(resource interfacesawsservicediscovery.IPublicDnsNamespaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPublicDnsNamespace_ArnForPublicDnsNamespaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.CfnPublicDnsNamespace",
+		"arnForPublicDnsNamespace",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

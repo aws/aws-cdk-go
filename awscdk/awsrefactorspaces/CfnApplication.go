@@ -55,7 +55,7 @@ type CfnApplication interface {
 	SetApiGatewayProxy(val interface{})
 	// A reference to a Application resource.
 	ApplicationRef() *interfacesawsrefactorspaces.ApplicationReference
-	// The resource ID of the API Gateway for the proxy.
+	// The resource ID of the ABP for the proxy.
 	AttrApiGatewayId() *string
 	// The unique identifier of the application.
 	AttrApplicationIdentifier() *string
@@ -65,13 +65,13 @@ type CfnApplication interface {
 	AttrNlbArn() *string
 	// The name of the Network Load Balancer configured by the API Gateway proxy.
 	AttrNlbName() *string
-	// The endpoint URL of the Amazon API Gateway proxy.
+	// The endpoint URL of the ABPlong proxy.
 	AttrProxyUrl() *string
-	// The name of the API Gateway stage.
+	// The name of the ABP stage.
 	//
 	// The name defaults to `prod` .
 	AttrStageName() *string
-	// The `VpcLink` ID of the API Gateway proxy.
+	// The `VpcLink` ID of the ABP proxy.
 	AttrVpcLinkId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -633,6 +633,24 @@ func (j *jsiiProxy_CfnApplication)SetVpcId(val *string) {
 		"vpcId",
 		val,
 	)
+}
+
+func CfnApplication_ArnForApplication(resource interfacesawsrefactorspaces.IApplicationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApplication_ArnForApplicationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_refactorspaces.CfnApplication",
+		"arnForApplication",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

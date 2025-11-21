@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPartnerAccount) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnPartnerAccount_ArnForPartnerAccountParameters(resource interfacesawsiotwireless.IPartnerAccountRef) error {
+	return nil
+}
+
 func validateCfnPartnerAccount_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

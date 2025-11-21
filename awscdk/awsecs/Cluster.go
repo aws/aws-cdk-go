@@ -12,6 +12,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -69,6 +70,8 @@ type Cluster interface {
 	ClusterArn() *string
 	// The name of the cluster.
 	ClusterName() *string
+	// A reference to a Cluster resource.
+	ClusterRef() *interfacesawsecs.ClusterReference
 	// Getter for _clusterScopedCapacityProviderNames.
 	ClusterScopedCapacityProviderNames() *[]*string
 	// Manage the allowed network connections for the cluster with Security Groups.
@@ -91,6 +94,8 @@ type Cluster interface {
 	Env() *interfaces.ResourceEnvironment
 	// Getter for execute command configuration associated with the cluster.
 	ExecuteCommandConfiguration() *ExecuteCommandConfiguration
+	// Collection of grant methods for a Cluster.
+	Grants() ClusterGrants
 	// Whether the cluster has EC2 capacity associated with it.
 	HasEc2Capacity() *bool
 	// The tree node.
@@ -227,6 +232,16 @@ func (j *jsiiProxy_Cluster) ClusterName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Cluster) ClusterRef() *interfacesawsecs.ClusterReference {
+	var returns *interfacesawsecs.ClusterReference
+	_jsii_.Get(
+		j,
+		"clusterRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Cluster) ClusterScopedCapacityProviderNames() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -282,6 +297,16 @@ func (j *jsiiProxy_Cluster) ExecuteCommandConfiguration() *ExecuteCommandConfigu
 	_jsii_.Get(
 		j,
 		"executeCommandConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Cluster) Grants() ClusterGrants {
+	var returns ClusterGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIdMappingTable) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnIdMappingTable_ArnForIdMappingTableParameters(resource interfacesawscleanrooms.IIdMappingTableRef) error {
+	return nil
+}
+
 func validateCfnIdMappingTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

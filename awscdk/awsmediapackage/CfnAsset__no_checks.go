@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAsset) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAsset_ArnForAssetParameters(resource interfacesawsmediapackage.IAssetRef) error {
+	return nil
+}
+
 func validateCfnAsset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

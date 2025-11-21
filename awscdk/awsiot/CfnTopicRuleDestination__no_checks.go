@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTopicRuleDestination) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnTopicRuleDestination_ArnForTopicRuleDestinationParameters(resource interfacesawsiot.ITopicRuleDestinationRef) error {
+	return nil
+}
+
 func validateCfnTopicRuleDestination_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

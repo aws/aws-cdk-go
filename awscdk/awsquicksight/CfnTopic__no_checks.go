@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTopic) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnTopic_ArnForTopicParameters(resource interfacesawsquicksight.ITopicRef) error {
+	return nil
+}
+
 func validateCfnTopic_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

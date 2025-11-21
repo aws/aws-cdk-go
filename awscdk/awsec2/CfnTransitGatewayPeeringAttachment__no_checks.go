@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateValidatePropertie
 	return nil
 }
 
+func validateCfnTransitGatewayPeeringAttachment_ArnForTransitGatewayPeeringAttachmentParameters(resource interfacesawsec2.ITransitGatewayPeeringAttachmentRef) error {
+	return nil
+}
+
 func validateCfnTransitGatewayPeeringAttachment_FromTransitGatewayAttachmentIdParameters(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) error {
 	return nil
 }

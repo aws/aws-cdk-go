@@ -12,7 +12,6 @@ package awsmediaconnect
 //
 //   cfnFlowOutputProps := &CfnFlowOutputProps{
 //   	FlowArn: jsii.String("flowArn"),
-//   	Protocol: jsii.String("protocol"),
 //
 //   	// the properties below are optional
 //   	CidrAllowList: []*string{
@@ -58,6 +57,7 @@ package awsmediaconnect
 //   	NdiSpeedHqQuality: jsii.Number(123),
 //   	OutputStatus: jsii.String("outputStatus"),
 //   	Port: jsii.Number(123),
+//   	Protocol: jsii.String("protocol"),
 //   	RemoteId: jsii.String("remoteId"),
 //   	RouterIntegrationState: jsii.String("routerIntegrationState"),
 //   	RouterIntegrationTransitEncryption: &FlowTransitEncryptionProperty{
@@ -86,12 +86,6 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
 	//
 	FlowArn *string `field:"required" json:"flowArn" yaml:"flowArn"`
-	// The protocol to use for the output.
-	//
-	// > AWS Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
-	//
-	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// The range of IP addresses that should be allowed to initiate output requests to this flow.
 	//
 	// These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -152,6 +146,12 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	// The protocol to use for the output.
+	//
+	// > AWS Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
+	//
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The remote ID for the Zixi-pull stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
 	//
@@ -159,7 +159,7 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-routerintegrationstate
 	//
 	RouterIntegrationState *string `field:"optional" json:"routerIntegrationState" yaml:"routerIntegrationState"`
-	// The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+	// Information about the encryption of the flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-routerintegrationtransitencryption
 	//
 	RouterIntegrationTransitEncryption interface{} `field:"optional" json:"routerIntegrationTransitEncryption" yaml:"routerIntegrationTransitEncryption"`

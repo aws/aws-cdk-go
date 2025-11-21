@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeliveryDestination) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnDeliveryDestination_ArnForDeliveryDestinationParameters(resource interfacesawslogs.IDeliveryDestinationRef) error {
+	return nil
+}
+
 func validateCfnDeliveryDestination_FromDeliveryDestinationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

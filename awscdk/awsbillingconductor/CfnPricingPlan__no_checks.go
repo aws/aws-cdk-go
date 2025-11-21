@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPricingPlan) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnPricingPlan_ArnForPricingPlanParameters(resource interfacesawsbillingconductor.IPricingPlanRef) error {
+	return nil
+}
+
 func validateCfnPricingPlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

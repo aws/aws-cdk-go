@@ -116,6 +116,7 @@ type CfnSessionLogger interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags of the session logger.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -574,6 +575,24 @@ func (j *jsiiProxy_CfnSessionLogger)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnSessionLogger_ArnForSessionLogger(resource interfacesawsworkspacesweb.ISessionLoggerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSessionLogger_ArnForSessionLoggerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnSessionLogger",
+		"arnForSessionLogger",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodeguruprofiler"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -35,6 +36,8 @@ type ProfilingGroup interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a ProfilingGroup.
+	Grants() ProfilingGroupGrants
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -49,6 +52,8 @@ type ProfilingGroup interface {
 	ProfilingGroupArn() *string
 	// The name of the Profiling Group.
 	ProfilingGroupName() *string
+	// A reference to a ProfilingGroup resource.
+	ProfilingGroupRef() *interfacesawscodeguruprofiler.ProfilingGroupReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -109,6 +114,16 @@ func (j *jsiiProxy_ProfilingGroup) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_ProfilingGroup) Grants() ProfilingGroupGrants {
+	var returns ProfilingGroupGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ProfilingGroup) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -144,6 +159,16 @@ func (j *jsiiProxy_ProfilingGroup) ProfilingGroupName() *string {
 	_jsii_.Get(
 		j,
 		"profilingGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProfilingGroup) ProfilingGroupRef() *interfacesawscodeguruprofiler.ProfilingGroupReference {
+	var returns *interfacesawscodeguruprofiler.ProfilingGroupReference
+	_jsii_.Get(
+		j,
+		"profilingGroupRef",
 		&returns,
 	)
 	return returns

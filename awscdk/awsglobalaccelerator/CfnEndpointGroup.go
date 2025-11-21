@@ -619,6 +619,24 @@ func (j *jsiiProxy_CfnEndpointGroup)SetTrafficDialPercentage(val *float64) {
 	)
 }
 
+func CfnEndpointGroup_ArnForEndpointGroup(resource interfacesawsglobalaccelerator.IEndpointGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEndpointGroup_ArnForEndpointGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_globalaccelerator.CfnEndpointGroup",
+		"arnForEndpointGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

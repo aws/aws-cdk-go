@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStreamProcessor) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnStreamProcessor_ArnForStreamProcessorParameters(resource interfacesawsrekognition.IStreamProcessorRef) error {
+	return nil
+}
+
 func validateCfnStreamProcessor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

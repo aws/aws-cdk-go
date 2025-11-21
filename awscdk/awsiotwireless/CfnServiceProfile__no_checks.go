@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnServiceProfile) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnServiceProfile_ArnForServiceProfileParameters(resource interfacesawsiotwireless.IServiceProfileRef) error {
+	return nil
+}
+
 func validateCfnServiceProfile_FromServiceProfileArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

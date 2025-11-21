@@ -22,7 +22,7 @@ type CfnOriginEndpointPolicy_CdnAuthConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpointpolicy-cdnauthconfiguration.html#cfn-mediapackagev2-originendpointpolicy-cdnauthconfiguration-cdnidentifiersecretarns
 	//
 	CdnIdentifierSecretArns *[]*string `field:"required" json:"cdnIdentifierSecretArns" yaml:"cdnIdentifierSecretArns"`
-	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpointpolicy-cdnauthconfiguration.html#cfn-mediapackagev2-originendpointpolicy-cdnauthconfiguration-secretsrolearn
 	//
 	SecretsRoleArn *string `field:"required" json:"secretsRoleArn" yaml:"secretsRoleArn"`

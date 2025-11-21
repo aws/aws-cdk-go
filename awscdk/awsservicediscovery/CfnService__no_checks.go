@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnService) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnService_ArnForServiceParameters(resource interfacesawsservicediscovery.IServiceRef) error {
+	return nil
+}
+
 func validateCfnService_FromServiceArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBlueprint) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnBlueprint_ArnForBlueprintParameters(resource interfacesawsbedrock.IBlueprintRef) error {
+	return nil
+}
+
 func validateCfnBlueprint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

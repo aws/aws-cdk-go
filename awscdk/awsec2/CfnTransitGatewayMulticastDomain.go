@@ -502,6 +502,24 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain)SetTransitGatewayId(val *str
 	)
 }
 
+func CfnTransitGatewayMulticastDomain_ArnForTransitGatewayMulticastDomain(resource interfacesawsec2.ITransitGatewayMulticastDomainRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayMulticastDomain_ArnForTransitGatewayMulticastDomainParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomain",
+		"arnForTransitGatewayMulticastDomain",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITransitGatewayMulticastDomainRef from an ARN.
 func CfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.ITransitGatewayMulticastDomainRef {
 	_init_.Initialize()

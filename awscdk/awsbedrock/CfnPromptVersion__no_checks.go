@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPromptVersion) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnPromptVersion_ArnForPromptVersionParameters(resource interfacesawsbedrock.IPromptVersionRef) error {
+	return nil
+}
+
 func validateCfnPromptVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

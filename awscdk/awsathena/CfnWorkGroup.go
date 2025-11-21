@@ -665,6 +665,24 @@ func (j *jsiiProxy_CfnWorkGroup)SetWorkGroupConfigurationUpdates(val interface{}
 	)
 }
 
+func CfnWorkGroup_ArnForWorkGroup(resource interfacesawsathena.IWorkGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkGroup_ArnForWorkGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup",
+		"arnForWorkGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IWorkGroupRef from a workGroupName.
 func CfnWorkGroup_FromWorkGroupName(scope constructs.Construct, id *string, workGroupName *string) interfacesawsathena.IWorkGroupRef {
 	_init_.Initialize()

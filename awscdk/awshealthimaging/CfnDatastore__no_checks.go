@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDatastore) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnDatastore_ArnForDatastoreParameters(resource interfacesawshealthimaging.IDatastoreRef) error {
+	return nil
+}
+
 func validateCfnDatastore_FromDatastoreArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -40,13 +40,13 @@ type CfnPermissionProps struct {
 	// You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
 	//
-	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"required" json:"functionName" yaml:"functionName"`
 	// The AWS service , AWS account , IAM user, or IAM role that invokes the function.
 	//
 	// If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal
 	//
-	Principal *string `field:"required" json:"principal" yaml:"principal"`
+	Principal interface{} `field:"required" json:"principal" yaml:"principal"`
 	// For Alexa Smart Home functions, a token that the invoker must supply.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-eventsourcetoken
 	//
@@ -82,6 +82,6 @@ type CfnPermissionProps struct {
 	// Note that Lambda configures the comparison using the `StringLike` operator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn
 	//
-	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
+	SourceArn interface{} `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 

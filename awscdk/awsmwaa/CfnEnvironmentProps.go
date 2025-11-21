@@ -121,13 +121,13 @@ type CfnEnvironmentProps struct {
 	// For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
 	//
-	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn interface{} `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment.
 	//
 	// You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
 	//
-	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interface{} `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
 	//
@@ -194,7 +194,7 @@ type CfnEnvironmentProps struct {
 	// For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
 	//
-	SourceBucketArn *string `field:"optional" json:"sourceBucketArn" yaml:"sourceBucketArn"`
+	SourceBucketArn interface{} `field:"optional" json:"sourceBucketArn" yaml:"sourceBucketArn"`
 	// The version of the startup shell script in your Amazon S3 bucket.
 	//
 	// You must specify the [version ID](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html) that Amazon S3 assigns to the file every time you update the script.

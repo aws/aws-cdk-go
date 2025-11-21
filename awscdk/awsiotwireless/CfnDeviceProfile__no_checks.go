@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeviceProfile) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnDeviceProfile_ArnForDeviceProfileParameters(resource interfacesawsiotwireless.IDeviceProfileRef) error {
+	return nil
+}
+
 func validateCfnDeviceProfile_FromDeviceProfileArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

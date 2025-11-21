@@ -22,7 +22,7 @@ import (
 //
 //   cfnVpcLink := awscdk.Aws_apigateway.NewCfnVpcLink(this, jsii.String("MyCfnVpcLink"), &CfnVpcLinkProps{
 //   	Name: jsii.String("name"),
-//   	TargetArns: []*string{
+//   	TargetArns: []interface{}{
 //   		jsii.String("targetArns"),
 //   	},
 //
@@ -491,6 +491,24 @@ func (j *jsiiProxy_CfnVpcLink)SetTargetArns(val *[]*string) {
 		"targetArns",
 		val,
 	)
+}
+
+func CfnVpcLink_ArnForVpcLink(resource interfacesawsapigateway.IVpcLinkRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVpcLink_ArnForVpcLinkParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnVpcLink",
+		"arnForVpcLink",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IVpcLinkRef from a vpcLinkId.

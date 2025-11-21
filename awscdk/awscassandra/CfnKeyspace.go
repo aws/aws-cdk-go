@@ -482,6 +482,24 @@ func (j *jsiiProxy_CfnKeyspace)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnKeyspace_ArnForKeyspace(resource interfacesawscassandra.IKeyspaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnKeyspace_ArnForKeyspaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"arnForKeyspace",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IKeyspaceRef from a keyspaceName.
 func CfnKeyspace_FromKeyspaceName(scope constructs.Construct, id *string, keyspaceName *string) interfacesawscassandra.IKeyspaceRef {
 	_init_.Initialize()

@@ -28,7 +28,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	Tags: []CfnTag{
@@ -506,6 +506,24 @@ func (j *jsiiProxy_CfnVpcConnector)SetVpcConnectorName(val *string) {
 		"vpcConnectorName",
 		val,
 	)
+}
+
+func CfnVpcConnector_ArnForVpcConnector(resource interfacesawsapprunner.IVpcConnectorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVpcConnector_ArnForVpcConnectorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apprunner.CfnVpcConnector",
+		"arnForVpcConnector",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

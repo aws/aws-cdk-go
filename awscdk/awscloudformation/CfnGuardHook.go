@@ -15,7 +15,7 @@ import (
 //
 // Using the Guard domain specific language (DSL), you can author Guard Hooks to evaluate your resources before allowing stack operations.
 //
-// For more information, see [Guard Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/guard-hooks.html) in the *AWS CloudFormation Hooks User Guide* .
+// For more information, see [Guard Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/guard-hooks.html) in the *CloudFormation Hooks User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

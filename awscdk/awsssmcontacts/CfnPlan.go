@@ -465,6 +465,24 @@ func (j *jsiiProxy_CfnPlan)SetStages(val interface{}) {
 	)
 }
 
+func CfnPlan_ArnForPlan(resource interfacesawsssmcontacts.IPlanRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPlan_ArnForPlanParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmcontacts.CfnPlan",
+		"arnForPlan",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

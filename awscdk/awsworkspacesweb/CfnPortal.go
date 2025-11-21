@@ -133,7 +133,7 @@ type CfnPortal interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ARN of the session logger that is assocaited with the portal.
+	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn() *string
 	SetSessionLoggerArn(val *string)
 	// The stack in which this element is defined.
@@ -814,6 +814,24 @@ func (j *jsiiProxy_CfnPortal)SetUserSettingsArn(val *string) {
 		"userSettingsArn",
 		val,
 	)
+}
+
+func CfnPortal_ArnForPortal(resource interfacesawsworkspacesweb.IPortalRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPortal_ArnForPortalParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnPortal",
+		"arnForPortal",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

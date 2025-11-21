@@ -567,6 +567,24 @@ func (j *jsiiProxy_CfnResourceShare)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnResourceShare_ArnForResourceShare(resource interfacesawsram.IResourceShareRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResourceShare_ArnForResourceShareParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ram.CfnResourceShare",
+		"arnForResourceShare",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

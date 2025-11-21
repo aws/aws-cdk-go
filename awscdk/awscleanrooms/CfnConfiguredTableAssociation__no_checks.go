@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfiguredTableAssociation) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnConfiguredTableAssociation_ArnForConfiguredTableAssociationParameters(resource interfacesawscleanrooms.IConfiguredTableAssociationRef) error {
+	return nil
+}
+
 func validateCfnConfiguredTableAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

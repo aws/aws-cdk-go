@@ -931,6 +931,24 @@ func (j *jsiiProxy_CfnPlaybackConfiguration)SetVideoContentSourceUrl(val *string
 	)
 }
 
+func CfnPlaybackConfiguration_ArnForPlaybackConfiguration(resource interfacesawsmediatailor.IPlaybackConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPlaybackConfiguration_ArnForPlaybackConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration",
+		"arnForPlaybackConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

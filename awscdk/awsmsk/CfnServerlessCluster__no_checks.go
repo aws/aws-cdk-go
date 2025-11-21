@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnServerlessCluster) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnServerlessCluster_ArnForServerlessClusterParameters(resource interfacesawsmsk.IServerlessClusterRef) error {
+	return nil
+}
+
 func validateCfnServerlessCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

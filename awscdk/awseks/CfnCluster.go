@@ -1022,6 +1022,24 @@ func (j *jsiiProxy_CfnCluster)SetZonalShiftConfig(val interface{}) {
 	)
 }
 
+func CfnCluster_ArnForCluster(resource interfacesawseks.IClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_ArnForClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.CfnCluster",
+		"arnForCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IClusterRef from an ARN.
 func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) interfacesawseks.IClusterRef {
 	_init_.Initialize()

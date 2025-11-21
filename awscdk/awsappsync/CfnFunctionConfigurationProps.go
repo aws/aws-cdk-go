@@ -44,7 +44,7 @@ type CfnFunctionConfigurationProps struct {
 	// The AWS AppSync GraphQL API that you want to attach using this function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-apiid
 	//
-	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"required" json:"apiId" yaml:"apiId"`
 	// The name of data source this function will attach.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-datasourcename
 	//

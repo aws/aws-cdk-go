@@ -16,7 +16,7 @@ import (
 // The minimum required properties for specifying a launch template are as follows:
 //
 // - You must specify at least one property for the launch template data.
-// - You can optionally specify a name for the launch template. If you do not specify a name, AWS CloudFormation creates a name for you.
+// - You can optionally specify a name for the launch template. If you do not specify a name, CloudFormation creates a name for you.
 //
 // A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the `ImageId` property, which has no default value. If you do not specify an AMI ID for the launch template `ImageId` property, you must specify an AMI ID for the instance `ImageId` property.
 //
@@ -513,6 +513,24 @@ func (j *jsiiProxy_CfnLaunchTemplate)SetVersionDescription(val *string) {
 		"versionDescription",
 		val,
 	)
+}
+
+func CfnLaunchTemplate_ArnForLaunchTemplate(resource interfacesawsec2.ILaunchTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLaunchTemplate_ArnForLaunchTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate",
+		"arnForLaunchTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ILaunchTemplateRef from a launchTemplateId.

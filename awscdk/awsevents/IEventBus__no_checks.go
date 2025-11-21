@@ -12,3 +12,7 @@ func (i *jsiiProxy_IEventBus) validateGrantPutEventsToParameters(grantee awsiam.
 	return nil
 }
 
+func (i *jsiiProxy_IEventBus) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

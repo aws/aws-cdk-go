@@ -751,6 +751,24 @@ func (j *jsiiProxy_CfnVolume)SetVolumeType(val *string) {
 	)
 }
 
+func CfnVolume_ArnForVolume(resource interfacesawsec2.IVolumeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVolume_ArnForVolumeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVolume",
+		"arnForVolume",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVolumeRef from a volumeId.
 func CfnVolume_FromVolumeId(scope constructs.Construct, id *string, volumeId *string) interfacesawsec2.IVolumeRef {
 	_init_.Initialize()

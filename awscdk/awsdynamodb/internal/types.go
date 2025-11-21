@@ -11,4 +11,5 @@ type Type__interfacesawsdynamodbITableRef = interfacesawsdynamodb.ITableRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscdkIResource = awscdk.IResource
 type Type__awscdkResource = awscdk.Resource
+type Type__awsiamIEncryptedResource = awsiam.IEncryptedResource
 type Type__awsiamIResourceWithPolicy = awsiam.IResourceWithPolicy

@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,14 @@ func (c *jsiiProxy_CfnEventSubscription) validateReplaceDependencyParameters(tar
 func (c *jsiiProxy_CfnEventSubscription) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnEventSubscription_ArnForEventSubscriptionParameters(resource interfacesawsrds.IEventSubscriptionRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
 	}
 
 	return nil

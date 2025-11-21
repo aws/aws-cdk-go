@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateValidateProper
 	return nil
 }
 
+func validateCfnMicrosoftTeamsChannelConfiguration_ArnForMicrosoftTeamsChannelConfigurationParameters(resource interfacesawschatbot.IMicrosoftTeamsChannelConfigurationRef) error {
+	return nil
+}
+
 func validateCfnMicrosoftTeamsChannelConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

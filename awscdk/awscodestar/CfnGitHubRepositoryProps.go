@@ -32,7 +32,7 @@ package awscodestar
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html
 //
 type CfnGitHubRepositoryProps struct {
-	// The name of the repository you want to create in GitHub with AWS CloudFormation stack creation.
+	// The name of the repository you want to create in GitHub with CloudFormation stack creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryname
 	//
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
@@ -42,7 +42,7 @@ type CfnGitHubRepositoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-repositoryowner
 	//
 	RepositoryOwner *string `field:"required" json:"repositoryOwner" yaml:"repositoryOwner"`
-	// Information about code to be committed to a repository after it is created in an AWS CloudFormation stack.
+	// Information about code to be committed to a repository after it is created in an CloudFormation stack.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html#cfn-codestar-githubrepository-code
 	//
 	Code interface{} `field:"optional" json:"code" yaml:"code"`

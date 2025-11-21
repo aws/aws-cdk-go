@@ -13,7 +13,7 @@ import (
 //
 //   cfnDBSubnetGroupProps := &CfnDBSubnetGroupProps{
 //   	DbSubnetGroupDescription: jsii.String("dbSubnetGroupDescription"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //
@@ -37,7 +37,7 @@ type CfnDBSubnetGroupProps struct {
 	// The EC2 Subnet IDs for the DB subnet group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnetgroup.html#cfn-rds-dbsubnetgroup-subnetids
 	//
-	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The name for the DB subnet group. This value is stored as a lowercase string.
 	//
 	// Constraints:

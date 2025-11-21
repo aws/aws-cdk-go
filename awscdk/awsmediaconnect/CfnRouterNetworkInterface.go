@@ -582,6 +582,24 @@ func (j *jsiiProxy_CfnRouterNetworkInterface)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnRouterNetworkInterface_ArnForRouterNetworkInterface(resource interfacesawsmediaconnect.IRouterNetworkInterfaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRouterNetworkInterface_ArnForRouterNetworkInterfaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterNetworkInterface",
+		"arnForRouterNetworkInterface",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

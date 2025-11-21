@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDistribution) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnDistribution_ArnForDistributionParameters(resource interfacesawslightsail.IDistributionRef) error {
+	return nil
+}
+
 func validateCfnDistribution_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

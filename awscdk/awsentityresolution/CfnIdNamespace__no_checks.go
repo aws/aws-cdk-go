@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIdNamespace) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnIdNamespace_ArnForIdNamespaceParameters(resource interfacesawsentityresolution.IIdNamespaceRef) error {
+	return nil
+}
+
 func validateCfnIdNamespace_FromIdNamespaceArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

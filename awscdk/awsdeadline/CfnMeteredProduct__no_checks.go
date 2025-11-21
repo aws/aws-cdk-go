@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMeteredProduct) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnMeteredProduct_ArnForMeteredProductParameters(resource interfacesawsdeadline.IMeteredProductRef) error {
+	return nil
+}
+
 func validateCfnMeteredProduct_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -35,7 +35,7 @@ type CfnLoggingConfigurationProps struct {
 	// You can't change the firewall specification after you create the logging configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
 	//
-	FirewallArn *string `field:"required" json:"firewallArn" yaml:"firewallArn"`
+	FirewallArn interface{} `field:"required" json:"firewallArn" yaml:"firewallArn"`
 	// Defines how AWS Network Firewall performs logging for a firewall.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
 	//

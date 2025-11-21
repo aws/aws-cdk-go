@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRuleGroup) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnRuleGroup_ArnForRuleGroupParameters(resource interfacesawswafv2.IRuleGroupRef) error {
+	return nil
+}
+
 func validateCfnRuleGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

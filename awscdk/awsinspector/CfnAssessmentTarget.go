@@ -413,6 +413,24 @@ func (j *jsiiProxy_CfnAssessmentTarget)SetResourceGroupArn(val *string) {
 	)
 }
 
+func CfnAssessmentTarget_ArnForAssessmentTarget(resource interfacesawsinspector.IAssessmentTargetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAssessmentTarget_ArnForAssessmentTargetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_inspector.CfnAssessmentTarget",
+		"arnForAssessmentTarget",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

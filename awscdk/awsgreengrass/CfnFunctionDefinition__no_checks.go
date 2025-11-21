@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFunctionDefinition) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnFunctionDefinition_ArnForFunctionDefinitionParameters(resource interfacesawsgreengrass.IFunctionDefinitionRef) error {
+	return nil
+}
+
 func validateCfnFunctionDefinition_FromFunctionDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

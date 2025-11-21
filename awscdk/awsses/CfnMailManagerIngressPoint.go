@@ -634,6 +634,24 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint)SetType(val *string) {
 	)
 }
 
+func CfnMailManagerIngressPoint_ArnForMailManagerIngressPoint(resource interfacesawsses.IMailManagerIngressPointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerIngressPoint_ArnForMailManagerIngressPointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint",
+		"arnForMailManagerIngressPoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerIngressPointRef from a ingressPointId.
 func CfnMailManagerIngressPoint_FromIngressPointId(scope constructs.Construct, id *string, ingressPointId *string) interfacesawsses.IMailManagerIngressPointRef {
 	_init_.Initialize()

@@ -61,7 +61,7 @@ type CfnEventBusProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-eventsourcename
 	//
 	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus.
 	//
 	// The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	//

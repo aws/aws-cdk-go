@@ -32,6 +32,13 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	OverrideConfiguration: &OverrideConfigurationProperty{
 //   		Audio: &AudioOverrideConfigurationProperty{
+//   			LanguageConfiguration: &AudioLanguageConfigurationProperty{
+//   				GenerativeOutputLanguage: jsii.String("generativeOutputLanguage"),
+//   				IdentifyMultipleLanguages: jsii.Boolean(false),
+//   				InputLanguages: []*string{
+//   					jsii.String("inputLanguages"),
+//   				},
+//   			},
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
 //   			},
@@ -184,11 +191,11 @@ type CfnDataAutomationProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-dataautomationproject.html#cfn-bedrock-dataautomationproject-customoutputconfiguration
 	//
 	CustomOutputConfiguration interface{} `field:"optional" json:"customOutputConfiguration" yaml:"customOutputConfiguration"`
-	// The AWS KMS encryption context to use for encryption.
+	// The AWS  encryption context to use for encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-dataautomationproject.html#cfn-bedrock-dataautomationproject-kmsencryptioncontext
 	//
 	KmsEncryptionContext interface{} `field:"optional" json:"kmsEncryptionContext" yaml:"kmsEncryptionContext"`
-	// The AWS KMS key to use for encryption.
+	// The AWS  key to use for encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-dataautomationproject.html#cfn-bedrock-dataautomationproject-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

@@ -650,6 +650,24 @@ func (j *jsiiProxy_CfnIPAM)SetTier(val *string) {
 	)
 }
 
+func CfnIPAM_ArnForIPAM(resource interfacesawsec2.IIPAMRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIPAM_ArnForIPAMParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAM",
+		"arnForIPAM",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IIPAMRef from an ARN.
 func CfnIPAM_FromIPAMArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IIPAMRef {
 	_init_.Initialize()

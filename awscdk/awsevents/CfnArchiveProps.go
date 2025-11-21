@@ -27,7 +27,7 @@ type CfnArchiveProps struct {
 	// The ARN of the event bus that sends events to the archive.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
 	//
-	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
+	SourceArn interface{} `field:"required" json:"sourceArn" yaml:"sourceArn"`
 	// The name for the archive to create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
 	//
@@ -40,7 +40,7 @@ type CfnArchiveProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
 	//
 	EventPattern interface{} `field:"optional" json:"eventPattern" yaml:"eventPattern"`
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive.
 	//
 	// The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	//

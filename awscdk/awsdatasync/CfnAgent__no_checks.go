@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAgent) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAgent_ArnForAgentParameters(resource interfacesawsdatasync.IAgentRef) error {
+	return nil
+}
+
 func validateCfnAgent_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

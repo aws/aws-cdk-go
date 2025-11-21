@@ -31,7 +31,7 @@ type CfnAssessmentTemplateProps struct {
 	// The ARN of the assessment target to be included in the assessment template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-assessmenttargetarn
 	//
-	AssessmentTargetArn *string `field:"required" json:"assessmentTargetArn" yaml:"assessmentTargetArn"`
+	AssessmentTargetArn interface{} `field:"required" json:"assessmentTargetArn" yaml:"assessmentTargetArn"`
 	// The duration of the assessment run in seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-durationinseconds
 	//

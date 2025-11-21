@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDomain) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDomain_ArnForDomainParameters(resource interfacesawscustomerprofiles.IDomainRef) error {
+	return nil
+}
+
 func validateCfnDomain_FromDomainNameParameters(scope constructs.Construct, id *string, domainName *string) error {
 	return nil
 }
@@ -81,6 +85,10 @@ func validateCfnDomain_IsCfnResourceParameters(x interface{}) error {
 }
 
 func validateCfnDomain_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetDataStoreParameters(val interface{}) error {
 	return nil
 }
 

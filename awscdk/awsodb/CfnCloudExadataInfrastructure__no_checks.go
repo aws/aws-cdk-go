@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCloudExadataInfrastructure) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnCloudExadataInfrastructure_ArnForCloudExadataInfrastructureParameters(resource interfacesawsodb.ICloudExadataInfrastructureRef) error {
+	return nil
+}
+
 func validateCfnCloudExadataInfrastructure_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

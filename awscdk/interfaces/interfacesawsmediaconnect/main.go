@@ -179,6 +179,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.IRouterInputRef",
+		reflect.TypeOf((*IRouterInputRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routerInputRef", GoGetter: "RouterInputRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRouterInputRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_mediaconnect.IRouterNetworkInterfaceRef",
 		reflect.TypeOf((*IRouterNetworkInterfaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -193,8 +208,31 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.IRouterOutputRef",
+		reflect.TypeOf((*IRouterOutputRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routerOutputRef", GoGetter: "RouterOutputRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRouterOutputRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.RouterInputReference",
+		reflect.TypeOf((*RouterInputReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_mediaconnect.RouterNetworkInterfaceReference",
 		reflect.TypeOf((*RouterNetworkInterfaceReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.RouterOutputReference",
+		reflect.TypeOf((*RouterOutputReference)(nil)).Elem(),
 	)
 }

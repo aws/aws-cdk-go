@@ -29,7 +29,7 @@ type CfnTransitGatewayRouteTableProps struct {
 	// The ID of the transit gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-transitgatewayid
 	//
-	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId interface{} `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// Any tags assigned to the route table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags
 	//

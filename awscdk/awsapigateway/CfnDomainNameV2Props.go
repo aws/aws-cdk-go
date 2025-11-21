@@ -69,8 +69,6 @@ type CfnDomainNameV2Props struct {
 	//
 	RoutingMode *string `field:"optional" json:"routingMode" yaml:"routingMode"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
-	//
-	// Only `TLS_1_2` is supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-securitypolicy
 	//
 	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`

@@ -967,6 +967,24 @@ func (j *jsiiProxy_CfnCampaign)SetTargetArn(val *string) {
 	)
 }
 
+func CfnCampaign_ArnForCampaign(resource interfacesawsiotfleetwise.ICampaignRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCampaign_ArnForCampaignParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign",
+		"arnForCampaign",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICampaignRef from an ARN.
 func CfnCampaign_FromCampaignArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotfleetwise.ICampaignRef {
 	_init_.Initialize()

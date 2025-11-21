@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFarm) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnFarm_ArnForFarmParameters(resource interfacesawsdeadline.IFarmRef) error {
+	return nil
+}
+
 func validateCfnFarm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -15,7 +15,7 @@ import (
 //
 // Scheduling an inference is setting up a continuous real-time inference plan to analyze new measurement data. When setting up the schedule, you provide an Amazon S3 bucket location for the input data, assign it a delimiter between separate entries in the data, set an offset delay if desired, and set the frequency of inferencing. You must also provide an Amazon S3 bucket location for the output data.
 //
-// > Updating some properties below (for example, InferenceSchedulerName and ServerSideKmsKeyId) triggers a resource replacement, which requires a new model. To replace such a property using AWS CloudFormation , but without creating a completely new stack, you must replace ModelName. If you need to replace the property, but want to use the same model, delete the current stack and create a new one with the updated properties.
+// > Updating some properties below (for example, InferenceSchedulerName and ServerSideKmsKeyId) triggers a resource replacement, which requires a new model. To replace such a property using CloudFormation , but without creating a completely new stack, you must replace ModelName. If you need to replace the property, but want to use the same model, delete the current stack and create a new one with the updated properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -103,7 +103,7 @@ type CfnInferenceScheduler interface {
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source being used for the inference.
 	RoleArn() *string
 	SetRoleArn(val *string)
-	// Provides the identifier of the AWS KMS key used to encrypt inference scheduler data by Amazon Lookout for Equipment .
+	// Provides the identifier of the AWS KMS key used to encrypt inference scheduler data by  .
 	ServerSideKmsKeyId() *string
 	SetServerSideKmsKeyId(val *string)
 	// The stack in which this element is defined.
@@ -611,6 +611,24 @@ func (j *jsiiProxy_CfnInferenceScheduler)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnInferenceScheduler_ArnForInferenceScheduler(resource interfacesawslookoutequipment.IInferenceSchedulerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInferenceScheduler_ArnForInferenceSchedulerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"arnForInferenceScheduler",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

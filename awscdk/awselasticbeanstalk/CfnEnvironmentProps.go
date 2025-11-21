@@ -52,7 +52,7 @@ type CfnEnvironmentProps struct {
 	// The name of the application that is associated with this environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-environment.html#cfn-elasticbeanstalk-environment-applicationname
 	//
-	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
+	ApplicationName interface{} `field:"required" json:"applicationName" yaml:"applicationName"`
 	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL.
 	//
 	// If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
@@ -112,7 +112,7 @@ type CfnEnvironmentProps struct {
 	// > If you specify `TemplateName` , then don't specify `SolutionStackName` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-environment.html#cfn-elasticbeanstalk-environment-templatename
 	//
-	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
+	TemplateName interface{} `field:"optional" json:"templateName" yaml:"templateName"`
 	// Specifies the tier to use in creating this environment.
 	//
 	// The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.

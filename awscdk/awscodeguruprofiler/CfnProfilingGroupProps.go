@@ -41,7 +41,7 @@ type CfnProfilingGroupProps struct {
 	// The name of the profiling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
 	//
-	ProfilingGroupName *string `field:"required" json:"profilingGroupName" yaml:"profilingGroupName"`
+	ProfilingGroupName interface{} `field:"required" json:"profilingGroupName" yaml:"profilingGroupName"`
 	// The agent permissions attached to this profiling group.
 	//
 	// This action group grants `ConfigureAgent` and `PostAgentProfile` permissions to perform actions required by the profiling agent. The Json consists of key `Principals` .

@@ -593,6 +593,24 @@ func (j *jsiiProxy_CfnFirewallRuleGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnFirewallRuleGroup_ArnForFirewallRuleGroup(resource interfacesawsroute53resolver.IFirewallRuleGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFirewallRuleGroup_ArnForFirewallRuleGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnFirewallRuleGroup",
+		"arnForFirewallRuleGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

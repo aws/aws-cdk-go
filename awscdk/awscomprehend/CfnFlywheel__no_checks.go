@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFlywheel) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnFlywheel_ArnForFlywheelParameters(resource interfacesawscomprehend.IFlywheelRef) error {
+	return nil
+}
+
 func validateCfnFlywheel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

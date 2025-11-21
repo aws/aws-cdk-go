@@ -134,7 +134,7 @@ type CfnContainer interface {
 	// The power specification of the container service.
 	Power() *string
 	SetPower(val *string)
-	// An object that describes the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry ( Amazon ECR ) private repositories.
+	// An object that describes the configuration for the container service to access private container image repositories, such as  ( Amazon ECR ) private repositories.
 	PrivateRegistryAccess() interface{}
 	SetPrivateRegistryAccess(val interface{})
 	// The public domain name of the container service, such as `example.com` and `www.example.com` .
@@ -674,6 +674,24 @@ func (j *jsiiProxy_CfnContainer)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnContainer_ArnForContainer(resource interfacesawslightsail.IContainerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnContainer_ArnForContainerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lightsail.CfnContainer",
+		"arnForContainer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

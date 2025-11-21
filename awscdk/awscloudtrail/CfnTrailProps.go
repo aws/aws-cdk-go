@@ -73,6 +73,9 @@ import (
 //   	IncludeGlobalServiceEvents: jsii.Boolean(false),
 //   	InsightSelectors: []interface{}{
 //   		&InsightSelectorProperty{
+//   			EventCategories: []*string{
+//   				jsii.String("eventCategories"),
+//   			},
 //   			InsightType: jsii.String("insightType"),
 //   		},
 //   	},
@@ -102,7 +105,7 @@ type CfnTrailProps struct {
 	// See [Amazon S3 Bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-s3bucketname
 	//
-	S3BucketName *string `field:"required" json:"s3BucketName" yaml:"s3BucketName"`
+	S3BucketName interface{} `field:"required" json:"s3BucketName" yaml:"s3BucketName"`
 	// Specifies the settings for advanced event selectors.
 	//
 	// You can use advanced event selectors to log management events, data events for all resource types, and network activity events.
@@ -120,7 +123,7 @@ type CfnTrailProps struct {
 	// > If you previously enabled CloudWatch Logs delivery and want to disable CloudWatch Logs delivery, you must set the values of the `CloudWatchLogsRoleArn` and `CloudWatchLogsLogGroupArn` fields to `""` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsloggrouparn
 	//
-	CloudWatchLogsLogGroupArn *string `field:"optional" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
+	CloudWatchLogsLogGroupArn interface{} `field:"optional" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 	//
 	// You must use a role that exists in your account.
@@ -130,7 +133,7 @@ type CfnTrailProps struct {
 	// > If you previously enabled CloudWatch Logs delivery and want to disable CloudWatch Logs delivery, you must set the values of the `CloudWatchLogsRoleArn` and `CloudWatchLogsLogGroupArn` fields to `""` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsrolearn
 	//
-	CloudWatchLogsRoleArn *string `field:"optional" json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
+	CloudWatchLogsRoleArn interface{} `field:"optional" json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
 	// Specifies whether log file validation is enabled. The default is false.
 	//
 	// > When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail does not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.
@@ -175,11 +178,11 @@ type CfnTrailProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-isorganizationtrail
 	//
 	IsOrganizationTrail interface{} `field:"optional" json:"isOrganizationTrail" yaml:"isOrganizationTrail"`
-	// Specifies the AWS KMS key ID to use to encrypt the logs and digest files delivered by CloudTrail.
+	// Specifies the AWS  key ID to use to encrypt the logs and digest files delivered by CloudTrail.
 	//
 	// The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	//
-	// CloudTrail also supports AWS KMS multi-Region keys. For more information about multi-Region keys, see [Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide* .
+	// CloudTrail also supports AWS  multi-Region keys. For more information about multi-Region keys, see [Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide* .
 	//
 	// Examples:
 	//
@@ -189,7 +192,7 @@ type CfnTrailProps struct {
 	// - 12345678-1234-1234-1234-123456789012.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery.
 	//
 	// For more information, see [Finding Your CloudTrail Log Files](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files) . The maximum length is 200 characters.

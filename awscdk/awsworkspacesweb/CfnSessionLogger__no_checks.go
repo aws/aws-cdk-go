@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSessionLogger) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnSessionLogger_ArnForSessionLoggerParameters(resource interfacesawsworkspacesweb.ISessionLoggerRef) error {
+	return nil
+}
+
 func validateCfnSessionLogger_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

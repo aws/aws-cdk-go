@@ -15,7 +15,7 @@ import (
 //
 // An EC2 Instance Connect Endpoint allows you to connect to an instance, without requiring the instance to have a public IPv4 address. For more information, see [Connect to your instances using EC2 Instance Connect Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html) in the *Amazon EC2 User Guide* .
 //
-// With the replacement update behavior, AWS CloudFormation usually creates the new resource first, changes references to point to the new resource, and then deletes the old resource. However, you can create only one EC2 Instance Connect Endpoint per VPC, so the replacement process fails. If you need to modify an EC2 Instance Connect Endpoint, you must replace the resource manually.
+// With the replacement update behavior, CloudFormation usually creates the new resource first, changes references to point to the new resource, and then deletes the old resource. However, you can create only one EC2 Instance Connect Endpoint per VPC, so the replacement process fails. If you need to modify an EC2 Instance Connect Endpoint, you must replace the resource manually.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -515,6 +515,24 @@ func (j *jsiiProxy_CfnInstanceConnectEndpoint)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnInstanceConnectEndpoint_ArnForInstanceConnectEndpoint(resource interfacesawsec2.IInstanceConnectEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceConnectEndpoint_ArnForInstanceConnectEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnInstanceConnectEndpoint",
+		"arnForInstanceConnectEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IInstanceConnectEndpointRef from a instanceConnectEndpointId.

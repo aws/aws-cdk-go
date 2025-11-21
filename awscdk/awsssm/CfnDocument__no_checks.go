@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDocument) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnDocument_ArnForDocumentParameters(resource interfacesawsssm.IDocumentRef) error {
+	return nil
+}
+
 func validateCfnDocument_FromDocumentNameParameters(scope constructs.Construct, id *string, documentName *string) error {
 	return nil
 }

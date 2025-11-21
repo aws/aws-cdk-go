@@ -637,6 +637,24 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup)SetRegionalConfigurations(val inter
 	)
 }
 
+func CfnGlobalReplicationGroup_ArnForGlobalReplicationGroup(resource interfacesawselasticache.IGlobalReplicationGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalReplicationGroup_ArnForGlobalReplicationGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
+		"arnForGlobalReplicationGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IGlobalReplicationGroupRef from a globalReplicationGroupId.
 func CfnGlobalReplicationGroup_FromGlobalReplicationGroupId(scope constructs.Construct, id *string, globalReplicationGroupId *string) interfacesawselasticache.IGlobalReplicationGroupRef {
 	_init_.Initialize()

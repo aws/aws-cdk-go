@@ -174,6 +174,7 @@ import (
 //   			DnsIps: []*string{
 //   				jsii.String("dnsIps"),
 //   			},
+//   			DomainJoinServiceAccountSecret: jsii.String("domainJoinServiceAccountSecret"),
 //   			DomainName: jsii.String("domainName"),
 //   			FileSystemAdministratorsGroup: jsii.String("fileSystemAdministratorsGroup"),
 //   			OrganizationalUnitDistinguishedName: jsii.String("organizationalUnitDistinguishedName"),
@@ -231,7 +232,7 @@ type CfnFileSystem interface {
 	// For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating.
 	FileSystemTypeVersion() *string
 	SetFileSystemTypeVersion(val *string)
-	// The ID of the AWS Key Management Service ( AWS KMS ) key used to encrypt Amazon FSx file system data.
+	// The ID of the AWS Key Management Service ( AWS  ) key used to encrypt Amazon FSx file system data.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.

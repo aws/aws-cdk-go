@@ -106,7 +106,7 @@ type CfnGuardrail interface {
 	Env() *interfaces.ResourceEnvironment
 	// A reference to a Guardrail resource.
 	GuardrailRef() *interfacesawsbedrock.GuardrailReference
-	// The ARN of the AWS KMS key that you use to encrypt the guardrail.
+	// The ARN of the AWS  key that you use to encrypt the guardrail.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -798,6 +798,24 @@ func (j *jsiiProxy_CfnGuardrail)SetWordPolicyConfig(val interface{}) {
 		"wordPolicyConfig",
 		val,
 	)
+}
+
+func CfnGuardrail_ArnForGuardrail(resource interfacesawsbedrock.IGuardrailRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGuardrail_ArnForGuardrailParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnGuardrail",
+		"arnForGuardrail",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

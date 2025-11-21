@@ -70,7 +70,7 @@ type CfnSecurityProfileProps struct {
 	// The identifier of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-instancearn
 	//
-	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name for the security profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-securityprofilename
 	//

@@ -465,6 +465,24 @@ func (j *jsiiProxy_CfnRecoveryGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnRecoveryGroup_ArnForRecoveryGroup(resource interfacesawsroute53recoveryreadiness.IRecoveryGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRecoveryGroup_ArnForRecoveryGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnRecoveryGroup",
+		"arnForRecoveryGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

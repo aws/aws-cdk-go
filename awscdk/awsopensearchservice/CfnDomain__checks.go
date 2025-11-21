@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchservice"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,6 +156,14 @@ func (c *jsiiProxy_CfnDomain) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDomain_ArnForDomainParameters(resource interfacesawsopensearchservice.IDomainRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDomain_FromDomainArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -246,6 +255,30 @@ func (j *jsiiProxy_CfnDomain) validateSetAdvancedSecurityOptionsParameters(val i
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_AdvancedSecurityOptionsInputProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetAimlOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDomain_AIMLOptionsProperty:
+		val := val.(*CfnDomain_AIMLOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomain_AIMLOptionsProperty:
+		val_ := val.(CfnDomain_AIMLOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_AIMLOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

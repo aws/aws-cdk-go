@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfigurationSet) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnConfigurationSet_ArnForConfigurationSetParameters(resource interfacesawssmsvoice.IConfigurationSetRef) error {
+	return nil
+}
+
 func validateCfnConfigurationSet_FromConfigurationSetArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

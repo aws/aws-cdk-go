@@ -710,6 +710,24 @@ func (j *jsiiProxy_CfnJobTemplate)SetTimeoutConfig(val interface{}) {
 	)
 }
 
+func CfnJobTemplate_ArnForJobTemplate(resource interfacesawsiot.IJobTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnJobTemplate_ArnForJobTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnJobTemplate",
+		"arnForJobTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IJobTemplateRef from an ARN.
 func CfnJobTemplate_FromJobTemplateArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IJobTemplateRef {
 	_init_.Initialize()

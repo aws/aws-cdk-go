@@ -13,7 +13,7 @@ import (
 
 // The `AWS::ECS::Service` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
 //
-// > The stack update fails if you change any properties that require replacement and at least one Amazon ECS Service Connect `ServiceConnectConfiguration` property is configured. This is because AWS CloudFormation creates the replacement service first, but each `ServiceConnectService` must have a name that is unique in the namespace. > Starting April 15, 2023, AWS ; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS , or Amazon EC2 . However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. > On June 12, 2025, Amazon ECS launched support for updating capacity provider configuration for Amazon ECS services. With this launch, Amazon ECS also aligned the AWS CloudFormation update behavior for `CapacityProviderStrategy` parameter with the standard practice. For more information, see [Amazon ECS adds support for updating capacity provider configuration for ECS services](https://docs.aws.amazon.com/about-aws/whats-new/2025/05/amazon-ecs-capacity-provider-configuration-ecs/) . Previously Amazon ECS ignored the `CapacityProviderStrategy` property if it was set to an empty list for example, `[]` in AWS CloudFormation , because updating capacity provider configuration was not supported. Now, with support for capacity provider updates, customers can remove capacity providers from a service by passing an empty list. When you specify an empty list ( `[]` ) for the `CapacityProviderStrategy` property in your AWS CloudFormation template, Amazon ECS will remove any capacity providers associated with the service, as follows:
+// > The stack update fails if you change any properties that require replacement and at least one Amazon ECS Service Connect `ServiceConnectConfiguration` property is configured. This is because AWS CloudFormation creates the replacement service first, but each `ServiceConnectService` must have a name that is unique in the namespace. > Starting April 15, 2023, AWS ; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS , or Amazon EC2 . However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. > On June 12, 2025, Amazon ECS launched support for updating capacity provider configuration for Amazon ECS services. With this launch, Amazon ECS also aligned the CloudFormation update behavior for `CapacityProviderStrategy` parameter with the standard practice. For more information, see [Amazon ECS adds support for updating capacity provider configuration for ECS services](https://docs.aws.amazon.com/about-aws/whats-new/2025/05/amazon-ecs-capacity-provider-configuration-ecs/) . Previously Amazon ECS ignored the `CapacityProviderStrategy` property if it was set to an empty list for example, `[]` in CloudFormation , because updating capacity provider configuration was not supported. Now, with support for capacity provider updates, customers can remove capacity providers from a service by passing an empty list. When you specify an empty list ( `[]` ) for the `CapacityProviderStrategy` property in your CloudFormation template, Amazon ECS will remove any capacity providers associated with the service, as follows:
 // >
 // > - For services created with a capacity provider strategy after the launch:
 // >
@@ -28,260 +28,42 @@ import (
 // >
 // > Recommended Actions
 // >
-// > If you are currently using `CapacityProviderStrategy: []` in your AWS CloudFormation templates, you should take one of the following actions:
+// > If you are currently using `CapacityProviderStrategy: []` in your CloudFormation templates, you should take one of the following actions:
 // >
 // > - If you do not intend to update the Capacity Provider Strategy:
 // >
-// > - Remove the `CapacityProviderStrategy` property entirely from your AWS CloudFormation template
+// > - Remove the `CapacityProviderStrategy` property entirely from your CloudFormation template
 // > - Alternatively, use `!Ref AWS ::NoValue` for the `CapacityProviderStrategy` property in your template
-// > - If you intend to maintain or update the Capacity Provider Strategy, specify the actual Capacity Provider Strategy for the service in your AWS CloudFormation template.
+// > - If you intend to maintain or update the Capacity Provider Strategy, specify the actual Capacity Provider Strategy for the service in your CloudFormation template.
 // >
-// > If your AWS CloudFormation template had an empty list ([]) for `CapacityProviderStrategy` prior to the aforementioned launch on June 12, and you are using the same template with `CapacityProviderStrategy: []` , you might encounter the following error:
+// > If your CloudFormation template had an empty list ([]) for `CapacityProviderStrategy` prior to the aforementioned launch on June 12, and you are using the same template with `CapacityProviderStrategy: []` , you might encounter the following error:
 // >
 // > Invalid request provided: When switching from launch type to capacity provider strategy on an existing service, or making a change to a capacity provider strategy on a service that is already using one, you must force a new deployment. (Service: Ecs, Status Code: 400, Request ID: xxx) (SDK Attempt Count: 1)" (RequestToken: xxx HandlerErrorCode: InvalidRequest)
 // >
-// > Note that AWS CloudFormation automatically initiates a new deployment when it detects a parameter change, but customers cannot choose to force a deployment through AWS CloudFormation . This is an invalid input scenario that requires one of the remediation actions listed above.
+// > Note that CloudFormation automatically initiates a new deployment when it detects a parameter change, but customers cannot choose to force a deployment through CloudFormation . This is an invalid input scenario that requires one of the remediation actions listed above.
 // >
 // > If you are experiencing active production issues related to this change, contact AWS Support or your Technical Account Manager.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
+//   var miCapacityProvider ManagedInstancesCapacityProvider
 //
-//   var hookDetails interface{}
 //
-//   cfnService := awscdk.Aws_ecs.NewCfnService(this, jsii.String("MyCfnService"), &CfnServiceProps{
-//   	AvailabilityZoneRebalancing: jsii.String("availabilityZoneRebalancing"),
-//   	CapacityProviderStrategy: []interface{}{
-//   		&CapacityProviderStrategyItemProperty{
-//   			Base: jsii.Number(123),
-//   			CapacityProvider: jsii.String("capacityProvider"),
-//   			Weight: jsii.Number(123),
-//   		},
-//   	},
-//   	Cluster: jsii.String("cluster"),
-//   	DeploymentConfiguration: &DeploymentConfigurationProperty{
-//   		Alarms: &DeploymentAlarmsProperty{
-//   			AlarmNames: []*string{
-//   				jsii.String("alarmNames"),
-//   			},
-//   			Enable: jsii.Boolean(false),
-//   			Rollback: jsii.Boolean(false),
-//   		},
-//   		BakeTimeInMinutes: jsii.Number(123),
-//   		CanaryConfiguration: &CanaryConfigurationProperty{
-//   			CanaryBakeTimeInMinutes: jsii.Number(123),
-//   			CanaryPercent: jsii.Number(123),
-//   		},
-//   		DeploymentCircuitBreaker: &DeploymentCircuitBreakerProperty{
-//   			Enable: jsii.Boolean(false),
-//   			Rollback: jsii.Boolean(false),
-//   		},
-//   		LifecycleHooks: []interface{}{
-//   			&DeploymentLifecycleHookProperty{
-//   				HookTargetArn: jsii.String("hookTargetArn"),
-//   				LifecycleStages: []*string{
-//   					jsii.String("lifecycleStages"),
-//   				},
-//   				RoleArn: jsii.String("roleArn"),
-//
-//   				// the properties below are optional
-//   				HookDetails: hookDetails,
-//   			},
-//   		},
-//   		LinearConfiguration: &LinearConfigurationProperty{
-//   			StepBakeTimeInMinutes: jsii.Number(123),
-//   			StepPercent: jsii.Number(123),
-//   		},
-//   		MaximumPercent: jsii.Number(123),
-//   		MinimumHealthyPercent: jsii.Number(123),
-//   		Strategy: jsii.String("strategy"),
-//   	},
-//   	DeploymentController: &DeploymentControllerProperty{
-//   		Type: jsii.String("type"),
-//   	},
-//   	DesiredCount: jsii.Number(123),
-//   	EnableEcsManagedTags: jsii.Boolean(false),
-//   	EnableExecuteCommand: jsii.Boolean(false),
-//   	ForceNewDeployment: &ForceNewDeploymentProperty{
-//   		EnableForceNewDeployment: jsii.Boolean(false),
-//
-//   		// the properties below are optional
-//   		ForceNewDeploymentNonce: jsii.String("forceNewDeploymentNonce"),
-//   	},
-//   	HealthCheckGracePeriodSeconds: jsii.Number(123),
-//   	LaunchType: jsii.String("launchType"),
-//   	LoadBalancers: []interface{}{
-//   		&LoadBalancerProperty{
-//   			AdvancedConfiguration: &AdvancedConfigurationProperty{
-//   				AlternateTargetGroupArn: jsii.String("alternateTargetGroupArn"),
-//
-//   				// the properties below are optional
-//   				ProductionListenerRule: jsii.String("productionListenerRule"),
-//   				RoleArn: jsii.String("roleArn"),
-//   				TestListenerRule: jsii.String("testListenerRule"),
-//   			},
-//   			ContainerName: jsii.String("containerName"),
-//   			ContainerPort: jsii.Number(123),
-//   			LoadBalancerName: jsii.String("loadBalancerName"),
-//   			TargetGroupArn: jsii.String("targetGroupArn"),
-//   		},
-//   	},
-//   	NetworkConfiguration: &NetworkConfigurationProperty{
-//   		AwsvpcConfiguration: &AwsVpcConfigurationProperty{
-//   			AssignPublicIp: jsii.String("assignPublicIp"),
-//   			SecurityGroups: []*string{
-//   				jsii.String("securityGroups"),
-//   			},
-//   			Subnets: []*string{
-//   				jsii.String("subnets"),
-//   			},
-//   		},
-//   	},
-//   	PlacementConstraints: []interface{}{
-//   		&PlacementConstraintProperty{
-//   			Type: jsii.String("type"),
-//
-//   			// the properties below are optional
-//   			Expression: jsii.String("expression"),
-//   		},
-//   	},
-//   	PlacementStrategies: []interface{}{
-//   		&PlacementStrategyProperty{
-//   			Type: jsii.String("type"),
-//
-//   			// the properties below are optional
-//   			Field: jsii.String("field"),
-//   		},
-//   	},
-//   	PlatformVersion: jsii.String("platformVersion"),
-//   	PropagateTags: jsii.String("propagateTags"),
-//   	Role: jsii.String("role"),
-//   	SchedulingStrategy: jsii.String("schedulingStrategy"),
-//   	ServiceConnectConfiguration: &ServiceConnectConfigurationProperty{
-//   		Enabled: jsii.Boolean(false),
-//
-//   		// the properties below are optional
-//   		AccessLogConfiguration: &ServiceConnectAccessLogConfigurationProperty{
-//   			Format: jsii.String("format"),
-//
-//   			// the properties below are optional
-//   			IncludeQueryParameters: jsii.String("includeQueryParameters"),
-//   		},
-//   		LogConfiguration: &LogConfigurationProperty{
-//   			LogDriver: jsii.String("logDriver"),
-//   			Options: map[string]*string{
-//   				"optionsKey": jsii.String("options"),
-//   			},
-//   			SecretOptions: []interface{}{
-//   				&SecretProperty{
-//   					Name: jsii.String("name"),
-//   					ValueFrom: jsii.String("valueFrom"),
-//   				},
-//   			},
-//   		},
-//   		Namespace: jsii.String("namespace"),
-//   		Services: []interface{}{
-//   			&ServiceConnectServiceProperty{
-//   				PortName: jsii.String("portName"),
-//
-//   				// the properties below are optional
-//   				ClientAliases: []interface{}{
-//   					&ServiceConnectClientAliasProperty{
-//   						Port: jsii.Number(123),
-//
-//   						// the properties below are optional
-//   						DnsName: jsii.String("dnsName"),
-//   						TestTrafficRules: &ServiceConnectTestTrafficRulesProperty{
-//   							Header: &ServiceConnectTestTrafficRulesHeaderProperty{
-//   								Name: jsii.String("name"),
-//
-//   								// the properties below are optional
-//   								Value: &ServiceConnectTestTrafficRulesHeaderValueProperty{
-//   									Exact: jsii.String("exact"),
-//   								},
-//   							},
-//   						},
-//   					},
-//   				},
-//   				DiscoveryName: jsii.String("discoveryName"),
-//   				IngressPortOverride: jsii.Number(123),
-//   				Timeout: &TimeoutConfigurationProperty{
-//   					IdleTimeoutSeconds: jsii.Number(123),
-//   					PerRequestTimeoutSeconds: jsii.Number(123),
-//   				},
-//   				Tls: &ServiceConnectTlsConfigurationProperty{
-//   					IssuerCertificateAuthority: &ServiceConnectTlsCertificateAuthorityProperty{
-//   						AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
-//   					},
-//
-//   					// the properties below are optional
-//   					KmsKey: jsii.String("kmsKey"),
-//   					RoleArn: jsii.String("roleArn"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	ServiceName: jsii.String("serviceName"),
-//   	ServiceRegistries: []interface{}{
-//   		&ServiceRegistryProperty{
-//   			ContainerName: jsii.String("containerName"),
-//   			ContainerPort: jsii.Number(123),
-//   			Port: jsii.Number(123),
-//   			RegistryArn: jsii.String("registryArn"),
-//   		},
-//   	},
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	TaskDefinition: jsii.String("taskDefinition"),
-//   	VolumeConfigurations: []interface{}{
-//   		&ServiceVolumeConfigurationProperty{
-//   			Name: jsii.String("name"),
-//
-//   			// the properties below are optional
-//   			ManagedEbsVolume: &ServiceManagedEBSVolumeConfigurationProperty{
-//   				RoleArn: jsii.String("roleArn"),
-//
-//   				// the properties below are optional
-//   				Encrypted: jsii.Boolean(false),
-//   				FilesystemType: jsii.String("filesystemType"),
-//   				Iops: jsii.Number(123),
-//   				KmsKeyId: jsii.String("kmsKeyId"),
-//   				SizeInGiB: jsii.Number(123),
-//   				SnapshotId: jsii.String("snapshotId"),
-//   				TagSpecifications: []interface{}{
-//   					&EBSTagSpecificationProperty{
-//   						ResourceType: jsii.String("resourceType"),
-//
-//   						// the properties below are optional
-//   						PropagateTags: jsii.String("propagateTags"),
-//   						Tags: []CfnTag{
-//   							&CfnTag{
-//   								Key: jsii.String("key"),
-//   								Value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   				Throughput: jsii.Number(123),
-//   				VolumeInitializationRate: jsii.Number(123),
-//   				VolumeType: jsii.String("volumeType"),
-//   			},
-//   		},
-//   	},
-//   	VpcLatticeConfigurations: []interface{}{
-//   		&VpcLatticeConfigurationProperty{
-//   			PortName: jsii.String("portName"),
-//   			RoleArn: jsii.String("roleArn"),
-//   			TargetGroupArn: jsii.String("targetGroupArn"),
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
+//   			CapacityProvider: miCapacityProvider.CapacityProviderName,
+//   			Weight: jsii.Number(1),
 //   		},
 //   	},
 //   })
+//
+//   // Escape hatch: Force launchType at the CloudFormation level to prevent service replacement
+//   cfnService := service.Node.defaultChild.(CfnService)
+//   cfnService.LaunchType = "FARGATE"
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 //
@@ -1252,6 +1034,24 @@ func (j *jsiiProxy_CfnService)SetVpcLatticeConfigurations(val interface{}) {
 		"vpcLatticeConfigurations",
 		val,
 	)
+}
+
+func CfnService_ArnForService(resource interfacesawsecs.IServiceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnService_ArnForServiceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.CfnService",
+		"arnForService",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

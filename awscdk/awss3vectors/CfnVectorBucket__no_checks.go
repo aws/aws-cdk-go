@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVectorBucket) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnVectorBucket_ArnForVectorBucketParameters(resource interfacesawss3vectors.IVectorBucketRef) error {
+	return nil
+}
+
 func validateCfnVectorBucket_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

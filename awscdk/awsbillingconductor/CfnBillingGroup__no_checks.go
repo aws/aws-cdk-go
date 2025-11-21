@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBillingGroup) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnBillingGroup_ArnForBillingGroupParameters(resource interfacesawsbillingconductor.IBillingGroupRef) error {
+	return nil
+}
+
 func validateCfnBillingGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -89,10 +93,6 @@ func (j *jsiiProxy_CfnBillingGroup) validateSetComputationPreferenceParameters(v
 }
 
 func (j *jsiiProxy_CfnBillingGroup) validateSetNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnBillingGroup) validateSetPrimaryAccountIdParameters(val *string) error {
 	return nil
 }
 

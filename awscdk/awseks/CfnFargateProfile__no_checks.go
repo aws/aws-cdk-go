@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFargateProfile) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnFargateProfile_ArnForFargateProfileParameters(resource interfacesawseks.IFargateProfileRef) error {
+	return nil
+}
+
 func validateCfnFargateProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

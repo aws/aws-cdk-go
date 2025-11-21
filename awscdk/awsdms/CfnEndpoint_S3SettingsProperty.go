@@ -330,7 +330,7 @@ type CfnEndpoint_S3SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-rowgrouplength
 	//
 	RowGroupLength *float64 `field:"optional" json:"rowGroupLength" yaml:"rowGroupLength"`
-	// If you are using `SSE_KMS` for the `EncryptionMode` , provide the AWS KMS key ID.
+	// If you are using `SSE_KMS` for the `EncryptionMode` , provide the AWS  key ID.
 	//
 	// The key that you use needs an attached policy that enables IAM user permissions and allows use of the key.
 	//

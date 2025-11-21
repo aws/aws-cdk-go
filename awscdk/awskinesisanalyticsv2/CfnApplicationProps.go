@@ -212,7 +212,7 @@ type CfnApplicationProps struct {
 	// Specifies the IAM role that the application uses to access external resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
 	//
-	ServiceExecutionRole *string `field:"required" json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
+	ServiceExecutionRole interface{} `field:"required" json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
 	// Use this parameter to configure the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
 	//

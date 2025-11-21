@@ -80,6 +80,9 @@ import (
 //   	IncludeGlobalServiceEvents: jsii.Boolean(false),
 //   	InsightSelectors: []interface{}{
 //   		&InsightSelectorProperty{
+//   			EventCategories: []*string{
+//   				jsii.String("eventCategories"),
+//   			},
 //   			InsightType: jsii.String("insightType"),
 //   		},
 //   	},
@@ -109,7 +112,7 @@ type CfnTrail interface {
 	SetAdvancedEventSelectors(val interface{})
 	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
 	AttrArn() *string
-	// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+	// `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 	AttrSnsTopicArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -150,7 +153,7 @@ type CfnTrail interface {
 	// Specifies whether the trail is applied to all accounts in an organization in AWS Organizations , or only for the current AWS account .
 	IsOrganizationTrail() interface{}
 	SetIsOrganizationTrail(val interface{})
-	// Specifies the AWS KMS key ID to use to encrypt the logs and digest files delivered by CloudTrail.
+	// Specifies the AWS  key ID to use to encrypt the logs and digest files delivered by CloudTrail.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -839,6 +842,24 @@ func (j *jsiiProxy_CfnTrail)SetTrailName(val *string) {
 		"trailName",
 		val,
 	)
+}
+
+func CfnTrail_ArnForTrail(resource interfacesawscloudtrail.ITrailRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTrail_ArnForTrailParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
+		"arnForTrail",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ITrailRef from an ARN.

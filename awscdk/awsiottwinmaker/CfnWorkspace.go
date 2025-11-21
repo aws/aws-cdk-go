@@ -530,6 +530,24 @@ func (j *jsiiProxy_CfnWorkspace)SetWorkspaceId(val *string) {
 	)
 }
 
+func CfnWorkspace_ArnForWorkspace(resource interfacesawsiottwinmaker.IWorkspaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspace_ArnForWorkspaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
+		"arnForWorkspace",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IWorkspaceRef from an ARN.
 func CfnWorkspace_FromWorkspaceArn(scope constructs.Construct, id *string, arn *string) interfacesawsiottwinmaker.IWorkspaceRef {
 	_init_.Initialize()

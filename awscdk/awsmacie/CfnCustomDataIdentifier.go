@@ -582,6 +582,24 @@ func (j *jsiiProxy_CfnCustomDataIdentifier)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCustomDataIdentifier_ArnForCustomDataIdentifier(resource interfacesawsmacie.ICustomDataIdentifierRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCustomDataIdentifier_ArnForCustomDataIdentifierParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_macie.CfnCustomDataIdentifier",
+		"arnForCustomDataIdentifier",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

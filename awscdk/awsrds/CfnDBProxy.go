@@ -32,7 +32,7 @@ import (
 //   	DbProxyName: jsii.String("dbProxyName"),
 //   	EngineFamily: jsii.String("engineFamily"),
 //   	RoleArn: jsii.String("roleArn"),
-//   	VpcSubnetIds: []*string{
+//   	VpcSubnetIds: []interface{}{
 //   		jsii.String("vpcSubnetIds"),
 //   	},
 //
@@ -58,7 +58,7 @@ import (
 //   		},
 //   	},
 //   	TargetConnectionNetworkType: jsii.String("targetConnectionNetworkType"),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   })
@@ -746,6 +746,24 @@ func (j *jsiiProxy_CfnDBProxy)SetVpcSubnetIds(val *[]*string) {
 		"vpcSubnetIds",
 		val,
 	)
+}
+
+func CfnDBProxy_ArnForDBProxy(resource interfacesawsrds.IDBProxyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDBProxy_ArnForDBProxyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"arnForDBProxy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

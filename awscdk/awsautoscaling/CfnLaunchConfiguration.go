@@ -66,7 +66,7 @@ import (
 //   	},
 //   	PlacementTenancy: jsii.String("placementTenancy"),
 //   	RamDiskId: jsii.String("ramDiskId"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	SpotPrice: jsii.String("spotPrice"),

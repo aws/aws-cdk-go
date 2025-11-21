@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnLoadBalancerTlsCertificate_ArnForLoadBalancerTlsCertificateParameters(resource interfacesawslightsail.ILoadBalancerTlsCertificateRef) error {
+	return nil
+}
+
 func validateCfnLoadBalancerTlsCertificate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

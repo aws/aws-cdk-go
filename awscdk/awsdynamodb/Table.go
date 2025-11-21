@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,6 +56,8 @@ type Table interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Grant a predefined set of permissions on this Table.
+	Grants() TableGrants
 	// Whether this table has indexes.
 	HasIndex() *bool
 	// The tree node.
@@ -67,7 +70,10 @@ type Table interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// Deprecated: This member is still filled but it is not read.
 	RegionalArns() *[]*string
+	// Additional regions other than the main one that this table is replicated to.
+	Regions() *[]*string
 	// Resource policy to assign to DynamoDB Table.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html
 	//
@@ -77,10 +83,16 @@ type Table interface {
 	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Grant a predefined set of permissions on this Table's Stream, if present.
+	//
+	// Will throw if the Table has not been configured for streaming.
+	StreamGrants() StreamGrants
 	// Arn of the dynamodb table.
 	TableArn() *string
 	// Table name of the dynamodb table.
 	TableName() *string
+	// A reference to a Table resource.
+	TableRef() *interfacesawsdynamodb.TableReference
 	// ARN of the table's stream, if there is one.
 	TableStreamArn() *string
 	// Add a global secondary index of table.
@@ -143,6 +155,8 @@ type Table interface {
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
+	// Gives permissions to a grantable entity to perform actions on the encryption key.
+	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
 	// Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan, DescribeTable.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
@@ -268,6 +282,16 @@ func (j *jsiiProxy_Table) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_Table) Grants() TableGrants {
+	var returns TableGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Table) HasIndex() *bool {
 	var returns *bool
 	_jsii_.Get(
@@ -308,6 +332,16 @@ func (j *jsiiProxy_Table) RegionalArns() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_Table) Regions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"regions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Table) ResourcePolicy() awsiam.PolicyDocument {
 	var returns awsiam.PolicyDocument
 	_jsii_.Get(
@@ -328,6 +362,16 @@ func (j *jsiiProxy_Table) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_Table) StreamGrants() StreamGrants {
+	var returns StreamGrants
+	_jsii_.Get(
+		j,
+		"streamGrants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Table) TableArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -343,6 +387,16 @@ func (j *jsiiProxy_Table) TableName() *string {
 	_jsii_.Get(
 		j,
 		"tableName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) TableRef() *interfacesawsdynamodb.TableReference {
+	var returns *interfacesawsdynamodb.TableReference
+	_jsii_.Get(
+		j,
+		"tableRef",
 		&returns,
 	)
 	return returns
@@ -724,6 +778,27 @@ func (t *jsiiProxy_Table) GrantFullAccess(grantee awsiam.IGrantable) awsiam.Gran
 		t,
 		"grantFullAccess",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_Table) GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult {
+	if err := t.validateGrantOnKeyParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns *awsiam.GrantOnKeyResult
+
+	_jsii_.Invoke(
+		t,
+		"grantOnKey",
+		args,
 		&returns,
 	)
 

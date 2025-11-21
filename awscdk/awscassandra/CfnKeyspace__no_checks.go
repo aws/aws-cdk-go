@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnKeyspace) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnKeyspace_ArnForKeyspaceParameters(resource interfacesawscassandra.IKeyspaceRef) error {
+	return nil
+}
+
 func validateCfnKeyspace_FromKeyspaceNameParameters(scope constructs.Construct, id *string, keyspaceName *string) error {
 	return nil
 }

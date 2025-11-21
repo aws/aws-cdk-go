@@ -227,11 +227,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "queueArn", GoGetter: "QueueArn"},
 			_jsii_.MemberProperty{JsiiProperty: "queueName", GoGetter: "QueueName"},
+			_jsii_.MemberProperty{JsiiProperty: "queueRef", GoGetter: "QueueRef"},
 			_jsii_.MemberProperty{JsiiProperty: "queueUrl", GoGetter: "QueueUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueue{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssqsIQueueRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -253,7 +255,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantConsumeMessages", GoMethod: "GrantConsumeMessages"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPurge", GoMethod: "GrantPurge"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSendMessages", GoMethod: "GrantSendMessages"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricApproximateAgeOfOldestMessage", GoMethod: "MetricApproximateAgeOfOldestMessage"},
@@ -269,6 +273,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "queueArn", GoGetter: "QueueArn"},
 			_jsii_.MemberProperty{JsiiProperty: "queueName", GoGetter: "QueueName"},
+			_jsii_.MemberProperty{JsiiProperty: "queueRef", GoGetter: "QueueRef"},
 			_jsii_.MemberProperty{JsiiProperty: "queueUrl", GoGetter: "QueueUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -299,7 +304,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantConsumeMessages", GoMethod: "GrantConsumeMessages"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPurge", GoMethod: "GrantPurge"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSendMessages", GoMethod: "GrantSendMessages"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricApproximateAgeOfOldestMessage", GoMethod: "MetricApproximateAgeOfOldestMessage"},
@@ -315,6 +322,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "queueArn", GoGetter: "QueueArn"},
 			_jsii_.MemberProperty{JsiiProperty: "queueName", GoGetter: "QueueName"},
+			_jsii_.MemberProperty{JsiiProperty: "queueRef", GoGetter: "QueueRef"},
 			_jsii_.MemberProperty{JsiiProperty: "queueUrl", GoGetter: "QueueUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -322,6 +330,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_QueueBase{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIEncryptedResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IQueue)
 			return &j
 		},
@@ -334,6 +343,21 @@ func init() {
 			"KMS_MANAGED": QueueEncryption_KMS_MANAGED,
 			"KMS": QueueEncryption_KMS,
 			"SQS_MANAGED": QueueEncryption_SQS_MANAGED,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sqs.QueueGrants",
+		reflect.TypeOf((*QueueGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "consumeMessages", GoMethod: "ConsumeMessages"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptedResource", GoGetter: "EncryptedResource"},
+			_jsii_.MemberProperty{JsiiProperty: "policyResource", GoGetter: "PolicyResource"},
+			_jsii_.MemberMethod{JsiiMethod: "purge", GoMethod: "Purge"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "sendMessages", GoMethod: "SendMessages"},
+		},
+		func() interface{} {
+			return &jsiiProxy_QueueGrants{}
 		},
 	)
 	_jsii_.RegisterClass(

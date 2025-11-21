@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStage) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnStage_ArnForStageParameters(resource interfacesawsivs.IStageRef) error {
+	return nil
+}
+
 func validateCfnStage_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

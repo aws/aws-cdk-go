@@ -940,6 +940,24 @@ func (j *jsiiProxy_CfnContainerFleet)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnContainerFleet_ArnForContainerFleet(resource interfacesawsgamelift.IContainerFleetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnContainerFleet_ArnForContainerFleetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet",
+		"arnForContainerFleet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IContainerFleetRef from a fleetId.
 func CfnContainerFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) interfacesawsgamelift.IContainerFleetRef {
 	_init_.Initialize()

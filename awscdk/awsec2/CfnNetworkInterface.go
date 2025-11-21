@@ -29,7 +29,7 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	EnablePrimaryIpv6: jsii.Boolean(false),
-//   	GroupSet: []*string{
+//   	GroupSet: []interface{}{
 //   		jsii.String("groupSet"),
 //   	},
 //   	InterfaceType: jsii.String("interfaceType"),
@@ -864,6 +864,24 @@ func (j *jsiiProxy_CfnNetworkInterface)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnNetworkInterface_ArnForNetworkInterface(resource interfacesawsec2.INetworkInterfaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInterface_ArnForNetworkInterfaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterface",
+		"arnForNetworkInterface",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new INetworkInterfaceRef from a networkInterfaceId.

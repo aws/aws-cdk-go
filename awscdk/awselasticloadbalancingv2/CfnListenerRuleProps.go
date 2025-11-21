@@ -201,7 +201,7 @@ type CfnListenerRuleProps struct {
 	// The Amazon Resource Name (ARN) of the listener.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
 	//
-	ListenerArn *string `field:"optional" json:"listenerArn" yaml:"listenerArn"`
+	ListenerArn interface{} `field:"optional" json:"listenerArn" yaml:"listenerArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-transforms
 	//
 	Transforms interface{} `field:"optional" json:"transforms" yaml:"transforms"`

@@ -3,12 +3,17 @@ package awslogs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type ILogGroup interface {
+	interfacesawslogs.ILogGroupRef
 	awsiam.IResourceWithPolicy
 	// Create a new Metric Filter on this Log Group.
 	AddMetricFilter(id *string, props *MetricFilterOptions) MetricFilter
@@ -56,6 +61,7 @@ type ILogGroup interface {
 
 // The jsii proxy for ILogGroup
 type jsiiProxy_ILogGroup struct {
+	internal.Type__interfacesawslogsILogGroupRef
 	internal.Type__awsiamIResourceWithPolicy
 }
 
@@ -253,6 +259,33 @@ func (i *jsiiProxy_ILogGroup) MetricIncomingLogEvents(props *awscloudwatch.Metri
 	return returns
 }
 
+func (i *jsiiProxy_ILogGroup) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		i,
+		"addToResourcePolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ILogGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_ILogGroup) LogGroupArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -268,6 +301,46 @@ func (j *jsiiProxy_ILogGroup) LogGroupName() *string {
 	_jsii_.Get(
 		j,
 		"logGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILogGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILogGroup) LogGroupRef() *interfacesawslogs.LogGroupReference {
+	var returns *interfacesawslogs.LogGroupReference
+	_jsii_.Get(
+		j,
+		"logGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILogGroup) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILogGroup) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

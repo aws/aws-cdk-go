@@ -73,7 +73,7 @@ type CfnBlueprint interface {
 	// Name-value pairs to include as an encryption context.
 	KmsEncryptionContext() interface{}
 	SetKmsEncryptionContext(val interface{})
-	// The AWS KMS key to use for encryption.
+	// The AWS  key to use for encryption.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -575,6 +575,24 @@ func (j *jsiiProxy_CfnBlueprint)SetType(val *string) {
 		"type",
 		val,
 	)
+}
+
+func CfnBlueprint_ArnForBlueprint(resource interfacesawsbedrock.IBlueprintRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBlueprint_ArnForBlueprintParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnBlueprint",
+		"arnForBlueprint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -18,7 +18,7 @@ import (
 // - Determining which handlers, if any, have been specified for the resource.
 // - Making the resource available for use in your account.
 //
-// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *CloudFormation User Guide* .
 //
 // You can have a maximum of 50 resource versions registered at a time. This maximum is per account and per Region.
 //
@@ -557,6 +557,24 @@ func (j *jsiiProxy_CfnResourceVersion)SetTypeName(val *string) {
 		"typeName",
 		val,
 	)
+}
+
+func CfnResourceVersion_ArnForResourceVersion(resource interfacesawscloudformation.IResourceVersionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResourceVersion_ArnForResourceVersionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnResourceVersion",
+		"arnForResourceVersion",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

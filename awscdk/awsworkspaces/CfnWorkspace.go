@@ -65,7 +65,7 @@ type CfnWorkspace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The identifier of the AWS Directory Service directory for the WorkSpace.
+	// The identifier of the Directory Service directory for the WorkSpace.
 	DirectoryId() *string
 	SetDirectoryId(val *string)
 	Env() *interfaces.ResourceEnvironment
@@ -593,6 +593,24 @@ func (j *jsiiProxy_CfnWorkspace)SetWorkspaceProperties(val interface{}) {
 		"workspaceProperties",
 		val,
 	)
+}
+
+func CfnWorkspace_ArnForWorkspace(resource interfacesawsworkspaces.IWorkspaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspace_ArnForWorkspaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
+		"arnForWorkspace",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IWorkspaceRef from a workspaceId.

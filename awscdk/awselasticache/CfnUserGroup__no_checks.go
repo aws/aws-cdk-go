@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnUserGroup) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnUserGroup_ArnForUserGroupParameters(resource interfacesawselasticache.IUserGroupRef) error {
+	return nil
+}
+
 func validateCfnUserGroup_FromUserGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

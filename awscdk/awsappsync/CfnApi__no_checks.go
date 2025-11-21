@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApi) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
+func validateCfnApi_ArnForApiParameters(resource interfacesawsappsync.IApiRef) error {
+	return nil
+}
+
 func validateCfnApi_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,14 @@ func (q *jsiiProxy_QueueBase) validateGrantConsumeMessagesParameters(grantee aws
 	return nil
 }
 
+func (q *jsiiProxy_QueueBase) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (q *jsiiProxy_QueueBase) validateGrantPurgeParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

@@ -566,6 +566,24 @@ func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation)SetTagsRaw(val *[]*awscdk
 	)
 }
 
+func CfnIPAMResourceDiscoveryAssociation_ArnForIPAMResourceDiscoveryAssociation(resource interfacesawsec2.IIPAMResourceDiscoveryAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMResourceDiscoveryAssociation_ArnForIPAMResourceDiscoveryAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscoveryAssociation",
+		"arnForIPAMResourceDiscoveryAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IIPAMResourceDiscoveryAssociationRef from a ipamResourceDiscoveryAssociationId.
 func CfnIPAMResourceDiscoveryAssociation_FromIpamResourceDiscoveryAssociationId(scope constructs.Construct, id *string, ipamResourceDiscoveryAssociationId *string) interfacesawsec2.IIPAMResourceDiscoveryAssociationRef {
 	_init_.Initialize()

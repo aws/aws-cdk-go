@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInfluxDBInstance) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnInfluxDBInstance_ArnForInfluxDBInstanceParameters(resource interfacesawstimestream.IInfluxDBInstanceRef) error {
+	return nil
+}
+
 func validateCfnInfluxDBInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMemory) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnMemory_ArnForMemoryParameters(resource interfacesawsbedrockagentcore.IMemoryRef) error {
+	return nil
+}
+
 func validateCfnMemory_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

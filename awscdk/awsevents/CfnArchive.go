@@ -66,7 +66,7 @@ type CfnArchive interface {
 	// An event pattern to use to filter events sent to the archive.
 	EventPattern() interface{}
 	SetEventPattern(val interface{})
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -512,6 +512,24 @@ func (j *jsiiProxy_CfnArchive)SetSourceArn(val *string) {
 		"sourceArn",
 		val,
 	)
+}
+
+func CfnArchive_ArnForArchive(resource interfacesawsevents.IArchiveRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnArchive_ArnForArchiveParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnArchive",
+		"arnForArchive",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IArchiveRef from an ARN.

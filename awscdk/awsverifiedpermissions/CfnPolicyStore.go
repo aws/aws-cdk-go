@@ -535,6 +535,24 @@ func (j *jsiiProxy_CfnPolicyStore)SetValidationSettings(val interface{}) {
 	)
 }
 
+func CfnPolicyStore_ArnForPolicyStore(resource interfacesawsverifiedpermissions.IPolicyStoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPolicyStore_ArnForPolicyStoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore",
+		"arnForPolicyStore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPolicyStoreRef from an ARN.
 func CfnPolicyStore_FromPolicyStoreArn(scope constructs.Construct, id *string, arn *string) interfacesawsverifiedpermissions.IPolicyStoreRef {
 	_init_.Initialize()

@@ -533,6 +533,24 @@ func (j *jsiiProxy_CfnNetwork)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnNetwork_ArnForNetwork(resource interfacesawsmedialive.INetworkRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNetwork_ArnForNetworkParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnNetwork",
+		"arnForNetwork",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new INetworkRef from an ARN.
 func CfnNetwork_FromNetworkArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.INetworkRef {
 	_init_.Initialize()

@@ -87,6 +87,22 @@ type CfnContainerRecipe interface {
 	//
 	// For example, `arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/mybasicrecipe/2020.12.17` .
 	AttrArn() *string
+	// The latest version references of the container recipe.
+	AttrLatestVersion() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the container recipe.
+	//
+	// > Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:
+	// >
+	// > - Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.
+	// > - Version ARNs have only the first three nodes: <major>.<minor>.<patch>
+	// > - Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.
+	AttrLatestVersionArn() *string
+	// The latest version ARN of the created container recipe, with the same major version.
+	AttrLatestVersionMajor() *string
+	// The latest version ARN of the created container recipe, with the same minor version.
+	AttrLatestVersionMinor() *string
+	// The latest version ARN of the created container recipe, with the same patch version.
+	AttrLatestVersionPatch() *string
 	// Returns the name of the container recipe.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -322,6 +338,56 @@ func (j *jsiiProxy_CfnContainerRecipe) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerRecipe) AttrLatestVersion() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLatestVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerRecipe) AttrLatestVersionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerRecipe) AttrLatestVersionMajor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMajor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerRecipe) AttrLatestVersionMinor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMinor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerRecipe) AttrLatestVersionPatch() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionPatch",
 		&returns,
 	)
 	return returns
@@ -786,6 +852,24 @@ func (j *jsiiProxy_CfnContainerRecipe)SetWorkingDirectory(val *string) {
 		"workingDirectory",
 		val,
 	)
+}
+
+func CfnContainerRecipe_ArnForContainerRecipe(resource interfacesawsimagebuilder.IContainerRecipeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnContainerRecipe_ArnForContainerRecipeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe",
+		"arnForContainerRecipe",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -442,6 +442,24 @@ func (j *jsiiProxy_CfnFindingAggregator)SetRegions(val *[]*string) {
 	)
 }
 
+func CfnFindingAggregator_ArnForFindingAggregator(resource interfacesawssecurityhub.IFindingAggregatorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFindingAggregator_ArnForFindingAggregatorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnFindingAggregator",
+		"arnForFindingAggregator",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

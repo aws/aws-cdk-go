@@ -612,6 +612,24 @@ func (j *jsiiProxy_CfnDataIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDataIntegration_ArnForDataIntegration(resource interfacesawsappintegrations.IDataIntegrationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDataIntegration_ArnForDataIntegrationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appintegrations.CfnDataIntegration",
+		"arnForDataIntegration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDataIntegrationRef from an ARN.
 func CfnDataIntegration_FromDataIntegrationArn(scope constructs.Construct, id *string, arn *string) interfacesawsappintegrations.IDataIntegrationRef {
 	_init_.Initialize()

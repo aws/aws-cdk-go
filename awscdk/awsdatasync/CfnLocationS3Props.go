@@ -40,7 +40,7 @@ type CfnLocationS3Props struct {
 	// The ARN of the Amazon S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
 	//
-	S3BucketArn *string `field:"optional" json:"s3BucketArn" yaml:"s3BucketArn"`
+	S3BucketArn interface{} `field:"optional" json:"s3BucketArn" yaml:"s3BucketArn"`
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination.
 	//
 	// For buckets in AWS Regions , the storage class defaults to S3 Standard.

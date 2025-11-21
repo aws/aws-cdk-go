@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnChannel) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnChannel_ArnForChannelParameters(resource interfacesawsmediatailor.IChannelRef) error {
+	return nil
+}
+
 func validateCfnChannel_FromChannelArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

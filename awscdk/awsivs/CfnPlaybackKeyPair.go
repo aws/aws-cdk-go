@@ -475,6 +475,24 @@ func (j *jsiiProxy_CfnPlaybackKeyPair)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPlaybackKeyPair_ArnForPlaybackKeyPair(resource interfacesawsivs.IPlaybackKeyPairRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPlaybackKeyPair_ArnForPlaybackKeyPairParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnPlaybackKeyPair",
+		"arnForPlaybackKeyPair",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

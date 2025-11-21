@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVirtualGateway) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnVirtualGateway_ArnForVirtualGatewayParameters(resource interfacesawsappmesh.IVirtualGatewayRef) error {
+	return nil
+}
+
 func validateCfnVirtualGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

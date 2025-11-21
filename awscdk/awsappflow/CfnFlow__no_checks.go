@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFlow) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnFlow_ArnForFlowParameters(resource interfacesawsappflow.IFlowRef) error {
+	return nil
+}
+
 func validateCfnFlow_FromFlowArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

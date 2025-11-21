@@ -653,6 +653,24 @@ func (j *jsiiProxy_CfnTestCase)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnTestCase_ArnForTestCase(resource interfacesawsapptest.ITestCaseRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTestCase_ArnForTestCaseParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apptest.CfnTestCase",
+		"arnForTestCase",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITestCaseRef from an ARN.
 func CfnTestCase_FromTestCaseArn(scope constructs.Construct, id *string, arn *string) interfacesawsapptest.ITestCaseRef {
 	_init_.Initialize()

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSignalingChannel) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnSignalingChannel_ArnForSignalingChannelParameters(resource interfacesawskinesisvideo.ISignalingChannelRef) error {
+	return nil
+}
+
 func validateCfnSignalingChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

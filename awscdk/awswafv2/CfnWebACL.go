@@ -19,7 +19,7 @@ import (
 //
 // The rules in a web ACL can be a combination of explicitly defined rules and rule groups that you reference from the web ACL. The rule groups can be rule groups that you manage or rule groups that are managed by others.
 //
-// You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer , an AWS AppSync GraphQL API , an Amazon Cognito user pool, an AWS App Runner service, an AWS Amplify application, or an AWS Verified Access instance.
+// You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an  REST API, an Application Load Balancer , an AWS AppSync GraphQL API , an Amazon Cognito user pool, an AWS App Runner service, an AWS Amplify application, or an AWS Verified Access instance.
 //
 // For more information, see [Web access control lists (web ACLs)](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl.html) in the *AWS WAF developer guide* .
 //
@@ -27,7 +27,7 @@ import (
 //
 // If you use Shield Advanced automatic application layer DDoS mitigation, the web ACLs that you use with automatic mitigation have a rule group rule whose name starts with `ShieldMitigationRuleGroup` . This rule is used for automatic mitigations and it's managed for you in the web ACL by Shield Advanced and AWS WAF . You'll see the rule listed among the web ACL rules when you view the web ACL through the AWS WAF interfaces.
 //
-// When you manage the web ACL through AWS CloudFormation interfaces, you won't see the Shield Advanced rule. AWS CloudFormation doesn't include this type of rule in the stack drift status between the actual configuration of the web ACL and your web ACL template.
+// When you manage the web ACL through CloudFormation interfaces, you won't see the Shield Advanced rule. CloudFormation doesn't include this type of rule in the stack drift status between the actual configuration of the web ACL and your web ACL template.
 //
 // Don't add the Shield Advanced rule group rule to your web ACL template. The rule shouldn't be in your template. When you update the web ACL template in a stack, the Shield Advanced rule is maintained for you by AWS WAF in the resulting web ACL.
 //
@@ -791,6 +791,24 @@ func (j *jsiiProxy_CfnWebACL)SetVisibilityConfig(val interface{}) {
 		"visibilityConfig",
 		val,
 	)
+}
+
+func CfnWebACL_ArnForWebACL(resource interfacesawswafv2.IWebACLRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWebACL_ArnForWebACLParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"arnForWebACL",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

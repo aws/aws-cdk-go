@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCapability) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnCapability_ArnForCapabilityParameters(resource interfacesawsb2bi.ICapabilityRef) error {
+	return nil
+}
+
 func validateCfnCapability_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

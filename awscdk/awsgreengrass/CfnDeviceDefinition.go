@@ -514,6 +514,24 @@ func (j *jsiiProxy_CfnDeviceDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
+func CfnDeviceDefinition_ArnForDeviceDefinition(resource interfacesawsgreengrass.IDeviceDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDeviceDefinition_ArnForDeviceDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
+		"arnForDeviceDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDeviceDefinitionRef from an ARN.
 func CfnDeviceDefinition_FromDeviceDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.IDeviceDefinitionRef {
 	_init_.Initialize()

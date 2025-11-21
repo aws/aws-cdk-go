@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCarrierGateway) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnCarrierGateway_ArnForCarrierGatewayParameters(resource interfacesawsec2.ICarrierGatewayRef) error {
+	return nil
+}
+
 func validateCfnCarrierGateway_FromCarrierGatewayIdParameters(scope constructs.Construct, id *string, carrierGatewayId *string) error {
 	return nil
 }

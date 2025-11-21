@@ -126,7 +126,7 @@ import (
 type CfnDataProviderProps struct {
 	// The type of database engine for the data provider.
 	//
-	// Valid values include `"aurora"` , `"aurora-postgresql"` , `"mysql"` , `"oracle"` , `"postgres"` , `"sqlserver"` , `redshift` , `mariadb` , `mongodb` , `db2` , `db2-zos` and `docdb` . A value of `"aurora"` represents Amazon Aurora MySQL-Compatible Edition.
+	// Valid values include `"aurora"` , `"aurora-postgresql"` , `"mysql"` , `"oracle"` , `"postgres"` , `"sqlserver"` , `redshift` , `mariadb` , `mongodb` , `db2` , `db2-zos` , `docdb` , and `sybase` . A value of `"aurora"` represents Amazon Aurora MySQL-Compatible Edition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-engine
 	//
 	Engine *string `field:"required" json:"engine" yaml:"engine"`

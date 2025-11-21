@@ -47,7 +47,7 @@ type CfnEndpointGroupProps struct {
 	// The Amazon Resource Name (ARN) of the listener.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
 	//
-	ListenerArn *string `field:"required" json:"listenerArn" yaml:"listenerArn"`
+	ListenerArn interface{} `field:"required" json:"listenerArn" yaml:"listenerArn"`
 	// The list of endpoint objects.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
 	//

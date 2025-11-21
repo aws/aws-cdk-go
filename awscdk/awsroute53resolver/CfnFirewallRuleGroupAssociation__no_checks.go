@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateValidatePropertiesPa
 	return nil
 }
 
+func validateCfnFirewallRuleGroupAssociation_ArnForFirewallRuleGroupAssociationParameters(resource interfacesawsroute53resolver.IFirewallRuleGroupAssociationRef) error {
+	return nil
+}
+
 func validateCfnFirewallRuleGroupAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

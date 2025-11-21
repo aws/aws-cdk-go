@@ -71,7 +71,7 @@ type CfnUserPoolClientProps struct {
 	// The ID of the user pool where you want to create an app client.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid
 	//
-	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// The access token time limit.
 	//
 	// After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.

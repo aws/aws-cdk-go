@@ -680,6 +680,24 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider)SetUserTrustProviderType(val *
 	)
 }
 
+func CfnVerifiedAccessTrustProvider_ArnForVerifiedAccessTrustProvider(resource interfacesawsec2.IVerifiedAccessTrustProviderRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVerifiedAccessTrustProvider_ArnForVerifiedAccessTrustProviderParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessTrustProvider",
+		"arnForVerifiedAccessTrustProvider",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVerifiedAccessTrustProviderRef from a verifiedAccessTrustProviderId.
 func CfnVerifiedAccessTrustProvider_FromVerifiedAccessTrustProviderId(scope constructs.Construct, id *string, verifiedAccessTrustProviderId *string) interfacesawsec2.IVerifiedAccessTrustProviderRef {
 	_init_.Initialize()

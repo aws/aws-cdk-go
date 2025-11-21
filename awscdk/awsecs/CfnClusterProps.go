@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnClusterProps := &CfnClusterProps{
-//   	CapacityProviders: []*string{
+//   	CapacityProviders: []interface{}{
 //   		jsii.String("capacityProviders"),
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
@@ -71,7 +71,7 @@ type CfnClusterProps struct {
 	// The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
 	//
-	CapacityProviders *[]*string `field:"optional" json:"capacityProviders" yaml:"capacityProviders"`
+	CapacityProviders *[]interface{} `field:"optional" json:"capacityProviders" yaml:"capacityProviders"`
 	// A user-generated string that you use to identify your cluster.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.

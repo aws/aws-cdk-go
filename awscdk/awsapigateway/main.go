@@ -64,6 +64,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},
@@ -77,6 +78,19 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiKey)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigateway.ApiKeyGrants",
+		reflect.TypeOf((*ApiKeyGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+			_jsii_.MemberMethod{JsiiMethod: "readWrite", GoMethod: "ReadWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "write", GoMethod: "Write"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ApiKeyGrants{}
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -2302,6 +2316,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},

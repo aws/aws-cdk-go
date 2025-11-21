@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPhoneNumber) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnPhoneNumber_ArnForPhoneNumberParameters(resource interfacesawssmsvoice.IPhoneNumberRef) error {
+	return nil
+}
+
 func validateCfnPhoneNumber_FromPhoneNumberArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

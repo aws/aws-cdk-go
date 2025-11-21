@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnRealtimeLogConfig_ArnForRealtimeLogConfigParameters(resource interfacesawscloudfront.IRealtimeLogConfigRef) error {
+	return nil
+}
+
 func validateCfnRealtimeLogConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

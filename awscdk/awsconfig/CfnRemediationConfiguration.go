@@ -618,6 +618,24 @@ func (j *jsiiProxy_CfnRemediationConfiguration)SetTargetVersion(val *string) {
 	)
 }
 
+func CfnRemediationConfiguration_ArnForRemediationConfiguration(resource interfacesawsconfig.IRemediationConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRemediationConfiguration_ArnForRemediationConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"arnForRemediationConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IRemediationConfigurationRef from a remediationConfigurationId.
 func CfnRemediationConfiguration_FromRemediationConfigurationId(scope constructs.Construct, id *string, remediationConfigurationId *string) interfacesawsconfig.IRemediationConfigurationRef {
 	_init_.Initialize()

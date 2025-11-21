@@ -517,6 +517,24 @@ func (j *jsiiProxy_CfnChannelPlacementGroup)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnChannelPlacementGroup_ArnForChannelPlacementGroup(resource interfacesawsmedialive.IChannelPlacementGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnChannelPlacementGroup_ArnForChannelPlacementGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnChannelPlacementGroup",
+		"arnForChannelPlacementGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

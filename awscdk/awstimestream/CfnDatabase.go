@@ -13,7 +13,7 @@ import (
 
 // Creates a new Timestream database.
 //
-// If the AWS KMS key is not specified, the database will be encrypted with a Timestream managed AWS KMS key located in your account. Refer to [AWS managed AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) . See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html) for details.
+// If the AWS  key is not specified, the database will be encrypted with a Timestream managed AWS  key located in your account. Refer to [AWS managed AWS  keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) . See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html) for details.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,7 +55,7 @@ type CfnDatabase interface {
 	// A reference to a Database resource.
 	DatabaseRef() *interfacesawstimestream.DatabaseReference
 	Env() *interfaces.ResourceEnvironment
-	// The identifier of the AWS KMS key used to encrypt the data stored in the database.
+	// The identifier of the AWS  key used to encrypt the data stored in the database.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -457,6 +457,24 @@ func (j *jsiiProxy_CfnDatabase)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnDatabase_ArnForDatabase(resource interfacesawstimestream.IDatabaseRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDatabase_ArnForDatabaseParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_timestream.CfnDatabase",
+		"arnForDatabase",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IDatabaseRef from an ARN.

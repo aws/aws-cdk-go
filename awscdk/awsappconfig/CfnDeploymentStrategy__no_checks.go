@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeploymentStrategy) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnDeploymentStrategy_ArnForDeploymentStrategyParameters(resource interfacesawsappconfig.IDeploymentStrategyRef) error {
+	return nil
+}
+
 func validateCfnDeploymentStrategy_FromDeploymentStrategyIdParameters(scope constructs.Construct, id *string, deploymentStrategyId *string) error {
 	return nil
 }

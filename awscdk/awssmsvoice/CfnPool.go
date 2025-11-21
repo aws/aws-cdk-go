@@ -651,6 +651,24 @@ func (j *jsiiProxy_CfnPool)SetTwoWay(val interface{}) {
 	)
 }
 
+func CfnPool_ArnForPool(resource interfacesawssmsvoice.IPoolRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPool_ArnForPoolParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnPool",
+		"arnForPool",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPoolRef from an ARN.
 func CfnPool_FromPoolArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IPoolRef {
 	_init_.Initialize()

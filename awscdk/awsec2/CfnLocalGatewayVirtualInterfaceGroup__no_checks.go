@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateValidatePropert
 	return nil
 }
 
+func validateCfnLocalGatewayVirtualInterfaceGroup_ArnForLocalGatewayVirtualInterfaceGroupParameters(resource interfacesawsec2.ILocalGatewayVirtualInterfaceGroupRef) error {
+	return nil
+}
+
 func validateCfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

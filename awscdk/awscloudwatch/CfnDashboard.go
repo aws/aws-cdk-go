@@ -410,6 +410,24 @@ func (j *jsiiProxy_CfnDashboard)SetDashboardName(val *string) {
 	)
 }
 
+func CfnDashboard_ArnForDashboard(resource interfacesawscloudwatch.IDashboardRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDashboard_ArnForDashboardParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnDashboard",
+		"arnForDashboard",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDashboardRef from a dashboardName.
 func CfnDashboard_FromDashboardName(scope constructs.Construct, id *string, dashboardName *string) interfacesawscloudwatch.IDashboardRef {
 	_init_.Initialize()

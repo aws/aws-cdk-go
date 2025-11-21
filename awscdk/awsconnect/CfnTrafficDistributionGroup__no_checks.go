@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTrafficDistributionGroup) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnTrafficDistributionGroup_ArnForTrafficDistributionGroupParameters(resource interfacesawsconnect.ITrafficDistributionGroupRef) error {
+	return nil
+}
+
 func validateCfnTrafficDistributionGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

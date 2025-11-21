@@ -28,7 +28,7 @@ type CfnDiscovererProps struct {
 	// The ARN of the event bus.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-sourcearn
 	//
-	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
+	SourceArn interface{} `field:"required" json:"sourceArn" yaml:"sourceArn"`
 	// Allows for the discovery of the event schemas that are sent to the event bus from another account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-crossaccount
 	//

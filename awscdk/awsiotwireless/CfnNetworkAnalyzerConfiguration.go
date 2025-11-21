@@ -534,6 +534,24 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetWirelessGateways(val *[]*s
 	)
 }
 
+func CfnNetworkAnalyzerConfiguration_ArnForNetworkAnalyzerConfiguration(resource interfacesawsiotwireless.INetworkAnalyzerConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkAnalyzerConfiguration_ArnForNetworkAnalyzerConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnNetworkAnalyzerConfiguration",
+		"arnForNetworkAnalyzerConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new INetworkAnalyzerConfigurationRef from an ARN.
 func CfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.INetworkAnalyzerConfigurationRef {
 	_init_.Initialize()

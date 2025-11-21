@@ -505,6 +505,24 @@ func (j *jsiiProxy_CfnEventBridgeRuleTemplateGroup)SetTags(val *map[string]*stri
 	)
 }
 
+func CfnEventBridgeRuleTemplateGroup_ArnForEventBridgeRuleTemplateGroup(resource interfacesawsmedialive.IEventBridgeRuleTemplateGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventBridgeRuleTemplateGroup_ArnForEventBridgeRuleTemplateGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnEventBridgeRuleTemplateGroup",
+		"arnForEventBridgeRuleTemplateGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

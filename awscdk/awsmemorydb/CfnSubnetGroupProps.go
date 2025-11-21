@@ -13,7 +13,7 @@ import (
 //
 //   cfnSubnetGroupProps := &CfnSubnetGroupProps{
 //   	SubnetGroupName: jsii.String("subnetGroupName"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //
@@ -37,7 +37,7 @@ type CfnSubnetGroupProps struct {
 	// A list of Amazon VPC subnet IDs for the subnet group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-subnetids
 	//
-	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// A description of the subnet group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-description
 	//

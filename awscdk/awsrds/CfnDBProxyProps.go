@@ -12,7 +12,7 @@ package awsrds
 //   	DbProxyName: jsii.String("dbProxyName"),
 //   	EngineFamily: jsii.String("engineFamily"),
 //   	RoleArn: jsii.String("roleArn"),
-//   	VpcSubnetIds: []*string{
+//   	VpcSubnetIds: []interface{}{
 //   		jsii.String("vpcSubnetIds"),
 //   	},
 //
@@ -38,7 +38,7 @@ package awsrds
 //   		},
 //   	},
 //   	TargetConnectionNetworkType: jsii.String("targetConnectionNetworkType"),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   }
@@ -61,11 +61,11 @@ type CfnDBProxyProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
 	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
 	// One or more VPC subnet IDs to associate with the new proxy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
 	//
-	VpcSubnetIds *[]*string `field:"required" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
+	VpcSubnetIds *[]interface{} `field:"required" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
 	// The authorization mechanism that the proxy uses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
 	//
@@ -126,6 +126,6 @@ type CfnDBProxyProps struct {
 	// If you plan to update the resource, don't specify VPC security groups in a shared VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
 	//
-	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]interface{} `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

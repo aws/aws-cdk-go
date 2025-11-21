@@ -528,6 +528,24 @@ func (j *jsiiProxy_CfnSigningProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnSigningProfile_ArnForSigningProfile(resource interfacesawssigner.ISigningProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSigningProfile_ArnForSigningProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_signer.CfnSigningProfile",
+		"arnForSigningProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

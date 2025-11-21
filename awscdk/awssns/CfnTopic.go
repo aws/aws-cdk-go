@@ -13,7 +13,7 @@ import (
 
 // The `AWS::SNS::Topic` resource creates a topic to which notifications can be published.
 //
-// > One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [Amazon SNS endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *AWS General Reference* .
+// > One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [Amazon  endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *AWS General Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -65,12 +65,12 @@ type CfnTopic interface {
 	awscdk.IInspectable
 	interfacesawssns.ITopicRef
 	awscdk.ITaggable
-	// The `ArchivePolicy` determines the number of days Amazon SNS retains messages in FIFO topics.
+	// The `ArchivePolicy` determines the number of days Amazon  retains messages in FIFO topics.
 	ArchivePolicy() interface{}
 	SetArchivePolicy(val interface{})
-	// Returns the ARN of an Amazon SNS topic.
+	// Returns the ARN of an Amazon  topic.
 	AttrTopicArn() *string
-	// Returns the name of an Amazon SNS topic.
+	// Returns the name of an Amazon  topic.
 	AttrTopicName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -90,7 +90,7 @@ type CfnTopic interface {
 	// The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:.
 	DeliveryStatusLogging() interface{}
 	SetDeliveryStatusLogging(val interface{})
-	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	// The display name to use for an Amazon  topic with SMS subscriptions.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	Env() *interfaces.ResourceEnvironment
@@ -100,7 +100,7 @@ type CfnTopic interface {
 	// Set to true to create a FIFO topic.
 	FifoTopic() interface{}
 	SetFifoTopic(val interface{})
-	// The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom CMK.
+	// The ID of an AWS managed customer master key (CMK) for Amazon  or a custom CMK.
 	KmsMasterKeyId() *string
 	SetKmsMasterKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -127,7 +127,7 @@ type CfnTopic interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The Amazon SNS subscriptions (endpoints) for this topic.
+	// The Amazon  subscriptions (endpoints) for this topic.
 	Subscription() interface{}
 	SetSubscription(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -140,7 +140,7 @@ type CfnTopic interface {
 	SetTopicName(val *string)
 	// A reference to a Topic resource.
 	TopicRef() *interfacesawssns.TopicReference
-	// Tracing mode of an Amazon SNS topic.
+	// Tracing mode of an Amazon  topic.
 	TracingConfig() *string
 	SetTracingConfig(val *string)
 	// Deprecated.
@@ -718,6 +718,24 @@ func (j *jsiiProxy_CfnTopic)SetTracingConfig(val *string) {
 		"tracingConfig",
 		val,
 	)
+}
+
+func CfnTopic_ArnForTopic(resource interfacesawssns.ITopicRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTopic_ArnForTopicParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sns.CfnTopic",
+		"arnForTopic",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

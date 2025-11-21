@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnUserAccessLoggingSettings) validateValidatePropertiesParam
 	return nil
 }
 
+func validateCfnUserAccessLoggingSettings_ArnForUserAccessLoggingSettingsParameters(resource interfacesawsworkspacesweb.IUserAccessLoggingSettingsRef) error {
+	return nil
+}
+
 func validateCfnUserAccessLoggingSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

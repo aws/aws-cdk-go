@@ -496,6 +496,24 @@ func (j *jsiiProxy_CfnProtectConfiguration)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnProtectConfiguration_ArnForProtectConfiguration(resource interfacesawssmsvoice.IProtectConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProtectConfiguration_ArnForProtectConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnProtectConfiguration",
+		"arnForProtectConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IProtectConfigurationRef from an ARN.
 func CfnProtectConfiguration_FromProtectConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IProtectConfigurationRef {
 	_init_.Initialize()

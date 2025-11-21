@@ -24,7 +24,7 @@ import (
 //
 //   cfnClusterSubnetGroup := awscdk.Aws_redshift.NewCfnClusterSubnetGroup(this, jsii.String("MyCfnClusterSubnetGroup"), &CfnClusterSubnetGroupProps{
 //   	Description: jsii.String("description"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnOdbNetwork) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnOdbNetwork_ArnForOdbNetworkParameters(resource interfacesawsodb.IOdbNetworkRef) error {
+	return nil
+}
+
 func validateCfnOdbNetwork_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

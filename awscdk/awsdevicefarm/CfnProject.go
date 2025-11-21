@@ -497,6 +497,24 @@ func (j *jsiiProxy_CfnProject)SetVpcConfig(val interface{}) {
 	)
 }
 
+func CfnProject_ArnForProject(resource interfacesawsdevicefarm.IProjectRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProject_ArnForProjectParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devicefarm.CfnProject",
+		"arnForProject",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

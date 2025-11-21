@@ -15,19 +15,29 @@ import (
 // Defines a KMS key.
 //
 // Example:
-//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc Vpc
 //
-//
-//   myKmsKey := kms.NewKey(this, jsii.String("myKMSKey"))
-//   myBucket := s3.NewBucket(this, jsii.String("mySSEKMSEncryptedBucket"), &BucketProps{
-//   	Encryption: s3.BucketEncryption_KMS,
-//   	EncryptionKey: myKmsKey,
-//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
+//   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+//   	Version: rds.PostgresEngineVersion_VER_16_3(),
 //   })
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
-//   	},
+//   myKey := kms.NewKey(this, jsii.String("MyKey"))
+//
+//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &DatabaseInstanceProps{
+//   	Engine: Engine,
+//   	Vpc: Vpc,
+//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres"), &CredentialsBaseOptions{
+//   		SecretName: jsii.String("my-cool-name"),
+//   		EncryptionKey: myKey,
+//   		ExcludeCharacters: jsii.String("!&*^#@()"),
+//   		ReplicaRegions: []ReplicaRegion{
+//   			&ReplicaRegion{
+//   				Region: jsii.String("eu-west-1"),
+//   			},
+//   			&ReplicaRegion{
+//   				Region: jsii.String("eu-west-2"),
+//   			},
+//   		},
+//   	}),
 //   })
 //
 type Key interface {

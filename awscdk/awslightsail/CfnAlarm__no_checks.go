@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAlarm) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAlarm_ArnForAlarmParameters(resource interfacesawslightsail.IAlarmRef) error {
+	return nil
+}
+
 func validateCfnAlarm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

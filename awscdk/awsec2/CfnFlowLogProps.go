@@ -43,7 +43,7 @@ type CfnFlowLogProps struct {
 	// For example, if the resource type is `VPC` , specify the ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
 	//
-	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
+	ResourceId interface{} `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The type of resource to monitor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
 	//
@@ -57,7 +57,7 @@ type CfnFlowLogProps struct {
 	// This parameter is required if the destination type is `cloud-watch-logs` , or if the destination type is `kinesis-data-firehose` and the delivery stream and the resources to monitor are in different accounts.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
 	//
-	DeliverLogsPermissionArn *string `field:"optional" json:"deliverLogsPermissionArn" yaml:"deliverLogsPermissionArn"`
+	DeliverLogsPermissionArn interface{} `field:"optional" json:"deliverLogsPermissionArn" yaml:"deliverLogsPermissionArn"`
 	// The destination options.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-destinationoptions
 	//
@@ -79,7 +79,7 @@ type CfnFlowLogProps struct {
 	// arn:aws:firehose: *region* : *account_id* :deliverystream: *my_stream*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
 	//
-	LogDestination *string `field:"optional" json:"logDestination" yaml:"logDestination"`
+	LogDestination interface{} `field:"optional" json:"logDestination" yaml:"logDestination"`
 	// The type of destination for the flow log data.
 	//
 	// Default: `cloud-watch-logs`.
@@ -99,7 +99,7 @@ type CfnFlowLogProps struct {
 	// This parameter is valid only if the destination type is `cloud-watch-logs` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
 	//
-	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName interface{} `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
 	//
 	// The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes). This parameter must be 60 seconds for transit gateway resource types.

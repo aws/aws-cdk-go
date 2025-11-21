@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSink) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnSink_ArnForSinkParameters(resource interfacesawsoam.ISinkRef) error {
+	return nil
+}
+
 func validateCfnSink_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

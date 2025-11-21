@@ -838,6 +838,24 @@ func (j *jsiiProxy_CfnCluster)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnCluster_ArnForCluster(resource interfacesawsmsk.IClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_ArnForClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_msk.CfnCluster",
+		"arnForCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

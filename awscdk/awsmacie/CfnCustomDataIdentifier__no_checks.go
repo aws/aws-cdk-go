@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnCustomDataIdentifier_ArnForCustomDataIdentifierParameters(resource interfacesawsmacie.ICustomDataIdentifierRef) error {
+	return nil
+}
+
 func validateCfnCustomDataIdentifier_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

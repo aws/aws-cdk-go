@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDisk) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnDisk_ArnForDiskParameters(resource interfacesawslightsail.IDiskRef) error {
+	return nil
+}
+
 func validateCfnDisk_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

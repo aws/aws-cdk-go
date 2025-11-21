@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnReplicator) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnReplicator_ArnForReplicatorParameters(resource interfacesawsmsk.IReplicatorRef) error {
+	return nil
+}
+
 func validateCfnReplicator_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

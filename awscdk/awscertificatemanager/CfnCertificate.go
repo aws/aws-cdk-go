@@ -612,6 +612,24 @@ func (j *jsiiProxy_CfnCertificate)SetValidationMethod(val *string) {
 	)
 }
 
+func CfnCertificate_ArnForCertificate(resource interfacesawscertificatemanager.ICertificateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCertificate_ArnForCertificateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_certificatemanager.CfnCertificate",
+		"arnForCertificate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICertificateRef from a certificateId.
 func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) interfacesawscertificatemanager.ICertificateRef {
 	_init_.Initialize()

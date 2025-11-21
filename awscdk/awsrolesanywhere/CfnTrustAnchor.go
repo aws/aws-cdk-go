@@ -542,6 +542,24 @@ func (j *jsiiProxy_CfnTrustAnchor)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnTrustAnchor_ArnForTrustAnchor(resource interfacesawsrolesanywhere.ITrustAnchorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTrustAnchor_ArnForTrustAnchorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rolesanywhere.CfnTrustAnchor",
+		"arnForTrustAnchor",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITrustAnchorRef from an ARN.
 func CfnTrustAnchor_FromTrustAnchorArn(scope constructs.Construct, id *string, arn *string) interfacesawsrolesanywhere.ITrustAnchorRef {
 	_init_.Initialize()

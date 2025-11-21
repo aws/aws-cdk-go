@@ -573,6 +573,24 @@ func (j *jsiiProxy_CfnStudio)SetUserRoleArn(val *string) {
 	)
 }
 
+func CfnStudio_ArnForStudio(resource interfacesawsnimblestudio.IStudioRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStudio_ArnForStudioParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_nimblestudio.CfnStudio",
+		"arnForStudio",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IStudioRef from a studioId.
 func CfnStudio_FromStudioId(scope constructs.Construct, id *string, studioId *string) interfacesawsnimblestudio.IStudioRef {
 	_init_.Initialize()

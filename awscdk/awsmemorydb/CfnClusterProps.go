@@ -36,7 +36,7 @@ import (
 //   	NumShards: jsii.Number(123),
 //   	ParameterGroupName: jsii.String("parameterGroupName"),
 //   	Port: jsii.Number(123),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SnapshotArns: []*string{
@@ -155,7 +155,7 @@ type CfnClusterProps struct {
 	// A list of security group names to associate with this cluster .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3.
 	//
 	// The snapshot files are used to populate the new cluster . The Amazon S3 object name in the ARN cannot contain any commas.

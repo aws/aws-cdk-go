@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIPSet) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnIPSet_ArnForIPSetParameters(resource interfacesawswafv2.IIPSetRef) error {
+	return nil
+}
+
 func validateCfnIPSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

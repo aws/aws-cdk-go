@@ -671,6 +671,24 @@ func (j *jsiiProxy_CfnKnowledgeBase)SetVectorIngestionConfiguration(val interfac
 	)
 }
 
+func CfnKnowledgeBase_ArnForKnowledgeBase(resource interfacesawswisdom.IKnowledgeBaseRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnKnowledgeBase_ArnForKnowledgeBaseParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",
+		"arnForKnowledgeBase",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IKnowledgeBaseRef from an ARN.
 func CfnKnowledgeBase_FromKnowledgeBaseArn(scope constructs.Construct, id *string, arn *string) interfacesawswisdom.IKnowledgeBaseRef {
 	_init_.Initialize()

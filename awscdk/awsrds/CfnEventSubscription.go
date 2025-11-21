@@ -28,7 +28,7 @@ import (
 //   	EventCategories: []*string{
 //   		jsii.String("eventCategories"),
 //   	},
-//   	SourceIds: []*string{
+//   	SourceIds: []interface{}{
 //   		jsii.String("sourceIds"),
 //   	},
 //   	SourceType: jsii.String("sourceType"),
@@ -545,6 +545,24 @@ func (j *jsiiProxy_CfnEventSubscription)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnEventSubscription_ArnForEventSubscription(resource interfacesawsrds.IEventSubscriptionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventSubscription_ArnForEventSubscriptionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"arnForEventSubscription",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IEventSubscriptionRef from a subscriptionName.

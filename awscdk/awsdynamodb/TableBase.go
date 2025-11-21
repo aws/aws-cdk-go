@@ -10,13 +10,16 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type TableBase interface {
 	awscdk.Resource
 	ITable
+	awsiam.IEncryptedResource
 	awsiam.IResourceWithPolicy
+	interfacesawsdynamodb.ITableRef
 	// KMS encryption key, if this table uses a customer-managed encryption key.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
@@ -29,6 +32,8 @@ type TableBase interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Grant a predefined set of permissions on this Table.
+	Grants() TableGrants
 	HasIndex() *bool
 	// The tree node.
 	Node() constructs.Node
@@ -40,16 +45,25 @@ type TableBase interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// Deprecated: This member is still filled but it is not read.
 	RegionalArns() *[]*string
+	// Additional regions other than the main one that this table is replicated to.
+	Regions() *[]*string
 	// Resource policy to assign to table.
 	ResourcePolicy() awsiam.PolicyDocument
 	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Grant a predefined set of permissions on this Table's Stream, if present.
+	//
+	// Will throw if the Table has not been configured for streaming.
+	StreamGrants() StreamGrants
 	// Arn of the dynamodb table.
 	TableArn() *string
 	// Table name of the dynamodb table.
 	TableName() *string
+	// A reference to a Table resource.
+	TableRef() *interfacesawsdynamodb.TableReference
 	// ARN of the table's stream, if there is one.
 	TableStreamArn() *string
 	// Adds a statement to the resource policy associated with this table.
@@ -88,6 +102,8 @@ type TableBase interface {
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
+	// Gives permissions to a grantable entity to perform actions on the encryption key.
+	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
 	// Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan, DescribeTable.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
@@ -183,7 +199,9 @@ type TableBase interface {
 type jsiiProxy_TableBase struct {
 	internal.Type__awscdkResource
 	jsiiProxy_ITable
+	internal.Type__awsiamIEncryptedResource
 	internal.Type__awsiamIResourceWithPolicy
+	internal.Type__interfacesawsdynamodbITableRef
 }
 
 func (j *jsiiProxy_TableBase) EncryptionKey() awskms.IKey {
@@ -201,6 +219,16 @@ func (j *jsiiProxy_TableBase) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TableBase) Grants() TableGrants {
+	var returns TableGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns
@@ -246,6 +274,16 @@ func (j *jsiiProxy_TableBase) RegionalArns() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_TableBase) Regions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"regions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TableBase) ResourcePolicy() awsiam.PolicyDocument {
 	var returns awsiam.PolicyDocument
 	_jsii_.Get(
@@ -266,6 +304,16 @@ func (j *jsiiProxy_TableBase) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_TableBase) StreamGrants() StreamGrants {
+	var returns StreamGrants
+	_jsii_.Get(
+		j,
+		"streamGrants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TableBase) TableArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -281,6 +329,16 @@ func (j *jsiiProxy_TableBase) TableName() *string {
 	_jsii_.Get(
 		j,
 		"tableName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TableBase) TableRef() *interfacesawsdynamodb.TableReference {
+	var returns *interfacesawsdynamodb.TableReference
+	_jsii_.Get(
+		j,
+		"tableRef",
 		&returns,
 	)
 	return returns
@@ -491,6 +549,27 @@ func (t *jsiiProxy_TableBase) GrantFullAccess(grantee awsiam.IGrantable) awsiam.
 		t,
 		"grantFullAccess",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TableBase) GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult {
+	if err := t.validateGrantOnKeyParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns *awsiam.GrantOnKeyResult
+
+	_jsii_.Invoke(
+		t,
+		"grantOnKey",
+		args,
 		&returns,
 	)
 

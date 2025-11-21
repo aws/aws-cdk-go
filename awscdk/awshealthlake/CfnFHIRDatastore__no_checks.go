@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFHIRDatastore) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnFHIRDatastore_ArnForFHIRDatastoreParameters(resource interfacesawshealthlake.IFHIRDatastoreRef) error {
+	return nil
+}
+
 func validateCfnFHIRDatastore_FromDatastoreIdParameters(scope constructs.Construct, id *string, datastoreId *string) error {
 	return nil
 }

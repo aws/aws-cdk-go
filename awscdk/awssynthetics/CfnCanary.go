@@ -1003,6 +1003,24 @@ func (j *jsiiProxy_CfnCanary)SetVpcConfig(val interface{}) {
 	)
 }
 
+func CfnCanary_ArnForCanary(resource interfacesawssynthetics.ICanaryRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCanary_ArnForCanaryParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_synthetics.CfnCanary",
+		"arnForCanary",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICanaryRef from a canaryName.
 func CfnCanary_FromCanaryName(scope constructs.Construct, id *string, canaryName *string) interfacesawssynthetics.ICanaryRef {
 	_init_.Initialize()

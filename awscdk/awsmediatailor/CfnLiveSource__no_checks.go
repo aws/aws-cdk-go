@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLiveSource) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnLiveSource_ArnForLiveSourceParameters(resource interfacesawsmediatailor.ILiveSourceRef) error {
+	return nil
+}
+
 func validateCfnLiveSource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

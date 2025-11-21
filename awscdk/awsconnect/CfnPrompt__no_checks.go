@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPrompt) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnPrompt_ArnForPromptParameters(resource interfacesawsconnect.IPromptRef) error {
+	return nil
+}
+
 func validateCfnPrompt_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

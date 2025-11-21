@@ -15,7 +15,7 @@ import (
 //
 // This resource grouping improves the accuracy of detection and reduces false positives.
 //
-// To configure this resource through AWS CloudFormation , you must be subscribed to AWS Shield Advanced . You can subscribe through the [Shield Advanced console](https://docs.aws.amazon.com/wafv2/shieldv2#/) and through the APIs. For more information, see [Subscribe to AWS Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/enable-ddos-prem.html) .
+// To configure this resource through CloudFormation , you must be subscribed to AWS Shield Advanced . You can subscribe through the [Shield Advanced console](https://docs.aws.amazon.com/wafv2/shieldv2#/) and through the APIs. For more information, see [Subscribe to AWS Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/enable-ddos-prem.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -538,6 +538,24 @@ func (j *jsiiProxy_CfnProtectionGroup)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnProtectionGroup_ArnForProtectionGroup(resource interfacesawsshield.IProtectionGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProtectionGroup_ArnForProtectionGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_shield.CfnProtectionGroup",
+		"arnForProtectionGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

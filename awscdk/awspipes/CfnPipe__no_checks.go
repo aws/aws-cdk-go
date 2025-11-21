@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPipe) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnPipe_ArnForPipeParameters(resource interfacesawspipes.IPipeRef) error {
+	return nil
+}
+
 func validateCfnPipe_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

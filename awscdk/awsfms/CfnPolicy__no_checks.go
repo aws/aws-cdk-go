@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPolicy) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnPolicy_ArnForPolicyParameters(resource interfacesawsfms.IPolicyRef) error {
+	return nil
+}
+
 func validateCfnPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCollection) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnCollection_ArnForCollectionParameters(resource interfacesawsrekognition.ICollectionRef) error {
+	return nil
+}
+
 func validateCfnCollection_FromCollectionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

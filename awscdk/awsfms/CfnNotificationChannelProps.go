@@ -16,7 +16,7 @@ package awsfms
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
 //
 type CfnNotificationChannelProps struct {
-	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
 	//
 	SnsRoleName *string `field:"required" json:"snsRoleName" yaml:"snsRoleName"`

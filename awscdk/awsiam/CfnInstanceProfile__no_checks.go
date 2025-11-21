@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInstanceProfile) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnInstanceProfile_ArnForInstanceProfileParameters(resource interfacesawsiam.IInstanceProfileRef) error {
+	return nil
+}
+
 func validateCfnInstanceProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

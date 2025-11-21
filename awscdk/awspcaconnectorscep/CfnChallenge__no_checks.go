@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnChallenge) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnChallenge_ArnForChallengeParameters(resource interfacesawspcaconnectorscep.IChallengeRef) error {
+	return nil
+}
+
 func validateCfnChallenge_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

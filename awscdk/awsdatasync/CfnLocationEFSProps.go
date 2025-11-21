@@ -49,7 +49,7 @@ type CfnLocationEFSProps struct {
 	// Specifies the ARN for your Amazon EFS file system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
 	//
-	EfsFilesystemArn *string `field:"optional" json:"efsFilesystemArn" yaml:"efsFilesystemArn"`
+	EfsFilesystemArn interface{} `field:"optional" json:"efsFilesystemArn" yaml:"efsFilesystemArn"`
 	// Specifies an AWS Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.
 	//
 	// For information on creating this role, see [Creating a DataSync IAM role for file system access](https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role) .

@@ -50,7 +50,7 @@ type CfnSafetyRuleProps struct {
 	// The Amazon Resource Name (ARN) of the control panel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
 	//
-	ControlPanelArn *string `field:"required" json:"controlPanelArn" yaml:"controlPanelArn"`
+	ControlPanelArn interface{} `field:"required" json:"controlPanelArn" yaml:"controlPanelArn"`
 	// The name of the assertion rule.
 	//
 	// The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)

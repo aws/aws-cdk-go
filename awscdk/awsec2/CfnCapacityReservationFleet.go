@@ -615,6 +615,24 @@ func (j *jsiiProxy_CfnCapacityReservationFleet)SetTotalTargetCapacity(val *float
 	)
 }
 
+func CfnCapacityReservationFleet_ArnForCapacityReservationFleet(resource interfacesawsec2.ICapacityReservationFleetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityReservationFleet_ArnForCapacityReservationFleetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservationFleet",
+		"arnForCapacityReservationFleet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICapacityReservationFleetRef from a capacityReservationFleetId.
 func CfnCapacityReservationFleet_FromCapacityReservationFleetId(scope constructs.Construct, id *string, capacityReservationFleetId *string) interfacesawsec2.ICapacityReservationFleetRef {
 	_init_.Initialize()

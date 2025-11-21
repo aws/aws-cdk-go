@@ -91,10 +91,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "profilingGroupArn", GoGetter: "ProfilingGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "profilingGroupName", GoGetter: "ProfilingGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "profilingGroupRef", GoGetter: "ProfilingGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfilingGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodeguruprofilerIProfilingGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -110,10 +112,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPublish", GoMethod: "GrantPublish"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "profilingGroupArn", GoGetter: "ProfilingGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "profilingGroupName", GoGetter: "ProfilingGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "profilingGroupRef", GoGetter: "ProfilingGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -122,6 +126,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IProfilingGroup)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroupGrants",
+		reflect.TypeOf((*ProfilingGroupGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "publish", GoMethod: "Publish"},
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ProfilingGroupGrants{}
 		},
 	)
 	_jsii_.RegisterStruct(

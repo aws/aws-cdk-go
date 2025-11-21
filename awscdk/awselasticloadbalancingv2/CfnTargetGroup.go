@@ -43,6 +43,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetControlPort: jsii.Number(123),
 //   	TargetGroupAttributes: []interface{}{
 //   		&TargetGroupAttributeProperty{
 //   			Key: jsii.String("key"),
@@ -158,6 +159,9 @@ type CfnTargetGroup interface {
 	// The tags.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+	TargetControlPort() *float64
+	SetTargetControlPort(val *float64)
 	// The target group attributes.
 	TargetGroupAttributes() interface{}
 	SetTargetGroupAttributes(val interface{})
@@ -603,6 +607,16 @@ func (j *jsiiProxy_CfnTargetGroup) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTargetGroup) TargetControlPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"targetControlPort",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTargetGroup) TargetGroupAttributes() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -834,6 +848,14 @@ func (j *jsiiProxy_CfnTargetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func (j *jsiiProxy_CfnTargetGroup)SetTargetControlPort(val *float64) {
+	_jsii_.Set(
+		j,
+		"targetControlPort",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTargetGroup)SetTargetGroupAttributes(val interface{}) {
 	if err := j.validateSetTargetGroupAttributesParameters(val); err != nil {
 		panic(err)
@@ -878,6 +900,24 @@ func (j *jsiiProxy_CfnTargetGroup)SetVpcId(val *string) {
 		"vpcId",
 		val,
 	)
+}
+
+func CfnTargetGroup_ArnForTargetGroup(resource interfacesawselasticloadbalancingv2.ITargetGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTargetGroup_ArnForTargetGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+		"arnForTargetGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

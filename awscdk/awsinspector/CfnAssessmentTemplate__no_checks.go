@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAssessmentTemplate) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnAssessmentTemplate_ArnForAssessmentTemplateParameters(resource interfacesawsinspector.IAssessmentTemplateRef) error {
+	return nil
+}
+
 func validateCfnAssessmentTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

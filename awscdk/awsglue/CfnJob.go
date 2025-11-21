@@ -920,6 +920,24 @@ func (j *jsiiProxy_CfnJob)SetWorkerType(val *string) {
 	)
 }
 
+func CfnJob_ArnForJob(resource interfacesawsglue.IJobRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnJob_ArnForJobParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnJob",
+		"arnForJob",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IJobRef from a jobName.
 func CfnJob_FromJobName(scope constructs.Construct, id *string, jobName *string) interfacesawsglue.IJobRef {
 	_init_.Initialize()

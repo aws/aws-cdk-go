@@ -48,3 +48,11 @@ func (i *jsiiProxy_ILogGroup) validateMetricIncomingLogEventsParameters(props *a
 	return nil
 }
 
+func (i *jsiiProxy_ILogGroup) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
+func (i *jsiiProxy_ILogGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

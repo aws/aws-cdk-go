@@ -193,7 +193,7 @@ type CfnUserProfileProps struct {
 	// The domain ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-domainid
 	//
-	DomainId *string `field:"required" json:"domainId" yaml:"domainId"`
+	DomainId interface{} `field:"required" json:"domainId" yaml:"domainId"`
 	// The user profile name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-userprofilename
 	//

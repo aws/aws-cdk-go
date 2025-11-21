@@ -84,8 +84,8 @@ package awscdk
 type CfnStackSetProps struct {
 	// Describes how the IAM roles required for StackSet operations are created.
 	//
-	// - With `SELF_MANAGED` permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see [Grant self-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) in the *AWS CloudFormation User Guide* .
-	// - With `SERVICE_MANAGED` permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations . For more information, see [Activate trusted access for StackSets with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html) in the *AWS CloudFormation User Guide* .
+	// - With `SELF_MANAGED` permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see [Grant self-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) in the *CloudFormation User Guide* .
+	// - With `SERVICE_MANAGED` permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations . For more information, see [Activate trusted access for StackSets with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html) in the *CloudFormation User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
 	//
 	PermissionModel *string `field:"required" json:"permissionModel" yaml:"permissionModel"`
@@ -99,15 +99,15 @@ type CfnStackSetProps struct {
 	//
 	// Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific StackSets within the same administrator account.
 	//
-	// Use customized administrator roles to control which users or groups can manage specific StackSets within the same administrator account. For more information, see [Grant self-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) in the *AWS CloudFormation User Guide* .
+	// Use customized administrator roles to control which users or groups can manage specific StackSets within the same administrator account. For more information, see [Grant self-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) in the *CloudFormation User Guide* .
 	//
 	// Valid only if the permissions model is `SELF_MANAGED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
 	//
-	AdministrationRoleArn *string `field:"optional" json:"administrationRoleArn" yaml:"administrationRoleArn"`
+	AdministrationRoleArn interface{} `field:"optional" json:"administrationRoleArn" yaml:"administrationRoleArn"`
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
 	//
-	// For more information, see [Enable or disable automatic deployments for StackSets in AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html) in the *AWS CloudFormation User Guide* .
+	// For more information, see [Enable or disable automatic deployments for StackSets in AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html) in the *CloudFormation User Guide* .
 	//
 	// Required if the permissions model is `SERVICE_MANAGED` . (Not used with self-managed permissions.)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
@@ -120,7 +120,7 @@ type CfnStackSetProps struct {
 	// - To create a StackSet with service-managed permissions while signed in to the management account, specify `SELF` .
 	// - To create a StackSet with service-managed permissions while signed in to a delegated administrator account, specify `DELEGATED_ADMIN` .
 	//
-	// Your AWS account must be registered as a delegated admin in the management account. For more information, see [Register a delegated administrator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html) in the *AWS CloudFormation User Guide* .
+	// Your AWS account must be registered as a delegated admin in the management account. For more information, see [Register a delegated administrator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html) in the *CloudFormation User Guide* .
 	//
 	// StackSets with service-managed permissions are created in the management account, including StackSets that are created by delegated administrators.
 	//
@@ -130,7 +130,7 @@ type CfnStackSetProps struct {
 	CallAs *string `field:"optional" json:"callAs" yaml:"callAs"`
 	// The capabilities that are allowed in the StackSet.
 	//
-	// Some StackSet templates might include resources that can affect permissions in your AWS account —for example, by creating new IAM users. For more information, see [Acknowledging IAM resources in CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html#using-iam-capabilities) in the *AWS CloudFormation User Guide* .
+	// Some StackSet templates might include resources that can affect permissions in your AWS account —for example, by creating new IAM users. For more information, see [Acknowledging IAM resources in CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html#using-iam-capabilities) in the *CloudFormation User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
 	//
 	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
@@ -147,7 +147,7 @@ type CfnStackSetProps struct {
 	// *Pattern* : `[a-zA-Z_0-9+=,.@-]+`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
 	//
-	ExecutionRoleName *string `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
+	ExecutionRoleName interface{} `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	//
 	// When active, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.

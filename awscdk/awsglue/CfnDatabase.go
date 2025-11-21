@@ -459,6 +459,24 @@ func (j *jsiiProxy_CfnDatabase)SetDatabaseName(val *string) {
 	)
 }
 
+func CfnDatabase_ArnForDatabase(resource interfacesawsglue.IDatabaseRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDatabase_ArnForDatabaseParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnDatabase",
+		"arnForDatabase",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDatabaseRef from a databaseName.
 func CfnDatabase_FromDatabaseName(scope constructs.Construct, id *string, databaseName *string) interfacesawsglue.IDatabaseRef {
 	_init_.Initialize()

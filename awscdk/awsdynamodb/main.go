@@ -586,6 +586,22 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.SecondaryIndexProps",
 		reflect.TypeOf((*SecondaryIndexProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.StreamGrants",
+		reflect.TypeOf((*StreamGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
+			_jsii_.MemberMethod{JsiiMethod: "list", GoMethod: "List"},
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+		},
+		func() interface{} {
+			return &jsiiProxy_StreamGrants{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.StreamGrantsProps",
+		reflect.TypeOf((*StreamGrantsProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_dynamodb.StreamViewType",
 		reflect.TypeOf((*StreamViewType)(nil)).Elem(),
@@ -619,8 +635,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
@@ -640,12 +658,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "regionalArns", GoGetter: "RegionalArns"},
+			_jsii_.MemberProperty{JsiiProperty: "regions", GoGetter: "Regions"},
 			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "schema", GoMethod: "Schema"},
 			_jsii_.MemberMethod{JsiiMethod: "schemaV2", GoMethod: "SchemaV2"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "streamGrants", GoGetter: "StreamGrants"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -676,8 +697,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
@@ -697,10 +720,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "regionalArns", GoGetter: "RegionalArns"},
+			_jsii_.MemberProperty{JsiiProperty: "regions", GoGetter: "Regions"},
 			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "streamGrants", GoGetter: "StreamGrants"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -708,7 +734,9 @@ func init() {
 			j := jsiiProxy_TableBase{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITable)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIEncryptedResource)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIResourceWithPolicy)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdynamodbITableRef)
 			return &j
 		},
 	)
@@ -790,6 +818,24 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_TableEncryptionV2{}
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.TableGrants",
+		reflect.TypeOf((*TableGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
+			_jsii_.MemberMethod{JsiiMethod: "fullAccess", GoMethod: "FullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "readData", GoMethod: "ReadData"},
+			_jsii_.MemberMethod{JsiiMethod: "readWriteData", GoMethod: "ReadWriteData"},
+			_jsii_.MemberMethod{JsiiMethod: "writeData", GoMethod: "WriteData"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TableGrants{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.TableGrantsProps",
+		reflect.TypeOf((*TableGrantsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.TableOptions",

@@ -123,7 +123,7 @@ type CfnScheduledQueryProps struct {
 	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html#cfn-timestream-scheduledquery-scheduledqueryexecutionrolearn
 	//
-	ScheduledQueryExecutionRoleArn *string `field:"required" json:"scheduledQueryExecutionRoleArn" yaml:"scheduledQueryExecutionRoleArn"`
+	ScheduledQueryExecutionRoleArn interface{} `field:"required" json:"scheduledQueryExecutionRoleArn" yaml:"scheduledQueryExecutionRoleArn"`
 	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result.
 	//
 	// Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
@@ -140,7 +140,7 @@ type CfnScheduledQueryProps struct {
 	// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html#cfn-timestream-scheduledquery-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// A name for the query.
 	//
 	// Scheduled query names must be unique within each Region.

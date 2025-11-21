@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAccessGrantsInstance) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnAccessGrantsInstance_ArnForAccessGrantsInstanceParameters(resource interfacesawss3.IAccessGrantsInstanceRef) error {
+	return nil
+}
+
 func validateCfnAccessGrantsInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

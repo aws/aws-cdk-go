@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomPlugin) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnCustomPlugin_ArnForCustomPluginParameters(resource interfacesawskafkaconnect.ICustomPluginRef) error {
+	return nil
+}
+
 func validateCfnCustomPlugin_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

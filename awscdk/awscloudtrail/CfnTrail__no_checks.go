@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTrail) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnTrail_ArnForTrailParameters(resource interfacesawscloudtrail.ITrailRef) error {
+	return nil
+}
+
 func validateCfnTrail_FromTrailArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -482,6 +482,24 @@ func (j *jsiiProxy_CfnStateMachineAlias)SetRoutingConfiguration(val interface{})
 	)
 }
 
+func CfnStateMachineAlias_ArnForStateMachineAlias(resource interfacesawsstepfunctions.IStateMachineAliasRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStateMachineAlias_ArnForStateMachineAliasParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.CfnStateMachineAlias",
+		"arnForStateMachineAlias",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

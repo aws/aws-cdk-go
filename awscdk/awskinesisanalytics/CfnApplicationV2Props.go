@@ -215,7 +215,7 @@ type CfnApplicationV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
 	//
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
-	ServiceExecutionRole *string `field:"required" json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
+	ServiceExecutionRole interface{} `field:"required" json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
 	// Use this parameter to configure the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
 	//

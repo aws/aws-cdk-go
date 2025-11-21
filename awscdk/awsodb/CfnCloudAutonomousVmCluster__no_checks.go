@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCloudAutonomousVmCluster) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnCloudAutonomousVmCluster_ArnForCloudAutonomousVmClusterParameters(resource interfacesawsodb.ICloudAutonomousVmClusterRef) error {
+	return nil
+}
+
 func validateCfnCloudAutonomousVmCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

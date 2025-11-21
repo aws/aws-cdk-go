@@ -3,7 +3,7 @@ package awsecs
 
 // Configuration for a canary deployment strategy that shifts a fixed percentage of traffic to the new service revision, waits for a specified bake time, then shifts the remaining traffic.
 //
-// The following validation applies only to Canary deployments created through AWS CloudFormation . AWS CloudFormation operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause AWS CloudFormation to roll back the deployment. To prevent timeout-related rollbacks, AWS CloudFormation rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+// The following validation applies only to Canary deployments created through CloudFormation . CloudFormation operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause CloudFormation to roll back the deployment. To prevent timeout-related rollbacks, CloudFormation rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
 //
 // `BakeTimeInMinutes + CanaryBakeTimeInMinutes`
 //

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMailManagerAddressList) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnMailManagerAddressList_ArnForMailManagerAddressListParameters(resource interfacesawsses.IMailManagerAddressListRef) error {
+	return nil
+}
+
 func validateCfnMailManagerAddressList_FromAddressListIdParameters(scope constructs.Construct, id *string, addressListId *string) error {
 	return nil
 }

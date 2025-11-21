@@ -52,6 +52,8 @@ type Role interface {
 	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() IPrincipal
+	// Collection of grant methods for a Role.
+	Grants() RoleGrants
 	// The tree node.
 	Node() constructs.Node
 	// Returns the permissions boundary attached to this role.
@@ -173,6 +175,16 @@ func (j *jsiiProxy_Role) GrantPrincipal() IPrincipal {
 	_jsii_.Get(
 		j,
 		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Role) Grants() RoleGrants {
+	var returns RoleGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

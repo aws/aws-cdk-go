@@ -832,7 +832,7 @@ import cognito "github.com/aws/aws-cdk-go/awscdk"
 var myProvider OpenIdConnectProvider
 
 cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &CfnIdentityPoolProps{
-	OpenIdConnectProviderArns: []*string{
+	OpenIdConnectProviderArns: []interface{}{
 		myProvider.OpenIdConnectProviderArn,
 	},
 	// And the other properties for your identity pool

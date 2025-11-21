@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnExperiment) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnExperiment_ArnForExperimentParameters(resource interfacesawsevidently.IExperimentRef) error {
+	return nil
+}
+
 func validateCfnExperiment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApplication) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnApplication_ArnForApplicationParameters(resource interfacesawskinesisanalyticsv2.IApplicationRef) error {
+	return nil
+}
+
 func validateCfnApplication_FromApplicationNameParameters(scope constructs.Construct, id *string, applicationName *string) error {
 	return nil
 }

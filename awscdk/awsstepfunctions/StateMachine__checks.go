@@ -232,6 +232,14 @@ func validateStateMachine_IsResourceParameters(construct constructs.IConstruct) 
 	return nil
 }
 
+func (j *jsiiProxy_StateMachine) validateSetGrantsParameters(val StateMachineGrants) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewStateMachineParameters(scope constructs.Construct, id *string, props *StateMachineProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

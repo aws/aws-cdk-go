@@ -134,7 +134,7 @@ type CfnListenerProps struct {
 	// The Amazon Resource Name (ARN) of the load balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
 	//
-	LoadBalancerArn *string `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn interface{} `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
 	//

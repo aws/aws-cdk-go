@@ -750,6 +750,24 @@ func (j *jsiiProxy_CfnMonitor)SetTrafficPercentageToMonitor(val *float64) {
 	)
 }
 
+func CfnMonitor_ArnForMonitor(resource interfacesawsinternetmonitor.IMonitorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMonitor_ArnForMonitorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_internetmonitor.CfnMonitor",
+		"arnForMonitor",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMonitorRef from an ARN.
 func CfnMonitor_FromMonitorArn(scope constructs.Construct, id *string, arn *string) interfacesawsinternetmonitor.IMonitorRef {
 	_init_.Initialize()

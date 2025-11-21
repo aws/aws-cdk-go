@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLaunchTemplate) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnLaunchTemplate_ArnForLaunchTemplateParameters(resource interfacesawsec2.ILaunchTemplateRef) error {
+	return nil
+}
+
 func validateCfnLaunchTemplate_FromLaunchTemplateIdParameters(scope constructs.Construct, id *string, launchTemplateId *string) error {
 	return nil
 }

@@ -639,6 +639,24 @@ func (j *jsiiProxy_CfnRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnRepository_ArnForRepository(resource interfacesawsecr.IRepositoryRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRepository_ArnForRepositoryParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnRepository",
+		"arnForRepository",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IRepositoryRef from an ARN.
 func CfnRepository_FromRepositoryArn(scope constructs.Construct, id *string, arn *string) interfacesawsecr.IRepositoryRef {
 	_init_.Initialize()

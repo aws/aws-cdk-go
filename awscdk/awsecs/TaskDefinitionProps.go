@@ -11,38 +11,39 @@ import (
 //   	IsDefault: jsii.Boolean(true),
 //   })
 //
-//   cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &ClusterProps{
+//   cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &ClusterProps{
 //   	Vpc: Vpc,
+//   })
+//   cluster.AddCapacity(jsii.String("DefaultAutoScalingGroup"), &AddCapacityOptions{
+//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PUBLIC,
+//   	},
 //   })
 //
 //   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
-//   	MemoryMiB: jsii.String("512"),
-//   	Cpu: jsii.String("256"),
-//   	Compatibility: ecs.Compatibility_FARGATE,
+//   	Compatibility: ecs.Compatibility_EC2,
 //   })
 //
-//   containerDefinition := taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
 //   	MemoryLimitMiB: jsii.Number(256),
 //   })
 //
-//   runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &EcsRunTaskProps{
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
 //   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	AssignPublicIp: jsii.Boolean(true),
-//   	ContainerOverrides: []ContainerOverride{
-//   		&ContainerOverride{
-//   			ContainerDefinition: *ContainerDefinition,
-//   			Environment: []TaskEnvironmentVariable{
-//   				&TaskEnvironmentVariable{
-//   					Name: jsii.String("SOME_KEY"),
-//   					Value: sfn.JsonPath_StringAt(jsii.String("$.SomeKey")),
-//   				},
-//   			},
+//   	LaunchTarget: tasks.NewEcsEc2LaunchTarget(&EcsEc2LaunchTargetOptions{
+//   		PlacementStrategies: []PlacementStrategy{
+//   			ecs.PlacementStrategy_SpreadAcrossInstances(),
+//   			ecs.PlacementStrategy_PackedByCpu(),
+//   			ecs.PlacementStrategy_Randomly(),
 //   		},
-//   	},
-//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
+//   		PlacementConstraints: []PlacementConstraint{
+//   			ecs.PlacementConstraint_MemberOf(jsii.String("blieptuut")),
+//   		},
+//   	}),
 //   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //

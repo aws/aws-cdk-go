@@ -721,6 +721,24 @@ func (j *jsiiProxy_CfnSignalMap)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnSignalMap_ArnForSignalMap(resource interfacesawsmedialive.ISignalMapRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSignalMap_ArnForSignalMapParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnSignalMap",
+		"arnForSignalMap",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

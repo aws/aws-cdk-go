@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnOdbPeeringConnection) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnOdbPeeringConnection_ArnForOdbPeeringConnectionParameters(resource interfacesawsodb.IOdbPeeringConnectionRef) error {
+	return nil
+}
+
 func validateCfnOdbPeeringConnection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

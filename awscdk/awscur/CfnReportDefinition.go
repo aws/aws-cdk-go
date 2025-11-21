@@ -700,6 +700,24 @@ func (j *jsiiProxy_CfnReportDefinition)SetTimeUnit(val *string) {
 	)
 }
 
+func CfnReportDefinition_ArnForReportDefinition(resource interfacesawscur.IReportDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnReportDefinition_ArnForReportDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cur.CfnReportDefinition",
+		"arnForReportDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IReportDefinitionRef from a reportName.
 func CfnReportDefinition_FromReportName(scope constructs.Construct, id *string, reportName *string) interfacesawscur.IReportDefinitionRef {
 	_init_.Initialize()

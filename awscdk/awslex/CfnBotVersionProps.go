@@ -29,7 +29,7 @@ type CfnBotVersionProps struct {
 	// The unique identifier of the bot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botversion.html#cfn-lex-botversion-botid
 	//
-	BotId *string `field:"required" json:"botId" yaml:"botId"`
+	BotId interface{} `field:"required" json:"botId" yaml:"botId"`
 	// Specifies the locales that Amazon Lex adds to this version.
 	//
 	// You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.

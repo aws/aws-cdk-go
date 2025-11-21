@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAlarm) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAlarm_ArnForAlarmParameters(resource interfacesawscloudwatch.IAlarmRef) error {
+	return nil
+}
+
 func validateCfnAlarm_FromAlarmArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

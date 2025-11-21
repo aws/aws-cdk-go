@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCloudVmCluster) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnCloudVmCluster_ArnForCloudVmClusterParameters(resource interfacesawsodb.ICloudVmClusterRef) error {
+	return nil
+}
+
 func validateCfnCloudVmCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

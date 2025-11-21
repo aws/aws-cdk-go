@@ -1,7 +1,7 @@
 package awsiam
 
 
-// Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console .
+// Creates a password for the specified user, giving the user the ability to access AWS services through the the console .
 //
 // For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *IAM User Guide* .
 //

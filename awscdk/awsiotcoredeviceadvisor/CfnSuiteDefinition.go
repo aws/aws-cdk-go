@@ -468,6 +468,24 @@ func (j *jsiiProxy_CfnSuiteDefinition)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnSuiteDefinition_ArnForSuiteDefinition(resource interfacesawsiotcoredeviceadvisor.ISuiteDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSuiteDefinition_ArnForSuiteDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"arnForSuiteDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISuiteDefinitionRef from an ARN.
 func CfnSuiteDefinition_FromSuiteDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotcoredeviceadvisor.ISuiteDefinitionRef {
 	_init_.Initialize()

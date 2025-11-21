@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnContact) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnContact_ArnForContactParameters(resource interfacesawsssmcontacts.IContactRef) error {
+	return nil
+}
+
 func validateCfnContact_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

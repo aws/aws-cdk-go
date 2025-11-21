@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStack) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnStack_ArnForStackParameters(resource interfacesawsopsworks.IStackRef) error {
+	return nil
+}
+
 func validateCfnStack_FromStackIdParameters(scope constructs.Construct, id *string, stackId *string) error {
 	return nil
 }

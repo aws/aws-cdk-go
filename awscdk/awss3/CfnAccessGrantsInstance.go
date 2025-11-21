@@ -454,6 +454,24 @@ func (j *jsiiProxy_CfnAccessGrantsInstance)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAccessGrantsInstance_ArnForAccessGrantsInstance(resource interfacesawss3.IAccessGrantsInstanceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAccessGrantsInstance_ArnForAccessGrantsInstanceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.CfnAccessGrantsInstance",
+		"arnForAccessGrantsInstance",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

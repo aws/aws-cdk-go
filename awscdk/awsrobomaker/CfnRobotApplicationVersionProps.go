@@ -21,7 +21,7 @@ type CfnRobotApplicationVersionProps struct {
 	// The application information for the robot application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
 	//
-	Application *string `field:"required" json:"application" yaml:"application"`
+	Application interface{} `field:"required" json:"application" yaml:"application"`
 	// The current revision id for the robot application.
 	//
 	// If you provide a value and it matches the latest revision ID, a new version will be created.

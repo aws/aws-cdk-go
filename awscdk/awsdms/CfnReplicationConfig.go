@@ -649,6 +649,24 @@ func (j *jsiiProxy_CfnReplicationConfig)SetTargetEndpointArn(val *string) {
 	)
 }
 
+func CfnReplicationConfig_ArnForReplicationConfig(resource interfacesawsdms.IReplicationConfigRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnReplicationConfig_ArnForReplicationConfigParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dms.CfnReplicationConfig",
+		"arnForReplicationConfig",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -480,6 +480,24 @@ func (j *jsiiProxy_CfnACL)SetUserNames(val *[]*string) {
 	)
 }
 
+func CfnACL_ArnForACL(resource interfacesawsmemorydb.IACLRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnACL_ArnForACLParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnACL",
+		"arnForACL",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IACLRef from an ARN.
 func CfnACL_FromACLArn(scope constructs.Construct, id *string, arn *string) interfacesawsmemorydb.IACLRef {
 	_init_.Initialize()

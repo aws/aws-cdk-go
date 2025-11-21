@@ -21,7 +21,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnRoom := awscdk.Aws_ivschat.NewCfnRoom(this, jsii.String("MyCfnRoom"), &CfnRoomProps{
-//   	LoggingConfigurationIdentifiers: []*string{
+//   	LoggingConfigurationIdentifiers: []interface{}{
 //   		jsii.String("loggingConfigurationIdentifiers"),
 //   	},
 //   	MaximumMessageLength: jsii.Number(123),
@@ -547,6 +547,24 @@ func (j *jsiiProxy_CfnRoom)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnRoom_ArnForRoom(resource interfacesawsivschat.IRoomRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRoom_ArnForRoomParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivschat.CfnRoom",
+		"arnForRoom",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

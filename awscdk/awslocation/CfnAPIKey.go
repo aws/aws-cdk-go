@@ -647,6 +647,24 @@ func (j *jsiiProxy_CfnAPIKey)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAPIKey_ArnForAPIKey(resource interfacesawslocation.IAPIKeyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAPIKey_ArnForAPIKeyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnAPIKey",
+		"arnForAPIKey",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAPIKeyRef from an ARN.
 func CfnAPIKey_FromAPIKeyArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.IAPIKeyRef {
 	_init_.Initialize()

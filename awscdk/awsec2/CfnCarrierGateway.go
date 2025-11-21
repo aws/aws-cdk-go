@@ -466,6 +466,24 @@ func (j *jsiiProxy_CfnCarrierGateway)SetVpcId(val *string) {
 	)
 }
 
+func CfnCarrierGateway_ArnForCarrierGateway(resource interfacesawsec2.ICarrierGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCarrierGateway_ArnForCarrierGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCarrierGateway",
+		"arnForCarrierGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICarrierGatewayRef from a carrierGatewayId.
 func CfnCarrierGateway_FromCarrierGatewayId(scope constructs.Construct, id *string, carrierGatewayId *string) interfacesawsec2.ICarrierGatewayRef {
 	_init_.Initialize()

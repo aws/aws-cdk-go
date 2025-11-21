@@ -7,10 +7,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchservice"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An interface that represents an Amazon OpenSearch Service domain - either created with the CDK, or an existing one.
 type IDomain interface {
+	interfacesawsopensearchservice.IDomainRef
 	awscdk.IResource
 	// Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
 	GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant
@@ -104,6 +108,7 @@ type IDomain interface {
 
 // The jsii proxy for IDomain
 type jsiiProxy_IDomain struct {
+	internal.Type__interfacesawsopensearchserviceIDomainRef
 	internal.Type__awscdkIResource
 }
 
@@ -507,6 +512,17 @@ func (i *jsiiProxy_IDomain) MetricSearchLatency(props *awscloudwatch.MetricOptio
 	return returns
 }
 
+func (i *jsiiProxy_IDomain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IDomain) DomainArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -542,6 +558,46 @@ func (j *jsiiProxy_IDomain) DomainName() *string {
 	_jsii_.Get(
 		j,
 		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDomain) DomainRef() *interfacesawsopensearchservice.DomainReference {
+	var returns *interfacesawsopensearchservice.DomainReference
+	_jsii_.Get(
+		j,
+		"domainRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDomain) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDomain) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDomain) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIngestConfiguration) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnIngestConfiguration_ArnForIngestConfigurationParameters(resource interfacesawsivs.IIngestConfigurationRef) error {
+	return nil
+}
+
 func validateCfnIngestConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

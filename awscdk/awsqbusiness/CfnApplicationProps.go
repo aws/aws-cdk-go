@@ -75,7 +75,7 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business.
+	// Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business.
 	//
 	// Amazon Q Business doesn't support asymmetric keys.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-encryptionconfiguration

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBillingGroup) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnBillingGroup_ArnForBillingGroupParameters(resource interfacesawsiot.IBillingGroupRef) error {
+	return nil
+}
+
 func validateCfnBillingGroup_FromBillingGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

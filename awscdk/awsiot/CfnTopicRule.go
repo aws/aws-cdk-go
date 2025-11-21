@@ -953,6 +953,24 @@ func (j *jsiiProxy_CfnTopicRule)SetTopicRulePayload(val interface{}) {
 	)
 }
 
+func CfnTopicRule_ArnForTopicRule(resource interfacesawsiot.ITopicRuleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTopicRule_ArnForTopicRuleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnTopicRule",
+		"arnForTopicRule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITopicRuleRef from a ruleName.
 func CfnTopicRule_FromRuleName(scope constructs.Construct, id *string, ruleName *string) interfacesawsiot.ITopicRuleRef {
 	_init_.Initialize()

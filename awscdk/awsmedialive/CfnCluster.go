@@ -548,6 +548,24 @@ func (j *jsiiProxy_CfnCluster)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCluster_ArnForCluster(resource interfacesawsmedialive.IClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_ArnForClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnCluster",
+		"arnForCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IClusterRef from an ARN.
 func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IClusterRef {
 	_init_.Initialize()

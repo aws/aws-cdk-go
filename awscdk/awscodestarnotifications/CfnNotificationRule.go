@@ -112,10 +112,10 @@ type CfnNotificationRule interface {
 	// A list of tags to apply to this notification rule.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
+	// The Amazon Resource Name (ARN) of the Amazon  topic or  client.
 	TargetAddress() *string
 	SetTargetAddress(val *string)
-	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
 	Targets() interface{}
 	SetTargets(val interface{})
 	// Deprecated.
@@ -629,6 +629,24 @@ func (j *jsiiProxy_CfnNotificationRule)SetTargets(val interface{}) {
 		"targets",
 		val,
 	)
+}
+
+func CfnNotificationRule_ArnForNotificationRule(resource interfacesawscodestarnotifications.INotificationRuleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNotificationRule_ArnForNotificationRuleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule",
+		"arnForNotificationRule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

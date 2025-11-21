@@ -578,6 +578,24 @@ func (j *jsiiProxy_CfnPolicy)SetType(val *string) {
 	)
 }
 
+func CfnPolicy_ArnForPolicy(resource interfacesawsorganizations.IPolicyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPolicy_ArnForPolicyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_organizations.CfnPolicy",
+		"arnForPolicy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

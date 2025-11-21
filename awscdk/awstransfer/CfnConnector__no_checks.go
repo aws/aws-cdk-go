@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConnector) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnConnector_ArnForConnectorParameters(resource interfacesawstransfer.IConnectorRef) error {
+	return nil
+}
+
 func validateCfnConnector_FromConnectorArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

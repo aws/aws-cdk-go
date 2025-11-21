@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVodSource) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnVodSource_ArnForVodSourceParameters(resource interfacesawsmediatailor.IVodSourceRef) error {
+	return nil
+}
+
 func validateCfnVodSource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

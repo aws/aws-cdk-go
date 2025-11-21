@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSchedule) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnSchedule_ArnForScheduleParameters(resource interfacesawsscheduler.IScheduleRef) error {
+	return nil
+}
+
 func validateCfnSchedule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

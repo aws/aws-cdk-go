@@ -152,6 +152,9 @@ type CfnDataLakeSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html#cfn-lakeformation-datalakesettings-readonlyadmins
+	//
+	ReadOnlyAdmins interface{} `field:"optional" json:"readOnlyAdmins" yaml:"readOnlyAdmins"`
 	// An array of UTF-8 strings.
 	//
 	// A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's CloudTrail log. You may want to specify this property when you are in a high-trust boundary, such as the same team or company.

@@ -26,7 +26,7 @@ type CfnFindingAggregatorProps struct {
 	//
 	// The selected option also determines how to use the Regions provided in the Regions list.
 	//
-	// In AWS CloudFormation , the options for this property are as follows:
+	// In CloudFormation , the options for this property are as follows:
 	//
 	// - `ALL_REGIONS` - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
 	// - `ALL_REGIONS_EXCEPT_SPECIFIED` - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the `Regions` parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.

@@ -31,11 +31,11 @@ type CfnRouteResponseProps struct {
 	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-apiid
 	//
-	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"required" json:"apiId" yaml:"apiId"`
 	// The route ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeid
 	//
-	RouteId *string `field:"required" json:"routeId" yaml:"routeId"`
+	RouteId interface{} `field:"required" json:"routeId" yaml:"routeId"`
 	// The route response key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeresponsekey
 	//

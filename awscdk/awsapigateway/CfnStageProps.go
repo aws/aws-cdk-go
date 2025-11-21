@@ -66,7 +66,7 @@ type CfnStageProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-restapiid
 	//
-	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"required" json:"restApiId" yaml:"restApiId"`
 	// Access log settings, including the access log format and access log destination ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-accesslogsetting
 	//
@@ -90,11 +90,11 @@ type CfnStageProps struct {
 	// The identifier of a client certificate for an API stage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-clientcertificateid
 	//
-	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
+	ClientCertificateId interface{} `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
 	// The identifier of the Deployment that the stage points to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-deploymentid
 	//
-	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
+	DeploymentId interface{} `field:"optional" json:"deploymentId" yaml:"deploymentId"`
 	// The stage's description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-description
 	//

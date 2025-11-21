@@ -14,7 +14,7 @@ package awsredshift
 //
 //   	// the properties below are optional
 //   	Force: jsii.Boolean(false),
-//   	VpcIds: []*string{
+//   	VpcIds: []interface{}{
 //   		jsii.String("vpcIds"),
 //   	},
 //   }
@@ -41,6 +41,6 @@ type CfnEndpointAuthorizationProps struct {
 	// The virtual private cloud (VPC) identifiers to grant access to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointauthorization.html#cfn-redshift-endpointauthorization-vpcids
 	//
-	VpcIds *[]*string `field:"optional" json:"vpcIds" yaml:"vpcIds"`
+	VpcIds *[]interface{} `field:"optional" json:"vpcIds" yaml:"vpcIds"`
 }
 

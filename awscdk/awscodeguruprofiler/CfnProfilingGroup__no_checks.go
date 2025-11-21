@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnProfilingGroup) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnProfilingGroup_ArnForProfilingGroupParameters(resource interfacesawscodeguruprofiler.IProfilingGroupRef) error {
+	return nil
+}
+
 func validateCfnProfilingGroup_FromProfilingGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

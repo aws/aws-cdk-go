@@ -549,6 +549,24 @@ func (j *jsiiProxy_CfnTrainingDataset)SetTrainingData(val interface{}) {
 	)
 }
 
+func CfnTrainingDataset_ArnForTrainingDataset(resource interfacesawscleanroomsml.ITrainingDatasetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTrainingDataset_ArnForTrainingDatasetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cleanroomsml.CfnTrainingDataset",
+		"arnForTrainingDataset",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

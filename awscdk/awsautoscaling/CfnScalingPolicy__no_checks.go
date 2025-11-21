@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnScalingPolicy) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnScalingPolicy_ArnForScalingPolicyParameters(resource interfacesawsautoscaling.IScalingPolicyRef) error {
+	return nil
+}
+
 func validateCfnScalingPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

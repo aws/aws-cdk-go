@@ -112,6 +112,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDataStoreReadiness", GoGetter: "AttrDataStoreReadiness"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedAt", GoGetter: "AttrLastUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRuleBasedMatchingStatus", GoGetter: "AttrRuleBasedMatchingStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStats", GoGetter: "AttrStats"},
@@ -119,6 +120,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "dataStore", GoGetter: "DataStore"},
 			_jsii_.MemberProperty{JsiiProperty: "deadLetterQueueUrl", GoGetter: "DeadLetterQueueUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultEncryptionKey", GoGetter: "DefaultEncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultExpirationDays", GoGetter: "DefaultExpirationDays"},
@@ -174,6 +176,10 @@ func init() {
 		reflect.TypeOf((*CfnDomain_ConsolidationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.DataStoreProperty",
+		reflect.TypeOf((*CfnDomain_DataStoreProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnDomain.DomainStatsProperty",
 		reflect.TypeOf((*CfnDomain_DomainStatsProperty)(nil)).Elem(),
 	)
@@ -192,6 +198,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnDomain.MatchingRuleProperty",
 		reflect.TypeOf((*CfnDomain_MatchingRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain.ReadinessProperty",
+		reflect.TypeOf((*CfnDomain_ReadinessProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnDomain.RuleBasedMatchingProperty",

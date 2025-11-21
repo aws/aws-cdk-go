@@ -583,6 +583,24 @@ func (j *jsiiProxy_CfnAuthorizer)SetTokenSigningPublicKeys(val interface{}) {
 	)
 }
 
+func CfnAuthorizer_ArnForAuthorizer(resource interfacesawsiot.IAuthorizerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAuthorizer_ArnForAuthorizerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnAuthorizer",
+		"arnForAuthorizer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAuthorizerRef from an ARN.
 func CfnAuthorizer_FromAuthorizerArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IAuthorizerRef {
 	_init_.Initialize()

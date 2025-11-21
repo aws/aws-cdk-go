@@ -579,6 +579,24 @@ func (j *jsiiProxy_CfnCapability)SetType(val *string) {
 	)
 }
 
+func CfnCapability_ArnForCapability(resource interfacesawsb2bi.ICapabilityRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCapability_ArnForCapabilityParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_b2bi.CfnCapability",
+		"arnForCapability",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

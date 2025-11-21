@@ -110,7 +110,7 @@ type CfnGuardHookProps struct {
 	RuleLocation interface{} `field:"required" json:"ruleLocation" yaml:"ruleLocation"`
 	// Specifies the list of operations the Hook is run against.
 	//
-	// For more information, see [Hook targets](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-concepts.html#hook-terms-hook-target) in the *AWS CloudFormation Hooks User Guide* .
+	// For more information, see [Hook targets](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-concepts.html#hook-terms-hook-target) in the *CloudFormation Hooks User Guide* .
 	//
 	// Valid values: `STACK` | `RESOURCE` | `CHANGE_SET` | `CLOUD_CONTROL`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-targetoperations

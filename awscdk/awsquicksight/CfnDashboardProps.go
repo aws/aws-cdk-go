@@ -80,7 +80,7 @@ type CfnDashboardProps struct {
 	// If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-themearn
 	//
-	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
+	ThemeArn interface{} `field:"optional" json:"themeArn" yaml:"themeArn"`
 	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects.
 	//
 	// When you set this value to `LENIENT` , validation is skipped for specific errors.

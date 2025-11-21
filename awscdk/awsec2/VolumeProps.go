@@ -101,7 +101,7 @@ type VolumeProps struct {
 	// Default: - The EBS volume is not created from a snapshot.
 	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
-	// The throughput that the volume supports, in MiB/s Takes a minimum of 125 and maximum of 1000.
+	// The throughput that the volume supports, in MiB/s Takes a minimum of 125 and maximum of 2000.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-throughput
 	//
 	// Default: - 125 MiB/s. Only valid on gp3 volumes.

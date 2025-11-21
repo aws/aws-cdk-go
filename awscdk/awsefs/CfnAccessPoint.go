@@ -543,6 +543,24 @@ func (j *jsiiProxy_CfnAccessPoint)SetRootDirectory(val interface{}) {
 	)
 }
 
+func CfnAccessPoint_ArnForAccessPoint(resource interfacesawsefs.IAccessPointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPoint_ArnForAccessPointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_efs.CfnAccessPoint",
+		"arnForAccessPoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAccessPointRef from an ARN.
 func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, arn *string) interfacesawsefs.IAccessPointRef {
 	_init_.Initialize()

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBucket) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnBucket_ArnForBucketParameters(resource interfacesawslightsail.IBucketRef) error {
+	return nil
+}
+
 func validateCfnBucket_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

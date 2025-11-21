@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMigrationProject) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnMigrationProject_ArnForMigrationProjectParameters(resource interfacesawsdms.IMigrationProjectRef) error {
+	return nil
+}
+
 func validateCfnMigrationProject_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

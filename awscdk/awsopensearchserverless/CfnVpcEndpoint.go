@@ -28,7 +28,7 @@ import (
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   })

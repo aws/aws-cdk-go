@@ -545,6 +545,24 @@ func (j *jsiiProxy_CfnOptionGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnOptionGroup_ArnForOptionGroup(resource interfacesawsrds.IOptionGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnOptionGroup_ArnForOptionGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"arnForOptionGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IOptionGroupRef from a optionGroupName.
 func CfnOptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, optionGroupName *string) interfacesawsrds.IOptionGroupRef {
 	_init_.Initialize()

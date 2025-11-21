@@ -664,6 +664,24 @@ func (j *jsiiProxy_CfnWirelessDevice)SetType(val *string) {
 	)
 }
 
+func CfnWirelessDevice_ArnForWirelessDevice(resource interfacesawsiotwireless.IWirelessDeviceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWirelessDevice_ArnForWirelessDeviceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"arnForWirelessDevice",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IWirelessDeviceRef from an ARN.
 func CfnWirelessDevice_FromWirelessDeviceArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IWirelessDeviceRef {
 	_init_.Initialize()

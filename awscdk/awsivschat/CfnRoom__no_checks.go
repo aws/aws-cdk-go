@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRoom) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnRoom_ArnForRoomParameters(resource interfacesawsivschat.IRoomRef) error {
+	return nil
+}
+
 func validateCfnRoom_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

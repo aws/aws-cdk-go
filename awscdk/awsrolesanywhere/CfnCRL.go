@@ -512,6 +512,24 @@ func (j *jsiiProxy_CfnCRL)SetTrustAnchorArn(val *string) {
 	)
 }
 
+func CfnCRL_ArnForCRL(resource interfacesawsrolesanywhere.ICRLRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCRL_ArnForCRLParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rolesanywhere.CfnCRL",
+		"arnForCRL",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICRLRef from a crlId.
 func CfnCRL_FromCrlId(scope constructs.Construct, id *string, crlId *string) interfacesawsrolesanywhere.ICRLRef {
 	_init_.Initialize()

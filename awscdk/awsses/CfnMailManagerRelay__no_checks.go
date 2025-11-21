@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMailManagerRelay) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnMailManagerRelay_ArnForMailManagerRelayParameters(resource interfacesawsses.IMailManagerRelayRef) error {
+	return nil
+}
+
 func validateCfnMailManagerRelay_FromRelayIdParameters(scope constructs.Construct, id *string, relayId *string) error {
 	return nil
 }

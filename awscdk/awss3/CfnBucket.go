@@ -1068,6 +1068,24 @@ func (j *jsiiProxy_CfnBucket)SetWebsiteConfiguration(val interface{}) {
 	)
 }
 
+func CfnBucket_ArnForBucket(resource interfacesawss3.IBucketRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBucket_ArnForBucketParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.CfnBucket",
+		"arnForBucket",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IBucketRef from an ARN.
 func CfnBucket_FromBucketArn(scope constructs.Construct, id *string, arn *string) interfacesawss3.IBucketRef {
 	_init_.Initialize()

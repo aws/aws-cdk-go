@@ -639,6 +639,24 @@ func (j *jsiiProxy_CfnMissionProfile)SetTrackingConfigArn(val *string) {
 	)
 }
 
+func CfnMissionProfile_ArnForMissionProfile(resource interfacesawsgroundstation.IMissionProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMissionProfile_ArnForMissionProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_groundstation.CfnMissionProfile",
+		"arnForMissionProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMissionProfileRef from a missionProfileId.
 func CfnMissionProfile_FromMissionProfileId(scope constructs.Construct, id *string, missionProfileId *string) interfacesawsgroundstation.IMissionProfileRef {
 	_init_.Initialize()

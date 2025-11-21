@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCrawler) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnCrawler_ArnForCrawlerParameters(resource interfacesawsglue.ICrawlerRef) error {
+	return nil
+}
+
 func validateCfnCrawler_FromCrawlerNameParameters(scope constructs.Construct, id *string, crawlerName *string) error {
 	return nil
 }

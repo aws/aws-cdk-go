@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDetector) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnDetector_ArnForDetectorParameters(resource interfacesawsguardduty.IDetectorRef) error {
+	return nil
+}
+
 func validateCfnDetector_FromDetectorIdParameters(scope constructs.Construct, id *string, detectorId *string) error {
 	return nil
 }

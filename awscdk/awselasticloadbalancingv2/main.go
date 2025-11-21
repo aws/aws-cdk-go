@@ -799,6 +799,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
+			_jsii_.MemberProperty{JsiiProperty: "targetControlPort", GoGetter: "TargetControlPort"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupAttributes", GoGetter: "TargetGroupAttributes"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "targets", GoGetter: "Targets"},

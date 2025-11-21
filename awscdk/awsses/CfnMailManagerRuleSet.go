@@ -686,6 +686,24 @@ func (j *jsiiProxy_CfnMailManagerRuleSet)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMailManagerRuleSet_ArnForMailManagerRuleSet(resource interfacesawsses.IMailManagerRuleSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerRuleSet_ArnForMailManagerRuleSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet",
+		"arnForMailManagerRuleSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerRuleSetRef from a ruleSetId.
 func CfnMailManagerRuleSet_FromRuleSetId(scope constructs.Construct, id *string, ruleSetId *string) interfacesawsses.IMailManagerRuleSetRef {
 	_init_.Initialize()

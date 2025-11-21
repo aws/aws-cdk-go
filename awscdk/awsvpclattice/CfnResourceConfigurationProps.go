@@ -17,6 +17,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AllowAssociationToSharableServiceNetwork: jsii.Boolean(false),
+//   	CustomDomainName: jsii.String("customDomainName"),
+//   	DomainVerificationId: jsii.String("domainVerificationId"),
+//   	GroupDomain: jsii.String("groupDomain"),
 //   	PortRanges: []*string{
 //   		jsii.String("portRanges"),
 //   	},
@@ -60,6 +63,15 @@ type CfnResourceConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-allowassociationtosharableservicenetwork
 	//
 	AllowAssociationToSharableServiceNetwork interface{} `field:"optional" json:"allowAssociationToSharableServiceNetwork" yaml:"allowAssociationToSharableServiceNetwork"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-customdomainname
+	//
+	CustomDomainName *string `field:"optional" json:"customDomainName" yaml:"customDomainName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-domainverificationid
+	//
+	DomainVerificationId *string `field:"optional" json:"domainVerificationId" yaml:"domainVerificationId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-groupdomain
+	//
+	GroupDomain *string `field:"optional" json:"groupDomain" yaml:"groupDomain"`
 	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535).
 	//
 	// You can separate port ranges using commas (for example: 1,2,22-30).

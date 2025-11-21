@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVpcConnection) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnVpcConnection_ArnForVpcConnectionParameters(resource interfacesawsmsk.IVpcConnectionRef) error {
+	return nil
+}
+
 func validateCfnVpcConnection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

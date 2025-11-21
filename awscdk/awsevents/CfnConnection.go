@@ -173,7 +173,7 @@ type CfnConnection interface {
 	// For connections to private APIs, the parameters to use for invoking the API.
 	InvocationConnectivityParameters() interface{}
 	SetInvocationConnectivityParameters(val interface{})
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -659,6 +659,24 @@ func (j *jsiiProxy_CfnConnection)SetName(val *string) {
 		"name",
 		val,
 	)
+}
+
+func CfnConnection_ArnForConnection(resource interfacesawsevents.IConnectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnection_ArnForConnectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnConnection",
+		"arnForConnection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IConnectionRef from an ARN.

@@ -73,7 +73,7 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alias
 	//
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
-	// (optional) The ARN for a customer managed AWS KMS key to use for encrypting data within your workspace.
+	// (optional) The ARN for a customer managed AWS  key to use for encrypting data within your workspace.
 	//
 	// For more information about using your own key in your workspace, see [Encryption at rest](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html) in the *Amazon Managed Service for Prometheus User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-kmskeyarn

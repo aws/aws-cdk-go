@@ -585,6 +585,24 @@ func (j *jsiiProxy_CfnVariable)SetVariableType(val *string) {
 	)
 }
 
+func CfnVariable_ArnForVariable(resource interfacesawsfrauddetector.IVariableRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVariable_ArnForVariableParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnVariable",
+		"arnForVariable",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

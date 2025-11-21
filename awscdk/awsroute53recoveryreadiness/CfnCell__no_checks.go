@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCell) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnCell_ArnForCellParameters(resource interfacesawsroute53recoveryreadiness.ICellRef) error {
+	return nil
+}
+
 func validateCfnCell_FromCellArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

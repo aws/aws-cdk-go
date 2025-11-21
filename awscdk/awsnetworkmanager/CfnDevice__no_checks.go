@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDevice) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDevice_ArnForDeviceParameters(resource interfacesawsnetworkmanager.IDeviceRef) error {
+	return nil
+}
+
 func validateCfnDevice_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

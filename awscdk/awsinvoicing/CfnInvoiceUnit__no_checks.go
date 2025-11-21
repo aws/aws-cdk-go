@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInvoiceUnit) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnInvoiceUnit_ArnForInvoiceUnitParameters(resource interfacesawsinvoicing.IInvoiceUnitRef) error {
+	return nil
+}
+
 func validateCfnInvoiceUnit_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnExtension) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnExtension_ArnForExtensionParameters(resource interfacesawsappconfig.IExtensionRef) error {
+	return nil
+}
+
 func validateCfnExtension_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

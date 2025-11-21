@@ -459,6 +459,24 @@ func (j *jsiiProxy_CfnSoftwarePackage)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnSoftwarePackage_ArnForSoftwarePackage(resource interfacesawsiot.ISoftwarePackageRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSoftwarePackage_ArnForSoftwarePackageParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnSoftwarePackage",
+		"arnForSoftwarePackage",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISoftwarePackageRef from a packageName.
 func CfnSoftwarePackage_FromPackageName(scope constructs.Construct, id *string, packageName *string) interfacesawsiot.ISoftwarePackageRef {
 	_init_.Initialize()

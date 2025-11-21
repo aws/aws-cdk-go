@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBrowserCustom) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnBrowserCustom_ArnForBrowserCustomParameters(resource interfacesawsbedrockagentcore.IBrowserCustomRef) error {
+	return nil
+}
+
 func validateCfnBrowserCustom_FromBrowserIdParameters(scope constructs.Construct, id *string, browserId *string) error {
 	return nil
 }

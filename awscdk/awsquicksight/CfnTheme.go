@@ -829,6 +829,24 @@ func (j *jsiiProxy_CfnTheme)SetVersionDescription(val *string) {
 	)
 }
 
+func CfnTheme_ArnForTheme(resource interfacesawsquicksight.IThemeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTheme_ArnForThemeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"arnForTheme",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

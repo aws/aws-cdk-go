@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCodeSecurityIntegration) validateValidatePropertiesParamet
 	return nil
 }
 
+func validateCfnCodeSecurityIntegration_ArnForCodeSecurityIntegrationParameters(resource interfacesawsinspectorv2.ICodeSecurityIntegrationRef) error {
+	return nil
+}
+
 func validateCfnCodeSecurityIntegration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

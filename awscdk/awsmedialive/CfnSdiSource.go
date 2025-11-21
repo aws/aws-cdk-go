@@ -523,6 +523,24 @@ func (j *jsiiProxy_CfnSdiSource)SetType(val *string) {
 	)
 }
 
+func CfnSdiSource_ArnForSdiSource(resource interfacesawsmedialive.ISdiSourceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSdiSource_ArnForSdiSourceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnSdiSource",
+		"arnForSdiSource",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISdiSourceRef from an ARN.
 func CfnSdiSource_FromSdiSourceArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.ISdiSourceRef {
 	_init_.Initialize()

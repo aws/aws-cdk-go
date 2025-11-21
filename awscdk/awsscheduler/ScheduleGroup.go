@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsscheduler"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,6 +42,8 @@ type ScheduleGroup interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a ScheduleGroup.
+	Grants() ScheduleGroupGrants
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -55,6 +58,8 @@ type ScheduleGroup interface {
 	ScheduleGroupArn() *string
 	// The name of the schedule group.
 	ScheduleGroupName() *string
+	// A reference to a ScheduleGroup resource.
+	ScheduleGroupRef() *interfacesawsscheduler.ScheduleGroupReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -147,6 +152,16 @@ func (j *jsiiProxy_ScheduleGroup) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_ScheduleGroup) Grants() ScheduleGroupGrants {
+	var returns ScheduleGroupGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ScheduleGroup) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -182,6 +197,16 @@ func (j *jsiiProxy_ScheduleGroup) ScheduleGroupName() *string {
 	_jsii_.Get(
 		j,
 		"scheduleGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScheduleGroup) ScheduleGroupRef() *interfacesawsscheduler.ScheduleGroupReference {
+	var returns *interfacesawsscheduler.ScheduleGroupReference
+	_jsii_.Get(
+		j,
+		"scheduleGroupRef",
 		&returns,
 	)
 	return returns

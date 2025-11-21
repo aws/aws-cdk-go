@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnKey) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
+func validateCfnKey_ArnForKeyParameters(resource interfacesawskms.IKeyRef) error {
+	return nil
+}
+
 func validateCfnKey_FromKeyArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

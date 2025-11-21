@@ -544,6 +544,24 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace)SetVpc(val *string) {
 	)
 }
 
+func CfnPrivateDnsNamespace_ArnForPrivateDnsNamespace(resource interfacesawsservicediscovery.IPrivateDnsNamespaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPrivateDnsNamespace_ArnForPrivateDnsNamespaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.CfnPrivateDnsNamespace",
+		"arnForPrivateDnsNamespace",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

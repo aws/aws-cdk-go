@@ -20,6 +20,7 @@ package awsbackup
 //   	BackupVaultTags: map[string]*string{
 //   		"backupVaultTagsKey": jsii.String("backupVaultTags"),
 //   	},
+//   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
 //   	MpaApprovalTeamArn: jsii.String("mpaApprovalTeamArn"),
 //   	Notifications: &NotificationObjectTypeProperty{
 //   		BackupVaultEvents: []*string{
@@ -56,6 +57,12 @@ type CfnLogicallyAirGappedBackupVaultProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-backupvaulttags
 	//
 	BackupVaultTags *map[string]*string `field:"optional" json:"backupVaultTags" yaml:"backupVaultTags"`
+	// The server-side encryption key that is used to protect your backups;
+	//
+	// for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-encryptionkeyarn
+	//
+	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-mpaapprovalteamarn
 	//
 	MpaApprovalTeamArn *string `field:"optional" json:"mpaApprovalTeamArn" yaml:"mpaApprovalTeamArn"`

@@ -48,7 +48,7 @@ type CfnTableProps struct {
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
 	//
-	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	DatabaseName interface{} `field:"required" json:"databaseName" yaml:"databaseName"`
 	// Contains properties to set on the table when enabling magnetic store writes.
 	//
 	// This object has the following attributes:

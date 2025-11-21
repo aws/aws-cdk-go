@@ -160,6 +160,7 @@ import (
 //   			DnsIps: []*string{
 //   				jsii.String("dnsIps"),
 //   			},
+//   			DomainJoinServiceAccountSecret: jsii.String("domainJoinServiceAccountSecret"),
 //   			DomainName: jsii.String("domainName"),
 //   			FileSystemAdministratorsGroup: jsii.String("fileSystemAdministratorsGroup"),
 //   			OrganizationalUnitDistinguishedName: jsii.String("organizationalUnitDistinguishedName"),
@@ -206,13 +207,13 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtypeversion
 	//
 	FileSystemTypeVersion *string `field:"optional" json:"fileSystemTypeVersion" yaml:"fileSystemTypeVersion"`
-	// The ID of the AWS Key Management Service ( AWS KMS ) key used to encrypt Amazon FSx file system data.
+	// The ID of the AWS Key Management Service ( AWS  ) key used to encrypt Amazon FSx file system data.
 	//
 	// Used as follows with Amazon FSx file system types:
 	//
 	// - Amazon FSx for Lustre `PERSISTENT_1` and `PERSISTENT_2` deployment types only.
 	//
-	// `SCRATCH_1` and `SCRATCH_2` types are encrypted using the Amazon FSx service AWS KMS key for your account.
+	// `SCRATCH_1` and `SCRATCH_2` types are encrypted using the Amazon FSx service AWS  key for your account.
 	// - Amazon FSx for NetApp ONTAP
 	// - Amazon FSx for OpenZFS
 	// - Amazon FSx for Windows File Server

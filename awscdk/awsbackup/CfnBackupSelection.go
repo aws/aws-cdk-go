@@ -13,7 +13,7 @@ import (
 
 // Specifies a set of resources to assign to a backup plan.
 //
-// For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
+// For a sample CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

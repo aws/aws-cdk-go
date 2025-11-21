@@ -533,6 +533,24 @@ func (j *jsiiProxy_CfnScript)SetVersion(val *string) {
 	)
 }
 
+func CfnScript_ArnForScript(resource interfacesawsgamelift.IScriptRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnScript_ArnForScriptParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"arnForScript",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IScriptRef from an ARN.
 func CfnScript_FromScriptArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IScriptRef {
 	_init_.Initialize()

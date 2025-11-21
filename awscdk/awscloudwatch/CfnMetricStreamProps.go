@@ -68,7 +68,7 @@ type CfnMetricStreamProps struct {
 	// This Amazon Kinesis Firehose delivery stream must already exist and must be in the same account as the metric stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
 	//
-	FirehoseArn *string `field:"required" json:"firehoseArn" yaml:"firehoseArn"`
+	FirehoseArn interface{} `field:"required" json:"firehoseArn" yaml:"firehoseArn"`
 	// The output format for the stream.
 	//
 	// Valid values are `json` , `opentelemetry1.0` and `opentelemetry0.7` For more information about metric stream output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html) .
@@ -82,7 +82,7 @@ type CfnMetricStreamProps struct {
 	// This IAM role must already exist and must be in the same account as the metric stream. This IAM role must include the `firehose:PutRecord` and `firehose:PutRecordBatch` permissions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
 	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
 	// If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here.
 	//
 	// You cannot specify both `IncludeFilters` and `ExcludeFilters` in the same metric stream.

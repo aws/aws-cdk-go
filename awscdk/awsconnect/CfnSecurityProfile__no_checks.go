@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSecurityProfile) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnSecurityProfile_ArnForSecurityProfileParameters(resource interfacesawsconnect.ISecurityProfileRef) error {
+	return nil
+}
+
 func validateCfnSecurityProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

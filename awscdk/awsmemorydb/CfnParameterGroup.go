@@ -513,6 +513,24 @@ func (j *jsiiProxy_CfnParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnParameterGroup_ArnForParameterGroup(resource interfacesawsmemorydb.IParameterGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnParameterGroup_ArnForParameterGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnParameterGroup",
+		"arnForParameterGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IParameterGroupRef from a parameterGroupName.
 func CfnParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) interfacesawsmemorydb.IParameterGroupRef {
 	_init_.Initialize()

@@ -19,7 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCluster := awscdk.Aws_ecs.NewCfnCluster(this, jsii.String("MyCfnCluster"), &CfnClusterProps{
-//   	CapacityProviders: []*string{
+//   	CapacityProviders: []interface{}{
 //   		jsii.String("capacityProviders"),
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
@@ -586,6 +586,24 @@ func (j *jsiiProxy_CfnCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnCluster_ArnForCluster(resource interfacesawsecs.IClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_ArnForClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.CfnCluster",
+		"arnForCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IClusterRef from an ARN.

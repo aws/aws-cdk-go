@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,10 +50,14 @@ type LogGroup interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a LogGroup.
+	Grants() LogGroupGrants
 	// The ARN of this log group.
 	LogGroupArn() *string
 	// The name of this log group.
 	LogGroupName() *string
+	// A reference to a LogGroup resource.
+	LogGroupRef() *interfacesawslogs.LogGroupReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -192,6 +197,16 @@ func (j *jsiiProxy_LogGroup) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_LogGroup) Grants() LogGroupGrants {
+	var returns LogGroupGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_LogGroup) LogGroupArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -207,6 +222,16 @@ func (j *jsiiProxy_LogGroup) LogGroupName() *string {
 	_jsii_.Get(
 		j,
 		"logGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LogGroup) LogGroupRef() *interfacesawslogs.LogGroupReference {
+	var returns *interfacesawslogs.LogGroupReference
+	_jsii_.Get(
+		j,
+		"logGroupRef",
 		&returns,
 	)
 	return returns

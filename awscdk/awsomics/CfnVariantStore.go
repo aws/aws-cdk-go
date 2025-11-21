@@ -585,6 +585,24 @@ func (j *jsiiProxy_CfnVariantStore)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnVariantStore_ArnForVariantStore(resource interfacesawsomics.IVariantStoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVariantStore_ArnForVariantStoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnVariantStore",
+		"arnForVariantStore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVariantStoreRef from a variantStoreName.
 func CfnVariantStore_FromVariantStoreName(scope constructs.Construct, id *string, variantStoreName *string) interfacesawsomics.IVariantStoreRef {
 	_init_.Initialize()

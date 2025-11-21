@@ -104,7 +104,7 @@ type CfnInvestigationGroup interface {
 	// List of `sourceRoleArn` values that have been configured for cross-account access.
 	CrossAccountConfigurations() interface{}
 	SetCrossAccountConfigurations(val interface{})
-	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one.
+	// Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
@@ -706,6 +706,24 @@ func (j *jsiiProxy_CfnInvestigationGroup)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnInvestigationGroup_ArnForInvestigationGroup(resource interfacesawsaiops.IInvestigationGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInvestigationGroup_ArnForInvestigationGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_aiops.CfnInvestigationGroup",
+		"arnForInvestigationGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

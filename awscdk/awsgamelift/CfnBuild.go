@@ -547,6 +547,24 @@ func (j *jsiiProxy_CfnBuild)SetVersion(val *string) {
 	)
 }
 
+func CfnBuild_ArnForBuild(resource interfacesawsgamelift.IBuildRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBuild_ArnForBuildParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnBuild",
+		"arnForBuild",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IBuildRef from an ARN.
 func CfnBuild_FromBuildArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IBuildRef {
 	_init_.Initialize()

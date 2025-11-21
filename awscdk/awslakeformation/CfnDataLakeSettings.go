@@ -153,6 +153,8 @@ type CfnDataLakeSettings interface {
 	// A key-value map that provides an additional configuration on your data lake.
 	Parameters() interface{}
 	SetParameters(val interface{})
+	ReadOnlyAdmins() interface{}
+	SetReadOnlyAdmins(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -492,6 +494,16 @@ func (j *jsiiProxy_CfnDataLakeSettings) Parameters() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataLakeSettings) ReadOnlyAdmins() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"readOnlyAdmins",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataLakeSettings) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -658,6 +670,14 @@ func (j *jsiiProxy_CfnDataLakeSettings)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataLakeSettings)SetReadOnlyAdmins(val interface{}) {
+	_jsii_.Set(
+		j,
+		"readOnlyAdmins",
 		val,
 	)
 }

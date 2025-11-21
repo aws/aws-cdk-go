@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAlias) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAlias_ArnForAliasParameters(resource interfacesawsgamelift.IAliasRef) error {
+	return nil
+}
+
 func validateCfnAlias_FromAliasArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

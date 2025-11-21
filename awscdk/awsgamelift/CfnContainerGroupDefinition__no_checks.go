@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnContainerGroupDefinition) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnContainerGroupDefinition_ArnForContainerGroupDefinitionParameters(resource interfacesawsgamelift.IContainerGroupDefinitionRef) error {
+	return nil
+}
+
 func validateCfnContainerGroupDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

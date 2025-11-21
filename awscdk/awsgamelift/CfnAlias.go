@@ -509,6 +509,24 @@ func (j *jsiiProxy_CfnAlias)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAlias_ArnForAlias(resource interfacesawsgamelift.IAliasRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAlias_ArnForAliasParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnAlias",
+		"arnForAlias",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAliasRef from an ARN.
 func CfnAlias_FromAliasArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IAliasRef {
 	_init_.Initialize()

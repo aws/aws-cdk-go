@@ -521,6 +521,24 @@ func (j *jsiiProxy_CfnPortfolio)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPortfolio_ArnForPortfolio(resource interfacesawsservicecatalog.IPortfolioRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPortfolio_ArnForPortfolioParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.CfnPortfolio",
+		"arnForPortfolio",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPortfolioRef from a portfolioId.
 func CfnPortfolio_FromPortfolioId(scope constructs.Construct, id *string, portfolioId *string) interfacesawsservicecatalog.IPortfolioRef {
 	_init_.Initialize()

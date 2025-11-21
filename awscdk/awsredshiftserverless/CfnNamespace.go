@@ -31,7 +31,7 @@ import (
 //   	DefaultIamRoleArn: jsii.String("defaultIamRoleArn"),
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	FinalSnapshotRetentionPeriod: jsii.Number(123),
-//   	IamRoles: []*string{
+//   	IamRoles: []interface{}{
 //   		jsii.String("iamRoles"),
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),

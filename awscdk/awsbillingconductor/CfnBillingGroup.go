@@ -20,21 +20,20 @@ import (
 //
 //   cfnBillingGroup := awscdk.Aws_billingconductor.NewCfnBillingGroup(this, jsii.String("MyCfnBillingGroup"), &CfnBillingGroupProps{
 //   	AccountGrouping: &AccountGroupingProperty{
+//   		AutoAssociate: jsii.Boolean(false),
 //   		LinkedAccountIds: []*string{
 //   			jsii.String("linkedAccountIds"),
 //   		},
-//
-//   		// the properties below are optional
-//   		AutoAssociate: jsii.Boolean(false),
+//   		ResponsibilityTransferArn: jsii.String("responsibilityTransferArn"),
 //   	},
 //   	ComputationPreference: &ComputationPreferenceProperty{
 //   		PricingPlanArn: jsii.String("pricingPlanArn"),
 //   	},
 //   	Name: jsii.String("name"),
-//   	PrimaryAccountId: jsii.String("primaryAccountId"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	PrimaryAccountId: jsii.String("primaryAccountId"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -587,9 +586,6 @@ func (j *jsiiProxy_CfnBillingGroup)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnBillingGroup)SetPrimaryAccountId(val *string) {
-	if err := j.validateSetPrimaryAccountIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"primaryAccountId",
@@ -606,6 +602,24 @@ func (j *jsiiProxy_CfnBillingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnBillingGroup_ArnForBillingGroup(resource interfacesawsbillingconductor.IBillingGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBillingGroup_ArnForBillingGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_billingconductor.CfnBillingGroup",
+		"arnForBillingGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

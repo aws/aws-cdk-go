@@ -129,15 +129,15 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-globalclusteridentifier
 	//
 	GlobalClusterIdentifier *string `field:"optional" json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
-	// The AWS KMS key identifier for an encrypted cluster.
+	// The AWS  key identifier for an encrypted cluster.
 	//
-	// The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption key. If you are creating a cluster using the same AWS account that owns the AWS KMS encryption key that is used to encrypt the new cluster, you can use the AWS KMS key alias instead of the ARN for the AWS KMS encryption key.
+	// The AWS  key identifier is the Amazon Resource Name (ARN) for the AWS  encryption key. If you are creating a cluster using the same AWS account that owns the AWS  encryption key that is used to encrypt the new cluster, you can use the AWS  key alias instead of the ARN for the AWS  encryption key.
 	//
 	// If an encryption key is not specified in `KmsKeyId` :
 	//
 	// - If the `StorageEncrypted` parameter is `true` , Amazon DocumentDB uses your default encryption key.
 	//
-	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Regions .
+	// AWS  creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Regions .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

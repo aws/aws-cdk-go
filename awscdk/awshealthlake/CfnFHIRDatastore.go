@@ -629,6 +629,24 @@ func (j *jsiiProxy_CfnFHIRDatastore)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnFHIRDatastore_ArnForFHIRDatastore(resource interfacesawshealthlake.IFHIRDatastoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFHIRDatastore_ArnForFHIRDatastoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore",
+		"arnForFHIRDatastore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IFHIRDatastoreRef from a datastoreId.
 func CfnFHIRDatastore_FromDatastoreId(scope constructs.Construct, id *string, datastoreId *string) interfacesawshealthlake.IFHIRDatastoreRef {
 	_init_.Initialize()

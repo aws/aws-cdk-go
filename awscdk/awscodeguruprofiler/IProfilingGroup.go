@@ -6,10 +6,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodeguruprofiler"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // IResource represents a Profiling Group.
 type IProfilingGroup interface {
+	interfacesawscodeguruprofiler.IProfilingGroupRef
 	awscdk.IResource
 	// Grant access to publish profiling information to the Profiling Group to the given identity.
 	//
@@ -33,6 +37,7 @@ type IProfilingGroup interface {
 
 // The jsii proxy for IProfilingGroup
 type jsiiProxy_IProfilingGroup struct {
+	internal.Type__interfacesawscodeguruprofilerIProfilingGroupRef
 	internal.Type__awscdkIResource
 }
 
@@ -68,6 +73,17 @@ func (i *jsiiProxy_IProfilingGroup) GrantRead(grantee awsiam.IGrantable) awsiam.
 	return returns
 }
 
+func (i *jsiiProxy_IProfilingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IProfilingGroup) ProfilingGroupArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -83,6 +99,46 @@ func (j *jsiiProxy_IProfilingGroup) ProfilingGroupName() *string {
 	_jsii_.Get(
 		j,
 		"profilingGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProfilingGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProfilingGroup) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProfilingGroup) ProfilingGroupRef() *interfacesawscodeguruprofiler.ProfilingGroupReference {
+	var returns *interfacesawscodeguruprofiler.ProfilingGroupReference
+	_jsii_.Get(
+		j,
+		"profilingGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProfilingGroup) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

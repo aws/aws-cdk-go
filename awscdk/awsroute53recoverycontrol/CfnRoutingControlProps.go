@@ -28,10 +28,10 @@ type CfnRoutingControlProps struct {
 	// The Amazon Resource Name (ARN) of the cluster that hosts the routing control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
 	//
-	ClusterArn *string `field:"optional" json:"clusterArn" yaml:"clusterArn"`
+	ClusterArn interface{} `field:"optional" json:"clusterArn" yaml:"clusterArn"`
 	// The Amazon Resource Name (ARN) of the control panel that includes the routing control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
 	//
-	ControlPanelArn *string `field:"optional" json:"controlPanelArn" yaml:"controlPanelArn"`
+	ControlPanelArn interface{} `field:"optional" json:"controlPanelArn" yaml:"controlPanelArn"`
 }
 

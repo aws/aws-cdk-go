@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnImage) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnImage_ArnForImageParameters(resource interfacesawssagemaker.IImageRef) error {
+	return nil
+}
+
 func validateCfnImage_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -157,7 +157,7 @@ type CfnCanaryProps struct {
 	// - `logs:PutLogEvents`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
 	//
-	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn interface{} `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The name for this canary.
 	//
 	// Be sure to give it a descriptive name that distinguishes it from other canaries in your account.

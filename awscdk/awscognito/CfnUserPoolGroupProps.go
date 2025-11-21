@@ -24,7 +24,7 @@ type CfnUserPoolGroupProps struct {
 	// The ID of the user pool where you want to create a user group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-userpoolid
 	//
-	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// A description of the group that you're creating.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-description
 	//
@@ -50,6 +50,6 @@ type CfnUserPoolGroupProps struct {
 	// A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

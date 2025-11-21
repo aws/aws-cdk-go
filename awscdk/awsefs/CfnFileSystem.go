@@ -737,6 +737,24 @@ func (j *jsiiProxy_CfnFileSystem)SetThroughputMode(val *string) {
 	)
 }
 
+func CfnFileSystem_ArnForFileSystem(resource interfacesawsefs.IFileSystemRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFileSystem_ArnForFileSystemParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_efs.CfnFileSystem",
+		"arnForFileSystem",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IFileSystemRef from an ARN.
 func CfnFileSystem_FromFileSystemArn(scope constructs.Construct, id *string, arn *string) interfacesawsefs.IFileSystemRef {
 	_init_.Initialize()

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTask) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnTask_ArnForTaskParameters(resource interfacesawsdatasync.ITaskRef) error {
+	return nil
+}
+
 func validateCfnTask_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

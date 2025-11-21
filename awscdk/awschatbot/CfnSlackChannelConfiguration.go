@@ -13,7 +13,7 @@ import (
 
 // > AWS Chatbot is now  . [Learn more](https://docs.aws.amazon.com//chatbot/latest/adminguide/service-rename.html) >  > `Type` attribute values remain unchanged.
 //
-// The `AWS::Chatbot::SlackChannelConfiguration` resource configures a Slack channel to allow users to use  with AWS CloudFormation templates.
+// The `AWS::Chatbot::SlackChannelConfiguration` resource configures a Slack channel to allow users to use  with CloudFormation templates.
 //
 // This resource requires some setup to be done in the  in chat applications console. To provide the required Slack workspace ID, you must perform the initial authorization flow with Slack in the  in chat applications console, then copy and paste the workspace ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/slack-setup.html#slack-client-setup) in the *in chat applications User Guide* .
 //
@@ -36,7 +36,7 @@ import (
 //   		jsii.String("guardrailPolicies"),
 //   	},
 //   	LoggingLevel: jsii.String("loggingLevel"),
-//   	SnsTopicArns: []*string{
+//   	SnsTopicArns: []interface{}{
 //   		jsii.String("snsTopicArns"),
 //   	},
 //   	Tags: []CfnTag{
@@ -638,6 +638,24 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration)SetUserRoleRequired(val interfac
 		"userRoleRequired",
 		val,
 	)
+}
+
+func CfnSlackChannelConfiguration_ArnForSlackChannelConfiguration(resource interfacesawschatbot.ISlackChannelConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSlackChannelConfiguration_ArnForSlackChannelConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_chatbot.CfnSlackChannelConfiguration",
+		"arnForSlackChannelConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -584,6 +584,24 @@ func (j *jsiiProxy_CfnPlaceIndex)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPlaceIndex_ArnForPlaceIndex(resource interfacesawslocation.IPlaceIndexRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPlaceIndex_ArnForPlaceIndexParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnPlaceIndex",
+		"arnForPlaceIndex",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPlaceIndexRef from a indexName.
 func CfnPlaceIndex_FromIndexName(scope constructs.Construct, id *string, indexName *string) interfacesawslocation.IPlaceIndexRef {
 	_init_.Initialize()

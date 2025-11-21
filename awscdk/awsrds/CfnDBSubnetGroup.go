@@ -24,7 +24,7 @@ import (
 //
 //   cfnDBSubnetGroup := awscdk.Aws_rds.NewCfnDBSubnetGroup(this, jsii.String("MyCfnDBSubnetGroup"), &CfnDBSubnetGroupProps{
 //   	DbSubnetGroupDescription: jsii.String("dbSubnetGroupDescription"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //

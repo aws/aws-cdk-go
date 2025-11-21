@@ -1,7 +1,7 @@
 package awsaiops
 
 
-// Use this structure if you want to use a customer managed AWS KMS key to encrypt your investigation data.
+// Use this structure if you want to use a customer managed AWS  key to encrypt your investigation data.
 //
 // If you omit this parameter, CloudWatch investigations will use an AWS key to encrypt the data. For more information, see [Encryption of investigation data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html#Investigations-KMS) .
 //

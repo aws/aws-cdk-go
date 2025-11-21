@@ -826,6 +826,24 @@ func (j *jsiiProxy_CfnDeliveryStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDeliveryStream_ArnForDeliveryStream(resource interfacesawskinesisfirehose.IDeliveryStreamRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDeliveryStream_ArnForDeliveryStreamParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream",
+		"arnForDeliveryStream",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDeliveryStreamRef from an ARN.
 func CfnDeliveryStream_FromDeliveryStreamArn(scope constructs.Construct, id *string, arn *string) interfacesawskinesisfirehose.IDeliveryStreamRef {
 	_init_.Initialize()

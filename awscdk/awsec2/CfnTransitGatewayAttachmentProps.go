@@ -14,7 +14,7 @@ import (
 //   var options interface{}
 //
 //   cfnTransitGatewayAttachmentProps := &CfnTransitGatewayAttachmentProps{
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
@@ -38,15 +38,15 @@ type CfnTransitGatewayAttachmentProps struct {
 	// You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-subnetids
 	//
-	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the transit gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-transitgatewayid
 	//
-	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId interface{} `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-vpcid
 	//
-	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The VPC attachment options.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-options
 	//

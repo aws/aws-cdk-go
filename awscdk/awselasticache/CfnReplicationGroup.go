@@ -1440,6 +1440,24 @@ func (j *jsiiProxy_CfnReplicationGroup)SetUserGroupIds(val *[]*string) {
 	)
 }
 
+func CfnReplicationGroup_ArnForReplicationGroup(resource interfacesawselasticache.IReplicationGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnReplicationGroup_ArnForReplicationGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
+		"arnForReplicationGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IReplicationGroupRef from a replicationGroupId.
 func CfnReplicationGroup_FromReplicationGroupId(scope constructs.Construct, id *string, replicationGroupId *string) interfacesawselasticache.IReplicationGroupRef {
 	_init_.Initialize()

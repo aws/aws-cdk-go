@@ -481,6 +481,24 @@ func (j *jsiiProxy_CfnAccessPolicy)SetAccessPolicyResource(val interface{}) {
 	)
 }
 
+func CfnAccessPolicy_ArnForAccessPolicy(resource interfacesawsiotsitewise.IAccessPolicyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPolicy_ArnForAccessPolicyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"arnForAccessPolicy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAccessPolicyRef from an ARN.
 func CfnAccessPolicy_FromAccessPolicyArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IAccessPolicyRef {
 	_init_.Initialize()

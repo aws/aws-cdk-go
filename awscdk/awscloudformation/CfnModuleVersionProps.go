@@ -22,7 +22,7 @@ type CfnModuleVersionProps struct {
 	ModuleName *string `field:"required" json:"moduleName" yaml:"moduleName"`
 	// A URL to the S3 bucket for the package that contains the template fragment and schema files for the module version to register.
 	//
-	// For more information, see [Module structure and requirements](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/modules-structure.html) in the *AWS CloudFormation Command Line Interface (CLI) User Guide* .
+	// For more information, see [Module structure and requirements](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/modules-structure.html) in the *CloudFormation Command Line Interface (CLI) User Guide* .
 	//
 	// > To register the module version, you must have `s3:GetObject` permissions to access the S3 objects.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage

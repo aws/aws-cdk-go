@@ -494,6 +494,24 @@ func (j *jsiiProxy_CfnParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnParameterGroup_ArnForParameterGroup(resource interfacesawselasticache.IParameterGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnParameterGroup_ArnForParameterGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",
+		"arnForParameterGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IParameterGroupRef from a cacheParameterGroupName.
 func CfnParameterGroup_FromCacheParameterGroupName(scope constructs.Construct, id *string, cacheParameterGroupName *string) interfacesawselasticache.IParameterGroupRef {
 	_init_.Initialize()

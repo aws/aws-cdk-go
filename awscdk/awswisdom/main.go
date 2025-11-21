@@ -81,6 +81,18 @@ func init() {
 		reflect.TypeOf((*CfnAIAgent_AssociationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.EmailGenerativeAnswerAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_EmailGenerativeAnswerAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.EmailOverviewAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_EmailOverviewAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.EmailResponseAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_EmailResponseAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.KnowledgeBaseAssociationConfigurationDataProperty",
 		reflect.TypeOf((*CfnAIAgent_KnowledgeBaseAssociationConfigurationDataProperty)(nil)).Elem(),
 	)

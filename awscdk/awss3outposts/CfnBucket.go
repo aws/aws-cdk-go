@@ -520,6 +520,24 @@ func (j *jsiiProxy_CfnBucket)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnBucket_ArnForBucket(resource interfacesawss3outposts.IBucketRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBucket_ArnForBucketParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3outposts.CfnBucket",
+		"arnForBucket",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

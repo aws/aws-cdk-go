@@ -582,6 +582,24 @@ func (j *jsiiProxy_CfnIndex)SetVectorBucketName(val *string) {
 	)
 }
 
+func CfnIndex_ArnForIndex(resource interfacesawss3vectors.IIndexRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIndex_ArnForIndexParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3vectors.CfnIndex",
+		"arnForIndex",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

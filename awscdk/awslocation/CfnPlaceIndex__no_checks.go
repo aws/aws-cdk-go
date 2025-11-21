@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPlaceIndex) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnPlaceIndex_ArnForPlaceIndexParameters(resource interfacesawslocation.IPlaceIndexRef) error {
+	return nil
+}
+
 func validateCfnPlaceIndex_FromIndexNameParameters(scope constructs.Construct, id *string, indexName *string) error {
 	return nil
 }

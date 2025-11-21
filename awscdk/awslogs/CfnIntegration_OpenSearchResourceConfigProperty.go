@@ -41,7 +41,7 @@ type CfnIntegration_OpenSearchResourceConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-applicationarn
 	//
 	ApplicationArn *string `field:"optional" json:"applicationArn" yaml:"applicationArn"`
-	// To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+	// To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`

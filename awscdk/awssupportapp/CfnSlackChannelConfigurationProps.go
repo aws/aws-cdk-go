@@ -35,7 +35,7 @@ type CfnSlackChannelConfigurationProps struct {
 	// The  App uses this role to perform  and Service Quotas actions on your behalf.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackchannelconfiguration.html#cfn-supportapp-slackchannelconfiguration-channelrolearn
 	//
-	ChannelRoleArn *string `field:"required" json:"channelRoleArn" yaml:"channelRoleArn"`
+	ChannelRoleArn interface{} `field:"required" json:"channelRoleArn" yaml:"channelRoleArn"`
 	// The case severity for your support cases that you want to receive notifications.
 	//
 	// You can specify `none` , `all` , or `high` .

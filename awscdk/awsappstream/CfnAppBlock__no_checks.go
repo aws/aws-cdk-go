@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAppBlock) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnAppBlock_ArnForAppBlockParameters(resource interfacesawsappstream.IAppBlockRef) error {
+	return nil
+}
+
 func validateCfnAppBlock_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

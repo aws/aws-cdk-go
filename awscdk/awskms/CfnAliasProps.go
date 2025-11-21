@@ -40,6 +40,6 @@ type CfnAliasProps struct {
 	// To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
 	//
-	TargetKeyId *string `field:"required" json:"targetKeyId" yaml:"targetKeyId"`
+	TargetKeyId interface{} `field:"required" json:"targetKeyId" yaml:"targetKeyId"`
 }
 

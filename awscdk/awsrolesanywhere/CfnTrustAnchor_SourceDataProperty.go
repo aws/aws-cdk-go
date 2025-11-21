@@ -16,7 +16,7 @@ package awsrolesanywhere
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-sourcedata.html
 //
 type CfnTrustAnchor_SourceDataProperty struct {
-	// The root certificate of the AWS Private Certificate Authority specified by this ARN is used in trust validation for temporary credential requests.
+	// The root certificate of the Private Certificate Authority specified by this ARN is used in trust validation for temporary credential requests.
 	//
 	// Included for trust anchors of type `AWS_ACM_PCA` .
 	//

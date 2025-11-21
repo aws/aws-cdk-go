@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAPIKey) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnAPIKey_ArnForAPIKeyParameters(resource interfacesawslocation.IAPIKeyRef) error {
+	return nil
+}
+
 func validateCfnAPIKey_FromAPIKeyArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -529,6 +529,24 @@ func (j *jsiiProxy_CfnMailManagerRelay)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMailManagerRelay_ArnForMailManagerRelay(resource interfacesawsses.IMailManagerRelayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerRelay_ArnForMailManagerRelayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRelay",
+		"arnForMailManagerRelay",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerRelayRef from a relayId.
 func CfnMailManagerRelay_FromRelayId(scope constructs.Construct, id *string, relayId *string) interfacesawsses.IMailManagerRelayRef {
 	_init_.Initialize()

@@ -32,7 +32,7 @@ type CfnGatewayResponseProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html#cfn-apigateway-gatewayresponse-restapiid
 	//
-	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"required" json:"restApiId" yaml:"restApiId"`
 	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html#cfn-apigateway-gatewayresponse-responseparameters
 	//

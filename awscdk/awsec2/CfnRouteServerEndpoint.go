@@ -517,6 +517,24 @@ func (j *jsiiProxy_CfnRouteServerEndpoint)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnRouteServerEndpoint_ArnForRouteServerEndpoint(resource interfacesawsec2.IRouteServerEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRouteServerEndpoint_ArnForRouteServerEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnRouteServerEndpoint",
+		"arnForRouteServerEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IRouteServerEndpointRef from an ARN.
 func CfnRouteServerEndpoint_FromRouteServerEndpointArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IRouteServerEndpointRef {
 	_init_.Initialize()

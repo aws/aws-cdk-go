@@ -575,6 +575,24 @@ func (j *jsiiProxy_CfnRotation)SetTimeZoneId(val *string) {
 	)
 }
 
+func CfnRotation_ArnForRotation(resource interfacesawsssmcontacts.IRotationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRotation_ArnForRotationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmcontacts.CfnRotation",
+		"arnForRotation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

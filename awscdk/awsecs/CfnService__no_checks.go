@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnService) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnService_ArnForServiceParameters(resource interfacesawsecs.IServiceRef) error {
+	return nil
+}
+
 func validateCfnService_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

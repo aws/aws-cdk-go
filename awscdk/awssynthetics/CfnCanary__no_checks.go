@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCanary) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnCanary_ArnForCanaryParameters(resource interfacesawssynthetics.ICanaryRef) error {
+	return nil
+}
+
 func validateCfnCanary_FromCanaryNameParameters(scope constructs.Construct, id *string, canaryName *string) error {
 	return nil
 }

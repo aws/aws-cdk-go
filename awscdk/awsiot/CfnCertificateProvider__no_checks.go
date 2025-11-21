@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCertificateProvider) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnCertificateProvider_ArnForCertificateProviderParameters(resource interfacesawsiot.ICertificateProviderRef) error {
+	return nil
+}
+
 func validateCfnCertificateProvider_FromCertificateProviderArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

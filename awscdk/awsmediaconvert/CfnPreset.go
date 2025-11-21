@@ -13,7 +13,7 @@ import (
 
 // The AWS::MediaConvert::Preset resource is an AWS Elemental MediaConvert resource type that you can use to specify encoding settings for a single output in a transcoding job.
 //
-// When you declare this entity in your AWS CloudFormation template, you pass in your transcoding job settings in JSON or YAML format. This settings specification must be formed in a particular way that conforms to AWS Elemental MediaConvert job validation. For more information about creating an output preset model for the `SettingsJson` property, see the Remarks section later in this topic.
+// When you declare this entity in your CloudFormation template, you pass in your transcoding job settings in JSON or YAML format. This settings specification must be formed in a particular way that conforms to AWS Elemental MediaConvert job validation. For more information about creating an output preset model for the `SettingsJson` property, see the Remarks section later in this topic.
 //
 // For more information about output MediaConvert presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 //
@@ -526,6 +526,24 @@ func (j *jsiiProxy_CfnPreset)SetTagsRaw(val interface{}) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnPreset_ArnForPreset(resource interfacesawsmediaconvert.IPresetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPreset_ArnForPresetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"arnForPreset",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

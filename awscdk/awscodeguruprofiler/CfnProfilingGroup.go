@@ -518,6 +518,24 @@ func (j *jsiiProxy_CfnProfilingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnProfilingGroup_ArnForProfilingGroup(resource interfacesawscodeguruprofiler.IProfilingGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProfilingGroup_ArnForProfilingGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
+		"arnForProfilingGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IProfilingGroupRef from an ARN.
 func CfnProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawscodeguruprofiler.IProfilingGroupRef {
 	_init_.Initialize()

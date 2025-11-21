@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMitigationAction) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnMitigationAction_ArnForMitigationActionParameters(resource interfacesawsiot.IMitigationActionRef) error {
+	return nil
+}
+
 func validateCfnMitigationAction_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

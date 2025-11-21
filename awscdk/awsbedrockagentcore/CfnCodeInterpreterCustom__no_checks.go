@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCodeInterpreterCustom) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnCodeInterpreterCustom_ArnForCodeInterpreterCustomParameters(resource interfacesawsbedrockagentcore.ICodeInterpreterCustomRef) error {
+	return nil
+}
+
 func validateCfnCodeInterpreterCustom_FromCodeInterpreterIdParameters(scope constructs.Construct, id *string, codeInterpreterId *string) error {
 	return nil
 }

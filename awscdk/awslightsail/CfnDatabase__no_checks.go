@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDatabase) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnDatabase_ArnForDatabaseParameters(resource interfacesawslightsail.IDatabaseRef) error {
+	return nil
+}
+
 func validateCfnDatabase_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

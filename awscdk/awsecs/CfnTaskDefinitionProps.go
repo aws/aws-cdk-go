@@ -333,7 +333,7 @@ type CfnTaskDefinitionProps struct {
 	// For informationabout the required IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html) in the *Amazon Elastic Container Service Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
 	//
-	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn interface{} `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The name of a family that this task definition is registered to.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
@@ -460,7 +460,7 @@ type CfnTaskDefinitionProps struct {
 	// > String validation is done on the ECS side. If an invalid string value is given for `TaskRoleArn` , it may cause the Cloudformation job to hang.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
 	//
-	TaskRoleArn *string `field:"optional" json:"taskRoleArn" yaml:"taskRoleArn"`
+	TaskRoleArn interface{} `field:"optional" json:"taskRoleArn" yaml:"taskRoleArn"`
 	// The list of data volume definitions for the task.
 	//
 	// For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide* .

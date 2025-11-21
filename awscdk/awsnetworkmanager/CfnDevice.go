@@ -669,6 +669,24 @@ func (j *jsiiProxy_CfnDevice)SetVendor(val *string) {
 	)
 }
 
+func CfnDevice_ArnForDevice(resource interfacesawsnetworkmanager.IDeviceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDevice_ArnForDeviceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnDevice",
+		"arnForDevice",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

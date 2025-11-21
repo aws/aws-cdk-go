@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLocation) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnLocation_ArnForLocationParameters(resource interfacesawsgamelift.ILocationRef) error {
+	return nil
+}
+
 func validateCfnLocation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

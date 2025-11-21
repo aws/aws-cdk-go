@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAggregationAuthorization) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnAggregationAuthorization_ArnForAggregationAuthorizationParameters(resource interfacesawsconfig.IAggregationAuthorizationRef) error {
+	return nil
+}
+
 func validateCfnAggregationAuthorization_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

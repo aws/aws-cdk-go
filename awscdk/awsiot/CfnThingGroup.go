@@ -529,6 +529,24 @@ func (j *jsiiProxy_CfnThingGroup)SetThingGroupProperties(val interface{}) {
 	)
 }
 
+func CfnThingGroup_ArnForThingGroup(resource interfacesawsiot.IThingGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnThingGroup_ArnForThingGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnThingGroup",
+		"arnForThingGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IThingGroupRef from an ARN.
 func CfnThingGroup_FromThingGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IThingGroupRef {
 	_init_.Initialize()

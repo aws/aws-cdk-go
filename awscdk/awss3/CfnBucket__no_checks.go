@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBucket) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnBucket_ArnForBucketParameters(resource interfacesawss3.IBucketRef) error {
+	return nil
+}
+
 func validateCfnBucket_FromBucketArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

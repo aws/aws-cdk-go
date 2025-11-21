@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnPlaybackKeyPair_ArnForPlaybackKeyPairParameters(resource interfacesawsivs.IPlaybackKeyPairRef) error {
+	return nil
+}
+
 func validateCfnPlaybackKeyPair_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

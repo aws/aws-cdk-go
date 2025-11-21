@@ -527,6 +527,24 @@ func (j *jsiiProxy_CfnProject)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnProject_ArnForProject(resource interfacesawsevidently.IProjectRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProject_ArnForProjectParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_evidently.CfnProject",
+		"arnForProject",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

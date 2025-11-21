@@ -23,7 +23,7 @@ import (
 //   var policyDocument interface{}
 //
 //   cfnUser := awscdk.Aws_iam.NewCfnUser(this, jsii.String("MyCfnUser"), &CfnUserProps{
-//   	Groups: []*string{
+//   	Groups: []interface{}{
 //   		jsii.String("groups"),
 //   	},
 //   	LoginProfile: &LoginProfileProperty{
@@ -32,7 +32,7 @@ import (
 //   		// the properties below are optional
 //   		PasswordResetRequired: jsii.Boolean(false),
 //   	},
-//   	ManagedPolicyArns: []*string{
+//   	ManagedPolicyArns: []interface{}{
 //   		jsii.String("managedPolicyArns"),
 //   	},
 //   	Path: jsii.String("path"),
@@ -593,6 +593,24 @@ func (j *jsiiProxy_CfnUser)SetUserName(val *string) {
 		"userName",
 		val,
 	)
+}
+
+func CfnUser_ArnForUser(resource interfacesawsiam.IUserRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUser_ArnForUserParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.CfnUser",
+		"arnForUser",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

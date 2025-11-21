@@ -452,6 +452,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamArn", GoGetter: "DeliveryStreamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamName", GoGetter: "DeliveryStreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamRef", GoGetter: "DeliveryStreamRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -459,6 +460,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPutRecords", GoMethod: "GrantPutRecords"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricBackupToS3Bytes", GoMethod: "MetricBackupToS3Bytes"},
 			_jsii_.MemberMethod{JsiiMethod: "metricBackupToS3DataFreshness", GoMethod: "MetricBackupToS3DataFreshness"},
@@ -480,6 +482,17 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStreamAttributes",
 		reflect.TypeOf((*DeliveryStreamAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStreamGrants",
+		reflect.TypeOf((*DeliveryStreamGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "putRecords", GoMethod: "PutRecords"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DeliveryStreamGrants{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStreamProps",
@@ -558,6 +571,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamArn", GoGetter: "DeliveryStreamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamName", GoGetter: "DeliveryStreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamRef", GoGetter: "DeliveryStreamRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
@@ -574,6 +588,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IDeliveryStream{}
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisfirehoseIDeliveryStreamRef)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j

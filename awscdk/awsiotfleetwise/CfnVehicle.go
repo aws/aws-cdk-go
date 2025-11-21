@@ -609,6 +609,24 @@ func (j *jsiiProxy_CfnVehicle)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnVehicle_ArnForVehicle(resource interfacesawsiotfleetwise.IVehicleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVehicle_ArnForVehicleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotfleetwise.CfnVehicle",
+		"arnForVehicle",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnChannelNamespace) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnChannelNamespace_ArnForChannelNamespaceParameters(resource interfacesawsappsync.IChannelNamespaceRef) error {
+	return nil
+}
+
 func validateCfnChannelNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

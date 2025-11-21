@@ -165,6 +165,14 @@ func (b *jsiiProxy_Bucket) validateGrantDeleteParameters(identity awsiam.IGranta
 	return nil
 }
 
+func (b *jsiiProxy_Bucket) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (b *jsiiProxy_Bucket) validateGrantPutParameters(identity awsiam.IGrantable) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")
@@ -364,6 +372,14 @@ func validateBucket_ValidateBucketNameParameters(physicalName *string) error {
 }
 
 func (j *jsiiProxy_Bucket) validateSetAutoCreatePolicyParameters(val *bool) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_Bucket) validateSetGrantsParameters(val BucketGrants) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}

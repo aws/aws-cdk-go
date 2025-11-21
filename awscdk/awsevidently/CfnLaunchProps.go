@@ -97,7 +97,7 @@ type CfnLaunchProps struct {
 	// The name or ARN of the project that you want to create the launch in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-project
 	//
-	Project *string `field:"required" json:"project" yaml:"project"`
+	Project interface{} `field:"required" json:"project" yaml:"project"`
 	// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-scheduledsplitsconfig
 	//

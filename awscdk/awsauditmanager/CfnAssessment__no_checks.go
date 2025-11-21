@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAssessment) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnAssessment_ArnForAssessmentParameters(resource interfacesawsauditmanager.IAssessmentRef) error {
+	return nil
+}
+
 func validateCfnAssessment_FromAssessmentArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

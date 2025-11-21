@@ -24,7 +24,6 @@ import (
 //
 //   cfnFlowOutput := awscdk.Aws_mediaconnect.NewCfnFlowOutput(this, jsii.String("MyCfnFlowOutput"), &CfnFlowOutputProps{
 //   	FlowArn: jsii.String("flowArn"),
-//   	Protocol: jsii.String("protocol"),
 //
 //   	// the properties below are optional
 //   	CidrAllowList: []*string{
@@ -70,6 +69,7 @@ import (
 //   	NdiSpeedHqQuality: jsii.Number(123),
 //   	OutputStatus: jsii.String("outputStatus"),
 //   	Port: jsii.Number(123),
+//   	Protocol: jsii.String("protocol"),
 //   	RemoteId: jsii.String("remoteId"),
 //   	RouterIntegrationState: jsii.String("routerIntegrationState"),
 //   	RouterIntegrationTransitEncryption: &FlowTransitEncryptionProperty{
@@ -175,7 +175,7 @@ type CfnFlowOutput interface {
 	SetRemoteId(val *string)
 	RouterIntegrationState() *string
 	SetRouterIntegrationState(val *string)
-	// The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+	// Information about the encryption of the flow.
 	RouterIntegrationTransitEncryption() interface{}
 	SetRouterIntegrationTransitEncryption(val interface{})
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -812,9 +812,6 @@ func (j *jsiiProxy_CfnFlowOutput)SetPort(val *float64) {
 }
 
 func (j *jsiiProxy_CfnFlowOutput)SetProtocol(val *string) {
-	if err := j.validateSetProtocolParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"protocol",

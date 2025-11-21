@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnContainer) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnContainer_ArnForContainerParameters(resource interfacesawslightsail.IContainerRef) error {
+	return nil
+}
+
 func validateCfnContainer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

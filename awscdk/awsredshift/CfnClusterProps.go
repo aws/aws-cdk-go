@@ -29,7 +29,7 @@ import (
 //   	Classic: jsii.Boolean(false),
 //   	ClusterIdentifier: jsii.String("clusterIdentifier"),
 //   	ClusterParameterGroupName: jsii.String("clusterParameterGroupName"),
-//   	ClusterSecurityGroups: []*string{
+//   	ClusterSecurityGroups: []interface{}{
 //   		jsii.String("clusterSecurityGroups"),
 //   	},
 //   	ClusterSubnetGroupName: jsii.String("clusterSubnetGroupName"),
@@ -48,7 +48,7 @@ import (
 //   	EnhancedVpcRouting: jsii.Boolean(false),
 //   	HsmClientCertificateIdentifier: jsii.String("hsmClientCertificateIdentifier"),
 //   	HsmConfigurationIdentifier: jsii.String("hsmConfigurationIdentifier"),
-//   	IamRoles: []*string{
+//   	IamRoles: []interface{}{
 //   		jsii.String("iamRoles"),
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -86,7 +86,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   }
@@ -216,19 +216,19 @@ type CfnClusterProps struct {
 	// - Cannot end with a hyphen or contain two consecutive hyphens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
 	//
-	ClusterParameterGroupName *string `field:"optional" json:"clusterParameterGroupName" yaml:"clusterParameterGroupName"`
+	ClusterParameterGroupName interface{} `field:"optional" json:"clusterParameterGroupName" yaml:"clusterParameterGroupName"`
 	// A list of security groups to be associated with this cluster.
 	//
 	// Default: The default cluster security group for Amazon Redshift.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
 	//
-	ClusterSecurityGroups *[]*string `field:"optional" json:"clusterSecurityGroups" yaml:"clusterSecurityGroups"`
+	ClusterSecurityGroups *[]interface{} `field:"optional" json:"clusterSecurityGroups" yaml:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster.
 	//
 	// If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersubnetgroupname
 	//
-	ClusterSubnetGroupName *string `field:"optional" json:"clusterSubnetGroupName" yaml:"clusterSubnetGroupName"`
+	ClusterSubnetGroupName interface{} `field:"optional" json:"clusterSubnetGroupName" yaml:"clusterSubnetGroupName"`
 	// The version of the Amazon Redshift engine software that you want to deploy on the cluster.
 	//
 	// The version selected runs on all the nodes in the cluster.
@@ -266,7 +266,7 @@ type CfnClusterProps struct {
 	// Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. Don't specify the Elastic IP address for a publicly accessible cluster with availability zone relocation turned on. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
 	//
-	ElasticIp *string `field:"optional" json:"elasticIp" yaml:"elasticIp"`
+	ElasticIp interface{} `field:"optional" json:"elasticIp" yaml:"elasticIp"`
 	// If `true` , the data in the cluster is encrypted at rest.
 	//
 	// If you set the value on this parameter to `false` , the request will fail.
@@ -304,11 +304,11 @@ type CfnClusterProps struct {
 	// The maximum number of IAM roles that you can associate is subject to a quota. For more information, go to [Quotas and limits](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
 	//
-	IamRoles *[]*string `field:"optional" json:"iamRoles" yaml:"iamRoles"`
+	IamRoles *[]interface{} `field:"optional" json:"iamRoles" yaml:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
 	//
@@ -338,7 +338,7 @@ type CfnClusterProps struct {
 	// You can only use this parameter if `ManageMasterPassword` is true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterpasswordsecretkmskeyid
 	//
-	MasterPasswordSecretKmsKeyId *string `field:"optional" json:"masterPasswordSecretKmsKeyId" yaml:"masterPasswordSecretKmsKeyId"`
+	MasterPasswordSecretKmsKeyId interface{} `field:"optional" json:"masterPasswordSecretKmsKeyId" yaml:"masterPasswordSecretKmsKeyId"`
 	// The password associated with the admin user account for the cluster that is being created.
 	//
 	// You can't use `MasterUserPassword` if `ManageMasterPassword` is `true` .
@@ -475,6 +475,6 @@ type CfnClusterProps struct {
 	// Default: The default VPC security group is associated with the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
 	//
-	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]interface{} `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

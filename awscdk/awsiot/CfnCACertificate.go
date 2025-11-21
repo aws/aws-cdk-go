@@ -603,6 +603,24 @@ func (j *jsiiProxy_CfnCACertificate)SetVerificationCertificatePem(val *string) {
 	)
 }
 
+func CfnCACertificate_ArnForCACertificate(resource interfacesawsiot.ICACertificateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCACertificate_ArnForCACertificateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCACertificate",
+		"arnForCACertificate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

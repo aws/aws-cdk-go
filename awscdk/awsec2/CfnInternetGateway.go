@@ -415,6 +415,24 @@ func (j *jsiiProxy_CfnInternetGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnInternetGateway_ArnForInternetGateway(resource interfacesawsec2.IInternetGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInternetGateway_ArnForInternetGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnInternetGateway",
+		"arnForInternetGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IInternetGatewayRef from a internetGatewayId.
 func CfnInternetGateway_FromInternetGatewayId(scope constructs.Construct, id *string, internetGatewayId *string) interfacesawsec2.IInternetGatewayRef {
 	_init_.Initialize()

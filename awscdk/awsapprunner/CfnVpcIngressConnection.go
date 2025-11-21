@@ -520,6 +520,24 @@ func (j *jsiiProxy_CfnVpcIngressConnection)SetVpcIngressConnectionName(val *stri
 	)
 }
 
+func CfnVpcIngressConnection_ArnForVpcIngressConnection(resource interfacesawsapprunner.IVpcIngressConnectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVpcIngressConnection_ArnForVpcIngressConnectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apprunner.CfnVpcIngressConnection",
+		"arnForVpcIngressConnection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

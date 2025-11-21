@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCollaboration) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnCollaboration_ArnForCollaborationParameters(resource interfacesawscleanrooms.ICollaborationRef) error {
+	return nil
+}
+
 func validateCfnCollaboration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

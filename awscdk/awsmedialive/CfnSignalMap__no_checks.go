@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSignalMap) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnSignalMap_ArnForSignalMapParameters(resource interfacesawsmedialive.ISignalMapRef) error {
+	return nil
+}
+
 func validateCfnSignalMap_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

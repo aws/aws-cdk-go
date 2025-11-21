@@ -22,7 +22,7 @@ import (
 //
 //   cfnMountTarget := awscdk.Aws_efs.NewCfnMountTarget(this, jsii.String("MyCfnMountTarget"), &CfnMountTargetProps{
 //   	FileSystemId: jsii.String("fileSystemId"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	SubnetId: jsii.String("subnetId"),

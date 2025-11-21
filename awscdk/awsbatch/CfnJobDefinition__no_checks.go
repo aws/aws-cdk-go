@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnJobDefinition) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnJobDefinition_ArnForJobDefinitionParameters(resource interfacesawsbatch.IJobDefinitionRef) error {
+	return nil
+}
+
 func validateCfnJobDefinition_FromJobDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

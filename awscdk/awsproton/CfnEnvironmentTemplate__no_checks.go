@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEnvironmentTemplate) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnEnvironmentTemplate_ArnForEnvironmentTemplateParameters(resource interfacesawsproton.IEnvironmentTemplateRef) error {
+	return nil
+}
+
 func validateCfnEnvironmentTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

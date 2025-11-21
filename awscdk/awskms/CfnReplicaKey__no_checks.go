@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnReplicaKey) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnReplicaKey_ArnForReplicaKeyParameters(resource interfacesawskms.IReplicaKeyRef) error {
+	return nil
+}
+
 func validateCfnReplicaKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

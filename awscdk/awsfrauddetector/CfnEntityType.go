@@ -488,6 +488,24 @@ func (j *jsiiProxy_CfnEntityType)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnEntityType_ArnForEntityType(resource interfacesawsfrauddetector.IEntityTypeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEntityType_ArnForEntityTypeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnEntityType",
+		"arnForEntityType",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

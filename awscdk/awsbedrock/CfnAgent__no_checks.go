@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAgent) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAgent_ArnForAgentParameters(resource interfacesawsbedrock.IAgentRef) error {
+	return nil
+}
+
 func validateCfnAgent_FromAgentArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

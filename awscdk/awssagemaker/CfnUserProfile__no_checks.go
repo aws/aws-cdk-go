@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnUserProfile) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnUserProfile_ArnForUserProfileParameters(resource interfacesawssagemaker.IUserProfileRef) error {
+	return nil
+}
+
 func validateCfnUserProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

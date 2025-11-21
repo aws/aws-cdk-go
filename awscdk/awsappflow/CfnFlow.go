@@ -13,7 +13,7 @@ import (
 
 // The `AWS::AppFlow::Flow` resource is an Amazon AppFlow resource type that specifies a new flow.
 //
-// > If you want to use AWS CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
+// > If you want to use CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -950,6 +950,24 @@ func (j *jsiiProxy_CfnFlow)SetTriggerConfig(val interface{}) {
 		"triggerConfig",
 		val,
 	)
+}
+
+func CfnFlow_ArnForFlow(resource interfacesawsappflow.IFlowRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFlow_ArnForFlowParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appflow.CfnFlow",
+		"arnForFlow",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IFlowRef from an ARN.

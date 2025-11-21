@@ -881,6 +881,24 @@ func (j *jsiiProxy_CfnTopic)SetUserExperienceVersion(val *string) {
 	)
 }
 
+func CfnTopic_ArnForTopic(resource interfacesawsquicksight.ITopicRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTopic_ArnForTopicParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_quicksight.CfnTopic",
+		"arnForTopic",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

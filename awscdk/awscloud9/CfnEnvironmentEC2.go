@@ -652,6 +652,24 @@ func (j *jsiiProxy_CfnEnvironmentEC2)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnEnvironmentEC2_ArnForEnvironmentEC2(resource interfacesawscloud9.IEnvironmentEC2Ref) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironmentEC2_ArnForEnvironmentEC2Parameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
+		"arnForEnvironmentEC2",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

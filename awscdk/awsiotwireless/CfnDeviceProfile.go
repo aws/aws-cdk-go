@@ -494,6 +494,24 @@ func (j *jsiiProxy_CfnDeviceProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDeviceProfile_ArnForDeviceProfile(resource interfacesawsiotwireless.IDeviceProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDeviceProfile_ArnForDeviceProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
+		"arnForDeviceProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDeviceProfileRef from an ARN.
 func CfnDeviceProfile_FromDeviceProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IDeviceProfileRef {
 	_init_.Initialize()

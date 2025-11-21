@@ -134,7 +134,7 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-invocationconnectivityparameters
 	//
 	InvocationConnectivityParameters interface{} `field:"optional" json:"invocationConnectivityParameters" yaml:"invocationConnectivityParameters"`
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection.
 	//
 	// The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	//

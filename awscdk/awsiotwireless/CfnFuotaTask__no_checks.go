@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFuotaTask) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnFuotaTask_ArnForFuotaTaskParameters(resource interfacesawsiotwireless.IFuotaTaskRef) error {
+	return nil
+}
+
 func validateCfnFuotaTask_FromFuotaTaskArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Use the `AWS::SimSpaceWeaver::Simulation` resource to specify a simulation that AWS CloudFormation starts in the AWS Cloud , in your AWS account .
+// Use the `AWS::SimSpaceWeaver::Simulation` resource to specify a simulation that CloudFormation starts in the AWS Cloud , in your AWS account .
 //
 // In the resource properties section of your template, provide the name of an existing IAM role configured with the proper permissions, and the name of an existing Amazon S3 bucket. Your account must have permissions to read the Amazon S3 bucket. The Amazon S3 bucket must contain a valid schema. The schema must refer to simulation assets that are already uploaded to the AWS Cloud . For more information, see the [detailed tutorial](https://docs.aws.amazon.com/simspaceweaver/latest/userguide/getting-started_detailed.html) in the *AWS SimSpace Weaver User Guide* .
 //
@@ -501,6 +501,24 @@ func (j *jsiiProxy_CfnSimulation)SetSnapshotS3Location(val interface{}) {
 		"snapshotS3Location",
 		val,
 	)
+}
+
+func CfnSimulation_ArnForSimulation(resource interfacesawssimspaceweaver.ISimulationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSimulation_ArnForSimulationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_simspaceweaver.CfnSimulation",
+		"arnForSimulation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ISimulationRef from a simulationName.

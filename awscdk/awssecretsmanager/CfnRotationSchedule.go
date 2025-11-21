@@ -23,7 +23,7 @@ import (
 // - Create a new rotation function using `HostedRotationLambda` based on a [Secrets Manager rotation function template](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) .
 // - Use an existing rotation function by specifying its ARN with `RotationLambdaARN` .
 //
-// > For database secrets defined in the same AWS CloudFormation template as the database or service:
+// > For database secrets defined in the same CloudFormation template as the database or service:
 // >
 // > - Use the [AWS::SecretsManager::SecretTargetAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html) resource to populate the secret with connection details.
 // > - Add a `DependsOn` attribute to the `RotationSchedule` resource that uses a `SecretTargetAttachment` . This ensures the rotation is configured after the secret is populated with connection details. > You can define only one rotation schedule per secret.

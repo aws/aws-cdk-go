@@ -146,7 +146,7 @@ type CfnStack interface {
 	// The stack's default subnet ID.
 	DefaultSubnetId() *string
 	SetDefaultSubnetId(val *string)
-	// The Amazon Resource Name (ARN) of the Amazon Elastic Container Service ( Amazon ECS ) cluster to register with the OpsWorks stack.
+	// The Amazon Resource Name (ARN) of the  ( Amazon ECS ) cluster to register with the OpsWorks stack.
 	EcsClusterArn() *string
 	SetEcsClusterArn(val *string)
 	// A list of Elastic IP addresses to register with the OpsWorks stack.
@@ -1010,6 +1010,24 @@ func (j *jsiiProxy_CfnStack)SetVpcId(val *string) {
 		"vpcId",
 		val,
 	)
+}
+
+func CfnStack_ArnForStack(resource interfacesawsopsworks.IStackRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStack_ArnForStackParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_opsworks.CfnStack",
+		"arnForStack",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IStackRef from a stackId.

@@ -444,6 +444,24 @@ func (j *jsiiProxy_CfnRouteTable)SetVpcId(val *string) {
 	)
 }
 
+func CfnRouteTable_ArnForRouteTable(resource interfacesawsec2.IRouteTableRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRouteTable_ArnForRouteTableParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnRouteTable",
+		"arnForRouteTable",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IRouteTableRef from a routeTableId.
 func CfnRouteTable_FromRouteTableId(scope constructs.Construct, id *string, routeTableId *string) interfacesawsec2.IRouteTableRef {
 	_init_.Initialize()

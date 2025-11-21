@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCoreNetwork) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnCoreNetwork_ArnForCoreNetworkParameters(resource interfacesawsnetworkmanager.ICoreNetworkRef) error {
+	return nil
+}
+
 func validateCfnCoreNetwork_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

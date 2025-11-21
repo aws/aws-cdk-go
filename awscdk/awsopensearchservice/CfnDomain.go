@@ -59,6 +59,11 @@ import (
 //   			SubjectKey: jsii.String("subjectKey"),
 //   		},
 //   	},
+//   	AimlOptions: &AIMLOptionsProperty{
+//   		S3VectorsEngine: &S3VectorsEngineProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   	ClusterConfig: &ClusterConfigProperty{
 //   		ColdStorageOptions: &ColdStorageOptionsProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -180,6 +185,8 @@ type CfnDomain interface {
 	// Specifies options for fine-grained access control and SAML authentication.
 	AdvancedSecurityOptions() interface{}
 	SetAdvancedSecurityOptions(val interface{})
+	AimlOptions() interface{}
+	SetAimlOptions(val interface{})
 	// Date and time when the migration period will be disabled.
 	//
 	// Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
@@ -238,7 +245,7 @@ type CfnDomain interface {
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
 	EbsOptions() interface{}
 	SetEbsOptions(val interface{})
-	// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use.
+	// Whether the domain should encrypt data at rest, and if so, the AWS  key to use.
 	EncryptionAtRestOptions() interface{}
 	SetEncryptionAtRestOptions(val interface{})
 	// The version of OpenSearch to use.
@@ -470,6 +477,16 @@ func (j *jsiiProxy_CfnDomain) AdvancedSecurityOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"advancedSecurityOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) AimlOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"aimlOptions",
 		&returns,
 	)
 	return returns
@@ -1015,6 +1032,17 @@ func (j *jsiiProxy_CfnDomain)SetAdvancedSecurityOptions(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnDomain)SetAimlOptions(val interface{}) {
+	if err := j.validateSetAimlOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"aimlOptions",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDomain)SetClusterConfig(val interface{}) {
 	if err := j.validateSetClusterConfigParameters(val); err != nil {
 		panic(err)
@@ -1199,6 +1227,24 @@ func (j *jsiiProxy_CfnDomain)SetVpcOptions(val interface{}) {
 		"vpcOptions",
 		val,
 	)
+}
+
+func CfnDomain_ArnForDomain(resource interfacesawsopensearchservice.IDomainRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDomain_ArnForDomainParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
+		"arnForDomain",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IDomainRef from an ARN.

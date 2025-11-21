@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEntityType) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnEntityType_ArnForEntityTypeParameters(resource interfacesawsfrauddetector.IEntityTypeRef) error {
+	return nil
+}
+
 func validateCfnEntityType_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDistribution) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnDistribution_ArnForDistributionParameters(resource interfacesawscloudfront.IDistributionRef) error {
+	return nil
+}
+
 func validateCfnDistribution_FromDistributionIdParameters(scope constructs.Construct, id *string, distributionId *string) error {
 	return nil
 }

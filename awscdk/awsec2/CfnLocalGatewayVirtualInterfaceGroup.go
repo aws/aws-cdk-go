@@ -532,6 +532,24 @@ func (j *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup)SetTags(val *[]*awscdk.C
 	)
 }
 
+func CfnLocalGatewayVirtualInterfaceGroup_ArnForLocalGatewayVirtualInterfaceGroup(resource interfacesawsec2.ILocalGatewayVirtualInterfaceGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLocalGatewayVirtualInterfaceGroup_ArnForLocalGatewayVirtualInterfaceGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterfaceGroup",
+		"arnForLocalGatewayVirtualInterfaceGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ILocalGatewayVirtualInterfaceGroupRef from an ARN.
 func CfnLocalGatewayVirtualInterfaceGroup_FromLocalGatewayVirtualInterfaceGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.ILocalGatewayVirtualInterfaceGroupRef {
 	_init_.Initialize()

@@ -129,11 +129,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "repositoryCloneUrlHttp", GoGetter: "RepositoryCloneUrlHttp"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryCloneUrlSsh", GoGetter: "RepositoryCloneUrlSsh"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
+			_jsii_.MemberProperty{JsiiProperty: "repositoryRef", GoGetter: "RepositoryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRepository{}
 			_jsii_.InitJsiiProxy(&j.Type__awscodestarnotificationsINotificationRuleSource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodecommitIRepositoryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -164,6 +166,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantPull", GoMethod: "GrantPull"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPullPush", GoMethod: "GrantPullPush"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "notifiyOnPullRequestMerged", GoMethod: "NotifiyOnPullRequestMerged"},
 			_jsii_.MemberMethod{JsiiMethod: "notify", GoMethod: "Notify"},
@@ -190,6 +193,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "repositoryCloneUrlHttp", GoGetter: "RepositoryCloneUrlHttp"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryCloneUrlSsh", GoGetter: "RepositoryCloneUrlSsh"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
+			_jsii_.MemberProperty{JsiiProperty: "repositoryRef", GoGetter: "RepositoryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -208,6 +212,19 @@ func init() {
 			"UPDATE_REF": RepositoryEventTrigger_UPDATE_REF,
 			"CREATE_REF": RepositoryEventTrigger_CREATE_REF,
 			"DELETE_REF": RepositoryEventTrigger_DELETE_REF,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codecommit.RepositoryGrants",
+		reflect.TypeOf((*RepositoryGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "pull", GoMethod: "Pull"},
+			_jsii_.MemberMethod{JsiiMethod: "pullPush", GoMethod: "PullPush"},
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			return &jsiiProxy_RepositoryGrants{}
 		},
 	)
 	_jsii_.RegisterEnum(

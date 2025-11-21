@@ -134,6 +134,9 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		InfrastructureOptimization: &InfrastructureOptimizationProperty{
+//   			ScaleInAfter: jsii.Number(123),
+//   		},
 //   		PropagateTags: jsii.String("propagateTags"),
 //   	},
 //   	Name: jsii.String("name"),
@@ -607,6 +610,24 @@ func (j *jsiiProxy_CfnCapacityProvider)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnCapacityProvider_ArnForCapacityProvider(resource interfacesawsecs.ICapacityProviderRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityProvider_ArnForCapacityProviderParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"arnForCapacityProvider",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ICapacityProviderRef from a capacityProviderName.

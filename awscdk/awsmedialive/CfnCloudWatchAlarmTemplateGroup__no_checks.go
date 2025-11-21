@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) validateValidatePropertiesPa
 	return nil
 }
 
+func validateCfnCloudWatchAlarmTemplateGroup_ArnForCloudWatchAlarmTemplateGroupParameters(resource interfacesawsmedialive.ICloudWatchAlarmTemplateGroupRef) error {
+	return nil
+}
+
 func validateCfnCloudWatchAlarmTemplateGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

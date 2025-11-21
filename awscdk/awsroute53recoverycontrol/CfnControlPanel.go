@@ -502,6 +502,24 @@ func (j *jsiiProxy_CfnControlPanel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnControlPanel_ArnForControlPanel(resource interfacesawsroute53recoverycontrol.IControlPanelRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnControlPanel_ArnForControlPanelParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53recoverycontrol.CfnControlPanel",
+		"arnForControlPanel",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIPAMScope) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnIPAMScope_ArnForIPAMScopeParameters(resource interfacesawsec2.IIPAMScopeRef) error {
+	return nil
+}
+
 func validateCfnIPAMScope_FromIPAMScopeArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

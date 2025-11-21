@@ -26,11 +26,11 @@ type CfnHostedConfigurationVersionProps struct {
 	// The application ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-applicationid
 	//
-	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
+	ApplicationId interface{} `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The configuration profile ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html#cfn-appconfig-hostedconfigurationversion-configurationprofileid
 	//
-	ConfigurationProfileId *string `field:"required" json:"configurationProfileId" yaml:"configurationProfileId"`
+	ConfigurationProfileId interface{} `field:"required" json:"configurationProfileId" yaml:"configurationProfileId"`
 	// The configuration data, as bytes.
 	//
 	// > AWS AppConfig accepts any type of data, including text formats like JSON or TOML, or binary formats like protocol buffers or compressed data.

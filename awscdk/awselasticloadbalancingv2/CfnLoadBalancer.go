@@ -35,7 +35,7 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	Scheme: jsii.String("scheme"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	SubnetMappings: []interface{}{
@@ -49,7 +49,7 @@ import (
 //   			SourceNatIpv6Prefix: jsii.String("sourceNatIpv6Prefix"),
 //   		},
 //   	},
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //   	Tags: []CfnTag{
@@ -800,6 +800,24 @@ func (j *jsiiProxy_CfnLoadBalancer)SetType(val *string) {
 		"type",
 		val,
 	)
+}
+
+func CfnLoadBalancer_ArnForLoadBalancer(resource interfacesawselasticloadbalancingv2.ILoadBalancerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLoadBalancer_ArnForLoadBalancerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
+		"arnForLoadBalancer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

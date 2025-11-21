@@ -474,6 +474,24 @@ func (j *jsiiProxy_CfnKeyValueStore)SetName(val *string) {
 	)
 }
 
+func CfnKeyValueStore_ArnForKeyValueStore(resource interfacesawscloudfront.IKeyValueStoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnKeyValueStore_ArnForKeyValueStoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnKeyValueStore",
+		"arnForKeyValueStore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRoutingControl) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnRoutingControl_ArnForRoutingControlParameters(resource interfacesawsroute53recoverycontrol.IRoutingControlRef) error {
+	return nil
+}
+
 func validateCfnRoutingControl_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

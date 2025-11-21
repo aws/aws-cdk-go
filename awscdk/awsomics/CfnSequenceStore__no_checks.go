@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSequenceStore) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnSequenceStore_ArnForSequenceStoreParameters(resource interfacesawsomics.ISequenceStoreRef) error {
+	return nil
+}
+
 func validateCfnSequenceStore_FromSequenceStoreArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStreamGroup) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnStreamGroup_ArnForStreamGroupParameters(resource interfacesawsgameliftstreams.IStreamGroupRef) error {
+	return nil
+}
+
 func validateCfnStreamGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

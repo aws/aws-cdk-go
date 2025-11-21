@@ -514,6 +514,24 @@ func (j *jsiiProxy_CfnVPCEConfiguration)SetVpceServiceName(val *string) {
 	)
 }
 
+func CfnVPCEConfiguration_ArnForVPCEConfiguration(resource interfacesawsdevicefarm.IVPCEConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPCEConfiguration_ArnForVPCEConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devicefarm.CfnVPCEConfiguration",
+		"arnForVPCEConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDatabase) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnDatabase_ArnForDatabaseParameters(resource interfacesawstimestream.IDatabaseRef) error {
+	return nil
+}
+
 func validateCfnDatabase_FromDatabaseArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

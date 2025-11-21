@@ -684,6 +684,24 @@ func (j *jsiiProxy_CfnDomainName)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDomainName_ArnForDomainName(resource interfacesawsapigateway.IDomainNameRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDomainName_ArnForDomainNameParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnDomainName",
+		"arnForDomainName",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDomainNameRef from a domainName.
 func CfnDomainName_FromDomainName(scope constructs.Construct, id *string, domainName *string) interfacesawsapigateway.IDomainNameRef {
 	_init_.Initialize()

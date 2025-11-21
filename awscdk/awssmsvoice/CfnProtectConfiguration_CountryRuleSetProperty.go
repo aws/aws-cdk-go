@@ -3,7 +3,7 @@ package awssmsvoice
 
 // The set of `CountryRules` you specify to control which countries End User Messaging  can send your messages to.
 //
-// > If you don't specify all available ISO country codes in the `CountryRuleSet` for each number capability, the AWS CloudFormation drift detection feature will detect drift. This is because End User Messaging  always returns all country codes.
+// > If you don't specify all available ISO country codes in the `CountryRuleSet` for each number capability, the CloudFormation drift detection feature will detect drift. This is because End User Messaging  always returns all country codes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

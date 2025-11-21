@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCampaign) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnCampaign_ArnForCampaignParameters(resource interfacesawsiotfleetwise.ICampaignRef) error {
+	return nil
+}
+
 func validateCfnCampaign_FromCampaignArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

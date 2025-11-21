@@ -13,7 +13,7 @@ import (
 
 // The `AWS::Cognito::IdentityPool` resource creates an Amazon Cognito identity pool.
 //
-// To avoid deleting the resource accidentally from AWS CloudFormation , use [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) and the [UpdateReplacePolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html) to retain the resource on deletion or replacement.
+// To avoid deleting the resource accidentally from CloudFormation , use [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) and the [UpdateReplacePolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html) to retain the resource on deletion or replacement.
 //
 // Example:
 //   import cognito "github.com/aws/aws-cdk-go/awscdk"
@@ -21,7 +21,7 @@ import (
 //   var myProvider OpenIdConnectProvider
 //
 //   cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &CfnIdentityPoolProps{
-//   	OpenIdConnectProviderArns: []*string{
+//   	OpenIdConnectProviderArns: []interface{}{
 //   		myProvider.OpenIdConnectProviderArn,
 //   	},
 //   	// And the other properties for your identity pool
@@ -669,6 +669,24 @@ func (j *jsiiProxy_CfnIdentityPool)SetSupportedLoginProviders(val interface{}) {
 		"supportedLoginProviders",
 		val,
 	)
+}
+
+func CfnIdentityPool_ArnForIdentityPool(resource interfacesawscognito.IIdentityPoolRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIdentityPool_ArnForIdentityPoolParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
+		"arnForIdentityPool",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IIdentityPoolRef from a identityPoolId.

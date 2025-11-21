@@ -9,12 +9,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an Amazon Data Firehose delivery stream.
 type IDeliveryStream interface {
 	awsec2.IConnectable
+	interfacesawskinesisfirehose.IDeliveryStreamRef
 	awsiam.IGrantable
 	awscdk.IResource
 	// Grant the `grantee` identity permissions to perform `actions`.
@@ -54,6 +56,7 @@ type IDeliveryStream interface {
 // The jsii proxy for IDeliveryStream
 type jsiiProxy_IDeliveryStream struct {
 	internal.Type__awsec2IConnectable
+	internal.Type__interfacesawskinesisfirehoseIDeliveryStreamRef
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
 }
@@ -227,6 +230,16 @@ func (j *jsiiProxy_IDeliveryStream) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeliveryStream) DeliveryStreamRef() *interfacesawskinesisfirehose.DeliveryStreamReference {
+	var returns *interfacesawskinesisfirehose.DeliveryStreamReference
+	_jsii_.Get(
+		j,
+		"deliveryStreamRef",
 		&returns,
 	)
 	return returns

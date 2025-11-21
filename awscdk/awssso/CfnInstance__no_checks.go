@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInstance) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnInstance_ArnForInstanceParameters(resource interfacesawssso.IInstanceRef) error {
+	return nil
+}
+
 func validateCfnInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

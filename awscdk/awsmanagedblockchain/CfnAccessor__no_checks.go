@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAccessor) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnAccessor_ArnForAccessorParameters(resource interfacesawsmanagedblockchain.IAccessorRef) error {
+	return nil
+}
+
 func validateCfnAccessor_FromAccessorArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

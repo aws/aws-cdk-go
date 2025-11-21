@@ -13,7 +13,7 @@ import (
 
 // Specifies a granted license.
 //
-// Granted licenses are licenses for products that your organization purchased from AWS Marketplace or directly from a seller who integrated their software with managed entitlements. For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *AWS License Manager User Guide* .
+// Granted licenses are licenses for products that your organization purchased from AWS Marketplace or directly from a seller who integrated their software with managed entitlements. For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *License Manager User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -682,6 +682,24 @@ func (j *jsiiProxy_CfnLicense)SetValidity(val interface{}) {
 		"validity",
 		val,
 	)
+}
+
+func CfnLicense_ArnForLicense(resource interfacesawslicensemanager.ILicenseRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLicense_ArnForLicenseParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_licensemanager.CfnLicense",
+		"arnForLicense",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

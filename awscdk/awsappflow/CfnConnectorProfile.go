@@ -15,7 +15,7 @@ import (
 //
 // This includes the provided name, credentials ARN, connection-mode, and so on. The fields that are common to all types of connector profiles are explicitly specified under the `Properties` field. The rest of the connector-specific properties are specified under `Properties/ConnectorProfileConfig` .
 //
-// > If you want to use AWS CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
+// > If you want to use CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -785,6 +785,24 @@ func (j *jsiiProxy_CfnConnectorProfile)SetKmsArn(val *string) {
 		"kmsArn",
 		val,
 	)
+}
+
+func CfnConnectorProfile_ArnForConnectorProfile(resource interfacesawsappflow.IConnectorProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnectorProfile_ArnForConnectorProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile",
+		"arnForConnectorProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

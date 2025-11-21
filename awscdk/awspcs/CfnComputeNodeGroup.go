@@ -738,6 +738,24 @@ func (j *jsiiProxy_CfnComputeNodeGroup)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnComputeNodeGroup_ArnForComputeNodeGroup(resource interfacesawspcs.IComputeNodeGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnComputeNodeGroup_ArnForComputeNodeGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pcs.CfnComputeNodeGroup",
+		"arnForComputeNodeGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

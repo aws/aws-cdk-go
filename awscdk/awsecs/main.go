@@ -407,6 +407,10 @@ func init() {
 		reflect.TypeOf((*CfnCapacityProvider_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.InfrastructureOptimizationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_InfrastructureOptimizationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.InstanceLaunchTemplateProperty",
 		reflect.TypeOf((*CfnCapacityProvider_InstanceLaunchTemplateProperty)(nil)).Elem(),
 	)
@@ -1173,6 +1177,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "capacityProviderNames", GoGetter: "CapacityProviderNames"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterScopedCapacityProviderNames", GoGetter: "ClusterScopedCapacityProviderNames"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultCapacityProviderStrategy", GoGetter: "DefaultCapacityProviderStrategy"},
@@ -1183,6 +1188,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantTaskProtection", GoMethod: "GrantTaskProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "hasEc2Capacity", GoGetter: "HasEc2Capacity"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -1206,6 +1212,17 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.ClusterAttributes",
 		reflect.TypeOf((*ClusterAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.ClusterGrants",
+		reflect.TypeOf((*ClusterGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "taskProtection", GoMethod: "TaskProtection"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ClusterGrants{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.ClusterProps",
@@ -2121,6 +2138,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "autoscalingGroup", GoGetter: "AutoscalingGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultCloudMapNamespace", GoGetter: "DefaultCloudMapNamespace"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -2132,6 +2150,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICluster{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecsIClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLoggerDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnLoggerDefinition_ArnForLoggerDefinitionParameters(resource interfacesawsgreengrass.ILoggerDefinitionRef) error {
+	return nil
+}
+
 func validateCfnLoggerDefinition_FromLoggerDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

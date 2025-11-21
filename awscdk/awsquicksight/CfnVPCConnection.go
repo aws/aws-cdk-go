@@ -655,6 +655,24 @@ func (j *jsiiProxy_CfnVPCConnection)SetVpcConnectionId(val *string) {
 	)
 }
 
+func CfnVPCConnection_ArnForVPCConnection(resource interfacesawsquicksight.IVPCConnectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPCConnection_ArnForVPCConnectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_quicksight.CfnVPCConnection",
+		"arnForVPCConnection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStateTemplate) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnStateTemplate_ArnForStateTemplateParameters(resource interfacesawsiotfleetwise.IStateTemplateRef) error {
+	return nil
+}
+
 func validateCfnStateTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSegmentDefinition) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnSegmentDefinition_ArnForSegmentDefinitionParameters(resource interfacesawscustomerprofiles.ISegmentDefinitionRef) error {
+	return nil
+}
+
 func validateCfnSegmentDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

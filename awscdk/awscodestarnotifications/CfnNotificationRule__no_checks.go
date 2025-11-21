@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNotificationRule) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnNotificationRule_ArnForNotificationRuleParameters(resource interfacesawscodestarnotifications.INotificationRuleRef) error {
+	return nil
+}
+
 func validateCfnNotificationRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

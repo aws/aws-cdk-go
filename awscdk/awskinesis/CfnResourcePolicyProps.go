@@ -21,7 +21,7 @@ type CfnResourcePolicyProps struct {
 	// Returns the Amazon Resource Name (ARN) of the resource-based policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-resourcepolicy.html#cfn-kinesis-resourcepolicy-resourcearn
 	//
-	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn interface{} `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// This is the description for the resource policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-resourcepolicy.html#cfn-kinesis-resourcepolicy-resourcepolicy
 	//

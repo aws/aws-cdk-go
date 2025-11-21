@@ -11,7 +11,7 @@ package awseks
 //   cfnNodegroupProps := &CfnNodegroupProps{
 //   	ClusterName: jsii.String("clusterName"),
 //   	NodeRole: jsii.String("nodeRole"),
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //
@@ -85,19 +85,19 @@ type CfnNodegroupProps struct {
 	// The name of your cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
 	//
-	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
+	ClusterName interface{} `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
 	//
 	// The Amazon EKS worker node `kubelet` daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API calls through an IAM instance profile and associated policies. Before you can launch nodes and register them into a cluster, you must create an IAM role for those nodes to use when they are launched. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html) in the **Amazon EKS User Guide** . If you specify `launchTemplate` , then don't specify `[IamInstanceProfile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html)` in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Customizing managed nodes with launch templates](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
 	//
-	NodeRole *string `field:"required" json:"nodeRole" yaml:"nodeRole"`
+	NodeRole interface{} `field:"required" json:"nodeRole" yaml:"nodeRole"`
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
 	// If you specify `launchTemplate` , then don't specify `[SubnetId](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html)` in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Customizing managed nodes with launch templates](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-subnets
 	//
-	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
+	Subnets *[]interface{} `field:"required" json:"subnets" yaml:"subnets"`
 	// The AMI type for your node group.
 	//
 	// If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `amiType` , or the node group deployment will fail. If your launch template uses a Windows custom AMI, then add `eks:kube-proxy-windows` to your Windows nodes `rolearn` in the `aws-auth` `ConfigMap` . For more information about using launch templates with Amazon EKS, see [Customizing managed nodes with launch templates](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .

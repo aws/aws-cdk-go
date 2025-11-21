@@ -698,6 +698,24 @@ func (j *jsiiProxy_CfnCommand)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCommand_ArnForCommand(resource interfacesawsiot.ICommandRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCommand_ArnForCommandParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCommand",
+		"arnForCommand",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICommandRef from an ARN.
 func CfnCommand_FromCommandArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.ICommandRef {
 	_init_.Initialize()

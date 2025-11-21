@@ -514,6 +514,24 @@ func (j *jsiiProxy_CfnConnectorDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
+func CfnConnectorDefinition_ArnForConnectorDefinition(resource interfacesawsgreengrass.IConnectorDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnectorDefinition_ArnForConnectorDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"arnForConnectorDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IConnectorDefinitionRef from an ARN.
 func CfnConnectorDefinition_FromConnectorDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.IConnectorDefinitionRef {
 	_init_.Initialize()

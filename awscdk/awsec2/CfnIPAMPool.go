@@ -868,6 +868,24 @@ func (j *jsiiProxy_CfnIPAMPool)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnIPAMPool_ArnForIPAMPool(resource interfacesawsec2.IIPAMPoolRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMPool_ArnForIPAMPoolParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMPool",
+		"arnForIPAMPool",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IIPAMPoolRef from an ARN.
 func CfnIPAMPool_FromIPAMPoolArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IIPAMPoolRef {
 	_init_.Initialize()

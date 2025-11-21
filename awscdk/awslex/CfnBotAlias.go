@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > Amazon Lex V2 is the only supported version in AWS CloudFormation .
+// > Amazon Lex V2 is the only supported version in CloudFormation .
 //
 // Specifies an alias for the specified version of a bot. Use an alias to enable you to change the version of a bot without updating applications that use the bot.
 //
@@ -638,6 +638,24 @@ func (j *jsiiProxy_CfnBotAlias)SetSentimentAnalysisSettings(val interface{}) {
 		"sentimentAnalysisSettings",
 		val,
 	)
+}
+
+func CfnBotAlias_ArnForBotAlias(resource interfacesawslex.IBotAliasRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBotAlias_ArnForBotAliasParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"arnForBotAlias",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

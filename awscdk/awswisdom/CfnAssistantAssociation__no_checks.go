@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAssistantAssociation) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnAssistantAssociation_ArnForAssistantAssociationParameters(resource interfacesawswisdom.IAssistantAssociationRef) error {
+	return nil
+}
+
 func validateCfnAssistantAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

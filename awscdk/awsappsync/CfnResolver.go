@@ -818,6 +818,24 @@ func (j *jsiiProxy_CfnResolver)SetTypeName(val *string) {
 	)
 }
 
+func CfnResolver_ArnForResolver(resource interfacesawsappsync.IResolverRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResolver_ArnForResolverParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appsync.CfnResolver",
+		"arnForResolver",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

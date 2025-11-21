@@ -13,7 +13,7 @@ import (
 
 // > AWS Chatbot is now  . [Learn more](https://docs.aws.amazon.com//chatbot/latest/adminguide/service-rename.html) >  > `Type` attribute values remain unchanged.
 //
-// The `AWS::Chatbot::MicrosoftTeamsChannelConfiguration` resource configures a Microsoft Teams channel to allow users to use  with AWS CloudFormation templates.
+// The `AWS::Chatbot::MicrosoftTeamsChannelConfiguration` resource configures a Microsoft Teams channel to allow users to use  with CloudFormation templates.
 //
 // This resource requires some setup to be done in the  in chat applications console. To provide the required Microsoft Teams team and tenant IDs, you must perform the initial authorization flow with Microsoft Teams in the  in chat applications console, then copy and paste the IDs from the console. For more details, see steps 1-3 in [Get started with Microsoft Teams](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup) in the *in chat applications Administrator Guide* .
 //
@@ -685,6 +685,24 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration)SetUserRoleRequired(val
 		"userRoleRequired",
 		val,
 	)
+}
+
+func CfnMicrosoftTeamsChannelConfiguration_ArnForMicrosoftTeamsChannelConfiguration(resource interfacesawschatbot.IMicrosoftTeamsChannelConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMicrosoftTeamsChannelConfiguration_ArnForMicrosoftTeamsChannelConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_chatbot.CfnMicrosoftTeamsChannelConfiguration",
+		"arnForMicrosoftTeamsChannelConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

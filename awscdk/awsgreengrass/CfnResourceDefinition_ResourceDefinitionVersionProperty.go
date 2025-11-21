@@ -1,11 +1,11 @@
 package awsgreengrass
 
 
-// A resource definition version contains a list of resources. (In AWS CloudFormation , resources are named *resource instances* .).
+// A resource definition version contains a list of resources. (In CloudFormation , resources are named *resource instances* .).
 //
 // > After you create a resource definition version that contains the resources you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
-// In an AWS CloudFormation template, `ResourceDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) resource.
+// In an CloudFormation template, `ResourceDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -72,7 +72,7 @@ type CfnImageProps struct {
 	// The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
 	//
-	DistributionConfigurationArn *string `field:"optional" json:"distributionConfigurationArn" yaml:"distributionConfigurationArn"`
+	DistributionConfigurationArn interface{} `field:"optional" json:"distributionConfigurationArn" yaml:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	//
 	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
@@ -90,7 +90,7 @@ type CfnImageProps struct {
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 	//
-	ImageRecipeArn *string `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
+	ImageRecipeArn interface{} `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
 	// Contains settings for vulnerability scans.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagescanningconfiguration
 	//
@@ -102,7 +102,7 @@ type CfnImageProps struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
 	//
-	InfrastructureConfigurationArn *string `field:"optional" json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
+	InfrastructureConfigurationArn interface{} `field:"optional" json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
 	// The logging configuration that's defined for the image.
 	//
 	// Image Builder uses the defined settings to direct execution log output during image creation.

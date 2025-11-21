@@ -19,10 +19,10 @@ type CfnTransitGatewayRouteTablePropagationProps struct {
 	// The ID of the attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html#cfn-ec2-transitgatewayroutetablepropagation-transitgatewayattachmentid
 	//
-	TransitGatewayAttachmentId *string `field:"required" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId interface{} `field:"required" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
 	// The ID of the propagation route table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html#cfn-ec2-transitgatewayroutetablepropagation-transitgatewayroutetableid
 	//
-	TransitGatewayRouteTableId *string `field:"required" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
+	TransitGatewayRouteTableId interface{} `field:"required" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
 }
 

@@ -27,6 +27,6 @@ type CfnAssessmentTargetProps struct {
 	// If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html#cfn-inspector-assessmenttarget-resourcegrouparn
 	//
-	ResourceGroupArn *string `field:"optional" json:"resourceGroupArn" yaml:"resourceGroupArn"`
+	ResourceGroupArn interface{} `field:"optional" json:"resourceGroupArn" yaml:"resourceGroupArn"`
 }
 

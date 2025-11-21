@@ -649,6 +649,24 @@ func (j *jsiiProxy_CfnAnnotationStore)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnAnnotationStore_ArnForAnnotationStore(resource interfacesawsomics.IAnnotationStoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAnnotationStore_ArnForAnnotationStoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnAnnotationStore",
+		"arnForAnnotationStore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAnnotationStoreRef from a annotationStoreName.
 func CfnAnnotationStore_FromAnnotationStoreName(scope constructs.Construct, id *string, annotationStoreName *string) interfacesawsomics.IAnnotationStoreRef {
 	_init_.Initialize()

@@ -806,6 +806,24 @@ func (j *jsiiProxy_CfnGatewayRoute)SetVirtualGatewayName(val *string) {
 	)
 }
 
+func CfnGatewayRoute_ArnForGatewayRoute(resource interfacesawsappmesh.IGatewayRouteRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGatewayRoute_ArnForGatewayRouteParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute",
+		"arnForGatewayRoute",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

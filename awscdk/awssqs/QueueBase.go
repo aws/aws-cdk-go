@@ -10,12 +10,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Reference to a new or existing Amazon SQS queue.
 type QueueBase interface {
 	awscdk.Resource
+	awsiam.IEncryptedResource
 	IQueue
 	// Controls automatic creation of policy objects.
 	//
@@ -39,6 +41,8 @@ type QueueBase interface {
 	//
 	// If false, this is a standard queue.
 	Fifo() *bool
+	// Collection of grant methods for a Queue.
+	Grants() QueueGrants
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -53,6 +57,8 @@ type QueueBase interface {
 	QueueArn() *string
 	// The name of this queue.
 	QueueName() *string
+	// A reference to a Queue resource.
+	QueueRef() *interfacesawssqs.QueueReference
 	// The URL of this queue.
 	QueueUrl() *string
 	// The stack in which this resource is defined.
@@ -105,6 +111,8 @@ type QueueBase interface {
 	//
 	// - kms:Decrypt.
 	GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant
+	// Gives permissions to a grantable entity to perform actions on the encryption key.
+	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
 	// Grant an IAM principal permissions to purge all messages from the queue.
 	//
 	// This will grant the following permissions:
@@ -175,6 +183,7 @@ type QueueBase interface {
 // The jsii proxy struct for QueueBase
 type jsiiProxy_QueueBase struct {
 	internal.Type__awscdkResource
+	internal.Type__awsiamIEncryptedResource
 	jsiiProxy_IQueue
 }
 
@@ -228,6 +237,16 @@ func (j *jsiiProxy_QueueBase) Fifo() *bool {
 	return returns
 }
 
+func (j *jsiiProxy_QueueBase) Grants() QueueGrants {
+	var returns QueueGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_QueueBase) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -263,6 +282,16 @@ func (j *jsiiProxy_QueueBase) QueueName() *string {
 	_jsii_.Get(
 		j,
 		"queueName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_QueueBase) QueueRef() *interfacesawssqs.QueueReference {
+	var returns *interfacesawssqs.QueueReference
+	_jsii_.Get(
+		j,
+		"queueRef",
 		&returns,
 	)
 	return returns
@@ -475,6 +504,27 @@ func (q *jsiiProxy_QueueBase) GrantConsumeMessages(grantee awsiam.IGrantable) aw
 		q,
 		"grantConsumeMessages",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (q *jsiiProxy_QueueBase) GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult {
+	if err := q.validateGrantOnKeyParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns *awsiam.GrantOnKeyResult
+
+	_jsii_.Invoke(
+		q,
+		"grantOnKey",
+		args,
 		&returns,
 	)
 

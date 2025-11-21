@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnKnowledgeBase) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnKnowledgeBase_ArnForKnowledgeBaseParameters(resource interfacesawsbedrock.IKnowledgeBaseRef) error {
+	return nil
+}
+
 func validateCfnKnowledgeBase_FromKnowledgeBaseArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

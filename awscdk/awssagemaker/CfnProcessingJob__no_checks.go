@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnProcessingJob) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnProcessingJob_ArnForProcessingJobParameters(resource interfacesawssagemaker.IProcessingJobRef) error {
+	return nil
+}
+
 func validateCfnProcessingJob_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

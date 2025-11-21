@@ -695,6 +695,24 @@ func (j *jsiiProxy_CfnQuickResponse)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnQuickResponse_ArnForQuickResponse(resource interfacesawswisdom.IQuickResponseRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnQuickResponse_ArnForQuickResponseParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnQuickResponse",
+		"arnForQuickResponse",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

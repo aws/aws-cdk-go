@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeployment) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnDeployment_ArnForDeploymentParameters(resource interfacesawslaunchwizard.IDeploymentRef) error {
+	return nil
+}
+
 func validateCfnDeployment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

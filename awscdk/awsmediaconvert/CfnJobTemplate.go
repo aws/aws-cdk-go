@@ -13,7 +13,7 @@ import (
 
 // The AWS::MediaConvert::JobTemplate resource is an AWS Elemental MediaConvert resource type that you can use to generate transcoding jobs.
 //
-// When you declare this entity in your AWS CloudFormation template, you pass in your transcoding job settings in JSON or YAML format. This settings specification must be formed in a particular way that conforms to AWS Elemental MediaConvert job validation. For more information about creating a job template model for the `SettingsJson` property, see the Remarks section later in this topic.
+// When you declare this entity in your CloudFormation template, you pass in your transcoding job settings in JSON or YAML format. This settings specification must be formed in a particular way that conforms to AWS Elemental MediaConvert job validation. For more information about creating a job template model for the `SettingsJson` property, see the Remarks section later in this topic.
 //
 // For information about job templates, see [Working with AWS Elemental MediaConvert Job Templates](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-job-templates.html) in the ** .
 //
@@ -650,6 +650,24 @@ func (j *jsiiProxy_CfnJobTemplate)SetTagsRaw(val interface{}) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnJobTemplate_ArnForJobTemplate(resource interfacesawsmediaconvert.IJobTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnJobTemplate_ArnForJobTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"arnForJobTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

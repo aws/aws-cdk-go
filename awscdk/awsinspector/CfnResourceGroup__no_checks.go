@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResourceGroup) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnResourceGroup_ArnForResourceGroupParameters(resource interfacesawsinspector.IResourceGroupRef) error {
+	return nil
+}
+
 func validateCfnResourceGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

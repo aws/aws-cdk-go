@@ -534,6 +534,24 @@ func (j *jsiiProxy_CfnGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnGateway_ArnForGateway(resource interfacesawsiotsitewise.IGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGateway_ArnForGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnGateway",
+		"arnForGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IGatewayRef from a gatewayId.
 func CfnGateway_FromGatewayId(scope constructs.Construct, id *string, gatewayId *string) interfacesawsiotsitewise.IGatewayRef {
 	_init_.Initialize()

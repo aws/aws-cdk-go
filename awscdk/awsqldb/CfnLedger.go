@@ -58,7 +58,7 @@ type CfnLedger interface {
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
 	Env() *interfaces.ResourceEnvironment
-	// The key in AWS Key Management Service ( AWS KMS ) to use for encryption of data at rest in the ledger.
+	// The key in AWS Key Management Service ( AWS  ) to use for encryption of data at rest in the ledger.
 	KmsKey() *string
 	SetKmsKey(val *string)
 	// A reference to a Ledger resource.

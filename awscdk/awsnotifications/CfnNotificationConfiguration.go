@@ -511,6 +511,24 @@ func (j *jsiiProxy_CfnNotificationConfiguration)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnNotificationConfiguration_ArnForNotificationConfiguration(resource interfacesawsnotifications.INotificationConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNotificationConfiguration_ArnForNotificationConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notifications.CfnNotificationConfiguration",
+		"arnForNotificationConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

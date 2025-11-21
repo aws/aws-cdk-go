@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnHubV2) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnHubV2_ArnForHubV2Parameters(resource interfacesawssecurityhub.IHubV2Ref) error {
+	return nil
+}
+
 func validateCfnHubV2_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

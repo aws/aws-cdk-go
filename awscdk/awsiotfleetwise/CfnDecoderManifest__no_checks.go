@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDecoderManifest) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDecoderManifest_ArnForDecoderManifestParameters(resource interfacesawsiotfleetwise.IDecoderManifestRef) error {
+	return nil
+}
+
 func validateCfnDecoderManifest_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

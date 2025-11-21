@@ -553,6 +553,24 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfig)SetTags(val *[]*awscdk.CfnTag) 
 	)
 }
 
+func CfnResolverQueryLoggingConfig_ArnForResolverQueryLoggingConfig(resource interfacesawsroute53resolver.IResolverQueryLoggingConfigRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResolverQueryLoggingConfig_ArnForResolverQueryLoggingConfigParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfig",
+		"arnForResolverQueryLoggingConfig",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -15,6 +16,7 @@ import (
 type IStateMachine interface {
 	awsiam.IGrantable
 	awscdk.IResource
+	interfacesawsstepfunctions.IStateMachineRef
 	// Grant the given identity custom permissions.
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions for all executions of a state machine.
@@ -69,6 +71,7 @@ type IStateMachine interface {
 type jsiiProxy_IStateMachine struct {
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawsstepfunctionsIStateMachineRef
 }
 
 func (i *jsiiProxy_IStateMachine) Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant {
@@ -377,6 +380,16 @@ func (j *jsiiProxy_IStateMachine) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStateMachine) StateMachineRef() *interfacesawsstepfunctions.StateMachineReference {
+	var returns *interfacesawsstepfunctions.StateMachineReference
+	_jsii_.Get(
+		j,
+		"stateMachineRef",
 		&returns,
 	)
 	return returns

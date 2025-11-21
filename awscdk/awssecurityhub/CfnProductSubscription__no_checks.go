@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnProductSubscription) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnProductSubscription_ArnForProductSubscriptionParameters(resource interfacesawssecurityhub.IProductSubscriptionRef) error {
+	return nil
+}
+
 func validateCfnProductSubscription_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGraphQLApi) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnGraphQLApi_ArnForGraphQLApiParameters(resource interfacesawsappsync.IGraphQLApiRef) error {
+	return nil
+}
+
 func validateCfnGraphQLApi_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

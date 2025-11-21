@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSourceLocation) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnSourceLocation_ArnForSourceLocationParameters(resource interfacesawsmediatailor.ISourceLocationRef) error {
+	return nil
+}
+
 func validateCfnSourceLocation_FromSourceLocationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

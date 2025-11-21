@@ -214,7 +214,7 @@ type CfnScalingPolicyProps struct {
 	// The name of the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-autoscalinggroupname
 	//
-	AutoScalingGroupName *string `field:"required" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
+	AutoScalingGroupName interface{} `field:"required" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage).
 	//
 	// The valid values are `ChangeInCapacity` , `ExactCapacity` , and `PercentChangeInCapacity` .

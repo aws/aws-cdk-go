@@ -1354,10 +1354,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayArn", GoGetter: "VirtualGatewayArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayName", GoGetter: "VirtualGatewayName"},
+			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayRef", GoGetter: "VirtualGatewayRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualGateway{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIVirtualGatewayRef)
 			return &j
 		},
 	)
@@ -1699,6 +1701,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamAggregatedResources", GoMethod: "GrantStreamAggregatedResources"},
 			_jsii_.MemberProperty{JsiiProperty: "listeners", GoGetter: "Listeners"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
@@ -1708,6 +1711,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayArn", GoGetter: "VirtualGatewayArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayName", GoGetter: "VirtualGatewayName"},
+			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayRef", GoGetter: "VirtualGatewayRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VirtualGateway{}
@@ -1723,6 +1727,17 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appmesh.VirtualGatewayBaseProps",
 		reflect.TypeOf((*VirtualGatewayBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appmesh.VirtualGatewayGrants",
+		reflect.TypeOf((*VirtualGatewayGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "streamAggregatedResources", GoMethod: "StreamAggregatedResources"},
+		},
+		func() interface{} {
+			return &jsiiProxy_VirtualGatewayGrants{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.VirtualGatewayListener",
@@ -1776,6 +1791,17 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appmesh.VirtualNodeBaseProps",
 		reflect.TypeOf((*VirtualNodeBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appmesh.VirtualNodeGrants",
+		reflect.TypeOf((*VirtualNodeGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "streamAggregatedResources", GoMethod: "StreamAggregatedResources"},
+		},
+		func() interface{} {
+			return &jsiiProxy_VirtualNodeGrants{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.VirtualNodeListener",

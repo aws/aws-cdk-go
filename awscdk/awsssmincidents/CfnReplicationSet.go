@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SSMIncidents::ReplicationSet` resource specifies a set of AWS Regions that Incident Manager data is replicated to and the AWS Key Management Service ( AWS KMS key used to encrypt the data.
+// The `AWS::SSMIncidents::ReplicationSet` resource specifies a set of AWS Regions that Incident Manager data is replicated to and the AWS Key Management Service ( AWS  key used to encrypt the data.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -470,6 +470,24 @@ func (j *jsiiProxy_CfnReplicationSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnReplicationSet_ArnForReplicationSet(resource interfacesawsssmincidents.IReplicationSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnReplicationSet_ArnForReplicationSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmincidents.CfnReplicationSet",
+		"arnForReplicationSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

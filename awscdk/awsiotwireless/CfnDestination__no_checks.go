@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDestination) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnDestination_ArnForDestinationParameters(resource interfacesawsiotwireless.IDestinationRef) error {
+	return nil
+}
+
 func validateCfnDestination_FromDestinationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

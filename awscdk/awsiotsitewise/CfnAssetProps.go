@@ -54,7 +54,7 @@ type CfnAssetProps struct {
 	// This can be either the actual ID in UUID format, or else `externalId:` followed by the external ID, if it has one. For more information, see [Referencing objects with external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references) in the *AWS IoT SiteWise User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
 	//
-	AssetModelId *string `field:"required" json:"assetModelId" yaml:"assetModelId"`
+	AssetModelId interface{} `field:"required" json:"assetModelId" yaml:"assetModelId"`
 	// A friendly name for the asset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
 	//

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSubnet) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnSubnet_ArnForSubnetParameters(resource interfacesawsec2.ISubnetRef) error {
+	return nil
+}
+
 func validateCfnSubnet_FromSubnetIdParameters(scope constructs.Construct, id *string, subnetId *string) error {
 	return nil
 }

@@ -13,7 +13,7 @@ import (
 //
 //   cfnVpcLinkProps := &CfnVpcLinkProps{
 //   	Name: jsii.String("name"),
-//   	TargetArns: []*string{
+//   	TargetArns: []interface{}{
 //   		jsii.String("targetArns"),
 //   	},
 //
@@ -39,7 +39,7 @@ type CfnVpcLinkProps struct {
 	// The network load balancer must be owned by the same AWS account of the API owner.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html#cfn-apigateway-vpclink-targetarns
 	//
-	TargetArns *[]*string `field:"required" json:"targetArns" yaml:"targetArns"`
+	TargetArns *[]interface{} `field:"required" json:"targetArns" yaml:"targetArns"`
 	// The description of the VPC link.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html#cfn-apigateway-vpclink-description
 	//

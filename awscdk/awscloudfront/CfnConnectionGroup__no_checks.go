@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConnectionGroup) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnConnectionGroup_ArnForConnectionGroupParameters(resource interfacesawscloudfront.IConnectionGroupRef) error {
+	return nil
+}
+
 func validateCfnConnectionGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

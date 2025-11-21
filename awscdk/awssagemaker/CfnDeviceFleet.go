@@ -507,6 +507,24 @@ func (j *jsiiProxy_CfnDeviceFleet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDeviceFleet_ArnForDeviceFleet(resource interfacesawssagemaker.IDeviceFleetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDeviceFleet_ArnForDeviceFleetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnDeviceFleet",
+		"arnForDeviceFleet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDeviceFleetRef from a deviceFleetName.
 func CfnDeviceFleet_FromDeviceFleetName(scope constructs.Construct, id *string, deviceFleetName *string) interfacesawssagemaker.IDeviceFleetRef {
 	_init_.Initialize()

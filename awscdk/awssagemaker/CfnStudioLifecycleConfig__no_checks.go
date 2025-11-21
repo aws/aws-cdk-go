@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStudioLifecycleConfig) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnStudioLifecycleConfig_ArnForStudioLifecycleConfigParameters(resource interfacesawssagemaker.IStudioLifecycleConfigRef) error {
+	return nil
+}
+
 func validateCfnStudioLifecycleConfig_FromStudioLifecycleConfigArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

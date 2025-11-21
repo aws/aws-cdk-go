@@ -25,7 +25,7 @@ package awsssmguiconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmguiconnect-preferences-connectionrecordingpreferences.html
 //
 type CfnPreferences_ConnectionRecordingPreferencesProperty struct {
-	// The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service.
+	// The ARN of a AWS  key that is used to encrypt data while it is being processed by the service.
 	//
 	// This key must exist in the same AWS Region as the node you start an RDP connection to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmguiconnect-preferences-connectionrecordingpreferences.html#cfn-ssmguiconnect-preferences-connectionrecordingpreferences-kmskeyarn

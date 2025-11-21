@@ -65,7 +65,7 @@ type CfnStream interface {
 	DeviceName() *string
 	SetDeviceName(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// The ID of the AWS Key Management Service ( AWS KMS ) key that Kinesis Video Streams uses to encrypt data on the stream.
+	// The ID of the AWS Key Management Service ( AWS  ) key that Kinesis Video Streams uses to encrypt data on the stream.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -529,6 +529,24 @@ func (j *jsiiProxy_CfnStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnStream_ArnForStream(resource interfacesawskinesisvideo.IStreamRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStream_ArnForStreamParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesisvideo.CfnStream",
+		"arnForStream",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

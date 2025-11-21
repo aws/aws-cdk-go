@@ -26,7 +26,7 @@ import (
 //   	EngineSecurityGroupId: jsii.String("engineSecurityGroupId"),
 //   	Name: jsii.String("name"),
 //   	ServiceRole: jsii.String("serviceRole"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	VpcId: jsii.String("vpcId"),
@@ -86,7 +86,7 @@ type CfnStudio interface {
 	// A detailed description of the Amazon EMR Studio.
 	Description() *string
 	SetDescription(val *string)
-	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+	// The AWS  key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
 	// The ID of the Amazon EMR Studio Engine security group.
@@ -826,6 +826,24 @@ func (j *jsiiProxy_CfnStudio)SetWorkspaceSecurityGroupId(val *string) {
 		"workspaceSecurityGroupId",
 		val,
 	)
+}
+
+func CfnStudio_ArnForStudio(resource interfacesawsemr.IStudioRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStudio_ArnForStudioParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emr.CfnStudio",
+		"arnForStudio",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IStudioRef from an ARN.

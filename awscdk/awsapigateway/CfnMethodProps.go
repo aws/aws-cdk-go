@@ -93,11 +93,11 @@ type CfnMethodProps struct {
 	// The Resource identifier for the MethodResponse resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid
 	//
-	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
+	ResourceId interface{} `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid
 	//
-	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"required" json:"restApiId" yaml:"restApiId"`
 	// A boolean flag specifying whether a valid ApiKey is required to invoke this method.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-apikeyrequired
 	//
@@ -121,7 +121,7 @@ type CfnMethodProps struct {
 	// The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizerid
 	//
-	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId interface{} `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 	// Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-integration
 	//
@@ -149,6 +149,6 @@ type CfnMethodProps struct {
 	// The identifier of a RequestValidator for request validation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestvalidatorid
 	//
-	RequestValidatorId *string `field:"optional" json:"requestValidatorId" yaml:"requestValidatorId"`
+	RequestValidatorId interface{} `field:"optional" json:"requestValidatorId" yaml:"requestValidatorId"`
 }
 

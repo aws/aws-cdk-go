@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRefreshSchedule) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnRefreshSchedule_ArnForRefreshScheduleParameters(resource interfacesawsquicksight.IRefreshScheduleRef) error {
+	return nil
+}
+
 func validateCfnRefreshSchedule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

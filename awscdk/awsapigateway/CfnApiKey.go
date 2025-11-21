@@ -585,6 +585,24 @@ func (j *jsiiProxy_CfnApiKey)SetValue(val *string) {
 	)
 }
 
+func CfnApiKey_ArnForApiKey(resource interfacesawsapigateway.IApiKeyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApiKey_ArnForApiKeyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnApiKey",
+		"arnForApiKey",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IApiKeyRef from a apiKeyId.
 func CfnApiKey_FromApiKeyId(scope constructs.Construct, id *string, apiKeyId *string) interfacesawsapigateway.IApiKeyRef {
 	_init_.Initialize()

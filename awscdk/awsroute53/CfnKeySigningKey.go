@@ -46,7 +46,7 @@ type CfnKeySigningKey interface {
 	// The unique string (ID) that is used to identify a hosted zone.
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
-	// The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service ( AWS KMS ).
+	// The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service ( AWS  ).
 	KeyManagementServiceArn() *string
 	SetKeyManagementServiceArn(val *string)
 	// A reference to a KeySigningKey resource.

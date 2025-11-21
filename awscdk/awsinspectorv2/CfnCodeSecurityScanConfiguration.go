@@ -518,6 +518,24 @@ func (j *jsiiProxy_CfnCodeSecurityScanConfiguration)SetTags(val *map[string]*str
 	)
 }
 
+func CfnCodeSecurityScanConfiguration_ArnForCodeSecurityScanConfiguration(resource interfacesawsinspectorv2.ICodeSecurityScanConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCodeSecurityScanConfiguration_ArnForCodeSecurityScanConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_inspectorv2.CfnCodeSecurityScanConfiguration",
+		"arnForCodeSecurityScanConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

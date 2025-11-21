@@ -33,7 +33,7 @@ type CfnFirewallRuleGroupAssociationProps struct {
 	// The unique identifier of the firewall rule group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
 	//
-	FirewallRuleGroupId *string `field:"required" json:"firewallRuleGroupId" yaml:"firewallRuleGroupId"`
+	FirewallRuleGroupId interface{} `field:"required" json:"firewallRuleGroupId" yaml:"firewallRuleGroupId"`
 	// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
 	//
 	// DNS Firewall filters VPC traffic starting from rule group with the lowest numeric priority setting.
@@ -47,7 +47,7 @@ type CfnFirewallRuleGroupAssociationProps struct {
 	// The unique identifier of the VPC that is associated with the rule group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
 	//
-	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"required" json:"vpcId" yaml:"vpcId"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
 	//

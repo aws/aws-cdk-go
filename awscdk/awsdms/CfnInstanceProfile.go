@@ -75,7 +75,7 @@ type CfnInstanceProfile interface {
 	SetInstanceProfileName(val *string)
 	// A reference to a InstanceProfile resource.
 	InstanceProfileRef() *interfacesawsdms.InstanceProfileReference
-	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the connection parameters for the instance profile.
+	// The Amazon Resource Name (ARN) of the AWS  key that is used to encrypt the connection parameters for the instance profile.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -626,6 +626,24 @@ func (j *jsiiProxy_CfnInstanceProfile)SetVpcSecurityGroups(val *[]*string) {
 		"vpcSecurityGroups",
 		val,
 	)
+}
+
+func CfnInstanceProfile_ArnForInstanceProfile(resource interfacesawsdms.IInstanceProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceProfile_ArnForInstanceProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dms.CfnInstanceProfile",
+		"arnForInstanceProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

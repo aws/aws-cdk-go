@@ -512,6 +512,24 @@ func (j *jsiiProxy_CfnPlaybackRestrictionPolicy)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPlaybackRestrictionPolicy_ArnForPlaybackRestrictionPolicy(resource interfacesawsivs.IPlaybackRestrictionPolicyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPlaybackRestrictionPolicy_ArnForPlaybackRestrictionPolicyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnPlaybackRestrictionPolicy",
+		"arnForPlaybackRestrictionPolicy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

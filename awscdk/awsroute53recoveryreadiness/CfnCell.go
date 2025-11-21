@@ -481,6 +481,24 @@ func (j *jsiiProxy_CfnCell)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCell_ArnForCell(resource interfacesawsroute53recoveryreadiness.ICellRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCell_ArnForCellParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
+		"arnForCell",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICellRef from an ARN.
 func CfnCell_FromCellArn(scope constructs.Construct, id *string, arn *string) interfacesawsroute53recoveryreadiness.ICellRef {
 	_init_.Initialize()

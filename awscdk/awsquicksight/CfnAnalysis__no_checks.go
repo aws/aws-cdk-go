@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAnalysis) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnAnalysis_ArnForAnalysisParameters(resource interfacesawsquicksight.IAnalysisRef) error {
+	return nil
+}
+
 func validateCfnAnalysis_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

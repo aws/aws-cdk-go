@@ -629,6 +629,24 @@ func (j *jsiiProxy_CfnResolverRule)SetTargetIps(val interface{}) {
 	)
 }
 
+func CfnResolverRule_ArnForResolverRule(resource interfacesawsroute53resolver.IResolverRuleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResolverRule_ArnForResolverRuleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
+		"arnForResolverRule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

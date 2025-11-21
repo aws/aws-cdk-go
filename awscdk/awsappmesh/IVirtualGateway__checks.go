@@ -7,6 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
@@ -28,6 +29,14 @@ func (i *jsiiProxy_IVirtualGateway) validateAddGatewayRouteParameters(id *string
 func (i *jsiiProxy_IVirtualGateway) validateGrantStreamAggregatedResourcesParameters(identity awsiam.IGrantable) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IVirtualGateway) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	if policy == "" {
+		return fmt.Errorf("parameter policy is required, but nil was provided")
 	}
 
 	return nil

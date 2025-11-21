@@ -34,13 +34,13 @@ type CfnRouteProps struct {
 	// The ID of the route table for the route.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-routetableid
 	//
-	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId interface{} `field:"required" json:"routeTableId" yaml:"routeTableId"`
 	// The ID of the carrier gateway.
 	//
 	// You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
 	//
-	CarrierGatewayId *string `field:"optional" json:"carrierGatewayId" yaml:"carrierGatewayId"`
+	CarrierGatewayId interface{} `field:"optional" json:"carrierGatewayId" yaml:"carrierGatewayId"`
 	// The Amazon Resource Name (ARN) of the core network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-corenetworkarn
 	//
@@ -64,17 +64,17 @@ type CfnRouteProps struct {
 	// [IPv6 traffic only] The ID of an egress-only internet gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid
 	//
-	EgressOnlyInternetGatewayId *string `field:"optional" json:"egressOnlyInternetGatewayId" yaml:"egressOnlyInternetGatewayId"`
+	EgressOnlyInternetGatewayId interface{} `field:"optional" json:"egressOnlyInternetGatewayId" yaml:"egressOnlyInternetGatewayId"`
 	// The ID of an internet gateway or virtual private gateway attached to your VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-gatewayid
 	//
-	GatewayId *string `field:"optional" json:"gatewayId" yaml:"gatewayId"`
+	GatewayId interface{} `field:"optional" json:"gatewayId" yaml:"gatewayId"`
 	// The ID of a NAT instance in your VPC.
 	//
 	// The operation fails if you specify an instance ID unless exactly one network interface is attached.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-instanceid
 	//
-	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	InstanceId interface{} `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// The ID of the local gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-localgatewayid
 	//
@@ -82,7 +82,7 @@ type CfnRouteProps struct {
 	// [IPv4 traffic only] The ID of a NAT gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid
 	//
-	NatGatewayId *string `field:"optional" json:"natGatewayId" yaml:"natGatewayId"`
+	NatGatewayId interface{} `field:"optional" json:"natGatewayId" yaml:"natGatewayId"`
 	// The ID of a network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid
 	//
@@ -90,7 +90,7 @@ type CfnRouteProps struct {
 	// The ID of a transit gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid
 	//
-	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId interface{} `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of a VPC endpoint.
 	//
 	// Supported for Gateway Load Balancer endpoints only.
@@ -100,6 +100,6 @@ type CfnRouteProps struct {
 	// The ID of a VPC peering connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid
 	//
-	VpcPeeringConnectionId *string `field:"optional" json:"vpcPeeringConnectionId" yaml:"vpcPeeringConnectionId"`
+	VpcPeeringConnectionId interface{} `field:"optional" json:"vpcPeeringConnectionId" yaml:"vpcPeeringConnectionId"`
 }
 

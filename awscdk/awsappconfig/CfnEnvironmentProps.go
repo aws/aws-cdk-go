@@ -38,7 +38,7 @@ type CfnEnvironmentProps struct {
 	// The application ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-applicationid
 	//
-	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
+	ApplicationId interface{} `field:"required" json:"applicationId" yaml:"applicationId"`
 	// A name for the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-name
 	//

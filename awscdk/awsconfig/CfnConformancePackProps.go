@@ -41,7 +41,7 @@ type CfnConformancePackProps struct {
 	// The name of the Amazon S3 bucket where AWS Config stores conformance pack templates.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
 	//
-	DeliveryS3Bucket *string `field:"optional" json:"deliveryS3Bucket" yaml:"deliveryS3Bucket"`
+	DeliveryS3Bucket interface{} `field:"optional" json:"deliveryS3Bucket" yaml:"deliveryS3Bucket"`
 	// The prefix for the Amazon S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
 	//

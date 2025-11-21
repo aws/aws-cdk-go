@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPolicyStore) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnPolicyStore_ArnForPolicyStoreParameters(resource interfacesawsverifiedpermissions.IPolicyStoreRef) error {
+	return nil
+}
+
 func validateCfnPolicyStore_FromPolicyStoreArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

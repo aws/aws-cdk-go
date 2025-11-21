@@ -42,7 +42,7 @@ type CfnIdentityPoolRoleAttachmentProps struct {
 	// An identity pool ID in the format `REGION:GUID` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-identitypoolid
 	//
-	IdentityPoolId *string `field:"required" json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId interface{} `field:"required" json:"identityPoolId" yaml:"identityPoolId"`
 	// How users for a specific identity provider are mapped to roles.
 	//
 	// This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLicense) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnLicense_ArnForLicenseParameters(resource interfacesawslicensemanager.ILicenseRef) error {
+	return nil
+}
+
 func validateCfnLicense_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

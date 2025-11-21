@@ -20,7 +20,7 @@ type CfnUsagePlanKeyProps struct {
 	// The Id of the UsagePlanKey resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
 	//
-	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
+	KeyId interface{} `field:"required" json:"keyId" yaml:"keyId"`
 	// The type of a UsagePlanKey resource for a plan customer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
 	//
@@ -28,6 +28,6 @@ type CfnUsagePlanKeyProps struct {
 	// The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
 	//
-	UsagePlanId *string `field:"required" json:"usagePlanId" yaml:"usagePlanId"`
+	UsagePlanId interface{} `field:"required" json:"usagePlanId" yaml:"usagePlanId"`
 }
 

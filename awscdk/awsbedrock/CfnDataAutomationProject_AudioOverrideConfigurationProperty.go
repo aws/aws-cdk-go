@@ -9,6 +9,13 @@ package awsbedrock
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   audioOverrideConfigurationProperty := &AudioOverrideConfigurationProperty{
+//   	LanguageConfiguration: &AudioLanguageConfigurationProperty{
+//   		GenerativeOutputLanguage: jsii.String("generativeOutputLanguage"),
+//   		IdentifyMultipleLanguages: jsii.Boolean(false),
+//   		InputLanguages: []*string{
+//   			jsii.String("inputLanguages"),
+//   		},
+//   	},
 //   	ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   		State: jsii.String("state"),
 //   	},
@@ -17,6 +24,9 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html
 //
 type CfnDataAutomationProject_AudioOverrideConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html#cfn-bedrock-dataautomationproject-audiooverrideconfiguration-languageconfiguration
+	//
+	LanguageConfiguration interface{} `field:"optional" json:"languageConfiguration" yaml:"languageConfiguration"`
 	// Sets modality processing for audio files.
 	//
 	// All modalities are enabled by default.

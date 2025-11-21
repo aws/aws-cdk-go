@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVerifiedAccessTrustProvider) validateValidatePropertiesPar
 	return nil
 }
 
+func validateCfnVerifiedAccessTrustProvider_ArnForVerifiedAccessTrustProviderParameters(resource interfacesawsec2.IVerifiedAccessTrustProviderRef) error {
+	return nil
+}
+
 func validateCfnVerifiedAccessTrustProvider_FromVerifiedAccessTrustProviderIdParameters(scope constructs.Construct, id *string, verifiedAccessTrustProviderId *string) error {
 	return nil
 }

@@ -624,6 +624,24 @@ func (j *jsiiProxy_CfnCertificateAuthority)SetUsageMode(val *string) {
 	)
 }
 
+func CfnCertificateAuthority_ArnForCertificateAuthority(resource interfacesawsacmpca.ICertificateAuthorityRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCertificateAuthority_ArnForCertificateAuthorityParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"arnForCertificateAuthority",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

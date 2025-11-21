@@ -34,6 +34,7 @@ import (
 //   	BackupVaultTags: map[string]*string{
 //   		"backupVaultTagsKey": jsii.String("backupVaultTags"),
 //   	},
+//   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
 //   	MpaApprovalTeamArn: jsii.String("mpaApprovalTeamArn"),
 //   	Notifications: &NotificationObjectTypeProperty{
 //   		BackupVaultEvents: []*string{
@@ -55,8 +56,6 @@ type CfnLogicallyAirGappedBackupVault interface {
 	SetAccessPolicy(val interface{})
 	// The ARN of the backup vault.
 	AttrBackupVaultArn() *string
-	// The ARN of the server-side encryption key.
-	AttrEncryptionKeyArn() *string
 	// The vault state.
 	//
 	// The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
@@ -82,6 +81,9 @@ type CfnLogicallyAirGappedBackupVault interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The server-side encryption key that is used to protect your backups;.
+	EncryptionKeyArn() *string
+	SetEncryptionKeyArn(val *string)
 	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -285,16 +287,6 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) AttrBackupVaultArn() *strin
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) AttrEncryptionKeyArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrEncryptionKeyArn",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) AttrVaultState() *string {
 	var returns *string
 	_jsii_.Get(
@@ -380,6 +372,16 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) CreationStack() *[]*string 
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) EncryptionKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"encryptionKeyArn",
 		&returns,
 	)
 	return returns
@@ -562,6 +564,14 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetBackupVaultTags(val *map[
 	)
 }
 
+func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetEncryptionKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"encryptionKeyArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetMaxRetentionDays(val *float64) {
 	if err := j.validateSetMaxRetentionDaysParameters(val); err != nil {
 		panic(err)
@@ -601,6 +611,24 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetNotifications(val interfa
 		"notifications",
 		val,
 	)
+}
+
+func CfnLogicallyAirGappedBackupVault_ArnForLogicallyAirGappedBackupVault(resource interfacesawsbackup.ILogicallyAirGappedBackupVaultRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLogicallyAirGappedBackupVault_ArnForLogicallyAirGappedBackupVaultParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnLogicallyAirGappedBackupVault",
+		"arnForLogicallyAirGappedBackupVault",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ILogicallyAirGappedBackupVaultRef from a backupVaultName.

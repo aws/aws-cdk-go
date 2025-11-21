@@ -32,7 +32,7 @@ type CfnPromptProps struct {
 	// The identifier of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.html#cfn-connect-prompt-instancearn
 	//
-	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the prompt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.html#cfn-connect-prompt-name
 	//

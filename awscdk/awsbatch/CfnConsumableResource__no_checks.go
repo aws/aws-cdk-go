@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConsumableResource) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnConsumableResource_ArnForConsumableResourceParameters(resource interfacesawsbatch.IConsumableResourceRef) error {
+	return nil
+}
+
 func validateCfnConsumableResource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

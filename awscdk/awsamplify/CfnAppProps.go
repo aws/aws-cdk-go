@@ -154,7 +154,7 @@ type CfnAppProps struct {
 	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
 	//
-	IamServiceRole *string `field:"optional" json:"iamServiceRole" yaml:"iamServiceRole"`
+	IamServiceRole interface{} `field:"optional" json:"iamServiceRole" yaml:"iamServiceRole"`
 	// The configuration details that apply to the jobs for an Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-jobconfig
 	//

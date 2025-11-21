@@ -87,7 +87,7 @@ import (
 //   			RoleArn: jsii.String("roleArn"),
 //   		},
 //   	},
-//   	LoadBalancerNames: []*string{
+//   	LoadBalancerNames: []interface{}{
 //   		jsii.String("loadBalancerNames"),
 //   	},
 //   	MaxInstanceLifetime: jsii.Number(123),
@@ -246,7 +246,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	TargetGroupArns: []*string{
+//   	TargetGroupArns: []interface{}{
 //   		jsii.String("targetGroupArns"),
 //   	},
 //   	TerminationPolicies: []*string{
@@ -258,7 +258,7 @@ import (
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
-//   	VpcZoneIdentifier: []*string{
+//   	VpcZoneIdentifier: []interface{}{
 //   		jsii.String("vpcZoneIdentifier"),
 //   	},
 //   })

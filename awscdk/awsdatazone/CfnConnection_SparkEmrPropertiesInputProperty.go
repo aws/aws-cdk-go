@@ -13,6 +13,7 @@ package awsdatazone
 //   	InstanceProfileArn: jsii.String("instanceProfileArn"),
 //   	JavaVirtualEnv: jsii.String("javaVirtualEnv"),
 //   	LogUri: jsii.String("logUri"),
+//   	ManagedEndpointArn: jsii.String("managedEndpointArn"),
 //   	PythonVirtualEnv: jsii.String("pythonVirtualEnv"),
 //   	RuntimeRole: jsii.String("runtimeRole"),
 //   	TrustedCertificatesS3Uri: jsii.String("trustedCertificatesS3Uri"),
@@ -37,6 +38,9 @@ type CfnConnection_SparkEmrPropertiesInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-loguri
 	//
 	LogUri *string `field:"optional" json:"logUri" yaml:"logUri"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-managedendpointarn
+	//
+	ManagedEndpointArn *string `field:"optional" json:"managedEndpointArn" yaml:"managedEndpointArn"`
 	// The Python virtual env of the Spark EMR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-pythonvirtualenv
 	//

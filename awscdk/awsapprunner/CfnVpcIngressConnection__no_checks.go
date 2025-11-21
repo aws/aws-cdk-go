@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVpcIngressConnection) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnVpcIngressConnection_ArnForVpcIngressConnectionParameters(resource interfacesawsapprunner.IVpcIngressConnectionRef) error {
+	return nil
+}
+
 func validateCfnVpcIngressConnection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

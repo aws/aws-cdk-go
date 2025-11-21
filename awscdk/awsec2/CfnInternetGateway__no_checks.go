@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInternetGateway) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnInternetGateway_ArnForInternetGatewayParameters(resource interfacesawsec2.IInternetGatewayRef) error {
+	return nil
+}
+
 func validateCfnInternetGateway_FromInternetGatewayIdParameters(scope constructs.Construct, id *string, internetGatewayId *string) error {
 	return nil
 }

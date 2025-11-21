@@ -22,7 +22,7 @@ type CfnIdMappingWorkflow_IdMappingWorkflowOutputSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowoutputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowoutputsource-outputs3path
 	//
 	OutputS3Path *string `field:"required" json:"outputS3Path" yaml:"outputS3Path"`
-	// Customer AWS KMS ARN for encryption at rest.
+	// Customer AWS  ARN for encryption at rest.
 	//
 	// If not provided, system will use an AWS Entity Resolution managed KMS key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowoutputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowoutputsource-kmsarn

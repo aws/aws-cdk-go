@@ -505,6 +505,24 @@ func (j *jsiiProxy_CfnExecutionPlan)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnExecutionPlan_ArnForExecutionPlan(resource interfacesawskendraranking.IExecutionPlanRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnExecutionPlan_ArnForExecutionPlanParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kendraranking.CfnExecutionPlan",
+		"arnForExecutionPlan",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -481,6 +481,24 @@ func (j *jsiiProxy_CfnInstance)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnInstance_ArnForInstance(resource interfacesawssso.IInstanceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInstance_ArnForInstanceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sso.CfnInstance",
+		"arnForInstance",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

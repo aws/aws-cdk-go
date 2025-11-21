@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnJobQueue) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnJobQueue_ArnForJobQueueParameters(resource interfacesawsbatch.IJobQueueRef) error {
+	return nil
+}
+
 func validateCfnJobQueue_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

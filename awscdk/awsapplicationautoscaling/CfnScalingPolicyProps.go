@@ -275,7 +275,7 @@ type CfnScalingPolicyProps struct {
 	// > You must specify either the `ScalingTargetId` property, or the `ResourceId` , `ScalableDimension` , and `ServiceNamespace` properties, but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalingtargetid
 	//
-	ScalingTargetId *string `field:"optional" json:"scalingTargetId" yaml:"scalingTargetId"`
+	ScalingTargetId interface{} `field:"optional" json:"scalingTargetId" yaml:"scalingTargetId"`
 	// The namespace of the AWS service that provides the resource, or a `custom-resource` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-servicenamespace
 	//

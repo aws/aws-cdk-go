@@ -338,11 +338,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "topicArn", GoGetter: "TopicArn"},
 			_jsii_.MemberProperty{JsiiProperty: "topicName", GoGetter: "TopicName"},
+			_jsii_.MemberProperty{JsiiProperty: "topicRef", GoGetter: "TopicRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITopic{}
 			_jsii_.InitJsiiProxy(&j.Type__awscodestarnotificationsINotificationRuleTarget)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssnsITopicRef)
 			return &j
 		},
 	)
@@ -476,7 +478,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPublish", GoMethod: "GrantPublish"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSubscribe", GoMethod: "GrantSubscribe"},
 			_jsii_.MemberProperty{JsiiProperty: "masterKey", GoGetter: "MasterKey"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -494,6 +498,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "topicArn", GoGetter: "TopicArn"},
 			_jsii_.MemberProperty{JsiiProperty: "topicName", GoGetter: "TopicName"},
+			_jsii_.MemberProperty{JsiiProperty: "topicRef", GoGetter: "TopicRef"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
@@ -525,7 +530,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPublish", GoMethod: "GrantPublish"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSubscribe", GoMethod: "GrantSubscribe"},
 			_jsii_.MemberProperty{JsiiProperty: "masterKey", GoGetter: "MasterKey"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -543,13 +550,29 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "topicArn", GoGetter: "TopicArn"},
 			_jsii_.MemberProperty{JsiiProperty: "topicName", GoGetter: "TopicName"},
+			_jsii_.MemberProperty{JsiiProperty: "topicRef", GoGetter: "TopicRef"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TopicBase{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIEncryptedResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITopic)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sns.TopicGrants",
+		reflect.TypeOf((*TopicGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "encryptedResource", GoGetter: "EncryptedResource"},
+			_jsii_.MemberProperty{JsiiProperty: "policyResource", GoGetter: "PolicyResource"},
+			_jsii_.MemberMethod{JsiiMethod: "publish", GoMethod: "Publish"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "subscribe", GoMethod: "Subscribe"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TopicGrants{}
 		},
 	)
 	_jsii_.RegisterClass(

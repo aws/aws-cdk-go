@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLandingZone) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnLandingZone_ArnForLandingZoneParameters(resource interfacesawscontroltower.ILandingZoneRef) error {
+	return nil
+}
+
 func validateCfnLandingZone_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

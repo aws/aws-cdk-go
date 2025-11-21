@@ -637,6 +637,24 @@ func (j *jsiiProxy_CfnBrowserCustom)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnBrowserCustom_ArnForBrowserCustom(resource interfacesawsbedrockagentcore.IBrowserCustomRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBrowserCustom_ArnForBrowserCustomParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserCustom",
+		"arnForBrowserCustom",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IBrowserCustomRef from a browserId.
 func CfnBrowserCustom_FromBrowserId(scope constructs.Construct, id *string, browserId *string) interfacesawsbedrockagentcore.IBrowserCustomRef {
 	_init_.Initialize()

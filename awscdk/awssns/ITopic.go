@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssns"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -17,6 +18,7 @@ import (
 type ITopic interface {
 	awscodestarnotifications.INotificationRuleTarget
 	awscdk.IResource
+	interfacesawssns.ITopicRef
 	// Subscribe some endpoint to this topic.
 	AddSubscription(subscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
@@ -91,6 +93,7 @@ type ITopic interface {
 type jsiiProxy_ITopic struct {
 	internal.Type__awscodestarnotificationsINotificationRuleTarget
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawssnsITopicRef
 }
 
 func (i *jsiiProxy_ITopic) AddSubscription(subscription ITopicSubscription) Subscription {
@@ -419,6 +422,16 @@ func (j *jsiiProxy_ITopic) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITopic) TopicRef() *interfacesawssns.TopicReference {
+	var returns *interfacesawssns.TopicReference
+	_jsii_.Get(
+		j,
+		"topicRef",
 		&returns,
 	)
 	return returns

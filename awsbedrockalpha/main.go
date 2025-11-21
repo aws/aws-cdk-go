@@ -445,9 +445,13 @@ func init() {
 		"@aws-cdk/aws-bedrock-alpha.CrossRegionInferenceProfileRegion",
 		reflect.TypeOf((*CrossRegionInferenceProfileRegion)(nil)).Elem(),
 		map[string]interface{}{
+			"GLOBAL": CrossRegionInferenceProfileRegion_GLOBAL,
 			"EU": CrossRegionInferenceProfileRegion_EU,
 			"US": CrossRegionInferenceProfileRegion_US,
+			"US_GOV": CrossRegionInferenceProfileRegion_US_GOV,
 			"APAC": CrossRegionInferenceProfileRegion_APAC,
+			"JP": CrossRegionInferenceProfileRegion_JP,
+			"AU": CrossRegionInferenceProfileRegion_AU,
 		},
 	)
 	_jsii_.RegisterEnum(

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIdMappingWorkflow) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnIdMappingWorkflow_ArnForIdMappingWorkflowParameters(resource interfacesawsentityresolution.IIdMappingWorkflowRef) error {
+	return nil
+}
+
 func validateCfnIdMappingWorkflow_FromWorkflowNameParameters(scope constructs.Construct, id *string, workflowName *string) error {
 	return nil
 }

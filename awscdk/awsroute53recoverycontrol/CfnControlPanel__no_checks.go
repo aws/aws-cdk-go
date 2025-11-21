@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnControlPanel) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnControlPanel_ArnForControlPanelParameters(resource interfacesawsroute53recoverycontrol.IControlPanelRef) error {
+	return nil
+}
+
 func validateCfnControlPanel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

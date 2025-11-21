@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResolver) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnResolver_ArnForResolverParameters(resource interfacesawsappsync.IResolverRef) error {
+	return nil
+}
+
 func validateCfnResolver_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -32,7 +32,9 @@ import (
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   	TransportTransitGatewayAttachmentId: jsii.String("transportTransitGatewayAttachmentId"),
+//   	TunnelBandwidth: jsii.String("tunnelBandwidth"),
 //   	TunnelInsideIpVersion: jsii.String("tunnelInsideIpVersion"),
+//   	VpnConcentratorId: jsii.String("vpnConcentratorId"),
 //   	VpnGatewayId: jsii.String("vpnGatewayId"),
 //   	VpnTunnelOptionsSpecifications: []interface{}{
 //   		&VpnTunnelOptionsSpecificationProperty{
@@ -46,6 +48,9 @@ import (
 //   			},
 //   			LogOptions: &VpnTunnelLogOptionsSpecificationProperty{
 //   				CloudwatchLogOptions: &CloudwatchLogOptionsSpecificationProperty{
+//   					BgpLogEnabled: jsii.Boolean(false),
+//   					BgpLogGroupArn: jsii.String("bgpLogGroupArn"),
+//   					BgpLogOutputFormat: jsii.String("bgpLogOutputFormat"),
 //   					LogEnabled: jsii.Boolean(false),
 //   					LogGroupArn: jsii.String("logGroupArn"),
 //   					LogOutputFormat: jsii.String("logOutputFormat"),
@@ -100,7 +105,7 @@ type CfnVPNConnectionProps struct {
 	// The ID of the customer gateway at your end of the VPN connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-customergatewayid
 	//
-	CustomerGatewayId *string `field:"required" json:"customerGatewayId" yaml:"customerGatewayId"`
+	CustomerGatewayId interface{} `field:"required" json:"customerGatewayId" yaml:"customerGatewayId"`
 	// The type of VPN connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-type
 	//
@@ -164,25 +169,33 @@ type CfnVPNConnectionProps struct {
 	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-transitgatewayid
 	//
-	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId interface{} `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The transit gateway attachment ID to use for the VPN tunnel.
 	//
 	// Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-transporttransitgatewayattachmentid
 	//
 	TransportTransitGatewayAttachmentId *string `field:"optional" json:"transportTransitGatewayAttachmentId" yaml:"transportTransitGatewayAttachmentId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-tunnelbandwidth
+	//
+	// Default: - "standard".
+	//
+	TunnelBandwidth *string `field:"optional" json:"tunnelBandwidth" yaml:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 	//
 	// Default: `ipv4`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-tunnelinsideipversion
 	//
 	TunnelInsideIpVersion *string `field:"optional" json:"tunnelInsideIpVersion" yaml:"tunnelInsideIpVersion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-vpnconcentratorid
+	//
+	VpnConcentratorId *string `field:"optional" json:"vpnConcentratorId" yaml:"vpnConcentratorId"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	//
 	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-vpngatewayid
 	//
-	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
+	VpnGatewayId interface{} `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 	// The tunnel options for the VPN connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-vpntunneloptionsspecifications
 	//

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTypeActivation) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnTypeActivation_ArnForTypeActivationParameters(resource interfacesawscloudformation.ITypeActivationRef) error {
+	return nil
+}
+
 func validateCfnTypeActivation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

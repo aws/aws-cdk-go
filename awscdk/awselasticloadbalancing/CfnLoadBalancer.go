@@ -73,7 +73,7 @@ import (
 //   		Timeout: jsii.String("timeout"),
 //   		UnhealthyThreshold: jsii.String("unhealthyThreshold"),
 //   	},
-//   	Instances: []*string{
+//   	Instances: []interface{}{
 //   		jsii.String("instances"),
 //   	},
 //   	LbCookieStickinessPolicy: []interface{}{
@@ -101,10 +101,10 @@ import (
 //   		},
 //   	},
 //   	Scheme: jsii.String("scheme"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //   	Tags: []CfnTag{

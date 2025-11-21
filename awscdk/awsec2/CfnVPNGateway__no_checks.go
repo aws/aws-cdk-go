@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVPNGateway) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnVPNGateway_ArnForVPNGatewayParameters(resource interfacesawsec2.IVPNGatewayRef) error {
+	return nil
+}
+
 func validateCfnVPNGateway_FromVpnGatewayIdParameters(scope constructs.Construct, id *string, vpnGatewayId *string) error {
 	return nil
 }

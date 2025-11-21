@@ -440,6 +440,24 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTable)SetTransitGatewayId(val *string) 
 	)
 }
 
+func CfnTransitGatewayRouteTable_ArnForTransitGatewayRouteTable(resource interfacesawsec2.ITransitGatewayRouteTableRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayRouteTable_ArnForTransitGatewayRouteTableParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTable",
+		"arnForTransitGatewayRouteTable",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITransitGatewayRouteTableRef from a transitGatewayRouteTableId.
 func CfnTransitGatewayRouteTable_FromTransitGatewayRouteTableId(scope constructs.Construct, id *string, transitGatewayRouteTableId *string) interfacesawsec2.ITransitGatewayRouteTableRef {
 	_init_.Initialize()

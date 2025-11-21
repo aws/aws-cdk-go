@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnMatchmakingRuleSet_ArnForMatchmakingRuleSetParameters(resource interfacesawsgamelift.IMatchmakingRuleSetRef) error {
+	return nil
+}
+
 func validateCfnMatchmakingRuleSet_FromMatchmakingRuleSetArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

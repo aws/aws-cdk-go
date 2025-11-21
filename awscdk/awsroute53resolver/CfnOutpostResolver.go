@@ -588,6 +588,24 @@ func (j *jsiiProxy_CfnOutpostResolver)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnOutpostResolver_ArnForOutpostResolver(resource interfacesawsroute53resolver.IOutpostResolverRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnOutpostResolver_ArnForOutpostResolverParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnOutpostResolver",
+		"arnForOutpostResolver",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

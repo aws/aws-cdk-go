@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGuardrail) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnGuardrail_ArnForGuardrailParameters(resource interfacesawsbedrock.IGuardrailRef) error {
+	return nil
+}
+
 func validateCfnGuardrail_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

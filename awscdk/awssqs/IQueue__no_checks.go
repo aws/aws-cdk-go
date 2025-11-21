@@ -64,3 +64,7 @@ func (i *jsiiProxy_IQueue) validateMetricSentMessageSizeParameters(props *awsclo
 	return nil
 }
 
+func (i *jsiiProxy_IQueue) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

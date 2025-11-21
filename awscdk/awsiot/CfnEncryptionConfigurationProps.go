@@ -23,7 +23,7 @@ type CfnEncryptionConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-encryptionconfiguration.html#cfn-iot-encryptionconfiguration-encryptiontype
 	//
 	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
-	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-encryptionconfiguration.html#cfn-iot-encryptionconfiguration-kmsaccessrolearn
 	//
 	KmsAccessRoleArn *string `field:"optional" json:"kmsAccessRoleArn" yaml:"kmsAccessRoleArn"`

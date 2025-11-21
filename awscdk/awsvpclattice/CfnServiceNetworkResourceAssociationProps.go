@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnServiceNetworkResourceAssociationProps := &CfnServiceNetworkResourceAssociationProps{
+//   	PrivateDnsEnabled: jsii.Boolean(false),
 //   	ResourceConfigurationId: jsii.String("resourceConfigurationId"),
 //   	ServiceNetworkId: jsii.String("serviceNetworkId"),
 //   	Tags: []CfnTag{
@@ -25,6 +26,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkresourceassociation.html
 //
 type CfnServiceNetworkResourceAssociationProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkresourceassociation.html#cfn-vpclattice-servicenetworkresourceassociation-privatednsenabled
+	//
+	PrivateDnsEnabled interface{} `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
 	// The ID of the resource configuration associated with the service network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkresourceassociation.html#cfn-vpclattice-servicenetworkresourceassociation-resourceconfigurationid
 	//

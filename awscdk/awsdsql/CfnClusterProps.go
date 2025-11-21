@@ -44,7 +44,9 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-multiregionproperties
 	//
 	MultiRegionProperties interface{} `field:"optional" json:"multiRegionProperties" yaml:"multiRegionProperties"`
-	// The IAM policy applied to the cluster resource.
+	// A resource-based policy document in JSON format.
+	//
+	// Length constraints: Minimum length of 1. Maximum length of 20480 characters (approximately 20KB).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-policydocument
 	//
 	PolicyDocument *string `field:"optional" json:"policyDocument" yaml:"policyDocument"`

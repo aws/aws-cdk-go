@@ -837,6 +837,24 @@ func (j *jsiiProxy_CfnInferenceExperiment)SetType(val *string) {
 	)
 }
 
+func CfnInferenceExperiment_ArnForInferenceExperiment(resource interfacesawssagemaker.IInferenceExperimentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInferenceExperiment_ArnForInferenceExperimentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnInferenceExperiment",
+		"arnForInferenceExperiment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IInferenceExperimentRef from an ARN.
 func CfnInferenceExperiment_FromInferenceExperimentArn(scope constructs.Construct, id *string, arn *string) interfacesawssagemaker.IInferenceExperimentRef {
 	_init_.Initialize()

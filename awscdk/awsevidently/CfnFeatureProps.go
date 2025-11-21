@@ -56,7 +56,7 @@ type CfnFeatureProps struct {
 	// The name or ARN of the project that is to contain the new feature.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-project
 	//
-	Project *string `field:"required" json:"project" yaml:"project"`
+	Project interface{} `field:"required" json:"project" yaml:"project"`
 	// An array of structures that contain the configuration of the feature's different variations.
 	//
 	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).

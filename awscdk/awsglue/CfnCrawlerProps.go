@@ -130,7 +130,7 @@ type CfnCrawlerProps struct {
 	// The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-role
 	//
-	Role *string `field:"required" json:"role" yaml:"role"`
+	Role interface{} `field:"required" json:"role" yaml:"role"`
 	// A collection of targets to crawl.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets
 	//
@@ -152,7 +152,7 @@ type CfnCrawlerProps struct {
 	// The name of the database in which the crawler's output is stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-databasename
 	//
-	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	DatabaseName interface{} `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// A description of the crawler.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-description
 	//

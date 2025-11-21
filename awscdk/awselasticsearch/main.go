@@ -157,6 +157,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "domainArn", GoGetter: "DomainArn"},
 			_jsii_.MemberProperty{JsiiProperty: "domainEndpoint", GoGetter: "DomainEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "domainRef", GoGetter: "DomainRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -169,6 +170,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantPathWrite", GoMethod: "GrantPathWrite"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUserPassword", GoGetter: "MasterUserPassword"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -206,6 +208,19 @@ func init() {
 		"aws-cdk-lib.aws_elasticsearch.DomainAttributes",
 		reflect.TypeOf((*DomainAttributes)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_elasticsearch.DomainGrants",
+		reflect.TypeOf((*DomainGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+			_jsii_.MemberMethod{JsiiMethod: "readWrite", GoMethod: "ReadWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "write", GoMethod: "Write"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DomainGrants{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticsearch.DomainProps",
 		reflect.TypeOf((*DomainProps)(nil)).Elem(),
@@ -236,6 +251,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "domainArn", GoGetter: "DomainArn"},
 			_jsii_.MemberProperty{JsiiProperty: "domainEndpoint", GoGetter: "DomainEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "domainRef", GoGetter: "DomainRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grantIndexRead", GoMethod: "GrantIndexRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantIndexReadWrite", GoMethod: "GrantIndexReadWrite"},
@@ -267,6 +283,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDomain{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticsearchIDomainRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

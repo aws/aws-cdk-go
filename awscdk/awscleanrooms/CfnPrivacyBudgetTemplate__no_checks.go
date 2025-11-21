@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPrivacyBudgetTemplate) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnPrivacyBudgetTemplate_ArnForPrivacyBudgetTemplateParameters(resource interfacesawscleanrooms.IPrivacyBudgetTemplateRef) error {
+	return nil
+}
+
 func validateCfnPrivacyBudgetTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

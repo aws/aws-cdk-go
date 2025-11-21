@@ -15,7 +15,7 @@ import (
 //
 // Each rule in a backup plan is a separate scheduled task and can back up a different selection of AWS resources.
 //
-// For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
+// For a sample CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -516,6 +516,24 @@ func (j *jsiiProxy_CfnBackupPlan)SetBackupPlanTags(val *map[string]*string) {
 		"backupPlanTags",
 		val,
 	)
+}
+
+func CfnBackupPlan_ArnForBackupPlan(resource interfacesawsbackup.IBackupPlanRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBackupPlan_ArnForBackupPlanParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnBackupPlan",
+		"arnForBackupPlan",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IBackupPlanRef from an ARN.

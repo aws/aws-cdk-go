@@ -725,6 +725,24 @@ func (j *jsiiProxy_CfnJobDefinition)SetType(val *string) {
 	)
 }
 
+func CfnJobDefinition_ArnForJobDefinition(resource interfacesawsbatch.IJobDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnJobDefinition_ArnForJobDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition",
+		"arnForJobDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IJobDefinitionRef from an ARN.
 func CfnJobDefinition_FromJobDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsbatch.IJobDefinitionRef {
 	_init_.Initialize()

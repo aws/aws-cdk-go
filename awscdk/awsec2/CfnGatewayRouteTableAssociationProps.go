@@ -19,10 +19,10 @@ type CfnGatewayRouteTableAssociationProps struct {
 	// The ID of the gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
 	//
-	GatewayId *string `field:"required" json:"gatewayId" yaml:"gatewayId"`
+	GatewayId interface{} `field:"required" json:"gatewayId" yaml:"gatewayId"`
 	// The ID of the route table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
 	//
-	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId interface{} `field:"required" json:"routeTableId" yaml:"routeTableId"`
 }
 

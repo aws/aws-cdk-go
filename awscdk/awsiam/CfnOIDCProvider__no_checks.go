@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnOIDCProvider) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnOIDCProvider_ArnForOIDCProviderParameters(resource interfacesawsiam.IOIDCProviderRef) error {
+	return nil
+}
+
 func validateCfnOIDCProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

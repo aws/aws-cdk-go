@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEncoderConfiguration) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnEncoderConfiguration_ArnForEncoderConfigurationParameters(resource interfacesawsivs.IEncoderConfigurationRef) error {
+	return nil
+}
+
 func validateCfnEncoderConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

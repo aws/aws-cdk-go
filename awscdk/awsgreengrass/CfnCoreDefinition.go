@@ -514,6 +514,24 @@ func (j *jsiiProxy_CfnCoreDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
+func CfnCoreDefinition_ArnForCoreDefinition(resource interfacesawsgreengrass.ICoreDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCoreDefinition_ArnForCoreDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
+		"arnForCoreDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICoreDefinitionRef from an ARN.
 func CfnCoreDefinition_FromCoreDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.ICoreDefinitionRef {
 	_init_.Initialize()

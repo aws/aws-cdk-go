@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDBCluster) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnDBCluster_ArnForDBClusterParameters(resource interfacesawsrds.IDBClusterRef) error {
+	return nil
+}
+
 func validateCfnDBCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

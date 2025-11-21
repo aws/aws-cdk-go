@@ -569,6 +569,24 @@ func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnApplication_ArnForApplication(resource interfacesawsm2.IApplicationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApplication_ArnForApplicationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_m2.CfnApplication",
+		"arnForApplication",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

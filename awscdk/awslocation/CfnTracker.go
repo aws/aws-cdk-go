@@ -645,6 +645,24 @@ func (j *jsiiProxy_CfnTracker)SetTrackerName(val *string) {
 	)
 }
 
+func CfnTracker_ArnForTracker(resource interfacesawslocation.ITrackerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTracker_ArnForTrackerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnTracker",
+		"arnForTracker",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITrackerRef from an ARN.
 func CfnTracker_FromTrackerArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.ITrackerRef {
 	_init_.Initialize()

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataLake) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnDataLake_ArnForDataLakeParameters(resource interfacesawssecuritylake.IDataLakeRef) error {
+	return nil
+}
+
 func validateCfnDataLake_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

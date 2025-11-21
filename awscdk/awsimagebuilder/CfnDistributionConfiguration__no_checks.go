@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDistributionConfiguration) validateValidatePropertiesParam
 	return nil
 }
 
+func validateCfnDistributionConfiguration_ArnForDistributionConfigurationParameters(resource interfacesawsimagebuilder.IDistributionConfigurationRef) error {
+	return nil
+}
+
 func validateCfnDistributionConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

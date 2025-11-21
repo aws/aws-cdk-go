@@ -26,7 +26,7 @@ package awsssmquicksetup
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmquicksetup-lifecycleautomation.html
 //
 type CfnLifecycleAutomationProps struct {
-	// The name of the SSM Automation document to execute in response to AWS CloudFormation lifecycle events (CREATE, UPDATE, DELETE).
+	// The name of the SSM Automation document to execute in response to CloudFormation lifecycle events (CREATE, UPDATE, DELETE).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmquicksetup-lifecycleautomation.html#cfn-ssmquicksetup-lifecycleautomation-automationdocument
 	//
 	AutomationDocument *string `field:"required" json:"automationDocument" yaml:"automationDocument"`

@@ -643,6 +643,24 @@ func (j *jsiiProxy_CfnService)SetType(val *string) {
 	)
 }
 
+func CfnService_ArnForService(resource interfacesawsservicediscovery.IServiceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnService_ArnForServiceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.CfnService",
+		"arnForService",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IServiceRef from an ARN.
 func CfnService_FromServiceArn(scope constructs.Construct, id *string, arn *string) interfacesawsservicediscovery.IServiceRef {
 	_init_.Initialize()

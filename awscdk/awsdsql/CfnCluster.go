@@ -74,6 +74,8 @@ type CfnCluster interface {
 	AttrCreationTime() *string
 	// The encryption configuration details for the cluster.
 	AttrEncryptionDetails() awscdk.IResolvable
+	// The DSQL cluster endpoint.
+	AttrEndpoint() *string
 	// The unique identifier assigned to the cluster upon creation.
 	AttrIdentifier() *string
 	// The version number of the cluster's resource based policy.
@@ -131,7 +133,7 @@ type CfnCluster interface {
 	SetMultiRegionProperties(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// The IAM policy applied to the cluster resource.
+	// A resource-based policy document in JSON format.
 	PolicyDocument() *string
 	SetPolicyDocument(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -309,6 +311,16 @@ func (j *jsiiProxy_CfnCluster) AttrEncryptionDetails() awscdk.IResolvable {
 	_jsii_.Get(
 		j,
 		"attrEncryptionDetails",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrEndpoint() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEndpoint",
 		&returns,
 	)
 	return returns
@@ -621,6 +633,24 @@ func (j *jsiiProxy_CfnCluster)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnCluster_ArnForCluster(resource interfacesawsdsql.IClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_ArnForClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dsql.CfnCluster",
+		"arnForCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IClusterRef from a identifier.

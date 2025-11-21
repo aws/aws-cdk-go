@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnReferenceStore) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnReferenceStore_ArnForReferenceStoreParameters(resource interfacesawsomics.IReferenceStoreRef) error {
+	return nil
+}
+
 func validateCfnReferenceStore_FromReferenceStoreArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

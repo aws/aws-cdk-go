@@ -73,7 +73,6 @@ type CfnCloudFormationProduct interface {
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
-	// The ID of the product, such as prod-tsjbmal34qvek.
 	AttrId() *string
 	// The name of the product.
 	AttrProductName() *string

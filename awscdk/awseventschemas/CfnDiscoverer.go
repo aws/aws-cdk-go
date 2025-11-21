@@ -524,6 +524,24 @@ func (j *jsiiProxy_CfnDiscoverer)SetTagsRaw(val *[]*CfnDiscoverer_TagsEntryPrope
 	)
 }
 
+func CfnDiscoverer_ArnForDiscoverer(resource interfacesawseventschemas.IDiscovererRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDiscoverer_ArnForDiscovererParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eventschemas.CfnDiscoverer",
+		"arnForDiscoverer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

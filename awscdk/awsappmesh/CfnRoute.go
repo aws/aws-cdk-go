@@ -873,6 +873,24 @@ func (j *jsiiProxy_CfnRoute)SetVirtualRouterName(val *string) {
 	)
 }
 
+func CfnRoute_ArnForRoute(resource interfacesawsappmesh.IRouteRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRoute_ArnForRouteParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appmesh.CfnRoute",
+		"arnForRoute",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

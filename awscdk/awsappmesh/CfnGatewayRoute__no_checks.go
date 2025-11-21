@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGatewayRoute) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnGatewayRoute_ArnForGatewayRouteParameters(resource interfacesawsappmesh.IGatewayRouteRef) error {
+	return nil
+}
+
 func validateCfnGatewayRoute_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

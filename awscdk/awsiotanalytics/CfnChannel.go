@@ -500,6 +500,24 @@ func (j *jsiiProxy_CfnChannel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnChannel_ArnForChannel(resource interfacesawsiotanalytics.IChannelRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnChannel_ArnForChannelParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotanalytics.CfnChannel",
+		"arnForChannel",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IChannelRef from a channelName.
 func CfnChannel_FromChannelName(scope constructs.Construct, id *string, channelName *string) interfacesawsiotanalytics.IChannelRef {
 	_init_.Initialize()

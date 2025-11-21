@@ -46,6 +46,8 @@ type RateLimitedApiKey interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for an ApiKey.
+	Grants() ApiKeyGrants
 	// The API key ARN.
 	KeyArn() *string
 	// The API key ID.
@@ -117,6 +119,16 @@ func (j *jsiiProxy_RateLimitedApiKey) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RateLimitedApiKey) Grants() ApiKeyGrants {
+	var returns ApiKeyGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

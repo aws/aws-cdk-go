@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnProvisioningTemplate) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnProvisioningTemplate_ArnForProvisioningTemplateParameters(resource interfacesawsiot.IProvisioningTemplateRef) error {
+	return nil
+}
+
 func validateCfnProvisioningTemplate_FromTemplateNameParameters(scope constructs.Construct, id *string, templateName *string) error {
 	return nil
 }

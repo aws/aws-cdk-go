@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,8 +46,12 @@ type EventBus interface {
 	EventBusName() *string
 	// The policy for the event bus in JSON form.
 	EventBusPolicy() *string
+	// A reference to a EventBus resource.
+	EventBusRef() *interfacesawsevents.EventBusReference
 	// The name of the partner event source.
 	EventSourceName() *string
+	// Collection of grant methods for an EventBus.
+	Grants() EventBusGrants
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -143,11 +148,31 @@ func (j *jsiiProxy_EventBus) EventBusPolicy() *string {
 	return returns
 }
 
+func (j *jsiiProxy_EventBus) EventBusRef() *interfacesawsevents.EventBusReference {
+	var returns *interfacesawsevents.EventBusReference
+	_jsii_.Get(
+		j,
+		"eventBusRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_EventBus) EventSourceName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"eventSourceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EventBus) Grants() EventBusGrants {
+	var returns EventBusGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

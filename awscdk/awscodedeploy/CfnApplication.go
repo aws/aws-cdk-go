@@ -447,6 +447,24 @@ func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnApplication_ArnForApplication(resource interfacesawscodedeploy.IApplicationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApplication_ArnForApplicationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codedeploy.CfnApplication",
+		"arnForApplication",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IApplicationRef from a applicationName.
 func CfnApplication_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) interfacesawscodedeploy.IApplicationRef {
 	_init_.Initialize()

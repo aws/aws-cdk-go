@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInboundExternalLink) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnInboundExternalLink_ArnForInboundExternalLinkParameters(resource interfacesawsrtbfabric.IInboundExternalLinkRef) error {
+	return nil
+}
+
 func validateCfnInboundExternalLink_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

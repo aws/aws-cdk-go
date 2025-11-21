@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnListener) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnListener_ArnForListenerParameters(resource interfacesawsvpclattice.IListenerRef) error {
+	return nil
+}
+
 func validateCfnListener_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

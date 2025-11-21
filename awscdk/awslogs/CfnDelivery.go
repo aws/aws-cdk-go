@@ -588,6 +588,24 @@ func (j *jsiiProxy_CfnDelivery)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDelivery_ArnForDelivery(resource interfacesawslogs.IDeliveryRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDelivery_ArnForDeliveryParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnDelivery",
+		"arnForDelivery",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

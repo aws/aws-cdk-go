@@ -21,6 +21,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEncryptionDetails", GoGetter: "AttrEncryptionDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEndpoint", GoGetter: "AttrEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIdentifier", GoGetter: "AttrIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPolicyVersion", GoGetter: "AttrPolicyVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},

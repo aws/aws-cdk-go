@@ -539,6 +539,24 @@ func (j *jsiiProxy_CfnVPCPeeringConnection)SetVpcId(val *string) {
 	)
 }
 
+func CfnVPCPeeringConnection_ArnForVPCPeeringConnection(resource interfacesawsec2.IVPCPeeringConnectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPCPeeringConnection_ArnForVPCPeeringConnectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPCPeeringConnection",
+		"arnForVPCPeeringConnection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVPCPeeringConnectionRef from a vpcPeeringConnectionId.
 func CfnVPCPeeringConnection_FromVpcPeeringConnectionId(scope constructs.Construct, id *string, vpcPeeringConnectionId *string) interfacesawsec2.IVPCPeeringConnectionRef {
 	_init_.Initialize()

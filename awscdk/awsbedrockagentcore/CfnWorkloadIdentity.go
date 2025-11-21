@@ -494,6 +494,24 @@ func (j *jsiiProxy_CfnWorkloadIdentity)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnWorkloadIdentity_ArnForWorkloadIdentity(resource interfacesawsbedrockagentcore.IWorkloadIdentityRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkloadIdentity_ArnForWorkloadIdentityParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnWorkloadIdentity",
+		"arnForWorkloadIdentity",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFleet) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnFleet_ArnForFleetParameters(resource interfacesawsrobomaker.IFleetRef) error {
+	return nil
+}
+
 func validateCfnFleet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

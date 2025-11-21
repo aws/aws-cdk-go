@@ -574,6 +574,24 @@ func (j *jsiiProxy_CfnCoreNetwork)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCoreNetwork_ArnForCoreNetwork(resource interfacesawsnetworkmanager.ICoreNetworkRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCoreNetwork_ArnForCoreNetworkParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnCoreNetwork",
+		"arnForCoreNetwork",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

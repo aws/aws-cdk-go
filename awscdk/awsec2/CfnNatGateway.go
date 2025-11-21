@@ -635,6 +635,24 @@ func (j *jsiiProxy_CfnNatGateway)SetVpcId(val *string) {
 	)
 }
 
+func CfnNatGateway_ArnForNatGateway(resource interfacesawsec2.INatGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNatGateway_ArnForNatGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNatGateway",
+		"arnForNatGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new INatGatewayRef from a natGatewayId.
 func CfnNatGateway_FromNatGatewayId(scope constructs.Construct, id *string, natGatewayId *string) interfacesawsec2.INatGatewayRef {
 	_init_.Initialize()

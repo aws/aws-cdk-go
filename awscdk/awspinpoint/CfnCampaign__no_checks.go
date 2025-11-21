@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCampaign) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnCampaign_ArnForCampaignParameters(resource interfacesawspinpoint.ICampaignRef) error {
+	return nil
+}
+
 func validateCfnCampaign_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

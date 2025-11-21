@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPartnership) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnPartnership_ArnForPartnershipParameters(resource interfacesawsb2bi.IPartnershipRef) error {
+	return nil
+}
+
 func validateCfnPartnership_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

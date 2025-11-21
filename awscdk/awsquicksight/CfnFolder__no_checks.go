@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFolder) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnFolder_ArnForFolderParameters(resource interfacesawsquicksight.IFolderRef) error {
+	return nil
+}
+
 func validateCfnFolder_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

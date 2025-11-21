@@ -276,7 +276,7 @@ type CfnServiceProps struct {
 	// If you do not specify a cluster, the default cluster is assumed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
 	//
-	Cluster *string `field:"optional" json:"cluster" yaml:"cluster"`
+	Cluster interface{} `field:"optional" json:"cluster" yaml:"cluster"`
 	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
 	//
@@ -386,7 +386,7 @@ type CfnServiceProps struct {
 	// If your specified role has a path other than `/` , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name `bar` has a path of `/foo/` then you would specify `/foo/bar` as the role name. For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
 	//
-	Role *string `field:"optional" json:"role" yaml:"role"`
+	Role interface{} `field:"optional" json:"role" yaml:"role"`
 	// The scheduling strategy to use for the service. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) .
 	//
 	// There are two service scheduler strategies available:
@@ -441,7 +441,7 @@ type CfnServiceProps struct {
 	// For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
 	//
-	TaskDefinition *string `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
+	TaskDefinition interface{} `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time.
 	//
 	// Currently, the only supported volume type is an Amazon EBS volume.

@@ -114,7 +114,7 @@ type CfnApplication interface {
 	// The name of the Amazon Q Business application.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business.
+	// Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
 	Env() *interfaces.ResourceEnvironment
@@ -805,6 +805,24 @@ func (j *jsiiProxy_CfnApplication)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnApplication_ArnForApplication(resource interfacesawsqbusiness.IApplicationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApplication_ArnForApplicationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_qbusiness.CfnApplication",
+		"arnForApplication",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IApplicationRef from an ARN.

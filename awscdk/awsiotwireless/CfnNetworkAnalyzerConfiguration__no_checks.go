@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) validateValidatePropertiesPa
 	return nil
 }
 
+func validateCfnNetworkAnalyzerConfiguration_ArnForNetworkAnalyzerConfigurationParameters(resource interfacesawsiotwireless.INetworkAnalyzerConfigurationRef) error {
+	return nil
+}
+
 func validateCfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

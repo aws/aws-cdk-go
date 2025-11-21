@@ -396,6 +396,17 @@ func BedrockFoundationModel_ANTHROPIC_CLAUDE_3_7_SONNET_V1_0() BedrockFoundation
 	return returns
 }
 
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_HAIKU_4_5_V1_0() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_HAIKU_4_5_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func BedrockFoundationModel_ANTHROPIC_CLAUDE_HAIKU_V1_0() BedrockFoundationModel {
 	_init_.Initialize()
 	var returns BedrockFoundationModel
@@ -418,12 +429,56 @@ func BedrockFoundationModel_ANTHROPIC_CLAUDE_INSTANT_V1_2() BedrockFoundationMod
 	return returns
 }
 
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_1_V1_0() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_OPUS_4_1_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_V1_0() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_OPUS_4_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_V1_0() BedrockFoundationModel {
 	_init_.Initialize()
 	var returns BedrockFoundationModel
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
 		"ANTHROPIC_CLAUDE_OPUS_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_SONNET_4_5_V1_0() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_SONNET_4_5_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_SONNET_4_V1_0() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_SONNET_4_V1_0",
 		&returns,
 	)
 	return returns

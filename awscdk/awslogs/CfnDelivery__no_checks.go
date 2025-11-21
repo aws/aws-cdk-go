@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDelivery) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnDelivery_ArnForDeliveryParameters(resource interfacesawslogs.IDeliveryRef) error {
+	return nil
+}
+
 func validateCfnDelivery_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -42,13 +42,13 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-bundleid
 	//
 	BundleId *string `field:"required" json:"bundleId" yaml:"bundleId"`
-	// The identifier of the AWS Directory Service directory for the WorkSpace.
+	// The identifier of the Directory Service directory for the WorkSpace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-directoryid
 	//
 	DirectoryId *string `field:"required" json:"directoryId" yaml:"directoryId"`
 	// The user name of the user for the WorkSpace.
 	//
-	// This user name must exist in the AWS Directory Service directory for the WorkSpace.
+	// This user name must exist in the Directory Service directory for the WorkSpace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username
 	//
 	UserName *string `field:"required" json:"userName" yaml:"userName"`

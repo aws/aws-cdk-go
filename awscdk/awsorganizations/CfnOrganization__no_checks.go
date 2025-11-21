@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnOrganization) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnOrganization_ArnForOrganizationParameters(resource interfacesawsorganizations.IOrganizationRef) error {
+	return nil
+}
+
 func validateCfnOrganization_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

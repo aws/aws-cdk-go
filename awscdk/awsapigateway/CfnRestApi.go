@@ -814,6 +814,24 @@ func (j *jsiiProxy_CfnRestApi)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnRestApi_ArnForRestApi(resource interfacesawsapigateway.IRestApiRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRestApi_ArnForRestApiParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnRestApi",
+		"arnForRestApi",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IRestApiRef from a restApiId.
 func CfnRestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) interfacesawsapigateway.IRestApiRef {
 	_init_.Initialize()

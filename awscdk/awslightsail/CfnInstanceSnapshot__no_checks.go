@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInstanceSnapshot) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnInstanceSnapshot_ArnForInstanceSnapshotParameters(resource interfacesawslightsail.IInstanceSnapshotRef) error {
+	return nil
+}
+
 func validateCfnInstanceSnapshot_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

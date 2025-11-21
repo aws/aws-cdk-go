@@ -15,7 +15,7 @@ import (
 //
 // A framework is a collection of controls that you can use to evaluate your backup practices. By using pre-built customizable controls to define your policies, you can evaluate whether your backup practices comply with your policies and which resources are not yet in compliance.
 //
-// For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/bam-cfn-integration.html#bam-cfn-frameworks-template) .
+// For a sample CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/bam-cfn-integration.html#bam-cfn-frameworks-template) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -541,6 +541,24 @@ func (j *jsiiProxy_CfnFramework)SetFrameworkTags(val *[]*awscdk.CfnTag) {
 		"frameworkTags",
 		val,
 	)
+}
+
+func CfnFramework_ArnForFramework(resource interfacesawsbackup.IFrameworkRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFramework_ArnForFrameworkParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnFramework",
+		"arnForFramework",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

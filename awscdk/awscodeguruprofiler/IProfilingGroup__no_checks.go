@@ -12,3 +12,7 @@ func (i *jsiiProxy_IProfilingGroup) validateGrantReadParameters(grantee awsiam.I
 	return nil
 }
 
+func (i *jsiiProxy_IProfilingGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

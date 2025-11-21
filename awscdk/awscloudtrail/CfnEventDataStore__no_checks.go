@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEventDataStore) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnEventDataStore_ArnForEventDataStoreParameters(resource interfacesawscloudtrail.IEventDataStoreRef) error {
+	return nil
+}
+
 func validateCfnEventDataStore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

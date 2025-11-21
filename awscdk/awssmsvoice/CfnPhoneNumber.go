@@ -686,6 +686,24 @@ func (j *jsiiProxy_CfnPhoneNumber)SetTwoWay(val interface{}) {
 	)
 }
 
+func CfnPhoneNumber_ArnForPhoneNumber(resource interfacesawssmsvoice.IPhoneNumberRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPhoneNumber_ArnForPhoneNumberParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnPhoneNumber",
+		"arnForPhoneNumber",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPhoneNumberRef from an ARN.
 func CfnPhoneNumber_FromPhoneNumberArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IPhoneNumberRef {
 	_init_.Initialize()

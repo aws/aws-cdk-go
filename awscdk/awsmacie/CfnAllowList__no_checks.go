@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAllowList) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnAllowList_ArnForAllowListParameters(resource interfacesawsmacie.IAllowListRef) error {
+	return nil
+}
+
 func validateCfnAllowList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

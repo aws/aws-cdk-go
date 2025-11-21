@@ -16,7 +16,7 @@ package awswafv2
 //   var uriPath interface{}
 //
 //   cfnLoggingConfigurationProps := &CfnLoggingConfigurationProps{
-//   	LogDestinationConfigs: []*string{
+//   	LogDestinationConfigs: []interface{}{
 //   		jsii.String("logDestinationConfigs"),
 //   	},
 //   	ResourceArn: jsii.String("resourceArn"),
@@ -42,11 +42,11 @@ type CfnLoggingConfigurationProps struct {
 	// > You can associate one logging destination to a web ACL.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
 	//
-	LogDestinationConfigs *[]*string `field:"required" json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
+	LogDestinationConfigs *[]interface{} `field:"required" json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
 	//
-	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn interface{} `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// Filtering that specifies which web requests are kept in the logs and which are dropped.
 	//
 	// You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.

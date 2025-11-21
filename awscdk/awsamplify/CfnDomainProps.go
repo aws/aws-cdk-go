@@ -52,7 +52,7 @@ type CfnDomainProps struct {
 	// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
 	//
-	AutoSubDomainIamRole *string `field:"optional" json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
+	AutoSubDomainIamRole interface{} `field:"optional" json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
 	// The type of SSL/TLS certificate to use for your custom domain.
 	//
 	// If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.

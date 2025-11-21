@@ -679,6 +679,24 @@ func (j *jsiiProxy_CfnPortal)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPortal_ArnForPortal(resource interfacesawsiotsitewise.IPortalRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPortal_ArnForPortalParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"arnForPortal",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPortalRef from an ARN.
 func CfnPortal_FromPortalArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IPortalRef {
 	_init_.Initialize()

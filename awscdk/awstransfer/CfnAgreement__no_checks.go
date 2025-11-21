@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAgreement) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnAgreement_ArnForAgreementParameters(resource interfacesawstransfer.IAgreementRef) error {
+	return nil
+}
+
 func validateCfnAgreement_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

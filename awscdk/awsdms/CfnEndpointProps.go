@@ -383,11 +383,11 @@ type CfnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kinesissettings
 	//
 	KinesisSettings interface{} `field:"optional" json:"kinesisSettings" yaml:"kinesisSettings"`
-	// An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
+	// An AWS  key identifier that is used to encrypt the connection parameters for the endpoint.
 	//
 	// If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
 	//
-	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
+	// AWS  creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

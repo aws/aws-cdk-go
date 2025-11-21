@@ -526,6 +526,24 @@ func (j *jsiiProxy_CfnIdentitySource)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnIdentitySource_ArnForIdentitySource(resource interfacesawsmpa.IIdentitySourceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIdentitySource_ArnForIdentitySourceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mpa.CfnIdentitySource",
+		"arnForIdentitySource",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

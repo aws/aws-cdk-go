@@ -38,7 +38,7 @@ type CfnEventRule interface {
 	interfacesawsnotifications.IEventRuleRef
 	// The Amazon Resource Name (ARN) of the `EventRule` .
 	//
-	// AWS CloudFormation stack generates this ARN and then uses this ARN associated with the `NotificationConfiguration` .
+	// CloudFormation stack generates this ARN and then uses this ARN associated with the `NotificationConfiguration` .
 	AttrArn() *string
 	// The creation time of the `EventRule` .
 	AttrCreationTime() *string
@@ -532,6 +532,24 @@ func (j *jsiiProxy_CfnEventRule)SetSource(val *string) {
 		"source",
 		val,
 	)
+}
+
+func CfnEventRule_ArnForEventRule(resource interfacesawsnotifications.IEventRuleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventRule_ArnForEventRuleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notifications.CfnEventRule",
+		"arnForEventRule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

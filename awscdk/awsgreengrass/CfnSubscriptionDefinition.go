@@ -512,6 +512,24 @@ func (j *jsiiProxy_CfnSubscriptionDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
+func CfnSubscriptionDefinition_ArnForSubscriptionDefinition(resource interfacesawsgreengrass.ISubscriptionDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSubscriptionDefinition_ArnForSubscriptionDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
+		"arnForSubscriptionDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISubscriptionDefinitionRef from an ARN.
 func CfnSubscriptionDefinition_FromSubscriptionDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsgreengrass.ISubscriptionDefinitionRef {
 	_init_.Initialize()

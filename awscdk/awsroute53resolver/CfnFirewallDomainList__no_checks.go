@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFirewallDomainList) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnFirewallDomainList_ArnForFirewallDomainListParameters(resource interfacesawsroute53resolver.IFirewallDomainListRef) error {
+	return nil
+}
+
 func validateCfnFirewallDomainList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

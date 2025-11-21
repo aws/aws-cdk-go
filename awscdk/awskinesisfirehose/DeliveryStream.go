@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,6 +44,8 @@ type DeliveryStream interface {
 	DeliveryStreamArn() *string
 	// The name of the delivery stream.
 	DeliveryStreamName() *string
+	// A reference to a DeliveryStream resource.
+	DeliveryStreamRef() *interfacesawskinesisfirehose.DeliveryStreamReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -55,6 +58,8 @@ type DeliveryStream interface {
 	Env() *interfaces.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal
+	// Collection of grant methods for a DeliveryStream.
+	Grants() DeliveryStreamGrants
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -159,6 +164,16 @@ func (j *jsiiProxy_DeliveryStream) DeliveryStreamName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_DeliveryStream) DeliveryStreamRef() *interfacesawskinesisfirehose.DeliveryStreamReference {
+	var returns *interfacesawskinesisfirehose.DeliveryStreamReference
+	_jsii_.Get(
+		j,
+		"deliveryStreamRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DeliveryStream) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -174,6 +189,16 @@ func (j *jsiiProxy_DeliveryStream) GrantPrincipal() awsiam.IPrincipal {
 	_jsii_.Get(
 		j,
 		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeliveryStream) Grants() DeliveryStreamGrants {
+	var returns DeliveryStreamGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

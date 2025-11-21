@@ -37,7 +37,7 @@ type CfnVersionProps struct {
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionname
 	//
-	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"required" json:"functionName" yaml:"functionName"`
 	// Only publish a version if the hash value matches the value that's specified.
 	//
 	// Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.

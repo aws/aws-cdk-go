@@ -43,7 +43,7 @@ type CfnApp_ResourceMappingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-ekssourcename
 	//
 	EksSourceName *string `field:"optional" json:"eksSourceName" yaml:"eksSourceName"`
-	// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+	// Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-logicalstackname
 	//
 	LogicalStackName *string `field:"optional" json:"logicalStackName" yaml:"logicalStackName"`

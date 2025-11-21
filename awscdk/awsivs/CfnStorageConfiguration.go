@@ -468,6 +468,24 @@ func (j *jsiiProxy_CfnStorageConfiguration)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnStorageConfiguration_ArnForStorageConfiguration(resource interfacesawsivs.IStorageConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStorageConfiguration_ArnForStorageConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnStorageConfiguration",
+		"arnForStorageConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

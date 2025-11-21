@@ -645,6 +645,24 @@ func (j *jsiiProxy_CfnWorkspacesPool)SetTimeoutSettings(val interface{}) {
 	)
 }
 
+func CfnWorkspacesPool_ArnForWorkspacesPool(resource interfacesawsworkspaces.IWorkspacesPoolRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspacesPool_ArnForWorkspacesPoolParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspaces.CfnWorkspacesPool",
+		"arnForWorkspacesPool",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IWorkspacesPoolRef from a poolId.
 func CfnWorkspacesPool_FromPoolId(scope constructs.Construct, id *string, poolId *string) interfacesawsworkspaces.IWorkspacesPoolRef {
 	_init_.Initialize()

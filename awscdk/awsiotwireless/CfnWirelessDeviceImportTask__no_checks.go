@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnWirelessDeviceImportTask_ArnForWirelessDeviceImportTaskParameters(resource interfacesawsiotwireless.IWirelessDeviceImportTaskRef) error {
+	return nil
+}
+
 func validateCfnWirelessDeviceImportTask_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

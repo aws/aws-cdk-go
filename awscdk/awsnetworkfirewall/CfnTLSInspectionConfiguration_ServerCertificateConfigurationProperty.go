@@ -60,7 +60,7 @@ type CfnTLSInspectionConfiguration_ServerCertificateConfigurationProperty struct
 	// The following limitations apply:
 	//
 	// - You can use CA certificates that you imported into ACM, but you can't generate CA certificates with ACM.
-	// - You can't use certificates issued by AWS Private Certificate Authority .
+	// - You can't use certificates issued by Private Certificate Authority .
 	//
 	// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
 	//

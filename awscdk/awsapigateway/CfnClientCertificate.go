@@ -437,6 +437,24 @@ func (j *jsiiProxy_CfnClientCertificate)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnClientCertificate_ArnForClientCertificate(resource interfacesawsapigateway.IClientCertificateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnClientCertificate_ArnForClientCertificateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnClientCertificate",
+		"arnForClientCertificate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IClientCertificateRef from a clientCertificateId.
 func CfnClientCertificate_FromClientCertificateId(scope constructs.Construct, id *string, clientCertificateId *string) interfacesawsapigateway.IClientCertificateRef {
 	_init_.Initialize()

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAnalysisTemplate) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnAnalysisTemplate_ArnForAnalysisTemplateParameters(resource interfacesawscleanrooms.IAnalysisTemplateRef) error {
+	return nil
+}
+
 func validateCfnAnalysisTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

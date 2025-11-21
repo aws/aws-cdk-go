@@ -22,7 +22,7 @@ import (
 //
 // - Type – Specify the vector store service that you are using.
 //
-// > Redis Enterprise Cloud vector stores are currently unsupported in AWS CloudFormation .
+// > Redis Enterprise Cloud vector stores are currently unsupported in CloudFormation .
 //
 // For more information about using knowledge bases in Amazon Bedrock , see [Knowledge base for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) .
 //
@@ -783,6 +783,24 @@ func (j *jsiiProxy_CfnKnowledgeBase)SetTags(val *map[string]*string) {
 		"tags",
 		val,
 	)
+}
+
+func CfnKnowledgeBase_ArnForKnowledgeBase(resource interfacesawsbedrock.IKnowledgeBaseRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnKnowledgeBase_ArnForKnowledgeBaseParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase",
+		"arnForKnowledgeBase",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IKnowledgeBaseRef from an ARN.

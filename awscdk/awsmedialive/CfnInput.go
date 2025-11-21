@@ -858,6 +858,24 @@ func (j *jsiiProxy_CfnInput)SetVpc(val interface{}) {
 	)
 }
 
+func CfnInput_ArnForInput(resource interfacesawsmedialive.IInputRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnInput_ArnForInputParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnInput",
+		"arnForInput",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IInputRef from an ARN.
 func CfnInput_FromInputArn(scope constructs.Construct, id *string, arn *string) interfacesawsmedialive.IInputRef {
 	_init_.Initialize()

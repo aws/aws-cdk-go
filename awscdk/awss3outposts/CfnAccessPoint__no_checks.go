@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAccessPoint) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnAccessPoint_ArnForAccessPointParameters(resource interfacesawss3outposts.IAccessPointRef) error {
+	return nil
+}
+
 func validateCfnAccessPoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

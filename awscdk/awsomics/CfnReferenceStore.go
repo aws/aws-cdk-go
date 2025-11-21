@@ -510,6 +510,24 @@ func (j *jsiiProxy_CfnReferenceStore)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnReferenceStore_ArnForReferenceStore(resource interfacesawsomics.IReferenceStoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnReferenceStore_ArnForReferenceStoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnReferenceStore",
+		"arnForReferenceStore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IReferenceStoreRef from an ARN.
 func CfnReferenceStore_FromReferenceStoreArn(scope constructs.Construct, id *string, arn *string) interfacesawsomics.IReferenceStoreRef {
 	_init_.Initialize()

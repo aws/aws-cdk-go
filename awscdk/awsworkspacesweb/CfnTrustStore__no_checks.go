@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTrustStore) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnTrustStore_ArnForTrustStoreParameters(resource interfacesawsworkspacesweb.ITrustStoreRef) error {
+	return nil
+}
+
 func validateCfnTrustStore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

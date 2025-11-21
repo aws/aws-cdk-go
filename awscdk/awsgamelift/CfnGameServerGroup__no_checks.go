@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGameServerGroup) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnGameServerGroup_ArnForGameServerGroupParameters(resource interfacesawsgamelift.IGameServerGroupRef) error {
+	return nil
+}
+
 func validateCfnGameServerGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

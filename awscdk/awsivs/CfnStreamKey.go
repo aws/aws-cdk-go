@@ -458,6 +458,24 @@ func (j *jsiiProxy_CfnStreamKey)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnStreamKey_ArnForStreamKey(resource interfacesawsivs.IStreamKeyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStreamKey_ArnForStreamKeyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnStreamKey",
+		"arnForStreamKey",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

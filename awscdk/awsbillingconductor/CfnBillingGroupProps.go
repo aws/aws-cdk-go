@@ -13,21 +13,20 @@ import (
 //
 //   cfnBillingGroupProps := &CfnBillingGroupProps{
 //   	AccountGrouping: &AccountGroupingProperty{
+//   		AutoAssociate: jsii.Boolean(false),
 //   		LinkedAccountIds: []*string{
 //   			jsii.String("linkedAccountIds"),
 //   		},
-//
-//   		// the properties below are optional
-//   		AutoAssociate: jsii.Boolean(false),
+//   		ResponsibilityTransferArn: jsii.String("responsibilityTransferArn"),
 //   	},
 //   	ComputationPreference: &ComputationPreferenceProperty{
 //   		PricingPlanArn: jsii.String("pricingPlanArn"),
 //   	},
 //   	Name: jsii.String("name"),
-//   	PrimaryAccountId: jsii.String("primaryAccountId"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	PrimaryAccountId: jsii.String("primaryAccountId"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -53,14 +52,14 @@ type CfnBillingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The account ID that serves as the main account in a billing group.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-primaryaccountid
-	//
-	PrimaryAccountId *string `field:"required" json:"primaryAccountId" yaml:"primaryAccountId"`
 	// The description of the billing group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The account ID that serves as the main account in a billing group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-primaryaccountid
+	//
+	PrimaryAccountId *string `field:"optional" json:"primaryAccountId" yaml:"primaryAccountId"`
 	// A map that contains tag keys and tag values that are attached to a billing group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html#cfn-billingconductor-billinggroup-tags
 	//

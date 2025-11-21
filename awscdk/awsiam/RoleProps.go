@@ -7,21 +7,26 @@ import (
 // Properties for defining an IAM Role.
 //
 // Example:
-//   lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   // Create a browser
+//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+//   	BrowserCustomName: jsii.String("my_browser"),
+//   	Description: jsii.String("Browser for web automation"),
+//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+//   })
+//
+//   // Create a role that needs access to the browser
+//   userRole := iam.NewRole(this, jsii.String("UserRole"), &RoleProps{
 //   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
-//   	Description: jsii.String("Example role..."),
 //   })
 //
-//   stream := kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &StreamProps{
-//   	Encryption: kinesis.StreamEncryption_KMS,
-//   })
-//   streamConsumer := kinesis.NewStreamConsumer(this, jsii.String("MyStreamConsumer"), &StreamConsumerProps{
-//   	StreamConsumerName: jsii.String("MyStreamConsumer"),
-//   	Stream: Stream,
-//   })
+//   // Grant read permissions (Get and List actions)
+//   browser.GrantRead(userRole)
 //
-//   // give lambda permissions to read stream via the stream consumer
-//   streamConsumer.grantRead(lambdaRole)
+//   // Grant use permissions (Start, Update, Stop actions)
+//   browser.GrantUse(userRole)
+//
+//   // Grant specific custom permissions
+//   browser.Grant(userRole, jsii.String("bedrock-agentcore:GetBrowserSession"))
 //
 type RoleProps struct {
 	// The IAM principal (i.e. `new ServicePrincipal('sns.amazonaws.com')`) which can assume this role.

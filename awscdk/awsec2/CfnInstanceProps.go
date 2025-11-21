@@ -141,7 +141,7 @@ import (
 //   	PrivateIpAddress: jsii.String("privateIpAddress"),
 //   	PropagateTagsToVolumeOnCreation: jsii.Boolean(false),
 //   	RamdiskId: jsii.String("ramdiskId"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SecurityGroups: []*string{
@@ -270,7 +270,7 @@ type CfnInstanceProps struct {
 	// If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account. This type of launch is called an untargeted launch. Note that for untargeted launches, you must have a compatible, dedicated host available to successfully launch instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-hostid
 	//
-	HostId *string `field:"optional" json:"hostId" yaml:"hostId"`
+	HostId interface{} `field:"optional" json:"hostId" yaml:"hostId"`
 	// The ARN of the host resource group in which to launch the instances.
 	//
 	// If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to `host` .
@@ -282,7 +282,7 @@ type CfnInstanceProps struct {
 	// To create a new IAM instance profile, use the [AWS::IAM::InstanceProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html) resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile
 	//
-	IamInstanceProfile *string `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
+	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
 	// The ID of the AMI.
 	//
 	// An AMI ID is required to launch an instance and must be specified here or in a launch template.
@@ -360,7 +360,7 @@ type CfnInstanceProps struct {
 	// The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-placementgroupname
 	//
-	PlacementGroupName *string `field:"optional" json:"placementGroupName" yaml:"placementGroupName"`
+	PlacementGroupName interface{} `field:"optional" json:"placementGroupName" yaml:"placementGroupName"`
 	// The options for the instance hostname.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-privatednsnameoptions
 	//
@@ -396,7 +396,7 @@ type CfnInstanceProps struct {
 	// If you specify a network interface, you must specify any security groups as part of the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// [Default VPC] The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
 	//
 	// You cannot specify this option and the network interfaces option in the same request. The list can contain both the name of existing Amazon EC2 security groups or references to AWS::EC2::SecurityGroup resources created in the template.
@@ -422,7 +422,7 @@ type CfnInstanceProps struct {
 	// If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-subnetid
 	//
-	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The tags to add to the instance.
 	//
 	// These tags are not applied to the EBS volumes, such as the root volume, unless [PropagateTagsToVolumeOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-propagatetagstovolumeoncreation) is `true` .

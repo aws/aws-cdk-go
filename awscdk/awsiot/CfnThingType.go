@@ -515,6 +515,24 @@ func (j *jsiiProxy_CfnThingType)SetThingTypeProperties(val interface{}) {
 	)
 }
 
+func CfnThingType_ArnForThingType(resource interfacesawsiot.IThingTypeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnThingType_ArnForThingTypeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnThingType",
+		"arnForThingType",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IThingTypeRef from an ARN.
 func CfnThingType_FromThingTypeArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IThingTypeRef {
 	_init_.Initialize()

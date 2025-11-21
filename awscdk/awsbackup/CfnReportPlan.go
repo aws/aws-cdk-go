@@ -17,7 +17,7 @@ import (
 //
 // If you call `CreateReportPlan` with a plan that already exists, you receive an `AlreadyExistsException` exception.
 //
-// For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
+// For a sample CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -518,6 +518,24 @@ func (j *jsiiProxy_CfnReportPlan)SetReportSetting(val interface{}) {
 		"reportSetting",
 		val,
 	)
+}
+
+func CfnReportPlan_ArnForReportPlan(resource interfacesawsbackup.IReportPlanRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnReportPlan_ArnForReportPlanParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnReportPlan",
+		"arnForReportPlan",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

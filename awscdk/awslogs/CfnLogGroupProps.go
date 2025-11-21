@@ -52,16 +52,16 @@ type CfnLogGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-fieldindexpolicies
 	//
 	FieldIndexPolicies interface{} `field:"optional" json:"fieldIndexPolicies" yaml:"fieldIndexPolicies"`
-	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
+	// The Amazon Resource Name (ARN) of the AWS  key to use when encrypting log data.
 	//
-	// To associate an AWS KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs . This enables CloudWatch Logs to decrypt this data whenever it is requested.
+	// To associate an AWS  key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs . This enables CloudWatch Logs to decrypt this data whenever it is requested.
 	//
 	// If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an `InvalidParameterException` error.
 	//
-	// Log group data is always encrypted in CloudWatch Logs . If you omit this key, the encryption does not use AWS KMS . For more information, see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)
+	// Log group data is always encrypted in CloudWatch Logs . If you omit this key, the encryption does not use AWS  . For more information, see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the log group class for this log group. There are two classes:.
 	//
 	// - The `Standard` log class supports all CloudWatch Logs features.
@@ -78,7 +78,7 @@ type CfnLogGroupProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
 	//
-	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName interface{} `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account.
 	//
 	// A LogGroup can have 1 resource policy.

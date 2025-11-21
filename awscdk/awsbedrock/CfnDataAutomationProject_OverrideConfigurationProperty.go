@@ -10,6 +10,13 @@ package awsbedrock
 //
 //   overrideConfigurationProperty := &OverrideConfigurationProperty{
 //   	Audio: &AudioOverrideConfigurationProperty{
+//   		LanguageConfiguration: &AudioLanguageConfigurationProperty{
+//   			GenerativeOutputLanguage: jsii.String("generativeOutputLanguage"),
+//   			IdentifyMultipleLanguages: jsii.Boolean(false),
+//   			InputLanguages: []*string{
+//   				jsii.String("inputLanguages"),
+//   			},
+//   		},
 //   		ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   			State: jsii.String("state"),
 //   		},

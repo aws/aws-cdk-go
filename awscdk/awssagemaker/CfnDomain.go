@@ -365,7 +365,7 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	TagPropagation: jsii.String("tagPropagation"),
@@ -1084,6 +1084,24 @@ func (j *jsiiProxy_CfnDomain)SetVpcId(val *string) {
 		"vpcId",
 		val,
 	)
+}
+
+func CfnDomain_ArnForDomain(resource interfacesawssagemaker.IDomainRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDomain_ArnForDomainParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain",
+		"arnForDomain",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IDomainRef from an ARN.

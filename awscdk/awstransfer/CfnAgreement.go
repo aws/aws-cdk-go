@@ -674,6 +674,24 @@ func (j *jsiiProxy_CfnAgreement)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAgreement_ArnForAgreement(resource interfacesawstransfer.IAgreementRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAgreement_ArnForAgreementParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnAgreement",
+		"arnForAgreement",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

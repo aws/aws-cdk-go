@@ -702,6 +702,24 @@ func (j *jsiiProxy_CfnMonitoringSchedule)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMonitoringSchedule_ArnForMonitoringSchedule(resource interfacesawssagemaker.IMonitoringScheduleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMonitoringSchedule_ArnForMonitoringScheduleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule",
+		"arnForMonitoringSchedule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

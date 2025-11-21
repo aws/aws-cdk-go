@@ -16,6 +16,13 @@ import (
 //   	DomainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
+//   	DataStore: &DataStoreProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		Readiness: &ReadinessProperty{
+//   			Message: jsii.String("message"),
+//   			ProgressPercentage: jsii.Number(123),
+//   		},
+//   	},
 //   	DeadLetterQueueUrl: jsii.String("deadLetterQueueUrl"),
 //   	DefaultEncryptionKey: jsii.String("defaultEncryptionKey"),
 //   	Matching: &MatchingProperty{
@@ -116,6 +123,10 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
 	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
+	// Configuration and status of the data store for the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-datastore
+	//
+	DataStore interface{} `field:"optional" json:"dataStore" yaml:"dataStore"`
 	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
 	//
 	// You must set up a policy on the `DeadLetterQueue` for the `SendMessage` operation to enable Amazon Connect Customer Profiles to send messages to the `DeadLetterQueue` .

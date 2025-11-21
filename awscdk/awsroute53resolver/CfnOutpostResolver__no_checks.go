@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnOutpostResolver) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnOutpostResolver_ArnForOutpostResolverParameters(resource interfacesawsroute53resolver.IOutpostResolverRef) error {
+	return nil
+}
+
 func validateCfnOutpostResolver_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDimension) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnDimension_ArnForDimensionParameters(resource interfacesawsiot.IDimensionRef) error {
+	return nil
+}
+
 func validateCfnDimension_FromDimensionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

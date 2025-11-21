@@ -726,6 +726,24 @@ func (j *jsiiProxy_CfnPipeline)SetVpcOptions(val interface{}) {
 	)
 }
 
+func CfnPipeline_ArnForPipeline(resource interfacesawsosis.IPipelineRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPipeline_ArnForPipelineParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_osis.CfnPipeline",
+		"arnForPipeline",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

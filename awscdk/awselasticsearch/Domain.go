@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticsearch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,6 +56,9 @@ type Domain interface {
 	// Domain name of the Elasticsearch domain.
 	// Deprecated: use opensearchservice module instead.
 	DomainName() *string
+	// A reference to a Domain resource.
+	// Deprecated: use opensearchservice module instead.
+	DomainRef() *interfacesawselasticsearch.DomainReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -66,6 +70,9 @@ type Domain interface {
 	// different than the stack they were imported into.
 	// Deprecated: use opensearchservice module instead.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a Domain.
+	// Deprecated: use opensearchservice module instead.
+	Grants() DomainGrants
 	// Master user password if fine grained access control is configured.
 	// Deprecated: use opensearchservice module instead.
 	MasterUserPassword() awscdk.SecretValue
@@ -298,11 +305,31 @@ func (j *jsiiProxy_Domain) DomainName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Domain) DomainRef() *interfacesawselasticsearch.DomainReference {
+	var returns *interfacesawselasticsearch.DomainReference
+	_jsii_.Get(
+		j,
+		"domainRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Domain) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Domain) Grants() DomainGrants {
+	var returns DomainGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

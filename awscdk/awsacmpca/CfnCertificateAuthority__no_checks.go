@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCertificateAuthority) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnCertificateAuthority_ArnForCertificateAuthorityParameters(resource interfacesawsacmpca.ICertificateAuthorityRef) error {
+	return nil
+}
+
 func validateCfnCertificateAuthority_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

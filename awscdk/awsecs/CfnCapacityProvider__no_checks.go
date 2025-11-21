@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCapacityProvider) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnCapacityProvider_ArnForCapacityProviderParameters(resource interfacesawsecs.ICapacityProviderRef) error {
+	return nil
+}
+
 func validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope constructs.Construct, id *string, capacityProviderName *string) error {
 	return nil
 }

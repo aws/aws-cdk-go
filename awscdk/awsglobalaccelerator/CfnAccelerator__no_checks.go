@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAccelerator) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnAccelerator_ArnForAcceleratorParameters(resource interfacesawsglobalaccelerator.IAcceleratorRef) error {
+	return nil
+}
+
 func validateCfnAccelerator_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

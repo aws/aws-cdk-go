@@ -31,15 +31,15 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	Groups: []*string{
+//   	Groups: []interface{}{
 //   		jsii.String("groups"),
 //   	},
 //   	ManagedPolicyName: jsii.String("managedPolicyName"),
 //   	Path: jsii.String("path"),
-//   	Roles: []*string{
+//   	Roles: []interface{}{
 //   		jsii.String("roles"),
 //   	},
-//   	Users: []*string{
+//   	Users: []interface{}{
 //   		jsii.String("users"),
 //   	},
 //   })

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPreset) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnPreset_ArnForPresetParameters(resource interfacesawsmediaconvert.IPresetRef) error {
+	return nil
+}
+
 func validateCfnPreset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

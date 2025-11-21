@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPipeline) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnPipeline_ArnForPipelineParameters(resource interfacesawsosis.IPipelineRef) error {
+	return nil
+}
+
 func validateCfnPipeline_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

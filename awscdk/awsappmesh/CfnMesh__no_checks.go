@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMesh) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnMesh_ArnForMeshParameters(resource interfacesawsappmesh.IMeshRef) error {
+	return nil
+}
+
 func validateCfnMesh_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -125,6 +125,9 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		InfrastructureOptimization: &InfrastructureOptimizationProperty{
+//   			ScaleInAfter: jsii.Number(123),
+//   		},
 //   		PropagateTags: jsii.String("propagateTags"),
 //   	},
 //   	Name: jsii.String("name"),

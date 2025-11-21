@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnImagePipeline) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnImagePipeline_ArnForImagePipelineParameters(resource interfacesawsimagebuilder.IImagePipelineRef) error {
+	return nil
+}
+
 func validateCfnImagePipeline_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

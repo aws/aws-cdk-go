@@ -15,7 +15,7 @@ import (
 //
 // Resource definitions are used to organize your resource definition versions.
 //
-// Resource definitions can reference multiple resource definition versions. All resource definition versions must be associated with a resource definition. Each resource definition version can contain one or more resources. (In AWS CloudFormation , resources are named *resource instances* .)
+// Resource definitions can reference multiple resource definition versions. All resource definition versions must be associated with a resource definition. Each resource definition version can contain one or more resources. (In CloudFormation , resources are named *resource instances* .)
 //
 // > When you create a resource definition, you can optionally include an initial resource definition version. To associate a resource definition version later, create an [`AWS::Greengrass::ResourceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html) resource and specify the ID of this resource definition.
 // >
@@ -561,6 +561,24 @@ func (j *jsiiProxy_CfnResourceDefinition)SetTagsRaw(val interface{}) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnResourceDefinition_ArnForResourceDefinition(resource interfacesawsgreengrass.IResourceDefinitionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResourceDefinition_ArnForResourceDefinitionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
+		"arnForResourceDefinition",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IResourceDefinitionRef from an ARN.

@@ -96,7 +96,7 @@ type CfnWorkspace interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
-	// (optional) The ARN for a customer managed AWS KMS key to use for encrypting data within your workspace.
+	// (optional) The ARN for a customer managed AWS  key to use for encrypting data within your workspace.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// Contains information about the logging configuration for the workspace.
@@ -610,6 +610,24 @@ func (j *jsiiProxy_CfnWorkspace)SetWorkspaceConfiguration(val interface{}) {
 		"workspaceConfiguration",
 		val,
 	)
+}
+
+func CfnWorkspace_ArnForWorkspace(resource interfacesawsaps.IWorkspaceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspace_ArnForWorkspaceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_aps.CfnWorkspace",
+		"arnForWorkspace",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

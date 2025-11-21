@@ -3,7 +3,7 @@ package awscloudformation
 
 // The `TargetFilters` property type specifies the target filters for the Hook.
 //
-// For more information, see [AWS CloudFormation Hook target filters](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-target-filtering.html) .
+// For more information, see [CloudFormation Hook target filters](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-target-filtering.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

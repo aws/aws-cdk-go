@@ -421,6 +421,24 @@ func (j *jsiiProxy_CfnHubV2)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnHubV2_ArnForHubV2(resource interfacesawssecurityhub.IHubV2Ref) *string {
+	_init_.Initialize()
+
+	if err := validateCfnHubV2_ArnForHubV2Parameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnHubV2",
+		"arnForHubV2",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

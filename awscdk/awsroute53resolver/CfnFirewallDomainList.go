@@ -583,6 +583,24 @@ func (j *jsiiProxy_CfnFirewallDomainList)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnFirewallDomainList_ArnForFirewallDomainList(resource interfacesawsroute53resolver.IFirewallDomainListRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFirewallDomainList_ArnForFirewallDomainListParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnFirewallDomainList",
+		"arnForFirewallDomainList",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

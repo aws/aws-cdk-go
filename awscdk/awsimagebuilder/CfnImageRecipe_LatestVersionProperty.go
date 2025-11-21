@@ -1,0 +1,38 @@
+package awsimagebuilder
+
+
+// The latest version references of the image recipe.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   latestVersionProperty := &LatestVersionProperty{
+//   	Arn: jsii.String("arn"),
+//   	Major: jsii.String("major"),
+//   	Minor: jsii.String("minor"),
+//   	Patch: jsii.String("patch"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html
+//
+type CfnImageRecipe_LatestVersionProperty struct {
+	// The Amazon Resource Name (ARN) of the image recipe.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html#cfn-imagebuilder-imagerecipe-latestversion-arn
+	//
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	// The latest version ARN of the created image recipe, with the same major version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html#cfn-imagebuilder-imagerecipe-latestversion-major
+	//
+	Major *string `field:"optional" json:"major" yaml:"major"`
+	// The latest version ARN of the created image recipe, with the same minor version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html#cfn-imagebuilder-imagerecipe-latestversion-minor
+	//
+	Minor *string `field:"optional" json:"minor" yaml:"minor"`
+	// The latest version ARN of the created image recipe, with the same patch version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html#cfn-imagebuilder-imagerecipe-latestversion-patch
+	//
+	Patch *string `field:"optional" json:"patch" yaml:"patch"`
+}
+

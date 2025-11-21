@@ -25,11 +25,11 @@ package awscomprehend
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html
 //
 type CfnFlywheel_DataSecurityConfigProperty struct {
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-datalakekmskeyid
 	//
 	DataLakeKmsKeyId *string `field:"optional" json:"dataLakeKmsKeyId" yaml:"dataLakeKmsKeyId"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models.
 	//
 	// The ModelKmsKeyId can be either of the following formats:
 	//
@@ -38,7 +38,7 @@ type CfnFlywheel_DataSecurityConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-modelkmskeyid
 	//
 	ModelKmsKeyId *string `field:"optional" json:"modelKmsKeyId" yaml:"modelKmsKeyId"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html#cfn-comprehend-flywheel-datasecurityconfig-volumekmskeyid
 	//
 	VolumeKmsKeyId *string `field:"optional" json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`

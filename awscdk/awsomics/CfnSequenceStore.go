@@ -684,6 +684,24 @@ func (j *jsiiProxy_CfnSequenceStore)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnSequenceStore_ArnForSequenceStore(resource interfacesawsomics.ISequenceStoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSequenceStore_ArnForSequenceStoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnSequenceStore",
+		"arnForSequenceStore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISequenceStoreRef from an ARN.
 func CfnSequenceStore_FromSequenceStoreArn(scope constructs.Construct, id *string, arn *string) interfacesawsomics.ISequenceStoreRef {
 	_init_.Initialize()

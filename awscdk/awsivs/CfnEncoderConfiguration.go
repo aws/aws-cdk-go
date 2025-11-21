@@ -469,6 +469,24 @@ func (j *jsiiProxy_CfnEncoderConfiguration)SetVideo(val interface{}) {
 	)
 }
 
+func CfnEncoderConfiguration_ArnForEncoderConfiguration(resource interfacesawsivs.IEncoderConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEncoderConfiguration_ArnForEncoderConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnEncoderConfiguration",
+		"arnForEncoderConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

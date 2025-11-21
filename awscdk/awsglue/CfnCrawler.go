@@ -798,6 +798,24 @@ func (j *jsiiProxy_CfnCrawler)SetTargets(val interface{}) {
 	)
 }
 
+func CfnCrawler_ArnForCrawler(resource interfacesawsglue.ICrawlerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCrawler_ArnForCrawlerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnCrawler",
+		"arnForCrawler",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICrawlerRef from a crawlerName.
 func CfnCrawler_FromCrawlerName(scope constructs.Construct, id *string, crawlerName *string) interfacesawsglue.ICrawlerRef {
 	_init_.Initialize()

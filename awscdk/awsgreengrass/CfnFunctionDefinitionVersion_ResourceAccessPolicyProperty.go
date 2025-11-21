@@ -5,7 +5,7 @@ package awsgreengrass
 //
 // > This property applies only to Lambda functions that run in a Greengrass container.
 //
-// In an AWS CloudFormation template, `ResourceAccessPolicy` is a property of the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property type.
+// In an CloudFormation template, `ResourceAccessPolicy` is a property of the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

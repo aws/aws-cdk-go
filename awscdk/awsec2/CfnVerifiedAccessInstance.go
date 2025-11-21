@@ -617,6 +617,24 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance)SetVerifiedAccessTrustProviders(val
 	)
 }
 
+func CfnVerifiedAccessInstance_ArnForVerifiedAccessInstance(resource interfacesawsec2.IVerifiedAccessInstanceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVerifiedAccessInstance_ArnForVerifiedAccessInstanceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessInstance",
+		"arnForVerifiedAccessInstance",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVerifiedAccessInstanceRef from a verifiedAccessInstanceId.
 func CfnVerifiedAccessInstance_FromVerifiedAccessInstanceId(scope constructs.Construct, id *string, verifiedAccessInstanceId *string) interfacesawsec2.IVerifiedAccessInstanceRef {
 	_init_.Initialize()

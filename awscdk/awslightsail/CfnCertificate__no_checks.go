@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCertificate) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnCertificate_ArnForCertificateParameters(resource interfacesawslightsail.ICertificateRef) error {
+	return nil
+}
+
 func validateCfnCertificate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

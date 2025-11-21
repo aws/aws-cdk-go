@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMonitor) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnMonitor_ArnForMonitorParameters(resource interfacesawsinternetmonitor.IMonitorRef) error {
+	return nil
+}
+
 func validateCfnMonitor_FromMonitorArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

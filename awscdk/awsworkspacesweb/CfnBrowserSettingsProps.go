@@ -23,6 +23,17 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WebContentFilteringPolicy: &WebContentFilteringPolicyProperty{
+//   		AllowedUrls: []*string{
+//   			jsii.String("allowedUrls"),
+//   		},
+//   		BlockedCategories: []*string{
+//   			jsii.String("blockedCategories"),
+//   		},
+//   		BlockedUrls: []*string{
+//   			jsii.String("blockedUrls"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-browsersettings.html
@@ -48,5 +59,9 @@ type CfnBrowserSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-browsersettings.html#cfn-workspacesweb-browsersettings-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-browsersettings.html#cfn-workspacesweb-browsersettings-webcontentfilteringpolicy
+	//
+	WebContentFilteringPolicy interface{} `field:"optional" json:"webContentFilteringPolicy" yaml:"webContentFilteringPolicy"`
 }
 

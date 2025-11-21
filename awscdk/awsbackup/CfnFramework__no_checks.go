@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFramework) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnFramework_ArnForFrameworkParameters(resource interfacesawsbackup.IFrameworkRef) error {
+	return nil
+}
+
 func validateCfnFramework_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

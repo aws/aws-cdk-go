@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTestGridProject) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnTestGridProject_ArnForTestGridProjectParameters(resource interfacesawsdevicefarm.ITestGridProjectRef) error {
+	return nil
+}
+
 func validateCfnTestGridProject_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

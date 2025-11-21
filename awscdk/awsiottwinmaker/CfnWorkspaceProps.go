@@ -26,11 +26,11 @@ type CfnWorkspaceProps struct {
 	// The ARN of the execution role associated with the workspace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-workspace.html#cfn-iottwinmaker-workspace-role
 	//
-	Role *string `field:"required" json:"role" yaml:"role"`
+	Role interface{} `field:"required" json:"role" yaml:"role"`
 	// The ARN of the S3 bucket where resources associated with the workspace are stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-workspace.html#cfn-iottwinmaker-workspace-s3location
 	//
-	S3Location *string `field:"required" json:"s3Location" yaml:"s3Location"`
+	S3Location interface{} `field:"required" json:"s3Location" yaml:"s3Location"`
 	// The ID of the workspace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-workspace.html#cfn-iottwinmaker-workspace-workspaceid
 	//

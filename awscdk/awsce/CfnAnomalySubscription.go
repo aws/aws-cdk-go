@@ -26,7 +26,7 @@ import (
 //
 //   cfnAnomalySubscription := awscdk.Aws_ce.NewCfnAnomalySubscription(this, jsii.String("MyCfnAnomalySubscription"), &CfnAnomalySubscriptionProps{
 //   	Frequency: jsii.String("frequency"),
-//   	MonitorArnList: []*string{
+//   	MonitorArnList: []interface{}{
 //   		jsii.String("monitorArnList"),
 //   	},
 //   	Subscribers: []interface{}{

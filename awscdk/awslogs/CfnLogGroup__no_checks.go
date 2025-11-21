@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLogGroup) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnLogGroup_ArnForLogGroupParameters(resource interfacesawslogs.ILogGroupRef) error {
+	return nil
+}
+
 func validateCfnLogGroup_FromLogGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

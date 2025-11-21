@@ -61,7 +61,7 @@ type CfnAssociationProps struct {
 	// For AWS -predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, `AWS -ApplyPatchBaseline` or `My-Document` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
 	//
-	Name *string `field:"required" json:"name" yaml:"name"`
+	Name interface{} `field:"required" json:"name" yaml:"name"`
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified.
 	//
 	// Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
@@ -168,7 +168,7 @@ type CfnAssociationProps struct {
 	//
 	// If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
 	//
-	// > When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your AWS CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
+	// > When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
 	//
 	WaitForSuccessTimeoutSeconds *float64 `field:"optional" json:"waitForSuccessTimeoutSeconds" yaml:"waitForSuccessTimeoutSeconds"`

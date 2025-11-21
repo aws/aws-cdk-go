@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataProtectionSettings) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnDataProtectionSettings_ArnForDataProtectionSettingsParameters(resource interfacesawsworkspacesweb.IDataProtectionSettingsRef) error {
+	return nil
+}
+
 func validateCfnDataProtectionSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIdNamespaceAssociation) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnIdNamespaceAssociation_ArnForIdNamespaceAssociationParameters(resource interfacesawscleanrooms.IIdNamespaceAssociationRef) error {
+	return nil
+}
+
 func validateCfnIdNamespaceAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

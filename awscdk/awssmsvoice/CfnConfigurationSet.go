@@ -556,6 +556,24 @@ func (j *jsiiProxy_CfnConfigurationSet)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnConfigurationSet_ArnForConfigurationSet(resource interfacesawssmsvoice.IConfigurationSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConfigurationSet_ArnForConfigurationSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnConfigurationSet",
+		"arnForConfigurationSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IConfigurationSetRef from an ARN.
 func CfnConfigurationSet_FromConfigurationSetArn(scope constructs.Construct, id *string, arn *string) interfacesawssmsvoice.IConfigurationSetRef {
 	_init_.Initialize()

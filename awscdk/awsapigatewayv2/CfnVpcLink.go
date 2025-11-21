@@ -22,12 +22,12 @@ import (
 //
 //   cfnVpcLink := awscdk.Aws_apigatewayv2.NewCfnVpcLink(this, jsii.String("MyCfnVpcLink"), &CfnVpcLinkProps{
 //   	Name: jsii.String("name"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //
 //   	// the properties below are optional
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	Tags: map[string]*string{
@@ -485,6 +485,24 @@ func (j *jsiiProxy_CfnVpcLink)SetTagsRaw(val *map[string]*string) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnVpcLink_ArnForVpcLink(resource interfacesawsapigatewayv2.IVpcLinkRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVpcLink_ArnForVpcLinkParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigatewayv2.CfnVpcLink",
+		"arnForVpcLink",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IVpcLinkRef from a vpcLinkId.

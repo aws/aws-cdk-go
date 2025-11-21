@@ -43,7 +43,7 @@ type CfnEventSubscriptionProps struct {
 	SnsTopicArn *string `field:"required" json:"snsTopicArn" yaml:"snsTopicArn"`
 	// Indicates whether to activate the subscription.
 	//
-	// If you don't specify this property, AWS CloudFormation activates the subscription.
+	// If you don't specify this property, CloudFormation activates the subscription.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`

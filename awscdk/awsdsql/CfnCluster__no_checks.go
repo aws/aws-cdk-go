@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCluster) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnCluster_ArnForClusterParameters(resource interfacesawsdsql.IClusterRef) error {
+	return nil
+}
+
 func validateCfnCluster_FromIdentifierParameters(scope constructs.Construct, id *string, identifier *string) error {
 	return nil
 }

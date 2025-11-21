@@ -19,7 +19,7 @@ import (
 //   	ActionsSuppressor: jsii.String("actionsSuppressor"),
 //   	ActionsSuppressorExtensionPeriod: jsii.Number(123),
 //   	ActionsSuppressorWaitPeriod: jsii.Number(123),
-//   	AlarmActions: []*string{
+//   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
 //   	},
 //   	AlarmDescription: jsii.String("alarmDescription"),
@@ -27,7 +27,7 @@ import (
 //   	InsufficientDataActions: []*string{
 //   		jsii.String("insufficientDataActions"),
 //   	},
-//   	OkActions: []*string{
+//   	OkActions: []interface{}{
 //   		jsii.String("okActions"),
 //   	},
 //   	Tags: []CfnTag{
@@ -72,7 +72,7 @@ type CfnCompositeAlarmProps struct {
 	// `ActionsSuppressor` can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionssuppressor
 	//
-	ActionsSuppressor *string `field:"optional" json:"actionsSuppressor" yaml:"actionsSuppressor"`
+	ActionsSuppressor interface{} `field:"optional" json:"actionsSuppressor" yaml:"actionsSuppressor"`
 	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state.
 	//
 	// After this time, the composite alarm performs its actions.
@@ -94,7 +94,7 @@ type CfnCompositeAlarmProps struct {
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
 	//
-	AlarmActions *[]*string `field:"optional" json:"alarmActions" yaml:"alarmActions"`
+	AlarmActions *[]interface{} `field:"optional" json:"alarmActions" yaml:"alarmActions"`
 	// The description for the composite alarm.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
 	//
@@ -116,7 +116,7 @@ type CfnCompositeAlarmProps struct {
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
 	//
-	OkActions *[]*string `field:"optional" json:"okActions" yaml:"okActions"`
+	OkActions *[]interface{} `field:"optional" json:"okActions" yaml:"okActions"`
 	// A list of key-value pairs to associate with the alarm.
 	//
 	// You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.

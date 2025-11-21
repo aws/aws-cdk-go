@@ -94,6 +94,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersion", GoGetter: "AttrLatestVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionArn", GoGetter: "AttrLatestVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMajor", GoGetter: "AttrLatestVersionMajor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMinor", GoGetter: "AttrLatestVersionMinor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionPatch", GoGetter: "AttrLatestVersionPatch"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -164,6 +169,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe.InstanceConfigurationProperty",
 		reflect.TypeOf((*CfnContainerRecipe_InstanceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe.LatestVersionProperty",
+		reflect.TypeOf((*CfnContainerRecipe_LatestVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnContainerRecipe.TargetContainerRepositoryProperty",
@@ -495,6 +504,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "amiTags", GoGetter: "AmiTags"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersion", GoGetter: "AttrLatestVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionArn", GoGetter: "AttrLatestVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMajor", GoGetter: "AttrLatestVersionMajor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMinor", GoGetter: "AttrLatestVersionMinor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionPatch", GoGetter: "AttrLatestVersionPatch"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
 			_jsii_.MemberProperty{JsiiProperty: "blockDeviceMappings", GoGetter: "BlockDeviceMappings"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -558,6 +572,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe.InstanceBlockDeviceMappingProperty",
 		reflect.TypeOf((*CfnImageRecipe_InstanceBlockDeviceMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe.LatestVersionProperty",
+		reflect.TypeOf((*CfnImageRecipe_LatestVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe.SystemsManagerAgentProperty",

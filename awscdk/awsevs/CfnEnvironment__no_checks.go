@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEnvironment) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnEnvironment_ArnForEnvironmentParameters(resource interfacesawsevs.IEnvironmentRef) error {
+	return nil
+}
+
 func validateCfnEnvironment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

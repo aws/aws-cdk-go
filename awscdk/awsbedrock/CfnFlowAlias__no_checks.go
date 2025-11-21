@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFlowAlias) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnFlowAlias_ArnForFlowAliasParameters(resource interfacesawsbedrock.IFlowAliasRef) error {
+	return nil
+}
+
 func validateCfnFlowAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

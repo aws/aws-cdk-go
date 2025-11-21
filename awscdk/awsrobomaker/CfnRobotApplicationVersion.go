@@ -430,6 +430,24 @@ func (j *jsiiProxy_CfnRobotApplicationVersion)SetCurrentRevisionId(val *string) 
 	)
 }
 
+func CfnRobotApplicationVersion_ArnForRobotApplicationVersion(resource interfacesawsrobomaker.IRobotApplicationVersionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRobotApplicationVersion_ArnForRobotApplicationVersionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_robomaker.CfnRobotApplicationVersion",
+		"arnForRobotApplicationVersion",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

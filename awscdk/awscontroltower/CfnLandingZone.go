@@ -543,6 +543,24 @@ func (j *jsiiProxy_CfnLandingZone)SetVersion(val *string) {
 	)
 }
 
+func CfnLandingZone_ArnForLandingZone(resource interfacesawscontroltower.ILandingZoneRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLandingZone_ArnForLandingZoneParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_controltower.CfnLandingZone",
+		"arnForLandingZone",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

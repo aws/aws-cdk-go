@@ -10,6 +10,9 @@ package awsec2
 //
 //   vpnTunnelLogOptionsSpecificationProperty := &VpnTunnelLogOptionsSpecificationProperty{
 //   	CloudwatchLogOptions: &CloudwatchLogOptionsSpecificationProperty{
+//   		BgpLogEnabled: jsii.Boolean(false),
+//   		BgpLogGroupArn: jsii.String("bgpLogGroupArn"),
+//   		BgpLogOutputFormat: jsii.String("bgpLogOutputFormat"),
 //   		LogEnabled: jsii.Boolean(false),
 //   		LogGroupArn: jsii.String("logGroupArn"),
 //   		LogOutputFormat: jsii.String("logOutputFormat"),

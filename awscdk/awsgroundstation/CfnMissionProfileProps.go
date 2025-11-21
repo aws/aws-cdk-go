@@ -61,7 +61,7 @@ type CfnMissionProfileProps struct {
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
 	//
-	TrackingConfigArn *string `field:"required" json:"trackingConfigArn" yaml:"trackingConfigArn"`
+	TrackingConfigArn interface{} `field:"required" json:"trackingConfigArn" yaml:"trackingConfigArn"`
 	// Amount of time in seconds after a contact ends that you’d like to receive a Ground Station Contact State Change indicating the pass has finished.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
 	//

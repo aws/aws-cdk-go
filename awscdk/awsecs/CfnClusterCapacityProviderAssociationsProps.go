@@ -21,7 +21,7 @@ package awsecs
 //   	},
 //
 //   	// the properties below are optional
-//   	CapacityProviders: []*string{
+//   	CapacityProviders: []interface{}{
 //   		jsii.String("capacityProviders"),
 //   	},
 //   }
@@ -32,7 +32,7 @@ type CfnClusterCapacityProviderAssociationsProps struct {
 	// The cluster the capacity provider association is the target of.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
 	//
-	Cluster *string `field:"required" json:"cluster" yaml:"cluster"`
+	Cluster interface{} `field:"required" json:"cluster" yaml:"cluster"`
 	// The default capacity provider strategy to associate with the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
 	//
@@ -40,6 +40,6 @@ type CfnClusterCapacityProviderAssociationsProps struct {
 	// The capacity providers to associate with the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
 	//
-	CapacityProviders *[]*string `field:"optional" json:"capacityProviders" yaml:"capacityProviders"`
+	CapacityProviders *[]interface{} `field:"optional" json:"capacityProviders" yaml:"capacityProviders"`
 }
 

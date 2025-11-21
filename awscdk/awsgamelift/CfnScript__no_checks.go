@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnScript) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnScript_ArnForScriptParameters(resource interfacesawsgamelift.IScriptRef) error {
+	return nil
+}
+
 func validateCfnScript_FromScriptArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

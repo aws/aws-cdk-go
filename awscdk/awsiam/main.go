@@ -1203,6 +1203,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iam.GrantOnKeyResult",
+		reflect.TypeOf((*GrantOnKeyResult)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iam.GrantOnPrincipalAndResourceOptions",
 		reflect.TypeOf((*GrantOnPrincipalAndResourceOptions)(nil)).Elem(),
 	)
@@ -1217,6 +1221,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iam.GrantWithResourceOptions",
 		reflect.TypeOf((*GrantWithResourceOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_iam.GrantableResources",
+		reflect.TypeOf((*GrantableResources)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_GrantableResources{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_iam.Group",
@@ -1305,6 +1317,22 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IComparablePrincipal{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrincipal)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_iam.IEncryptedResource",
+		reflect.TypeOf((*IEncryptedResource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IEncryptedResource{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
 	)
@@ -1998,6 +2026,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantAssumeRole", GoMethod: "GrantAssumeRole"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPassRole", GoMethod: "GrantPassRole"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsBoundary", GoGetter: "PermissionsBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
@@ -2016,6 +2045,17 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRole)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_iam.RoleGrants",
+		reflect.TypeOf((*RoleGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "assumeRole", GoMethod: "AssumeRole"},
+			_jsii_.MemberMethod{JsiiMethod: "passRole", GoMethod: "PassRole"},
+		},
+		func() interface{} {
+			return &jsiiProxy_RoleGrants{}
 		},
 	)
 	_jsii_.RegisterStruct(

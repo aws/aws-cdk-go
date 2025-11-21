@@ -595,6 +595,24 @@ func (j *jsiiProxy_CfnDeploymentStrategy)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDeploymentStrategy_ArnForDeploymentStrategy(resource interfacesawsappconfig.IDeploymentStrategyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDeploymentStrategy_ArnForDeploymentStrategyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appconfig.CfnDeploymentStrategy",
+		"arnForDeploymentStrategy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDeploymentStrategyRef from a deploymentStrategyId.
 func CfnDeploymentStrategy_FromDeploymentStrategyId(scope constructs.Construct, id *string, deploymentStrategyId *string) interfacesawsappconfig.IDeploymentStrategyRef {
 	_init_.Initialize()

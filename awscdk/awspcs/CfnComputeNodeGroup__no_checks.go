@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnComputeNodeGroup) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnComputeNodeGroup_ArnForComputeNodeGroupParameters(resource interfacesawspcs.IComputeNodeGroupRef) error {
+	return nil
+}
+
 func validateCfnComputeNodeGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

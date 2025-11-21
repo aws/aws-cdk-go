@@ -35,7 +35,7 @@ type CfnObservabilityConfigurationProps struct {
 	// >
 	// > When you want to use your own observability configuration for your App Runner service, *create a configuration with a different name* , and then provide it when you create or update your service.
 	//
-	// If you don't specify a name, AWS CloudFormation generates a name for your observability configuration.
+	// If you don't specify a name, CloudFormation generates a name for your observability configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html#cfn-apprunner-observabilityconfiguration-observabilityconfigurationname
 	//
 	ObservabilityConfigurationName *string `field:"optional" json:"observabilityConfigurationName" yaml:"observabilityConfigurationName"`

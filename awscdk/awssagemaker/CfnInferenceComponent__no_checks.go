@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInferenceComponent) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnInferenceComponent_ArnForInferenceComponentParameters(resource interfacesawssagemaker.IInferenceComponentRef) error {
+	return nil
+}
+
 func validateCfnInferenceComponent_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

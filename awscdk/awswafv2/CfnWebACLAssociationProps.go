@@ -31,7 +31,7 @@ type CfnWebACLAssociationProps struct {
 	// - For an AWS Amplify instance: `arn: *partition* :amplify: *region* : *account-id* :apps/ *app-id*`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
 	//
-	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn interface{} `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
 	//

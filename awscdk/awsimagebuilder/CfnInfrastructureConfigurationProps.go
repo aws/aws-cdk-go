@@ -54,7 +54,7 @@ type CfnInfrastructureConfigurationProps struct {
 	// The instance profile to associate with the instance used to customize your Amazon EC2 AMI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
 	//
-	InstanceProfileName *string `field:"required" json:"instanceProfileName" yaml:"instanceProfileName"`
+	InstanceProfileName interface{} `field:"required" json:"instanceProfileName" yaml:"instanceProfileName"`
 	// The name of the infrastructure configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
 	//
@@ -102,7 +102,7 @@ type CfnInfrastructureConfigurationProps struct {
 	// > EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys from other accounts. The key that is used to encrypt the SNS topic must reside in the account that the Image Builder service runs under.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
 	//
-	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn interface{} `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`
 	// The subnet ID in which to place the instance used to customize your Amazon EC2 AMI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
 	//

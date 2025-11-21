@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRouteTable) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnRouteTable_ArnForRouteTableParameters(resource interfacesawsec2.IRouteTableRef) error {
+	return nil
+}
+
 func validateCfnRouteTable_FromRouteTableIdParameters(scope constructs.Construct, id *string, routeTableId *string) error {
 	return nil
 }

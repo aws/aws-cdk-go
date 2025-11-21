@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBot) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
+func validateCfnBot_ArnForBotParameters(resource interfacesawslex.IBotRef) error {
+	return nil
+}
+
 func validateCfnBot_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSite) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnSite_ArnForSiteParameters(resource interfacesawsnetworkmanager.ISiteRef) error {
+	return nil
+}
+
 func validateCfnSite_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

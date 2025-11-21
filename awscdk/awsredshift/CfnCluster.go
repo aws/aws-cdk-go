@@ -38,7 +38,7 @@ import (
 //   	Classic: jsii.Boolean(false),
 //   	ClusterIdentifier: jsii.String("clusterIdentifier"),
 //   	ClusterParameterGroupName: jsii.String("clusterParameterGroupName"),
-//   	ClusterSecurityGroups: []*string{
+//   	ClusterSecurityGroups: []interface{}{
 //   		jsii.String("clusterSecurityGroups"),
 //   	},
 //   	ClusterSubnetGroupName: jsii.String("clusterSubnetGroupName"),
@@ -57,7 +57,7 @@ import (
 //   	EnhancedVpcRouting: jsii.Boolean(false),
 //   	HsmClientCertificateIdentifier: jsii.String("hsmClientCertificateIdentifier"),
 //   	HsmConfigurationIdentifier: jsii.String("hsmConfigurationIdentifier"),
-//   	IamRoles: []*string{
+//   	IamRoles: []interface{}{
 //   		jsii.String("iamRoles"),
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -95,7 +95,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   })

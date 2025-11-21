@@ -7,7 +7,7 @@ package awsgreengrass
 //
 // > Only one resource type can be defined for a `ResourceDataContainer` instance.
 //
-// In an AWS CloudFormation template, `ResourceDataContainer` is a property of the [`ResourceInstance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html) property type.
+// In an CloudFormation template, `ResourceDataContainer` is a property of the [`ResourceInstance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html) property type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEmailAddress) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnEmailAddress_ArnForEmailAddressParameters(resource interfacesawsconnect.IEmailAddressRef) error {
+	return nil
+}
+
 func validateCfnEmailAddress_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

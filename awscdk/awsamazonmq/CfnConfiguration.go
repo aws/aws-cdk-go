@@ -585,6 +585,24 @@ func (j *jsiiProxy_CfnConfiguration)SetTagsRaw(val *[]*CfnConfiguration_TagsEntr
 	)
 }
 
+func CfnConfiguration_ArnForConfiguration(resource interfacesawsamazonmq.IConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConfiguration_ArnForConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"arnForConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IConfigurationRef from an ARN.
 func CfnConfiguration_FromConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawsamazonmq.IConfigurationRef {
 	_init_.Initialize()

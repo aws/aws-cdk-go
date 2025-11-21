@@ -1,9 +1,11 @@
 package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 type Type__awscdkResource = awscdk.Resource
+type Type__awsiamIEncryptedResource = awsiam.IEncryptedResource
 type Type__interfacesawss3IBucketPolicyRef = interfacesawss3.IBucketPolicyRef
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable

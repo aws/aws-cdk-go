@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnInsightRule) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnInsightRule_ArnForInsightRuleParameters(resource interfacesawscloudwatch.IInsightRuleRef) error {
+	return nil
+}
+
 func validateCfnInsightRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -48,7 +48,7 @@ import (
 //   			jsii.String("sessionPinningFilters"),
 //   		},
 //   	},
-//   	DbClusterIdentifiers: []*string{
+//   	DbClusterIdentifiers: []interface{}{
 //   		jsii.String("dbClusterIdentifiers"),
 //   	},
 //   	DbInstanceIdentifiers: []*string{

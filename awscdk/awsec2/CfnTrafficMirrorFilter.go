@@ -463,6 +463,24 @@ func (j *jsiiProxy_CfnTrafficMirrorFilter)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnTrafficMirrorFilter_ArnForTrafficMirrorFilter(resource interfacesawsec2.ITrafficMirrorFilterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTrafficMirrorFilter_ArnForTrafficMirrorFilterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilter",
+		"arnForTrafficMirrorFilter",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITrafficMirrorFilterRef from a trafficMirrorFilterId.
 func CfnTrafficMirrorFilter_FromTrafficMirrorFilterId(scope constructs.Construct, id *string, trafficMirrorFilterId *string) interfacesawsec2.ITrafficMirrorFilterRef {
 	_init_.Initialize()

@@ -26,7 +26,7 @@ type CfnWarmPoolProps struct {
 	// The name of the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
 	//
-	AutoScalingGroupName *string `field:"required" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
+	AutoScalingGroupName interface{} `field:"required" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 	//
 	// The default is to terminate instances in the Auto Scaling group when the group scales in.

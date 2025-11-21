@@ -22,7 +22,7 @@ import (
 //
 //   cfnResourceGateway := awscdk.Aws_vpclattice.NewCfnResourceGateway(this, jsii.String("MyCfnResourceGateway"), &CfnResourceGatewayProps{
 //   	Name: jsii.String("name"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	VpcIdentifier: jsii.String("vpcIdentifier"),
@@ -30,7 +30,7 @@ import (
 //   	// the properties below are optional
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Ipv4AddressesPerEni: jsii.Number(123),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -572,6 +572,24 @@ func (j *jsiiProxy_CfnResourceGateway)SetVpcIdentifier(val *string) {
 		"vpcIdentifier",
 		val,
 	)
+}
+
+func CfnResourceGateway_ArnForResourceGateway(resource interfacesawsvpclattice.IResourceGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResourceGateway_ArnForResourceGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_vpclattice.CfnResourceGateway",
+		"arnForResourceGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

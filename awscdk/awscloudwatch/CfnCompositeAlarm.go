@@ -36,7 +36,7 @@ import (
 //   	ActionsSuppressor: jsii.String("actionsSuppressor"),
 //   	ActionsSuppressorExtensionPeriod: jsii.Number(123),
 //   	ActionsSuppressorWaitPeriod: jsii.Number(123),
-//   	AlarmActions: []*string{
+//   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
 //   	},
 //   	AlarmDescription: jsii.String("alarmDescription"),
@@ -44,7 +44,7 @@ import (
 //   	InsufficientDataActions: []*string{
 //   		jsii.String("insufficientDataActions"),
 //   	},
-//   	OkActions: []*string{
+//   	OkActions: []interface{}{
 //   		jsii.String("okActions"),
 //   	},
 //   	Tags: []CfnTag{
@@ -655,6 +655,24 @@ func (j *jsiiProxy_CfnCompositeAlarm)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnCompositeAlarm_ArnForCompositeAlarm(resource interfacesawscloudwatch.ICompositeAlarmRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCompositeAlarm_ArnForCompositeAlarmParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnCompositeAlarm",
+		"arnForCompositeAlarm",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

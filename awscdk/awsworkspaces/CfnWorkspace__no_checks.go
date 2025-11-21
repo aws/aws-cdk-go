@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWorkspace) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnWorkspace_ArnForWorkspaceParameters(resource interfacesawsworkspaces.IWorkspaceRef) error {
+	return nil
+}
+
 func validateCfnWorkspace_FromWorkspaceIdParameters(scope constructs.Construct, id *string, workspaceId *string) error {
 	return nil
 }

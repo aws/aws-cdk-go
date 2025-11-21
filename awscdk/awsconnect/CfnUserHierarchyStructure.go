@@ -457,6 +457,24 @@ func (j *jsiiProxy_CfnUserHierarchyStructure)SetUserHierarchyStructure(val inter
 	)
 }
 
+func CfnUserHierarchyStructure_ArnForUserHierarchyStructure(resource interfacesawsconnect.IUserHierarchyStructureRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUserHierarchyStructure_ArnForUserHierarchyStructureParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnUserHierarchyStructure",
+		"arnForUserHierarchyStructure",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

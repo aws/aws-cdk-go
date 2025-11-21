@@ -135,7 +135,7 @@ type CfnDBCluster interface {
 	// The cluster identifier of the new global cluster.
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
-	// The AWS KMS key identifier for an encrypted cluster.
+	// The AWS  key identifier for an encrypted cluster.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeployment) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnDeployment_ArnForDeploymentParameters(resource interfacesawsgreengrassv2.IDeploymentRef) error {
+	return nil
+}
+
 func validateCfnDeployment_FromDeploymentIdParameters(scope constructs.Construct, id *string, deploymentId *string) error {
 	return nil
 }

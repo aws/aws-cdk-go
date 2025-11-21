@@ -435,6 +435,24 @@ func (j *jsiiProxy_CfnFleet)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnFleet_ArnForFleet(resource interfacesawsrobomaker.IFleetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFleet_ArnForFleetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_robomaker.CfnFleet",
+		"arnForFleet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -546,6 +546,24 @@ func (j *jsiiProxy_CfnDomainName)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+func CfnDomainName_ArnForDomainName(resource interfacesawsapigatewayv2.IDomainNameRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDomainName_ArnForDomainNameParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigatewayv2.CfnDomainName",
+		"arnForDomainName",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

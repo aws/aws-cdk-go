@@ -541,6 +541,24 @@ func (j *jsiiProxy_CfnApiDestination)SetName(val *string) {
 	)
 }
 
+func CfnApiDestination_ArnForApiDestination(resource interfacesawsevents.IApiDestinationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnApiDestination_ArnForApiDestinationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnApiDestination",
+		"arnForApiDestination",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IApiDestinationRef from an ARN.
 func CfnApiDestination_FromApiDestinationArn(scope constructs.Construct, id *string, arn *string) interfacesawsevents.IApiDestinationRef {
 	_init_.Initialize()

@@ -60,6 +60,10 @@ func (b *jsiiProxy_Bucket) validateGrantDeleteParameters(identity awsiam.IGranta
 	return nil
 }
 
+func (b *jsiiProxy_Bucket) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (b *jsiiProxy_Bucket) validateGrantPutParameters(identity awsiam.IGrantable) error {
 	return nil
 }
@@ -137,6 +141,10 @@ func validateBucket_ValidateBucketNameParameters(physicalName *string) error {
 }
 
 func (j *jsiiProxy_Bucket) validateSetAutoCreatePolicyParameters(val *bool) error {
+	return nil
+}
+
+func (j *jsiiProxy_Bucket) validateSetGrantsParameters(val BucketGrants) error {
 	return nil
 }
 

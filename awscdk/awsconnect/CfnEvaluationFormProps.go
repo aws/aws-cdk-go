@@ -169,7 +169,7 @@ type CfnEvaluationFormProps struct {
 	// The identifier of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-instancearn
 	//
-	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// Items that are part of the evaluation form.
 	//
 	// The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.

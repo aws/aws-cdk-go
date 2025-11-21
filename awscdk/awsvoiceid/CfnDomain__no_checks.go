@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDomain) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDomain_ArnForDomainParameters(resource interfacesawsvoiceid.IDomainRef) error {
+	return nil
+}
+
 func validateCfnDomain_FromDomainIdParameters(scope constructs.Construct, id *string, domainId *string) error {
 	return nil
 }

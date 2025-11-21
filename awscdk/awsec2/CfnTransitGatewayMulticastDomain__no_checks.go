@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnTransitGatewayMulticastDomain_ArnForTransitGatewayMulticastDomainParameters(resource interfacesawsec2.ITransitGatewayMulticastDomainRef) error {
+	return nil
+}
+
 func validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRestoreTestingPlan) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnRestoreTestingPlan_ArnForRestoreTestingPlanParameters(resource interfacesawsbackup.IRestoreTestingPlanRef) error {
+	return nil
+}
+
 func validateCfnRestoreTestingPlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStateMachineVersion) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnStateMachineVersion_ArnForStateMachineVersionParameters(resource interfacesawsstepfunctions.IStateMachineVersionRef) error {
+	return nil
+}
+
 func validateCfnStateMachineVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

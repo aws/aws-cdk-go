@@ -31,7 +31,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
-//   	CapacityProviders: []*string{
+//   	CapacityProviders: []interface{}{
 //   		jsii.String("capacityProviders"),
 //   	},
 //   })

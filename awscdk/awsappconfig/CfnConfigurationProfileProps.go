@@ -42,7 +42,7 @@ type CfnConfigurationProfileProps struct {
 	// The application ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-applicationid
 	//
-	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
+	ApplicationId interface{} `field:"required" json:"applicationId" yaml:"applicationId"`
 	// A URI to locate the configuration. You can specify the following:.
 	//
 	// - For the AWS AppConfig hosted configuration store and for feature flags, specify `hosted` .
@@ -83,7 +83,7 @@ type CfnConfigurationProfileProps struct {
 	// > A retrieval role ARN is not required for configurations stored in AWS CodePipeline or the AWS AppConfig hosted configuration store. It is required for all other sources that store your configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-retrievalrolearn
 	//
-	RetrievalRoleArn *string `field:"optional" json:"retrievalRoleArn" yaml:"retrievalRoleArn"`
+	RetrievalRoleArn interface{} `field:"optional" json:"retrievalRoleArn" yaml:"retrievalRoleArn"`
 	// Metadata to assign to the configuration profile.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.

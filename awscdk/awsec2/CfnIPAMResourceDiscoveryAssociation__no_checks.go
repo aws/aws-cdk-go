@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateValidateProperti
 	return nil
 }
 
+func validateCfnIPAMResourceDiscoveryAssociation_ArnForIPAMResourceDiscoveryAssociationParameters(resource interfacesawsec2.IIPAMResourceDiscoveryAssociationRef) error {
+	return nil
+}
+
 func validateCfnIPAMResourceDiscoveryAssociation_FromIpamResourceDiscoveryAssociationIdParameters(scope constructs.Construct, id *string, ipamResourceDiscoveryAssociationId *string) error {
 	return nil
 }

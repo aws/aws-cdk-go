@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWebApp) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnWebApp_ArnForWebAppParameters(resource interfacesawstransfer.IWebAppRef) error {
+	return nil
+}
+
 func validateCfnWebApp_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

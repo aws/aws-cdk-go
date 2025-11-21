@@ -43,7 +43,7 @@ type CfnServiceProps struct {
 	// The unique identifier of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-applicationidentifier
 	//
-	ApplicationIdentifier *string `field:"required" json:"applicationIdentifier" yaml:"applicationIdentifier"`
+	ApplicationIdentifier interface{} `field:"required" json:"applicationIdentifier" yaml:"applicationIdentifier"`
 	// The endpoint type of the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-endpointtype
 	//
@@ -51,7 +51,7 @@ type CfnServiceProps struct {
 	// The unique identifier of the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-environmentidentifier
 	//
-	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	EnvironmentIdentifier interface{} `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The name of the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-name
 	//
@@ -75,6 +75,6 @@ type CfnServiceProps struct {
 	// The ID of the virtual private cloud (VPC).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

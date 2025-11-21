@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnGrant) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnGrant_ArnForGrantParameters(resource interfacesawslicensemanager.IGrantRef) error {
+	return nil
+}
+
 func validateCfnGrant_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

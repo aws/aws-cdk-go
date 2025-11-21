@@ -1,10 +1,6 @@
 package awslambda
 
 
-// Controls how your Lambda function handles multi-tenant execution environments.
-//
-// Enable this setting to configure specific tenant isolation strategies for your function invocations.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

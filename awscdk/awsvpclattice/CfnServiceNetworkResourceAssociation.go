@@ -21,6 +21,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnServiceNetworkResourceAssociation := awscdk.Aws_vpclattice.NewCfnServiceNetworkResourceAssociation(this, jsii.String("MyCfnServiceNetworkResourceAssociation"), &CfnServiceNetworkResourceAssociationProps{
+//   	PrivateDnsEnabled: jsii.Boolean(false),
 //   	ResourceConfigurationId: jsii.String("resourceConfigurationId"),
 //   	ServiceNetworkId: jsii.String("serviceNetworkId"),
 //   	Tags: []CfnTag{
@@ -66,6 +67,8 @@ type CfnServiceNetworkResourceAssociation interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	PrivateDnsEnabled() interface{}
+	SetPrivateDnsEnabled(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -334,6 +337,16 @@ func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) Node() constructs.Node 
 	return returns
 }
 
+func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) PrivateDnsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"privateDnsEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -444,6 +457,17 @@ func NewCfnServiceNetworkResourceAssociation_Override(c CfnServiceNetworkResourc
 	)
 }
 
+func (j *jsiiProxy_CfnServiceNetworkResourceAssociation)SetPrivateDnsEnabled(val interface{}) {
+	if err := j.validateSetPrivateDnsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"privateDnsEnabled",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnServiceNetworkResourceAssociation)SetResourceConfigurationId(val *string) {
 	_jsii_.Set(
 		j,
@@ -469,6 +493,24 @@ func (j *jsiiProxy_CfnServiceNetworkResourceAssociation)SetTags(val *[]*awscdk.C
 		"tags",
 		val,
 	)
+}
+
+func CfnServiceNetworkResourceAssociation_ArnForServiceNetworkResourceAssociation(resource interfacesawsvpclattice.IServiceNetworkResourceAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnServiceNetworkResourceAssociation_ArnForServiceNetworkResourceAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_vpclattice.CfnServiceNetworkResourceAssociation",
+		"arnForServiceNetworkResourceAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

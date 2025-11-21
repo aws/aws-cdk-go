@@ -618,6 +618,24 @@ func (j *jsiiProxy_CfnDeployment)SetTargetArn(val *string) {
 	)
 }
 
+func CfnDeployment_ArnForDeployment(resource interfacesawsgreengrassv2.IDeploymentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDeployment_ArnForDeploymentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment",
+		"arnForDeployment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDeploymentRef from a deploymentId.
 func CfnDeployment_FromDeploymentId(scope constructs.Construct, id *string, deploymentId *string) interfacesawsgreengrassv2.IDeploymentRef {
 	_init_.Initialize()

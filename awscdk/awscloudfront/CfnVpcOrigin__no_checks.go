@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVpcOrigin) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnVpcOrigin_ArnForVpcOriginParameters(resource interfacesawscloudfront.IVpcOriginRef) error {
+	return nil
+}
+
 func validateCfnVpcOrigin_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

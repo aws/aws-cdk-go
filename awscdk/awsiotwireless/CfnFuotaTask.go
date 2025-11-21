@@ -663,6 +663,24 @@ func (j *jsiiProxy_CfnFuotaTask)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnFuotaTask_ArnForFuotaTask(resource interfacesawsiotwireless.IFuotaTaskRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFuotaTask_ArnForFuotaTaskParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
+		"arnForFuotaTask",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IFuotaTaskRef from an ARN.
 func CfnFuotaTask_FromFuotaTaskArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IFuotaTaskRef {
 	_init_.Initialize()

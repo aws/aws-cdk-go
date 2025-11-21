@@ -37,7 +37,7 @@ type CfnEventInvokeConfigProps struct {
 	// *Pattern* : `([a-zA-Z0-9-_]+)`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-functionname
 	//
-	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"required" json:"functionName" yaml:"functionName"`
 	// The identifier of a version or alias.
 	//
 	// - *Version* - A version number.

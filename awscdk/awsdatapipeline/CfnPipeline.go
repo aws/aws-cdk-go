@@ -617,6 +617,24 @@ func (j *jsiiProxy_CfnPipeline)SetPipelineTags(val *[]*CfnPipeline_PipelineTagPr
 	)
 }
 
+func CfnPipeline_ArnForPipeline(resource interfacesawsdatapipeline.IPipelineRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPipeline_ArnForPipelineParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
+		"arnForPipeline",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPipelineRef from a pipelineId.
 func CfnPipeline_FromPipelineID(scope constructs.Construct, id *string, pipelineId *string) interfacesawsdatapipeline.IPipelineRef {
 	_init_.Initialize()

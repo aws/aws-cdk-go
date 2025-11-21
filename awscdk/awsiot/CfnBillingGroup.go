@@ -476,6 +476,24 @@ func (j *jsiiProxy_CfnBillingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnBillingGroup_ArnForBillingGroup(resource interfacesawsiot.IBillingGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBillingGroup_ArnForBillingGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnBillingGroup",
+		"arnForBillingGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IBillingGroupRef from an ARN.
 func CfnBillingGroup_FromBillingGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IBillingGroupRef {
 	_init_.Initialize()

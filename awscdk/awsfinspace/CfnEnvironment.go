@@ -670,6 +670,24 @@ func (j *jsiiProxy_CfnEnvironment)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnEnvironment_ArnForEnvironment(resource interfacesawsfinspace.IEnvironmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironment_ArnForEnvironmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_finspace.CfnEnvironment",
+		"arnForEnvironment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IEnvironmentRef from an ARN.
 func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) interfacesawsfinspace.IEnvironmentRef {
 	_init_.Initialize()

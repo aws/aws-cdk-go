@@ -21,12 +21,14 @@ package awsworkspacesweb
 //
 type CfnSessionLogger_EventFilterProperty struct {
 	// The filter that monitors all of the available events, including any new events emitted in the future.
+	//
+	// The `All` and `Include` properties are not required, but one of them should be present. `{}` is a valid input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-sessionlogger-eventfilter.html#cfn-workspacesweb-sessionlogger-eventfilter-all
 	//
 	All interface{} `field:"optional" json:"all" yaml:"all"`
 	// The filter that monitors only the listed set of events.
 	//
-	// New events are not auto-monitored.
+	// New events are not auto-monitored. The `All` and `Include` properties are not required, but one of them should be present.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-sessionlogger-eventfilter.html#cfn-workspacesweb-sessionlogger-eventfilter-include
 	//
 	Include *[]*string `field:"optional" json:"include" yaml:"include"`

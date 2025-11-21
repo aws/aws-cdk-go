@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFunction) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnFunction_ArnForFunctionParameters(resource interfacesawslambda.IFunctionRef) error {
+	return nil
+}
+
 func validateCfnFunction_FromFunctionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }
@@ -85,10 +89,6 @@ func validateCfnFunction_IsCfnResourceParameters(x interface{}) error {
 }
 
 func validateCfnFunction_IsConstructParameters(x interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnFunction) validateSetCapacityProviderConfigParameters(val interface{}) error {
 	return nil
 }
 
@@ -112,23 +112,11 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 	return nil
 }
 
-func (j *jsiiProxy_CfnFunction) validateSetFunctionScalingConfigParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnFunction) validateSetImageConfigParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnFunction) validateSetLoggingConfigParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnFunction) validateSetPublicAccessBlockConfigParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnFunction) validateSetPublishToLatestPublishedParameters(val interface{}) error {
 	return nil
 }
 

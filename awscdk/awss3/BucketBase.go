@@ -30,6 +30,7 @@ import (
 //   Bucket.import(this, 'MyImportedBucket', ref);
 type BucketBase interface {
 	awscdk.Resource
+	awsiam.IEncryptedResource
 	IBucket
 	// Indicates if a bucket resource policy should automatically created upon the first call to `addToResourcePolicy`.
 	AutoCreatePolicy() *bool
@@ -65,6 +66,9 @@ type BucketBase interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a Bucket.
+	Grants() BucketGrants
+	SetGrants(val BucketGrants)
 	// If this bucket has been configured for static website hosting.
 	IsWebsite() *bool
 	// The tree node.
@@ -184,6 +188,8 @@ type BucketBase interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
+	// Gives permissions to a grantable entity to perform actions on the encryption key.
+	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
 	// Allows unrestricted access to objects from this bucket.
 	//
 	// IMPORTANT: This permission allows anyone to perform actions on S3 objects
@@ -319,6 +325,7 @@ type BucketBase interface {
 // The jsii proxy struct for BucketBase
 type jsiiProxy_BucketBase struct {
 	internal.Type__awscdkResource
+	internal.Type__awsiamIEncryptedResource
 	jsiiProxy_IBucket
 }
 
@@ -442,6 +449,16 @@ func (j *jsiiProxy_BucketBase) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_BucketBase) Grants() BucketGrants {
+	var returns BucketGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_BucketBase) IsWebsite() *bool {
 	var returns *bool
 	_jsii_.Get(
@@ -558,6 +575,17 @@ func (j *jsiiProxy_BucketBase)SetDisallowPublicAccess(val *bool) {
 	_jsii_.Set(
 		j,
 		"disallowPublicAccess",
+		val,
+	)
+}
+
+func (j *jsiiProxy_BucketBase)SetGrants(val BucketGrants) {
+	if err := j.validateSetGrantsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"grants",
 		val,
 	)
 }
@@ -840,6 +868,27 @@ func (b *jsiiProxy_BucketBase) GrantDelete(identity awsiam.IGrantable, objectsKe
 		b,
 		"grantDelete",
 		[]interface{}{identity, objectsKeyPattern},
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BucketBase) GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult {
+	if err := b.validateGrantOnKeyParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns *awsiam.GrantOnKeyResult
+
+	_jsii_.Invoke(
+		b,
+		"grantOnKey",
+		args,
 		&returns,
 	)
 

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWebExperience) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnWebExperience_ArnForWebExperienceParameters(resource interfacesawsqbusiness.IWebExperienceRef) error {
+	return nil
+}
+
 func validateCfnWebExperience_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -20,7 +20,7 @@ import (
 //
 //   cfnProfile := awscdk.Aws_rolesanywhere.NewCfnProfile(this, jsii.String("MyCfnProfile"), &CfnProfileProps{
 //   	Name: jsii.String("name"),
-//   	RoleArns: []*string{
+//   	RoleArns: []interface{}{
 //   		jsii.String("roleArns"),
 //   	},
 //
@@ -654,6 +654,24 @@ func (j *jsiiProxy_CfnProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnProfile_ArnForProfile(resource interfacesawsrolesanywhere.IProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProfile_ArnForProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rolesanywhere.CfnProfile",
+		"arnForProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IProfileRef from an ARN.

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTable) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnTransitGatewayRouteTable_ArnForTransitGatewayRouteTableParameters(resource interfacesawsec2.ITransitGatewayRouteTableRef) error {
+	return nil
+}
+
 func validateCfnTransitGatewayRouteTable_FromTransitGatewayRouteTableIdParameters(scope constructs.Construct, id *string, transitGatewayRouteTableId *string) error {
 	return nil
 }

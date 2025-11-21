@@ -65,7 +65,7 @@ type CfnRepositoryProps struct {
 	//
 	// Information about code is only used in resource creation. Updates to a stack will not reflect changes made to code properties after initial resource creation.
 	//
-	// > You can only use this property to add code when creating a repository with a AWS CloudFormation template at creation time. This property cannot be used for updating code to an existing repository.
+	// > You can only use this property to add code when creating a repository with a CloudFormation template at creation time. This property cannot be used for updating code to an existing repository.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-code
 	//
 	Code interface{} `field:"optional" json:"code" yaml:"code"`

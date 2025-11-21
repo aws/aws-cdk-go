@@ -648,6 +648,24 @@ func (j *jsiiProxy_CfnRuleGroup)SetVisibilityConfig(val interface{}) {
 	)
 }
 
+func CfnRuleGroup_ArnForRuleGroup(resource interfacesawswafv2.IRuleGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRuleGroup_ArnForRuleGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"arnForRuleGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

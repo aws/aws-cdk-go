@@ -48,7 +48,7 @@ type CfnSubnetProps struct {
 	// If you update this property, you must also update the `CidrBlock` property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-vpcid
 	//
-	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is `false` .
 	//
 	// If you specify `AssignIpv6AddressOnCreation` , you must also specify an IPv6 CIDR block.

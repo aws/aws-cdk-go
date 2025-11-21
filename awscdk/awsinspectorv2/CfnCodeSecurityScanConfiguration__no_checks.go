@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCodeSecurityScanConfiguration) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnCodeSecurityScanConfiguration_ArnForCodeSecurityScanConfigurationParameters(resource interfacesawsinspectorv2.ICodeSecurityScanConfigurationRef) error {
+	return nil
+}
+
 func validateCfnCodeSecurityScanConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

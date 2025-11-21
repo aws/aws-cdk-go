@@ -700,6 +700,24 @@ func (j *jsiiProxy_CfnIndex)SetUserTokenConfigurations(val interface{}) {
 	)
 }
 
+func CfnIndex_ArnForIndex(resource interfacesawskendra.IIndexRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIndex_ArnForIndexParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"arnForIndex",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IIndexRef from an ARN.
 func CfnIndex_FromIndexArn(scope constructs.Construct, id *string, arn *string) interfacesawskendra.IIndexRef {
 	_init_.Initialize()

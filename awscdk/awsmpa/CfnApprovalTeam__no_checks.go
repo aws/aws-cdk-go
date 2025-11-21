@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApprovalTeam) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnApprovalTeam_ArnForApprovalTeamParameters(resource interfacesawsmpa.IApprovalTeamRef) error {
+	return nil
+}
+
 func validateCfnApprovalTeam_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

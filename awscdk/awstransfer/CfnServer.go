@@ -874,6 +874,24 @@ func (j *jsiiProxy_CfnServer)SetWorkflowDetails(val interface{}) {
 	)
 }
 
+func CfnServer_ArnForServer(resource interfacesawstransfer.IServerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnServer_ArnForServerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnServer",
+		"arnForServer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

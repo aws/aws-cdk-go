@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNetwork) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnNetwork_ArnForNetworkParameters(resource interfacesawsmedialive.INetworkRef) error {
+	return nil
+}
+
 func validateCfnNetwork_FromNetworkArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

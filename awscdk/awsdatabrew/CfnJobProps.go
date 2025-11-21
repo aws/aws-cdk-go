@@ -230,7 +230,7 @@ type CfnJobProps struct {
 	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// The encryption mode for the job, which can be one of the following:.
 	//
-	// - `SSE-KMS` - Server-side encryption with keys managed by AWS KMS .
+	// - `SSE-KMS` - Server-side encryption with keys managed by AWS  .
 	// - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
 	//

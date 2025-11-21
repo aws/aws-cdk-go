@@ -18,19 +18,22 @@ import (
 //   var vpc Vpc
 //
 //
-//   sg1 := ec2.NewSecurityGroup(this, jsii.String("sg1"), &SecurityGroupProps{
-//   	Vpc: vpc,
+//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
 //   })
-//   sg2 := ec2.NewSecurityGroup(this, jsii.String("sg2"), &SecurityGroupProps{
-//   	Vpc: vpc,
+//   instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), &InstanceProfileProps{
+//   	Role: Role,
 //   })
 //
-//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   	LaunchTemplateName: jsii.String("MyTemplateV1"),
+//   	VersionDescription: jsii.String("This is my v1 template"),
 //   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
-//   	SecurityGroup: sg1,
+//   	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
+//   		Vpc: vpc,
+//   	}),
+//   	InstanceProfile: InstanceProfile,
 //   })
-//
-//   launchTemplate.AddSecurityGroup(sg2)
 //
 // See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html
 //

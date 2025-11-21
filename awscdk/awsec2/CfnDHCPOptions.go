@@ -553,6 +553,24 @@ func (j *jsiiProxy_CfnDHCPOptions)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDHCPOptions_ArnForDHCPOptions(resource interfacesawsec2.IDHCPOptionsRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDHCPOptions_ArnForDHCPOptionsParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnDHCPOptions",
+		"arnForDHCPOptions",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDHCPOptionsRef from a dhcpOptionsId.
 func CfnDHCPOptions_FromDhcpOptionsId(scope constructs.Construct, id *string, dhcpOptionsId *string) interfacesawsec2.IDHCPOptionsRef {
 	_init_.Initialize()

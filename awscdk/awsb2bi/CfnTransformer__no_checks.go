@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTransformer) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnTransformer_ArnForTransformerParameters(resource interfacesawsb2bi.ITransformerRef) error {
+	return nil
+}
+
 func validateCfnTransformer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

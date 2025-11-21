@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEmailTemplate) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnEmailTemplate_ArnForEmailTemplateParameters(resource interfacesawspinpoint.IEmailTemplateRef) error {
+	return nil
+}
+
 func validateCfnEmailTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

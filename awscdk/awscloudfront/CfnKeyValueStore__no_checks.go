@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnKeyValueStore) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnKeyValueStore_ArnForKeyValueStoreParameters(resource interfacesawscloudfront.IKeyValueStoreRef) error {
+	return nil
+}
+
 func validateCfnKeyValueStore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

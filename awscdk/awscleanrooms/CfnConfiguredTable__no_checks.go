@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfiguredTable) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnConfiguredTable_ArnForConfiguredTableParameters(resource interfacesawscleanrooms.IConfiguredTableRef) error {
+	return nil
+}
+
 func validateCfnConfiguredTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

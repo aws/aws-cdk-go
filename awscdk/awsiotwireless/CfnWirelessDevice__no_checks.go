@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWirelessDevice) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnWirelessDevice_ArnForWirelessDeviceParameters(resource interfacesawsiotwireless.IWirelessDeviceRef) error {
+	return nil
+}
+
 func validateCfnWirelessDevice_FromWirelessDeviceArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

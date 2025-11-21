@@ -15,7 +15,7 @@ import (
 //
 // A container is similar to a bucket in Amazon S3.
 //
-// When you create a container using AWS CloudFormation , the template manages data for five API actions: creating a container, setting access logging, updating the default container policy, adding a cross-origin resource sharing (CORS) policy, and adding an object lifecycle policy.
+// When you create a container using CloudFormation , the template manages data for five API actions: creating a container, setting access logging, updating the default container policy, adding a cross-origin resource sharing (CORS) policy, and adding an object lifecycle policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

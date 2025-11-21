@@ -1029,6 +1029,24 @@ func (j *jsiiProxy_CfnTable)SetWarmThroughput(val interface{}) {
 	)
 }
 
+func CfnTable_ArnForTable(resource interfacesawsdynamodb.ITableRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTable_ArnForTableParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"arnForTable",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITableRef from an ARN.
 func CfnTable_FromTableArn(scope constructs.Construct, id *string, arn *string) interfacesawsdynamodb.ITableRef {
 	_init_.Initialize()

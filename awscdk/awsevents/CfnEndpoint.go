@@ -577,6 +577,24 @@ func (j *jsiiProxy_CfnEndpoint)SetRoutingConfig(val interface{}) {
 	)
 }
 
+func CfnEndpoint_ArnForEndpoint(resource interfacesawsevents.IEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEndpoint_ArnForEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnEndpoint",
+		"arnForEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IEndpointRef from an ARN.
 func CfnEndpoint_FromEndpointArn(scope constructs.Construct, id *string, arn *string) interfacesawsevents.IEndpointRef {
 	_init_.Initialize()

@@ -514,6 +514,24 @@ func (j *jsiiProxy_CfnDestination)SetTargetArn(val *string) {
 	)
 }
 
+func CfnDestination_ArnForDestination(resource interfacesawslogs.IDestinationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDestination_ArnForDestinationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnDestination",
+		"arnForDestination",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDestinationRef from an ARN.
 func CfnDestination_FromDestinationArn(scope constructs.Construct, id *string, arn *string) interfacesawslogs.IDestinationRef {
 	_init_.Initialize()

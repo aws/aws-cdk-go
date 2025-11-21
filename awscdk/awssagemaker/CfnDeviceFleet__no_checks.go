@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeviceFleet) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnDeviceFleet_ArnForDeviceFleetParameters(resource interfacesawssagemaker.IDeviceFleetRef) error {
+	return nil
+}
+
 func validateCfnDeviceFleet_FromDeviceFleetNameParameters(scope constructs.Construct, id *string, deviceFleetName *string) error {
 	return nil
 }

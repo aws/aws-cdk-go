@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnServiceTemplate) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnServiceTemplate_ArnForServiceTemplateParameters(resource interfacesawsproton.IServiceTemplateRef) error {
+	return nil
+}
+
 func validateCfnServiceTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

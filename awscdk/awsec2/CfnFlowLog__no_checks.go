@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFlowLog) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnFlowLog_ArnForFlowLogParameters(resource interfacesawsec2.IFlowLogRef) error {
+	return nil
+}
+
 func validateCfnFlowLog_FromFlowLogIdParameters(scope constructs.Construct, id *string, flowLogId *string) error {
 	return nil
 }

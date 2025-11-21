@@ -496,6 +496,24 @@ func (j *jsiiProxy_CfnDomainNameAccessAssociation)SetTags(val *[]*awscdk.CfnTag)
 	)
 }
 
+func CfnDomainNameAccessAssociation_ArnForDomainNameAccessAssociation(resource interfacesawsapigateway.IDomainNameAccessAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDomainNameAccessAssociation_ArnForDomainNameAccessAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnDomainNameAccessAssociation",
+		"arnForDomainNameAccessAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

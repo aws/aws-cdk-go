@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRegistry) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnRegistry_ArnForRegistryParameters(resource interfacesawseventschemas.IRegistryRef) error {
+	return nil
+}
+
 func validateCfnRegistry_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

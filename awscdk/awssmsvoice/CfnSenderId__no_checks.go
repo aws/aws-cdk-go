@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSenderId) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnSenderId_ArnForSenderIdParameters(resource interfacesawssmsvoice.ISenderIdRef) error {
+	return nil
+}
+
 func validateCfnSenderId_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

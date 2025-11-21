@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnExtensionAssociation) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnExtensionAssociation_ArnForExtensionAssociationParameters(resource interfacesawsappconfig.IExtensionAssociationRef) error {
+	return nil
+}
+
 func validateCfnExtensionAssociation_FromExtensionAssociationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

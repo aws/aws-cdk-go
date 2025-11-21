@@ -39,6 +39,13 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	OverrideConfiguration: &OverrideConfigurationProperty{
 //   		Audio: &AudioOverrideConfigurationProperty{
+//   			LanguageConfiguration: &AudioLanguageConfigurationProperty{
+//   				GenerativeOutputLanguage: jsii.String("generativeOutputLanguage"),
+//   				IdentifyMultipleLanguages: jsii.Boolean(false),
+//   				InputLanguages: []*string{
+//   					jsii.String("inputLanguages"),
+//   				},
+//   			},
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
 //   			},
@@ -214,10 +221,10 @@ type CfnDataAutomationProject interface {
 	// A reference to a DataAutomationProject resource.
 	DataAutomationProjectRef() *interfacesawsbedrock.DataAutomationProjectReference
 	Env() *interfaces.ResourceEnvironment
-	// The AWS KMS encryption context to use for encryption.
+	// The AWS  encryption context to use for encryption.
 	KmsEncryptionContext() interface{}
 	SetKmsEncryptionContext(val interface{})
-	// The AWS KMS key to use for encryption.
+	// The AWS  key to use for encryption.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.

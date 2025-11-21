@@ -630,6 +630,24 @@ func (j *jsiiProxy_CfnVPC)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnVPC_ArnForVPC(resource interfacesawsec2.IVPCRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPC_ArnForVPCParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPC",
+		"arnForVPC",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVPCRef from a vpcId.
 func CfnVPC_FromVpcId(scope constructs.Construct, id *string, vpcId *string) interfacesawsec2.IVPCRef {
 	_init_.Initialize()

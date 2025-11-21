@@ -15,7 +15,7 @@ import (
 //
 // Public extensions are available for use by all CloudFormation users.
 //
-// For information on requirements for registering as a public extension publisher, see [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.htm) in the *AWS CloudFormation Command Line Interface (CLI) User Guide* .
+// For information on requirements for registering as a public extension publisher, see [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.htm) in the *CloudFormation Command Line Interface (CLI) User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -14,7 +14,7 @@ import (
 //
 // The default version of a resource will be used in CloudFormation operations.
 //
-// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -436,6 +436,24 @@ func (j *jsiiProxy_CfnResourceDefaultVersion)SetVersionId(val *string) {
 		"versionId",
 		val,
 	)
+}
+
+func CfnResourceDefaultVersion_ArnForResourceDefaultVersion(resource interfacesawscloudformation.IResourceDefaultVersionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResourceDefaultVersion_ArnForResourceDefaultVersionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnResourceDefaultVersion",
+		"arnForResourceDefaultVersion",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

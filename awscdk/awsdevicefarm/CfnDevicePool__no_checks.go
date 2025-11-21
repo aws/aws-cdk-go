@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDevicePool) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnDevicePool_ArnForDevicePoolParameters(resource interfacesawsdevicefarm.IDevicePoolRef) error {
+	return nil
+}
+
 func validateCfnDevicePool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

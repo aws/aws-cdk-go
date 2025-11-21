@@ -13,7 +13,7 @@ import (
 //
 //   cfnSubnetGroupProps := &CfnSubnetGroupProps{
 //   	Description: jsii.String("description"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //
@@ -37,7 +37,7 @@ type CfnSubnetGroupProps struct {
 	// The EC2 subnet IDs for the cache subnet group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-subnetids
 	//
-	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The name for the cache subnet group. This value is stored as a lowercase string.
 	//
 	// Constraints: Must contain no more than 255 alphanumeric characters or hyphens.

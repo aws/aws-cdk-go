@@ -512,6 +512,24 @@ func (j *jsiiProxy_CfnDataset)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDataset_ArnForDataset(resource interfacesawsiotsitewise.IDatasetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDataset_ArnForDatasetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnDataset",
+		"arnForDataset",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDatasetRef from an ARN.
 func CfnDataset_FromDatasetArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IDatasetRef {
 	_init_.Initialize()

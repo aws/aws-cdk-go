@@ -9,7 +9,7 @@ package awsiam
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnInstanceProfileProps := &CfnInstanceProfileProps{
-//   	Roles: []*string{
+//   	Roles: []interface{}{
 //   		jsii.String("roles"),
 //   	},
 //
@@ -26,7 +26,7 @@ type CfnInstanceProfileProps struct {
 	// Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
 	//
-	Roles *[]*string `field:"required" json:"roles" yaml:"roles"`
+	Roles *[]interface{} `field:"required" json:"roles" yaml:"roles"`
 	// The name of the instance profile to create.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-

@@ -74,7 +74,7 @@ type CfnQueue interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// When you use AWS CloudFormation , you can create only on-demand queues.
+	// When you use CloudFormation , you can create only on-demand queues.
 	PricingPlan() *string
 	SetPricingPlan(val *string)
 	// A reference to a Queue resource.
@@ -540,6 +540,24 @@ func (j *jsiiProxy_CfnQueue)SetTagsRaw(val interface{}) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnQueue_ArnForQueue(resource interfacesawsmediaconvert.IQueueRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnQueue_ArnForQueueParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"arnForQueue",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

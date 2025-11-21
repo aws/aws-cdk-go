@@ -558,6 +558,24 @@ func (j *jsiiProxy_CfnSourceLocation)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnSourceLocation_ArnForSourceLocation(resource interfacesawsmediatailor.ISourceLocationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSourceLocation_ArnForSourceLocationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediatailor.CfnSourceLocation",
+		"arnForSourceLocation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISourceLocationRef from an ARN.
 func CfnSourceLocation_FromSourceLocationArn(scope constructs.Construct, id *string, arn *string) interfacesawsmediatailor.ISourceLocationRef {
 	_init_.Initialize()

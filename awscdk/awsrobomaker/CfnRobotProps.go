@@ -34,7 +34,7 @@ type CfnRobotProps struct {
 	// The Amazon Resource Name (ARN) of the fleet to which the robot will be registered.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
 	//
-	Fleet *string `field:"optional" json:"fleet" yaml:"fleet"`
+	Fleet interface{} `field:"optional" json:"fleet" yaml:"fleet"`
 	// The name of the robot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
 	//

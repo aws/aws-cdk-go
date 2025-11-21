@@ -180,6 +180,9 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-platform
 	//
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-rootvolumeconfig
+	//
+	RootVolumeConfig interface{} `field:"optional" json:"rootVolumeConfig" yaml:"rootVolumeConfig"`
 	// The S3 location of the session scripts configuration zip file.
 	//
 	// This only applies to Elastic fleets.

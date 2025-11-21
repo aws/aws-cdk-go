@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBrowserSettings) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnBrowserSettings_ArnForBrowserSettingsParameters(resource interfacesawsworkspacesweb.IBrowserSettingsRef) error {
+	return nil
+}
+
 func validateCfnBrowserSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -85,6 +89,10 @@ func (j *jsiiProxy_CfnBrowserSettings) validateSetAdditionalEncryptionContextPar
 }
 
 func (j *jsiiProxy_CfnBrowserSettings) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBrowserSettings) validateSetWebContentFilteringPolicyParameters(val interface{}) error {
 	return nil
 }
 

@@ -497,6 +497,24 @@ func (j *jsiiProxy_CfnCertificateProvider)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCertificateProvider_ArnForCertificateProvider(resource interfacesawsiot.ICertificateProviderRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCertificateProvider_ArnForCertificateProviderParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCertificateProvider",
+		"arnForCertificateProvider",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICertificateProviderRef from an ARN.
 func CfnCertificateProvider_FromCertificateProviderArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.ICertificateProviderRef {
 	_init_.Initialize()

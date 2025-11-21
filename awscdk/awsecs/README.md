@@ -1808,9 +1808,9 @@ ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
 
 ### Managed Instances Capacity Providers
 
-Managed Instances Capacity Providers allow you to use AWS-managed EC2 instances for your ECS tasks while providing more control over instance selection than standard Fargate. AWS handles the instance lifecycle, patching, and maintenance while you can specify detailed instance requirements.
+Managed Instances Capacity Providers allow you to use AWS-managed EC2 instances for your ECS tasks while providing more control over instance selection than standard Fargate. AWS handles the instance lifecycle, patching, and maintenance while you can specify detailed instance requirements. You can  define detailed instance requirements to control which types of instances are used for your workloads.
 
-To create a Managed Instances Capacity Provider, you need to specify the required EC2 instance profile, and networking configuration. You can also define detailed instance requirements to control which types of instances are used for your workloads.
+See [ECS documentation for Managed Instances Capacity Provider](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-capacity-providers-concept.html) for more documentation.
 
 ```go
 var vpc Vpc
@@ -1851,14 +1851,19 @@ miCapacityProvider.Connections.AllowFrom(ec2.Peer_Ipv4(vpc.VpcCidrBlock), ec2.Po
 // Add the capacity provider to the cluster
 cluster.AddManagedInstancesCapacityProvider(miCapacityProvider)
 
-taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
+	MemoryMiB: jsii.String("512"),
+	Cpu: jsii.String("256"),
+	NetworkMode: ecs.NetworkMode_AWS_VPC,
+	Compatibility: ecs.Compatibility_MANAGED_INSTANCES,
+})
 
 taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	MemoryReservationMiB: jsii.Number(256),
 })
 
-ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
+ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	MinHealthyPercent: jsii.Number(100),
@@ -1937,6 +1942,42 @@ miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String(
 		OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(10),
 	},
 })
+```
+
+#### Note: Service Replacement When Migrating from LaunchType to CapacityProviderStrategy
+
+**Understanding the Limitation**
+
+The ECS [CreateService API](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-launchType) does not allow specifying both `launchType` and `capacityProviderStrategies` simultaneously. When you specify `capacityProviderStrategies`, the CDK uses those capacity providers instead of a launch type. This is a limitation of the ECS API and CloudFormation, not a CDK bug.
+
+**Impact on Updates**
+
+Because `launchType` is immutable during updates, switching from `launchType` to `capacityProviderStrategies` requires CloudFormation to replace the service. This means your existing service will be deleted and recreated with the new configuration. This behavior is expected and reflects the underlying API constraints.
+
+**Workaround**
+
+While we work on a long-term solution, you can use the following [escape hatch](https://docs.aws.amazon.com/cdk/v2/guide/cfn-layer.html) to preserve your service during the migration:
+
+```go
+var cluster Cluster
+var taskDefinition TaskDefinition
+var miCapacityProvider ManagedInstancesCapacityProvider
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	CapacityProviderStrategies: []CapacityProviderStrategy{
+		&CapacityProviderStrategy{
+			CapacityProvider: miCapacityProvider.CapacityProviderName,
+			Weight: jsii.Number(1),
+		},
+	},
+})
+
+// Escape hatch: Force launchType at the CloudFormation level to prevent service replacement
+cfnService := service.Node.defaultChild.(CfnService)
+cfnService.LaunchType = "FARGATE"
 ```
 
 ### Cluster Default Provider Strategy

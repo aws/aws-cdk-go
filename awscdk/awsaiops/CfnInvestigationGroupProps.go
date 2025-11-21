@@ -58,7 +58,7 @@ type CfnInvestigationGroupProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Use this property to integrate CloudWatch investigations with chat applications.
 	//
-	// This property is an array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see [Getting started with Amazon Q in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html) and [Resource type defined by AWS Chatbot](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies) .
+	// This property is an array. For the first string, specify the ARN of an Amazon  topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see [Getting started with Amazon Q in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html) and [Resource type defined by AWS Chatbot](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aiops-investigationgroup.html#cfn-aiops-investigationgroup-chatbotnotificationchannels
 	//
 	ChatbotNotificationChannels interface{} `field:"optional" json:"chatbotNotificationChannels" yaml:"chatbotNotificationChannels"`
@@ -66,7 +66,7 @@ type CfnInvestigationGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aiops-investigationgroup.html#cfn-aiops-investigationgroup-crossaccountconfigurations
 	//
 	CrossAccountConfigurations interface{} `field:"optional" json:"crossAccountConfigurations" yaml:"crossAccountConfigurations"`
-	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one.
+	// Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one.
 	//
 	// If not, the investigation group uses an AWS key to encrypt the data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aiops-investigationgroup.html#cfn-aiops-investigationgroup-encryptionconfig

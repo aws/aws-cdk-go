@@ -104,3 +104,7 @@ func (i *jsiiProxy_IDomain) validateMetricSearchLatencyParameters(props *awsclou
 	return nil
 }
 
+func (i *jsiiProxy_IDomain) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

@@ -35,7 +35,7 @@ type CfnSimpleADProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The size of the directory.
 	//
-	// For valid values, see [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) in the *AWS Directory Service API Reference* .
+	// For valid values, see [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) in the *Directory Service API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-size
 	//
 	Size *string `field:"required" json:"size" yaml:"size"`
@@ -57,7 +57,7 @@ type CfnSimpleADProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Whether to enable single sign-on for a directory.
 	//
-	// If you don't specify a value, AWS CloudFormation disables single sign-on by default.
+	// If you don't specify a value, CloudFormation disables single sign-on by default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-enablesso
 	//
 	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
@@ -65,7 +65,7 @@ type CfnSimpleADProps struct {
 	//
 	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
 	//
-	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
+	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *Directory Service API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-password
 	//
 	Password *string `field:"optional" json:"password" yaml:"password"`

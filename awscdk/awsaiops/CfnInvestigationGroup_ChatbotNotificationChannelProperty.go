@@ -24,7 +24,7 @@ type CfnInvestigationGroup_ChatbotNotificationChannelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aiops-investigationgroup-chatbotnotificationchannel.html#cfn-aiops-investigationgroup-chatbotnotificationchannel-chatconfigurationarns
 	//
 	ChatConfigurationArns *[]*string `field:"optional" json:"chatConfigurationArns" yaml:"chatConfigurationArns"`
-	// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+	// Returns the ARN of an Amazon  topic used for third-party chat integrations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aiops-investigationgroup-chatbotnotificationchannel.html#cfn-aiops-investigationgroup-chatbotnotificationchannel-snstopicarn
 	//
 	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`

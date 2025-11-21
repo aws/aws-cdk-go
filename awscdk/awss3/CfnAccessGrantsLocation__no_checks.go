@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAccessGrantsLocation) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnAccessGrantsLocation_ArnForAccessGrantsLocationParameters(resource interfacesawss3.IAccessGrantsLocationRef) error {
+	return nil
+}
+
 func validateCfnAccessGrantsLocation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

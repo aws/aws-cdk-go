@@ -50,6 +50,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "webContentFilteringPolicy", GoGetter: "WebContentFilteringPolicy"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnBrowserSettings{}
@@ -59,6 +60,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspacesweb.CfnBrowserSettings.WebContentFilteringPolicyProperty",
+		reflect.TypeOf((*CfnBrowserSettings_WebContentFilteringPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesweb.CfnBrowserSettingsProps",

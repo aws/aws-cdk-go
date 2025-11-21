@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDomainNameAccessAssociation) validateValidatePropertiesPar
 	return nil
 }
 
+func validateCfnDomainNameAccessAssociation_ArnForDomainNameAccessAssociationParameters(resource interfacesawsapigateway.IDomainNameAccessAssociationRef) error {
+	return nil
+}
+
 func validateCfnDomainNameAccessAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -502,6 +502,24 @@ func (j *jsiiProxy_CfnUser)SetUserName(val *string) {
 	)
 }
 
+func CfnUser_ArnForUser(resource interfacesawsmemorydb.IUserRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUser_ArnForUserParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnUser",
+		"arnForUser",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IUserRef from an ARN.
 func CfnUser_FromUserArn(scope constructs.Construct, id *string, arn *string) interfacesawsmemorydb.IUserRef {
 	_init_.Initialize()

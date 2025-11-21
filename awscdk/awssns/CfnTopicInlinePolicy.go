@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SNS::TopicInlinePolicy` resource associates one Amazon SNS topic with one policy.
+// The `AWS::SNS::TopicInlinePolicy` resource associates one Amazon  topic with one policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -53,7 +53,7 @@ type CfnTopicInlinePolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// A policy document that contains permissions to add to the specified Amazon SNS topic.
+	// A policy document that contains permissions to add to the specified Amazon  topic.
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

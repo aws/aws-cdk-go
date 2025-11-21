@@ -662,6 +662,24 @@ func (j *jsiiProxy_CfnFeatureGroup)SetThroughputConfig(val interface{}) {
 	)
 }
 
+func CfnFeatureGroup_ArnForFeatureGroup(resource interfacesawssagemaker.IFeatureGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFeatureGroup_ArnForFeatureGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup",
+		"arnForFeatureGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IFeatureGroupRef from a featureGroupName.
 func CfnFeatureGroup_FromFeatureGroupName(scope constructs.Construct, id *string, featureGroupName *string) interfacesawssagemaker.IFeatureGroupRef {
 	_init_.Initialize()

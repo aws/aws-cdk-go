@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTracker) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnTracker_ArnForTrackerParameters(resource interfacesawslocation.ITrackerRef) error {
+	return nil
+}
+
 func validateCfnTracker_FromTrackerArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

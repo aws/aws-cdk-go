@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnServiceNetworkResourceAssociation) validateValidatePropert
 	return nil
 }
 
+func validateCfnServiceNetworkResourceAssociation_ArnForServiceNetworkResourceAssociationParameters(resource interfacesawsvpclattice.IServiceNetworkResourceAssociationRef) error {
+	return nil
+}
+
 func validateCfnServiceNetworkResourceAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -77,6 +81,10 @@ func validateCfnServiceNetworkResourceAssociation_IsCfnResourceParameters(x inte
 }
 
 func validateCfnServiceNetworkResourceAssociation_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnServiceNetworkResourceAssociation) validateSetPrivateDnsEnabledParameters(val interface{}) error {
 	return nil
 }
 

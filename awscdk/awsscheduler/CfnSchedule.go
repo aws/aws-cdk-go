@@ -716,6 +716,24 @@ func (j *jsiiProxy_CfnSchedule)SetTarget(val interface{}) {
 	)
 }
 
+func CfnSchedule_ArnForSchedule(resource interfacesawsscheduler.IScheduleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSchedule_ArnForScheduleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_scheduler.CfnSchedule",
+		"arnForSchedule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

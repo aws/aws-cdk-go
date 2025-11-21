@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWorkflowVersion) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnWorkflowVersion_ArnForWorkflowVersionParameters(resource interfacesawsomics.IWorkflowVersionRef) error {
+	return nil
+}
+
 func validateCfnWorkflowVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -1,7 +1,7 @@
 package awseks
 
 
-// Identifies the AWS Key Management Service ( AWS KMS ) key used to encrypt the secrets.
+// Identifies the AWS Key Management Service ( AWS  ) key used to encrypt the secrets.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

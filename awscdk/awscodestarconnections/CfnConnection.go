@@ -13,7 +13,7 @@ import (
 
 // The AWS::CodeStarConnections::Connection resource can be used to connect external source providers with services like AWS CodePipeline .
 //
-// *Note:* A connection created through AWS CloudFormation is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the connection in the console.
+// *Note:* A connection created through CloudFormation is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the connection in the console.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -514,6 +514,24 @@ func (j *jsiiProxy_CfnConnection)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnConnection_ArnForConnection(resource interfacesawscodestarconnections.IConnectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnection_ArnForConnectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codestarconnections.CfnConnection",
+		"arnForConnection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

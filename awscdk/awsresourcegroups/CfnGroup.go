@@ -572,6 +572,24 @@ func (j *jsiiProxy_CfnGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnGroup_ArnForGroup(resource interfacesawsresourcegroups.IGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGroup_ArnForGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
+		"arnForGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IGroupRef from an ARN.
 func CfnGroup_FromGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsresourcegroups.IGroupRef {
 	_init_.Initialize()

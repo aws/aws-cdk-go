@@ -271,14 +271,6 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetMediaStreamOutputConfigurationsPara
 	return nil
 }
 
-func (j *jsiiProxy_CfnFlowOutput) validateSetProtocolParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnFlowOutput) validateSetRouterIntegrationTransitEncryptionParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

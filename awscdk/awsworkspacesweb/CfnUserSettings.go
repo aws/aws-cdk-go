@@ -747,6 +747,24 @@ func (j *jsiiProxy_CfnUserSettings)SetUploadAllowed(val *string) {
 	)
 }
 
+func CfnUserSettings_ArnForUserSettings(resource interfacesawsworkspacesweb.IUserSettingsRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUserSettings_ArnForUserSettingsParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnUserSettings",
+		"arnForUserSettings",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

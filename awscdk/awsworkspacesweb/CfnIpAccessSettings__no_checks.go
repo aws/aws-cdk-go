@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIpAccessSettings) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnIpAccessSettings_ArnForIpAccessSettingsParameters(resource interfacesawsworkspacesweb.IIpAccessSettingsRef) error {
+	return nil
+}
+
 func validateCfnIpAccessSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

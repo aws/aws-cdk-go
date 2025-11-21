@@ -23,6 +23,13 @@ import (
 //   	DomainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
+//   	DataStore: &DataStoreProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		Readiness: &ReadinessProperty{
+//   			Message: jsii.String("message"),
+//   			ProgressPercentage: jsii.Number(123),
+//   		},
+//   	},
 //   	DeadLetterQueueUrl: jsii.String("deadLetterQueueUrl"),
 //   	DefaultEncryptionKey: jsii.String("defaultEncryptionKey"),
 //   	Matching: &MatchingProperty{
@@ -121,6 +128,8 @@ type CfnDomain interface {
 	awscdk.ITaggable
 	// The timestamp of when the domain was created.
 	AttrCreatedAt() *string
+	// Progress information for data store setup.
+	AttrDataStoreReadiness() awscdk.IResolvable
 	// The timestamp of when the domain was most recently edited.
 	AttrLastUpdatedAt() *string
 	// The status of rule-based matching rule.
@@ -136,6 +145,9 @@ type CfnDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Configuration and status of the data store for the domain.
+	DataStore() interface{}
+	SetDataStore(val interface{})
 	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
 	DeadLetterQueueUrl() *string
 	SetDeadLetterQueueUrl(val *string)
@@ -341,6 +353,16 @@ func (j *jsiiProxy_CfnDomain) AttrCreatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) AttrDataStoreReadiness() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrDataStoreReadiness",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) AttrLastUpdatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -406,6 +428,16 @@ func (j *jsiiProxy_CfnDomain) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) DataStore() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dataStore",
 		&returns,
 	)
 	return returns
@@ -601,6 +633,17 @@ func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, 
 	)
 }
 
+func (j *jsiiProxy_CfnDomain)SetDataStore(val interface{}) {
+	if err := j.validateSetDataStoreParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dataStore",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDomain)SetDeadLetterQueueUrl(val *string) {
 	_jsii_.Set(
 		j,
@@ -670,6 +713,24 @@ func (j *jsiiProxy_CfnDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnDomain_ArnForDomain(resource interfacesawscustomerprofiles.IDomainRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDomain_ArnForDomainParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_customerprofiles.CfnDomain",
+		"arnForDomain",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IDomainRef from a domainName.

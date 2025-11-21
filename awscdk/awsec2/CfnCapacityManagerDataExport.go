@@ -514,6 +514,24 @@ func (j *jsiiProxy_CfnCapacityManagerDataExport)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCapacityManagerDataExport_ArnForCapacityManagerDataExport(resource interfacesawsec2.ICapacityManagerDataExportRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityManagerDataExport_ArnForCapacityManagerDataExportParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCapacityManagerDataExport",
+		"arnForCapacityManagerDataExport",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICapacityManagerDataExportRef from a capacityManagerDataExportId.
 func CfnCapacityManagerDataExport_FromCapacityManagerDataExportId(scope constructs.Construct, id *string, capacityManagerDataExportId *string) interfacesawsec2.ICapacityManagerDataExportRef {
 	_init_.Initialize()

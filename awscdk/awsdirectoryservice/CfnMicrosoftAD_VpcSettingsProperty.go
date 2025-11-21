@@ -20,7 +20,7 @@ package awsdirectoryservice
 type CfnMicrosoftAD_VpcSettingsProperty struct {
 	// The identifiers of the subnets for the directory servers.
 	//
-	// The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+	// The two subnets must be in different Availability Zones. Directory Service specifies a directory server and a DNS server in each of these subnets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-microsoftad-vpcsettings.html#cfn-directoryservice-microsoftad-vpcsettings-subnetids
 	//
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`

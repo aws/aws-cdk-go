@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnVPCPeeringConnection_ArnForVPCPeeringConnectionParameters(resource interfacesawsec2.IVPCPeeringConnectionRef) error {
+	return nil
+}
+
 func validateCfnVPCPeeringConnection_FromVpcPeeringConnectionIdParameters(scope constructs.Construct, id *string, vpcPeeringConnectionId *string) error {
 	return nil
 }

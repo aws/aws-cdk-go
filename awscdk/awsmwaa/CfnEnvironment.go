@@ -1116,6 +1116,24 @@ func (j *jsiiProxy_CfnEnvironment)SetWorkerReplacementStrategy(val *string) {
 	)
 }
 
+func CfnEnvironment_ArnForEnvironment(resource interfacesawsmwaa.IEnvironmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironment_ArnForEnvironmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
+		"arnForEnvironment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IEnvironmentRef from an ARN.
 func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) interfacesawsmwaa.IEnvironmentRef {
 	_init_.Initialize()

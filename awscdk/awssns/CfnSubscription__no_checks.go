@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSubscription) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnSubscription_ArnForSubscriptionParameters(resource interfacesawssns.ISubscriptionRef) error {
+	return nil
+}
+
 func validateCfnSubscription_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

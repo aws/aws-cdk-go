@@ -466,6 +466,24 @@ func (j *jsiiProxy_CfnVPNGateway)SetType(val *string) {
 	)
 }
 
+func CfnVPNGateway_ArnForVPNGateway(resource interfacesawsec2.IVPNGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPNGateway_ArnForVPNGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPNGateway",
+		"arnForVPNGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IVPNGatewayRef from a vpnGatewayId.
 func CfnVPNGateway_FromVpnGatewayId(scope constructs.Construct, id *string, vpnGatewayId *string) interfacesawsec2.IVPNGatewayRef {
 	_init_.Initialize()

@@ -102,7 +102,7 @@ import (
 //   		},
 //   	},
 //   	UseLatestRestorableTime: jsii.Boolean(false),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   }
@@ -239,7 +239,7 @@ type CfnDBClusterProps struct {
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
 	//
-	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
+	DbClusterParameterGroupName interface{} `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
 	//
 	// > When you apply a parameter group using the `DBInstanceParameterGroupName` parameter, the DB cluster isn't rebooted automatically. Also, parameter changes are applied immediately rather than during the next maintenance window.
@@ -262,7 +262,7 @@ type CfnDBClusterProps struct {
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsubnetgroupname
 	//
-	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	DbSubnetGroupName interface{} `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// Reserved for future use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsystemid
 	//
@@ -447,7 +447,7 @@ type CfnDBClusterProps struct {
 	// Valid for: Aurora DB clusters only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-globalclusteridentifier
 	//
-	GlobalClusterIdentifier *string `field:"optional" json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
+	GlobalClusterIdentifier interface{} `field:"optional" json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
 	// The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster.
 	//
 	// For information about valid IOPS values, see [Provisioned IOPS storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide* .
@@ -473,7 +473,7 @@ type CfnDBClusterProps struct {
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
@@ -823,6 +823,6 @@ type CfnDBClusterProps struct {
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids
 	//
-	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]interface{} `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

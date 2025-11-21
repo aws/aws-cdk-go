@@ -583,6 +583,24 @@ func (j *jsiiProxy_CfnMulticastGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMulticastGroup_ArnForMulticastGroup(resource interfacesawsiotwireless.IMulticastGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMulticastGroup_ArnForMulticastGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
+		"arnForMulticastGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMulticastGroupRef from an ARN.
 func CfnMulticastGroup_FromMulticastGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IMulticastGroupRef {
 	_init_.Initialize()

@@ -719,6 +719,24 @@ func (j *jsiiProxy_CfnGameServerGroup)SetVpcSubnets(val *[]*string) {
 	)
 }
 
+func CfnGameServerGroup_ArnForGameServerGroup(resource interfacesawsgamelift.IGameServerGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGameServerGroup_ArnForGameServerGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnGameServerGroup",
+		"arnForGameServerGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

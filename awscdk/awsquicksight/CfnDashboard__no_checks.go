@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDashboard) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnDashboard_ArnForDashboardParameters(resource interfacesawsquicksight.IDashboardRef) error {
+	return nil
+}
+
 func validateCfnDashboard_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

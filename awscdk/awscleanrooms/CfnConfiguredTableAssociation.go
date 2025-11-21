@@ -612,6 +612,24 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation)SetTags(val *[]*awscdk.CfnTag) 
 	)
 }
 
+func CfnConfiguredTableAssociation_ArnForConfiguredTableAssociation(resource interfacesawscleanrooms.IConfiguredTableAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConfiguredTableAssociation_ArnForConfiguredTableAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTableAssociation",
+		"arnForConfiguredTableAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

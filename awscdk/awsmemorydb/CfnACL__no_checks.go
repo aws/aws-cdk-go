@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnACL) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
+func validateCfnACL_ArnForACLParameters(resource interfacesawsmemorydb.IACLRef) error {
+	return nil
+}
+
 func validateCfnACL_FromACLArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

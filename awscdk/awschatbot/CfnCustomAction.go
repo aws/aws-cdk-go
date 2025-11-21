@@ -535,6 +535,24 @@ func (j *jsiiProxy_CfnCustomAction)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCustomAction_ArnForCustomAction(resource interfacesawschatbot.ICustomActionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCustomAction_ArnForCustomActionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_chatbot.CfnCustomAction",
+		"arnForCustomAction",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnUserPool) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnUserPool_ArnForUserPoolParameters(resource interfacesawscognito.IUserPoolRef) error {
+	return nil
+}
+
 func validateCfnUserPool_FromUserPoolArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

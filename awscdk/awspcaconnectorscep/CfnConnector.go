@@ -500,6 +500,24 @@ func (j *jsiiProxy_CfnConnector)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnConnector_ArnForConnector(resource interfacesawspcaconnectorscep.IConnectorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnector_ArnForConnectorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pcaconnectorscep.CfnConnector",
+		"arnForConnector",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

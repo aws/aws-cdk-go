@@ -591,6 +591,24 @@ func (j *jsiiProxy_CfnAsset)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAsset_ArnForAsset(resource interfacesawsiotsitewise.IAssetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAsset_ArnForAssetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
+		"arnForAsset",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAssetRef from an ARN.
 func CfnAsset_FromAssetArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IAssetRef {
 	_init_.Initialize()

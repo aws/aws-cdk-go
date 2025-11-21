@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchserverless"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,6 +156,14 @@ func (c *jsiiProxy_CfnCollection) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnCollection_ArnForCollectionParameters(resource interfacesawsopensearchserverless.ICollectionRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCollection_FromCollectionArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -206,6 +215,30 @@ func validateCfnCollection_IsCfnResourceParameters(x interface{}) error {
 func validateCfnCollection_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnCollection) validateSetEncryptionConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCollection_EncryptionConfigProperty:
+		val := val.(*CfnCollection_EncryptionConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCollection_EncryptionConfigProperty:
+		val_ := val.(CfnCollection_EncryptionConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCollection_EncryptionConfigProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

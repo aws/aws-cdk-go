@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataMigration) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnDataMigration_ArnForDataMigrationParameters(resource interfacesawsdms.IDataMigrationRef) error {
+	return nil
+}
+
 func validateCfnDataMigration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

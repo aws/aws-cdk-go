@@ -559,6 +559,24 @@ func (j *jsiiProxy_CfnOrganizationConfigRule)SetOrganizationManagedRuleMetadata(
 	)
 }
 
+func CfnOrganizationConfigRule_ArnForOrganizationConfigRule(resource interfacesawsconfig.IOrganizationConfigRuleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnOrganizationConfigRule_ArnForOrganizationConfigRuleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
+		"arnForOrganizationConfigRule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IOrganizationConfigRuleRef from a organizationConfigRuleId.
 func CfnOrganizationConfigRule_FromOrganizationConfigRuleId(scope constructs.Construct, id *string, organizationConfigRuleId *string) interfacesawsconfig.IOrganizationConfigRuleRef {
 	_init_.Initialize()

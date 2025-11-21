@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnIPAM) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnIPAM_ArnForIPAMParameters(resource interfacesawsec2.IIPAMRef) error {
+	return nil
+}
+
 func validateCfnIPAM_FromIPAMArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

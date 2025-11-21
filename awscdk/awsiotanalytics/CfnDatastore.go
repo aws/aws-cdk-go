@@ -587,6 +587,24 @@ func (j *jsiiProxy_CfnDatastore)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDatastore_ArnForDatastore(resource interfacesawsiotanalytics.IDatastoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDatastore_ArnForDatastoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotanalytics.CfnDatastore",
+		"arnForDatastore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDatastoreRef from a datastoreName.
 func CfnDatastore_FromDatastoreName(scope constructs.Construct, id *string, datastoreName *string) interfacesawsiotanalytics.IDatastoreRef {
 	_init_.Initialize()

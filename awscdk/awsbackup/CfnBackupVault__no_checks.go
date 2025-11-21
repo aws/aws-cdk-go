@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBackupVault) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnBackupVault_ArnForBackupVaultParameters(resource interfacesawsbackup.IBackupVaultRef) error {
+	return nil
+}
+
 func validateCfnBackupVault_FromBackupVaultArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

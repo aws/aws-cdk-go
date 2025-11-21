@@ -680,6 +680,24 @@ func (j *jsiiProxy_CfnUser)SetUserProficiencies(val interface{}) {
 	)
 }
 
+func CfnUser_ArnForUser(resource interfacesawsconnect.IUserRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUser_ArnForUserParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnUser",
+		"arnForUser",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

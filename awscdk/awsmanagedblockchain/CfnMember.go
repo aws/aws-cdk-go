@@ -509,6 +509,24 @@ func (j *jsiiProxy_CfnMember)SetNetworkId(val *string) {
 	)
 }
 
+func CfnMember_ArnForMember(resource interfacesawsmanagedblockchain.IMemberRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMember_ArnForMemberParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
+		"arnForMember",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMemberRef from a memberId.
 func CfnMember_FromMemberId(scope constructs.Construct, id *string, memberId *string) interfacesawsmanagedblockchain.IMemberRef {
 	_init_.Initialize()

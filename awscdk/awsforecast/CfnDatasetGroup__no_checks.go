@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDatasetGroup) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnDatasetGroup_ArnForDatasetGroupParameters(resource interfacesawsforecast.IDatasetGroupRef) error {
+	return nil
+}
+
 func validateCfnDatasetGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

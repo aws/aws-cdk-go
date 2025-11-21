@@ -647,6 +647,24 @@ func (j *jsiiProxy_CfnSecurityProfile)SetTargetArns(val *[]*string) {
 	)
 }
 
+func CfnSecurityProfile_ArnForSecurityProfile(resource interfacesawsiot.ISecurityProfileRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSecurityProfile_ArnForSecurityProfileParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnSecurityProfile",
+		"arnForSecurityProfile",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISecurityProfileRef from an ARN.
 func CfnSecurityProfile_FromSecurityProfileArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.ISecurityProfileRef {
 	_init_.Initialize()

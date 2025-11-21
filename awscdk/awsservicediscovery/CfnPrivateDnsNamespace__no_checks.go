@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnPrivateDnsNamespace_ArnForPrivateDnsNamespaceParameters(resource interfacesawsservicediscovery.IPrivateDnsNamespaceRef) error {
+	return nil
+}
+
 func validateCfnPrivateDnsNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

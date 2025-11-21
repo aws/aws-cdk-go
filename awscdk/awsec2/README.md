@@ -2168,7 +2168,7 @@ ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 
 #### Throughput on GP3 Volumes
 
-You can specify the `throughput` of a GP3 volume from 125 (default) to 1000.
+You can specify the `throughput` of a GP3 volume from 125 (default) to 2000.
 
 ```go
 ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfiguration) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnConfiguration_ArnForConfigurationParameters(resource interfacesawsamazonmq.IConfigurationRef) error {
+	return nil
+}
+
 func validateCfnConfiguration_FromConfigurationArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

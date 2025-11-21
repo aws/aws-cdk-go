@@ -93,6 +93,9 @@ type CloudFrontWebDistribution interface {
 	// different than the stack they were imported into.
 	// Deprecated: Use `Distribution` instead.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a Distribution.
+	// Deprecated: Use `Distribution` instead.
+	Grants() DistributionGrants
 	// The logging bucket for this CloudFront distribution.
 	//
 	// If logging is not enabled for this distribution - this property will be undefined.
@@ -203,6 +206,16 @@ func (j *jsiiProxy_CloudFrontWebDistribution) Env() *interfaces.ResourceEnvironm
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFrontWebDistribution) Grants() DistributionGrants {
+	var returns DistributionGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnStreamKey) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnStreamKey_ArnForStreamKeyParameters(resource interfacesawsivs.IStreamKeyRef) error {
+	return nil
+}
+
 func validateCfnStreamKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

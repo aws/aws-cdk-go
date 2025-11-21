@@ -3,7 +3,7 @@ package awsecs
 
 // Configuration for a linear deployment strategy that shifts production traffic in equal percentage increments with configurable wait times between each step until 100 percent of traffic is shifted to the new service revision.
 //
-// The following validation applies only to Linear deployments created through AWS CloudFormation . AWS CloudFormation operations time out after 36 hours. Linear deployments can approach this limit because of their extended duration. This can cause AWS CloudFormation to roll back the deployment. To prevent timeout-related rollbacks, AWS CloudFormation rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+// The following validation applies only to Linear deployments created through CloudFormation . CloudFormation operations time out after 36 hours. Linear deployments can approach this limit because of their extended duration. This can cause CloudFormation to roll back the deployment. To prevent timeout-related rollbacks, CloudFormation rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
 //
 // `BakeTimeInMinutes + (StepBakeTimeInMinutes × Number of deployment steps)`
 //
@@ -12,7 +12,7 @@ package awsecs
 // - *If `StepPercent` evenly divides by 100* : The number of deployment steps equals `(100 ÷ StepPercent) - 1`
 // - *Otherwise* : The number of deployment steps equals the floor of `100 ÷ StepPercent` . For example, if `StepPercent` is 11, the number of deployment steps is 9 (not 9.1).
 //
-// This calculation reflects that AWS CloudFormation doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a `StepPercent` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
+// This calculation reflects that CloudFormation doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a `StepPercent` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
 //
 // Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
 //

@@ -89,7 +89,7 @@ type CfnReplicationInstance interface {
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// An AWS KMS key identifier that is used to encrypt the data on the replication instance.
+	// An AWS  key identifier that is used to encrypt the data on the replication instance.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.

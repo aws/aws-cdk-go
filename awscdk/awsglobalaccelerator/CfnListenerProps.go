@@ -28,7 +28,7 @@ type CfnListenerProps struct {
 	// The Amazon Resource Name (ARN) of your accelerator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
 	//
-	AcceleratorArn *string `field:"required" json:"acceleratorArn" yaml:"acceleratorArn"`
+	AcceleratorArn interface{} `field:"required" json:"acceleratorArn" yaml:"acceleratorArn"`
 	// The list of port ranges for the connections from clients to the accelerator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
 	//

@@ -82,7 +82,7 @@ type CfnEventBus interface {
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName() *string
 	SetEventSourceName(val *string)
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
 	// The logging configuration settings for the event bus.
@@ -610,6 +610,24 @@ func (j *jsiiProxy_CfnEventBus)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnEventBus_ArnForEventBus(resource interfacesawsevents.IEventBusRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventBus_ArnForEventBusParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnEventBus",
+		"arnForEventBus",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IEventBusRef from an ARN.

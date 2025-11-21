@@ -507,6 +507,24 @@ func (j *jsiiProxy_CfnClusterParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnClusterParameterGroup_ArnForClusterParameterGroup(resource interfacesawsredshift.IClusterParameterGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnClusterParameterGroup_ArnForClusterParameterGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_redshift.CfnClusterParameterGroup",
+		"arnForClusterParameterGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IClusterParameterGroupRef from a parameterGroupName.
 func CfnClusterParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) interfacesawsredshift.IClusterParameterGroupRef {
 	_init_.Initialize()

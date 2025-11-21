@@ -581,6 +581,24 @@ func (j *jsiiProxy_CfnSafetyRule)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnSafetyRule_ArnForSafetyRule(resource interfacesawsroute53recoverycontrol.ISafetyRuleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSafetyRule_ArnForSafetyRuleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRule",
+		"arnForSafetyRule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

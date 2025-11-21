@@ -27,7 +27,7 @@ type CfnTransitGatewayRouteProps struct {
 	// The ID of the transit gateway route table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-transitgatewayroutetableid
 	//
-	TransitGatewayRouteTableId *string `field:"required" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
+	TransitGatewayRouteTableId interface{} `field:"required" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
 	// Indicates whether to drop traffic that matches this route.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-blackhole
 	//
@@ -35,6 +35,6 @@ type CfnTransitGatewayRouteProps struct {
 	// The ID of the attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-transitgatewayattachmentid
 	//
-	TransitGatewayAttachmentId *string `field:"optional" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId interface{} `field:"optional" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
 }
 

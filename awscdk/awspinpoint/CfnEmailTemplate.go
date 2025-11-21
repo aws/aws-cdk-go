@@ -560,6 +560,24 @@ func (j *jsiiProxy_CfnEmailTemplate)SetTextPart(val *string) {
 	)
 }
 
+func CfnEmailTemplate_ArnForEmailTemplate(resource interfacesawspinpoint.IEmailTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEmailTemplate_ArnForEmailTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnEmailTemplate",
+		"arnForEmailTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

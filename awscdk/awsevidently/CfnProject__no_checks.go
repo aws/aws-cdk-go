@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnProject) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnProject_ArnForProjectParameters(resource interfacesawsevidently.IProjectRef) error {
+	return nil
+}
+
 func validateCfnProject_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

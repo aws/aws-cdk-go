@@ -454,6 +454,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyArn", GoGetter: "KmsKeyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "loggingConfig", GoGetter: "LoggingConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maximumBatchingWindowInSeconds", GoGetter: "MaximumBatchingWindowInSeconds"},
 			_jsii_.MemberProperty{JsiiProperty: "maximumRecordAgeInSeconds", GoGetter: "MaximumRecordAgeInSeconds"},
@@ -520,6 +521,10 @@ func init() {
 		reflect.TypeOf((*CfnEventSourceMapping_FilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.LoggingConfigProperty",
+		reflect.TypeOf((*CfnEventSourceMapping_LoggingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.MetricsConfigProperty",
 		reflect.TypeOf((*CfnEventSourceMapping_MetricsConfigProperty)(nil)).Elem(),
 	)
@@ -580,7 +585,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponse", GoGetter: "AttrSnapStartResponse"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponseApplyOn", GoGetter: "AttrSnapStartResponseApplyOn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponseOptimizationStatus", GoGetter: "AttrSnapStartResponseOptimizationStatus"},
-			_jsii_.MemberProperty{JsiiProperty: "capacityProviderConfig", GoGetter: "CapacityProviderConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -595,7 +599,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "fileSystemConfigs", GoGetter: "FileSystemConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
 			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
-			_jsii_.MemberProperty{JsiiProperty: "functionScalingConfig", GoGetter: "FunctionScalingConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "handler", GoGetter: "Handler"},
@@ -611,8 +614,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "packageType", GoGetter: "PackageType"},
-			_jsii_.MemberProperty{JsiiProperty: "publicAccessBlockConfig", GoGetter: "PublicAccessBlockConfig"},
-			_jsii_.MemberProperty{JsiiProperty: "publishToLatestPublished", GoGetter: "PublishToLatestPublished"},
 			_jsii_.MemberProperty{JsiiProperty: "recursiveLoop", GoGetter: "RecursiveLoop"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -646,20 +647,12 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lambda.CfnFunction.CapacityProviderConfigProperty",
-		reflect.TypeOf((*CfnFunction_CapacityProviderConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.CodeProperty",
 		reflect.TypeOf((*CfnFunction_CodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.DeadLetterConfigProperty",
 		reflect.TypeOf((*CfnFunction_DeadLetterConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lambda.CfnFunction.EC2ManagedInstancesCapacityProviderConfigProperty",
-		reflect.TypeOf((*CfnFunction_EC2ManagedInstancesCapacityProviderConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.EnvironmentProperty",
@@ -674,20 +667,12 @@ func init() {
 		reflect.TypeOf((*CfnFunction_FileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lambda.CfnFunction.FunctionScalingConfigProperty",
-		reflect.TypeOf((*CfnFunction_FunctionScalingConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.ImageConfigProperty",
 		reflect.TypeOf((*CfnFunction_ImageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.LoggingConfigProperty",
 		reflect.TypeOf((*CfnFunction_LoggingConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lambda.CfnFunction.PublicAccessBlockConfigProperty",
-		reflect.TypeOf((*CfnFunction_PublicAccessBlockConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.RuntimeManagementConfigProperty",

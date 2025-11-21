@@ -445,6 +445,24 @@ func (j *jsiiProxy_CfnResolverConfig)SetResourceId(val *string) {
 	)
 }
 
+func CfnResolverConfig_ArnForResolverConfig(resource interfacesawsroute53resolver.IResolverConfigRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResolverConfig_ArnForResolverConfigParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnResolverConfig",
+		"arnForResolverConfig",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IResolverConfigRef from a resourceId.
 func CfnResolverConfig_FromResourceId(scope constructs.Construct, id *string, resourceId *string) interfacesawsroute53resolver.IResolverConfigRef {
 	_init_.Initialize()

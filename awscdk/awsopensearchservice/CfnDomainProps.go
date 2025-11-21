@@ -52,6 +52,11 @@ import (
 //   			SubjectKey: jsii.String("subjectKey"),
 //   		},
 //   	},
+//   	AimlOptions: &AIMLOptionsProperty{
+//   		S3VectorsEngine: &S3VectorsEngineProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   	ClusterConfig: &ClusterConfigProperty{
 //   		ColdStorageOptions: &ColdStorageOptionsProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -178,6 +183,9 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-advancedsecurityoptions
 	//
 	AdvancedSecurityOptions interface{} `field:"optional" json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-aimloptions
+	//
+	AimlOptions interface{} `field:"optional" json:"aimlOptions" yaml:"aimlOptions"`
 	// Container for the cluster configuration of a domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-clusterconfig
 	//
@@ -195,7 +203,7 @@ type CfnDomainProps struct {
 	DomainEndpointOptions interface{} `field:"optional" json:"domainEndpointOptions" yaml:"domainEndpointOptions"`
 	// A name for the OpenSearch Service domain.
 	//
-	// The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	// The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// Required when creating a new domain.
 	//
@@ -209,7 +217,7 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-ebsoptions
 	//
 	EbsOptions interface{} `field:"optional" json:"ebsOptions" yaml:"ebsOptions"`
-	// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use.
+	// Whether the domain should encrypt data at rest, and if so, the AWS  key to use.
 	//
 	// See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
 	//

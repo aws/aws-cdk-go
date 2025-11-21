@@ -64,7 +64,7 @@ type CfnGuardrailProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The ARN of the AWS KMS key that you use to encrypt the guardrail.
+	// The ARN of the AWS  key that you use to encrypt the guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`

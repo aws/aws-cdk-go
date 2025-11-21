@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnProtectionGroup) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnProtectionGroup_ArnForProtectionGroupParameters(resource interfacesawsshield.IProtectionGroupRef) error {
+	return nil
+}
+
 func validateCfnProtectionGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

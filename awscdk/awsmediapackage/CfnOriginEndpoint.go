@@ -903,6 +903,24 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetWhitelist(val *[]*string) {
 	)
 }
 
+func CfnOriginEndpoint_ArnForOriginEndpoint(resource interfacesawsmediapackage.IOriginEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnOriginEndpoint_ArnForOriginEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint",
+		"arnForOriginEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

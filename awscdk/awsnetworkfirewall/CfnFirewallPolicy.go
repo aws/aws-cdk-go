@@ -563,6 +563,24 @@ func (j *jsiiProxy_CfnFirewallPolicy)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnFirewallPolicy_ArnForFirewallPolicy(resource interfacesawsnetworkfirewall.IFirewallPolicyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFirewallPolicy_ArnForFirewallPolicyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"arnForFirewallPolicy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

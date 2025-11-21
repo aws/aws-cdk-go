@@ -584,6 +584,24 @@ func (j *jsiiProxy_CfnWorkspaceInstance)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnWorkspaceInstance_ArnForWorkspaceInstance(resource interfacesawsworkspacesinstances.IWorkspaceInstanceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspaceInstance_ArnForWorkspaceInstanceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance",
+		"arnForWorkspaceInstance",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IWorkspaceInstanceRef from a workspaceInstanceId.
 func CfnWorkspaceInstance_FromWorkspaceInstanceId(scope constructs.Construct, id *string, workspaceInstanceId *string) interfacesawsworkspacesinstances.IWorkspaceInstanceRef {
 	_init_.Initialize()

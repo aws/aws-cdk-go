@@ -142,6 +142,14 @@ func (t *jsiiProxy_Table) validateGrantFullAccessParameters(grantee awsiam.IGran
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateGrantReadDataParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

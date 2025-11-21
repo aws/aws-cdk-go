@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMap) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
+func validateCfnMap_ArnForMapParameters(resource interfacesawslocation.IMapRef) error {
+	return nil
+}
+
 func validateCfnMap_FromMapArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPlan) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnPlan_ArnForPlanParameters(resource interfacesawsarcregionswitch.IPlanRef) error {
+	return nil
+}
+
 func validateCfnPlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

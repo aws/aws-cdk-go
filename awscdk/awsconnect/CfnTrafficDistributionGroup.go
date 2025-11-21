@@ -511,6 +511,24 @@ func (j *jsiiProxy_CfnTrafficDistributionGroup)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnTrafficDistributionGroup_ArnForTrafficDistributionGroup(resource interfacesawsconnect.ITrafficDistributionGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTrafficDistributionGroup_ArnForTrafficDistributionGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnTrafficDistributionGroup",
+		"arnForTrafficDistributionGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

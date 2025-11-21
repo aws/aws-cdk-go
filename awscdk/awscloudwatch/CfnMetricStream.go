@@ -692,6 +692,24 @@ func (j *jsiiProxy_CfnMetricStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMetricStream_ArnForMetricStream(resource interfacesawscloudwatch.IMetricStreamRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMetricStream_ArnForMetricStreamParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream",
+		"arnForMetricStream",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMetricStreamRef from an ARN.
 func CfnMetricStream_FromMetricStreamArn(scope constructs.Construct, id *string, arn *string) interfacesawscloudwatch.IMetricStreamRef {
 	_init_.Initialize()

@@ -488,6 +488,24 @@ func (j *jsiiProxy_CfnLabel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnLabel_ArnForLabel(resource interfacesawsfrauddetector.ILabelRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLabel_ArnForLabelParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnLabel",
+		"arnForLabel",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

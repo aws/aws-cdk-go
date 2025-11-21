@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfigRule) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnConfigRule_ArnForConfigRuleParameters(resource interfacesawsconfig.IConfigRuleRef) error {
+	return nil
+}
+
 func validateCfnConfigRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

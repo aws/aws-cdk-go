@@ -556,6 +556,24 @@ func (j *jsiiProxy_CfnUsagePlan)SetUsagePlanName(val *string) {
 	)
 }
 
+func CfnUsagePlan_ArnForUsagePlan(resource interfacesawsapigateway.IUsagePlanRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUsagePlan_ArnForUsagePlanParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnUsagePlan",
+		"arnForUsagePlan",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IUsagePlanRef from a usagePlanId.
 func CfnUsagePlan_FromUsagePlanId(scope constructs.Construct, id *string, usagePlanId *string) interfacesawsapigateway.IUsagePlanRef {
 	_init_.Initialize()

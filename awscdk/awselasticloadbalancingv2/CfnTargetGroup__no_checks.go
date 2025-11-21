@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTargetGroup) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnTargetGroup_ArnForTargetGroupParameters(resource interfacesawselasticloadbalancingv2.ITargetGroupRef) error {
+	return nil
+}
+
 func validateCfnTargetGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

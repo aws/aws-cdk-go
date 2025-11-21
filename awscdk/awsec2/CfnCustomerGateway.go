@@ -553,6 +553,24 @@ func (j *jsiiProxy_CfnCustomerGateway)SetType(val *string) {
 	)
 }
 
+func CfnCustomerGateway_ArnForCustomerGateway(resource interfacesawsec2.ICustomerGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCustomerGateway_ArnForCustomerGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCustomerGateway",
+		"arnForCustomerGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICustomerGatewayRef from a customerGatewayId.
 func CfnCustomerGateway_FromCustomerGatewayId(scope constructs.Construct, id *string, customerGatewayId *string) interfacesawsec2.ICustomerGatewayRef {
 	_init_.Initialize()

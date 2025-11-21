@@ -21,6 +21,8 @@ import (
 //
 // When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table and the default propagation route table. You can use [AWS::EC2::TransitGatewayRouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html) to create additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table. You can use [AWS::EC2::TransitGatewayRouteTablePropagation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html) to propagate routes from a resource attachment to a transit gateway route table. If you disable automatic associations, you can use [AWS::EC2::TransitGatewayRouteTableAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html) to associate a resource attachment with a transit gateway route table.
 //
+// To create a transit gateway with `EncryptionSupport` enabled through CloudFormation, you will need the `ec2:ModifyTransitGateway` Identity and Access Management (IAM) permission. For more information, see `ModifyTransitGateway` in [Actions, resources, and condition keys for Amazon EC2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-actions-as-) of the *Identify and Access Management Service Authorization Reference* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -63,6 +65,7 @@ type CfnTransitGateway interface {
 	// The ID of the default association route table.
 	AssociationDefaultRouteTableId() *string
 	SetAssociationDefaultRouteTableId(val *string)
+	// The encryption support state of the transit gateway.
 	AttrEncryptionSupportState() *string
 	// The ID of the transit gateway.
 	AttrId() *string
@@ -728,6 +731,24 @@ func (j *jsiiProxy_CfnTransitGateway)SetVpnEcmpSupport(val *string) {
 		"vpnEcmpSupport",
 		val,
 	)
+}
+
+func CfnTransitGateway_ArnForTransitGateway(resource interfacesawsec2.ITransitGatewayRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGateway_ArnForTransitGatewayParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGateway",
+		"arnForTransitGateway",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ITransitGatewayRef from an ARN.

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateValidatePropertiesParam
 	return nil
 }
 
+func validateCfnPlaybackRestrictionPolicy_ArnForPlaybackRestrictionPolicyParameters(resource interfacesawsivs.IPlaybackRestrictionPolicyRef) error {
+	return nil
+}
+
 func validateCfnPlaybackRestrictionPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

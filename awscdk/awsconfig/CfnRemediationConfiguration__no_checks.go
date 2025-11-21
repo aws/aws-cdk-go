@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnRemediationConfiguration_ArnForRemediationConfigurationParameters(resource interfacesawsconfig.IRemediationConfigurationRef) error {
+	return nil
+}
+
 func validateCfnRemediationConfiguration_FromRemediationConfigurationIdParameters(scope constructs.Construct, id *string, remediationConfigurationId *string) error {
 	return nil
 }

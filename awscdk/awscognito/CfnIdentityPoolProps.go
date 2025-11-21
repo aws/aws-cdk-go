@@ -12,7 +12,7 @@ import (
 //   var myProvider OpenIdConnectProvider
 //
 //   cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &CfnIdentityPoolProps{
-//   	OpenIdConnectProviderArns: []*string{
+//   	OpenIdConnectProviderArns: []interface{}{
 //   		myProvider.OpenIdConnectProviderArn,
 //   	},
 //   	// And the other properties for your identity pool
@@ -71,7 +71,7 @@ type CfnIdentityPoolProps struct {
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns
 	//
-	OpenIdConnectProviderArns *[]*string `field:"optional" json:"openIdConnectProviderArns" yaml:"openIdConnectProviderArns"`
+	OpenIdConnectProviderArns *[]interface{} `field:"optional" json:"openIdConnectProviderArns" yaml:"openIdConnectProviderArns"`
 	// The configuration options to be applied to the identity pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-pushsync
 	//

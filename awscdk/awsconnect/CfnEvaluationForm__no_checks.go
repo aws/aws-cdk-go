@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEvaluationForm) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnEvaluationForm_ArnForEvaluationFormParameters(resource interfacesawsconnect.IEvaluationFormRef) error {
+	return nil
+}
+
 func validateCfnEvaluationForm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

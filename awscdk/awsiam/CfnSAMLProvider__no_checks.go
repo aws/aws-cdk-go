@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSAMLProvider) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnSAMLProvider_ArnForSAMLProviderParameters(resource interfacesawsiam.ISAMLProviderRef) error {
+	return nil
+}
+
 func validateCfnSAMLProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

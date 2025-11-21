@@ -28,7 +28,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	ManagedPolicyArns: []*string{
+//   	ManagedPolicyArns: []interface{}{
 //   		jsii.String("managedPolicyArns"),
 //   	},
 //   	MaxSessionDuration: jsii.Number(123),
@@ -627,6 +627,24 @@ func (j *jsiiProxy_CfnRole)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnRole_ArnForRole(resource interfacesawsiam.IRoleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRole_ArnForRoleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.CfnRole",
+		"arnForRole",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -728,6 +728,24 @@ func (j *jsiiProxy_CfnDomainConfiguration)SetValidationCertificateArn(val *strin
 	)
 }
 
+func CfnDomainConfiguration_ArnForDomainConfiguration(resource interfacesawsiot.IDomainConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDomainConfiguration_ArnForDomainConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnDomainConfiguration",
+		"arnForDomainConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDomainConfigurationRef from an ARN.
 func CfnDomainConfiguration_FromDomainConfigurationArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IDomainConfigurationRef {
 	_init_.Initialize()

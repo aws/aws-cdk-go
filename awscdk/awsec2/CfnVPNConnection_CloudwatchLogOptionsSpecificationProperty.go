@@ -9,6 +9,9 @@ package awsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cloudwatchLogOptionsSpecificationProperty := &CloudwatchLogOptionsSpecificationProperty{
+//   	BgpLogEnabled: jsii.Boolean(false),
+//   	BgpLogGroupArn: jsii.String("bgpLogGroupArn"),
+//   	BgpLogOutputFormat: jsii.String("bgpLogOutputFormat"),
 //   	LogEnabled: jsii.Boolean(false),
 //   	LogGroupArn: jsii.String("logGroupArn"),
 //   	LogOutputFormat: jsii.String("logOutputFormat"),
@@ -17,6 +20,15 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html
 //
 type CfnVPNConnection_CloudwatchLogOptionsSpecificationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html#cfn-ec2-vpnconnection-cloudwatchlogoptionsspecification-bgplogenabled
+	//
+	BgpLogEnabled interface{} `field:"optional" json:"bgpLogEnabled" yaml:"bgpLogEnabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html#cfn-ec2-vpnconnection-cloudwatchlogoptionsspecification-bgploggrouparn
+	//
+	BgpLogGroupArn *string `field:"optional" json:"bgpLogGroupArn" yaml:"bgpLogGroupArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html#cfn-ec2-vpnconnection-cloudwatchlogoptionsspecification-bgplogoutputformat
+	//
+	BgpLogOutputFormat *string `field:"optional" json:"bgpLogOutputFormat" yaml:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. Default value is `False` .
 	//
 	// Valid values: `True` | `False`.

@@ -61,7 +61,7 @@ type CfnFirewallProps struct {
 	// The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
 	//
-	FirewallPolicyArn *string `field:"required" json:"firewallPolicyArn" yaml:"firewallPolicyArn"`
+	FirewallPolicyArn interface{} `field:"required" json:"firewallPolicyArn" yaml:"firewallPolicyArn"`
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration.
 	//
 	// When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
@@ -127,6 +127,6 @@ type CfnFirewallProps struct {
 	// You can't change the VPC of a firewall after you create the firewall.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

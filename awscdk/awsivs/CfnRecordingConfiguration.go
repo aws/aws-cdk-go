@@ -568,6 +568,24 @@ func (j *jsiiProxy_CfnRecordingConfiguration)SetThumbnailConfiguration(val inter
 	)
 }
 
+func CfnRecordingConfiguration_ArnForRecordingConfiguration(resource interfacesawsivs.IRecordingConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRecordingConfiguration_ArnForRecordingConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnRecordingConfiguration",
+		"arnForRecordingConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

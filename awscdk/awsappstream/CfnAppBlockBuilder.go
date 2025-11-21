@@ -679,6 +679,24 @@ func (j *jsiiProxy_CfnAppBlockBuilder)SetVpcConfig(val interface{}) {
 	)
 }
 
+func CfnAppBlockBuilder_ArnForAppBlockBuilder(resource interfacesawsappstream.IAppBlockBuilderRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAppBlockBuilder_ArnForAppBlockBuilderParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnAppBlockBuilder",
+		"arnForAppBlockBuilder",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAppBlockBuilderRef from an ARN.
 func CfnAppBlockBuilder_FromAppBlockBuilderArn(scope constructs.Construct, id *string, arn *string) interfacesawsappstream.IAppBlockBuilderRef {
 	_init_.Initialize()

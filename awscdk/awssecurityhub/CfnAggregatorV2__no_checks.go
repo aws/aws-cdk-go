@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAggregatorV2) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnAggregatorV2_ArnForAggregatorV2Parameters(resource interfacesawssecurityhub.IAggregatorV2Ref) error {
+	return nil
+}
+
 func validateCfnAggregatorV2_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

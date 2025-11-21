@@ -640,6 +640,24 @@ func (j *jsiiProxy_CfnTrigger)SetWorkflowName(val *string) {
 	)
 }
 
+func CfnTrigger_ArnForTrigger(resource interfacesawsglue.ITriggerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTrigger_ArnForTriggerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnTrigger",
+		"arnForTrigger",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITriggerRef from a triggerName.
 func CfnTrigger_FromTriggerName(scope constructs.Construct, id *string, triggerName *string) interfacesawsglue.ITriggerRef {
 	_init_.Initialize()

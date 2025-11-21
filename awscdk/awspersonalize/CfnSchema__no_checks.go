@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSchema) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnSchema_ArnForSchemaParameters(resource interfacesawspersonalize.ISchemaRef) error {
+	return nil
+}
+
 func validateCfnSchema_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

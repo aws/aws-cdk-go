@@ -716,6 +716,24 @@ func (j *jsiiProxy_CfnImageBuilder)SetVpcConfig(val interface{}) {
 	)
 }
 
+func CfnImageBuilder_ArnForImageBuilder(resource interfacesawsappstream.IImageBuilderRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnImageBuilder_ArnForImageBuilderParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnImageBuilder",
+		"arnForImageBuilder",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IImageBuilderRef from a imageBuilderName.
 func CfnImageBuilder_FromImageBuilderName(scope constructs.Construct, id *string, imageBuilderName *string) interfacesawsappstream.IImageBuilderRef {
 	_init_.Initialize()

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRecordingConfiguration) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnRecordingConfiguration_ArnForRecordingConfigurationParameters(resource interfacesawsivs.IRecordingConfigurationRef) error {
+	return nil
+}
+
 func validateCfnRecordingConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

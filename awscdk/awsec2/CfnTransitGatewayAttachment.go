@@ -27,7 +27,7 @@ import (
 //   var options interface{}
 //
 //   cfnTransitGatewayAttachment := awscdk.Aws_ec2.NewCfnTransitGatewayAttachment(this, jsii.String("MyCfnTransitGatewayAttachment"), &CfnTransitGatewayAttachmentProps{
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
@@ -520,6 +520,24 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment)SetVpcId(val *string) {
 		"vpcId",
 		val,
 	)
+}
+
+func CfnTransitGatewayAttachment_ArnForTransitGatewayAttachment(resource interfacesawsec2.ITransitGatewayAttachmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayAttachment_ArnForTransitGatewayAttachmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayAttachment",
+		"arnForTransitGatewayAttachment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ITransitGatewayAttachmentRef from a transitGatewayAttachmentId.

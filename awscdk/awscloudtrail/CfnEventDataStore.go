@@ -135,7 +135,7 @@ type CfnEventDataStore interface {
 	// A JSON string that contains the Insights types you want to log on an event data store.
 	InsightSelectors() interface{}
 	SetInsightSelectors(val interface{})
-	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail.
+	// Specifies the AWS  key ID to use to encrypt the events delivered by CloudTrail.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -843,6 +843,24 @@ func (j *jsiiProxy_CfnEventDataStore)SetTerminationProtectionEnabled(val interfa
 		"terminationProtectionEnabled",
 		val,
 	)
+}
+
+func CfnEventDataStore_ArnForEventDataStore(resource interfacesawscloudtrail.IEventDataStoreRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventDataStore_ArnForEventDataStoreParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStore",
+		"arnForEventDataStore",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

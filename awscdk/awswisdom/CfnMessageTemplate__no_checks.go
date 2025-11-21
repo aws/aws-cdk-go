@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMessageTemplate) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnMessageTemplate_ArnForMessageTemplateParameters(resource interfacesawswisdom.IMessageTemplateRef) error {
+	return nil
+}
+
 func validateCfnMessageTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

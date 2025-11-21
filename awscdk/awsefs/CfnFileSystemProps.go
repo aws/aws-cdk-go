@@ -108,7 +108,7 @@ type CfnFileSystemProps struct {
 	// If `KmsKeyId` is specified, the `Encrypted` parameter must be set to true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// An array of `LifecyclePolicy` objects that define the file system's `LifecycleConfiguration` object.
 	//
 	// A `LifecycleConfiguration` object informs Lifecycle management of the following:

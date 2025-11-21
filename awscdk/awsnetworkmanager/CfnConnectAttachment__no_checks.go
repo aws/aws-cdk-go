@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConnectAttachment) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnConnectAttachment_ArnForConnectAttachmentParameters(resource interfacesawsnetworkmanager.IConnectAttachmentRef) error {
+	return nil
+}
+
 func validateCfnConnectAttachment_FromAttachmentIdParameters(scope constructs.Construct, id *string, attachmentId *string) error {
 	return nil
 }

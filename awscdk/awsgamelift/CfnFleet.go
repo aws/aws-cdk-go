@@ -1121,6 +1121,24 @@ func (j *jsiiProxy_CfnFleet)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnFleet_ArnForFleet(resource interfacesawsgamelift.IFleetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFleet_ArnForFleetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnFleet",
+		"arnForFleet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IFleetRef from an ARN.
 func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IFleetRef {
 	_init_.Initialize()

@@ -716,6 +716,24 @@ func (j *jsiiProxy_CfnAlarmModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAlarmModel_ArnForAlarmModel(resource interfacesawsiotevents.IAlarmModelRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAlarmModel_ArnForAlarmModelParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotevents.CfnAlarmModel",
+		"arnForAlarmModel",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAlarmModelRef from a alarmModelName.
 func CfnAlarmModel_FromAlarmModelName(scope constructs.Construct, id *string, alarmModelName *string) interfacesawsiotevents.IAlarmModelRef {
 	_init_.Initialize()

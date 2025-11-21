@@ -575,6 +575,24 @@ func (j *jsiiProxy_CfnGeofenceCollection)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnGeofenceCollection_ArnForGeofenceCollection(resource interfacesawslocation.IGeofenceCollectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGeofenceCollection_ArnForGeofenceCollectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnGeofenceCollection",
+		"arnForGeofenceCollection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IGeofenceCollectionRef from a collectionName.
 func CfnGeofenceCollection_FromCollectionName(scope constructs.Construct, id *string, collectionName *string) interfacesawslocation.IGeofenceCollectionRef {
 	_init_.Initialize()

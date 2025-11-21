@@ -791,6 +791,24 @@ func (j *jsiiProxy_CfnScheduledQuery)SetTargetConfiguration(val interface{}) {
 	)
 }
 
+func CfnScheduledQuery_ArnForScheduledQuery(resource interfacesawstimestream.IScheduledQueryRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnScheduledQuery_ArnForScheduledQueryParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_timestream.CfnScheduledQuery",
+		"arnForScheduledQuery",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -35,21 +35,25 @@ import (
 //   	DnsOptions: &DnsOptionsSpecificationProperty{
 //   		DnsRecordIpType: jsii.String("dnsRecordIpType"),
 //   		PrivateDnsOnlyForInboundResolverEndpoint: jsii.String("privateDnsOnlyForInboundResolverEndpoint"),
+//   		PrivateDnsPreference: jsii.String("privateDnsPreference"),
+//   		PrivateDnsSpecifiedDomains: []*string{
+//   			jsii.String("privateDnsSpecifiedDomains"),
+//   		},
 //   	},
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	PolicyDocument: policyDocument,
 //   	PrivateDnsEnabled: jsii.Boolean(false),
 //   	ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
-//   	RouteTableIds: []*string{
+//   	RouteTableIds: []interface{}{
 //   		jsii.String("routeTableIds"),
 //   	},
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	ServiceName: jsii.String("serviceName"),
 //   	ServiceNetworkArn: jsii.String("serviceNetworkArn"),
 //   	ServiceRegion: jsii.String("serviceRegion"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -775,6 +779,24 @@ func (j *jsiiProxy_CfnVPCEndpoint)SetVpcId(val *string) {
 		"vpcId",
 		val,
 	)
+}
+
+func CfnVPCEndpoint_ArnForVPCEndpoint(resource interfacesawsec2.IVPCEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPCEndpoint_ArnForVPCEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpoint",
+		"arnForVPCEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new IVPCEndpointRef from a vpcEndpointId.

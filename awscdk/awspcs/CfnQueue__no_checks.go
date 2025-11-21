@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnQueue) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnQueue_ArnForQueueParameters(resource interfacesawspcs.IQueueRef) error {
+	return nil
+}
+
 func validateCfnQueue_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

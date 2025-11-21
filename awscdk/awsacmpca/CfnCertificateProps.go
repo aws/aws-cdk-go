@@ -137,7 +137,7 @@ type CfnCertificateProps struct {
 	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
 	//
-	CertificateAuthorityArn *string `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
+	CertificateAuthorityArn interface{} `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The certificate signing request (CSR) for the certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
 	//
@@ -163,7 +163,7 @@ type CfnCertificateProps struct {
 	// If this parameter is not provided, AWS Private CA defaults to the `EndEntityCertificate/V1` template. For more information about AWS Private CA templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
 	//
-	TemplateArn *string `field:"optional" json:"templateArn" yaml:"templateArn"`
+	TemplateArn interface{} `field:"optional" json:"templateArn" yaml:"templateArn"`
 	// Information describing the start of the validity period of the certificate.
 	//
 	// This parameter sets the “Not Before" date for the certificate.

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnProfile) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnProfile_ArnForProfileParameters(resource interfacesawstransfer.IProfileRef) error {
+	return nil
+}
+
 func validateCfnProfile_FromProfileArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVirtualNode) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnVirtualNode_ArnForVirtualNodeParameters(resource interfacesawsappmesh.IVirtualNodeRef) error {
+	return nil
+}
+
 func validateCfnVirtualNode_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

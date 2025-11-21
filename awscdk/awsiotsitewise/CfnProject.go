@@ -531,6 +531,24 @@ func (j *jsiiProxy_CfnProject)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnProject_ArnForProject(resource interfacesawsiotsitewise.IProjectRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProject_ArnForProjectParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"arnForProject",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IProjectRef from an ARN.
 func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotsitewise.IProjectRef {
 	_init_.Initialize()

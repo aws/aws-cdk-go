@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnQuickResponse) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnQuickResponse_ArnForQuickResponseParameters(resource interfacesawswisdom.IQuickResponseRef) error {
+	return nil
+}
+
 func validateCfnQuickResponse_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

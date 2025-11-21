@@ -22,7 +22,7 @@ import (
 //
 //   cfnSubnetGroup := awscdk.Aws_elasticache.NewCfnSubnetGroup(this, jsii.String("MyCfnSubnetGroup"), &CfnSubnetGroupProps{
 //   	Description: jsii.String("description"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //
@@ -479,6 +479,24 @@ func (j *jsiiProxy_CfnSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnSubnetGroup_ArnForSubnetGroup(resource interfacesawselasticache.ISubnetGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSubnetGroup_ArnForSubnetGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",
+		"arnForSubnetGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a new ISubnetGroupRef from a cacheSubnetGroupName.

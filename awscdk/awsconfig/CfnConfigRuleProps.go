@@ -68,7 +68,7 @@ type CfnConfigRuleProps struct {
 	Compliance interface{} `field:"optional" json:"compliance" yaml:"compliance"`
 	// A name for the AWS Config rule.
 	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	// If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-configrulename
 	//
 	ConfigRuleName *string `field:"optional" json:"configRuleName" yaml:"configRuleName"`

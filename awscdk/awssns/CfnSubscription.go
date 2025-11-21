@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SNS::Subscription` resource subscribes an endpoint to an Amazon SNS topic.
+// The `AWS::SNS::Subscription` resource subscribes an endpoint to an Amazon  topic.
 //
 // For a subscription to be created, the owner of the endpoint must` confirm the subscription.
 //
@@ -100,7 +100,7 @@ type CfnSubscription interface {
 	// For cross-region subscriptions, the region in which the topic resides.
 	Region() *string
 	SetRegion(val *string)
-	// Specifies whether Amazon SNS resends the notification to the subscription when a message's attribute changes.
+	// Specifies whether Amazon  resends the notification to the subscription when a message's attribute changes.
 	ReplayPolicy() interface{}
 	SetReplayPolicy(val interface{})
 	// The stack in which this element is defined.
@@ -627,6 +627,24 @@ func (j *jsiiProxy_CfnSubscription)SetTopicArn(val *string) {
 		"topicArn",
 		val,
 	)
+}
+
+func CfnSubscription_ArnForSubscription(resource interfacesawssns.ISubscriptionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSubscription_ArnForSubscriptionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sns.CfnSubscription",
+		"arnForSubscription",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

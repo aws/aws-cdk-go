@@ -32,6 +32,17 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WebContentFilteringPolicy: &WebContentFilteringPolicyProperty{
+//   		AllowedUrls: []*string{
+//   			jsii.String("allowedUrls"),
+//   		},
+//   		BlockedCategories: []*string{
+//   			jsii.String("blockedCategories"),
+//   		},
+//   		BlockedUrls: []*string{
+//   			jsii.String("blockedUrls"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-browsersettings.html
@@ -105,6 +116,9 @@ type CfnBrowserSettings interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+	WebContentFilteringPolicy() interface{}
+	SetWebContentFilteringPolicy(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -430,6 +444,16 @@ func (j *jsiiProxy_CfnBrowserSettings) UpdatedProperties() *map[string]interface
 	return returns
 }
 
+func (j *jsiiProxy_CfnBrowserSettings) WebContentFilteringPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"webContentFilteringPolicy",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::WorkSpacesWeb::BrowserSettings`.
 func NewCfnBrowserSettings(scope constructs.Construct, id *string, props *CfnBrowserSettingsProps) CfnBrowserSettings {
@@ -496,6 +520,35 @@ func (j *jsiiProxy_CfnBrowserSettings)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func (j *jsiiProxy_CfnBrowserSettings)SetWebContentFilteringPolicy(val interface{}) {
+	if err := j.validateSetWebContentFilteringPolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"webContentFilteringPolicy",
+		val,
+	)
+}
+
+func CfnBrowserSettings_ArnForBrowserSettings(resource interfacesawsworkspacesweb.IBrowserSettingsRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnBrowserSettings_ArnForBrowserSettingsParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnBrowserSettings",
+		"arnForBrowserSettings",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

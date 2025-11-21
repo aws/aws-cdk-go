@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBridge) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnBridge_ArnForBridgeParameters(resource interfacesawsmediaconnect.IBridgeRef) error {
+	return nil
+}
+
 func validateCfnBridge_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

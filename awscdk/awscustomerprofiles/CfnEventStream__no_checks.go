@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEventStream) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnEventStream_ArnForEventStreamParameters(resource interfacesawscustomerprofiles.IEventStreamRef) error {
+	return nil
+}
+
 func validateCfnEventStream_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

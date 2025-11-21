@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApplication) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnApplication_ArnForApplicationParameters(resource interfacesawsappconfig.IApplicationRef) error {
+	return nil
+}
+
 func validateCfnApplication_FromApplicationIdParameters(scope constructs.Construct, id *string, applicationId *string) error {
 	return nil
 }

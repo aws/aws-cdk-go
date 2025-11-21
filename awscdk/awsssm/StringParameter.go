@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsssm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -22,6 +23,7 @@ import (
 //
 type StringParameter interface {
 	awscdk.Resource
+	awsiam.IEncryptedResource
 	IParameter
 	IStringParameter
 	// The encryption key that is used to encrypt this parameter.
@@ -44,6 +46,8 @@ type StringParameter interface {
 	ParameterArn() *string
 	// The name of the SSM Parameter resource.
 	ParameterName() *string
+	// A reference to a Parameter resource.
+	ParameterRef() *interfacesawsssm.ParameterReference
 	// The type of the SSM Parameter resource.
 	ParameterType() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -84,6 +88,8 @@ type StringParameter interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Gives permissions to a grantable entity to perform actions on the encryption key.
+	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
 	// Grants read (DescribeParameter, GetParameters, GetParameter, GetParameterHistory) permissions on the SSM Parameter.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants write (PutParameter) permissions on the SSM Parameter.
@@ -95,6 +101,7 @@ type StringParameter interface {
 // The jsii proxy struct for StringParameter
 type jsiiProxy_StringParameter struct {
 	internal.Type__awscdkResource
+	internal.Type__awsiamIEncryptedResource
 	jsiiProxy_IParameter
 	jsiiProxy_IStringParameter
 }
@@ -144,6 +151,16 @@ func (j *jsiiProxy_StringParameter) ParameterName() *string {
 	_jsii_.Get(
 		j,
 		"parameterName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StringParameter) ParameterRef() *interfacesawsssm.ParameterReference {
+	var returns *interfacesawsssm.ParameterReference
+	_jsii_.Get(
+		j,
+		"parameterRef",
 		&returns,
 	)
 	return returns
@@ -531,6 +548,27 @@ func (s *jsiiProxy_StringParameter) GetResourceNameAttribute(nameAttr *string) *
 		s,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_StringParameter) GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult {
+	if err := s.validateGrantOnKeyParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns *awsiam.GrantOnKeyResult
+
+	_jsii_.Invoke(
+		s,
+		"grantOnKey",
+		args,
 		&returns,
 	)
 

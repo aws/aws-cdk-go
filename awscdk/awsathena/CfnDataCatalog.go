@@ -570,6 +570,24 @@ func (j *jsiiProxy_CfnDataCatalog)SetType(val *string) {
 	)
 }
 
+func CfnDataCatalog_ArnForDataCatalog(resource interfacesawsathena.IDataCatalogRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDataCatalog_ArnForDataCatalogParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_athena.CfnDataCatalog",
+		"arnForDataCatalog",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDataCatalogRef from a dataCatalogName.
 func CfnDataCatalog_FromDataCatalogName(scope constructs.Construct, id *string, dataCatalogName *string) interfacesawsathena.IDataCatalogRef {
 	_init_.Initialize()

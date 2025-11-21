@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMissionProfile) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnMissionProfile_ArnForMissionProfileParameters(resource interfacesawsgroundstation.IMissionProfileRef) error {
+	return nil
+}
+
 func validateCfnMissionProfile_FromMissionProfileIdParameters(scope constructs.Construct, id *string, missionProfileId *string) error {
 	return nil
 }

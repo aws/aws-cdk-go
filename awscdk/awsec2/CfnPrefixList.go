@@ -565,6 +565,24 @@ func (j *jsiiProxy_CfnPrefixList)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnPrefixList_ArnForPrefixList(resource interfacesawsec2.IPrefixListRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPrefixList_ArnForPrefixListParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnPrefixList",
+		"arnForPrefixList",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IPrefixListRef from an ARN.
 func CfnPrefixList_FromPrefixListArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IPrefixListRef {
 	_init_.Initialize()

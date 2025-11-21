@@ -475,6 +475,24 @@ func (j *jsiiProxy_CfnAggregatorV2)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnAggregatorV2_ArnForAggregatorV2(resource interfacesawssecurityhub.IAggregatorV2Ref) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAggregatorV2_ArnForAggregatorV2Parameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnAggregatorV2",
+		"arnForAggregatorV2",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,6 +52,9 @@ type StateMachine interface {
 	Env() *interfaces.ResourceEnvironment
 	// The principal this state machine is running as.
 	GrantPrincipal() awsiam.IPrincipal
+	// Collection of grant methods for a StateMachine.
+	Grants() StateMachineGrants
+	SetGrants(val StateMachineGrants)
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -69,6 +73,8 @@ type StateMachine interface {
 	StateMachineArn() *string
 	// The name of the state machine.
 	StateMachineName() *string
+	// A reference to a StateMachine resource.
+	StateMachineRef() *interfacesawsstepfunctions.StateMachineReference
 	// Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
 	StateMachineRevisionId() *string
 	// Type of the state machine.
@@ -175,6 +181,16 @@ func (j *jsiiProxy_StateMachine) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
+func (j *jsiiProxy_StateMachine) Grants() StateMachineGrants {
+	var returns StateMachineGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_StateMachine) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -235,6 +251,16 @@ func (j *jsiiProxy_StateMachine) StateMachineName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_StateMachine) StateMachineRef() *interfacesawsstepfunctions.StateMachineReference {
+	var returns *interfacesawsstepfunctions.StateMachineReference
+	_jsii_.Get(
+		j,
+		"stateMachineRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_StateMachine) StateMachineRevisionId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -280,6 +306,17 @@ func NewStateMachine_Override(s StateMachine, scope constructs.Construct, id *st
 		"aws-cdk-lib.aws_stepfunctions.StateMachine",
 		[]interface{}{scope, id, props},
 		s,
+	)
+}
+
+func (j *jsiiProxy_StateMachine)SetGrants(val StateMachineGrants) {
+	if err := j.validateSetGrantsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"grants",
+		val,
 	)
 }
 

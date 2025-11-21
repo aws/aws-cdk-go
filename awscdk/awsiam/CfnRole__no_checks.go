@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnRole) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnRole_ArnForRoleParameters(resource interfacesawsiam.IRoleRef) error {
+	return nil
+}
+
 func validateCfnRole_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

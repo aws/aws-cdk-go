@@ -544,6 +544,24 @@ func (j *jsiiProxy_CfnCisScanConfiguration)SetTargets(val interface{}) {
 	)
 }
 
+func CfnCisScanConfiguration_ArnForCisScanConfiguration(resource interfacesawsinspectorv2.ICisScanConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCisScanConfiguration_ArnForCisScanConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_inspectorv2.CfnCisScanConfiguration",
+		"arnForCisScanConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

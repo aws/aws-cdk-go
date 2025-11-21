@@ -681,6 +681,24 @@ func (j *jsiiProxy_CfnDataset)SetVersioningConfiguration(val interface{}) {
 	)
 }
 
+func CfnDataset_ArnForDataset(resource interfacesawsiotanalytics.IDatasetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDataset_ArnForDatasetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotanalytics.CfnDataset",
+		"arnForDataset",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDatasetRef from a datasetName.
 func CfnDataset_FromDatasetName(scope constructs.Construct, id *string, datasetName *string) interfacesawsiotanalytics.IDatasetRef {
 	_init_.Initialize()

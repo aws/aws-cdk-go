@@ -563,6 +563,24 @@ func (j *jsiiProxy_CfnAppImageConfig)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAppImageConfig_ArnForAppImageConfig(resource interfacesawssagemaker.IAppImageConfigRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAppImageConfig_ArnForAppImageConfigParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig",
+		"arnForAppImageConfig",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IAppImageConfigRef from an ARN.
 func CfnAppImageConfig_FromAppImageConfigArn(scope constructs.Construct, id *string, arn *string) interfacesawssagemaker.IAppImageConfigRef {
 	_init_.Initialize()

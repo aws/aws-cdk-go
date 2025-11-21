@@ -39,13 +39,13 @@ import (
 //   	},
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	RecoveryPointId: jsii.String("recoveryPointId"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SnapshotArn: jsii.String("snapshotArn"),
 //   	SnapshotName: jsii.String("snapshotName"),
 //   	SnapshotOwnerAccount: jsii.String("snapshotOwnerAccount"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{

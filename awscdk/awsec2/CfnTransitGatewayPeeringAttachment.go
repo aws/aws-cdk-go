@@ -578,6 +578,24 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetTransitGatewayId(val *s
 	)
 }
 
+func CfnTransitGatewayPeeringAttachment_ArnForTransitGatewayPeeringAttachment(resource interfacesawsec2.ITransitGatewayPeeringAttachmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayPeeringAttachment_ArnForTransitGatewayPeeringAttachmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
+		"arnForTransitGatewayPeeringAttachment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ITransitGatewayPeeringAttachmentRef from a transitGatewayAttachmentId.
 func CfnTransitGatewayPeeringAttachment_FromTransitGatewayAttachmentId(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) interfacesawsec2.ITransitGatewayPeeringAttachmentRef {
 	_init_.Initialize()

@@ -13,7 +13,7 @@ import (
 
 // Specifies a grant.
 //
-// A grant shares the use of license entitlements with specific AWS accounts . For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *AWS License Manager User Guide* .
+// A grant shares the use of license entitlements with specific AWS accounts . For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *License Manager User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -519,6 +519,24 @@ func (j *jsiiProxy_CfnGrant)SetStatus(val *string) {
 		"status",
 		val,
 	)
+}
+
+func CfnGrant_ArnForGrant(resource interfacesawslicensemanager.IGrantRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGrant_ArnForGrantParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_licensemanager.CfnGrant",
+		"arnForGrant",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

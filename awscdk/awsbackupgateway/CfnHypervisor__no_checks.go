@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnHypervisor) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnHypervisor_ArnForHypervisorParameters(resource interfacesawsbackupgateway.IHypervisorRef) error {
+	return nil
+}
+
 func validateCfnHypervisor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

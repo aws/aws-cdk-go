@@ -38,7 +38,7 @@ type CfnConfigurationTemplateProps struct {
 	// The name of the Elastic Beanstalk application to associate with this configuration template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-applicationname
 	//
-	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
+	ApplicationName interface{} `field:"required" json:"applicationName" yaml:"applicationName"`
 	// An optional description for this configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-description
 	//

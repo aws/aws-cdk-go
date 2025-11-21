@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVPCEConfiguration) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnVPCEConfiguration_ArnForVPCEConfigurationParameters(resource interfacesawsdevicefarm.IVPCEConfigurationRef) error {
+	return nil
+}
+
 func validateCfnVPCEConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -442,6 +442,24 @@ func (j *jsiiProxy_CfnCollection)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCollection_ArnForCollection(resource interfacesawsrekognition.ICollectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCollection_ArnForCollectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rekognition.CfnCollection",
+		"arnForCollection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICollectionRef from an ARN.
 func CfnCollection_FromCollectionArn(scope constructs.Construct, id *string, arn *string) interfacesawsrekognition.ICollectionRef {
 	_init_.Initialize()

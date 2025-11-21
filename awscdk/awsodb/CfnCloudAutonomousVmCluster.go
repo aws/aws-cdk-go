@@ -1092,6 +1092,24 @@ func (j *jsiiProxy_CfnCloudAutonomousVmCluster)SetTotalContainerDatabases(val *f
 	)
 }
 
+func CfnCloudAutonomousVmCluster_ArnForCloudAutonomousVmCluster(resource interfacesawsodb.ICloudAutonomousVmClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCloudAutonomousVmCluster_ArnForCloudAutonomousVmClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_odb.CfnCloudAutonomousVmCluster",
+		"arnForCloudAutonomousVmCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

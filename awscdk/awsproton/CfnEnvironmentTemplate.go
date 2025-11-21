@@ -530,6 +530,24 @@ func (j *jsiiProxy_CfnEnvironmentTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnEnvironmentTemplate_ArnForEnvironmentTemplate(resource interfacesawsproton.IEnvironmentTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironmentTemplate_ArnForEnvironmentTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_proton.CfnEnvironmentTemplate",
+		"arnForEnvironmentTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

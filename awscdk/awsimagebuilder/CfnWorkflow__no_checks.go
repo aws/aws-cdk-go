@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWorkflow) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnWorkflow_ArnForWorkflowParameters(resource interfacesawsimagebuilder.IWorkflowRef) error {
+	return nil
+}
+
 func validateCfnWorkflow_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

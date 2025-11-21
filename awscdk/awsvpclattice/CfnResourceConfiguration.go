@@ -26,6 +26,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AllowAssociationToSharableServiceNetwork: jsii.Boolean(false),
+//   	CustomDomainName: jsii.String("customDomainName"),
+//   	DomainVerificationId: jsii.String("domainVerificationId"),
+//   	GroupDomain: jsii.String("groupDomain"),
 //   	PortRanges: []*string{
 //   		jsii.String("portRanges"),
 //   	},
@@ -74,7 +77,13 @@ type CfnResourceConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	CustomDomainName() *string
+	SetCustomDomainName(val *string)
+	DomainVerificationId() *string
+	SetDomainVerificationId(val *string)
 	Env() *interfaces.ResourceEnvironment
+	GroupDomain() *string
+	SetGroupDomain(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -355,11 +364,41 @@ func (j *jsiiProxy_CfnResourceConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceConfiguration) CustomDomainName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"customDomainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceConfiguration) DomainVerificationId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainVerificationId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceConfiguration) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceConfiguration) GroupDomain() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"groupDomain",
 		&returns,
 	)
 	return returns
@@ -566,6 +605,30 @@ func (j *jsiiProxy_CfnResourceConfiguration)SetAllowAssociationToSharableService
 	)
 }
 
+func (j *jsiiProxy_CfnResourceConfiguration)SetCustomDomainName(val *string) {
+	_jsii_.Set(
+		j,
+		"customDomainName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceConfiguration)SetDomainVerificationId(val *string) {
+	_jsii_.Set(
+		j,
+		"domainVerificationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceConfiguration)SetGroupDomain(val *string) {
+	_jsii_.Set(
+		j,
+		"groupDomain",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnResourceConfiguration)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -648,6 +711,24 @@ func (j *jsiiProxy_CfnResourceConfiguration)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
+}
+
+func CfnResourceConfiguration_ArnForResourceConfiguration(resource interfacesawsvpclattice.IResourceConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResourceConfiguration_ArnForResourceConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_vpclattice.CfnResourceConfiguration",
+		"arnForResourceConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

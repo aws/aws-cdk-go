@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPortal) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnPortal_ArnForPortalParameters(resource interfacesawsiotsitewise.IPortalRef) error {
+	return nil
+}
+
 func validateCfnPortal_FromPortalArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }

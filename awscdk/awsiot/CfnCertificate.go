@@ -502,6 +502,24 @@ func (j *jsiiProxy_CfnCertificate)SetStatus(val *string) {
 	)
 }
 
+func CfnCertificate_ArnForCertificate(resource interfacesawsiot.ICertificateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCertificate_ArnForCertificateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCertificate",
+		"arnForCertificate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICertificateRef from an ARN.
 func CfnCertificate_FromCertificateArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.ICertificateRef {
 	_init_.Initialize()

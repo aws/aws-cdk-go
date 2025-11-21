@@ -87,11 +87,11 @@ type CfnReplicationInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
-	// An AWS KMS key identifier that is used to encrypt the data on the replication instance.
+	// An AWS  key identifier that is used to encrypt the data on the replication instance.
 	//
 	// If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
 	//
-	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
+	// AWS  creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

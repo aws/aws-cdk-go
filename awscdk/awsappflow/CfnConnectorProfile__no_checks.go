@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConnectorProfile) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnConnectorProfile_ArnForConnectorProfileParameters(resource interfacesawsappflow.IConnectorProfileRef) error {
+	return nil
+}
+
 func validateCfnConnectorProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

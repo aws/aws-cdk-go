@@ -623,6 +623,24 @@ func (j *jsiiProxy_CfnDirectoryBucket)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDirectoryBucket_ArnForDirectoryBucket(resource interfacesawss3express.IDirectoryBucketRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDirectoryBucket_ArnForDirectoryBucketParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket",
+		"arnForDirectoryBucket",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IDirectoryBucketRef from a bucketName.
 func CfnDirectoryBucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) interfacesawss3express.IDirectoryBucketRef {
 	_init_.Initialize()

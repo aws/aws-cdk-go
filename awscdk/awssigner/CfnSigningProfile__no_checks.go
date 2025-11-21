@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSigningProfile) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnSigningProfile_ArnForSigningProfileParameters(resource interfacesawssigner.ISigningProfileRef) error {
+	return nil
+}
+
 func validateCfnSigningProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

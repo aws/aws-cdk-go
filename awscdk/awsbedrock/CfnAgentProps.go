@@ -169,7 +169,7 @@ type CfnAgentProps struct {
 	// Default: - false.
 	//
 	AutoPrepare interface{} `field:"optional" json:"autoPrepare" yaml:"autoPrepare"`
-	// The Amazon Resource Name (ARN) of the AWS KMS key that encrypts the agent.
+	// The Amazon Resource Name (ARN) of the AWS  key that encrypts the agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-customerencryptionkeyarn
 	//
 	CustomerEncryptionKeyArn *string `field:"optional" json:"customerEncryptionKeyArn" yaml:"customerEncryptionKeyArn"`

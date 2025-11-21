@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSyncJob) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnSyncJob_ArnForSyncJobParameters(resource interfacesawsiottwinmaker.ISyncJobRef) error {
+	return nil
+}
+
 func validateCfnSyncJob_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

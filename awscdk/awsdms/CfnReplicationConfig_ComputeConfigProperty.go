@@ -45,11 +45,11 @@ type CfnReplicationConfig_ComputeConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationconfig-computeconfig.html#cfn-dms-replicationconfig-computeconfig-dnsnameservers
 	//
 	DnsNameServers *string `field:"optional" json:"dnsNameServers" yaml:"dnsNameServers"`
-	// An AWS Key Management Service ( AWS KMS ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
+	// An AWS Key Management Service ( AWS  ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
 	//
 	// If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
 	//
-	// AWS KMS creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
+	// AWS  creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationconfig-computeconfig.html#cfn-dms-replicationconfig-computeconfig-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

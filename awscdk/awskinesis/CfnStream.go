@@ -618,6 +618,24 @@ func (j *jsiiProxy_CfnStream)SetWarmThroughputMiBps(val *float64) {
 	)
 }
 
+func CfnStream_ArnForStream(resource interfacesawskinesis.IStreamRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStream_ArnForStreamParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesis.CfnStream",
+		"arnForStream",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IStreamRef from an ARN.
 func CfnStream_FromStreamArn(scope constructs.Construct, id *string, arn *string) interfacesawskinesis.IStreamRef {
 	_init_.Initialize()

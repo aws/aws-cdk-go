@@ -1002,6 +1002,24 @@ func (j *jsiiProxy_CfnCluster)SetVisibleToAllUsers(val interface{}) {
 	)
 }
 
+func CfnCluster_ArnForCluster(resource interfacesawsemr.IClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_ArnForClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emr.CfnCluster",
+		"arnForCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IClusterRef from a clusterId.
 func CfnCluster_FromClusterId(scope constructs.Construct, id *string, clusterId *string) interfacesawsemr.IClusterRef {
 	_init_.Initialize()
