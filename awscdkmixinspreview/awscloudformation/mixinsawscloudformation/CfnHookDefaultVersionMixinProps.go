@@ -1,0 +1,39 @@
+package mixinsawscloudformation
+
+
+// Properties for CfnHookDefaultVersionPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   cfnHookDefaultVersionMixinProps := &CfnHookDefaultVersionMixinProps{
+//   	TypeName: jsii.String("typeName"),
+//   	TypeVersionArn: jsii.String("typeVersionArn"),
+//   	VersionId: jsii.String("versionId"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html
+//
+type CfnHookDefaultVersionMixinProps struct {
+	// The name of the Hook.
+	//
+	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-typename
+	//
+	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
+	// The version ID of the type configuration.
+	//
+	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-typeversionarn
+	//
+	TypeVersionArn *string `field:"optional" json:"typeVersionArn" yaml:"typeVersionArn"`
+	// The version ID of the type specified.
+	//
+	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-versionid
+	//
+	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
+}
+

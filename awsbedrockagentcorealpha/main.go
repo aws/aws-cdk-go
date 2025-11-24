@@ -28,6 +28,16 @@ func init() {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.AddSmithyTargetOptions",
 		reflect.TypeOf((*AddSmithyTargetOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.AgentCoreRuntime",
+		reflect.TypeOf((*AgentCoreRuntime)(nil)).Elem(),
+		map[string]interface{}{
+			"PYTHON_3_10": AgentCoreRuntime_PYTHON_3_10,
+			"PYTHON_3_11": AgentCoreRuntime_PYTHON_3_11,
+			"PYTHON_3_12": AgentCoreRuntime_PYTHON_3_12,
+			"PYTHON_3_13": AgentCoreRuntime_PYTHON_3_13,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.AgentRuntimeArtifact",
 		reflect.TypeOf((*AgentRuntimeArtifact)(nil)).Elem(),
@@ -115,6 +125,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "browserArn", GoGetter: "BrowserArn"},
 			_jsii_.MemberProperty{JsiiProperty: "browserId", GoGetter: "BrowserId"},
+			_jsii_.MemberProperty{JsiiProperty: "browserSigning", GoGetter: "BrowserSigning"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -222,6 +233,14 @@ func init() {
 			j := jsiiProxy_BrowserNetworkConfiguration{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_NetworkConfiguration)
 			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.BrowserSigning",
+		reflect.TypeOf((*BrowserSigning)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": BrowserSigning_ENABLED,
+			"DISABLED": BrowserSigning_DISABLED,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1023,6 +1042,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.LifecycleConfiguration",
+		reflect.TypeOf((*LifecycleConfiguration)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.MCPProtocolVersion",
 		reflect.TypeOf((*MCPProtocolVersion)(nil)).Elem(),
@@ -1295,6 +1318,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RecordingConfig",
 		reflect.TypeOf((*RecordingConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.RequestHeaderConfiguration",
+		reflect.TypeOf((*RequestHeaderConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.Runtime",

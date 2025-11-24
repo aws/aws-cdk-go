@@ -1375,10 +1375,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualNodeArn", GoGetter: "VirtualNodeArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualNodeName", GoGetter: "VirtualNodeName"},
+			_jsii_.MemberProperty{JsiiProperty: "virtualNodeRef", GoGetter: "VirtualNodeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualNode{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIVirtualNodeRef)
 			return &j
 		},
 	)
@@ -1768,6 +1770,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamAggregatedResources", GoMethod: "GrantStreamAggregatedResources"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1776,6 +1779,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualNodeArn", GoGetter: "VirtualNodeArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualNodeName", GoGetter: "VirtualNodeName"},
+			_jsii_.MemberProperty{JsiiProperty: "virtualNodeRef", GoGetter: "VirtualNodeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VirtualNode{}

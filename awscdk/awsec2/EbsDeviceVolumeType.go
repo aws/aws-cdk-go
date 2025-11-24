@@ -4,24 +4,14 @@ package awsec2
 // Supported EBS volume types for blockDevices.
 //
 // Example:
-//   var vpc Vpc
-//   var instanceType InstanceType
-//   var machineImage IMachineImage
-//
-//
-//   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
-//   	Vpc: Vpc,
-//   	InstanceType: InstanceType,
-//   	MachineImage: MachineImage,
-//
-//   	// ...
-//
+//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("BlockDeviceImageRecipe"), &ImageRecipeProps{
+//   	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 //   	BlockDevices: []BlockDevice{
 //   		&BlockDevice{
 //   			DeviceName: jsii.String("/dev/sda1"),
 //   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(100), &EbsDeviceOptions{
-//   				VolumeType: ec2.EbsDeviceVolumeType_GP3,
-//   				Throughput: jsii.Number(250),
+//   				Encrypted: jsii.Boolean(true),
+//   				VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
 //   			}),
 //   		},
 //   	},

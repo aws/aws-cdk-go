@@ -1,0 +1,28 @@
+package mixinsawsacmpca
+
+
+// Defines the X.500 relative distinguished name (RDN).
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   customAttributeProperty := &CustomAttributeProperty{
+//   	ObjectIdentifier: jsii.String("objectIdentifier"),
+//   	Value: jsii.String("value"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-customattribute.html
+//
+type CfnCertificateAuthorityPropsMixin_CustomAttributeProperty struct {
+	// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-customattribute.html#cfn-acmpca-certificateauthority-customattribute-objectidentifier
+	//
+	ObjectIdentifier *string `field:"optional" json:"objectIdentifier" yaml:"objectIdentifier"`
+	// Specifies the attribute value of relative distinguished name (RDN).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-customattribute.html#cfn-acmpca-certificateauthority-customattribute-value
+	//
+	Value *string `field:"optional" json:"value" yaml:"value"`
+}
+

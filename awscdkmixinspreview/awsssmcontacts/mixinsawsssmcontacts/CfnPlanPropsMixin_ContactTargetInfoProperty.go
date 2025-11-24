@@ -1,0 +1,28 @@
+package mixinsawsssmcontacts
+
+
+// The contact that Incident Manager is engaging during an incident.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   contactTargetInfoProperty := &ContactTargetInfoProperty{
+//   	ContactId: jsii.String("contactId"),
+//   	IsEssential: jsii.Boolean(false),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-contacttargetinfo.html
+//
+type CfnPlanPropsMixin_ContactTargetInfoProperty struct {
+	// The Amazon Resource Name (ARN) of the contact.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-contacttargetinfo.html#cfn-ssmcontacts-plan-contacttargetinfo-contactid
+	//
+	ContactId *string `field:"optional" json:"contactId" yaml:"contactId"`
+	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-contacttargetinfo.html#cfn-ssmcontacts-plan-contacttargetinfo-isessential
+	//
+	IsEssential interface{} `field:"optional" json:"isEssential" yaml:"isEssential"`
+}
+

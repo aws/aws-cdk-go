@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,6 +40,25 @@ func validateAgentRuntimeArtifact_FromAssetParameters(directory *string, options
 func validateAgentRuntimeArtifact_FromEcrRepositoryParameters(repository awsecr.IRepository) error {
 	if repository == nil {
 		return fmt.Errorf("parameter repository is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateAgentRuntimeArtifact_FromS3Parameters(s3Location *awss3.Location, runtime AgentCoreRuntime, entrypoint *[]*string) error {
+	if s3Location == nil {
+		return fmt.Errorf("parameter s3Location is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(s3Location, func() string { return "parameter s3Location" }); err != nil {
+		return err
+	}
+
+	if runtime == "" {
+		return fmt.Errorf("parameter runtime is required, but nil was provided")
+	}
+
+	if entrypoint == nil {
+		return fmt.Errorf("parameter entrypoint is required, but nil was provided")
 	}
 
 	return nil

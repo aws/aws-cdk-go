@@ -1,0 +1,139 @@
+package mixinsawsevidently
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for CfnExperimentPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   cfnExperimentMixinProps := &CfnExperimentMixinProps{
+//   	Description: jsii.String("description"),
+//   	MetricGoals: []interface{}{
+//   		&MetricGoalObjectProperty{
+//   			DesiredChange: jsii.String("desiredChange"),
+//   			EntityIdKey: jsii.String("entityIdKey"),
+//   			EventPattern: jsii.String("eventPattern"),
+//   			MetricName: jsii.String("metricName"),
+//   			UnitLabel: jsii.String("unitLabel"),
+//   			ValueKey: jsii.String("valueKey"),
+//   		},
+//   	},
+//   	Name: jsii.String("name"),
+//   	OnlineAbConfig: &OnlineAbConfigObjectProperty{
+//   		ControlTreatmentName: jsii.String("controlTreatmentName"),
+//   		TreatmentWeights: []interface{}{
+//   			&TreatmentToWeightProperty{
+//   				SplitWeight: jsii.Number(123),
+//   				Treatment: jsii.String("treatment"),
+//   			},
+//   		},
+//   	},
+//   	Project: jsii.String("project"),
+//   	RandomizationSalt: jsii.String("randomizationSalt"),
+//   	RemoveSegment: jsii.Boolean(false),
+//   	RunningStatus: &RunningStatusObjectProperty{
+//   		AnalysisCompleteTime: jsii.String("analysisCompleteTime"),
+//   		DesiredState: jsii.String("desiredState"),
+//   		Reason: jsii.String("reason"),
+//   		Status: jsii.String("status"),
+//   	},
+//   	SamplingRate: jsii.Number(123),
+//   	Segment: jsii.String("segment"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	Treatments: []interface{}{
+//   		&TreatmentObjectProperty{
+//   			Description: jsii.String("description"),
+//   			Feature: jsii.String("feature"),
+//   			TreatmentName: jsii.String("treatmentName"),
+//   			Variation: jsii.String("variation"),
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html
+//
+type CfnExperimentMixinProps struct {
+	// An optional description of the experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal.
+	//
+	// You can use up to three metrics in an experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-metricgoals
+	//
+	MetricGoals interface{} `field:"optional" json:"metricGoals" yaml:"metricGoals"`
+	// A name for the new experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// A structure that contains the configuration of which variation to use as the "control" version.
+	//
+	// The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-onlineabconfig
+	//
+	OnlineAbConfig interface{} `field:"optional" json:"onlineAbConfig" yaml:"onlineAbConfig"`
+	// The name or the ARN of the project where this experiment is to be created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-project
+	//
+	Project *string `field:"optional" json:"project" yaml:"project"`
+	// When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served.
+	//
+	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-randomizationsalt
+	//
+	RandomizationSalt *string `field:"optional" json:"randomizationSalt" yaml:"randomizationSalt"`
+	// Set this to `true` to remove the segment that is associated with this experiment.
+	//
+	// You can't use this parameter if the experiment is currently running.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-removesegment
+	//
+	RemoveSegment interface{} `field:"optional" json:"removeSegment" yaml:"removeSegment"`
+	// A structure that you can use to start and stop the experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-runningstatus
+	//
+	RunningStatus interface{} `field:"optional" json:"runningStatus" yaml:"runningStatus"`
+	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent.
+	//
+	// The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+	//
+	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-samplingrate
+	//
+	SamplingRate *float64 `field:"optional" json:"samplingRate" yaml:"samplingRate"`
+	// Specifies an audience *segment* to use in the experiment.
+	//
+	// When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+	//
+	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-segment
+	//
+	Segment *string `field:"optional" json:"segment" yaml:"segment"`
+	// Assigns one or more tags (key-value pairs) to the experiment.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	//
+	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+	//
+	// You can associate as many as 50 tags with an experiment.
+	//
+	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// An array of structures that describe the configuration of each feature variation used in the experiment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html#cfn-evidently-experiment-treatments
+	//
+	Treatments interface{} `field:"optional" json:"treatments" yaml:"treatments"`
+}
+

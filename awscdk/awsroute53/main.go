@@ -774,9 +774,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantDelegation", GoMethod: "GrantDelegation"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -794,6 +797,16 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.HostedZoneAttributes",
 		reflect.TypeOf((*HostedZoneAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.HostedZoneGrants",
+		reflect.TypeOf((*HostedZoneGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "delegation", GoMethod: "Delegation"},
+		},
+		func() interface{} {
+			return &jsiiProxy_HostedZoneGrants{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.HostedZoneProps",
@@ -878,12 +891,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "zoneName", GoGetter: "ZoneName"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IHostedZone{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_INamedHostedZoneRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -907,6 +923,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_route53.INamedHostedZoneRef",
+		reflect.TypeOf((*INamedHostedZoneRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_INamedHostedZoneRef{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsroute53IHostedZoneRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_route53.IPrivateHostedZone",
 		reflect.TypeOf((*IPrivateHostedZone)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -916,6 +947,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "zoneName", GoGetter: "ZoneName"},
@@ -936,6 +969,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "zoneName", GoGetter: "ZoneName"},
@@ -1077,9 +1112,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantDelegation", GoMethod: "GrantDelegation"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1116,9 +1154,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantDelegation", GoMethod: "GrantDelegation"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneNameServers", GoGetter: "HostedZoneNameServers"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},

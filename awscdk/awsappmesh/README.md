@@ -994,8 +994,8 @@ appmesh.Mesh_FromMeshName(this, jsii.String("imported-mesh"), jsii.String("abc")
 
 ## IAM Grants
 
-`VirtualNode` and `VirtualGateway` provide `grantStreamAggregatedResources` methods that grant identities that are running
-Envoy access to stream generated config from App Mesh.
+`VirtualNode` and `VirtualGateway` have a `grants` property that provides a `streamAggregatedResources`
+methods that grant identities that are running Envoy access to stream generated config from App Mesh.
 
 ```go
 var mesh Mesh
@@ -1006,9 +1006,9 @@ gateway := appmesh.NewVirtualGateway(this, jsii.String("testGateway"), &VirtualG
 envoyUser := iam.NewUser(this, jsii.String("envoyUser"))
 
 /**
- * This will grant `grantStreamAggregatedResources` ONLY for this gateway.
+ * This will grant `appmesh:StreamAggregatedResources` ONLY for this gateway.
  */
-gateway.grantStreamAggregatedResources(envoyUser)
+gateway.grants.StreamAggregatedResources(envoyUser)
 ```
 
 ## Adding Resources to shared meshes

@@ -17,12 +17,16 @@ import (
 //   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
 //   	RepositoryName: jsii.String("test-agent-runtime"),
 //   })
+//
 //   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
 //
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
+//   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+//   	RuntimeName: jsii.String("test_runtime"),
 //   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123")),
+//   	LifecycleConfiguration: &LifecycleConfiguration{
+//   		IdleRuntimeSessionTimeout: awscdk.Duration_Minutes(jsii.Number(10)),
+//   		MaxLifetime: awscdk.Duration_Hours(jsii.Number(4)),
+//   	},
 //   })
 //
 type Repository interface {

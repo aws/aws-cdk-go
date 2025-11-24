@@ -4,8 +4,9 @@ package awsimagebuilderalpha
 // The phases of a component document.
 //
 // Example:
-//   component := imagebuilder.NewComponent(this, jsii.String("JsonComponent"), &ComponentProps{
+//   component := imagebuilder.NewComponent(this, jsii.String("EncryptedComponent"), &ComponentProps{
 //   	Platform: imagebuilder.Platform_LINUX,
+//   	KmsKey: kms.NewKey(this, jsii.String("ComponentKey")),
 //   	Data: imagebuilder.ComponentData_FromJsonObject(map[string]interface{}{
 //   		"schemaVersion": imagebuilder.ComponentSchemaVersion_V1_0,
 //   		"phases": []interface{}{
@@ -13,11 +14,12 @@ package awsimagebuilderalpha
 //   				"name": imagebuilder.ComponentPhaseName_BUILD,
 //   				"steps": []map[string]interface{}{
 //   					map[string]interface{}{
-//   						"name": jsii.String("configure-app"),
-//   						"action": imagebuilder.ComponentAction_CREATE_FILE,
-//   						"inputs": map[string]*string{
-//   							"path": jsii.String("/etc/myapp/config.json"),
-//   							"content": jsii.String("{\"env\": \"production\"}"),
+//   						"name": jsii.String("secure-setup"),
+//   						"action": imagebuilder.ComponentAction_EXECUTE_BASH,
+//   						"inputs": map[string][]*string{
+//   							"commands": []*string{
+//   								jsii.String("echo \"This component data is encrypted with KMS\""),
+//   							},
 //   						},
 //   					},
 //   				},

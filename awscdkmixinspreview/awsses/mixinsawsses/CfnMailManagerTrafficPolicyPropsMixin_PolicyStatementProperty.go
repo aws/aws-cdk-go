@@ -1,0 +1,84 @@
+package mixinsawsses
+
+
+// The structure containing traffic policy conditions and actions.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   policyStatementProperty := &PolicyStatementProperty{
+//   	Action: jsii.String("action"),
+//   	Conditions: []interface{}{
+//   		&PolicyConditionProperty{
+//   			BooleanExpression: &IngressBooleanExpressionProperty{
+//   				Evaluate: &IngressBooleanToEvaluateProperty{
+//   					Analysis: &IngressAnalysisProperty{
+//   						Analyzer: jsii.String("analyzer"),
+//   						ResultField: jsii.String("resultField"),
+//   					},
+//   					IsInAddressList: &IngressIsInAddressListProperty{
+//   						AddressLists: []*string{
+//   							jsii.String("addressLists"),
+//   						},
+//   						Attribute: jsii.String("attribute"),
+//   					},
+//   				},
+//   				Operator: jsii.String("operator"),
+//   			},
+//   			IpExpression: &IngressIpv4ExpressionProperty{
+//   				Evaluate: &IngressIpToEvaluateProperty{
+//   					Attribute: jsii.String("attribute"),
+//   				},
+//   				Operator: jsii.String("operator"),
+//   				Values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			Ipv6Expression: &IngressIpv6ExpressionProperty{
+//   				Evaluate: &IngressIpv6ToEvaluateProperty{
+//   					Attribute: jsii.String("attribute"),
+//   				},
+//   				Operator: jsii.String("operator"),
+//   				Values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			StringExpression: &IngressStringExpressionProperty{
+//   				Evaluate: &IngressStringToEvaluateProperty{
+//   					Analysis: &IngressAnalysisProperty{
+//   						Analyzer: jsii.String("analyzer"),
+//   						ResultField: jsii.String("resultField"),
+//   					},
+//   					Attribute: jsii.String("attribute"),
+//   				},
+//   				Operator: jsii.String("operator"),
+//   				Values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
+//   			TlsExpression: &IngressTlsProtocolExpressionProperty{
+//   				Evaluate: &IngressTlsProtocolToEvaluateProperty{
+//   					Attribute: jsii.String("attribute"),
+//   				},
+//   				Operator: jsii.String("operator"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html
+//
+type CfnMailManagerTrafficPolicyPropsMixin_PolicyStatementProperty struct {
+	// The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html#cfn-ses-mailmanagertrafficpolicy-policystatement-action
+	//
+	Action *string `field:"optional" json:"action" yaml:"action"`
+	// The list of conditions to apply to incoming messages for filtering email traffic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html#cfn-ses-mailmanagertrafficpolicy-policystatement-conditions
+	//
+	Conditions interface{} `field:"optional" json:"conditions" yaml:"conditions"`
+}
+

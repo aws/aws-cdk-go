@@ -1,0 +1,49 @@
+package mixinsawsbackup
+
+
+// Properties for CfnBackupSelectionPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var conditions interface{}
+//
+//   cfnBackupSelectionMixinProps := &CfnBackupSelectionMixinProps{
+//   	BackupPlanId: jsii.String("backupPlanId"),
+//   	BackupSelection: &BackupSelectionResourceTypeProperty{
+//   		Conditions: conditions,
+//   		IamRoleArn: jsii.String("iamRoleArn"),
+//   		ListOfTags: []interface{}{
+//   			&ConditionResourceTypeProperty{
+//   				ConditionKey: jsii.String("conditionKey"),
+//   				ConditionType: jsii.String("conditionType"),
+//   				ConditionValue: jsii.String("conditionValue"),
+//   			},
+//   		},
+//   		NotResources: []*string{
+//   			jsii.String("notResources"),
+//   		},
+//   		Resources: []*string{
+//   			jsii.String("resources"),
+//   		},
+//   		SelectionName: jsii.String("selectionName"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
+//
+type CfnBackupSelectionMixinProps struct {
+	// Uniquely identifies a backup plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
+	//
+	BackupPlanId *string `field:"optional" json:"backupPlanId" yaml:"backupPlanId"`
+	// Specifies the body of a request to assign a set of resources to a backup plan.
+	//
+	// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
+	//
+	BackupSelection interface{} `field:"optional" json:"backupSelection" yaml:"backupSelection"`
+}
+

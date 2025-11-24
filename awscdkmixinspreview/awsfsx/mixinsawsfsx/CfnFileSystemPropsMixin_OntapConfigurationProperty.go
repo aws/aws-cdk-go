@@ -1,0 +1,136 @@
+package mixinsawsfsx
+
+
+// The configuration for this Amazon FSx for NetApp ONTAP file system.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   ontapConfigurationProperty := &OntapConfigurationProperty{
+//   	AutomaticBackupRetentionDays: jsii.Number(123),
+//   	DailyAutomaticBackupStartTime: jsii.String("dailyAutomaticBackupStartTime"),
+//   	DeploymentType: jsii.String("deploymentType"),
+//   	DiskIopsConfiguration: &DiskIopsConfigurationProperty{
+//   		Iops: jsii.Number(123),
+//   		Mode: jsii.String("mode"),
+//   	},
+//   	EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
+//   	EndpointIpv6AddressRange: jsii.String("endpointIpv6AddressRange"),
+//   	FsxAdminPassword: jsii.String("fsxAdminPassword"),
+//   	HaPairs: jsii.Number(123),
+//   	PreferredSubnetId: jsii.String("preferredSubnetId"),
+//   	RouteTableIds: []*string{
+//   		jsii.String("routeTableIds"),
+//   	},
+//   	ThroughputCapacity: jsii.Number(123),
+//   	ThroughputCapacityPerHaPair: jsii.Number(123),
+//   	WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html
+//
+type CfnFileSystemPropsMixin_OntapConfigurationProperty struct {
+	// The number of days to retain automatic backups.
+	//
+	// Setting this property to `0` disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is `30` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-automaticbackupretentiondays
+	//
+	AutomaticBackupRetentionDays *float64 `field:"optional" json:"automaticBackupRetentionDays" yaml:"automaticBackupRetentionDays"`
+	// A recurring daily time, in the format `HH:MM` .
+	//
+	// `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, `05:00` specifies 5 AM daily.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-dailyautomaticbackupstarttime
+	//
+	DailyAutomaticBackupStartTime *string `field:"optional" json:"dailyAutomaticBackupStartTime" yaml:"dailyAutomaticBackupStartTime"`
+	// Specifies the FSx for ONTAP file system deployment type to use in creating the file system.
+	//
+	// - `MULTI_AZ_1` - A high availability file system configured for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability. This is a first-generation FSx for ONTAP file system.
+	// - `MULTI_AZ_2` - A high availability file system configured for Multi-AZ redundancy to tolerate temporary AZ unavailability. This is a second-generation FSx for ONTAP file system.
+	// - `SINGLE_AZ_1` - A file system configured for Single-AZ redundancy. This is a first-generation FSx for ONTAP file system.
+	// - `SINGLE_AZ_2` - A file system configured with multiple high-availability (HA) pairs for Single-AZ redundancy. This is a second-generation FSx for ONTAP file system.
+	//
+	// For information about the use cases for Multi-AZ and Single-AZ deployments, refer to [Choosing a file system deployment type](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-deploymenttype
+	//
+	DeploymentType *string `field:"optional" json:"deploymentType" yaml:"deploymentType"`
+	// The SSD IOPS configuration for the FSx for ONTAP file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-diskiopsconfiguration
+	//
+	DiskIopsConfiguration interface{} `field:"optional" json:"diskIopsConfiguration" yaml:"diskIopsConfiguration"`
+	// (Multi-AZ only) Specifies the IPv4 address range in which the endpoints to access your file system will be created.
+	//
+	// By default in the Amazon FSx API, Amazon FSx selects an unused IP address range for you from the 198.19.* range. By default in the Amazon FSx console, Amazon FSx chooses the last 64 IP addresses from the VPC’s primary CIDR range to use as the endpoint IP address range for the file system. You can have overlapping endpoint IP addresses for file systems deployed in the same VPC/route tables, as long as they don't overlap with any subnet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-endpointipaddressrange
+	//
+	EndpointIpAddressRange *string `field:"optional" json:"endpointIpAddressRange" yaml:"endpointIpAddressRange"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-endpointipv6addressrange
+	//
+	EndpointIpv6AddressRange *string `field:"optional" json:"endpointIpv6AddressRange" yaml:"endpointIpv6AddressRange"`
+	// The ONTAP administrative password for the `fsxadmin` user with which you administer your file system using the NetApp ONTAP CLI and REST API.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-fsxadminpassword
+	//
+	FsxAdminPassword *string `field:"optional" json:"fsxAdminPassword" yaml:"fsxAdminPassword"`
+	// Specifies how many high-availability (HA) pairs of file servers will power your file system.
+	//
+	// First-generation file systems are powered by 1 HA pair. Second-generation multi-AZ file systems are powered by 1 HA pair. Second generation single-AZ file systems are powered by up to 12 HA pairs. The default value is 1. The value of this property affects the values of `StorageCapacity` , `Iops` , and `ThroughputCapacity` . For more information, see [High-availability (HA) pairs](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/administering-file-systems.html#HA-pairs) in the FSx for ONTAP user guide. Block storage protocol support (iSCSI and NVMe over TCP) is disabled on file systems with more than 6 HA pairs. For more information, see [Using block storage protocols](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.html#using-block-storage) .
+	//
+	// Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
+	//
+	// - The value of `HAPairs` is less than 1 or greater than 12.
+	// - The value of `HAPairs` is greater than 1 and the value of `DeploymentType` is `SINGLE_AZ_1` , `MULTI_AZ_1` , or `MULTI_AZ_2` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-hapairs
+	//
+	HaPairs *float64 `field:"optional" json:"haPairs" yaml:"haPairs"`
+	// Required when `DeploymentType` is set to `MULTI_AZ_1` or `MULTI_AZ_2` .
+	//
+	// This specifies the subnet in which you want the preferred file server to be located.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-preferredsubnetid
+	//
+	PreferredSubnetId *string `field:"optional" json:"preferredSubnetId" yaml:"preferredSubnetId"`
+	// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server.
+	//
+	// You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+	//
+	// > Amazon FSx manages these route tables for Multi-AZ file systems using tag-based authentication. These route tables are tagged with `Key: AmazonFSx; Value: ManagedByAmazonFSx` . When creating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend that you add the `Key: AmazonFSx; Value: ManagedByAmazonFSx` tag manually.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-routetableids
+	//
+	RouteTableIds *[]*string `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
+	// Sets the throughput capacity for the file system that you're creating in megabytes per second (MBps).
+	//
+	// For more information, see [Managing throughput capacity](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html) in the FSx for ONTAP User Guide.
+	//
+	// Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
+	//
+	// - The value of `ThroughputCapacity` and `ThroughputCapacityPerHAPair` are not the same value.
+	// - The value of `ThroughputCapacity` when divided by the value of `HAPairs` is outside of the valid range for `ThroughputCapacity` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-throughputcapacity
+	//
+	ThroughputCapacity *float64 `field:"optional" json:"throughputCapacity" yaml:"throughputCapacity"`
+	// Use to choose the throughput capacity per HA pair, rather than the total throughput for the file system.
+	//
+	// You can define either the `ThroughputCapacityPerHAPair` or the `ThroughputCapacity` when creating a file system, but not both.
+	//
+	// This field and `ThroughputCapacity` are the same for file systems powered by one HA pair.
+	//
+	// - For `SINGLE_AZ_1` and `MULTI_AZ_1` file systems, valid values are 128, 256, 512, 1024, 2048, or 4096 MBps.
+	// - For `SINGLE_AZ_2` , valid values are 1536, 3072, or 6144 MBps.
+	// - For `MULTI_AZ_2` , valid values are 384, 768, 1536, 3072, or 6144 MBps.
+	//
+	// Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
+	//
+	// - The value of `ThroughputCapacity` and `ThroughputCapacityPerHAPair` are not the same value for file systems with one HA pair.
+	// - The value of deployment type is `SINGLE_AZ_2` and `ThroughputCapacity` / `ThroughputCapacityPerHAPair` is not a valid HA pair (a value between 1 and 12).
+	// - The value of `ThroughputCapacityPerHAPair` is not a valid value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-throughputcapacityperhapair
+	//
+	ThroughputCapacityPerHaPair *float64 `field:"optional" json:"throughputCapacityPerHaPair" yaml:"throughputCapacityPerHaPair"`
+	// The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.
+	//
+	// For example, `1:05:00` specifies maintenance at 5 AM Monday.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-weeklymaintenancestarttime
+	//
+	WeeklyMaintenanceStartTime *string `field:"optional" json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
+}
+

@@ -1,0 +1,171 @@
+package mixinsawsmediapackagev2
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/awsmediapackagev2/mixinsawsmediapackagev2/internal"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Specifies the configuration parameters of a policy associated with a MediaPackage V2 origin endpoint.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var policy interface{}
+//
+//   cfnOriginEndpointPolicyPropsMixin := awscdkmixinspreview.Mixins.NewCfnOriginEndpointPolicyPropsMixin(&CfnOriginEndpointPolicyMixinProps{
+//   	CdnAuthConfiguration: &CdnAuthConfigurationProperty{
+//   		CdnIdentifierSecretArns: []*string{
+//   			jsii.String("cdnIdentifierSecretArns"),
+//   		},
+//   		SecretsRoleArn: jsii.String("secretsRoleArn"),
+//   	},
+//   	ChannelGroupName: jsii.String("channelGroupName"),
+//   	ChannelName: jsii.String("channelName"),
+//   	OriginEndpointName: jsii.String("originEndpointName"),
+//   	Policy: policy,
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html
+//
+type CfnOriginEndpointPolicyPropsMixin interface {
+	core.Mixin
+	core.IMixin
+	Props() *CfnOriginEndpointPolicyMixinProps
+	Strategy() mixins.PropertyMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnOriginEndpointPolicyPropsMixin
+type jsiiProxy_CfnOriginEndpointPolicyPropsMixin struct {
+	internal.Type__coreMixin
+	internal.Type__coreIMixin
+}
+
+func (j *jsiiProxy_CfnOriginEndpointPolicyPropsMixin) Props() *CfnOriginEndpointPolicyMixinProps {
+	var returns *CfnOriginEndpointPolicyMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOriginEndpointPolicyPropsMixin) Strategy() mixins.PropertyMergeStrategy {
+	var returns mixins.PropertyMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::MediaPackageV2::OriginEndpointPolicy`.
+func NewCfnOriginEndpointPolicyPropsMixin(props *CfnOriginEndpointPolicyMixinProps, options *mixins.CfnPropertyMixinOptions) CfnOriginEndpointPolicyPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnOriginEndpointPolicyPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnOriginEndpointPolicyPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnOriginEndpointPolicyPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::MediaPackageV2::OriginEndpointPolicy`.
+func NewCfnOriginEndpointPolicyPropsMixin_Override(c CfnOriginEndpointPolicyPropsMixin, props *CfnOriginEndpointPolicyMixinProps, options *mixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnOriginEndpointPolicyPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+// Experimental.
+func CfnOriginEndpointPolicyPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOriginEndpointPolicyPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnOriginEndpointPolicyPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnOriginEndpointPolicyPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnOriginEndpointPolicyPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnOriginEndpointPolicyPropsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnOriginEndpointPolicyPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

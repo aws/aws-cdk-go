@@ -1,0 +1,33 @@
+package mixinsawsapigateway
+
+
+// Properties for CfnResourcePropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   cfnResourceMixinProps := &CfnResourceMixinProps{
+//   	ParentId: jsii.String("parentId"),
+//   	PathPart: jsii.String("pathPart"),
+//   	RestApiId: jsii.String("restApiId"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
+//
+type CfnResourceMixinProps struct {
+	// The parent resource's identifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+	//
+	ParentId *string `field:"optional" json:"parentId" yaml:"parentId"`
+	// The last path segment for this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+	//
+	PathPart *string `field:"optional" json:"pathPart" yaml:"pathPart"`
+	// The string identifier of the associated RestApi.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+	//
+	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
+}
+

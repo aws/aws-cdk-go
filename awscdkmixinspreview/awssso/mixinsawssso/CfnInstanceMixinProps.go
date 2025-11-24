@@ -1,0 +1,36 @@
+package mixinsawssso
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for CfnInstancePropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   cfnInstanceMixinProps := &CfnInstanceMixinProps{
+//   	Name: jsii.String("name"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instance.html
+//
+type CfnInstanceMixinProps struct {
+	// The name of the Identity Center instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instance.html#cfn-sso-instance-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Specifies tags to be attached to the instance of IAM Identity Center.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instance.html#cfn-sso-instance-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+}
+

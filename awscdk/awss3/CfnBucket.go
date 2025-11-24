@@ -18,21 +18,12 @@ import (
 // > You can only delete empty buckets. Deletion fails for buckets that have contents.
 //
 // Example:
-//   var cfnTemplate CfnInclude
+//   // Works across different resource types
+//   bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
+//   awscdkmixinspreview.Mixins_Of(bucket).Apply(NewEncryptionAtRest())
 //
-//   cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(CfnBucket)
-//
-//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-//   	AssumedBy: iam.NewAnyPrincipal(),
-//   })
-//   role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-//   	Actions: []*string{
-//   		jsii.String("s3:*"),
-//   	},
-//   	Resources: []*string{
-//   		cfnBucket.AttrArn,
-//   	},
-//   }))
+//   logGroup := logs.NewCfnLogGroup(scope, jsii.String("LogGroup"))
+//   awscdkmixinspreview.Mixins_Of(logGroup).Apply(NewEncryptionAtRest())
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
 //

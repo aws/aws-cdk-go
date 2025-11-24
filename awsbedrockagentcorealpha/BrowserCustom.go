@@ -17,20 +17,13 @@ import (
 // Provides a browser environment for web automation and interaction.
 //
 // Example:
-//   // Create a custom execution role
-//   executionRole := iam.NewRole(this, jsii.String("BrowserExecutionRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   	ManagedPolicies: []IManagedPolicy{
-//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreBrowserExecutionRolePolicy")),
-//   	},
-//   })
-//
-//   // Create browser with custom execution role
-//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
-//   	BrowserCustomName: jsii.String("my_browser"),
-//   	Description: jsii.String("Browser with custom execution role"),
-//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
-//   	ExecutionRole: executionRole,
+//   browser := agentcore.NewBrowserCustom(this, jsii.String("BrowserVpcWithRecording"), &BrowserCustomProps{
+//   	BrowserCustomName: jsii.String("browser_recording"),
+//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
+//   		Vpc: ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+//   			RestrictDefaultSecurityGroup: jsii.Boolean(false),
+//   		}),
+//   	}),
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser.html
@@ -44,6 +37,9 @@ type BrowserCustom interface {
 	// The id of the browser.
 	// Experimental.
 	BrowserId() *string
+	// The browser signing configuration of the browser.
+	// Experimental.
+	BrowserSigning() BrowserSigning
 	// An accessor for the Connections object that will fail if this Browser does not have a VPC configured.
 	// Experimental.
 	Connections() awsec2.Connections
@@ -292,6 +288,16 @@ func (j *jsiiProxy_BrowserCustom) BrowserId() *string {
 	_jsii_.Get(
 		j,
 		"browserId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BrowserCustom) BrowserSigning() BrowserSigning {
+	var returns BrowserSigning
+	_jsii_.Get(
+		j,
+		"browserSigning",
 		&returns,
 	)
 	return returns

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,6 +56,8 @@ type VirtualNode interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grants for this Virtual Node.
+	Grants() VirtualNodeGrants
 	// The Mesh which the VirtualNode belongs to.
 	Mesh() IMesh
 	// The tree node.
@@ -73,6 +76,8 @@ type VirtualNode interface {
 	VirtualNodeArn() *string
 	// The name of the VirtualNode.
 	VirtualNodeName() *string
+	// A reference to a VirtualNode resource.
+	VirtualNodeRef() *interfacesawsappmesh.VirtualNodeReference
 	// Add a Virtual Services that this node is expected to send outbound traffic to.
 	AddBackend(backend Backend)
 	// Utility method to add an inbound listener for this VirtualNode.
@@ -125,6 +130,16 @@ func (j *jsiiProxy_VirtualNode) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VirtualNode) Grants() VirtualNodeGrants {
+	var returns VirtualNodeGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns
@@ -185,6 +200,16 @@ func (j *jsiiProxy_VirtualNode) VirtualNodeName() *string {
 	_jsii_.Get(
 		j,
 		"virtualNodeName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VirtualNode) VirtualNodeRef() *interfacesawsappmesh.VirtualNodeReference {
+	var returns *interfacesawsappmesh.VirtualNodeReference
+	_jsii_.Get(
+		j,
+		"virtualNodeRef",
 		&returns,
 	)
 	return returns

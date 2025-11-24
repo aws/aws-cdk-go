@@ -1,0 +1,116 @@
+package mixinsawsdatazone
+
+
+// Properties for CfnPolicyGrantPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var allDomainUnitsGrantFilter interface{}
+//   var allUsersGrantFilter interface{}
+//   var createEnvironment interface{}
+//   var createEnvironmentFromBlueprint interface{}
+//   var delegateCreateEnvironmentProfile interface{}
+//
+//   cfnPolicyGrantMixinProps := &CfnPolicyGrantMixinProps{
+//   	Detail: &PolicyGrantDetailProperty{
+//   		AddToProjectMemberPool: &AddToProjectMemberPoolPolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   		},
+//   		CreateAssetType: &CreateAssetTypePolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   		},
+//   		CreateDomainUnit: &CreateDomainUnitPolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   		},
+//   		CreateEnvironment: createEnvironment,
+//   		CreateEnvironmentFromBlueprint: createEnvironmentFromBlueprint,
+//   		CreateEnvironmentProfile: &CreateEnvironmentProfilePolicyGrantDetailProperty{
+//   			DomainUnitId: jsii.String("domainUnitId"),
+//   		},
+//   		CreateFormType: &CreateFormTypePolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   		},
+//   		CreateGlossary: &CreateGlossaryPolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   		},
+//   		CreateProject: &CreateProjectPolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   		},
+//   		CreateProjectFromProjectProfile: &CreateProjectFromProjectProfilePolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   			ProjectProfiles: []*string{
+//   				jsii.String("projectProfiles"),
+//   			},
+//   		},
+//   		DelegateCreateEnvironmentProfile: delegateCreateEnvironmentProfile,
+//   		OverrideDomainUnitOwners: &OverrideDomainUnitOwnersPolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   		},
+//   		OverrideProjectOwners: &OverrideProjectOwnersPolicyGrantDetailProperty{
+//   			IncludeChildDomainUnits: jsii.Boolean(false),
+//   		},
+//   	},
+//   	DomainIdentifier: jsii.String("domainIdentifier"),
+//   	EntityIdentifier: jsii.String("entityIdentifier"),
+//   	EntityType: jsii.String("entityType"),
+//   	PolicyType: jsii.String("policyType"),
+//   	Principal: &PolicyGrantPrincipalProperty{
+//   		DomainUnit: &DomainUnitPolicyGrantPrincipalProperty{
+//   			DomainUnitDesignation: jsii.String("domainUnitDesignation"),
+//   			DomainUnitGrantFilter: &DomainUnitGrantFilterProperty{
+//   				AllDomainUnitsGrantFilter: allDomainUnitsGrantFilter,
+//   			},
+//   			DomainUnitIdentifier: jsii.String("domainUnitIdentifier"),
+//   		},
+//   		Group: &GroupPolicyGrantPrincipalProperty{
+//   			GroupIdentifier: jsii.String("groupIdentifier"),
+//   		},
+//   		Project: &ProjectPolicyGrantPrincipalProperty{
+//   			ProjectDesignation: jsii.String("projectDesignation"),
+//   			ProjectGrantFilter: &ProjectGrantFilterProperty{
+//   				DomainUnitFilter: &DomainUnitFilterForProjectProperty{
+//   					DomainUnit: jsii.String("domainUnit"),
+//   					IncludeChildDomainUnits: jsii.Boolean(false),
+//   				},
+//   			},
+//   			ProjectIdentifier: jsii.String("projectIdentifier"),
+//   		},
+//   		User: &UserPolicyGrantPrincipalProperty{
+//   			AllUsersGrantFilter: allUsersGrantFilter,
+//   			UserIdentifier: jsii.String("userIdentifier"),
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html
+//
+type CfnPolicyGrantMixinProps struct {
+	// The details of the policy grant member.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-detail
+	//
+	Detail interface{} `field:"optional" json:"detail" yaml:"detail"`
+	// The ID of the domain where you want to add a policy grant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-domainidentifier
+	//
+	DomainIdentifier *string `field:"optional" json:"domainIdentifier" yaml:"domainIdentifier"`
+	// The ID of the entity (resource) to which you want to add a policy grant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-entityidentifier
+	//
+	EntityIdentifier *string `field:"optional" json:"entityIdentifier" yaml:"entityIdentifier"`
+	// The type of entity (resource) to which the grant is added.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-entitytype
+	//
+	EntityType *string `field:"optional" json:"entityType" yaml:"entityType"`
+	// The type of policy that you want to grant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-policytype
+	//
+	PolicyType *string `field:"optional" json:"policyType" yaml:"policyType"`
+	// The principal of the policy grant member.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-principal
+	//
+	Principal interface{} `field:"optional" json:"principal" yaml:"principal"`
+}
+

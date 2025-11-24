@@ -34,6 +34,343 @@ EC2 Image Builder supports AWS-managed components for common tasks, AWS Marketpl
 that you create. Components run during specific workflow phases: build and validate phases during the build stage, and
 test phase during the test stage.
 
+### Image Recipe
+
+#### Image Recipe Basic Usage
+
+Create an image recipe with the required base image:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("MyImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+})
+```
+
+#### Image Recipe Base Images
+
+To create a recipe, you have to select a base image to build and customize from. This base image can be referenced from
+various sources, such as from SSM parameters, AWS Marketplace products, and AMI IDs directly.
+
+##### SSM Parameters
+
+Using SSM parameter references:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("SsmImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+})
+
+// Using an SSM parameter construct
+parameter := ssm.StringParameter_FromStringParameterName(this, jsii.String("BaseImageParameter"), jsii.String("/aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base"))
+windowsRecipe := imagebuilder.NewImageRecipe(this, jsii.String("WindowsImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromSsmParameter(parameter),
+})
+```
+
+##### AMI IDs
+
+When you have a specific AMI to use:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AmiImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromAmiId(jsii.String("ami-12345678")),
+})
+```
+
+##### Marketplace Images
+
+For marketplace base images:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("MarketplaceImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromMarketplaceProductId(jsii.String("prod-1234567890abcdef0")),
+})
+```
+
+#### Image Recipe Components
+
+Components from various sources, such as custom-owned, AWS-owned, or AWS Marketplace-owned, can optionally be included
+in recipes. For parameterized components, you are able to provide the parameters to use in the recipe, which will be
+applied during the image build when executing components.
+
+##### Custom Components in Image Recipes
+
+Add your own components to the recipe:
+
+```go
+customComponent := imagebuilder.NewComponent(this, jsii.String("MyComponent"), &ComponentProps{
+	Platform: imagebuilder.Platform_LINUX,
+	Data: imagebuilder.ComponentData_FromJsonObject(map[string]interface{}{
+		"schemaVersion": imagebuilder.ComponentSchemaVersion_V1_0,
+		"phases": []interface{}{
+			map[string]interface{}{
+				"name": imagebuilder.ComponentPhaseName_BUILD,
+				"steps": []map[string]interface{}{
+					map[string]interface{}{
+						"name": jsii.String("install-app"),
+						"action": imagebuilder.ComponentAction_EXECUTE_BASH,
+						"inputs": map[string][]*string{
+							"commands": []*string{
+								jsii.String("yum install -y my-application"),
+							},
+						},
+					},
+				},
+			},
+		},
+	}),
+})
+
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("ComponentImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	Components: []ComponentConfiguration{
+		&ComponentConfiguration{
+			Component: customComponent,
+		},
+	},
+})
+```
+
+##### AWS-Managed Components in Image Recipes
+
+Use pre-built AWS components:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AwsManagedImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	Components: []ComponentConfiguration{
+		&ComponentConfiguration{
+			Component: imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
+				Platform: imagebuilder.Platform_LINUX,
+			}),
+		},
+		&ComponentConfiguration{
+			Component: imagebuilder.AwsManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AwsManagedComponentAttributes{
+				Platform: imagebuilder.Platform_LINUX,
+			}),
+		},
+	},
+})
+```
+
+##### Component Parameters in Image Recipes
+
+Pass parameters to components that accept them:
+
+```go
+parameterizedComponent := imagebuilder.Component_FromComponentName(this, jsii.String("ParameterizedComponent"), jsii.String("my-parameterized-component"))
+
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("ParameterizedImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	Components: []ComponentConfiguration{
+		&ComponentConfiguration{
+			Component: parameterizedComponent,
+			Parameters: map[string]ComponentParameterValue{
+				"environment": imagebuilder.ComponentParameterValue_fromString(jsii.String("production")),
+				"version": imagebuilder.ComponentParameterValue_fromString(jsii.String("1.0.0")),
+			},
+		},
+	},
+})
+```
+
+#### Image Recipe Configuration
+
+##### Block Device Configuration
+
+Configure storage for the build instance:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("BlockDeviceImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	BlockDevices: []BlockDevice{
+		&BlockDevice{
+			DeviceName: jsii.String("/dev/sda1"),
+			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(100), &EbsDeviceOptions{
+				Encrypted: jsii.Boolean(true),
+				VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
+			}),
+		},
+	},
+})
+```
+
+##### AMI Tagging
+
+Tag the output AMI:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("TaggedImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	AmiTags: map[string]*string{
+		"Environment": jsii.String("Production"),
+		"Application": jsii.String("WebServer"),
+		"Owner": jsii.String("DevOps Team"),
+	},
+})
+```
+
+### Container Recipe
+
+A container recipe is similar to an image recipe but specifically for container images. It defines the base container
+image and components applied to produce the desired configuration for the output container image. Container recipes work
+with Docker images from DockerHub, Amazon ECR, or Amazon-managed container images as starting points.
+
+#### Container Recipe Basic Usage
+
+Create a container recipe with the required base image and target repository:
+
+```go
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("MyContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+})
+```
+
+#### Container Recipe Base Images
+
+##### DockerHub Images
+
+Using public Docker Hub images:
+
+```go
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("DockerHubContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+})
+```
+
+##### ECR Images
+
+Using images from your own ECR repositories:
+
+```go
+sourceRepo := ecr.Repository_FromRepositoryName(this, jsii.String("SourceRepo"), jsii.String("my-base-image"))
+targetRepo := ecr.Repository_FromRepositoryName(this, jsii.String("TargetRepo"), jsii.String("my-container-repo"))
+
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("EcrContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_FromEcr(sourceRepo, jsii.String("1.0.0")),
+	TargetRepository: imagebuilder.Repository_FromEcr(targetRepo),
+})
+```
+
+##### ECR Public Images
+
+Using images from Amazon ECR Public:
+
+```go
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("EcrPublicContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_FromEcrPublic(jsii.String("amazonlinux"), jsii.String("amazonlinux"), jsii.String("2023")),
+	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+})
+```
+
+#### Container Recipe Components
+
+##### Custom Components in Container Recipes
+
+Add your own components to the container recipe:
+
+```go
+customComponent := imagebuilder.NewComponent(this, jsii.String("MyComponent"), &ComponentProps{
+	Platform: imagebuilder.Platform_LINUX,
+	Data: imagebuilder.ComponentData_FromJsonObject(map[string]interface{}{
+		"schemaVersion": imagebuilder.ComponentSchemaVersion_V1_0,
+		"phases": []interface{}{
+			map[string]interface{}{
+				"name": imagebuilder.ComponentPhaseName_BUILD,
+				"steps": []map[string]interface{}{
+					map[string]interface{}{
+						"name": jsii.String("install-app"),
+						"action": imagebuilder.ComponentAction_EXECUTE_BASH,
+						"inputs": map[string][]*string{
+							"commands": []*string{
+								jsii.String("yum install -y my-container-application"),
+							},
+						},
+					},
+				},
+			},
+		},
+	}),
+})
+
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("ComponentContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	Components: []ComponentConfiguration{
+		&ComponentConfiguration{
+			Component: customComponent,
+		},
+	},
+})
+```
+
+##### AWS-Managed Components in Container Recipes
+
+Use pre-built AWS components:
+
+```go
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("AwsManagedContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	Components: []ComponentConfiguration{
+		&ComponentConfiguration{
+			Component: imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
+				Platform: imagebuilder.Platform_LINUX,
+			}),
+		},
+		&ComponentConfiguration{
+			Component: imagebuilder.AwsManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AwsManagedComponentAttributes{
+				Platform: imagebuilder.Platform_LINUX,
+			}),
+		},
+	},
+})
+```
+
+#### Container Recipe Configuration
+
+##### Custom Dockerfile
+
+Provide your own Dockerfile template:
+
+```go
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("CustomDockerfileContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	Dockerfile: imagebuilder.DockerfileData_FromInline(jsii.String(`
+	FROM {{{ imagebuilder:parentImage }}}
+	CMD ["echo", "Hello, world!"]
+	{{{ imagebuilder:environments }}}
+	{{{ imagebuilder:components }}}
+	`)),
+})
+```
+
+##### Instance Configuration
+
+Configure the build instance:
+
+```go
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("InstanceConfigContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	// Custom ECS-optimized AMI for building
+	InstanceImage: imagebuilder.ContainerInstanceImage_FromSsmParameterName(jsii.String("/aws/service/ecs/optimized-ami/amazon-linux-2023/recommended/image_id")),
+	// Additional storage for build process
+	InstanceBlockDevices: []BlockDevice{
+		&BlockDevice{
+			DeviceName: jsii.String("/dev/xvda"),
+			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(50), &EbsDeviceOptions{
+				Encrypted: jsii.Boolean(true),
+				VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
+			}),
+		},
+	},
+})
+```
+
 ### Component
 
 A component defines the sequence of steps required to customize an instance during image creation (build component) or
@@ -45,7 +382,7 @@ EC2 Image Builder supports AWS-managed components for common tasks, AWS Marketpl
 that you create. Components run during specific workflow phases: build and validate phases during the build stage, and
 test phase during the test stage.
 
-#### Basic Usage
+#### Basic Component Usage
 
 Create a component with the required properties: platform and component data.
 
@@ -489,4 +826,228 @@ containerDistributionConfiguration.AddContainerDistributions(&ContainerDistribut
 		jsii.String("latest-1.0"),
 	},
 })
+```
+
+### Workflow
+
+Workflows define the sequence of steps that Image Builder performs during image creation. There are three workflow types: BUILD (image building), TEST (testing images), and DISTRIBUTION (distributing container images).
+
+#### Basic Workflow Usage
+
+Create a workflow with the required properties: workflow type and workflow data.
+
+```go
+workflow := imagebuilder.NewWorkflow(this, jsii.String("MyWorkflow"), &WorkflowProps{
+	WorkflowType: imagebuilder.WorkflowType_BUILD,
+	Data: imagebuilder.WorkflowData_FromJsonObject(map[string]interface{}{
+		"schemaVersion": imagebuilder.WorkflowSchemaVersion_V1_0,
+		"steps": []interface{}{
+			map[string]interface{}{
+				"name": jsii.String("LaunchBuildInstance"),
+				"action": imagebuilder.WorkflowAction_LAUNCH_INSTANCE,
+				"onFailure": imagebuilder.WorkflowOnFailure_ABORT,
+				"inputs": map[string]*string{
+					"waitFor": jsii.String("ssmAgent"),
+				},
+			},
+			map[string]interface{}{
+				"name": jsii.String("ExecuteComponents"),
+				"action": imagebuilder.WorkflowAction_EXECUTE_COMPONENTS,
+				"onFailure": imagebuilder.WorkflowOnFailure_ABORT,
+				"inputs": map[string]*string{
+					"instanceId": jsii.String("i-123"),
+				},
+			},
+			map[string]interface{}{
+				"name": jsii.String("CreateImage"),
+				"action": imagebuilder.WorkflowAction_CREATE_IMAGE,
+				"onFailure": imagebuilder.WorkflowOnFailure_ABORT,
+				"inputs": map[string]*string{
+					"instanceId": jsii.String("i-123"),
+				},
+			},
+			map[string]interface{}{
+				"name": jsii.String("TerminateInstance"),
+				"action": imagebuilder.WorkflowAction_TERMINATE_INSTANCE,
+				"onFailure": imagebuilder.WorkflowOnFailure_CONTINUE,
+				"inputs": map[string]*string{
+					"instanceId": jsii.String("i-123"),
+				},
+			},
+		},
+		"outputs": []interface{}{
+			map[string]*string{
+				"name": jsii.String("ImageId"),
+				"value": jsii.String("$.stepOutputs.CreateImage.imageId"),
+			},
+		},
+	}),
+})
+```
+
+#### Workflow Data Sources
+
+##### Inline Workflow Data
+
+Use `WorkflowData.fromInline()` for existing YAML/JSON definitions:
+
+```go
+workflow := imagebuilder.NewWorkflow(this, jsii.String("InlineWorkflow"), &WorkflowProps{
+	WorkflowType: imagebuilder.WorkflowType_TEST,
+	Data: imagebuilder.WorkflowData_FromInline(jsii.String(`
+	schemaVersion: 1.0
+	steps:
+	  - name: LaunchTestInstance
+	    action: LaunchInstance
+	    onFailure: Abort
+	    inputs:
+	      waitFor: ssmAgent
+	  - name: RunTests
+	    action: RunCommand
+	    onFailure: Abort
+	    inputs:
+	      instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+	      commands: ['./run-tests.sh']
+	  - name: TerminateTestInstance
+	    action: TerminateInstance
+	    onFailure: Continue
+	    inputs:
+	      instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+	`)),
+})
+```
+
+##### JSON Object Workflow Data
+
+Most developer-friendly approach using JavaScript objects:
+
+```go
+workflow := imagebuilder.NewWorkflow(this, jsii.String("JsonWorkflow"), &WorkflowProps{
+	WorkflowType: imagebuilder.WorkflowType_BUILD,
+	Data: imagebuilder.WorkflowData_FromJsonObject(map[string]interface{}{
+		"schemaVersion": imagebuilder.WorkflowSchemaVersion_V1_0,
+		"steps": []interface{}{
+			map[string]interface{}{
+				"name": jsii.String("LaunchBuildInstance"),
+				"action": imagebuilder.WorkflowAction_LAUNCH_INSTANCE,
+				"onFailure": imagebuilder.WorkflowOnFailure_ABORT,
+				"inputs": map[string]*string{
+					"waitFor": jsii.String("ssmAgent"),
+				},
+			},
+			map[string]interface{}{
+				"name": jsii.String("ExecuteComponents"),
+				"action": imagebuilder.WorkflowAction_EXECUTE_COMPONENTS,
+				"onFailure": imagebuilder.WorkflowOnFailure_ABORT,
+				"inputs": map[string]*string{
+					"instanceId": jsii.String("i-123"),
+				},
+			},
+			map[string]interface{}{
+				"name": jsii.String("CreateImage"),
+				"action": imagebuilder.WorkflowAction_CREATE_IMAGE,
+				"onFailure": imagebuilder.WorkflowOnFailure_ABORT,
+				"inputs": map[string]*string{
+					"instanceId": jsii.String("i-123"),
+				},
+			},
+			map[string]interface{}{
+				"name": jsii.String("TerminateInstance"),
+				"action": imagebuilder.WorkflowAction_TERMINATE_INSTANCE,
+				"onFailure": imagebuilder.WorkflowOnFailure_CONTINUE,
+				"inputs": map[string]*string{
+					"instanceId": jsii.String("i-123"),
+				},
+			},
+		},
+		"outputs": []interface{}{
+			map[string]*string{
+				"name": jsii.String("ImageId"),
+				"value": jsii.String("$.stepOutputs.CreateImage.imageId"),
+			},
+		},
+	}),
+})
+```
+
+##### S3 Workflow Data
+
+For those workflows you want to upload or have uploaded to S3:
+
+```go
+// Upload a local file
+workflowFromAsset := imagebuilder.NewWorkflow(this, jsii.String("AssetWorkflow"), &WorkflowProps{
+	WorkflowType: imagebuilder.WorkflowType_BUILD,
+	Data: imagebuilder.WorkflowData_FromAsset(this, jsii.String("WorkflowAsset"), jsii.String("./my-workflow.yml")),
+})
+
+// Reference an existing S3 object
+bucket := s3.Bucket_FromBucketName(this, jsii.String("WorkflowBucket"), jsii.String("my-workflows-bucket"))
+workflowFromS3 := imagebuilder.NewWorkflow(this, jsii.String("S3Workflow"), &WorkflowProps{
+	WorkflowType: imagebuilder.WorkflowType_BUILD,
+	Data: imagebuilder.WorkflowData_FromS3(bucket, jsii.String("workflows/my-workflow.yml")),
+})
+```
+
+#### Encrypt workflow data with a KMS key
+
+You can encrypt workflow data with a KMS key, so that only principals with access to decrypt with the key are able to access the workflow data.
+
+```go
+workflow := imagebuilder.NewWorkflow(this, jsii.String("EncryptedWorkflow"), &WorkflowProps{
+	WorkflowType: imagebuilder.WorkflowType_BUILD,
+	KmsKey: kms.NewKey(this, jsii.String("WorkflowKey")),
+	Data: imagebuilder.WorkflowData_FromJsonObject(map[string]interface{}{
+		"schemaVersion": imagebuilder.WorkflowSchemaVersion_V1_0,
+		"steps": []interface{}{
+			map[string]interface{}{
+				"name": jsii.String("LaunchBuildInstance"),
+				"action": imagebuilder.WorkflowAction_LAUNCH_INSTANCE,
+				"onFailure": imagebuilder.WorkflowOnFailure_ABORT,
+				"inputs": map[string]*string{
+					"waitFor": jsii.String("ssmAgent"),
+				},
+			},
+			map[string]interface{}{
+				"name": jsii.String("CreateImage"),
+				"action": imagebuilder.WorkflowAction_CREATE_IMAGE,
+				"onFailure": imagebuilder.WorkflowOnFailure_ABORT,
+				"inputs": map[string]*string{
+					"instanceId": jsii.String("i-123"),
+				},
+			},
+			map[string]interface{}{
+				"name": jsii.String("TerminateInstance"),
+				"action": imagebuilder.WorkflowAction_TERMINATE_INSTANCE,
+				"onFailure": imagebuilder.WorkflowOnFailure_CONTINUE,
+				"inputs": map[string]*string{
+					"instanceId": jsii.String("i-123"),
+				},
+			},
+		},
+		"outputs": []interface{}{
+			map[string]*string{
+				"name": jsii.String("ImageId"),
+				"value": jsii.String("$.stepOutputs.CreateImage.imageId"),
+			},
+		},
+	}),
+})
+```
+
+#### AWS-Managed Workflows
+
+AWS provides a collection of workflows for common scenarios:
+
+```go
+// Build workflows
+buildImageWorkflow := imagebuilder.AwsManagedWorkflow_BuildImage(this, jsii.String("BuildImage"))
+buildContainerWorkflow := imagebuilder.AwsManagedWorkflow_BuildContainer(this, jsii.String("BuildContainer"))
+
+// Test workflows
+testImageWorkflow := imagebuilder.AwsManagedWorkflow_TestImage(this, jsii.String("TestImage"))
+testContainerWorkflow := imagebuilder.AwsManagedWorkflow_TestContainer(this, jsii.String("TestContainer"))
+
+// Distribution workflows
+distributeContainerWorkflow := imagebuilder.AwsManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer"))
 ```

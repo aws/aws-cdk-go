@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,6 +39,8 @@ type PrivateHostedZone interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Grants helper for this hosted zone.
+	Grants() HostedZoneGrants
 	// ARN of this hosted zone, such as arn:${Partition}:route53:::hostedzone/${Id}.
 	HostedZoneArn() *string
 	// ID of this hosted zone, such as "Z23ABC4XYZL05B".
@@ -46,6 +49,10 @@ type PrivateHostedZone interface {
 	//
 	// This attribute will be undefined for private hosted zones or hosted zones imported from another stack.
 	HostedZoneNameServers() *[]*string
+	// A reference to a HostedZone resource.
+	HostedZoneRef() *interfacesawsroute53.HostedZoneReference
+	// FQDN of this hosted zone.
+	Name() *string
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -115,6 +122,16 @@ func (j *jsiiProxy_PrivateHostedZone) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_PrivateHostedZone) Grants() HostedZoneGrants {
+	var returns HostedZoneGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_PrivateHostedZone) HostedZoneArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -140,6 +157,26 @@ func (j *jsiiProxy_PrivateHostedZone) HostedZoneNameServers() *[]*string {
 	_jsii_.Get(
 		j,
 		"hostedZoneNameServers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PrivateHostedZone) HostedZoneRef() *interfacesawsroute53.HostedZoneReference {
+	var returns *interfacesawsroute53.HostedZoneReference
+	_jsii_.Get(
+		j,
+		"hostedZoneRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PrivateHostedZone) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
 		&returns,
 	)
 	return returns

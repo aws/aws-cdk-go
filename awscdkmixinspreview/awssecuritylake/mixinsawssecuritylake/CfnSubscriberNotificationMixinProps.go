@@ -1,0 +1,41 @@
+package mixinsawssecuritylake
+
+
+// Properties for CfnSubscriberNotificationPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var sqsNotificationConfiguration interface{}
+//
+//   cfnSubscriberNotificationMixinProps := &CfnSubscriberNotificationMixinProps{
+//   	NotificationConfiguration: &NotificationConfigurationProperty{
+//   		HttpsNotificationConfiguration: &HttpsNotificationConfigurationProperty{
+//   			AuthorizationApiKeyName: jsii.String("authorizationApiKeyName"),
+//   			AuthorizationApiKeyValue: jsii.String("authorizationApiKeyValue"),
+//   			Endpoint: jsii.String("endpoint"),
+//   			HttpMethod: jsii.String("httpMethod"),
+//   			TargetRoleArn: jsii.String("targetRoleArn"),
+//   		},
+//   		SqsNotificationConfiguration: sqsNotificationConfiguration,
+//   	},
+//   	SubscriberArn: jsii.String("subscriberArn"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html
+//
+type CfnSubscriberNotificationMixinProps struct {
+	// Specify the configurations you want to use for subscriber notification.
+	//
+	// The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html#cfn-securitylake-subscribernotification-notificationconfiguration
+	//
+	NotificationConfiguration interface{} `field:"optional" json:"notificationConfiguration" yaml:"notificationConfiguration"`
+	// The Amazon Resource Name (ARN) of the Security Lake subscriber.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html#cfn-securitylake-subscribernotification-subscriberarn
+	//
+	SubscriberArn *string `field:"optional" json:"subscriberArn" yaml:"subscriberArn"`
+}
+

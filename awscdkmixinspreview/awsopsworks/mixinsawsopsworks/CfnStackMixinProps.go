@@ -1,0 +1,272 @@
+package mixinsawsopsworks
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for CfnStackPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var customJson interface{}
+//
+//   cfnStackMixinProps := &CfnStackMixinProps{
+//   	AgentVersion: jsii.String("agentVersion"),
+//   	Attributes: map[string]*string{
+//   		"attributesKey": jsii.String("attributes"),
+//   	},
+//   	ChefConfiguration: &ChefConfigurationProperty{
+//   		BerkshelfVersion: jsii.String("berkshelfVersion"),
+//   		ManageBerkshelf: jsii.Boolean(false),
+//   	},
+//   	CloneAppIds: []*string{
+//   		jsii.String("cloneAppIds"),
+//   	},
+//   	ClonePermissions: jsii.Boolean(false),
+//   	ConfigurationManager: &StackConfigurationManagerProperty{
+//   		Name: jsii.String("name"),
+//   		Version: jsii.String("version"),
+//   	},
+//   	CustomCookbooksSource: &SourceProperty{
+//   		Password: jsii.String("password"),
+//   		Revision: jsii.String("revision"),
+//   		SshKey: jsii.String("sshKey"),
+//   		Type: jsii.String("type"),
+//   		Url: jsii.String("url"),
+//   		Username: jsii.String("username"),
+//   	},
+//   	CustomJson: customJson,
+//   	DefaultAvailabilityZone: jsii.String("defaultAvailabilityZone"),
+//   	DefaultInstanceProfileArn: jsii.String("defaultInstanceProfileArn"),
+//   	DefaultOs: jsii.String("defaultOs"),
+//   	DefaultRootDeviceType: jsii.String("defaultRootDeviceType"),
+//   	DefaultSshKeyName: jsii.String("defaultSshKeyName"),
+//   	DefaultSubnetId: jsii.String("defaultSubnetId"),
+//   	EcsClusterArn: jsii.String("ecsClusterArn"),
+//   	ElasticIps: []interface{}{
+//   		&ElasticIpProperty{
+//   			Ip: jsii.String("ip"),
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
+//   	HostnameTheme: jsii.String("hostnameTheme"),
+//   	Name: jsii.String("name"),
+//   	RdsDbInstances: []interface{}{
+//   		&RdsDbInstanceProperty{
+//   			DbPassword: jsii.String("dbPassword"),
+//   			DbUser: jsii.String("dbUser"),
+//   			RdsDbInstanceArn: jsii.String("rdsDbInstanceArn"),
+//   		},
+//   	},
+//   	ServiceRoleArn: jsii.String("serviceRoleArn"),
+//   	SourceStackId: jsii.String("sourceStackId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	UseCustomCookbooks: jsii.Boolean(false),
+//   	UseOpsworksSecurityGroups: jsii.Boolean(false),
+//   	VpcId: jsii.String("vpcId"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html
+//
+type CfnStackMixinProps struct {
+	// The default OpsWorks Stacks agent version. You have the following options:.
+	//
+	// - Auto-update - Set this parameter to `LATEST` . OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.
+	// - Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. OpsWorks Stacks installs that version on the stack's instances.
+	//
+	// The default setting is the most recent release of the agent. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call `DescribeAgentVersions` . AgentVersion cannot be set to Chef 12.2.
+	//
+	// > You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-agentversion
+	//
+	AgentVersion *string `field:"optional" json:"agentVersion" yaml:"agentVersion"`
+	// One or more user-defined key-value pairs to be added to the stack attributes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-attributes
+	//
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
+	// A `ChefConfiguration` object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see [Create a New Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-chefconfiguration
+	//
+	ChefConfiguration interface{} `field:"optional" json:"chefConfiguration" yaml:"chefConfiguration"`
+	// If you're cloning an OpsWorks stack, a list of OpsWorks application stack IDs from the source stack to include in the cloned stack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-cloneappids
+	//
+	CloneAppIds *[]*string `field:"optional" json:"cloneAppIds" yaml:"cloneAppIds"`
+	// If you're cloning an OpsWorks stack, indicates whether to clone the source stack's permissions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-clonepermissions
+	//
+	ClonePermissions interface{} `field:"optional" json:"clonePermissions" yaml:"clonePermissions"`
+	// The configuration manager.
+	//
+	// When you create a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-configurationmanager
+	//
+	ConfigurationManager interface{} `field:"optional" json:"configurationManager" yaml:"configurationManager"`
+	// Contains the information required to retrieve an app or cookbook from a repository.
+	//
+	// For more information, see [Adding Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html) or [Cookbooks and Recipes](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-customcookbookssource
+	//
+	CustomCookbooksSource interface{} `field:"optional" json:"customCookbooksSource" yaml:"customCookbooksSource"`
+	// A string that contains user-defined, custom JSON.
+	//
+	// It can be used to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
+	//
+	// `"{\"key1\": \"value1\", \"key2\": \"value2\",...}"`
+	//
+	// For more information about custom JSON, see [Use Custom JSON to Modify the Stack Configuration Attributes](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-customjson
+	//
+	CustomJson interface{} `field:"optional" json:"customJson" yaml:"customJson"`
+	// The stack's default Availability Zone, which must be in the specified region.
+	//
+	// For more information, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) . If you also specify a value for `DefaultSubnetId` , the subnet must be in the same zone. For more information, see the `VpcId` parameter description.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-defaultavailabilityzone
+	//
+	DefaultAvailabilityZone *string `field:"optional" json:"defaultAvailabilityZone" yaml:"defaultAvailabilityZone"`
+	// The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances.
+	//
+	// For more information about IAM ARNs, see [Using Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-defaultinstanceprofilearn
+	//
+	DefaultInstanceProfileArn *string `field:"optional" json:"defaultInstanceProfileArn" yaml:"defaultInstanceProfileArn"`
+	// The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance.
+	//
+	// You can specify one of the following.
+	//
+	// - A supported Linux operating system: An Amazon Linux version, such as `Amazon Linux 2` , `Amazon Linux 2018.03` , `Amazon Linux 2017.09` , `Amazon Linux 2017.03` , `Amazon Linux 2016.09` , `Amazon Linux 2016.03` , `Amazon Linux 2015.09` , or `Amazon Linux 2015.03` .
+	// - A supported Ubuntu operating system, such as `Ubuntu 18.04 LTS` , `Ubuntu 16.04 LTS` , `Ubuntu 14.04 LTS` , or `Ubuntu 12.04 LTS` .
+	// - `CentOS Linux 7`
+	// - `Red Hat Enterprise Linux 7`
+	// - A supported Windows operating system, such as `Microsoft Windows Server 2012 R2 Base` , `Microsoft Windows Server 2012 R2 with SQL Server Express` , `Microsoft Windows Server 2012 R2 with SQL Server Standard` , or `Microsoft Windows Server 2012 R2 with SQL Server Web` .
+	// - A custom AMI: `Custom` . You specify the custom AMI you want to use when you create instances. For more information, see [Using Custom AMIs](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html) .
+	//
+	// The default option is the current Amazon Linux version. Not all operating systems are supported with all versions of Chef. For more information about supported operating systems, see [OpsWorks Stacks Operating Systems](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-defaultos
+	//
+	DefaultOs *string `field:"optional" json:"defaultOs" yaml:"defaultOs"`
+	// The default root device type.
+	//
+	// This value is the default for all instances in the stack, but you can override it when you create an instance. The default option is `instance-store` . For more information, see [Storage for the Root Device](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-defaultrootdevicetype
+	//
+	DefaultRootDeviceType *string `field:"optional" json:"defaultRootDeviceType" yaml:"defaultRootDeviceType"`
+	// A default Amazon EC2 key pair name.
+	//
+	// The default value is none. If you specify a key pair name, OpsWorks installs the public key on the instance and you can use the private key with an SSH client to log in to the instance. For more information, see [Using SSH to Communicate with an Instance](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html) and [Managing SSH Access](https://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html) . You can override this setting by specifying a different key pair, or no key pair, when you [create an instance](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-defaultsshkeyname
+	//
+	DefaultSshKeyName *string `field:"optional" json:"defaultSshKeyName" yaml:"defaultSshKeyName"`
+	// The stack's default subnet ID.
+	//
+	// All instances are launched into this subnet unless you specify another subnet ID when you create the instance. This parameter is required if you specify a value for the `VpcId` parameter. If you also specify a value for `DefaultAvailabilityZone` , the subnet must be in that zone.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-defaultsubnetid
+	//
+	DefaultSubnetId *string `field:"optional" json:"defaultSubnetId" yaml:"defaultSubnetId"`
+	// The Amazon Resource Name (ARN) of the  ( Amazon ECS ) cluster to register with the OpsWorks stack.
+	//
+	// > If you specify a cluster that's registered with another OpsWorks stack, CloudFormation deregisters the existing association before registering the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-ecsclusterarn
+	//
+	EcsClusterArn *string `field:"optional" json:"ecsClusterArn" yaml:"ecsClusterArn"`
+	// A list of Elastic IP addresses to register with the OpsWorks stack.
+	//
+	// > If you specify an IP address that's registered with another OpsWorks stack, CloudFormation deregisters the existing association before registering the IP address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-elasticips
+	//
+	ElasticIps interface{} `field:"optional" json:"elasticIps" yaml:"elasticIps"`
+	// The stack's host name theme, with spaces replaced by underscores.
+	//
+	// The theme is used to generate host names for the stack's instances. By default, `HostnameTheme` is set to `Layer_Dependent` , which creates host names by appending integers to the layer's short name. The other themes are:
+	//
+	// - `Baked_Goods`
+	// - `Clouds`
+	// - `Europe_Cities`
+	// - `Fruits`
+	// - `Greek_Deities_and_Titans`
+	// - `Legendary_creatures_from_Japan`
+	// - `Planets_and_Moons`
+	// - `Roman_Deities`
+	// - `Scottish_Islands`
+	// - `US_Cities`
+	// - `Wild_Cats`
+	//
+	// To obtain a generated host name, call `GetHostNameSuggestion` , which returns a host name based on the current theme.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-hostnametheme
+	//
+	HostnameTheme *string `field:"optional" json:"hostnameTheme" yaml:"hostnameTheme"`
+	// The stack name.
+	//
+	// Stack names can be a maximum of 64 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The Amazon Relational Database Service ( Amazon RDS ) database instance to register with the OpsWorks stack.
+	//
+	// > If you specify a database instance that's registered with another OpsWorks stack, CloudFormation deregisters the existing association before registering the database instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-rdsdbinstances
+	//
+	RdsDbInstances interface{} `field:"optional" json:"rdsDbInstances" yaml:"rdsDbInstances"`
+	// The stack's IAM role, which allows OpsWorks Stacks to work with AWS resources on your behalf.
+	//
+	// You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see [Using Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-servicerolearn
+	//
+	ServiceRoleArn *string `field:"optional" json:"serviceRoleArn" yaml:"serviceRoleArn"`
+	// If you're cloning an OpsWorks stack, the stack ID of the source OpsWorks stack to clone.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-sourcestackid
+	//
+	SourceStackId *string `field:"optional" json:"sourceStackId" yaml:"sourceStackId"`
+	// A map that contains tag keys and tag values that are attached to a stack or layer.
+	//
+	// - The key cannot be empty.
+	// - The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : /`
+	// - The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : /`
+	// - Leading and trailing white spaces are trimmed from both the key and value.
+	// - A maximum of 40 tags is allowed for any resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Whether the stack uses custom cookbooks.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-usecustomcookbooks
+	//
+	UseCustomCookbooks interface{} `field:"optional" json:"useCustomCookbooks" yaml:"useCustomCookbooks"`
+	// Whether to associate the OpsWorks Stacks built-in security groups with the stack's layers.
+	//
+	// OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With `UseOpsworksSecurityGroups` you can instead provide your own custom security groups. `UseOpsworksSecurityGroups` has the following settings:
+	//
+	// - True - OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.
+	// - False - OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on creation; custom security groups are required only for those layers that need custom settings.
+	//
+	// For more information, see [Create a New Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-useopsworkssecuritygroups
+	//
+	UseOpsworksSecurityGroups interface{} `field:"optional" json:"useOpsworksSecurityGroups" yaml:"useOpsworksSecurityGroups"`
+	// The ID of the VPC that the stack is to be launched into.
+	//
+	// The VPC must be in the stack's region. All instances are launched into this VPC. You cannot change the ID later.
+	//
+	// - If your account supports EC2-Classic, the default value is `no VPC` .
+	// - If your account does not support EC2-Classic, the default value is the default VPC for the specified region.
+	//
+	// If the VPC ID corresponds to a default VPC and you have specified either the `DefaultAvailabilityZone` or the `DefaultSubnetId` parameter only, OpsWorks Stacks infers the value of the other parameter. If you specify neither parameter, OpsWorks Stacks sets these parameters to the first valid Availability Zone for the specified region and the corresponding default VPC subnet ID, respectively.
+	//
+	// If you specify a nondefault VPC ID, note the following:
+	//
+	// - It must belong to a VPC in your account that is in the specified region.
+	// - You must specify a value for `DefaultSubnetId` .
+	//
+	// For more information about how to use OpsWorks Stacks with a VPC, see [Running a Stack in a VPC](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html) . For more information about default VPC and EC2-Classic, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-vpcid
+	//
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+}
+

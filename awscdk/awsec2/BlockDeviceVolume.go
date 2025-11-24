@@ -23,10 +23,11 @@ import (
 //   	BlockDevices: []BlockDevice{
 //   		&BlockDevice{
 //   			DeviceName: jsii.String("/dev/sda1"),
-//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(100), &EbsDeviceOptions{
-//   				VolumeType: ec2.EbsDeviceVolumeType_GP3,
-//   				Throughput: jsii.Number(250),
-//   			}),
+//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(50)),
+//   		},
+//   		&BlockDevice{
+//   			DeviceName: jsii.String("/dev/sdm"),
+//   			Volume: ec2.BlockDeviceVolume_*Ebs(jsii.Number(100)),
 //   		},
 //   	},
 //   })

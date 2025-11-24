@@ -1,0 +1,33 @@
+package mixinsawsdatabrew
+
+
+// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   s3LocationProperty := &S3LocationProperty{
+//   	Bucket: jsii.String("bucket"),
+//   	BucketOwner: jsii.String("bucketOwner"),
+//   	Key: jsii.String("key"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+//
+type CfnDatasetPropsMixin_S3LocationProperty struct {
+	// The Amazon S3 bucket name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
+	//
+	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
+	// The AWS account ID of the bucket owner.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucketowner
+	//
+	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
+	// The unique name of the object in the bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
+	//
+	Key *string `field:"optional" json:"key" yaml:"key"`
+}
+

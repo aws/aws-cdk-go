@@ -1,0 +1,49 @@
+package mixinsawsquicksight
+
+
+// The definition for a categorical color.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   geospatialCategoricalColorProperty := &GeospatialCategoricalColorProperty{
+//   	CategoryDataColors: []interface{}{
+//   		&GeospatialCategoricalDataColorProperty{
+//   			Color: jsii.String("color"),
+//   			DataValue: jsii.String("dataValue"),
+//   		},
+//   	},
+//   	DefaultOpacity: jsii.Number(123),
+//   	NullDataSettings: &GeospatialNullDataSettingsProperty{
+//   		SymbolStyle: &GeospatialNullSymbolStyleProperty{
+//   			FillColor: jsii.String("fillColor"),
+//   			StrokeColor: jsii.String("strokeColor"),
+//   			StrokeWidth: jsii.Number(123),
+//   		},
+//   	},
+//   	NullDataVisibility: jsii.String("nullDataVisibility"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html
+//
+type CfnDashboardPropsMixin_GeospatialCategoricalColorProperty struct {
+	// A list of categorical data colors for each category.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html#cfn-quicksight-dashboard-geospatialcategoricalcolor-categorydatacolors
+	//
+	CategoryDataColors interface{} `field:"optional" json:"categoryDataColors" yaml:"categoryDataColors"`
+	// The default opacity of a categorical color.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html#cfn-quicksight-dashboard-geospatialcategoricalcolor-defaultopacity
+	//
+	DefaultOpacity *float64 `field:"optional" json:"defaultOpacity" yaml:"defaultOpacity"`
+	// The null data visualization settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html#cfn-quicksight-dashboard-geospatialcategoricalcolor-nulldatasettings
+	//
+	NullDataSettings interface{} `field:"optional" json:"nullDataSettings" yaml:"nullDataSettings"`
+	// The state of visibility for null data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html#cfn-quicksight-dashboard-geospatialcategoricalcolor-nulldatavisibility
+	//
+	NullDataVisibility *string `field:"optional" json:"nullDataVisibility" yaml:"nullDataVisibility"`
+}
+

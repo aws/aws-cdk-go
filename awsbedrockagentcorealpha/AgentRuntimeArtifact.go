@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -82,6 +83,26 @@ func AgentRuntimeArtifact_FromEcrRepository(repository awsecr.IRepository, tag *
 		"@aws-cdk/aws-bedrock-agentcore-alpha.AgentRuntimeArtifact",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
+		&returns,
+	)
+
+	return returns
+}
+
+// Reference an agent runtime artifact that's constructed directly from an S3 object.
+// Experimental.
+func AgentRuntimeArtifact_FromS3(s3Location *awss3.Location, runtime AgentCoreRuntime, entrypoint *[]*string) AgentRuntimeArtifact {
+	_init_.Initialize()
+
+	if err := validateAgentRuntimeArtifact_FromS3Parameters(s3Location, runtime, entrypoint); err != nil {
+		panic(err)
+	}
+	var returns AgentRuntimeArtifact
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.AgentRuntimeArtifact",
+		"fromS3",
+		[]interface{}{s3Location, runtime, entrypoint},
 		&returns,
 	)
 

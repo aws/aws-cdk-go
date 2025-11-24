@@ -1,0 +1,254 @@
+package mixinsawsmediapackage
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for CfnOriginEndpointPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   cfnOriginEndpointMixinProps := &CfnOriginEndpointMixinProps{
+//   	Authorization: &AuthorizationProperty{
+//   		CdnIdentifierSecret: jsii.String("cdnIdentifierSecret"),
+//   		SecretsRoleArn: jsii.String("secretsRoleArn"),
+//   	},
+//   	ChannelId: jsii.String("channelId"),
+//   	CmafPackage: &CmafPackageProperty{
+//   		Encryption: &CmafEncryptionProperty{
+//   			ConstantInitializationVector: jsii.String("constantInitializationVector"),
+//   			EncryptionMethod: jsii.String("encryptionMethod"),
+//   			KeyRotationIntervalSeconds: jsii.Number(123),
+//   			SpekeKeyProvider: &SpekeKeyProviderProperty{
+//   				CertificateArn: jsii.String("certificateArn"),
+//   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   				},
+//   				ResourceId: jsii.String("resourceId"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				SystemIds: []*string{
+//   					jsii.String("systemIds"),
+//   				},
+//   				Url: jsii.String("url"),
+//   			},
+//   		},
+//   		HlsManifests: []interface{}{
+//   			&HlsManifestProperty{
+//   				AdMarkers: jsii.String("adMarkers"),
+//   				AdsOnDeliveryRestrictions: jsii.String("adsOnDeliveryRestrictions"),
+//   				AdTriggers: []*string{
+//   					jsii.String("adTriggers"),
+//   				},
+//   				Id: jsii.String("id"),
+//   				IncludeIframeOnlyStream: jsii.Boolean(false),
+//   				ManifestName: jsii.String("manifestName"),
+//   				PlaylistType: jsii.String("playlistType"),
+//   				PlaylistWindowSeconds: jsii.Number(123),
+//   				ProgramDateTimeIntervalSeconds: jsii.Number(123),
+//   				Url: jsii.String("url"),
+//   			},
+//   		},
+//   		SegmentDurationSeconds: jsii.Number(123),
+//   		SegmentPrefix: jsii.String("segmentPrefix"),
+//   		StreamSelection: &StreamSelectionProperty{
+//   			MaxVideoBitsPerSecond: jsii.Number(123),
+//   			MinVideoBitsPerSecond: jsii.Number(123),
+//   			StreamOrder: jsii.String("streamOrder"),
+//   		},
+//   	},
+//   	DashPackage: &DashPackageProperty{
+//   		AdsOnDeliveryRestrictions: jsii.String("adsOnDeliveryRestrictions"),
+//   		AdTriggers: []*string{
+//   			jsii.String("adTriggers"),
+//   		},
+//   		Encryption: &DashEncryptionProperty{
+//   			KeyRotationIntervalSeconds: jsii.Number(123),
+//   			SpekeKeyProvider: &SpekeKeyProviderProperty{
+//   				CertificateArn: jsii.String("certificateArn"),
+//   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   				},
+//   				ResourceId: jsii.String("resourceId"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				SystemIds: []*string{
+//   					jsii.String("systemIds"),
+//   				},
+//   				Url: jsii.String("url"),
+//   			},
+//   		},
+//   		IncludeIframeOnlyStream: jsii.Boolean(false),
+//   		ManifestLayout: jsii.String("manifestLayout"),
+//   		ManifestWindowSeconds: jsii.Number(123),
+//   		MinBufferTimeSeconds: jsii.Number(123),
+//   		MinUpdatePeriodSeconds: jsii.Number(123),
+//   		PeriodTriggers: []*string{
+//   			jsii.String("periodTriggers"),
+//   		},
+//   		Profile: jsii.String("profile"),
+//   		SegmentDurationSeconds: jsii.Number(123),
+//   		SegmentTemplateFormat: jsii.String("segmentTemplateFormat"),
+//   		StreamSelection: &StreamSelectionProperty{
+//   			MaxVideoBitsPerSecond: jsii.Number(123),
+//   			MinVideoBitsPerSecond: jsii.Number(123),
+//   			StreamOrder: jsii.String("streamOrder"),
+//   		},
+//   		SuggestedPresentationDelaySeconds: jsii.Number(123),
+//   		UtcTiming: jsii.String("utcTiming"),
+//   		UtcTimingUri: jsii.String("utcTimingUri"),
+//   	},
+//   	Description: jsii.String("description"),
+//   	HlsPackage: &HlsPackageProperty{
+//   		AdMarkers: jsii.String("adMarkers"),
+//   		AdsOnDeliveryRestrictions: jsii.String("adsOnDeliveryRestrictions"),
+//   		AdTriggers: []*string{
+//   			jsii.String("adTriggers"),
+//   		},
+//   		Encryption: &HlsEncryptionProperty{
+//   			ConstantInitializationVector: jsii.String("constantInitializationVector"),
+//   			EncryptionMethod: jsii.String("encryptionMethod"),
+//   			KeyRotationIntervalSeconds: jsii.Number(123),
+//   			RepeatExtXKey: jsii.Boolean(false),
+//   			SpekeKeyProvider: &SpekeKeyProviderProperty{
+//   				CertificateArn: jsii.String("certificateArn"),
+//   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   				},
+//   				ResourceId: jsii.String("resourceId"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				SystemIds: []*string{
+//   					jsii.String("systemIds"),
+//   				},
+//   				Url: jsii.String("url"),
+//   			},
+//   		},
+//   		IncludeDvbSubtitles: jsii.Boolean(false),
+//   		IncludeIframeOnlyStream: jsii.Boolean(false),
+//   		PlaylistType: jsii.String("playlistType"),
+//   		PlaylistWindowSeconds: jsii.Number(123),
+//   		ProgramDateTimeIntervalSeconds: jsii.Number(123),
+//   		SegmentDurationSeconds: jsii.Number(123),
+//   		StreamSelection: &StreamSelectionProperty{
+//   			MaxVideoBitsPerSecond: jsii.Number(123),
+//   			MinVideoBitsPerSecond: jsii.Number(123),
+//   			StreamOrder: jsii.String("streamOrder"),
+//   		},
+//   		UseAudioRenditionGroup: jsii.Boolean(false),
+//   	},
+//   	Id: jsii.String("id"),
+//   	ManifestName: jsii.String("manifestName"),
+//   	MssPackage: &MssPackageProperty{
+//   		Encryption: &MssEncryptionProperty{
+//   			SpekeKeyProvider: &SpekeKeyProviderProperty{
+//   				CertificateArn: jsii.String("certificateArn"),
+//   				EncryptionContractConfiguration: &EncryptionContractConfigurationProperty{
+//   					PresetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					PresetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   				},
+//   				ResourceId: jsii.String("resourceId"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				SystemIds: []*string{
+//   					jsii.String("systemIds"),
+//   				},
+//   				Url: jsii.String("url"),
+//   			},
+//   		},
+//   		ManifestWindowSeconds: jsii.Number(123),
+//   		SegmentDurationSeconds: jsii.Number(123),
+//   		StreamSelection: &StreamSelectionProperty{
+//   			MaxVideoBitsPerSecond: jsii.Number(123),
+//   			MinVideoBitsPerSecond: jsii.Number(123),
+//   			StreamOrder: jsii.String("streamOrder"),
+//   		},
+//   	},
+//   	Origination: jsii.String("origination"),
+//   	StartoverWindowSeconds: jsii.Number(123),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	TimeDelaySeconds: jsii.Number(123),
+//   	Whitelist: []*string{
+//   		jsii.String("whitelist"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
+//
+type CfnOriginEndpointMixinProps struct {
+	// Parameters for CDN authorization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
+	//
+	Authorization interface{} `field:"optional" json:"authorization" yaml:"authorization"`
+	// The ID of the channel associated with this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
+	//
+	ChannelId *string `field:"optional" json:"channelId" yaml:"channelId"`
+	// Parameters for Common Media Application Format (CMAF) packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
+	//
+	CmafPackage interface{} `field:"optional" json:"cmafPackage" yaml:"cmafPackage"`
+	// Parameters for DASH packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
+	//
+	DashPackage interface{} `field:"optional" json:"dashPackage" yaml:"dashPackage"`
+	// Any descriptive information that you want to add to the endpoint for future identification purposes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Parameters for Apple HLS packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
+	//
+	HlsPackage interface{} `field:"optional" json:"hlsPackage" yaml:"hlsPackage"`
+	// The manifest ID is required and must be unique within the OriginEndpoint.
+	//
+	// The ID can't be changed after the endpoint is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
+	//
+	Id *string `field:"optional" json:"id" yaml:"id"`
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
+	//
+	ManifestName *string `field:"optional" json:"manifestName" yaml:"manifestName"`
+	// Parameters for Microsoft Smooth Streaming packaging.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
+	//
+	MssPackage interface{} `field:"optional" json:"mssPackage" yaml:"mssPackage"`
+	// Controls video origination from this endpoint.
+	//
+	// Valid values:
+	//
+	// - `ALLOW` - enables this endpoint to serve content to requesting devices.
+	// - `DENY` - prevents this endpoint from serving content. Denying origination is helpful for harvesting live-to-VOD assets. For more information about harvesting and origination, see [Live-to-VOD Requirements](https://docs.aws.amazon.com/mediapackage/latest/ug/ltov-reqmts.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
+	//
+	Origination *string `field:"optional" json:"origination" yaml:"origination"`
+	// Maximum duration (seconds) of content to retain for startover playback.
+	//
+	// Omit this attribute or enter `0` to indicate that startover playback is disabled for this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
+	//
+	StartoverWindowSeconds *float64 `field:"optional" json:"startoverWindowSeconds" yaml:"startoverWindowSeconds"`
+	// The tags to assign to the endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Minimum duration (seconds) of delay to enforce on the playback of live content.
+	//
+	// Omit this attribute or enter `0` to indicate that there is no time delay in effect for this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
+	//
+	TimeDelaySeconds *float64 `field:"optional" json:"timeDelaySeconds" yaml:"timeDelaySeconds"`
+	// The IP addresses that can access this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+	//
+	Whitelist *[]*string `field:"optional" json:"whitelist" yaml:"whitelist"`
+}
+

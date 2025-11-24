@@ -47,6 +47,11 @@ type RuntimeProps struct {
 	//
 	// Experimental.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
+	// The life cycle configuration for the AgentCore Runtime.
+	// Default: - No lifecycle configuration.
+	//
+	// Experimental.
+	LifecycleConfiguration *LifecycleConfiguration `field:"optional" json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`
 	// Network configuration for the agent runtime.
 	// Default: - RuntimeNetworkConfiguration.usingPublicNetwork()
 	//
@@ -57,6 +62,11 @@ type RuntimeProps struct {
 	//
 	// Experimental.
 	ProtocolConfiguration ProtocolType `field:"optional" json:"protocolConfiguration" yaml:"protocolConfiguration"`
+	// Configuration for HTTP request headers that will be passed through to the runtime.
+	// Default: - No request headers configured.
+	//
+	// Experimental.
+	RequestHeaderConfiguration *RequestHeaderConfiguration `field:"optional" json:"requestHeaderConfiguration" yaml:"requestHeaderConfiguration"`
 	// Tags for the agent runtime A list of key:value pairs of tags to apply to this Runtime resource.
 	// Default: {} - no tags.
 	//

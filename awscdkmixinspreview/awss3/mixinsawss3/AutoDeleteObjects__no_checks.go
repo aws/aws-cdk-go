@@ -1,0 +1,14 @@
+//go:build no_runtime_type_checking
+
+package mixinsawss3
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (a *jsiiProxy_AutoDeleteObjects) validateApplyToParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func (a *jsiiProxy_AutoDeleteObjects) validateSupportsParameters(construct constructs.IConstruct) error {
+	return nil
+}
+

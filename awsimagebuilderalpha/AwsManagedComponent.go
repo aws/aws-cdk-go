@@ -10,18 +10,21 @@ import (
 // Helper class for working with AWS-managed components.
 //
 // Example:
-//   // Install AWS CLI v2
-//   awsCliComponent := imagebuilder.AwsManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AwsManagedComponentAttributes{
-//   	Platform: imagebuilder.Platform_LINUX,
+//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AwsManagedImageRecipe"), &ImageRecipeProps{
+//   	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+//   	Components: []ComponentConfiguration{
+//   		&ComponentConfiguration{
+//   			Component: imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
+//   				Platform: imagebuilder.Platform_LINUX,
+//   			}),
+//   		},
+//   		&ComponentConfiguration{
+//   			Component: imagebuilder.AwsManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AwsManagedComponentAttributes{
+//   				Platform: imagebuilder.Platform_LINUX,
+//   			}),
+//   		},
+//   	},
 //   })
-//
-//   // Update the operating system
-//   updateComponent := imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
-//   	Platform: imagebuilder.Platform_LINUX,
-//   })
-//
-//   // Reference any AWS-managed component by name
-//   customAwsComponent := imagebuilder.AwsManagedComponent_FromAwsManagedComponentName(this, jsii.String("CloudWatchAgent"), jsii.String("amazon-cloudwatch-agent-linux"))
 //
 // Experimental.
 type AwsManagedComponent interface {

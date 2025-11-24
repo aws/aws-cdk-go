@@ -1,0 +1,66 @@
+package mixinsawsquicksight
+
+
+// The field sort options for a pivot table sort configuration.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   pivotFieldSortOptionsProperty := &PivotFieldSortOptionsProperty{
+//   	FieldId: jsii.String("fieldId"),
+//   	SortBy: &PivotTableSortByProperty{
+//   		Column: &ColumnSortProperty{
+//   			AggregationFunction: &AggregationFunctionProperty{
+//   				AttributeAggregationFunction: &AttributeAggregationFunctionProperty{
+//   					SimpleAttributeAggregation: jsii.String("simpleAttributeAggregation"),
+//   					ValueForMultipleValues: jsii.String("valueForMultipleValues"),
+//   				},
+//   				CategoricalAggregationFunction: jsii.String("categoricalAggregationFunction"),
+//   				DateAggregationFunction: jsii.String("dateAggregationFunction"),
+//   				NumericalAggregationFunction: &NumericalAggregationFunctionProperty{
+//   					PercentileAggregation: &PercentileAggregationProperty{
+//   						PercentileValue: jsii.Number(123),
+//   					},
+//   					SimpleNumericalAggregation: jsii.String("simpleNumericalAggregation"),
+//   				},
+//   			},
+//   			Direction: jsii.String("direction"),
+//   			SortBy: &ColumnIdentifierProperty{
+//   				ColumnName: jsii.String("columnName"),
+//   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			},
+//   		},
+//   		DataPath: &DataPathSortProperty{
+//   			Direction: jsii.String("direction"),
+//   			SortPaths: []interface{}{
+//   				&DataPathValueProperty{
+//   					DataPathType: &DataPathTypeProperty{
+//   						PivotTableDataPathType: jsii.String("pivotTableDataPathType"),
+//   					},
+//   					FieldId: jsii.String("fieldId"),
+//   					FieldValue: jsii.String("fieldValue"),
+//   				},
+//   			},
+//   		},
+//   		Field: &FieldSortProperty{
+//   			Direction: jsii.String("direction"),
+//   			FieldId: jsii.String("fieldId"),
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivotfieldsortoptions.html
+//
+type CfnDashboardPropsMixin_PivotFieldSortOptionsProperty struct {
+	// The field ID for the field sort options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivotfieldsortoptions.html#cfn-quicksight-dashboard-pivotfieldsortoptions-fieldid
+	//
+	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
+	// The sort by field for the field sort options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pivotfieldsortoptions.html#cfn-quicksight-dashboard-pivotfieldsortoptions-sortby
+	//
+	SortBy interface{} `field:"optional" json:"sortBy" yaml:"sortBy"`
+}
+

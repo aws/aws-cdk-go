@@ -10,8 +10,13 @@ import (
 // A container repository used to distribute container images in EC2 Image Builder.
 //
 // Example:
-//   ecrRepository := ecr.Repository_FromRepositoryName(this, jsii.String("ECRRepository"), jsii.String("my-repo"))
-//   imageBuilderRepository := imagebuilder.Repository_FromEcr(ecrRepository)
+//   sourceRepo := ecr.Repository_FromRepositoryName(this, jsii.String("SourceRepo"), jsii.String("my-base-image"))
+//   targetRepo := ecr.Repository_FromRepositoryName(this, jsii.String("TargetRepo"), jsii.String("my-container-repo"))
+//
+//   containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("EcrContainerRecipe"), &ContainerRecipeProps{
+//   	BaseImage: imagebuilder.BaseContainerImage_FromEcr(sourceRepo, jsii.String("1.0.0")),
+//   	TargetRepository: imagebuilder.Repository_FromEcr(targetRepo),
+//   })
 //
 // Experimental.
 type Repository interface {

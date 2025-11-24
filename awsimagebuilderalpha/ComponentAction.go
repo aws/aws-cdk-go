@@ -4,7 +4,7 @@ package awsimagebuilderalpha
 // The action for a step within the component document.
 //
 // Example:
-//   component := imagebuilder.NewComponent(this, jsii.String("MyComponent"), &ComponentProps{
+//   component := imagebuilder.NewComponent(this, jsii.String("JsonComponent"), &ComponentProps{
 //   	Platform: imagebuilder.Platform_LINUX,
 //   	Data: imagebuilder.ComponentData_FromJsonObject(map[string]interface{}{
 //   		"schemaVersion": imagebuilder.ComponentSchemaVersion_V1_0,
@@ -13,13 +13,11 @@ package awsimagebuilderalpha
 //   				"name": imagebuilder.ComponentPhaseName_BUILD,
 //   				"steps": []map[string]interface{}{
 //   					map[string]interface{}{
-//   						"name": jsii.String("install-app"),
-//   						"action": imagebuilder.ComponentAction_EXECUTE_BASH,
-//   						"inputs": map[string][]*string{
-//   							"commands": []*string{
-//   								jsii.String("echo \"Installing my application...\""),
-//   								jsii.String("yum update -y"),
-//   							},
+//   						"name": jsii.String("configure-app"),
+//   						"action": imagebuilder.ComponentAction_CREATE_FILE,
+//   						"inputs": map[string]*string{
+//   							"path": jsii.String("/etc/myapp/config.json"),
+//   							"content": jsii.String("{\"env\": \"production\"}"),
 //   						},
 //   					},
 //   				},

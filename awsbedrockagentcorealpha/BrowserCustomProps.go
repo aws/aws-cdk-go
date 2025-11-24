@@ -7,20 +7,13 @@ import (
 // Properties for creating a Browser resource.
 //
 // Example:
-//   // Create a custom execution role
-//   executionRole := iam.NewRole(this, jsii.String("BrowserExecutionRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   	ManagedPolicies: []IManagedPolicy{
-//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreBrowserExecutionRolePolicy")),
-//   	},
-//   })
-//
-//   // Create browser with custom execution role
-//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
-//   	BrowserCustomName: jsii.String("my_browser"),
-//   	Description: jsii.String("Browser with custom execution role"),
-//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
-//   	ExecutionRole: executionRole,
+//   browser := agentcore.NewBrowserCustom(this, jsii.String("BrowserVpcWithRecording"), &BrowserCustomProps{
+//   	BrowserCustomName: jsii.String("browser_recording"),
+//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
+//   		Vpc: ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+//   			RestrictDefaultSecurityGroup: jsii.Boolean(false),
+//   		}),
+//   	}),
 //   })
 //
 // Experimental.
@@ -28,6 +21,14 @@ type BrowserCustomProps struct {
 	// The name of the browser Valid characters are a-z, A-Z, 0-9, _ (underscore) The name must start with a letter and can be up to 48 characters long Pattern: [a-zA-Z][a-zA-Z0-9_]{0,47}.
 	// Experimental.
 	BrowserCustomName *string `field:"required" json:"browserCustomName" yaml:"browserCustomName"`
+	// Specifies whether browser signing is enabled.
+	//
+	// When enabled, the browser will cryptographically sign
+	// HTTP requests to identify itself as an AI agent to bot control vendors.
+	// Default: - BrowserSigning.DISABLED
+	//
+	// Experimental.
+	BrowserSigning BrowserSigning `field:"optional" json:"browserSigning" yaml:"browserSigning"`
 	// Optional description for the browser Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen) and spaces The description can have up to 200 characters.
 	// Default: - No description.
 	//

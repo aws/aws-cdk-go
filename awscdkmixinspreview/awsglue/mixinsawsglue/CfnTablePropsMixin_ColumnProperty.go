@@ -1,0 +1,33 @@
+package mixinsawsglue
+
+
+// A column in a `Table` .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   columnProperty := &ColumnProperty{
+//   	Comment: jsii.String("comment"),
+//   	Name: jsii.String("name"),
+//   	Type: jsii.String("type"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html
+//
+type CfnTablePropsMixin_ColumnProperty struct {
+	// A free-form text comment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment
+	//
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// The name of the `Column` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The data type of the `Column` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
+}
+

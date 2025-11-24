@@ -1,0 +1,22 @@
+//go:build no_runtime_type_checking
+
+package mixinsawscloudfront
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (c *jsiiProxy_CfnRealtimeLogConfigPropsMixin) validateApplyToParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRealtimeLogConfigPropsMixin) validateSupportsParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCfnRealtimeLogConfigPropsMixin_IsMixinParameters(x interface{}) error {
+	return nil
+}
+
+func validateNewCfnRealtimeLogConfigPropsMixinParameters(props *CfnRealtimeLogConfigMixinProps, options *mixins.CfnPropertyMixinOptions) error {
+	return nil
+}
+

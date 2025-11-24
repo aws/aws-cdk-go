@@ -89,6 +89,7 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
 
       * [Option 1: Use an existing image in ECR](#option-1-use-an-existing-image-in-ecr)
       * [Option 2: Use a local asset](#option-2-use-a-local-asset)
+      * [Option 3: Use direct code deployment](#option-3-use-direct-code-deployment)
     * [Granting Permissions to Invoke Bedrock Models or Inference Profiles](#granting-permissions-to-invoke-bedrock-models-or-inference-profiles)
     * [Runtime Versioning](#runtime-versioning)
 
@@ -181,6 +182,8 @@ to production by simply updating the endpoint to point to the newer version.
 | `authorizerConfiguration` | `RuntimeAuthorizerConfiguration` | No | Authorizer configuration for the agent runtime. Use `RuntimeAuthorizerConfiguration` static methods to create configurations for IAM, Cognito, JWT, or OAuth authentication |
 | `environmentVariables` | `{ [key: string]: string }` | No | Environment variables for the agent runtime. Maximum 50 environment variables |
 | `tags` | `{ [key: string]: string }` | No | Tags for the agent runtime. A list of key:value pairs of tags to apply to this Runtime resource |
+| `lifecycleConfiguration` | LifecycleConfiguration | No | The life cycle configuration for the AgentCore Runtime. Defaults to 900 seconds (15 minutes) for idle, 28800 seconds (8 hours) for max life time |
+| `requestHeaderConfiguration` | RequestHeaderConfiguration | No | Configuration for HTTP request headers that will be passed through to the runtime. Defaults to no configuration |
 
 ### Runtime Endpoint Properties
 
@@ -223,6 +226,39 @@ by the CDK toolkit,and can be naturally referenced in your CDK app.
 agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromAsset(path.join(__dirname, jsii.String("path to agent dockerfile directory")))
 
 runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
+#### Option 3: Use direct code deployment
+
+With the container deployment method, developers create a Dockerfile, build ARM-compatible containers, manage ECR repositories, and upload containers for code changes. This works well where container DevOps pipelines have already been established to automate deployments.
+
+However, customers looking for fully managed deployments can benefit from direct code deployment, which can significantly improve developer time and productivity. Direct code deployment provides a secure and scalable path forward for rapid prototyping agent capabilities to deploying production workloads at scale.
+
+With direct code deployment, developers create a zip archive of code and dependencies, upload to Amazon S3, and configure the bucket in the agent configuration. A ZIP archive containing Linux arm64 dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime.
+
+For more information, please refer to the [documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-code-deploy.html).
+
+```go
+// S3 bucket containing the agent core
+codeBucket := s3.NewBucket(this, jsii.String("AgentCode"), &BucketProps{
+	BucketName: jsii.String("my-code-bucket"),
+	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+})
+
+// the bucket above needs to contain the agent code
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromS3(&Location{
+	BucketName: codeBucket.BucketName,
+	ObjectKey: jsii.String("deployment_package.zip"),
+}, agentcore.AgentCoreRuntime_PYTHON_3_12, []*string{
+	jsii.String("opentelemetry-instrument"),
+	jsii.String("main.py"),
+})
+
+runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 	RuntimeName: jsii.String("myAgent"),
 	AgentRuntimeArtifact: agentRuntimeArtifact,
 })
@@ -566,6 +602,60 @@ runtime.connections.AllowTo(databaseSecurityGroup, ec2.Port_Tcp(jsii.Number(5432
 runtime.connections.AllowToAnyIpv4(ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow HTTPS outbound"))
 ```
 
+### Other configuration
+
+#### Lifecycle configuration
+
+The LifecycleConfiguration input parameter to CreateAgentRuntime lets you manage the lifecycle of runtime sessions and resources in Amazon Bedrock AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.
+
+You can configure:
+
+* idleRuntimeSessionTimeout: Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will trigger termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 900 seconds (15 minutes)
+* maxLifetime: Maximum lifetime for the instance in seconds. Once reached, instances will initialize termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 28800 seconds (8 hours)
+
+For additional information, please refer to the [documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-lifecycle-settings.html).
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+	RuntimeName: jsii.String("test_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	LifecycleConfiguration: &LifecycleConfiguration{
+		IdleRuntimeSessionTimeout: awscdk.Duration_Minutes(jsii.Number(10)),
+		MaxLifetime: awscdk.Duration_Hours(jsii.Number(4)),
+	},
+})
+```
+
+#### Request header configuration
+
+Custom headers let you pass contextual information from your application directly to your agent code without cluttering the main request payload. This includes authentication tokens like JWT (JSON Web Tokens, which contain user identity and authorization claims) through the Authorization header, allowing your agent to make decisions based on who is calling it. You can also pass custom metadata like user preferences, session identifiers, or trace context using headers prefixed with X-Amzn-Bedrock-AgentCore-Runtime-Custom-, giving your agent access to up to 20 pieces of runtime context that travel alongside each request. This information can be also used in downstream systems like AgentCore Memory that you can namespace based on those characteristics like user_id or aud in claims like line of business.
+
+For additional information, please refer to the [documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-header-allowlist.html).
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+	RuntimeName: jsii.String("test_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	RequestHeaderConfiguration: &RequestHeaderConfiguration{
+		AllowlistedHeaders: []*string{
+			jsii.String("X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1"),
+		},
+	},
+})
+```
+
 ## Browser
 
 The Amazon Bedrock AgentCore Browser provides a secure, cloud-based browser that enables AI agents to interact with websites. It includes security features such as session isolation, built-in observability through live viewing, CloudTrail logging, and session replay capabilities.
@@ -605,6 +695,7 @@ For more information on VPC connectivity for Amazon Bedrock AgentCore Browser, p
 | `recordingConfig` | `RecordingConfig` | No | Recording configuration for browser. Defaults to no recording |
 | `executionRole` | `iam.IRole` | No | The IAM role that provides permissions for the browser to access AWS services. A new role will be created if not provided |
 | `tags` | `{ [key: string]: string }` | No | Tags to apply to the browser resource |
+| `browserSigning` | BrowserSigning | No | Browser signing configuration. Defaults to DISABLED |
 
 ### Basic Browser Creation
 
@@ -729,6 +820,21 @@ browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCu
 			ObjectKey: jsii.String("browser-recordings/"),
 		},
 	},
+})
+```
+
+### Browser with Browser signing
+
+AI agents need to browse the web on your behalf. When your agent visits a website to gather information, complete a form, or verify data, it encounters the same defenses designed to stop unwanted bots: CAPTCHAs, rate limits, and outright blocks.
+
+Amazon Bedrock AgentCore Browser supports Web Bot Auth. Web Bot Auth is a draft IETF protocol that gives agents verifiable cryptographic identities. When you enable Web Bot Auth in AgentCore Browser, the service issues cryptographic credentials that websites can verify. The agent presents these credentials with every request. The WAF may now additionally check the signature, confirm it matches a trusted directory, and allow the request through if verified bots are allowed by the domain owner and other WAF checks are clear.
+
+To enable the browser to sign requests using the Web Bot Auth protocol, create a browser tool with the browserSigning configuration:
+
+```go
+browser := agentcore.NewBrowserCustom(this, jsii.String("test-browser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("test_browser"),
+	BrowserSigning: agentcore.BrowserSigning_ENABLED,
 })
 ```
 

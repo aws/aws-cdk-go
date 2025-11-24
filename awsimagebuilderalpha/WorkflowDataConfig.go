@@ -1,0 +1,32 @@
+package awsimagebuilderalpha
+
+
+// The rendered workflow data value, for use in CloudFormation.
+//
+// - For inline workflows, data is the workflow text
+// - For S3-backed workflows, uri is the S3 URL.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import imagebuilder_alpha "github.com/aws/aws-cdk-go/awsimagebuilderalpha"
+//
+//   workflowDataConfig := &WorkflowDataConfig{
+//   	Data: jsii.String("data"),
+//   	Uri: jsii.String("uri"),
+//   }
+//
+// Experimental.
+type WorkflowDataConfig struct {
+	// The rendered workflow data, for use in CloudFormation.
+	// Default: - none if uri is set.
+	//
+	// Experimental.
+	Data *string `field:"optional" json:"data" yaml:"data"`
+	// The rendered workflow data URI, for use in CloudFormation.
+	// Default: - none if data is set.
+	//
+	// Experimental.
+	Uri *string `field:"optional" json:"uri" yaml:"uri"`
+}
+

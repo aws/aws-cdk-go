@@ -6,11 +6,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface which all VirtualNode based classes must implement.
 type IVirtualNode interface {
 	awscdk.IResource
+	interfacesawsappmesh.IVirtualNodeRef
 	// Grants the given entity `appmesh:StreamAggregatedResources`.
 	GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant
 	// The Mesh which the VirtualNode belongs to.
@@ -28,6 +32,7 @@ type IVirtualNode interface {
 // The jsii proxy for IVirtualNode
 type jsiiProxy_IVirtualNode struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawsappmeshIVirtualNodeRef
 }
 
 func (i *jsiiProxy_IVirtualNode) GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant {
@@ -44,6 +49,17 @@ func (i *jsiiProxy_IVirtualNode) GrantStreamAggregatedResources(identity awsiam.
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IVirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IVirtualNode) Mesh() IMesh {
@@ -71,6 +87,46 @@ func (j *jsiiProxy_IVirtualNode) VirtualNodeName() *string {
 	_jsii_.Get(
 		j,
 		"virtualNodeName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVirtualNode) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVirtualNode) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVirtualNode) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVirtualNode) VirtualNodeRef() *interfacesawsappmesh.VirtualNodeReference {
+	var returns *interfacesawsappmesh.VirtualNodeReference
+	_jsii_.Get(
+		j,
+		"virtualNodeRef",
 		&returns,
 	)
 	return returns

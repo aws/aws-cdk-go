@@ -8,3 +8,7 @@ func (i *jsiiProxy_IHostedZone) validateGrantDelegationParameters(grantee awsiam
 	return nil
 }
 
+func (i *jsiiProxy_IHostedZone) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+
