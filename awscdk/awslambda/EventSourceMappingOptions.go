@@ -47,6 +47,7 @@ import (
 //   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
 //   		MaximumPollers: jsii.Number(123),
 //   		MinimumPollers: jsii.Number(123),
+//   		PollerGroupName: jsii.String("pollerGroupName"),
 //   	},
 //   	ReportBatchItemFailures: jsii.Boolean(false),
 //   	RetryAttempts: jsii.Number(123),

@@ -12,31 +12,26 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // The secret that allows access to your self hosted Kafka cluster
-//   var secret Secret
-//
+//   // With provisioned pollers and poller group for cost optimization
 //   var myFunction Function
+//   var kafkaCredentials ISecret
 //
-//
-//   // The list of Kafka brokers
-//   bootstrapServers := []*string{
-//   	"kafka-broker:9092",
-//   }
-//
-//   // The Kafka topic you want to subscribe to
-//   topic := "some-cool-topic"
-//
-//   // (Optional) The consumer group id to use when connecting to the Kafka broker. If omitted the UUID of the event source mapping will be used.
-//   consumerGroupId := "my-consumer-group-id"
 //   myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafkaEventSourceProps{
-//   	BootstrapServers: bootstrapServers,
-//   	Topic: topic,
-//   	ConsumerGroupId: consumerGroupId,
-//   	Secret: secret,
-//   	BatchSize: jsii.Number(100),
-//   	 // default
-//   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+//   	BootstrapServers: []*string{
+//   		jsii.String("kafka-broker1.example.com:9092"),
+//   		jsii.String("kafka-broker2.example.com:9092"),
+//   	},
+//   	Topic: jsii.String("events-topic"),
+//   	Secret: kafkaCredentials,
+//   	StartingPosition: awscdk.StartingPosition_LATEST,
+//   	AuthenticationMethod: awscdk.AuthenticationMethod_SASL_SCRAM_512_AUTH,
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+//   		MinimumPollers: jsii.Number(1),
+//   		MaximumPollers: jsii.Number(8),
+//   		PollerGroupName: jsii.String("self-managed-kafka-group"),
+//   	},
 //   }))
 //
 type SelfManagedKafkaEventSource interface {

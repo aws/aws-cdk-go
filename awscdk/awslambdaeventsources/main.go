@@ -85,6 +85,18 @@ func init() {
 		"aws-cdk-lib.aws_lambda_event_sources.GlueSchemaRegistryProps",
 		reflect.TypeOf((*GlueSchemaRegistryProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda_event_sources.KafkaDlq",
+		reflect.TypeOf((*KafkaDlq)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_KafkaDlq{}
+			_jsii_.InitJsiiProxy(&j.Type__awslambdaIEventSourceDlq)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda_event_sources.KafkaEventSourceProps",
 		reflect.TypeOf((*KafkaEventSourceProps)(nil)).Elem(),

@@ -309,6 +309,10 @@ You can write Lambda functions to process data either from [Amazon MSK](https://
 * **maxBatchingWindow**: The maximum amount of time to gather records before invoking the lambda. This increases the likelihood of a full batch at the cost of possibly delaying processing.
 * **onFailure**: In the event a record fails and consumes all retries, the record will be sent to SQS queue or SNS topic that is specified here
 * **enabled**: If the Kafka event source mapping should be enabled. The default is true.
+* **bisectBatchOnError**: If a batch encounters an error, this will cause the batch to be split in two and have each new smaller batch retried, allowing the records in error to be isolated. Available in provisioned mode only.
+* **reportBatchItemFailures**: Allow functions to return partially successful responses for a batch of records. Available in provisioned mode only.
+* **retryAttempts**: The maximum number of times a record should be retried in the event of failure. Available in provisioned mode only.
+* **maxRecordAge**: The maximum age of a record that will be sent to the function for processing. Records that exceed the max age will be treated as failures. Available in provisioned mode only.
 
 The following code sets up Amazon MSK as an event source for a lambda function. Credentials will need to be configured to access the
 MSK cluster, as described in [Username/Password authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html).
@@ -327,7 +331,6 @@ clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd12
 topic := "some-cool-topic"
 
 // The secret that allows access to your MSK cluster
-// You still have to make sure that it is associated with your cluster as described in the documentation
 secret := awscdk.NewSecret(this, jsii.String("Secret"), &SecretProps{
 	SecretName: jsii.String("AmazonMSK_KafkaSecret"),
 })
@@ -338,6 +341,14 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 	BatchSize: jsii.Number(100),
 	 // default
 	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	BisectBatchOnError: jsii.Boolean(true),
+	ReportBatchItemFailures: jsii.Boolean(true),
+	RetryAttempts: jsii.Number(3),
+	MaxRecordAge: awscdk.Duration_Hours(jsii.Number(24)),
+	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+		MinimumPollers: jsii.Number(1),
+		MaximumPollers: jsii.Number(3),
+	},
 }))
 ```
 
@@ -372,6 +383,14 @@ myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafk
 	BatchSize: jsii.Number(100),
 	 // default
 	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	BisectBatchOnError: jsii.Boolean(true),
+	ReportBatchItemFailures: jsii.Boolean(true),
+	RetryAttempts: jsii.Number(3),
+	MaxRecordAge: awscdk.Duration_Hours(jsii.Number(24)),
+	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+		MinimumPollers: jsii.Number(1),
+		MaximumPollers: jsii.Number(3),
+	},
 }))
 ```
 
@@ -433,6 +452,68 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 }))
 ```
 
+### Failure Destinations
+
+You can specify failure destinations for records that fail processing. Kafka event sources support Kafka Topic Destinations, S3 Bucket Destinations, SQS Queue and SNS topic:
+
+#### Kafka Topic Destination
+
+For Kafka event sources, you can send failed records to another Kafka topic using `KafkaDlq`:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var myFunction Function
+
+
+// Your MSK cluster arn
+clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
+
+// The Kafka topic you want to subscribe to
+topic := "some-cool-topic"
+
+// Create a Kafka DLQ destination
+kafkaDlq := awscdk.NewKafkaDlq(jsii.String("failure-topic"))
+
+myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
+	ClusterArn: jsii.String(ClusterArn),
+	Topic: jsii.String(Topic),
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	OnFailure: kafkaDlq,
+	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+		MinimumPollers: jsii.Number(1),
+		MaximumPollers: jsii.Number(1),
+	},
+}))
+```
+
+The same approach works with self-managed Kafka:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var myFunction Function
+
+
+bootstrapServers := []*string{
+	"kafka-broker:9092",
+}
+topic := "some-cool-topic"
+
+myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafkaEventSourceProps{
+	BootstrapServers: BootstrapServers,
+	Topic: jsii.String(Topic),
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	OnFailure: awscdk.NewKafkaDlq(jsii.String("error-topic")),
+	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+		MinimumPollers: jsii.Number(1),
+		MaximumPollers: jsii.Number(1),
+	},
+}))
+```
+
+#### S3 Bucket Destination
+
 You can also specify an S3 bucket as an "on failure" destination:
 
 ```go
@@ -479,6 +560,28 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 	ProvisionedPollerConfig: &ProvisionedPollerConfig{
 		MinimumPollers: jsii.Number(1),
 		MaximumPollers: jsii.Number(3),
+	},
+}))
+```
+
+You can reduce costs by sharing provisioned pollers across multiple Kafka event sources using the `pollerGroupName` property. This is particularly useful when you have multiple Kafka topics that don't require dedicated polling capacity.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var clusterArn string
+var ordersFunction Function
+
+
+// Orders processing function
+ordersFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
+	ClusterArn: jsii.String(ClusterArn),
+	Topic: jsii.String("orders-topic"),
+	StartingPosition: lambda.StartingPosition_LATEST,
+	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+		MinimumPollers: jsii.Number(2),
+		MaximumPollers: jsii.Number(10),
+		PollerGroupName: jsii.String("shared-kafka-pollers"),
 	},
 }))
 ```

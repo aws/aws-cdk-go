@@ -13,27 +13,18 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   // With provisioned pollers and poller group for cost optimization
 //   var myFunction Function
 //
-//
-//   // Your MSK cluster arn
-//   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
-//
-//   // The Kafka topic you want to subscribe to
-//   topic := "some-cool-topic"
-//
-//   // The secret that allows access to your MSK cluster
-//   // You still have to make sure that it is associated with your cluster as described in the documentation
-//   secret := awscdk.NewSecret(this, jsii.String("Secret"), &SecretProps{
-//   	SecretName: jsii.String("AmazonMSK_KafkaSecret"),
-//   })
 //   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
-//   	ClusterArn: jsii.String(ClusterArn),
-//   	Topic: topic,
-//   	Secret: secret,
-//   	BatchSize: jsii.Number(100),
-//   	 // default
-//   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+//   	ClusterArn: jsii.String("arn:aws:kafka:us-east-1:123456789012:cluster/my-cluster/abcd1234-abcd-cafe-abab-9876543210ab-4"),
+//   	Topic: jsii.String("orders-topic"),
+//   	StartingPosition: awscdk.StartingPosition_LATEST,
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+//   		MinimumPollers: jsii.Number(2),
+//   		MaximumPollers: jsii.Number(10),
+//   		PollerGroupName: jsii.String("shared-kafka-pollers"),
+//   	},
 //   }))
 //
 type ManagedKafkaEventSource interface {

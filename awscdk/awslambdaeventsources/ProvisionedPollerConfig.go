@@ -5,39 +5,28 @@ package awslambdaeventsources
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   // Your MSK cluster arn
-//   var clusterArn string
 //
 //   var myFunction Function
 //
 //
+//   // Your MSK cluster arn
+//   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
+//
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
 //
-//   // Your Glue Schema Registry
-//   glueRegistry := awscdk.NewCfnRegistry(this, jsii.String("Registry"), &CfnRegistryProps{
-//   	Name: jsii.String("schema-registry"),
-//   	Description: jsii.String("Schema registry for event source"),
-//   })
+//   // Create a Kafka DLQ destination
+//   kafkaDlq := awscdk.NewKafkaDlq(jsii.String("failure-topic"))
+//
 //   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
 //   	ClusterArn: jsii.String(ClusterArn),
 //   	Topic: jsii.String(Topic),
 //   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+//   	OnFailure: kafkaDlq,
 //   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
 //   		MinimumPollers: jsii.Number(1),
-//   		MaximumPollers: jsii.Number(3),
+//   		MaximumPollers: jsii.Number(1),
 //   	},
-//   	SchemaRegistryConfig: awscdk.NewGlueSchemaRegistry(&GlueSchemaRegistryProps{
-//   		SchemaRegistry: glueRegistry,
-//   		EventRecordFormat: lambda.EventRecordFormat_JSON(),
-//   		SchemaValidationConfigs: []KafkaSchemaValidationConfig{
-//   			&KafkaSchemaValidationConfig{
-//   				Attribute: lambda.KafkaSchemaValidationAttribute_KEY(),
-//   			},
-//   		},
-//   	}),
 //   }))
 //
 type ProvisionedPollerConfig struct {
@@ -49,5 +38,12 @@ type ProvisionedPollerConfig struct {
 	// Default: 1.
 	//
 	MinimumPollers *float64 `field:"required" json:"minimumPollers" yaml:"minimumPollers"`
+	// An optional identifier that groups multiple ESMs to share EPU capacity and reduce costs.
+	//
+	// ESMs with the same PollerGroupName share compute
+	// resources.
+	// Default: - not set, dedicated compute resource per event source.
+	//
+	PollerGroupName *string `field:"optional" json:"pollerGroupName" yaml:"pollerGroupName"`
 }
 

@@ -12,7 +12,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -30,6 +30,7 @@ import (
 //
 //   	// the properties below are optional
 //   	BatchSize: jsii.Number(123),
+//   	BisectBatchOnError: jsii.Boolean(false),
 //   	ConsumerGroupId: jsii.String("consumerGroupId"),
 //   	Enabled: jsii.Boolean(false),
 //   	FilterEncryption: key,
@@ -39,11 +40,17 @@ import (
 //   		},
 //   	},
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
+//   	MaxRecordAge: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	OnFailure: eventSourceDlq,
 //   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
 //   		MaximumPollers: jsii.Number(123),
 //   		MinimumPollers: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		PollerGroupName: jsii.String("pollerGroupName"),
 //   	},
+//   	ReportBatchItemFailures: jsii.Boolean(false),
+//   	RetryAttempts: jsii.Number(123),
 //   	SchemaRegistryConfig: schemaRegistry,
 //   	Secret: secret,
 //   	StartingPositionTimestamp: jsii.Number(123),
@@ -86,6 +93,10 @@ type KafkaEventSourceProps struct {
 	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
 	// The Kafka topic to subscribe to.
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
+	// * If the function returns an error, split the batch in two and retry.
+	// Default: false.
+	//
+	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// The identifier for the Kafka consumer group to join.
 	//
 	// The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value.  The value must have a length between 1 and 200 and full the pattern '[a-zA-Z0-9-\/*:_+=.@-]*'.
@@ -106,12 +117,34 @@ type KafkaEventSourceProps struct {
 	// Default: - none.
 	//
 	Filters *[]*map[string]interface{} `field:"optional" json:"filters" yaml:"filters"`
+	// The maximum age of a record that Lambda sends to a function for processing.
+	//
+	// The default value is -1, which sets the maximum age to infinite.
+	// When the value is set to infinite, Lambda never discards old records.
+	// Record are valid until it expires in the event source.
+	// Default: -1.
+	//
+	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// Add an on Failure Destination for this Kafka event.
 	//
-	// SNS/SQS/S3 are supported.
+	// Supported destinations:
+	// - {@link KafkaDlq } - Send failed records to a Kafka topic
+	// - SNS topics - Send failed records to an SNS topic
+	// - SQS queues - Send failed records to an SQS queue
+	// - S3 buckets - Send failed records to an S3 bucket.
 	// Default: - discarded records are ignored.
 	//
 	OnFailure awslambda.IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
+	// * Allow functions to return partially successful responses for a batch of records.
+	// Default: false.
+	//
+	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
+	// * Maximum number of retry attempts.
+	//
+	// Set to -1 for infinite retries (until the record expires in the event source).
+	// Default: -1 (infinite retries).
+	//
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific configuration settings for a Kafka schema registry.
 	// Default: - none.
 	//

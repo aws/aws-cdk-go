@@ -15,31 +15,26 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // The secret that allows access to your self hosted Kafka cluster
-//   var secret Secret
-//
+//   // With provisioned pollers and poller group for cost optimization
 //   var myFunction Function
+//   var kafkaCredentials ISecret
 //
-//
-//   // The list of Kafka brokers
-//   bootstrapServers := []*string{
-//   	"kafka-broker:9092",
-//   }
-//
-//   // The Kafka topic you want to subscribe to
-//   topic := "some-cool-topic"
-//
-//   // (Optional) The consumer group id to use when connecting to the Kafka broker. If omitted the UUID of the event source mapping will be used.
-//   consumerGroupId := "my-consumer-group-id"
 //   myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafkaEventSourceProps{
-//   	BootstrapServers: bootstrapServers,
-//   	Topic: topic,
-//   	ConsumerGroupId: consumerGroupId,
-//   	Secret: secret,
-//   	BatchSize: jsii.Number(100),
-//   	 // default
-//   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+//   	BootstrapServers: []*string{
+//   		jsii.String("kafka-broker1.example.com:9092"),
+//   		jsii.String("kafka-broker2.example.com:9092"),
+//   	},
+//   	Topic: jsii.String("events-topic"),
+//   	Secret: kafkaCredentials,
+//   	StartingPosition: awscdk.StartingPosition_LATEST,
+//   	AuthenticationMethod: awscdk.AuthenticationMethod_SASL_SCRAM_512_AUTH,
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+//   		MinimumPollers: jsii.Number(1),
+//   		MaximumPollers: jsii.Number(8),
+//   		PollerGroupName: jsii.String("self-managed-kafka-group"),
+//   	},
 //   }))
 //
 type SelfManagedKafkaEventSourceProps struct {
@@ -79,6 +74,10 @@ type SelfManagedKafkaEventSourceProps struct {
 	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
 	// The Kafka topic to subscribe to.
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
+	// * If the function returns an error, split the batch in two and retry.
+	// Default: false.
+	//
+	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// The identifier for the Kafka consumer group to join.
 	//
 	// The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value.  The value must have a length between 1 and 200 and full the pattern '[a-zA-Z0-9-\/*:_+=.@-]*'.
@@ -99,12 +98,34 @@ type SelfManagedKafkaEventSourceProps struct {
 	// Default: - none.
 	//
 	Filters *[]*map[string]interface{} `field:"optional" json:"filters" yaml:"filters"`
+	// The maximum age of a record that Lambda sends to a function for processing.
+	//
+	// The default value is -1, which sets the maximum age to infinite.
+	// When the value is set to infinite, Lambda never discards old records.
+	// Record are valid until it expires in the event source.
+	// Default: -1.
+	//
+	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// Add an on Failure Destination for this Kafka event.
 	//
-	// SNS/SQS/S3 are supported.
+	// Supported destinations:
+	// - {@link KafkaDlq } - Send failed records to a Kafka topic
+	// - SNS topics - Send failed records to an SNS topic
+	// - SQS queues - Send failed records to an SQS queue
+	// - S3 buckets - Send failed records to an S3 bucket.
 	// Default: - discarded records are ignored.
 	//
 	OnFailure awslambda.IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
+	// * Allow functions to return partially successful responses for a batch of records.
+	// Default: false.
+	//
+	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
+	// * Maximum number of retry attempts.
+	//
+	// Set to -1 for infinite retries (until the record expires in the event source).
+	// Default: -1 (infinite retries).
+	//
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific configuration settings for a Kafka schema registry.
 	// Default: - none.
 	//

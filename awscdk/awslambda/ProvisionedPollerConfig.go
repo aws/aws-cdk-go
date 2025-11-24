@@ -11,6 +11,7 @@ package awslambda
 //   provisionedPollerConfig := &ProvisionedPollerConfig{
 //   	MaximumPollers: jsii.Number(123),
 //   	MinimumPollers: jsii.Number(123),
+//   	PollerGroupName: jsii.String("pollerGroupName"),
 //   }
 //
 type ProvisionedPollerConfig struct {
@@ -22,5 +23,12 @@ type ProvisionedPollerConfig struct {
 	// Default: - 1.
 	//
 	MinimumPollers *float64 `field:"optional" json:"minimumPollers" yaml:"minimumPollers"`
+	// An optional identifier that groups multiple ESMs to share EPU capacity and reduce costs.
+	//
+	// ESMs with the same PollerGroupName share compute
+	// resources.
+	// Default: - not set, dedicated compute resource per event source.
+	//
+	PollerGroupName *string `field:"optional" json:"pollerGroupName" yaml:"pollerGroupName"`
 }
 

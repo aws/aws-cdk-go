@@ -4,30 +4,21 @@ package awslambda
 // The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 //
 // Example:
+//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myFunction Function
+//   var table Table
+//
+//   var fn Function
 //
 //
-//   // Your MSK cluster arn
-//   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
-//
-//   // The Kafka topic you want to subscribe to
-//   topic := "some-cool-topic"
-//
-//   // Your self managed KMS key
-//   myKey := awscdk.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>"))
-//   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
-//   	ClusterArn: jsii.String(ClusterArn),
-//   	Topic: jsii.String(Topic),
+//   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
+//   fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
 //   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
-//   	Filters: []map[string]interface{}{
-//   		lambda.FilterCriteria_Filter(map[string]interface{}{
-//   			"stringEquals": lambda.FilterRule_isEqual(jsii.String("test")),
-//   		}),
-//   	},
-//   	FilterEncryption: myKey,
+//   	BatchSize: jsii.Number(5),
+//   	BisectBatchOnError: jsii.Boolean(true),
+//   	OnFailure: awscdk.NewSqsDlq(deadLetterQueue),
+//   	RetryAttempts: jsii.Number(10),
 //   }))
 //
 type StartingPosition string
