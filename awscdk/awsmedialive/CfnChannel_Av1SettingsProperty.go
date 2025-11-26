@@ -38,6 +38,8 @@ package awsmedialive
 //   	QvbrQualityLevel: jsii.Number(123),
 //   	RateControlMode: jsii.String("rateControlMode"),
 //   	SceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   	SpatialAq: jsii.String("spatialAq"),
+//   	TemporalAq: jsii.String("temporalAq"),
 //   	TimecodeBurninSettings: &TimecodeBurninSettingsProperty{
 //   		FontSize: jsii.String("fontSize"),
 //   		Position: jsii.String("position"),
@@ -105,6 +107,12 @@ type CfnChannel_Av1SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-scenechangedetect
 	//
 	SceneChangeDetect *string `field:"optional" json:"sceneChangeDetect" yaml:"sceneChangeDetect"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-spatialaq
+	//
+	SpatialAq *string `field:"optional" json:"spatialAq" yaml:"spatialAq"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-temporalaq
+	//
+	TemporalAq *string `field:"optional" json:"temporalAq" yaml:"temporalAq"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-timecodeburninsettings
 	//
 	TimecodeBurninSettings interface{} `field:"optional" json:"timecodeBurninSettings" yaml:"timecodeBurninSettings"`

@@ -50,6 +50,7 @@ package awsconnectcampaignsv2
 //   				AwaitAnswerMachinePrompt: jsii.Boolean(false),
 //   			},
 //   			ConnectSourcePhoneNumber: jsii.String("connectSourcePhoneNumber"),
+//   			RingTimeout: jsii.Number(123),
 //   		},
 //   		OutboundMode: &TelephonyOutboundModeProperty{
 //   			AgentlessConfig: agentlessConfig,

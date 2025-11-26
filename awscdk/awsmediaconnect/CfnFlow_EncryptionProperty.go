@@ -1,7 +1,7 @@
 package awsmediaconnect
 
 
-// Information about the encryption of the flow.
+// Encryption information.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -13,6 +13,11 @@ package awss3
 //   bucketEncryptionProperty := &BucketEncryptionProperty{
 //   	ServerSideEncryptionConfiguration: []interface{}{
 //   		&ServerSideEncryptionRuleProperty{
+//   			BlockedEncryptionTypes: &BlockedEncryptionTypesProperty{
+//   				EncryptionType: []*string{
+//   					jsii.String("encryptionType"),
+//   				},
+//   			},
 //   			BucketKeyEnabled: jsii.Boolean(false),
 //   			ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
 //   				SseAlgorithm: jsii.String("sseAlgorithm"),

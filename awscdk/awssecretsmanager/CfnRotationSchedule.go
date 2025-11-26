@@ -37,6 +37,13 @@ import (
 //   	SecretId: jsii.String("secretId"),
 //
 //   	// the properties below are optional
+//   	ExternalSecretRotationMetadata: []interface{}{
+//   		&ExternalSecretRotationMetadataItemProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ExternalSecretRotationRoleArn: jsii.String("externalSecretRotationRoleArn"),
 //   	HostedRotationLambda: &HostedRotationLambdaProperty{
 //   		RotationType: jsii.String("rotationType"),
 //
@@ -79,6 +86,12 @@ type CfnRotationSchedule interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// The list of metadata needed to successfully rotate a managed external secret.
+	ExternalSecretRotationMetadata() interface{}
+	SetExternalSecretRotationMetadata(val interface{})
+	// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+	ExternalSecretRotationRoleArn() *string
+	SetExternalSecretRotationRoleArn(val *string)
 	// Creates a new Lambda rotation function based on one of the [Secrets Manager rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) . To use a rotation function that already exists, specify `RotationLambdaARN` instead.
 	HostedRotationLambda() interface{}
 	SetHostedRotationLambda(val interface{})
@@ -326,6 +339,26 @@ func (j *jsiiProxy_CfnRotationSchedule) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRotationSchedule) ExternalSecretRotationMetadata() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"externalSecretRotationMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRotationSchedule) ExternalSecretRotationRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"externalSecretRotationRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRotationSchedule) HostedRotationLambda() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -473,6 +506,25 @@ func NewCfnRotationSchedule_Override(c CfnRotationSchedule, scope constructs.Con
 		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnRotationSchedule)SetExternalSecretRotationMetadata(val interface{}) {
+	if err := j.validateSetExternalSecretRotationMetadataParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"externalSecretRotationMetadata",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRotationSchedule)SetExternalSecretRotationRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"externalSecretRotationRoleArn",
+		val,
 	)
 }
 

@@ -1218,6 +1218,36 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayMeteringPolicyEntryRef",
+		reflect.TypeOf((*ITransitGatewayMeteringPolicyEntryRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMeteringPolicyEntryRef", GoGetter: "TransitGatewayMeteringPolicyEntryRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITransitGatewayMeteringPolicyEntryRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayMeteringPolicyRef",
+		reflect.TypeOf((*ITransitGatewayMeteringPolicyRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMeteringPolicyRef", GoGetter: "TransitGatewayMeteringPolicyRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITransitGatewayMeteringPolicyRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayMulticastDomainAssociationRef",
 		reflect.TypeOf((*ITransitGatewayMulticastDomainAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1437,6 +1467,21 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCDHCPOptionsAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IVPCEncryptionControlRef",
+		reflect.TypeOf((*IVPCEncryptionControlRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEncryptionControlRef", GoGetter: "VpcEncryptionControlRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IVPCEncryptionControlRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -1909,6 +1954,14 @@ func init() {
 		reflect.TypeOf((*TransitGatewayConnectReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayMeteringPolicyEntryReference",
+		reflect.TypeOf((*TransitGatewayMeteringPolicyEntryReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayMeteringPolicyReference",
+		reflect.TypeOf((*TransitGatewayMeteringPolicyReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayMulticastDomainAssociationReference",
 		reflect.TypeOf((*TransitGatewayMulticastDomainAssociationReference)(nil)).Elem(),
 	)
@@ -1967,6 +2020,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.VPCDHCPOptionsAssociationReference",
 		reflect.TypeOf((*VPCDHCPOptionsAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.VPCEncryptionControlReference",
+		reflect.TypeOf((*VPCEncryptionControlReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.VPCEndpointConnectionNotificationReference",

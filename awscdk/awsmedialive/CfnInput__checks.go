@@ -424,6 +424,30 @@ func (j *jsiiProxy_CfnInput) validateSetMulticastSettingsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnInput) validateSetRouterSettingsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnInput_RouterSettingsProperty:
+		val := val.(*CfnInput_RouterSettingsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnInput_RouterSettingsProperty:
+		val_ := val.(CfnInput_RouterSettingsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInput_RouterSettingsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnInput) validateSetSmpte2110ReceiverGroupSettingsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

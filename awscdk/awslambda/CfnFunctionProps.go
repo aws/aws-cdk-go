@@ -245,6 +245,9 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The function's tenant isolation configuration settings.
+	//
+	// Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tenancyconfig
 	//
 	TenancyConfig interface{} `field:"optional" json:"tenancyConfig" yaml:"tenancyConfig"`

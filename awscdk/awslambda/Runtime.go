@@ -14,26 +14,24 @@ import (
 // can instantiate a `Runtime` object, e.g: `new Runtime('nodejs99.99')`.
 //
 // Example:
-//   // Create or reference an existing L1 CfnApplicationInferenceProfile
-//   cfnProfile := awscdk.Aws_bedrock.NewCfnApplicationInferenceProfile(this, jsii.String("CfnProfile"), &CfnApplicationInferenceProfileProps{
-//   	InferenceProfileName: jsii.String("my-cfn-profile"),
-//   	ModelSource: &InferenceProfileModelSourceProperty{
-//   		CopyFrom: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0().InvokableArn,
-//   	},
-//   	Description: jsii.String("Profile created via L1 construct"),
-//   })
-//
-//   // Import the L1 construct as an L2 ApplicationInferenceProfile
-//   importedFromCfn := bedrock.ApplicationInferenceProfile_FromCfnApplicationInferenceProfile(cfnProfile)
-//
-//   // Grant permissions to use the imported profile
-//   lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_11(),
+//   myFunctionHandler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+//   	Code: lambda.Code_FromAsset(jsii.String("resource/myfunction")),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("def handler(event, context): return \"Hello\"")),
 //   })
 //
-//   importedFromCfn.GrantProfileUsage(lambdaFunction)
+//   eventRule := cloudtrail.Trail_OnEvent(this, jsii.String("MyCloudWatchEvent"), &OnEventOptions{
+//   	Target: targets.NewLambdaFunction(myFunctionHandler),
+//   })
+//
+//   eventRule.AddEventPattern(&EventPattern{
+//   	Account: []*string{
+//   		jsii.String("123456789012"),
+//   	},
+//   	Source: []*string{
+//   		jsii.String("aws.s3"),
+//   	},
+//   })
 //
 type Runtime interface {
 	// The bundling Docker image for this runtime.

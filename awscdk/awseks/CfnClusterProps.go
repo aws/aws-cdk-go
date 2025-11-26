@@ -42,6 +42,9 @@ import (
 //   		},
 //   		NodeRoleArn: jsii.String("nodeRoleArn"),
 //   	},
+//   	ControlPlaneScalingConfig: &ControlPlaneScalingConfigProperty{
+//   		Tier: jsii.String("tier"),
+//   	},
 //   	DeletionProtection: jsii.Boolean(false),
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
@@ -154,6 +157,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-computeconfig
 	//
 	ComputeConfig interface{} `field:"optional" json:"computeConfig" yaml:"computeConfig"`
+	// Configuration for provisioned control plane scaling.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-controlplanescalingconfig
+	//
+	ControlPlaneScalingConfig interface{} `field:"optional" json:"controlPlaneScalingConfig" yaml:"controlPlaneScalingConfig"`
 	// The current deletion protection setting for the cluster.
 	//
 	// When `true` , deletion protection is enabled and the cluster cannot be deleted until protection is disabled. When `false` , the cluster can be deleted normally. This setting only applies to clusters in an active state.

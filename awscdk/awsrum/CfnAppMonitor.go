@@ -84,6 +84,7 @@ import (
 //   	DomainList: []*string{
 //   		jsii.String("domainList"),
 //   	},
+//   	Platform: jsii.String("platform"),
 //   	ResourcePolicy: &ResourcePolicyProperty{
 //   		PolicyDocument: jsii.String("policyDocument"),
 //
@@ -154,6 +155,8 @@ type CfnAppMonitor interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	Platform() *string
+	SetPlatform(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -479,6 +482,16 @@ func (j *jsiiProxy_CfnAppMonitor) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAppMonitor) Platform() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"platform",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAppMonitor) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -646,6 +659,14 @@ func (j *jsiiProxy_CfnAppMonitor)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppMonitor)SetPlatform(val *string) {
+	_jsii_.Set(
+		j,
+		"platform",
 		val,
 	)
 }

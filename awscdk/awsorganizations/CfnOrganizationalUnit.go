@@ -19,7 +19,7 @@ import (
 //
 // If the request includes tags, then the requester must have the `organizations:TagResource` permission.
 //
-// This operation can be called only from the organization's management account.
+// You can only call this operation from the management account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

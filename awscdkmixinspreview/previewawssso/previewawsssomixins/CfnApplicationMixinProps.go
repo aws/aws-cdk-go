@@ -1,0 +1,67 @@
+package previewawsssomixins
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for CfnApplicationPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   cfnApplicationMixinProps := &CfnApplicationMixinProps{
+//   	ApplicationProviderArn: jsii.String("applicationProviderArn"),
+//   	Description: jsii.String("description"),
+//   	InstanceArn: jsii.String("instanceArn"),
+//   	Name: jsii.String("name"),
+//   	PortalOptions: &PortalOptionsConfigurationProperty{
+//   		SignInOptions: &SignInOptionsProperty{
+//   			ApplicationUrl: jsii.String("applicationUrl"),
+//   			Origin: jsii.String("origin"),
+//   		},
+//   		Visibility: jsii.String("visibility"),
+//   	},
+//   	Status: jsii.String("status"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html
+//
+type CfnApplicationMixinProps struct {
+	// The ARN of the application provider for this application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html#cfn-sso-application-applicationproviderarn
+	//
+	ApplicationProviderArn *string `field:"optional" json:"applicationProviderArn" yaml:"applicationProviderArn"`
+	// The description of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html#cfn-sso-application-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The ARN of the instance of IAM Identity Center that is configured with this application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html#cfn-sso-application-instancearn
+	//
+	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	// The name of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html#cfn-sso-application-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// A structure that describes the options for the access portal associated with this application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html#cfn-sso-application-portaloptions
+	//
+	PortalOptions interface{} `field:"optional" json:"portalOptions" yaml:"portalOptions"`
+	// The current status of the application in this instance of IAM Identity Center.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html#cfn-sso-application-status
+	//
+	Status *string `field:"optional" json:"status" yaml:"status"`
+	// Specifies tags to be attached to the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html#cfn-sso-application-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+}
+

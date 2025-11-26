@@ -17,6 +17,9 @@ running on AWS Lambda, or any web application.
   * [AWS Lambda-backed APIs](#aws-lambda-backed-apis)
   * [AWS StepFunctions backed APIs](#aws-stepfunctions-backed-apis)
   * [Integration Targets](#integration-targets)
+
+    * [Response Streaming](#response-streaming)
+    * [Lambda Integration Permissions](#lambda-integration-permissions)
   * [Usage Plan & API Keys](#usage-plan--api-keys)
 
     * [Adding an API Key to an imported RestApi](#adding-an-api-key-to-an-imported-restapi)
@@ -506,6 +509,21 @@ getMessageIntegration := apigateway.NewAwsIntegration(&AwsIntegrationProps{
 	Service: jsii.String("sqs"),
 	Path: jsii.String("queueName"),
 	Region: jsii.String("eu-west-1"),
+})
+```
+
+### Response Streaming
+
+Integrations support response streaming, which allows responses to be streamed back to clients.
+This is useful for large payloads or when you want to start sending data before the entire response is ready.
+
+To enable response streaming, set `ResponseTransferMode.STREAM` to the `responseTransferMode` option:
+
+```go
+var handler Function
+
+apigateway.NewLambdaIntegration(handler, &LambdaIntegrationOptions{
+	ResponseTransferMode: apigateway.ResponseTransferMode_STREAM,
 })
 ```
 

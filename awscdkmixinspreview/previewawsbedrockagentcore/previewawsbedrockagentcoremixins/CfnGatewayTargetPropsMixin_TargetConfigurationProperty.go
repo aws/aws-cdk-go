@@ -1,0 +1,80 @@
+package previewawsbedrockagentcoremixins
+
+
+// The target configuration.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var schemaDefinitionProperty_ SchemaDefinitionProperty
+//
+//   targetConfigurationProperty := &TargetConfigurationProperty{
+//   	Mcp: &McpTargetConfigurationProperty{
+//   		Lambda: &McpLambdaTargetConfigurationProperty{
+//   			LambdaArn: jsii.String("lambdaArn"),
+//   			ToolSchema: &ToolSchemaProperty{
+//   				InlinePayload: []interface{}{
+//   					&ToolDefinitionProperty{
+//   						Description: jsii.String("description"),
+//   						InputSchema: &SchemaDefinitionProperty{
+//   							Description: jsii.String("description"),
+//   							Items: schemaDefinitionProperty_,
+//   							Properties: map[string]interface{}{
+//   								"propertiesKey": schemaDefinitionProperty_,
+//   							},
+//   							Required: []*string{
+//   								jsii.String("required"),
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   						Name: jsii.String("name"),
+//   						OutputSchema: &SchemaDefinitionProperty{
+//   							Description: jsii.String("description"),
+//   							Items: schemaDefinitionProperty_,
+//   							Properties: map[string]interface{}{
+//   								"propertiesKey": schemaDefinitionProperty_,
+//   							},
+//   							Required: []*string{
+//   								jsii.String("required"),
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   				S3: &S3ConfigurationProperty{
+//   					BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   					Uri: jsii.String("uri"),
+//   				},
+//   			},
+//   		},
+//   		McpServer: &McpServerTargetConfigurationProperty{
+//   			Endpoint: jsii.String("endpoint"),
+//   		},
+//   		OpenApiSchema: &ApiSchemaConfigurationProperty{
+//   			InlinePayload: jsii.String("inlinePayload"),
+//   			S3: &S3ConfigurationProperty{
+//   				BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   				Uri: jsii.String("uri"),
+//   			},
+//   		},
+//   		SmithyModel: &ApiSchemaConfigurationProperty{
+//   			InlinePayload: jsii.String("inlinePayload"),
+//   			S3: &S3ConfigurationProperty{
+//   				BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   				Uri: jsii.String("uri"),
+//   			},
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html
+//
+type CfnGatewayTargetPropsMixin_TargetConfigurationProperty struct {
+	// The target configuration definition for MCP.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-targetconfiguration-mcp
+	//
+	Mcp interface{} `field:"optional" json:"mcp" yaml:"mcp"`
+}
+

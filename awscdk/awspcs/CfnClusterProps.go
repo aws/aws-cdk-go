@@ -37,12 +37,21 @@ package awspcs
 //   			SecretArn: jsii.String("secretArn"),
 //   			SecretVersion: jsii.String("secretVersion"),
 //   		},
+//   		JwtAuth: &JwtAuthProperty{
+//   			JwtKey: &JwtKeyProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   				SecretVersion: jsii.String("secretVersion"),
+//   			},
+//   		},
 //   		ScaleDownIdleTimeInSeconds: jsii.Number(123),
 //   		SlurmCustomSettings: []interface{}{
 //   			&SlurmCustomSettingProperty{
 //   				ParameterName: jsii.String("parameterName"),
 //   				ParameterValue: jsii.String("parameterValue"),
 //   			},
+//   		},
+//   		SlurmRest: &SlurmRestProperty{
+//   			Mode: jsii.String("mode"),
 //   		},
 //   	},
 //   	Tags: map[string]*string{

@@ -1,0 +1,50 @@
+package previewawsssmincidentsmixins
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for CfnReplicationSetPropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   cfnReplicationSetMixinProps := &CfnReplicationSetMixinProps{
+//   	DeletionProtected: jsii.Boolean(false),
+//   	Regions: []interface{}{
+//   		&ReplicationRegionProperty{
+//   			RegionConfiguration: &RegionConfigurationProperty{
+//   				SseKmsKeyId: jsii.String("sseKmsKeyId"),
+//   			},
+//   			RegionName: jsii.String("regionName"),
+//   		},
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html
+//
+type CfnReplicationSetMixinProps struct {
+	// Determines if the replication set deletion protection is enabled or not.
+	//
+	// If deletion protection is enabled, you can't delete the last Region in the replication set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
+	//
+	DeletionProtected interface{} `field:"optional" json:"deletionProtected" yaml:"deletionProtected"`
+	// Specifies the Regions of the replication set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
+	//
+	Regions interface{} `field:"optional" json:"regions" yaml:"regions"`
+	// A list of tags to add to the replication set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+}
+

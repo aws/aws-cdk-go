@@ -11,6 +11,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var onDemand interface{}
+//   var spot interface{}
+//
 //   cfnClusterProps := &CfnClusterProps{
 //   	AutoScaling: &ClusterAutoScalingConfigProperty{
 //   		Mode: jsii.String("mode"),
@@ -32,6 +35,10 @@ import (
 //   			},
 //
 //   			// the properties below are optional
+//   			CapacityRequirements: &ClusterCapacityRequirementsProperty{
+//   				OnDemand: onDemand,
+//   				Spot: spot,
+//   			},
 //   			CurrentCount: jsii.Number(123),
 //   			ImageId: jsii.String("imageId"),
 //   			InstanceStorageConfigs: []interface{}{
@@ -40,6 +47,20 @@ import (
 //   						RootVolume: jsii.Boolean(false),
 //   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			KubernetesConfig: &ClusterKubernetesConfigProperty{
+//   				Labels: map[string]*string{
+//   					"labelsKey": jsii.String("labels"),
+//   				},
+//   				Taints: []interface{}{
+//   					&ClusterKubernetesTaintProperty{
+//   						Effect: jsii.String("effect"),
+//   						Key: jsii.String("key"),
+//
+//   						// the properties below are optional
+//   						Value: jsii.String("value"),
 //   					},
 //   				},
 //   			},

@@ -1,0 +1,154 @@
+package previewawsarcregionswitchmixins
+
+import (
+	"reflect"
+
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+)
+
+func init() {
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanMixinProps",
+		reflect.TypeOf((*CfnPlanMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin",
+		reflect.TypeOf((*CfnPlanPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPlanPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ArcRoutingControlConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_ArcRoutingControlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ArcRoutingControlStateProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_ArcRoutingControlStateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.AsgProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_AsgProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.AssociatedAlarmProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_AssociatedAlarmProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.CustomActionLambdaConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_CustomActionLambdaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.Ec2AsgCapacityIncreaseConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_Ec2AsgCapacityIncreaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.Ec2UngracefulProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_Ec2UngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.EcsCapacityIncreaseConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_EcsCapacityIncreaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.EcsUngracefulProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_EcsUngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.EksClusterProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_EksClusterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.EksResourceScalingConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_EksResourceScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.EksResourceScalingUngracefulProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_EksResourceScalingUngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ExecutionApprovalConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_ExecutionApprovalConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ExecutionBlockConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_ExecutionBlockConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.GlobalAuroraConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_GlobalAuroraConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.GlobalAuroraUngracefulProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_GlobalAuroraUngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.HealthCheckStateProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_HealthCheckStateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.KubernetesResourceTypeProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_KubernetesResourceTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.KubernetesScalingResourceProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_KubernetesScalingResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.LambdaUngracefulProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_LambdaUngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.LambdasProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_LambdasProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ParallelExecutionBlockConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_ParallelExecutionBlockConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.RegionSwitchPlanConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_RegionSwitchPlanConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.Route53HealthCheckConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_Route53HealthCheckConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.Route53HealthChecksProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_Route53HealthChecksProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.Route53ResourceRecordSetProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_Route53ResourceRecordSetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ServiceProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_ServiceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.StepProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_StepProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.TriggerConditionProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_TriggerConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.TriggerProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_TriggerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.WorkflowProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_WorkflowProperty)(nil)).Elem(),
+	)
+}

@@ -28,6 +28,18 @@ import (
 //
 //   cfnNatGateway := awscdk.Aws_ec2.NewCfnNatGateway(this, jsii.String("MyCfnNatGateway"), &CfnNatGatewayProps{
 //   	AllocationId: jsii.String("allocationId"),
+//   	AvailabilityMode: jsii.String("availabilityMode"),
+//   	AvailabilityZoneAddresses: []interface{}{
+//   		&AvailabilityZoneAddressProperty{
+//   			AllocationIds: []*string{
+//   				jsii.String("allocationIds"),
+//   			},
+//
+//   			// the properties below are optional
+//   			AvailabilityZone: jsii.String("availabilityZone"),
+//   			AvailabilityZoneId: jsii.String("availabilityZoneId"),
+//   		},
+//   	},
 //   	ConnectivityType: jsii.String("connectivityType"),
 //   	MaxDrainDurationSeconds: jsii.Number(123),
 //   	PrivateIpAddress: jsii.String("privateIpAddress"),
@@ -58,10 +70,17 @@ type CfnNatGateway interface {
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
 	AllocationId() *string
 	SetAllocationId(val *string)
+	AttrAutoProvisionZones() *string
+	AttrAutoScalingIps() *string
 	// The ID of the network interface.
 	AttrEniId() *string
 	// The ID of the NAT gateway.
 	AttrNatGatewayId() *string
+	AttrRouteTableId() *string
+	AvailabilityMode() *string
+	SetAvailabilityMode(val *string)
+	AvailabilityZoneAddresses() interface{}
+	SetAvailabilityZoneAddresses(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -282,6 +301,26 @@ func (j *jsiiProxy_CfnNatGateway) AllocationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNatGateway) AttrAutoProvisionZones() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAutoProvisionZones",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) AttrAutoScalingIps() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAutoScalingIps",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNatGateway) AttrEniId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -297,6 +336,36 @@ func (j *jsiiProxy_CfnNatGateway) AttrNatGatewayId() *string {
 	_jsii_.Get(
 		j,
 		"attrNatGatewayId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) AttrRouteTableId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRouteTableId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) AvailabilityMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"availabilityMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) AvailabilityZoneAddresses() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"availabilityZoneAddresses",
 		&returns,
 	)
 	return returns
@@ -556,6 +625,25 @@ func (j *jsiiProxy_CfnNatGateway)SetAllocationId(val *string) {
 	_jsii_.Set(
 		j,
 		"allocationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNatGateway)SetAvailabilityMode(val *string) {
+	_jsii_.Set(
+		j,
+		"availabilityMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNatGateway)SetAvailabilityZoneAddresses(val interface{}) {
+	if err := j.validateSetAvailabilityZoneAddressesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"availabilityZoneAddresses",
 		val,
 	)
 }

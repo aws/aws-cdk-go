@@ -294,6 +294,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "advancedEventSelectors", GoGetter: "AdvancedEventSelectors"},
+			_jsii_.MemberProperty{JsiiProperty: "aggregationConfigurations", GoGetter: "AggregationConfigurations"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSnsTopicArn", GoGetter: "AttrSnsTopicArn"},
@@ -354,6 +355,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudtrail.CfnTrail.AdvancedFieldSelectorProperty",
 		reflect.TypeOf((*CfnTrail_AdvancedFieldSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail.AggregationConfigurationProperty",
+		reflect.TypeOf((*CfnTrail_AggregationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudtrail.CfnTrail.DataResourceProperty",

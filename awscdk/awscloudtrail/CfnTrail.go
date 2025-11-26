@@ -55,6 +55,14 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	AggregationConfigurations: []interface{}{
+//   		&AggregationConfigurationProperty{
+//   			EventCategory: jsii.String("eventCategory"),
+//   			Templates: []*string{
+//   				jsii.String("templates"),
+//   			},
+//   		},
+//   	},
 //   	CloudWatchLogsLogGroupArn: jsii.String("cloudWatchLogsLogGroupArn"),
 //   	CloudWatchLogsRoleArn: jsii.String("cloudWatchLogsRoleArn"),
 //   	EnableLogFileValidation: jsii.Boolean(false),
@@ -110,6 +118,9 @@ type CfnTrail interface {
 	// Specifies the settings for advanced event selectors.
 	AdvancedEventSelectors() interface{}
 	SetAdvancedEventSelectors(val interface{})
+	// Specifies the aggregation configuration to aggregate CloudTrail Events.
+	AggregationConfigurations() interface{}
+	SetAggregationConfigurations(val interface{})
 	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
 	AttrArn() *string
 	// `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
@@ -351,6 +362,16 @@ func (j *jsiiProxy_CfnTrail) AdvancedEventSelectors() interface{} {
 	_jsii_.Get(
 		j,
 		"advancedEventSelectors",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrail) AggregationConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"aggregationConfigurations",
 		&returns,
 	)
 	return returns
@@ -693,6 +714,17 @@ func (j *jsiiProxy_CfnTrail)SetAdvancedEventSelectors(val interface{}) {
 	_jsii_.Set(
 		j,
 		"advancedEventSelectors",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrail)SetAggregationConfigurations(val interface{}) {
+	if err := j.validateSetAggregationConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"aggregationConfigurations",
 		val,
 	)
 }

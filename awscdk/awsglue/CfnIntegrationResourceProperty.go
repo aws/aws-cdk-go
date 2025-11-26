@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Glue::IntegrationResourceProperty.
+// The `AWS::Glue::IntegrationResourceProperty` resource type can be used to setup `ResourceProperty` of the AWS Glue connection (for the SaaS source), DynamoDB Database (for DynamoDB source), or AWS Glue database ARN (for the target).
+//
+// ResourceProperty is used to define the properties requires to setup the integration, including the role to access the connection or database, KMS keys, event bus for event notifications and VPC connection. To set both source and target properties the same API needs to be invoked twice, once with the AWS Glue connection ARN as ResourceArn with SourceProcessingProperties and next, with the AWS Glue database ARN as ResourceArn with TargetProcessingProperties respectively.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -94,7 +96,7 @@ type CfnIntegrationResourceProperty interface {
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The resource properties associated with the integration target.
+	// The structure used to define the resource properties associated with the integration target.
 	TargetProcessingProperties() interface{}
 	SetTargetProcessingProperties(val interface{})
 	// Deprecated.

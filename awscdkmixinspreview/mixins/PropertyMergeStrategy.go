@@ -16,7 +16,7 @@ package mixins
 //   	Strategy: awscdkmixinspreview.PropertyMergeStrategy_MERGE,
 //   }))
 //
-//   // OVERWRITE: Replaces existing property values
+//   // OVERRIDE: Replaces existing property values
 //   awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
 //   	VersioningConfiguration: &VersioningConfigurationProperty{
 //   		Status: jsii.String("Enabled"),

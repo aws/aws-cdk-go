@@ -1,0 +1,25 @@
+package previewawselasticsearchmixins
+
+
+// Specifies whether node-to-node encryption is enabled.
+//
+// > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   nodeToNodeEncryptionOptionsProperty := &NodeToNodeEncryptionOptionsProperty{
+//   	Enabled: jsii.Boolean(false),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html
+//
+type CfnDomainPropsMixin_NodeToNodeEncryptionOptionsProperty struct {
+	// Specifies whether node-to-node encryption is enabled, as a Boolean.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html#cfn-elasticsearch-domain-nodetonodeencryptionoptions-enabled
+	//
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+}
+

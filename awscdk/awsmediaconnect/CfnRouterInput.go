@@ -193,21 +193,25 @@ type CfnRouterInput interface {
 	awscdk.IInspectable
 	interfacesawsmediaconnect.IRouterInputRef
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the router input.
 	AttrArn() *string
 	// The timestamp when the router input was created.
 	AttrCreatedAt() *string
 	// The unique identifier of the router input.
 	AttrId() *string
+	// The type of the router input.
 	AttrInputType() *string
 	// The IP address of the router input.
 	AttrIpAddress() *string
+	// The type of maintenance configuration applied to this router input.
 	AttrMaintenanceType() *string
 	// The number of router outputs associated with the router input.
 	AttrRoutedOutputs() *float64
+	// The current state of the router input.
 	AttrState() *string
 	// The timestamp when the router input was last updated.
 	AttrUpdatedAt() *string
-	// The Availability Zone where you want to create the router input.
+	// The Availability Zone of the router input.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -235,7 +239,7 @@ type CfnRouterInput interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+	// The maintenance configuration settings applied to this router input.
 	MaintenanceConfiguration() interface{}
 	SetMaintenanceConfiguration(val interface{})
 	// The maximum bitrate for the router input.
@@ -251,11 +255,12 @@ type CfnRouterInput interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The AWS Region for the router input.
+	// The AWS Region where the router input is located.
 	RegionName() *string
 	SetRegionName(val *string)
 	// A reference to a RouterInput resource.
 	RouterInputRef() *interfacesawsmediaconnect.RouterInputReference
+	// Indicates whether the router input is configured for Regional or global routing.
 	RoutingScope() *string
 	SetRoutingScope(val *string)
 	// The stack in which this element is defined.
@@ -265,9 +270,10 @@ type CfnRouterInput interface {
 	// Key-value pairs that can be used to tag and organize this router input.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The tier level of the router input.
 	Tier() *string
 	SetTier(val *string)
-	// Information about the encryption of the flow.
+	// Encryption information.
 	TransitEncryption() interface{}
 	SetTransitEncryption(val interface{})
 	// Deprecated.

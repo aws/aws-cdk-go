@@ -11,6 +11,7 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var colorSpacePassthroughSettings interface{}
+//   var hlg2020Settings interface{}
 //   var rec601Settings interface{}
 //   var rec709Settings interface{}
 //
@@ -44,6 +45,8 @@ package awsmedialive
 //   			QvbrQualityLevel: jsii.Number(123),
 //   			RateControlMode: jsii.String("rateControlMode"),
 //   			SceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   			SpatialAq: jsii.String("spatialAq"),
+//   			TemporalAq: jsii.String("temporalAq"),
 //   			TimecodeBurninSettings: &TimecodeBurninSettingsProperty{
 //   				FontSize: jsii.String("fontSize"),
 //   				Position: jsii.String("position"),
@@ -141,6 +144,7 @@ package awsmedialive
 //   					MaxCll: jsii.Number(123),
 //   					MaxFall: jsii.Number(123),
 //   				},
+//   				Hlg2020Settings: hlg2020Settings,
 //   				Rec601Settings: &Rec601SettingsProperty{
 //   				},
 //   				Rec709Settings: &Rec709SettingsProperty{

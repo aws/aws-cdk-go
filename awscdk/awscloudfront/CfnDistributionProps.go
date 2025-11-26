@@ -153,6 +153,9 @@ import (
 //   			jsii.String("cnamEs"),
 //   		},
 //   		Comment: jsii.String("comment"),
+//   		ConnectionFunctionAssociation: &ConnectionFunctionAssociationProperty{
+//   			Id: jsii.String("id"),
+//   		},
 //   		ConnectionMode: jsii.String("connectionMode"),
 //   		ContinuousDeploymentPolicyId: jsii.String("continuousDeploymentPolicyId"),
 //   		CustomErrorResponses: []interface{}{
@@ -301,6 +304,16 @@ import (
 //   			IamCertificateId: jsii.String("iamCertificateId"),
 //   			MinimumProtocolVersion: jsii.String("minimumProtocolVersion"),
 //   			SslSupportMethod: jsii.String("sslSupportMethod"),
+//   		},
+//   		ViewerMtlsConfig: &ViewerMtlsConfigProperty{
+//   			Mode: jsii.String("mode"),
+//   			TrustStoreConfig: &TrustStoreConfigProperty{
+//   				TrustStoreId: jsii.String("trustStoreId"),
+//
+//   				// the properties below are optional
+//   				AdvertiseTrustStoreCaNames: jsii.Boolean(false),
+//   				IgnoreCertificateExpiry: jsii.Boolean(false),
+//   			},
 //   		},
 //   		WebAclId: jsii.String("webAclId"),
 //   	},

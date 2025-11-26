@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnTable) validateSetTagsRawParameters(val *[]*awscdk.CfnTag)
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetWarmThroughputParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnTableParameters(scope constructs.Construct, id *string, props *CfnTableProps) error {
 	return nil
 }

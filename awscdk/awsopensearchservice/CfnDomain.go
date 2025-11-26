@@ -185,6 +185,7 @@ type CfnDomain interface {
 	// Specifies options for fine-grained access control and SAML authentication.
 	AdvancedSecurityOptions() interface{}
 	SetAdvancedSecurityOptions(val interface{})
+	// Container for parameters required to enable all machine learning features.
 	AimlOptions() interface{}
 	SetAimlOptions(val interface{})
 	// Date and time when the migration period will be disabled.

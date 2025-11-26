@@ -50,9 +50,7 @@ type CfnRouterNetworkInterfaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routernetworkinterface.html#cfn-mediaconnect-routernetworkinterface-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The AWS Region for the router network interface.
-	//
-	// Defaults to the current region if not specified.
+	// The AWS Region where the router network interface is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routernetworkinterface.html#cfn-mediaconnect-routernetworkinterface-regionname
 	//
 	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`

@@ -30,11 +30,19 @@ type CfnAnomalyMonitorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitorname
 	//
 	MonitorName *string `field:"required" json:"monitorName" yaml:"monitorName"`
-	// The possible type values.
+	// The type of the monitor.
+	//
+	// Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+	//
+	// Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+	//
+	// For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitortype
 	//
 	MonitorType *string `field:"required" json:"monitorType" yaml:"monitorType"`
-	// The dimensions to evaluate.
+	// For customer managed monitors, do not specify this field.
+	//
+	// For AWS managed monitors, this field controls which cost dimension is automatically analyzed by the monitor. For `TAG` and `COST_CATEGORY` dimensions, you must also specify MonitorSpecification to configure the specific tag or cost category key to analyze.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#cfn-ce-anomalymonitor-monitordimension
 	//
 	MonitorDimension *string `field:"optional" json:"monitorDimension" yaml:"monitorDimension"`

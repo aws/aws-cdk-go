@@ -48,6 +48,14 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	AggregationConfigurations: []interface{}{
+//   		&AggregationConfigurationProperty{
+//   			EventCategory: jsii.String("eventCategory"),
+//   			Templates: []*string{
+//   				jsii.String("templates"),
+//   			},
+//   		},
+//   	},
 //   	CloudWatchLogsLogGroupArn: jsii.String("cloudWatchLogsLogGroupArn"),
 //   	CloudWatchLogsRoleArn: jsii.String("cloudWatchLogsRoleArn"),
 //   	EnableLogFileValidation: jsii.Boolean(false),
@@ -114,6 +122,12 @@ type CfnTrailProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-advancedeventselectors
 	//
 	AdvancedEventSelectors interface{} `field:"optional" json:"advancedEventSelectors" yaml:"advancedEventSelectors"`
+	// Specifies the aggregation configuration to aggregate CloudTrail Events.
+	//
+	// A maximum of 1 aggregation configuration is allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-aggregationconfigurations
+	//
+	AggregationConfigurations interface{} `field:"optional" json:"aggregationConfigurations" yaml:"aggregationConfigurations"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs are delivered.
 	//
 	// You must use a log group that exists in your account.

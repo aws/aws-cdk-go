@@ -502,6 +502,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.CfnBucket",
 		reflect.TypeOf((*CfnBucket)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "abacStatus", GoGetter: "AbacStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "accelerateConfiguration", GoGetter: "AccelerateConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "accessControl", GoGetter: "AccessControl"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -594,6 +595,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_AnalyticsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.CfnBucket.BlockedEncryptionTypesProperty",
+		reflect.TypeOf((*CfnBucket_BlockedEncryptionTypesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty",

@@ -94,6 +94,7 @@ type CfnTransitGateway interface {
 	// Enable or disable DNS support.
 	DnsSupport() *string
 	SetDnsSupport(val *string)
+	// Enable or disable encryption support.
 	EncryptionSupport() *string
 	SetEncryptionSupport(val *string)
 	Env() *interfaces.ResourceEnvironment

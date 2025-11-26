@@ -1,0 +1,22 @@
+//go:build no_runtime_type_checking
+
+package previewawssecretsmanagermixins
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (c *jsiiProxy_CfnSecretTargetAttachmentPropsMixin) validateApplyToParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSecretTargetAttachmentPropsMixin) validateSupportsParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCfnSecretTargetAttachmentPropsMixin_IsMixinParameters(x interface{}) error {
+	return nil
+}
+
+func validateNewCfnSecretTargetAttachmentPropsMixinParameters(props *CfnSecretTargetAttachmentMixinProps, options *mixins.CfnPropertyMixinOptions) error {
+	return nil
+}
+

@@ -44,6 +44,7 @@ package awsapigateway
 //   		RequestTemplates: map[string]*string{
 //   			"requestTemplatesKey": jsii.String("requestTemplates"),
 //   		},
+//   		ResponseTransferMode: awscdk.*Aws_apigateway.ResponseTransferMode_BUFFERED,
 //   		Timeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   		VpcLink: vpcLink,
 //   	},

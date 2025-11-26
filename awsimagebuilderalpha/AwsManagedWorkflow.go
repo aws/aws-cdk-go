@@ -10,16 +10,20 @@ import (
 // Helper class for working with AWS-managed workflows.
 //
 // Example:
-//   // Build workflows
-//   buildImageWorkflow := imagebuilder.AwsManagedWorkflow_BuildImage(this, jsii.String("BuildImage"))
-//   buildContainerWorkflow := imagebuilder.AwsManagedWorkflow_BuildContainer(this, jsii.String("BuildContainer"))
-//
-//   // Test workflows
-//   testImageWorkflow := imagebuilder.AwsManagedWorkflow_TestImage(this, jsii.String("TestImage"))
-//   testContainerWorkflow := imagebuilder.AwsManagedWorkflow_TestContainer(this, jsii.String("TestContainer"))
-//
-//   // Distribution workflows
-//   distributeContainerWorkflow := imagebuilder.AwsManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer"))
+//   containerWorkflowPipeline := imagebuilder.NewImagePipeline(this, jsii.String("ContainerWorkflowPipeline"), &ImagePipelineProps{
+//   	Recipe: exampleContainerRecipe,
+//   	Workflows: []WorkflowConfiguration{
+//   		&WorkflowConfiguration{
+//   			Workflow: imagebuilder.AwsManagedWorkflow_BuildContainer(this, jsii.String("BuildContainer")),
+//   		},
+//   		&WorkflowConfiguration{
+//   			Workflow: imagebuilder.AwsManagedWorkflow_TestContainer(this, jsii.String("TestContainer")),
+//   		},
+//   		&WorkflowConfiguration{
+//   			Workflow: imagebuilder.AwsManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer")),
+//   		},
+//   	},
+//   })
 //
 // Experimental.
 type AwsManagedWorkflow interface {

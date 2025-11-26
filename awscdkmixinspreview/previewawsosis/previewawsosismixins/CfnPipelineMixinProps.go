@@ -1,0 +1,107 @@
+package previewawsosismixins
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for CfnPipelinePropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var policy interface{}
+//
+//   cfnPipelineMixinProps := &CfnPipelineMixinProps{
+//   	BufferOptions: &BufferOptionsProperty{
+//   		PersistentBufferEnabled: jsii.Boolean(false),
+//   	},
+//   	EncryptionAtRestOptions: &EncryptionAtRestOptionsProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
+//   	LogPublishingOptions: &LogPublishingOptionsProperty{
+//   		CloudWatchLogDestination: &CloudWatchLogDestinationProperty{
+//   			LogGroup: jsii.String("logGroup"),
+//   		},
+//   		IsLoggingEnabled: jsii.Boolean(false),
+//   	},
+//   	MaxUnits: jsii.Number(123),
+//   	MinUnits: jsii.Number(123),
+//   	PipelineConfigurationBody: jsii.String("pipelineConfigurationBody"),
+//   	PipelineName: jsii.String("pipelineName"),
+//   	PipelineRoleArn: jsii.String("pipelineRoleArn"),
+//   	ResourcePolicy: &ResourcePolicyProperty{
+//   		Policy: policy,
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VpcOptions: &VpcOptionsProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		SubnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   		VpcAttachmentOptions: &VpcAttachmentOptionsProperty{
+//   			AttachToVpc: jsii.Boolean(false),
+//   			CidrBlock: jsii.String("cidrBlock"),
+//   		},
+//   		VpcEndpointManagement: jsii.String("vpcEndpointManagement"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html
+//
+type CfnPipelineMixinProps struct {
+	// Options that specify the configuration of a persistent buffer.
+	//
+	// To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-bufferoptions
+	//
+	BufferOptions interface{} `field:"optional" json:"bufferOptions" yaml:"bufferOptions"`
+	// Options to control how OpenSearch encrypts buffer data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-encryptionatrestoptions
+	//
+	EncryptionAtRestOptions interface{} `field:"optional" json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`
+	// Key-value pairs that represent log publishing settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-logpublishingoptions
+	//
+	LogPublishingOptions interface{} `field:"optional" json:"logPublishingOptions" yaml:"logPublishingOptions"`
+	// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-maxunits
+	//
+	MaxUnits *float64 `field:"optional" json:"maxUnits" yaml:"maxUnits"`
+	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-minunits
+	//
+	MinUnits *float64 `field:"optional" json:"minUnits" yaml:"minUnits"`
+	// The Data Prepper pipeline configuration in YAML format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-pipelineconfigurationbody
+	//
+	PipelineConfigurationBody *string `field:"optional" json:"pipelineConfigurationBody" yaml:"pipelineConfigurationBody"`
+	// The name of the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-pipelinename
+	//
+	PipelineName *string `field:"optional" json:"pipelineName" yaml:"pipelineName"`
+	// The Amazon Resource Name (ARN) of the IAM role that the pipeline uses to access AWS resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-pipelinerolearn
+	//
+	PipelineRoleArn *string `field:"optional" json:"pipelineRoleArn" yaml:"pipelineRoleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-resourcepolicy
+	//
+	ResourcePolicy interface{} `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
+	// List of tags to add to the pipeline upon creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-vpcoptions
+	//
+	VpcOptions interface{} `field:"optional" json:"vpcOptions" yaml:"vpcOptions"`
+}
+

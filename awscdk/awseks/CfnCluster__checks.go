@@ -285,6 +285,30 @@ func (j *jsiiProxy_CfnCluster) validateSetComputeConfigParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetControlPlaneScalingConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_ControlPlaneScalingConfigProperty:
+		val := val.(*CfnCluster_ControlPlaneScalingConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_ControlPlaneScalingConfigProperty:
+		val_ := val.(CfnCluster_ControlPlaneScalingConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_ControlPlaneScalingConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetDeletionProtectionParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

@@ -314,6 +314,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cloudfront.ITrustStoreRef",
+		reflect.TypeOf((*ITrustStoreRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trustStoreRef", GoGetter: "TrustStoreRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITrustStoreRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_cloudfront.IVpcOriginRef",
 		reflect.TypeOf((*IVpcOriginRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -363,6 +378,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cloudfront.StreamingDistributionReference",
 		reflect.TypeOf((*StreamingDistributionReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cloudfront.TrustStoreReference",
+		reflect.TypeOf((*TrustStoreReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cloudfront.VpcOriginReference",

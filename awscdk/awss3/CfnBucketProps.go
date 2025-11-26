@@ -22,6 +22,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
 //
 type CfnBucketProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-abacstatus
+	//
+	AbacStatus *string `field:"optional" json:"abacStatus" yaml:"abacStatus"`
 	// Configures the transfer acceleration state for an Amazon S3 bucket.
 	//
 	// For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide* .

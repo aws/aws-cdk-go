@@ -13,6 +13,18 @@ import (
 //
 //   cfnNatGatewayProps := &CfnNatGatewayProps{
 //   	AllocationId: jsii.String("allocationId"),
+//   	AvailabilityMode: jsii.String("availabilityMode"),
+//   	AvailabilityZoneAddresses: []interface{}{
+//   		&AvailabilityZoneAddressProperty{
+//   			AllocationIds: []*string{
+//   				jsii.String("allocationIds"),
+//   			},
+//
+//   			// the properties below are optional
+//   			AvailabilityZone: jsii.String("availabilityZone"),
+//   			AvailabilityZoneId: jsii.String("availabilityZoneId"),
+//   		},
+//   	},
 //   	ConnectivityType: jsii.String("connectivityType"),
 //   	MaxDrainDurationSeconds: jsii.Number(123),
 //   	PrivateIpAddress: jsii.String("privateIpAddress"),
@@ -42,6 +54,12 @@ type CfnNatGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-allocationid
 	//
 	AllocationId interface{} `field:"optional" json:"allocationId" yaml:"allocationId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-availabilitymode
+	//
+	AvailabilityMode *string `field:"optional" json:"availabilityMode" yaml:"availabilityMode"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-availabilityzoneaddresses
+	//
+	AvailabilityZoneAddresses interface{} `field:"optional" json:"availabilityZoneAddresses" yaml:"availabilityZoneAddresses"`
 	// Indicates whether the NAT gateway supports public or private connectivity.
 	//
 	// The default is public connectivity.

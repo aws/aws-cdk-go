@@ -84,6 +84,10 @@ func validateCfnStream_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnStream) validateSetStreamStorageConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStream) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

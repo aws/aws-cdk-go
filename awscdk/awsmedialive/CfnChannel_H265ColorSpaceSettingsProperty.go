@@ -10,6 +10,8 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var hlg2020Settings interface{}
+//
 //   h265ColorSpaceSettingsProperty := &H265ColorSpaceSettingsProperty{
 //   	ColorSpacePassthroughSettings: &ColorSpacePassthroughSettingsProperty{
 //   	},
@@ -19,6 +21,7 @@ package awsmedialive
 //   		MaxCll: jsii.Number(123),
 //   		MaxFall: jsii.Number(123),
 //   	},
+//   	Hlg2020Settings: hlg2020Settings,
 //   	Rec601Settings: &Rec601SettingsProperty{
 //   	},
 //   	Rec709Settings: &Rec709SettingsProperty{
@@ -39,6 +42,9 @@ type CfnChannel_H265ColorSpaceSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-hdr10settings
 	//
 	Hdr10Settings interface{} `field:"optional" json:"hdr10Settings" yaml:"hdr10Settings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-hlg2020settings
+	//
+	Hlg2020Settings interface{} `field:"optional" json:"hlg2020Settings" yaml:"hlg2020Settings"`
 	// Settings to configure the handling of Rec601 color space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-rec601settings
 	//

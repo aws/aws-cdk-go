@@ -136,29 +136,27 @@ type CfnRouterOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Indicates whether the router output is configured for Regional or global routing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-routingscope
 	//
 	RoutingScope *string `field:"required" json:"routingScope" yaml:"routingScope"`
+	// The tier level of the router output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-tier
 	//
 	Tier *string `field:"required" json:"tier" yaml:"tier"`
-	// The Availability Zone where you want to create the router output.
-	//
-	// This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
+	// The Availability Zone of the router output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+	// The maintenance configuration settings applied to this router output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-maintenanceconfiguration
 	//
 	MaintenanceConfiguration interface{} `field:"optional" json:"maintenanceConfiguration" yaml:"maintenanceConfiguration"`
-	// The AWS Region for the router output.
-	//
-	// Defaults to the current region if not specified.
+	// The AWS Region where the router output is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-regionname
 	//
 	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
-	// Key-value pairs that can be used to tag this router output.
+	// Key-value pairs that can be used to tag and organize this router output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

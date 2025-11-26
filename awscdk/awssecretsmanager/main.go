@@ -94,6 +94,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "externalSecretRotationMetadata", GoGetter: "ExternalSecretRotationMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "externalSecretRotationRoleArn", GoGetter: "ExternalSecretRotationRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedRotationLambda", GoGetter: "HostedRotationLambda"},
@@ -126,6 +128,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecretsmanagerIRotationScheduleRef)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule.ExternalSecretRotationMetadataItemProperty",
+		reflect.TypeOf((*CfnRotationSchedule_ExternalSecretRotationMetadataItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule.HostedRotationLambdaProperty",
@@ -181,6 +187,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},

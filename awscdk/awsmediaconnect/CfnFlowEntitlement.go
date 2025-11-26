@@ -69,7 +69,7 @@ type CfnFlowEntitlement interface {
 	// A description of the entitlement.
 	Description() *string
 	SetDescription(val *string)
-	// Information about the encryption of the flow.
+	// Encryption information.
 	Encryption() interface{}
 	SetEncryption(val interface{})
 	// An indication of whether the new entitlement should be enabled or disabled as soon as it is created.

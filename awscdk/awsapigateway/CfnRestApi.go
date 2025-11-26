@@ -108,6 +108,7 @@ type CfnRestApi interface {
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
 	DisableExecuteApiEndpoint() interface{}
 	SetDisableExecuteApiEndpoint(val interface{})
+	// The endpoint access mode for your RestApi.
 	EndpointAccessMode() *string
 	SetEndpointAccessMode(val *string)
 	// A list of the endpoint types and IP address types of the API.
@@ -151,6 +152,7 @@ type CfnRestApi interface {
 	Ref() *string
 	// A reference to a RestApi resource.
 	RestApiRef() *interfacesawsapigateway.RestApiReference
+	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 	SecurityPolicy() *string
 	SetSecurityPolicy(val *string)
 	// The stack in which this element is defined.

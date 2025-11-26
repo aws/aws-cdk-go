@@ -7,169 +7,49 @@ import (
 // Properties for defining a `CfnRule`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
+//   var fn Function
 //
-//   var eventPattern interface{}
 //
-//   cfnRuleProps := &CfnRuleProps{
-//   	Description: jsii.String("description"),
-//   	EventBusName: jsii.String("eventBusName"),
-//   	EventPattern: eventPattern,
-//   	Name: jsii.String("name"),
-//   	RoleArn: jsii.String("roleArn"),
-//   	ScheduleExpression: jsii.String("scheduleExpression"),
-//   	State: jsii.String("state"),
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
+//   // Works with L2 constructs
+//   bucket := s3.NewBucket(scope, jsii.String("Bucket"))
+//   bucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(bucket)
+//
+//   events.NewRule(scope, jsii.String("Rule"), &RuleProps{
+//   	EventPattern: bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{
+//   		Object: &ObjectType{
+//   			Key: []*string{
+//   				jsii.String("uploads/*"),
+//   			},
 //   		},
+//   	}),
+//   	Targets: []IRuleTarget{
+//   		targets.NewLambdaFunction(fn),
 //   	},
+//   })
+//
+//   // Also works with L1 constructs
+//   cfnBucket := s3.NewCfnBucket(scope, jsii.String("CfnBucket"))
+//   cfnBucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(cfnBucket)
+//
+//   events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
+//   	State: jsii.String("ENABLED"),
+//   	EventPattern: cfnBucketEvents.*ObjectCreatedPattern(&ObjectCreatedProps{
+//   		Object: &ObjectType{
+//   			Key: []*string{
+//   				jsii.String("uploads/*"),
+//   			},
+//   		},
+//   	}),
 //   	Targets: []interface{}{
 //   		&TargetProperty{
-//   			Arn: jsii.String("arn"),
-//   			Id: jsii.String("id"),
-//
-//   			// the properties below are optional
-//   			AppSyncParameters: &AppSyncParametersProperty{
-//   				GraphQlOperation: jsii.String("graphQlOperation"),
-//   			},
-//   			BatchParameters: &BatchParametersProperty{
-//   				JobDefinition: jsii.String("jobDefinition"),
-//   				JobName: jsii.String("jobName"),
-//
-//   				// the properties below are optional
-//   				ArrayProperties: &BatchArrayPropertiesProperty{
-//   					Size: jsii.Number(123),
-//   				},
-//   				RetryStrategy: &BatchRetryStrategyProperty{
-//   					Attempts: jsii.Number(123),
-//   				},
-//   			},
-//   			DeadLetterConfig: &DeadLetterConfigProperty{
-//   				Arn: jsii.String("arn"),
-//   			},
-//   			EcsParameters: &EcsParametersProperty{
-//   				TaskDefinitionArn: jsii.String("taskDefinitionArn"),
-//
-//   				// the properties below are optional
-//   				CapacityProviderStrategy: []interface{}{
-//   					&CapacityProviderStrategyItemProperty{
-//   						CapacityProvider: jsii.String("capacityProvider"),
-//
-//   						// the properties below are optional
-//   						Base: jsii.Number(123),
-//   						Weight: jsii.Number(123),
-//   					},
-//   				},
-//   				EnableEcsManagedTags: jsii.Boolean(false),
-//   				EnableExecuteCommand: jsii.Boolean(false),
-//   				Group: jsii.String("group"),
-//   				LaunchType: jsii.String("launchType"),
-//   				NetworkConfiguration: &NetworkConfigurationProperty{
-//   					AwsVpcConfiguration: &AwsVpcConfigurationProperty{
-//   						Subnets: []*string{
-//   							jsii.String("subnets"),
-//   						},
-//
-//   						// the properties below are optional
-//   						AssignPublicIp: jsii.String("assignPublicIp"),
-//   						SecurityGroups: []*string{
-//   							jsii.String("securityGroups"),
-//   						},
-//   					},
-//   				},
-//   				PlacementConstraints: []interface{}{
-//   					&PlacementConstraintProperty{
-//   						Expression: jsii.String("expression"),
-//   						Type: jsii.String("type"),
-//   					},
-//   				},
-//   				PlacementStrategies: []interface{}{
-//   					&PlacementStrategyProperty{
-//   						Field: jsii.String("field"),
-//   						Type: jsii.String("type"),
-//   					},
-//   				},
-//   				PlatformVersion: jsii.String("platformVersion"),
-//   				PropagateTags: jsii.String("propagateTags"),
-//   				ReferenceId: jsii.String("referenceId"),
-//   				TagList: []interface{}{
-//   					&CfnTag{
-//   						Key: jsii.String("key"),
-//   						Value: jsii.String("value"),
-//   					},
-//   				},
-//   				TaskCount: jsii.Number(123),
-//   			},
-//   			HttpParameters: &HttpParametersProperty{
-//   				HeaderParameters: map[string]*string{
-//   					"headerParametersKey": jsii.String("headerParameters"),
-//   				},
-//   				PathParameterValues: []*string{
-//   					jsii.String("pathParameterValues"),
-//   				},
-//   				QueryStringParameters: map[string]*string{
-//   					"queryStringParametersKey": jsii.String("queryStringParameters"),
-//   				},
-//   			},
-//   			Input: jsii.String("input"),
-//   			InputPath: jsii.String("inputPath"),
-//   			InputTransformer: &InputTransformerProperty{
-//   				InputTemplate: jsii.String("inputTemplate"),
-//
-//   				// the properties below are optional
-//   				InputPathsMap: map[string]*string{
-//   					"inputPathsMapKey": jsii.String("inputPathsMap"),
-//   				},
-//   			},
-//   			KinesisParameters: &KinesisParametersProperty{
-//   				PartitionKeyPath: jsii.String("partitionKeyPath"),
-//   			},
-//   			RedshiftDataParameters: &RedshiftDataParametersProperty{
-//   				Database: jsii.String("database"),
-//
-//   				// the properties below are optional
-//   				DbUser: jsii.String("dbUser"),
-//   				SecretManagerArn: jsii.String("secretManagerArn"),
-//   				Sql: jsii.String("sql"),
-//   				Sqls: []*string{
-//   					jsii.String("sqls"),
-//   				},
-//   				StatementName: jsii.String("statementName"),
-//   				WithEvent: jsii.Boolean(false),
-//   			},
-//   			RetryPolicy: &RetryPolicyProperty{
-//   				MaximumEventAgeInSeconds: jsii.Number(123),
-//   				MaximumRetryAttempts: jsii.Number(123),
-//   			},
-//   			RoleArn: jsii.String("roleArn"),
-//   			RunCommandParameters: &RunCommandParametersProperty{
-//   				RunCommandTargets: []interface{}{
-//   					&RunCommandTargetProperty{
-//   						Key: jsii.String("key"),
-//   						Values: []*string{
-//   							jsii.String("values"),
-//   						},
-//   					},
-//   				},
-//   			},
-//   			SageMakerPipelineParameters: &SageMakerPipelineParametersProperty{
-//   				PipelineParameterList: []interface{}{
-//   					&SageMakerPipelineParameterProperty{
-//   						Name: jsii.String("name"),
-//   						Value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   			SqsParameters: &SqsParametersProperty{
-//   				MessageGroupId: jsii.String("messageGroupId"),
-//   			},
+//   			Arn: fn.FunctionArn,
+//   			Id: jsii.String("L1"),
 //   		},
 //   	},
-//   }
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
 //

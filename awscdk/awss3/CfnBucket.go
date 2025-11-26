@@ -18,12 +18,21 @@ import (
 // > You can only delete empty buckets. Deletion fails for buckets that have contents.
 //
 // Example:
-//   // Works across different resource types
-//   bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-//   awscdkmixinspreview.Mixins_Of(bucket).Apply(NewEncryptionAtRest())
+//   var cfnTemplate CfnInclude
 //
-//   logGroup := logs.NewCfnLogGroup(scope, jsii.String("LogGroup"))
-//   awscdkmixinspreview.Mixins_Of(logGroup).Apply(NewEncryptionAtRest())
+//   cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(CfnBucket)
+//
+//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewAnyPrincipal(),
+//   })
+//   role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Actions: []*string{
+//   		jsii.String("s3:*"),
+//   	},
+//   	Resources: []*string{
+//   		cfnBucket.AttrArn,
+//   	},
+//   }))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
 //
@@ -32,6 +41,8 @@ type CfnBucket interface {
 	awscdk.IInspectable
 	interfacesawss3.IBucketRef
 	awscdk.ITaggable
+	AbacStatus() *string
+	SetAbacStatus(val *string)
 	// Configures the transfer acceleration state for an Amazon S3 bucket.
 	AccelerateConfiguration() interface{}
 	SetAccelerateConfiguration(val interface{})
@@ -321,6 +332,16 @@ type jsiiProxy_CfnBucket struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawss3IBucketRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnBucket) AbacStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"abacStatus",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnBucket) AccelerateConfiguration() interface{} {
@@ -820,6 +841,14 @@ func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, 
 		"aws-cdk-lib.aws_s3.CfnBucket",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnBucket)SetAbacStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"abacStatus",
+		val,
 	)
 }
 

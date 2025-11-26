@@ -150,6 +150,12 @@ type IntegrationOptions struct {
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
 	RequestTemplates *map[string]*string `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
+	// The response transfer mode for the integration.
+	//
+	// To enable response streaming, set this value to `ResponseTransferMode.STREAM`.
+	// Default: ResponseTransferMode.BUFFERED
+	//
+	ResponseTransferMode ResponseTransferMode `field:"optional" json:"responseTransferMode" yaml:"responseTransferMode"`
 	// The maximum amount of time an integration will run before it returns without a response.
 	//
 	// By default, the value must be between 50 milliseconds and 29 seconds.

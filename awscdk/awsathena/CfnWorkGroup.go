@@ -40,6 +40,25 @@ import (
 //   			KmsKey: jsii.String("kmsKey"),
 //   		},
 //   		EnforceWorkGroupConfiguration: jsii.Boolean(false),
+//   		EngineConfiguration: &EngineConfigurationProperty{
+//   			AdditionalConfigs: map[string]*string{
+//   				"additionalConfigsKey": jsii.String("additionalConfigs"),
+//   			},
+//   			Classifications: []interface{}{
+//   				&ClassificationProperty{
+//   					Name: jsii.String("name"),
+//   					Properties: map[string]*string{
+//   						"propertiesKey": jsii.String("properties"),
+//   					},
+//   				},
+//   			},
+//   			CoordinatorDpuSize: jsii.Number(123),
+//   			DefaultExecutorDpuSize: jsii.Number(123),
+//   			MaxConcurrentDpus: jsii.Number(123),
+//   			SparkProperties: map[string]*string{
+//   				"sparkPropertiesKey": jsii.String("sparkProperties"),
+//   			},
+//   		},
 //   		EngineVersion: &EngineVersionProperty{
 //   			EffectiveEngineVersion: jsii.String("effectiveEngineVersion"),
 //   			SelectedEngineVersion: jsii.String("selectedEngineVersion"),
@@ -49,6 +68,27 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   			EncryptionConfiguration: &ManagedStorageEncryptionConfigurationProperty{
 //   				KmsKey: jsii.String("kmsKey"),
+//   			},
+//   		},
+//   		MonitoringConfiguration: &MonitoringConfigurationProperty{
+//   			CloudWatchLoggingConfiguration: &CloudWatchLoggingConfigurationProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				LogGroup: jsii.String("logGroup"),
+//   				LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
+//   				LogTypes: map[string][]*string{
+//   					"logTypesKey": []*string{
+//   						jsii.String("logTypes"),
+//   					},
+//   				},
+//   			},
+//   			ManagedLoggingConfiguration: &ManagedLoggingConfigurationProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				KmsKey: jsii.String("kmsKey"),
+//   			},
+//   			S3LoggingConfiguration: &S3LoggingConfigurationProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				KmsKey: jsii.String("kmsKey"),
+//   				LogLocation: jsii.String("logLocation"),
 //   			},
 //   		},
 //   		PublishCloudWatchMetricsEnabled: jsii.Boolean(false),
@@ -74,6 +114,25 @@ import (
 //   			KmsKey: jsii.String("kmsKey"),
 //   		},
 //   		EnforceWorkGroupConfiguration: jsii.Boolean(false),
+//   		EngineConfiguration: &EngineConfigurationProperty{
+//   			AdditionalConfigs: map[string]*string{
+//   				"additionalConfigsKey": jsii.String("additionalConfigs"),
+//   			},
+//   			Classifications: []interface{}{
+//   				&ClassificationProperty{
+//   					Name: jsii.String("name"),
+//   					Properties: map[string]*string{
+//   						"propertiesKey": jsii.String("properties"),
+//   					},
+//   				},
+//   			},
+//   			CoordinatorDpuSize: jsii.Number(123),
+//   			DefaultExecutorDpuSize: jsii.Number(123),
+//   			MaxConcurrentDpus: jsii.Number(123),
+//   			SparkProperties: map[string]*string{
+//   				"sparkPropertiesKey": jsii.String("sparkProperties"),
+//   			},
+//   		},
 //   		EngineVersion: &EngineVersionProperty{
 //   			EffectiveEngineVersion: jsii.String("effectiveEngineVersion"),
 //   			SelectedEngineVersion: jsii.String("selectedEngineVersion"),
@@ -83,6 +142,27 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   			EncryptionConfiguration: &ManagedStorageEncryptionConfigurationProperty{
 //   				KmsKey: jsii.String("kmsKey"),
+//   			},
+//   		},
+//   		MonitoringConfiguration: &MonitoringConfigurationProperty{
+//   			CloudWatchLoggingConfiguration: &CloudWatchLoggingConfigurationProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				LogGroup: jsii.String("logGroup"),
+//   				LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
+//   				LogTypes: map[string][]*string{
+//   					"logTypesKey": []*string{
+//   						jsii.String("logTypes"),
+//   					},
+//   				},
+//   			},
+//   			ManagedLoggingConfiguration: &ManagedLoggingConfigurationProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				KmsKey: jsii.String("kmsKey"),
+//   			},
+//   			S3LoggingConfiguration: &S3LoggingConfigurationProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				KmsKey: jsii.String("kmsKey"),
+//   				LogLocation: jsii.String("logLocation"),
 //   			},
 //   		},
 //   		PublishCloudWatchMetricsEnabled: jsii.Boolean(false),

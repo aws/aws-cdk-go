@@ -19,12 +19,21 @@ package awspcs
 //   		SecretArn: jsii.String("secretArn"),
 //   		SecretVersion: jsii.String("secretVersion"),
 //   	},
+//   	JwtAuth: &JwtAuthProperty{
+//   		JwtKey: &JwtKeyProperty{
+//   			SecretArn: jsii.String("secretArn"),
+//   			SecretVersion: jsii.String("secretVersion"),
+//   		},
+//   	},
 //   	ScaleDownIdleTimeInSeconds: jsii.Number(123),
 //   	SlurmCustomSettings: []interface{}{
 //   		&SlurmCustomSettingProperty{
 //   			ParameterName: jsii.String("parameterName"),
 //   			ParameterValue: jsii.String("parameterValue"),
 //   		},
+//   	},
+//   	SlurmRest: &SlurmRestProperty{
+//   		Mode: jsii.String("mode"),
 //   	},
 //   }
 //
@@ -39,6 +48,10 @@ type CfnCluster_SlurmConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-authkey
 	//
 	AuthKey interface{} `field:"optional" json:"authKey" yaml:"authKey"`
+	// JWT authentication configuration for Slurm.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-jwtauth
+	//
+	JwtAuth interface{} `field:"optional" json:"jwtAuth" yaml:"jwtAuth"`
 	// The time (in seconds) before an idle node is scaled down.
 	//
 	// Default: `600`.
@@ -49,5 +62,9 @@ type CfnCluster_SlurmConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmcustomsettings
 	//
 	SlurmCustomSettings interface{} `field:"optional" json:"slurmCustomSettings" yaml:"slurmCustomSettings"`
+	// The SlurmRest configuration includes configurable settings for Slurm Rest.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmrest
+	//
+	SlurmRest interface{} `field:"optional" json:"slurmRest" yaml:"slurmRest"`
 }
 

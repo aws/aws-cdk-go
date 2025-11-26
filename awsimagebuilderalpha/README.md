@@ -34,6 +34,262 @@ EC2 Image Builder supports AWS-managed components for common tasks, AWS Marketpl
 that you create. Components run during specific workflow phases: build and validate phases during the build stage, and
 test phase during the test stage.
 
+### Image Pipeline
+
+An image pipeline provides the automation framework for building secure AMIs and container images. The pipeline orchestrates the entire image creation process by combining an image recipe or container recipe with infrastructure configuration and distribution configuration. Pipelines can run on a schedule or be triggered manually, and they manage the build, test, and distribution phases automatically.
+
+#### Image Pipeline Basic Usage
+
+Create a simple AMI pipeline with just an image recipe:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("MyImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+})
+
+imagePipeline := imagebuilder.NewImagePipeline(this, jsii.String("MyImagePipeline"), &ImagePipelineProps{
+	Recipe: exampleImageRecipe,
+})
+```
+
+Create a simple container pipeline with just a container recipe:
+
+```go
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("MyContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+})
+
+containerPipeline := imagebuilder.NewImagePipeline(this, jsii.String("MyContainerPipeline"), &ImagePipelineProps{
+	Recipe: exampleContainerRecipe,
+})
+```
+
+#### Image Pipeline Scheduling
+
+##### Manual Pipeline Execution
+
+Create a pipeline that runs only when manually triggered:
+
+```go
+manualPipeline := imagebuilder.NewImagePipeline(this, jsii.String("ManualPipeline"), &ImagePipelineProps{
+	ImagePipelineName: jsii.String("my-manual-pipeline"),
+	Description: jsii.String("Pipeline triggered manually for production builds"),
+	Recipe: exampleImageRecipe,
+})
+
+// Grant Lambda function permission to trigger the pipeline
+manualPipeline.grantStartExecution(lambdaRole)
+```
+
+##### Automated Pipeline Scheduling
+
+Schedule a pipeline to run automatically using cron expressions:
+
+```go
+weeklyPipeline := imagebuilder.NewImagePipeline(this, jsii.String("WeeklyPipeline"), &ImagePipelineProps{
+	ImagePipelineName: jsii.String("weekly-build-pipeline"),
+	Recipe: exampleImageRecipe,
+	Schedule: &ImagePipelineSchedule{
+		Expression: events.Schedule_Cron(&CronOptions{
+			Minute: jsii.String("0"),
+			Hour: jsii.String("6"),
+			WeekDay: jsii.String("MON"),
+		}),
+	},
+})
+```
+
+Use rate expressions for regular intervals:
+
+```go
+dailyPipeline := imagebuilder.NewImagePipeline(this, jsii.String("DailyPipeline"), &ImagePipelineProps{
+	Recipe: exampleContainerRecipe,
+	Schedule: &ImagePipelineSchedule{
+		Expression: events.Schedule_Rate(awscdk.Duration_Days(jsii.Number(1))),
+	},
+})
+```
+
+##### Pipeline Schedule Configuration
+
+Configure advanced scheduling options:
+
+```go
+advancedSchedulePipeline := imagebuilder.NewImagePipeline(this, jsii.String("AdvancedSchedulePipeline"), &ImagePipelineProps{
+	Recipe: exampleImageRecipe,
+	Schedule: &ImagePipelineSchedule{
+		Expression: events.Schedule_Rate(awscdk.Duration_Days(jsii.Number(7))),
+		// Only trigger when dependencies are updated (new base images, components, etc.)
+		StartCondition: imagebuilder.ScheduleStartCondition_EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE,
+		// Automatically disable after 3 consecutive failures
+		AutoDisableFailureCount: jsii.Number(3),
+	},
+	// Start enabled
+	Status: imagebuilder.ImagePipelineStatus_ENABLED,
+})
+```
+
+#### Image Pipeline Configuration
+
+##### Infrastructure and Distribution
+
+Configure custom infrastructure and distribution settings:
+
+```go
+infrastructureConfiguration := imagebuilder.NewInfrastructureConfiguration(this, jsii.String("Infrastructure"), &InfrastructureConfigurationProps{
+	InfrastructureConfigurationName: jsii.String("production-infrastructure"),
+	InstanceTypes: []InstanceType{
+		ec2.InstanceType_*Of(ec2.InstanceClass_COMPUTE7_INTEL, ec2.InstanceSize_LARGE),
+	},
+	Vpc: vpc,
+	SubnetSelection: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+	},
+})
+
+distributionConfiguration := imagebuilder.NewDistributionConfiguration(this, jsii.String("Distribution"))
+distributionConfiguration.AddAmiDistributions(&AmiDistribution{
+	AmiName: jsii.String("production-ami-{{ imagebuilder:buildDate }}"),
+	AmiTargetAccountIds: []*string{
+		jsii.String("123456789012"),
+		jsii.String("098765432109"),
+	},
+})
+
+productionPipeline := imagebuilder.NewImagePipeline(this, jsii.String("ProductionPipeline"), &ImagePipelineProps{
+	Recipe: exampleImageRecipe,
+	InfrastructureConfiguration: infrastructureConfiguration,
+	DistributionConfiguration: distributionConfiguration,
+})
+```
+
+##### Pipeline Logging Configuration
+
+Configure custom CloudWatch log groups for pipeline and image logs:
+
+```go
+pipelineLogGroup := logs.NewLogGroup(this, jsii.String("PipelineLogGroup"), &LogGroupProps{
+	LogGroupName: jsii.String("/custom/imagebuilder/pipeline/logs"),
+	Retention: logs.RetentionDays_ONE_MONTH,
+})
+
+imageLogGroup := logs.NewLogGroup(this, jsii.String("ImageLogGroup"), &LogGroupProps{
+	LogGroupName: jsii.String("/custom/imagebuilder/image/logs"),
+	Retention: logs.RetentionDays_ONE_WEEK,
+})
+
+loggedPipeline := imagebuilder.NewImagePipeline(this, jsii.String("LoggedPipeline"), &ImagePipelineProps{
+	Recipe: exampleImageRecipe,
+	ImagePipelineLogGroup: pipelineLogGroup,
+	ImageLogGroup: imageLogGroup,
+})
+```
+
+##### Workflow Integration
+
+Use AWS-managed workflows for common pipeline phases:
+
+```go
+workflowPipeline := imagebuilder.NewImagePipeline(this, jsii.String("WorkflowPipeline"), &ImagePipelineProps{
+	Recipe: exampleImageRecipe,
+	Workflows: []WorkflowConfiguration{
+		&WorkflowConfiguration{
+			Workflow: imagebuilder.AwsManagedWorkflow_BuildImage(this, jsii.String("BuildWorkflow")),
+		},
+		&WorkflowConfiguration{
+			Workflow: imagebuilder.AwsManagedWorkflow_TestImage(this, jsii.String("TestWorkflow")),
+		},
+	},
+})
+```
+
+For container pipelines, use container-specific workflows:
+
+```go
+containerWorkflowPipeline := imagebuilder.NewImagePipeline(this, jsii.String("ContainerWorkflowPipeline"), &ImagePipelineProps{
+	Recipe: exampleContainerRecipe,
+	Workflows: []WorkflowConfiguration{
+		&WorkflowConfiguration{
+			Workflow: imagebuilder.AwsManagedWorkflow_BuildContainer(this, jsii.String("BuildContainer")),
+		},
+		&WorkflowConfiguration{
+			Workflow: imagebuilder.AwsManagedWorkflow_TestContainer(this, jsii.String("TestContainer")),
+		},
+		&WorkflowConfiguration{
+			Workflow: imagebuilder.AwsManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer")),
+		},
+	},
+})
+```
+
+##### Advanced Features
+
+Configure image scanning for container pipelines:
+
+```go
+scanningRepository := ecr.NewRepository(this, jsii.String("ScanningRepo"))
+
+scannedContainerPipeline := imagebuilder.NewImagePipeline(this, jsii.String("ScannedContainerPipeline"), &ImagePipelineProps{
+	Recipe: exampleContainerRecipe,
+	ImageScanningEnabled: jsii.Boolean(true),
+	ImageScanningEcrRepository: scanningRepository,
+	ImageScanningEcrTags: []*string{
+		jsii.String("security-scan"),
+		jsii.String("latest"),
+	},
+})
+```
+
+Control metadata collection and testing:
+
+```go
+controlledPipeline := imagebuilder.NewImagePipeline(this, jsii.String("ControlledPipeline"), &ImagePipelineProps{
+	Recipe: exampleImageRecipe,
+	EnhancedImageMetadataEnabled: jsii.Boolean(true),
+	 // Collect detailed OS and package info
+	ImageTestsEnabled: jsii.Boolean(false),
+})
+```
+
+#### Image Pipeline Events
+
+##### Pipeline Event Handling
+
+Handle specific pipeline events:
+
+```go
+// Monitor CVE detection
+examplePipeline.onCVEDetected(jsii.String("CVEAlert"), &OnEventOptions{
+	Target: targets.NewSnsTopic(topic),
+})
+
+// Handle pipeline auto-disable events
+examplePipeline.onImagePipelineAutoDisabled(jsii.String("PipelineDisabledAlert"), &OnEventOptions{
+	Target: targets.NewLambdaFunction(lambdaFunction),
+})
+```
+
+#### Importing Image Pipelines
+
+Reference existing pipelines created outside CDK:
+
+```go
+// Import by name
+existingPipelineByName := imagebuilder.ImagePipeline_FromImagePipelineName(this, jsii.String("ExistingPipelineByName"), jsii.String("my-existing-pipeline"))
+
+// Import by ARN
+existingPipelineByArn := imagebuilder.ImagePipeline_FromImagePipelineArn(this, jsii.String("ExistingPipelineByArn"), jsii.String("arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/imported-pipeline"))
+
+// Grant permissions to imported pipelines
+automationRole := iam.NewRole(this, jsii.String("AutomationRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+existingPipelineByName.GrantStartExecution(automationRole)
+existingPipelineByArn.GrantRead(lambdaRole)
+```
+
 ### Image Recipe
 
 #### Image Recipe Basic Usage
@@ -42,7 +298,7 @@ Create an image recipe with the required base image:
 
 ```go
 imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("MyImageRecipe"), &ImageRecipeProps{
-	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 })
 ```
 
@@ -57,7 +313,7 @@ Using SSM parameter references:
 
 ```go
 imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("SsmImageRecipe"), &ImageRecipeProps{
-	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 })
 
 // Using an SSM parameter construct
@@ -122,7 +378,7 @@ customComponent := imagebuilder.NewComponent(this, jsii.String("MyComponent"), &
 })
 
 imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("ComponentImageRecipe"), &ImageRecipeProps{
-	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 	Components: []ComponentConfiguration{
 		&ComponentConfiguration{
 			Component: customComponent,
@@ -137,7 +393,7 @@ Use pre-built AWS components:
 
 ```go
 imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AwsManagedImageRecipe"), &ImageRecipeProps{
-	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 	Components: []ComponentConfiguration{
 		&ComponentConfiguration{
 			Component: imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
@@ -161,7 +417,7 @@ Pass parameters to components that accept them:
 parameterizedComponent := imagebuilder.Component_FromComponentName(this, jsii.String("ParameterizedComponent"), jsii.String("my-parameterized-component"))
 
 imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("ParameterizedImageRecipe"), &ImageRecipeProps{
-	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 	Components: []ComponentConfiguration{
 		&ComponentConfiguration{
 			Component: parameterizedComponent,
@@ -182,7 +438,7 @@ Configure storage for the build instance:
 
 ```go
 imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("BlockDeviceImageRecipe"), &ImageRecipeProps{
-	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 	BlockDevices: []BlockDevice{
 		&BlockDevice{
 			DeviceName: jsii.String("/dev/sda1"),
@@ -201,7 +457,7 @@ Tag the output AMI:
 
 ```go
 imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("TaggedImageRecipe"), &ImageRecipeProps{
-	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 	AmiTags: map[string]*string{
 		"Environment": jsii.String("Production"),
 		"Application": jsii.String("WebServer"),
@@ -222,8 +478,8 @@ Create a container recipe with the required base image and target repository:
 
 ```go
 containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("MyContainerRecipe"), &ContainerRecipeProps{
-	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
-	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 })
 ```
 
@@ -235,8 +491,8 @@ Using public Docker Hub images:
 
 ```go
 containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("DockerHubContainerRecipe"), &ContainerRecipeProps{
-	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
-	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 })
 ```
 
@@ -250,7 +506,7 @@ targetRepo := ecr.Repository_FromRepositoryName(this, jsii.String("TargetRepo"),
 
 containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("EcrContainerRecipe"), &ContainerRecipeProps{
 	BaseImage: imagebuilder.BaseContainerImage_FromEcr(sourceRepo, jsii.String("1.0.0")),
-	TargetRepository: imagebuilder.Repository_FromEcr(targetRepo),
+	TargetRepository: imagebuilder.Repository_*FromEcr(targetRepo),
 })
 ```
 
@@ -261,7 +517,7 @@ Using images from Amazon ECR Public:
 ```go
 containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("EcrPublicContainerRecipe"), &ContainerRecipeProps{
 	BaseImage: imagebuilder.BaseContainerImage_FromEcrPublic(jsii.String("amazonlinux"), jsii.String("amazonlinux"), jsii.String("2023")),
-	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 })
 ```
 
@@ -296,8 +552,8 @@ customComponent := imagebuilder.NewComponent(this, jsii.String("MyComponent"), &
 })
 
 containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("ComponentContainerRecipe"), &ContainerRecipeProps{
-	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
-	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 	Components: []ComponentConfiguration{
 		&ComponentConfiguration{
 			Component: customComponent,
@@ -312,8 +568,8 @@ Use pre-built AWS components:
 
 ```go
 containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("AwsManagedContainerRecipe"), &ContainerRecipeProps{
-	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
-	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 	Components: []ComponentConfiguration{
 		&ComponentConfiguration{
 			Component: imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
@@ -337,8 +593,8 @@ Provide your own Dockerfile template:
 
 ```go
 containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("CustomDockerfileContainerRecipe"), &ContainerRecipeProps{
-	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
-	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 	Dockerfile: imagebuilder.DockerfileData_FromInline(jsii.String(`
 	FROM {{{ imagebuilder:parentImage }}}
 	CMD ["echo", "Hello, world!"]
@@ -354,8 +610,8 @@ Configure the build instance:
 
 ```go
 containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("InstanceConfigContainerRecipe"), &ContainerRecipeProps{
-	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
-	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 	// Custom ECS-optimized AMI for building
 	InstanceImage: imagebuilder.ContainerInstanceImage_FromSsmParameterName(jsii.String("/aws/service/ecs/optimized-ami/amazon-linux-2023/recommended/image_id")),
 	// Additional storage for build process
@@ -1050,4 +1306,414 @@ testContainerWorkflow := imagebuilder.AwsManagedWorkflow_TestContainer(this, jsi
 
 // Distribution workflows
 distributeContainerWorkflow := imagebuilder.AwsManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer"))
+```
+
+### Lifecycle Policy
+
+Lifecycle policies help you manage the retention and cleanup of Image Builder resources automatically. These policies define rules for deprecating or deleting old image versions, managing AMI snapshots, and controlling resource costs by removing unused images based on age, count, or other criteria.
+
+#### Lifecycle Policy Basic Usage
+
+Create a lifecycle policy to automatically delete old AMI images after 30 days:
+
+```go
+lifecyclePolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("MyLifecyclePolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_AMI_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_Days(jsii.Number(30)),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Environment": jsii.String("development"),
+		},
+	},
+})
+```
+
+Create a lifecycle policy to keep only the 10 most recent container images:
+
+```go
+containerLifecyclePolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("ContainerLifecyclePolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_CONTAINER_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				CountFilter: &LifecyclePolicyCountFilter{
+					Count: jsii.Number(10),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Application": jsii.String("web-app"),
+		},
+	},
+})
+```
+
+#### Lifecycle Policy Resource Selection
+
+##### Tag-Based Resource Selection
+
+Apply lifecycle policies to images with specific tags:
+
+```go
+tagBasedPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("TagBasedPolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_AMI_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_Days(jsii.Number(90)),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Environment": jsii.String("staging"),
+			"Team": jsii.String("backend"),
+		},
+	},
+})
+```
+
+##### Recipe-Based Resource Selection
+
+Apply lifecycle policies to specific image or container recipes:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("MyImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+})
+
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("MyContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+})
+
+recipeBasedPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("RecipeBasedPolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_AMI_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				CountFilter: &LifecyclePolicyCountFilter{
+					Count: jsii.Number(5),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Recipes: []IRecipeBase{
+			imageRecipe,
+			containerRecipe,
+		},
+	},
+})
+```
+
+#### Lifecycle Policy Rules
+
+##### Age-Based Rules
+
+Delete images older than a specific time period:
+
+```go
+ageBasedPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("AgeBasedPolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_AMI_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+				IncludeAmis: jsii.Boolean(true),
+				IncludeSnapshots: jsii.Boolean(true),
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_Days(jsii.Number(60)),
+					RetainAtLeast: jsii.Number(3),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Environment": jsii.String("testing"),
+		},
+	},
+})
+```
+
+##### Count-Based Rules
+
+Keep only a specific number of the most recent images:
+
+```go
+countBasedPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("CountBasedPolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_CONTAINER_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				CountFilter: &LifecyclePolicyCountFilter{
+					Count: jsii.Number(15),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Application": jsii.String("microservice"),
+		},
+	},
+})
+```
+
+##### Multiple Lifecycle Rules
+
+Implement a graduated approach with multiple actions:
+
+```go
+graduatedPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("GraduatedPolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_AMI_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			// First: Deprecate images after 30 days
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DEPRECATE,
+				IncludeAmis: jsii.Boolean(true),
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_Days(jsii.Number(30)),
+					RetainAtLeast: jsii.Number(5),
+				},
+			},
+		},
+		&LifecyclePolicyDetail{
+			// Second: Disable images after 60 days
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DISABLE,
+				IncludeAmis: jsii.Boolean(true),
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_*Days(jsii.Number(60)),
+					RetainAtLeast: jsii.Number(3),
+				},
+			},
+		},
+		&LifecyclePolicyDetail{
+			// Finally: Delete images after 90 days
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+				IncludeAmis: jsii.Boolean(true),
+				IncludeSnapshots: jsii.Boolean(true),
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_*Days(jsii.Number(90)),
+					RetainAtLeast: jsii.Number(1),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Environment": jsii.String("production"),
+		},
+	},
+})
+```
+
+#### Lifecycle Policy Exclusion Rules
+
+##### AMI Exclusion Rules
+
+Exclude specific AMIs from lifecycle actions based on various criteria:
+
+```go
+excludeAmisPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("ExcludeAmisPolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_AMI_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_Days(jsii.Number(30)),
+				},
+			},
+			ExclusionRules: &LifecyclePolicyExclusionRules{
+				AmiExclusionRules: &LifecyclePolicyAmiExclusionRules{
+					IsPublic: jsii.Boolean(true),
+					 // Exclude public AMIs
+					LastLaunched: awscdk.Duration_*Days(jsii.Number(7)),
+					 // Exclude AMIs launched in last 7 days
+					Regions: []*string{
+						jsii.String("us-west-2"),
+						jsii.String("eu-west-1"),
+					},
+					 // Exclude AMIs in specific regions
+					SharedAccounts: []*string{
+						jsii.String("123456789012"),
+					},
+					 // Exclude AMIs shared with specific accounts
+					Tags: map[string]*string{
+						"Protected": jsii.String("true"),
+						"Environment": jsii.String("production"),
+					},
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Team": jsii.String("infrastructure"),
+		},
+	},
+})
+```
+
+##### Image Exclusion Rules
+
+Exclude Image Builder images with protective tags:
+
+```go
+excludeImagesPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("ExcludeImagesPolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_CONTAINER_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				CountFilter: &LifecyclePolicyCountFilter{
+					Count: jsii.Number(20),
+				},
+			},
+			ExclusionRules: &LifecyclePolicyExclusionRules{
+				ImageExclusionRules: &LifecyclePolicyImageExclusionRules{
+					Tags: map[string]*string{
+						"DoNotDelete": jsii.String("true"),
+						"Critical": jsii.String("baseline"),
+					},
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Application": jsii.String("frontend"),
+		},
+	},
+})
+```
+
+#### Advanced Lifecycle Configuration
+
+##### Custom Execution Roles
+
+Provide your own IAM execution role with specific permissions:
+
+```go
+executionRole := iam.NewRole(this, jsii.String("LifecycleExecutionRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("imagebuilder.amazonaws.com")),
+	ManagedPolicies: []IManagedPolicy{
+		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/EC2ImageBuilderLifecycleExecutionPolicy")),
+	},
+})
+
+customRolePolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("CustomRolePolicy"), &LifecyclePolicyProps{
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_AMI_IMAGE,
+	ExecutionRole: executionRole,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_Days(jsii.Number(45)),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Environment": jsii.String("development"),
+		},
+	},
+})
+```
+
+##### Lifecycle Policy Status
+
+Control whether the lifecycle policy is active:
+
+```go
+disabledPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("DisabledPolicy"), &LifecyclePolicyProps{
+	LifecyclePolicyName: jsii.String("my-disabled-policy"),
+	Description: jsii.String("A lifecycle policy that is temporarily disabled"),
+	Status: imagebuilder.LifecyclePolicyStatus_DISABLED,
+	ResourceType: imagebuilder.LifecyclePolicyResourceType_AMI_IMAGE,
+	Details: []LifecyclePolicyDetail{
+		&LifecyclePolicyDetail{
+			Action: &LifecyclePolicyAction{
+				Type: imagebuilder.LifecyclePolicyActionType_DELETE,
+			},
+			Filter: &LifecyclePolicyFilter{
+				AgeFilter: &LifecyclePolicyAgeFilter{
+					Age: awscdk.Duration_Days(jsii.Number(30)),
+				},
+			},
+		},
+	},
+	ResourceSelection: &LifecyclePolicyResourceSelection{
+		Tags: map[string]*string{
+			"Environment": jsii.String("testing"),
+		},
+	},
+	Tags: map[string]*string{
+		"Owner": jsii.String("DevOps"),
+		"CostCenter": jsii.String("Engineering"),
+	},
+})
+```
+
+##### Importing Lifecycle Policies
+
+Reference lifecycle policies created outside of CDK:
+
+```go
+// Import by name
+importedByName := imagebuilder.LifecyclePolicy_FromLifecyclePolicyName(this, jsii.String("ImportedByName"), jsii.String("existing-lifecycle-policy"))
+
+// Import by ARN
+importedByArn := imagebuilder.LifecyclePolicy_FromLifecyclePolicyArn(this, jsii.String("ImportedByArn"), jsii.String("arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/my-policy"))
+
+importedByName.GrantRead(lambdaRole)
+importedByArn.Grant(lambdaRole, jsii.String("imagebuilder:PutLifecyclePolicy"))
 ```

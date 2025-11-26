@@ -1,0 +1,23 @@
+package previewawsappflowmixins
+
+
+// The properties that are applied when using Zendesk as a flow source.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   zendeskSourcePropertiesProperty := &ZendeskSourcePropertiesProperty{
+//   	Object: jsii.String("object"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html
+//
+type CfnFlowPropsMixin_ZendeskSourcePropertiesProperty struct {
+	// The object specified in the Zendesk flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
+	//
+	Object *string `field:"optional" json:"object" yaml:"object"`
+}
+

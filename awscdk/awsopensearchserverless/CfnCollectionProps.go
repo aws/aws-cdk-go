@@ -15,12 +15,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	CollectionGroupName: jsii.String("collectionGroupName"),
 //   	Description: jsii.String("description"),
-//   	EncryptionConfig: &EncryptionConfigProperty{
-//   		AwsOwnedKey: jsii.Boolean(false),
-//   		KmsKeyArn: jsii.String("kmsKeyArn"),
-//   	},
 //   	StandbyReplicas: jsii.String("standbyReplicas"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -45,24 +40,10 @@ type CfnCollectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The name of the collection group.
-	//
-	// The name must meet the following criteria:
-	// Unique to your account and AWS Region
-	// Starts with a lowercase letter
-	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-	// Contains between 3 and 32 characters.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-collectiongroupname
-	//
-	CollectionGroupName *string `field:"optional" json:"collectionGroupName" yaml:"collectionGroupName"`
 	// A description of the collection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The configuration to encrypt the collection.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-encryptionconfig
-	//
-	EncryptionConfig interface{} `field:"optional" json:"encryptionConfig" yaml:"encryptionConfig"`
 	// Indicates whether to use standby replicas for the collection.
 	//
 	// You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.

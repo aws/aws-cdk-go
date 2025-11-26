@@ -104,6 +104,9 @@ type CfnMethod_IntegrationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
 	//
 	IntegrationResponses interface{} `field:"optional" json:"integrationResponses" yaml:"integrationResponses"`
+	// The ALB or NLB listener to send the request to.
+	//
+	// Only supported for private integrations that use VPC links V2.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-integrationtarget
 	//
 	IntegrationTarget *string `field:"optional" json:"integrationTarget" yaml:"integrationTarget"`
@@ -125,6 +128,9 @@ type CfnMethod_IntegrationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
 	//
 	RequestTemplates interface{} `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
+	// The response transfer mode of the integration.
+	//
+	// Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-responsetransfermode
 	//
 	// Default: - "BUFFERED".

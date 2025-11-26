@@ -1,0 +1,30 @@
+package previewawss3mixins
+
+
+// Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
+//
+// For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide* .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   tagFilterProperty := &TagFilterProperty{
+//   	Key: jsii.String("key"),
+//   	Value: jsii.String("value"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html
+//
+type CfnBucketPropsMixin_TagFilterProperty struct {
+	// The tag key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-key
+	//
+	Key *string `field:"optional" json:"key" yaml:"key"`
+	// The tag value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-value
+	//
+	Value *string `field:"optional" json:"value" yaml:"value"`
+}
+

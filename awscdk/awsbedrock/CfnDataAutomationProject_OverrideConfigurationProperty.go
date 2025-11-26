@@ -20,10 +20,34 @@ package awsbedrock
 //   		ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   			State: jsii.String("state"),
 //   		},
+//   		SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   			DetectionMode: jsii.String("detectionMode"),
+//   			DetectionScope: []*string{
+//   				jsii.String("detectionScope"),
+//   			},
+//   			PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   				PiiEntityTypes: []*string{
+//   					jsii.String("piiEntityTypes"),
+//   				},
+//   				RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   			},
+//   		},
 //   	},
 //   	Document: &DocumentOverrideConfigurationProperty{
 //   		ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   			State: jsii.String("state"),
+//   		},
+//   		SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   			DetectionMode: jsii.String("detectionMode"),
+//   			DetectionScope: []*string{
+//   				jsii.String("detectionScope"),
+//   			},
+//   			PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   				PiiEntityTypes: []*string{
+//   					jsii.String("piiEntityTypes"),
+//   				},
+//   				RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   			},
 //   		},
 //   		Splitter: &SplitterConfigurationProperty{
 //   			State: jsii.String("state"),
@@ -32,6 +56,18 @@ package awsbedrock
 //   	Image: &ImageOverrideConfigurationProperty{
 //   		ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   			State: jsii.String("state"),
+//   		},
+//   		SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   			DetectionMode: jsii.String("detectionMode"),
+//   			DetectionScope: []*string{
+//   				jsii.String("detectionScope"),
+//   			},
+//   			PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   				PiiEntityTypes: []*string{
+//   					jsii.String("piiEntityTypes"),
+//   				},
+//   				RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   			},
 //   		},
 //   	},
 //   	ModalityRouting: &ModalityRoutingConfigurationProperty{
@@ -43,6 +79,18 @@ package awsbedrock
 //   	Video: &VideoOverrideConfigurationProperty{
 //   		ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   			State: jsii.String("state"),
+//   		},
+//   		SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   			DetectionMode: jsii.String("detectionMode"),
+//   			DetectionScope: []*string{
+//   				jsii.String("detectionScope"),
+//   			},
+//   			PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   				PiiEntityTypes: []*string{
+//   					jsii.String("piiEntityTypes"),
+//   				},
+//   				RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   			},
 //   		},
 //   	},
 //   }

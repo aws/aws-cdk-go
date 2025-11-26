@@ -17,6 +17,9 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MediaType: jsii.String("mediaType"),
 //   	Name: jsii.String("name"),
+//   	StreamStorageConfiguration: &StreamStorageConfigurationProperty{
+//   		DefaultStorageTier: jsii.String("defaultStorageTier"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -48,6 +51,10 @@ type CfnStreamProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-stream.html#cfn-kinesisvideo-stream-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Configuration for the storage tier of the Kinesis Video Stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-stream.html#cfn-kinesisvideo-stream-streamstorageconfiguration
+	//
+	StreamStorageConfiguration interface{} `field:"optional" json:"streamStorageConfiguration" yaml:"streamStorageConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

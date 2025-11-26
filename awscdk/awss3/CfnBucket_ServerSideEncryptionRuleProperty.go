@@ -12,6 +12,11 @@ package awss3
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   serverSideEncryptionRuleProperty := &ServerSideEncryptionRuleProperty{
+//   	BlockedEncryptionTypes: &BlockedEncryptionTypesProperty{
+//   		EncryptionType: []*string{
+//   			jsii.String("encryptionType"),
+//   		},
+//   	},
 //   	BucketKeyEnabled: jsii.Boolean(false),
 //   	ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
 //   		SseAlgorithm: jsii.String("sseAlgorithm"),
@@ -24,6 +29,9 @@ package awss3
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html
 //
 type CfnBucket_ServerSideEncryptionRuleProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-blockedencryptiontypes
+	//
+	BlockedEncryptionTypes interface{} `field:"optional" json:"blockedEncryptionTypes" yaml:"blockedEncryptionTypes"`
 	// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket.
 	//
 	// Existing objects are not affected. Setting the `BucketKeyEnabled` element to `true` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.

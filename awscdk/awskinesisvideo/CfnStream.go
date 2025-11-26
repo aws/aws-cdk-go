@@ -32,6 +32,9 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MediaType: jsii.String("mediaType"),
 //   	Name: jsii.String("name"),
+//   	StreamStorageConfiguration: &StreamStorageConfigurationProperty{
+//   		DefaultStorageTier: jsii.String("defaultStorageTier"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -97,6 +100,9 @@ type CfnStream interface {
 	Stack() awscdk.Stack
 	// A reference to a Stream resource.
 	StreamRef() *interfacesawskinesisvideo.StreamReference
+	// Configuration for the storage tier of the Kinesis Video Stream.
+	StreamStorageConfiguration() interface{}
+	SetStreamStorageConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An array of key-value pairs to apply to this resource.
@@ -410,6 +416,16 @@ func (j *jsiiProxy_CfnStream) StreamRef() *interfacesawskinesisvideo.StreamRefer
 	return returns
 }
 
+func (j *jsiiProxy_CfnStream) StreamStorageConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"streamStorageConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStream) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -516,6 +532,17 @@ func (j *jsiiProxy_CfnStream)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStream)SetStreamStorageConfiguration(val interface{}) {
+	if err := j.validateSetStreamStorageConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"streamStorageConfiguration",
 		val,
 	)
 }

@@ -1,0 +1,22 @@
+//go:build no_runtime_type_checking
+
+package previewawssammixins
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (c *jsiiProxy_CfnStateMachinePropsMixin) validateApplyToParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnStateMachinePropsMixin) validateSupportsParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCfnStateMachinePropsMixin_IsMixinParameters(x interface{}) error {
+	return nil
+}
+
+func validateNewCfnStateMachinePropsMixinParameters(props *CfnStateMachineMixinProps, options *mixins.CfnPropertyMixinOptions) error {
+	return nil
+}
+

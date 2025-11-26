@@ -73,6 +73,7 @@ type CfnDomainNameV2 interface {
 	SetDomainName(val *string)
 	// A reference to a DomainNameV2 resource.
 	DomainNameV2Ref() *interfacesawsapigateway.DomainNameV2Reference
+	// The endpoint access mode for your DomainName.
 	EndpointAccessMode() *string
 	SetEndpointAccessMode(val *string)
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.

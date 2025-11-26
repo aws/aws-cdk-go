@@ -31,7 +31,7 @@ package awsbackup
 type CfnReportPlan_ReportSettingProperty struct {
 	// Identifies the report template for the report. Reports are built using a report template. The report templates are:.
 	//
-	// `RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`.
+	// `RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT | SCAN_JOB_REPORT`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-reporttemplate
 	//
 	ReportTemplate *string `field:"required" json:"reportTemplate" yaml:"reportTemplate"`

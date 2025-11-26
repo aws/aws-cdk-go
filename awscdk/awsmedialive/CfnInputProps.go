@@ -48,6 +48,15 @@ package awsmedialive
 //   	},
 //   	Name: jsii.String("name"),
 //   	RoleArn: jsii.String("roleArn"),
+//   	RouterSettings: &RouterSettingsProperty{
+//   		Destinations: []interface{}{
+//   			&RouterDestinationSettingsProperty{
+//   				AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//   			},
+//   		},
+//   		EncryptionType: jsii.String("encryptionType"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	SdiSources: []*string{
 //   		jsii.String("sdiSources"),
 //   	},
@@ -143,6 +152,9 @@ type CfnInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-routersettings
+	//
+	RouterSettings interface{} `field:"optional" json:"routerSettings" yaml:"routerSettings"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sdisources
 	//
 	SdiSources *[]*string `field:"optional" json:"sdiSources" yaml:"sdiSources"`

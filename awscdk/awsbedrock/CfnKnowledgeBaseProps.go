@@ -192,6 +192,11 @@ package awsbedrock
 //   			ResourceArn: jsii.String("resourceArn"),
 //   			TableName: jsii.String("tableName"),
 //   		},
+//   		S3VectorsConfiguration: &S3VectorsConfigurationProperty{
+//   			IndexArn: jsii.String("indexArn"),
+//   			IndexName: jsii.String("indexName"),
+//   			VectorBucketArn: jsii.String("vectorBucketArn"),
+//   		},
 //   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),

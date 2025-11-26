@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnTrail) validateSetAdvancedEventSelectorsParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrail) validateSetAggregationConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrail) validateSetEnableLogFileValidationParameters(val interface{}) error {
 	return nil
 }

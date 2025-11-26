@@ -61,6 +61,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Type: jsii.String("type"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
@@ -128,6 +129,8 @@ type CfnSecret interface {
 	// A list of tags to attach to the secret.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	Type() *string
+	SetType(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -466,6 +469,16 @@ func (j *jsiiProxy_CfnSecret) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSecret) Type() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecret) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -577,6 +590,14 @@ func (j *jsiiProxy_CfnSecret)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecret)SetType(val *string) {
+	_jsii_.Set(
+		j,
+		"type",
 		val,
 	)
 }

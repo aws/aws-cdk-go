@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnCluster) validateSetComputeConfigParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetControlPlaneScalingConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetDeletionProtectionParameters(val interface{}) error {
 	return nil
 }

@@ -67,6 +67,7 @@ type CfnServiceNetworkResourceAssociation interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Indicates if private DNS is enabled for the service network resource association.
 	PrivateDnsEnabled() interface{}
 	SetPrivateDnsEnabled(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -10,15 +10,17 @@ import (
 // Represents a base image that is used to start from in EC2 Image Builder image builds.
 //
 // Example:
-//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("BlockDeviceImageRecipe"), &ImageRecipeProps{
-//   	BaseImage: imagebuilder.BaseImage_FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
-//   	BlockDevices: []BlockDevice{
-//   		&BlockDevice{
-//   			DeviceName: jsii.String("/dev/sda1"),
-//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(100), &EbsDeviceOptions{
-//   				Encrypted: jsii.Boolean(true),
-//   				VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
-//   			}),
+//   parameterizedComponent := imagebuilder.Component_FromComponentName(this, jsii.String("ParameterizedComponent"), jsii.String("my-parameterized-component"))
+//
+//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("ParameterizedImageRecipe"), &ImageRecipeProps{
+//   	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+//   	Components: []ComponentConfiguration{
+//   		&ComponentConfiguration{
+//   			Component: parameterizedComponent,
+//   			Parameters: map[string]ComponentParameterValue{
+//   				"environment": imagebuilder.ComponentParameterValue_fromString(jsii.String("production")),
+//   				"version": imagebuilder.ComponentParameterValue_fromString(jsii.String("1.0.0")),
+//   			},
 //   		},
 //   	},
 //   })

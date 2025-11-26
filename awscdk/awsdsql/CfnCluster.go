@@ -74,7 +74,7 @@ type CfnCluster interface {
 	AttrCreationTime() *string
 	// The encryption configuration details for the cluster.
 	AttrEncryptionDetails() awscdk.IResolvable
-	// The DSQL cluster endpoint.
+	// The connection endpoint for the created cluster.
 	AttrEndpoint() *string
 	// The unique identifier assigned to the cluster upon creation.
 	AttrIdentifier() *string

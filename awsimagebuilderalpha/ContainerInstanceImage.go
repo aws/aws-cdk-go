@@ -11,8 +11,8 @@ import (
 //
 // Example:
 //   containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("InstanceConfigContainerRecipe"), &ContainerRecipeProps{
-//   	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
-//   	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+//   	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+//   	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 //   	// Custom ECS-optimized AMI for building
 //   	InstanceImage: imagebuilder.ContainerInstanceImage_FromSsmParameterName(jsii.String("/aws/service/ecs/optimized-ami/amazon-linux-2023/recommended/image_id")),
 //   	// Additional storage for build process

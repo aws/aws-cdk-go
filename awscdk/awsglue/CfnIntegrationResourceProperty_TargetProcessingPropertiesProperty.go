@@ -1,7 +1,7 @@
 package awsglue
 
 
-// The resource properties associated with the integration target.
+// The structure used to define the resource properties associated with the integration target.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,11 +20,11 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-integrationresourceproperty-targetprocessingproperties.html
 //
 type CfnIntegrationResourceProperty_TargetProcessingPropertiesProperty struct {
-	// The IAM role to access the Glue database.
+	// The IAM role to access the AWS Glue database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-integrationresourceproperty-targetprocessingproperties.html#cfn-glue-integrationresourceproperty-targetprocessingproperties-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// The Glue network connection to configure the Glue job running in the customer VPC.
+	// The AWS Glue network connection to configure the AWS Glue job running in the customer VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-integrationresourceproperty-targetprocessingproperties.html#cfn-glue-integrationresourceproperty-targetprocessingproperties-connectionname
 	//
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`

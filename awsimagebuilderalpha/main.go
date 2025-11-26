@@ -456,6 +456,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-imagebuilder-alpha.IImagePipeline",
+		reflect.TypeOf((*IImagePipeline)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDefaultExecutionRolePermissions", GoMethod: "GrantDefaultExecutionRolePermissions"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStartExecution", GoMethod: "GrantStartExecution"},
+			_jsii_.MemberProperty{JsiiProperty: "imagePipelineArn", GoGetter: "ImagePipelineArn"},
+			_jsii_.MemberProperty{JsiiProperty: "imagePipelineName", GoGetter: "ImagePipelineName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onCVEDetected", GoMethod: "OnCVEDetected"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onImageBuildCompleted", GoMethod: "OnImageBuildCompleted"},
+			_jsii_.MemberMethod{JsiiMethod: "onImageBuildFailed", GoMethod: "OnImageBuildFailed"},
+			_jsii_.MemberMethod{JsiiMethod: "onImageBuildStateChange", GoMethod: "OnImageBuildStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onImageBuildSucceeded", GoMethod: "OnImageBuildSucceeded"},
+			_jsii_.MemberMethod{JsiiMethod: "onImagePipelineAutoDisabled", GoMethod: "OnImagePipelineAutoDisabled"},
+			_jsii_.MemberMethod{JsiiMethod: "onWaitForAction", GoMethod: "OnWaitForAction"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IImagePipeline{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-imagebuilder-alpha.IImageRecipe",
 		reflect.TypeOf((*IImageRecipe)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -490,6 +519,25 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IInfrastructureConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-imagebuilder-alpha.ILifecyclePolicy",
+		reflect.TypeOf((*ILifecyclePolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicyArn", GoGetter: "LifecyclePolicyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicyName", GoGetter: "LifecyclePolicyName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ILifecyclePolicy{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -530,6 +578,59 @@ func init() {
 			j := jsiiProxy_IWorkflow{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.ImagePipeline",
+		reflect.TypeOf((*ImagePipeline)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDefaultExecutionRolePermissions", GoMethod: "GrantDefaultExecutionRolePermissions"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStartExecution", GoMethod: "GrantStartExecution"},
+			_jsii_.MemberProperty{JsiiProperty: "imagePipelineArn", GoGetter: "ImagePipelineArn"},
+			_jsii_.MemberProperty{JsiiProperty: "imagePipelineName", GoGetter: "ImagePipelineName"},
+			_jsii_.MemberProperty{JsiiProperty: "infrastructureConfiguration", GoGetter: "InfrastructureConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onCVEDetected", GoMethod: "OnCVEDetected"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onImageBuildCompleted", GoMethod: "OnImageBuildCompleted"},
+			_jsii_.MemberMethod{JsiiMethod: "onImageBuildFailed", GoMethod: "OnImageBuildFailed"},
+			_jsii_.MemberMethod{JsiiMethod: "onImageBuildStateChange", GoMethod: "OnImageBuildStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onImageBuildSucceeded", GoMethod: "OnImageBuildSucceeded"},
+			_jsii_.MemberMethod{JsiiMethod: "onImagePipelineAutoDisabled", GoMethod: "OnImagePipelineAutoDisabled"},
+			_jsii_.MemberMethod{JsiiMethod: "onWaitForAction", GoMethod: "OnWaitForAction"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ImagePipeline{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IImagePipeline)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ImagePipelineProps",
+		reflect.TypeOf((*ImagePipelineProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ImagePipelineSchedule",
+		reflect.TypeOf((*ImagePipelineSchedule)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ImagePipelineStatus",
+		reflect.TypeOf((*ImagePipelineStatus)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": ImagePipelineStatus_ENABLED,
+			"DISABLED": ImagePipelineStatus_DISABLED,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -606,6 +707,97 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-imagebuilder-alpha.LaunchTemplateConfiguration",
 		reflect.TypeOf((*LaunchTemplateConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicy",
+		reflect.TypeOf((*LifecyclePolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicyArn", GoGetter: "LifecyclePolicyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicyName", GoGetter: "LifecyclePolicyName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_LifecyclePolicy{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILifecyclePolicy)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyAction",
+		reflect.TypeOf((*LifecyclePolicyAction)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyActionType",
+		reflect.TypeOf((*LifecyclePolicyActionType)(nil)).Elem(),
+		map[string]interface{}{
+			"DELETE": LifecyclePolicyActionType_DELETE,
+			"DEPRECATE": LifecyclePolicyActionType_DEPRECATE,
+			"DISABLE": LifecyclePolicyActionType_DISABLE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyAgeFilter",
+		reflect.TypeOf((*LifecyclePolicyAgeFilter)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyAmiExclusionRules",
+		reflect.TypeOf((*LifecyclePolicyAmiExclusionRules)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyCountFilter",
+		reflect.TypeOf((*LifecyclePolicyCountFilter)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyDetail",
+		reflect.TypeOf((*LifecyclePolicyDetail)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyExclusionRules",
+		reflect.TypeOf((*LifecyclePolicyExclusionRules)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyFilter",
+		reflect.TypeOf((*LifecyclePolicyFilter)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyImageExclusionRules",
+		reflect.TypeOf((*LifecyclePolicyImageExclusionRules)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyProps",
+		reflect.TypeOf((*LifecyclePolicyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyResourceSelection",
+		reflect.TypeOf((*LifecyclePolicyResourceSelection)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyResourceType",
+		reflect.TypeOf((*LifecyclePolicyResourceType)(nil)).Elem(),
+		map[string]interface{}{
+			"AMI_IMAGE": LifecyclePolicyResourceType_AMI_IMAGE,
+			"CONTAINER_IMAGE": LifecyclePolicyResourceType_CONTAINER_IMAGE,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.LifecyclePolicyStatus",
+		reflect.TypeOf((*LifecyclePolicyStatus)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": LifecyclePolicyStatus_ENABLED,
+			"DISABLED": LifecyclePolicyStatus_DISABLED,
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-imagebuilder-alpha.OSVersion",
@@ -699,6 +891,14 @@ func init() {
 		reflect.TypeOf((*SSMParameterConfigurations)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ScheduleStartCondition",
+		reflect.TypeOf((*ScheduleStartCondition)(nil)).Elem(),
+		map[string]interface{}{
+			"EXPRESSION_MATCH_ONLY": ScheduleStartCondition_EXPRESSION_MATCH_ONLY,
+			"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE": ScheduleStartCondition_EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-imagebuilder-alpha.Tenancy",
 		reflect.TypeOf((*Tenancy)(nil)).Elem(),
 		map[string]interface{}{
@@ -761,6 +961,10 @@ func init() {
 		"@aws-cdk/aws-imagebuilder-alpha.WorkflowAttributes",
 		reflect.TypeOf((*WorkflowAttributes)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.WorkflowConfiguration",
+		reflect.TypeOf((*WorkflowConfiguration)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-imagebuilder-alpha.WorkflowData",
 		reflect.TypeOf((*WorkflowData)(nil)).Elem(),
@@ -791,6 +995,16 @@ func init() {
 			"INTEGER": WorkflowParameterType_INTEGER,
 			"STRING": WorkflowParameterType_STRING,
 			"STRING_LIST": WorkflowParameterType_STRING_LIST,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.WorkflowParameterValue",
+		reflect.TypeOf((*WorkflowParameterValue)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WorkflowParameterValue{}
 		},
 	)
 	_jsii_.RegisterStruct(

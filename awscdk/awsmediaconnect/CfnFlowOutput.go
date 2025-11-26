@@ -175,7 +175,7 @@ type CfnFlowOutput interface {
 	SetRemoteId(val *string)
 	RouterIntegrationState() *string
 	SetRouterIntegrationState(val *string)
-	// Information about the encryption of the flow.
+	// Encryption information.
 	RouterIntegrationTransitEncryption() interface{}
 	SetRouterIntegrationTransitEncryption(val interface{})
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.

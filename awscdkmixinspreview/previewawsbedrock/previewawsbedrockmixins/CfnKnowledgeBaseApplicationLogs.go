@@ -1,0 +1,108 @@
+package previewawsbedrockmixins
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
+)
+
+// Builder for CfnKnowledgeBaseLogsMixin to generate APPLICATION_LOGS for CfnKnowledgeBase.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   cfnKnowledgeBaseApplicationLogs := awscdkmixinspreview.Mixins.NewCfnKnowledgeBaseApplicationLogs()
+//
+type CfnKnowledgeBaseApplicationLogs interface {
+	// Send logs to a Firehose Delivery Stream.
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnKnowledgeBaseLogsMixin
+	// Send logs to a CloudWatch Log Group.
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnKnowledgeBaseLogsMixin
+	// Send logs to an S3 Bucket.
+	ToS3(bucket interfacesawss3.IBucketRef) CfnKnowledgeBaseLogsMixin
+}
+
+// The jsii proxy struct for CfnKnowledgeBaseApplicationLogs
+type jsiiProxy_CfnKnowledgeBaseApplicationLogs struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewCfnKnowledgeBaseApplicationLogs() CfnKnowledgeBaseApplicationLogs {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnKnowledgeBaseApplicationLogs{}
+
+	_jsii_.Create(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseApplicationLogs",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewCfnKnowledgeBaseApplicationLogs_Override(c CfnKnowledgeBaseApplicationLogs) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseApplicationLogs",
+		nil, // no parameters
+		c,
+	)
+}
+
+func (c *jsiiProxy_CfnKnowledgeBaseApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+		panic(err)
+	}
+	var returns CfnKnowledgeBaseLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toFirehose",
+		[]interface{}{deliveryStream},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnKnowledgeBaseApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+		panic(err)
+	}
+	var returns CfnKnowledgeBaseLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toLogGroup",
+		[]interface{}{logGroup},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnKnowledgeBaseApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToS3Parameters(bucket); err != nil {
+		panic(err)
+	}
+	var returns CfnKnowledgeBaseLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toS3",
+		[]interface{}{bucket},
+		&returns,
+	)
+
+	return returns
+}
+

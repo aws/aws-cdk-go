@@ -19,11 +19,24 @@ package awsbedrock
 //   	ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   		State: jsii.String("state"),
 //   	},
+//   	SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   		DetectionMode: jsii.String("detectionMode"),
+//   		DetectionScope: []*string{
+//   			jsii.String("detectionScope"),
+//   		},
+//   		PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   			PiiEntityTypes: []*string{
+//   				jsii.String("piiEntityTypes"),
+//   			},
+//   			RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html
 //
 type CfnDataAutomationProject_AudioOverrideConfigurationProperty struct {
+	// The output and input language configuration for your audio.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html#cfn-bedrock-dataautomationproject-audiooverrideconfiguration-languageconfiguration
 	//
 	LanguageConfiguration interface{} `field:"optional" json:"languageConfiguration" yaml:"languageConfiguration"`
@@ -33,5 +46,8 @@ type CfnDataAutomationProject_AudioOverrideConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html#cfn-bedrock-dataautomationproject-audiooverrideconfiguration-modalityprocessing
 	//
 	ModalityProcessing interface{} `field:"optional" json:"modalityProcessing" yaml:"modalityProcessing"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html#cfn-bedrock-dataautomationproject-audiooverrideconfiguration-sensitivedataconfiguration
+	//
+	SensitiveDataConfiguration interface{} `field:"optional" json:"sensitiveDataConfiguration" yaml:"sensitiveDataConfiguration"`
 }
 

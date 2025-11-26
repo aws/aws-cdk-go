@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnInput) validateSetMulticastSettingsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnInput) validateSetRouterSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnInput) validateSetSmpte2110ReceiverGroupSettingsParameters(val interface{}) error {
 	return nil
 }

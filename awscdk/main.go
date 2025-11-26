@@ -9,6 +9,10 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.AWSEventMetadataProps",
+		reflect.TypeOf((*AWSEventMetadataProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.AddDockerImageAssetOptions",
 		reflect.TypeOf((*AddDockerImageAssetOptions)(nil)).Elem(),
 	)

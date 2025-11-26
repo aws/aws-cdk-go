@@ -12,6 +12,13 @@ package awssecretsmanager
 //   	SecretId: jsii.String("secretId"),
 //
 //   	// the properties below are optional
+//   	ExternalSecretRotationMetadata: []interface{}{
+//   		&ExternalSecretRotationMetadataItemProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ExternalSecretRotationRoleArn: jsii.String("externalSecretRotationRoleArn"),
 //   	HostedRotationLambda: &HostedRotationLambdaProperty{
 //   		RotationType: jsii.String("rotationType"),
 //
@@ -45,6 +52,14 @@ type CfnRotationScheduleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-secretid
 	//
 	SecretId *string `field:"required" json:"secretId" yaml:"secretId"`
+	// The list of metadata needed to successfully rotate a managed external secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-externalsecretrotationmetadata
+	//
+	ExternalSecretRotationMetadata interface{} `field:"optional" json:"externalSecretRotationMetadata" yaml:"externalSecretRotationMetadata"`
+	// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-externalsecretrotationrolearn
+	//
+	ExternalSecretRotationRoleArn *string `field:"optional" json:"externalSecretRotationRoleArn" yaml:"externalSecretRotationRoleArn"`
 	// Creates a new Lambda rotation function based on one of the [Secrets Manager rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) . To use a rotation function that already exists, specify `RotationLambdaARN` instead.
 	//
 	// You must specify `Transform: AWS::SecretsManager-2024-09-16` at the beginning of the CloudFormation template. Transforms are macros hosted by AWS CloudFormation that help you create and manage complex infrastructure. The `Transform: AWS::SecretsManager-2024-09-16` transform automatically extends the CloudFormation stack to include a nested stack (of type `AWS::CloudFormation::Stack` ), which then creates and updates on your behalf during subsequent stack operations, the appropriate rotation Lambda function for your database or service. For general information on transforms, see the [AWS CloudFormation documentation.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-reference.html)

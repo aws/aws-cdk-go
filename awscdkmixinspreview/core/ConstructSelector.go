@@ -96,6 +96,23 @@ func ConstructSelector_CfnResource() ConstructSelector {
 	return returns
 }
 
+// Selects only the provided construct.
+// Experimental.
+func ConstructSelector_OnlyItself() ConstructSelector {
+	_init_.Initialize()
+
+	var returns ConstructSelector
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/mixins-preview.core.ConstructSelector",
+		"onlyItself",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Selects constructs of a specific type.
 // Experimental.
 func ConstructSelector_ResourcesOfType(type_ interface{}) ConstructSelector {

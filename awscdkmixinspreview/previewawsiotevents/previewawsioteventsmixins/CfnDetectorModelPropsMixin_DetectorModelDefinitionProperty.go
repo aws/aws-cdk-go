@@ -1,0 +1,479 @@
+package previewawsioteventsmixins
+
+
+// Information that defines how a detector operates.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   detectorModelDefinitionProperty := &DetectorModelDefinitionProperty{
+//   	InitialStateName: jsii.String("initialStateName"),
+//   	States: []interface{}{
+//   		&StateProperty{
+//   			OnEnter: &OnEnterProperty{
+//   				Events: []interface{}{
+//   					&EventProperty{
+//   						Actions: []interface{}{
+//   							&ActionProperty{
+//   								ClearTimer: &ClearTimerProperty{
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								DynamoDb: &DynamoDBProperty{
+//   									HashKeyField: jsii.String("hashKeyField"),
+//   									HashKeyType: jsii.String("hashKeyType"),
+//   									HashKeyValue: jsii.String("hashKeyValue"),
+//   									Operation: jsii.String("operation"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									PayloadField: jsii.String("payloadField"),
+//   									RangeKeyField: jsii.String("rangeKeyField"),
+//   									RangeKeyType: jsii.String("rangeKeyType"),
+//   									RangeKeyValue: jsii.String("rangeKeyValue"),
+//   									TableName: jsii.String("tableName"),
+//   								},
+//   								DynamoDBv2: &DynamoDBv2Property{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									TableName: jsii.String("tableName"),
+//   								},
+//   								Firehose: &FirehoseProperty{
+//   									DeliveryStreamName: jsii.String("deliveryStreamName"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									Separator: jsii.String("separator"),
+//   								},
+//   								IotEvents: &IotEventsProperty{
+//   									InputName: jsii.String("inputName"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								IotSiteWise: &IotSiteWiseProperty{
+//   									AssetId: jsii.String("assetId"),
+//   									EntryId: jsii.String("entryId"),
+//   									PropertyAlias: jsii.String("propertyAlias"),
+//   									PropertyId: jsii.String("propertyId"),
+//   									PropertyValue: &AssetPropertyValueProperty{
+//   										Quality: jsii.String("quality"),
+//   										Timestamp: &AssetPropertyTimestampProperty{
+//   											OffsetInNanos: jsii.String("offsetInNanos"),
+//   											TimeInSeconds: jsii.String("timeInSeconds"),
+//   										},
+//   										Value: &AssetPropertyVariantProperty{
+//   											BooleanValue: jsii.String("booleanValue"),
+//   											DoubleValue: jsii.String("doubleValue"),
+//   											IntegerValue: jsii.String("integerValue"),
+//   											StringValue: jsii.String("stringValue"),
+//   										},
+//   									},
+//   								},
+//   								IotTopicPublish: &IotTopicPublishProperty{
+//   									MqttTopic: jsii.String("mqttTopic"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								Lambda: &LambdaProperty{
+//   									FunctionArn: jsii.String("functionArn"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								ResetTimer: &ResetTimerProperty{
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								SetTimer: &SetTimerProperty{
+//   									DurationExpression: jsii.String("durationExpression"),
+//   									Seconds: jsii.Number(123),
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								SetVariable: &SetVariableProperty{
+//   									Value: jsii.String("value"),
+//   									VariableName: jsii.String("variableName"),
+//   								},
+//   								Sns: &SnsProperty{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									TargetArn: jsii.String("targetArn"),
+//   								},
+//   								Sqs: &SqsProperty{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									QueueUrl: jsii.String("queueUrl"),
+//   									UseBase64: jsii.Boolean(false),
+//   								},
+//   							},
+//   						},
+//   						Condition: jsii.String("condition"),
+//   						EventName: jsii.String("eventName"),
+//   					},
+//   				},
+//   			},
+//   			OnExit: &OnExitProperty{
+//   				Events: []interface{}{
+//   					&EventProperty{
+//   						Actions: []interface{}{
+//   							&ActionProperty{
+//   								ClearTimer: &ClearTimerProperty{
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								DynamoDb: &DynamoDBProperty{
+//   									HashKeyField: jsii.String("hashKeyField"),
+//   									HashKeyType: jsii.String("hashKeyType"),
+//   									HashKeyValue: jsii.String("hashKeyValue"),
+//   									Operation: jsii.String("operation"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									PayloadField: jsii.String("payloadField"),
+//   									RangeKeyField: jsii.String("rangeKeyField"),
+//   									RangeKeyType: jsii.String("rangeKeyType"),
+//   									RangeKeyValue: jsii.String("rangeKeyValue"),
+//   									TableName: jsii.String("tableName"),
+//   								},
+//   								DynamoDBv2: &DynamoDBv2Property{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									TableName: jsii.String("tableName"),
+//   								},
+//   								Firehose: &FirehoseProperty{
+//   									DeliveryStreamName: jsii.String("deliveryStreamName"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									Separator: jsii.String("separator"),
+//   								},
+//   								IotEvents: &IotEventsProperty{
+//   									InputName: jsii.String("inputName"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								IotSiteWise: &IotSiteWiseProperty{
+//   									AssetId: jsii.String("assetId"),
+//   									EntryId: jsii.String("entryId"),
+//   									PropertyAlias: jsii.String("propertyAlias"),
+//   									PropertyId: jsii.String("propertyId"),
+//   									PropertyValue: &AssetPropertyValueProperty{
+//   										Quality: jsii.String("quality"),
+//   										Timestamp: &AssetPropertyTimestampProperty{
+//   											OffsetInNanos: jsii.String("offsetInNanos"),
+//   											TimeInSeconds: jsii.String("timeInSeconds"),
+//   										},
+//   										Value: &AssetPropertyVariantProperty{
+//   											BooleanValue: jsii.String("booleanValue"),
+//   											DoubleValue: jsii.String("doubleValue"),
+//   											IntegerValue: jsii.String("integerValue"),
+//   											StringValue: jsii.String("stringValue"),
+//   										},
+//   									},
+//   								},
+//   								IotTopicPublish: &IotTopicPublishProperty{
+//   									MqttTopic: jsii.String("mqttTopic"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								Lambda: &LambdaProperty{
+//   									FunctionArn: jsii.String("functionArn"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								ResetTimer: &ResetTimerProperty{
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								SetTimer: &SetTimerProperty{
+//   									DurationExpression: jsii.String("durationExpression"),
+//   									Seconds: jsii.Number(123),
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								SetVariable: &SetVariableProperty{
+//   									Value: jsii.String("value"),
+//   									VariableName: jsii.String("variableName"),
+//   								},
+//   								Sns: &SnsProperty{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									TargetArn: jsii.String("targetArn"),
+//   								},
+//   								Sqs: &SqsProperty{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									QueueUrl: jsii.String("queueUrl"),
+//   									UseBase64: jsii.Boolean(false),
+//   								},
+//   							},
+//   						},
+//   						Condition: jsii.String("condition"),
+//   						EventName: jsii.String("eventName"),
+//   					},
+//   				},
+//   			},
+//   			OnInput: &OnInputProperty{
+//   				Events: []interface{}{
+//   					&EventProperty{
+//   						Actions: []interface{}{
+//   							&ActionProperty{
+//   								ClearTimer: &ClearTimerProperty{
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								DynamoDb: &DynamoDBProperty{
+//   									HashKeyField: jsii.String("hashKeyField"),
+//   									HashKeyType: jsii.String("hashKeyType"),
+//   									HashKeyValue: jsii.String("hashKeyValue"),
+//   									Operation: jsii.String("operation"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									PayloadField: jsii.String("payloadField"),
+//   									RangeKeyField: jsii.String("rangeKeyField"),
+//   									RangeKeyType: jsii.String("rangeKeyType"),
+//   									RangeKeyValue: jsii.String("rangeKeyValue"),
+//   									TableName: jsii.String("tableName"),
+//   								},
+//   								DynamoDBv2: &DynamoDBv2Property{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									TableName: jsii.String("tableName"),
+//   								},
+//   								Firehose: &FirehoseProperty{
+//   									DeliveryStreamName: jsii.String("deliveryStreamName"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									Separator: jsii.String("separator"),
+//   								},
+//   								IotEvents: &IotEventsProperty{
+//   									InputName: jsii.String("inputName"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								IotSiteWise: &IotSiteWiseProperty{
+//   									AssetId: jsii.String("assetId"),
+//   									EntryId: jsii.String("entryId"),
+//   									PropertyAlias: jsii.String("propertyAlias"),
+//   									PropertyId: jsii.String("propertyId"),
+//   									PropertyValue: &AssetPropertyValueProperty{
+//   										Quality: jsii.String("quality"),
+//   										Timestamp: &AssetPropertyTimestampProperty{
+//   											OffsetInNanos: jsii.String("offsetInNanos"),
+//   											TimeInSeconds: jsii.String("timeInSeconds"),
+//   										},
+//   										Value: &AssetPropertyVariantProperty{
+//   											BooleanValue: jsii.String("booleanValue"),
+//   											DoubleValue: jsii.String("doubleValue"),
+//   											IntegerValue: jsii.String("integerValue"),
+//   											StringValue: jsii.String("stringValue"),
+//   										},
+//   									},
+//   								},
+//   								IotTopicPublish: &IotTopicPublishProperty{
+//   									MqttTopic: jsii.String("mqttTopic"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								Lambda: &LambdaProperty{
+//   									FunctionArn: jsii.String("functionArn"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								ResetTimer: &ResetTimerProperty{
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								SetTimer: &SetTimerProperty{
+//   									DurationExpression: jsii.String("durationExpression"),
+//   									Seconds: jsii.Number(123),
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								SetVariable: &SetVariableProperty{
+//   									Value: jsii.String("value"),
+//   									VariableName: jsii.String("variableName"),
+//   								},
+//   								Sns: &SnsProperty{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									TargetArn: jsii.String("targetArn"),
+//   								},
+//   								Sqs: &SqsProperty{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									QueueUrl: jsii.String("queueUrl"),
+//   									UseBase64: jsii.Boolean(false),
+//   								},
+//   							},
+//   						},
+//   						Condition: jsii.String("condition"),
+//   						EventName: jsii.String("eventName"),
+//   					},
+//   				},
+//   				TransitionEvents: []interface{}{
+//   					&TransitionEventProperty{
+//   						Actions: []interface{}{
+//   							&ActionProperty{
+//   								ClearTimer: &ClearTimerProperty{
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								DynamoDb: &DynamoDBProperty{
+//   									HashKeyField: jsii.String("hashKeyField"),
+//   									HashKeyType: jsii.String("hashKeyType"),
+//   									HashKeyValue: jsii.String("hashKeyValue"),
+//   									Operation: jsii.String("operation"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									PayloadField: jsii.String("payloadField"),
+//   									RangeKeyField: jsii.String("rangeKeyField"),
+//   									RangeKeyType: jsii.String("rangeKeyType"),
+//   									RangeKeyValue: jsii.String("rangeKeyValue"),
+//   									TableName: jsii.String("tableName"),
+//   								},
+//   								DynamoDBv2: &DynamoDBv2Property{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									TableName: jsii.String("tableName"),
+//   								},
+//   								Firehose: &FirehoseProperty{
+//   									DeliveryStreamName: jsii.String("deliveryStreamName"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									Separator: jsii.String("separator"),
+//   								},
+//   								IotEvents: &IotEventsProperty{
+//   									InputName: jsii.String("inputName"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								IotSiteWise: &IotSiteWiseProperty{
+//   									AssetId: jsii.String("assetId"),
+//   									EntryId: jsii.String("entryId"),
+//   									PropertyAlias: jsii.String("propertyAlias"),
+//   									PropertyId: jsii.String("propertyId"),
+//   									PropertyValue: &AssetPropertyValueProperty{
+//   										Quality: jsii.String("quality"),
+//   										Timestamp: &AssetPropertyTimestampProperty{
+//   											OffsetInNanos: jsii.String("offsetInNanos"),
+//   											TimeInSeconds: jsii.String("timeInSeconds"),
+//   										},
+//   										Value: &AssetPropertyVariantProperty{
+//   											BooleanValue: jsii.String("booleanValue"),
+//   											DoubleValue: jsii.String("doubleValue"),
+//   											IntegerValue: jsii.String("integerValue"),
+//   											StringValue: jsii.String("stringValue"),
+//   										},
+//   									},
+//   								},
+//   								IotTopicPublish: &IotTopicPublishProperty{
+//   									MqttTopic: jsii.String("mqttTopic"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								Lambda: &LambdaProperty{
+//   									FunctionArn: jsii.String("functionArn"),
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   								ResetTimer: &ResetTimerProperty{
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								SetTimer: &SetTimerProperty{
+//   									DurationExpression: jsii.String("durationExpression"),
+//   									Seconds: jsii.Number(123),
+//   									TimerName: jsii.String("timerName"),
+//   								},
+//   								SetVariable: &SetVariableProperty{
+//   									Value: jsii.String("value"),
+//   									VariableName: jsii.String("variableName"),
+//   								},
+//   								Sns: &SnsProperty{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									TargetArn: jsii.String("targetArn"),
+//   								},
+//   								Sqs: &SqsProperty{
+//   									Payload: &PayloadProperty{
+//   										ContentExpression: jsii.String("contentExpression"),
+//   										Type: jsii.String("type"),
+//   									},
+//   									QueueUrl: jsii.String("queueUrl"),
+//   									UseBase64: jsii.Boolean(false),
+//   								},
+//   							},
+//   						},
+//   						Condition: jsii.String("condition"),
+//   						EventName: jsii.String("eventName"),
+//   						NextState: jsii.String("nextState"),
+//   					},
+//   				},
+//   			},
+//   			StateName: jsii.String("stateName"),
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html
+//
+type CfnDetectorModelPropsMixin_DetectorModelDefinitionProperty struct {
+	// The state that is entered at the creation of each detector (instance).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
+	//
+	InitialStateName *string `field:"optional" json:"initialStateName" yaml:"initialStateName"`
+	// Information about the states of the detector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
+	//
+	States interface{} `field:"optional" json:"states" yaml:"states"`
+}
+

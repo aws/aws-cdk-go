@@ -15,7 +15,7 @@ import (
 //
 // The Amazon EKS control plane consists of control plane instances that run the Kubernetes software, such as `etcd` and the API server. The control plane runs in an account managed by AWS , and the Kubernetes API is exposed by the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is single tenant and unique. It runs on its own set of Amazon EC2 instances.
 //
-// The cluster control plane is provisioned across multiple Availability Zones and fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC subnets to provide connectivity from the control plane instances to the nodes (for example, to support `kubectl exec` , `logs` , and `proxy` data flows).
+// The cluster control plane is provisioned across multiple Availability Zones and fronted by an ELB Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC subnets to provide connectivity from the control plane instances to the nodes (for example, to support `kubectl exec` , `logs` , and `proxy` data flows).
 //
 // Amazon EKS nodes run in your AWS account and connect to your cluster's control plane over the Kubernetes API server endpoint and a certificate file that is created for your cluster.
 //
@@ -62,6 +62,9 @@ import (
 //   			jsii.String("nodePools"),
 //   		},
 //   		NodeRoleArn: jsii.String("nodeRoleArn"),
+//   	},
+//   	ControlPlaneScalingConfig: &ControlPlaneScalingConfigProperty{
+//   		Tier: jsii.String("tier"),
 //   	},
 //   	DeletionProtection: jsii.Boolean(false),
 //   	EncryptionConfig: []interface{}{
@@ -189,6 +192,9 @@ type CfnCluster interface {
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster.
 	ComputeConfig() interface{}
 	SetComputeConfig(val interface{})
+	// Configuration for provisioned control plane scaling.
+	ControlPlaneScalingConfig() interface{}
+	SetControlPlaneScalingConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -560,6 +566,16 @@ func (j *jsiiProxy_CfnCluster) ComputeConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) ControlPlaneScalingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"controlPlaneScalingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -859,6 +875,17 @@ func (j *jsiiProxy_CfnCluster)SetComputeConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"computeConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetControlPlaneScalingConfig(val interface{}) {
+	if err := j.validateSetControlPlaneScalingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"controlPlaneScalingConfig",
 		val,
 	)
 }

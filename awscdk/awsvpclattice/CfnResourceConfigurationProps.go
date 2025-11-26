@@ -63,12 +63,17 @@ type CfnResourceConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-allowassociationtosharableservicenetwork
 	//
 	AllowAssociationToSharableServiceNetwork interface{} `field:"optional" json:"allowAssociationToSharableServiceNetwork" yaml:"allowAssociationToSharableServiceNetwork"`
+	// The custom domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-customdomainname
 	//
 	CustomDomainName *string `field:"optional" json:"customDomainName" yaml:"customDomainName"`
+	// The domain verification ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-domainverificationid
 	//
 	DomainVerificationId *string `field:"optional" json:"domainVerificationId" yaml:"domainVerificationId"`
+	// (GROUP) The group domain for a group resource configuration.
+	//
+	// Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-groupdomain
 	//
 	GroupDomain *string `field:"optional" json:"groupDomain" yaml:"groupDomain"`

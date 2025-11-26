@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a Lattice Domain Verification.
+// A domain name verification is an entity that allows you to prove your ownership of a given domain.
+//
+// When you create a domain verification using CloudFormation, use a waiter to make sure the domain verification is complete before you create a service network resource association, a VPC endpoint, or a service network VPC association with this domain.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,8 +39,11 @@ type CfnDomainVerification interface {
 	awscdk.IInspectable
 	interfacesawsvpclattice.IDomainVerificationRef
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the domain verification.
 	AttrArn() *string
+	// The ID of the domain verification.
 	AttrId() *string
+	// The current status of the domain verification process.
 	AttrStatus() *string
 	AttrTxtMethodConfig() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
@@ -52,6 +57,7 @@ type CfnDomainVerification interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The domain name being verified.
 	DomainName() *string
 	SetDomainName(val *string)
 	// A reference to a DomainVerification resource.
@@ -78,6 +84,7 @@ type CfnDomainVerification interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags associated with the domain verification.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

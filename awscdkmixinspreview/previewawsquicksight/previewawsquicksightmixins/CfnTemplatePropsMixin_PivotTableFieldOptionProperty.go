@@ -1,0 +1,33 @@
+package previewawsquicksightmixins
+
+
+// The selected field options for the pivot table field options.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   pivotTableFieldOptionProperty := &PivotTableFieldOptionProperty{
+//   	CustomLabel: jsii.String("customLabel"),
+//   	FieldId: jsii.String("fieldId"),
+//   	Visibility: jsii.String("visibility"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldoption.html
+//
+type CfnTemplatePropsMixin_PivotTableFieldOptionProperty struct {
+	// The custom label of the pivot table field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldoption.html#cfn-quicksight-template-pivottablefieldoption-customlabel
+	//
+	CustomLabel *string `field:"optional" json:"customLabel" yaml:"customLabel"`
+	// The field ID of the pivot table field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldoption.html#cfn-quicksight-template-pivottablefieldoption-fieldid
+	//
+	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
+	// The visibility of the pivot table field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldoption.html#cfn-quicksight-template-pivottablefieldoption-visibility
+	//
+	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
+}
+

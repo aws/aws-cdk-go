@@ -15,6 +15,25 @@ package awsathena
 //   		KmsKey: jsii.String("kmsKey"),
 //   	},
 //   	EnforceWorkGroupConfiguration: jsii.Boolean(false),
+//   	EngineConfiguration: &EngineConfigurationProperty{
+//   		AdditionalConfigs: map[string]*string{
+//   			"additionalConfigsKey": jsii.String("additionalConfigs"),
+//   		},
+//   		Classifications: []interface{}{
+//   			&ClassificationProperty{
+//   				Name: jsii.String("name"),
+//   				Properties: map[string]*string{
+//   					"propertiesKey": jsii.String("properties"),
+//   				},
+//   			},
+//   		},
+//   		CoordinatorDpuSize: jsii.Number(123),
+//   		DefaultExecutorDpuSize: jsii.Number(123),
+//   		MaxConcurrentDpus: jsii.Number(123),
+//   		SparkProperties: map[string]*string{
+//   			"sparkPropertiesKey": jsii.String("sparkProperties"),
+//   		},
+//   	},
 //   	EngineVersion: &EngineVersionProperty{
 //   		EffectiveEngineVersion: jsii.String("effectiveEngineVersion"),
 //   		SelectedEngineVersion: jsii.String("selectedEngineVersion"),
@@ -24,6 +43,27 @@ package awsathena
 //   		Enabled: jsii.Boolean(false),
 //   		EncryptionConfiguration: &ManagedStorageEncryptionConfigurationProperty{
 //   			KmsKey: jsii.String("kmsKey"),
+//   		},
+//   	},
+//   	MonitoringConfiguration: &MonitoringConfigurationProperty{
+//   		CloudWatchLoggingConfiguration: &CloudWatchLoggingConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			LogGroup: jsii.String("logGroup"),
+//   			LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
+//   			LogTypes: map[string][]*string{
+//   				"logTypesKey": []*string{
+//   					jsii.String("logTypes"),
+//   				},
+//   			},
+//   		},
+//   		ManagedLoggingConfiguration: &ManagedLoggingConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			KmsKey: jsii.String("kmsKey"),
+//   		},
+//   		S3LoggingConfiguration: &S3LoggingConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			KmsKey: jsii.String("kmsKey"),
+//   			LogLocation: jsii.String("logLocation"),
 //   		},
 //   	},
 //   	PublishCloudWatchMetricsEnabled: jsii.Boolean(false),
@@ -70,11 +110,17 @@ type CfnWorkGroup_WorkGroupConfigurationUpdatesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
 	//
 	EnforceWorkGroupConfiguration interface{} `field:"optional" json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
+	// The engine configuration for running queries.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineconfiguration
+	//
+	EngineConfiguration interface{} `field:"optional" json:"engineConfiguration" yaml:"engineConfiguration"`
 	// The Athena engine version for running queries.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
 	//
 	EngineVersion interface{} `field:"optional" json:"engineVersion" yaml:"engineVersion"`
-	// Execution Role ARN required to run Athena Spark Calculations.
+	// The ARN of the execution role used to access user resources for Spark sessions and Identity Center enabled workgroups.
+	//
+	// This property applies only to Spark enabled workgroups and Identity Center enabled workgroups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-executionrole
 	//
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
@@ -84,6 +130,10 @@ type CfnWorkGroup_WorkGroupConfigurationUpdatesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-managedqueryresultsconfiguration
 	//
 	ManagedQueryResultsConfiguration interface{} `field:"optional" json:"managedQueryResultsConfiguration" yaml:"managedQueryResultsConfiguration"`
+	// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-monitoringconfiguration
+	//
+	MonitoringConfiguration interface{} `field:"optional" json:"monitoringConfiguration" yaml:"monitoringConfiguration"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
 	//

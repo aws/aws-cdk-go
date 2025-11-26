@@ -1,0 +1,38 @@
+package previewawsquicksightmixins
+
+
+// The tooltip item for the fields.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   fieldTooltipItemProperty := &FieldTooltipItemProperty{
+//   	FieldId: jsii.String("fieldId"),
+//   	Label: jsii.String("label"),
+//   	TooltipTarget: jsii.String("tooltipTarget"),
+//   	Visibility: jsii.String("visibility"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldtooltipitem.html
+//
+type CfnDashboardPropsMixin_FieldTooltipItemProperty struct {
+	// The unique ID of the field that is targeted by the tooltip.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldtooltipitem.html#cfn-quicksight-dashboard-fieldtooltipitem-fieldid
+	//
+	FieldId *string `field:"optional" json:"fieldId" yaml:"fieldId"`
+	// The label of the tooltip item.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldtooltipitem.html#cfn-quicksight-dashboard-fieldtooltipitem-label
+	//
+	Label *string `field:"optional" json:"label" yaml:"label"`
+	// Determines the target of the field tooltip item in a combo chart visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldtooltipitem.html#cfn-quicksight-dashboard-fieldtooltipitem-tooltiptarget
+	//
+	TooltipTarget *string `field:"optional" json:"tooltipTarget" yaml:"tooltipTarget"`
+	// The visibility of the tooltip item.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fieldtooltipitem.html#cfn-quicksight-dashboard-fieldtooltipitem-visibility
+	//
+	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
+}
+

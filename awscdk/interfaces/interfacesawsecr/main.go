@@ -38,6 +38,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ecr.IPullTimeUpdateExclusionRef",
+		reflect.TypeOf((*IPullTimeUpdateExclusionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pullTimeUpdateExclusionRef", GoGetter: "PullTimeUpdateExclusionRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPullTimeUpdateExclusionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ecr.IRegistryPolicyRef",
 		reflect.TypeOf((*IRegistryPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -112,6 +127,21 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ecr.ISigningConfigurationRef",
+		reflect.TypeOf((*ISigningConfigurationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "signingConfigurationRef", GoGetter: "SigningConfigurationRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ISigningConfigurationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ecr.PublicRepositoryReference",
 		reflect.TypeOf((*PublicRepositoryReference)(nil)).Elem(),
@@ -119,6 +149,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ecr.PullThroughCacheRuleReference",
 		reflect.TypeOf((*PullThroughCacheRuleReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ecr.PullTimeUpdateExclusionReference",
+		reflect.TypeOf((*PullTimeUpdateExclusionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ecr.RegistryPolicyReference",
@@ -139,5 +173,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ecr.RepositoryReference",
 		reflect.TypeOf((*RepositoryReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ecr.SigningConfigurationReference",
+		reflect.TypeOf((*SigningConfigurationReference)(nil)).Elem(),
 	)
 }

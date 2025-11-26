@@ -544,6 +544,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "projectDescription", GoGetter: "ProjectDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "projectName", GoGetter: "ProjectName"},
+			_jsii_.MemberProperty{JsiiProperty: "projectType", GoGetter: "ProjectType"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -677,6 +678,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.OverrideConfigurationProperty",
 		reflect.TypeOf((*CfnDataAutomationProject_OverrideConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.PIIEntitiesConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationProject_PIIEntitiesConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.SensitiveDataConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationProject_SensitiveDataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.SpeakerLabelingConfigurationProperty",
@@ -1935,6 +1944,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.S3LocationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.S3VectorsConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_S3VectorsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.SqlKnowledgeBaseConfigurationProperty",

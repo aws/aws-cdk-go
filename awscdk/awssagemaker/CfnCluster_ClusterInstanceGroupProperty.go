@@ -8,6 +8,9 @@ package awssagemaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var onDemand interface{}
+//   var spot interface{}
+//
 //   clusterInstanceGroupProperty := &ClusterInstanceGroupProperty{
 //   	ExecutionRole: jsii.String("executionRole"),
 //   	InstanceCount: jsii.Number(123),
@@ -19,6 +22,10 @@ package awssagemaker
 //   	},
 //
 //   	// the properties below are optional
+//   	CapacityRequirements: &ClusterCapacityRequirementsProperty{
+//   		OnDemand: onDemand,
+//   		Spot: spot,
+//   	},
 //   	CurrentCount: jsii.Number(123),
 //   	ImageId: jsii.String("imageId"),
 //   	InstanceStorageConfigs: []interface{}{
@@ -27,6 +34,20 @@ package awssagemaker
 //   				RootVolume: jsii.Boolean(false),
 //   				VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   				VolumeSizeInGb: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	KubernetesConfig: &ClusterKubernetesConfigProperty{
+//   		Labels: map[string]*string{
+//   			"labelsKey": jsii.String("labels"),
+//   		},
+//   		Taints: []interface{}{
+//   			&ClusterKubernetesTaintProperty{
+//   				Effect: jsii.String("effect"),
+//   				Key: jsii.String("key"),
+//
+//   				// the properties below are optional
+//   				Value: jsii.String("value"),
 //   			},
 //   		},
 //   	},
@@ -93,6 +114,10 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-lifecycleconfig
 	//
 	LifeCycleConfig interface{} `field:"required" json:"lifeCycleConfig" yaml:"lifeCycleConfig"`
+	// Specifies the capacity requirements configuration for an instance group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-capacityrequirements
+	//
+	CapacityRequirements interface{} `field:"optional" json:"capacityRequirements" yaml:"capacityRequirements"`
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-currentcount
 	//
@@ -105,6 +130,10 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancestorageconfigs
 	//
 	InstanceStorageConfigs interface{} `field:"optional" json:"instanceStorageConfigs" yaml:"instanceStorageConfigs"`
+	// Kubernetes configuration for cluster nodes including labels and taints.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-kubernetesconfig
+	//
+	KubernetesConfig interface{} `field:"optional" json:"kubernetesConfig" yaml:"kubernetesConfig"`
 	// A flag indicating whether deep health checks should be performed when the HyperPod cluster instance group is created or updated.
 	//
 	// Deep health checks are comprehensive, invasive tests that validate the health of the underlying hardware and infrastructure components.

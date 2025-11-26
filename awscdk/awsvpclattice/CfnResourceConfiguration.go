@@ -77,11 +77,14 @@ type CfnResourceConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The custom domain name.
 	CustomDomainName() *string
 	SetCustomDomainName(val *string)
+	// The domain verification ID.
 	DomainVerificationId() *string
 	SetDomainVerificationId(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// (GROUP) The group domain for a group resource configuration.
 	GroupDomain() *string
 	SetGroupDomain(val *string)
 	// The logical ID for this CloudFormation stack element.

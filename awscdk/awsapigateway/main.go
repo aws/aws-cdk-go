@@ -2485,6 +2485,14 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.ResourceProps",
 		reflect.TypeOf((*ResourceProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_apigateway.ResponseTransferMode",
+		reflect.TypeOf((*ResponseTransferMode)(nil)).Elem(),
+		map[string]interface{}{
+			"BUFFERED": ResponseTransferMode_BUFFERED,
+			"STREAM": ResponseTransferMode_STREAM,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.ResponseType",
 		reflect.TypeOf((*ResponseType)(nil)).Elem(),

@@ -49,10 +49,34 @@ import (
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
 //   			},
+//   			SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   				DetectionMode: jsii.String("detectionMode"),
+//   				DetectionScope: []*string{
+//   					jsii.String("detectionScope"),
+//   				},
+//   				PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   					PiiEntityTypes: []*string{
+//   						jsii.String("piiEntityTypes"),
+//   					},
+//   					RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   				},
+//   			},
 //   		},
 //   		Document: &DocumentOverrideConfigurationProperty{
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
+//   			},
+//   			SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   				DetectionMode: jsii.String("detectionMode"),
+//   				DetectionScope: []*string{
+//   					jsii.String("detectionScope"),
+//   				},
+//   				PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   					PiiEntityTypes: []*string{
+//   						jsii.String("piiEntityTypes"),
+//   					},
+//   					RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   				},
 //   			},
 //   			Splitter: &SplitterConfigurationProperty{
 //   				State: jsii.String("state"),
@@ -61,6 +85,18 @@ import (
 //   		Image: &ImageOverrideConfigurationProperty{
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
+//   			},
+//   			SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   				DetectionMode: jsii.String("detectionMode"),
+//   				DetectionScope: []*string{
+//   					jsii.String("detectionScope"),
+//   				},
+//   				PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   					PiiEntityTypes: []*string{
+//   						jsii.String("piiEntityTypes"),
+//   					},
+//   					RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   				},
 //   			},
 //   		},
 //   		ModalityRouting: &ModalityRoutingConfigurationProperty{
@@ -73,9 +109,22 @@ import (
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
 //   			},
+//   			SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   				DetectionMode: jsii.String("detectionMode"),
+//   				DetectionScope: []*string{
+//   					jsii.String("detectionScope"),
+//   				},
+//   				PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   					PiiEntityTypes: []*string{
+//   						jsii.String("piiEntityTypes"),
+//   					},
+//   					RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	ProjectDescription: jsii.String("projectDescription"),
+//   	ProjectType: jsii.String("projectType"),
 //   	StandardOutputConfiguration: &StandardOutputConfigurationProperty{
 //   		Audio: &AudioStandardOutputConfigurationProperty{
 //   			Extraction: &AudioStandardExtractionProperty{
@@ -248,6 +297,9 @@ type CfnDataAutomationProject interface {
 	// The project's name.
 	ProjectName() *string
 	SetProjectName(val *string)
+	// Type of the DataAutomationProject - Sync or Async.
+	ProjectType() *string
+	SetProjectType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -611,6 +663,16 @@ func (j *jsiiProxy_CfnDataAutomationProject) ProjectName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataAutomationProject) ProjectType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"projectType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataAutomationProject) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -757,6 +819,14 @@ func (j *jsiiProxy_CfnDataAutomationProject)SetProjectName(val *string) {
 	_jsii_.Set(
 		j,
 		"projectName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataAutomationProject)SetProjectType(val *string) {
+	_jsii_.Set(
+		j,
+		"projectType",
 		val,
 	)
 }

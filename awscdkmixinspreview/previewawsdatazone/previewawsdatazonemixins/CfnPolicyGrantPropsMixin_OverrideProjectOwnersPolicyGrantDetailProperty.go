@@ -1,0 +1,23 @@
+package previewawsdatazonemixins
+
+
+// The details of the override project owners policy grant.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   overrideProjectOwnersPolicyGrantDetailProperty := &OverrideProjectOwnersPolicyGrantDetailProperty{
+//   	IncludeChildDomainUnits: jsii.Boolean(false),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-overrideprojectownerspolicygrantdetail.html
+//
+type CfnPolicyGrantPropsMixin_OverrideProjectOwnersPolicyGrantDetailProperty struct {
+	// Specifies whether the policy is inherited by child domain units.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-overrideprojectownerspolicygrantdetail.html#cfn-datazone-policygrant-overrideprojectownerspolicygrantdetail-includechilddomainunits
+	//
+	IncludeChildDomainUnits interface{} `field:"optional" json:"includeChildDomainUnits" yaml:"includeChildDomainUnits"`
+}
+

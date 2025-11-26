@@ -1,0 +1,34 @@
+//go:build no_runtime_type_checking
+
+package previewawsautoscalingevents
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceLaunchLifecycleActionPatternParameters(options *AutoScalingGroupEvents_EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) error {
+	return nil
+}
+
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceLaunchSuccessfulPatternParameters(options *AutoScalingGroupEvents_EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) error {
+	return nil
+}
+
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceLaunchUnsuccessfulPatternParameters(options *AutoScalingGroupEvents_EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) error {
+	return nil
+}
+
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceTerminateLifecycleActionPatternParameters(options *AutoScalingGroupEvents_EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) error {
+	return nil
+}
+
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceTerminateSuccessfulPatternParameters(options *AutoScalingGroupEvents_EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) error {
+	return nil
+}
+
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceTerminateUnsuccessfulPatternParameters(options *AutoScalingGroupEvents_EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) error {
+	return nil
+}
+
+func validateAutoScalingGroupEvents_FromAutoScalingGroupParameters(autoScalingGroupRef interfacesawsautoscaling.IAutoScalingGroupRef) error {
+	return nil
+}
+

@@ -135,6 +135,7 @@ type CfnRouterOutput interface {
 	awscdk.IInspectable
 	interfacesawsmediaconnect.IRouterOutputRef
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the router output.
 	AttrArn() *string
 	// The timestamp when the router output was created.
 	AttrCreatedAt() *string
@@ -142,13 +143,17 @@ type CfnRouterOutput interface {
 	AttrId() *string
 	// The IP address of the router output.
 	AttrIpAddress() *string
+	// The type of maintenance configuration applied to this router output.
 	AttrMaintenanceType() *string
+	// The type of the router output.
 	AttrOutputType() *string
+	// The current state of the association between the router output and its input.
 	AttrRoutedState() *string
+	// The overall state of the router output.
 	AttrState() *string
 	// The timestamp when the router output was last updated.
 	AttrUpdatedAt() *string
-	// The Availability Zone where you want to create the router output.
+	// The Availability Zone of the router output.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -176,7 +181,7 @@ type CfnRouterOutput interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+	// The maintenance configuration settings applied to this router output.
 	MaintenanceConfiguration() interface{}
 	SetMaintenanceConfiguration(val interface{})
 	// The maximum bitrate for the router output.
@@ -192,20 +197,22 @@ type CfnRouterOutput interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The AWS Region for the router output.
+	// The AWS Region where the router output is located.
 	RegionName() *string
 	SetRegionName(val *string)
 	// A reference to a RouterOutput resource.
 	RouterOutputRef() *interfacesawsmediaconnect.RouterOutputReference
+	// Indicates whether the router output is configured for Regional or global routing.
 	RoutingScope() *string
 	SetRoutingScope(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key-value pairs that can be used to tag this router output.
+	// Key-value pairs that can be used to tag and organize this router output.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The tier level of the router output.
 	Tier() *string
 	SetTier(val *string)
 	// Deprecated.

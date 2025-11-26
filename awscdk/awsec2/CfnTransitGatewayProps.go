@@ -76,6 +76,9 @@ type CfnTransitGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
 	//
 	DnsSupport *string `field:"optional" json:"dnsSupport" yaml:"dnsSupport"`
+	// Enable or disable encryption support.
+	//
+	// Disabled by default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-encryptionsupport
 	//
 	EncryptionSupport *string `field:"optional" json:"encryptionSupport" yaml:"encryptionSupport"`

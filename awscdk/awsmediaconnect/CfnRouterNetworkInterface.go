@@ -53,6 +53,7 @@ type CfnRouterNetworkInterface interface {
 	awscdk.IInspectable
 	interfacesawsmediaconnect.IRouterNetworkInterfaceRef
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the router network interface.
 	AttrArn() *string
 	// The number of router inputs associated with the network interface.
 	AttrAssociatedInputCount() *float64
@@ -62,7 +63,9 @@ type CfnRouterNetworkInterface interface {
 	AttrCreatedAt() *string
 	// The unique identifier of the router network interface.
 	AttrId() *string
+	// The type of the router network interface.
 	AttrNetworkInterfaceType() *string
+	// The current state of the router network interface.
 	AttrState() *string
 	// The timestamp when the router network interface was last updated.
 	AttrUpdatedAt() *string
@@ -101,7 +104,7 @@ type CfnRouterNetworkInterface interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The AWS Region for the router network interface.
+	// The AWS Region where the router network interface is located.
 	RegionName() *string
 	SetRegionName(val *string)
 	// A reference to a RouterNetworkInterface resource.

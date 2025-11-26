@@ -194,25 +194,23 @@ type CfnRouterInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Indicates whether the router input is configured for Regional or global routing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-routingscope
 	//
 	RoutingScope *string `field:"required" json:"routingScope" yaml:"routingScope"`
+	// The tier level of the router input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-tier
 	//
 	Tier *string `field:"required" json:"tier" yaml:"tier"`
-	// The Availability Zone where you want to create the router input.
-	//
-	// This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
+	// The Availability Zone of the router input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+	// The maintenance configuration settings applied to this router input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-maintenanceconfiguration
 	//
 	MaintenanceConfiguration interface{} `field:"optional" json:"maintenanceConfiguration" yaml:"maintenanceConfiguration"`
-	// The AWS Region for the router input.
-	//
-	// Defaults to the current region if not specified.
+	// The AWS Region where the router input is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-regionname
 	//
 	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
@@ -220,7 +218,7 @@ type CfnRouterInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// Information about the encryption of the flow.
+	// Encryption information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-transitencryption
 	//
 	TransitEncryption interface{} `field:"optional" json:"transitEncryption" yaml:"transitEncryption"`

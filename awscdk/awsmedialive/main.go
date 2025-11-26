@@ -1216,6 +1216,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "routerSettings", GoGetter: "RouterSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "sdiSources", GoGetter: "SdiSources"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "smpte2110ReceiverGroupSettings", GoGetter: "Smpte2110ReceiverGroupSettings"},
@@ -1279,6 +1280,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.MulticastSourceCreateRequestProperty",
 		reflect.TypeOf((*CfnInput_MulticastSourceCreateRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.RouterDestinationSettingsProperty",
+		reflect.TypeOf((*CfnInput_RouterDestinationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.RouterSettingsProperty",
+		reflect.TypeOf((*CfnInput_RouterSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.Smpte2110ReceiverGroupProperty",

@@ -13,8 +13,8 @@ import (
 //
 // Example:
 //   containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("CustomDockerfileContainerRecipe"), &ContainerRecipeProps{
-//   	BaseImage: imagebuilder.BaseContainerImage_FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
-//   	TargetRepository: imagebuilder.Repository_FromEcr(ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+//   	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+//   	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 //   	Dockerfile: imagebuilder.DockerfileData_FromInline(jsii.String(`
 //   	FROM {{{ imagebuilder:parentImage }}}
 //   	CMD ["echo", "Hello, world!"]

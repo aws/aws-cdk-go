@@ -60,6 +60,15 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	RoleArn: jsii.String("roleArn"),
+//   	RouterSettings: &RouterSettingsProperty{
+//   		Destinations: []interface{}{
+//   			&RouterDestinationSettingsProperty{
+//   				AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//   			},
+//   		},
+//   		EncryptionType: jsii.String("encryptionType"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	SdiSources: []*string{
 //   		jsii.String("sdiSources"),
 //   	},
@@ -192,6 +201,8 @@ type CfnInput interface {
 	// The IAM role for MediaLive to assume when creating a MediaConnect input or Amazon VPC input.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	RouterSettings() interface{}
+	SetRouterSettings(val interface{})
 	SdiSources() *[]*string
 	SetSdiSources(val *[]*string)
 	Smpte2110ReceiverGroupSettings() interface{}
@@ -574,6 +585,16 @@ func (j *jsiiProxy_CfnInput) RoleArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInput) RouterSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"routerSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInput) SdiSources() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -786,6 +807,17 @@ func (j *jsiiProxy_CfnInput)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInput)SetRouterSettings(val interface{}) {
+	if err := j.validateSetRouterSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"routerSettings",
 		val,
 	)
 }

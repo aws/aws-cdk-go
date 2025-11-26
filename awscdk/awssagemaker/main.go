@@ -231,6 +231,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_ClusterAutoScalingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterCapacityRequirementsProperty",
+		reflect.TypeOf((*CfnCluster_ClusterCapacityRequirementsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterEbsVolumeConfigProperty",
 		reflect.TypeOf((*CfnCluster_ClusterEbsVolumeConfigProperty)(nil)).Elem(),
 	)
@@ -241,6 +245,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterInstanceStorageConfigProperty",
 		reflect.TypeOf((*CfnCluster_ClusterInstanceStorageConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterKubernetesConfigProperty",
+		reflect.TypeOf((*CfnCluster_ClusterKubernetesConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterKubernetesTaintProperty",
+		reflect.TypeOf((*CfnCluster_ClusterKubernetesTaintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterLifeCycleConfigProperty",

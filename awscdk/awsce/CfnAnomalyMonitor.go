@@ -76,7 +76,7 @@ type CfnAnomalyMonitor interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The dimensions to evaluate.
+	// For customer managed monitors, do not specify this field.
 	MonitorDimension() *string
 	SetMonitorDimension(val *string)
 	// The name of the monitor.
@@ -85,7 +85,7 @@ type CfnAnomalyMonitor interface {
 	// The array of `MonitorSpecification` in JSON array format.
 	MonitorSpecification() *string
 	SetMonitorSpecification(val *string)
-	// The possible type values.
+	// The type of the monitor.
 	MonitorType() *string
 	SetMonitorType(val *string)
 	// The tree node.

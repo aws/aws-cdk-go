@@ -1,0 +1,14 @@
+//go:build no_runtime_type_checking
+
+package previewawsroute53recoveryreadinessevents
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (r *jsiiProxy_ReadinessCheckEvents) validateRoute53ApplicationRecoveryControllerReadinessCheckStatusChangePatternParameters(options *ReadinessCheckEvents_Route53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangeProps) error {
+	return nil
+}
+
+func validateReadinessCheckEvents_FromReadinessCheckParameters(readinessCheckRef interfacesawsroute53recoveryreadiness.IReadinessCheckRef) error {
+	return nil
+}
+

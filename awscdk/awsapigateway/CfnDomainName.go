@@ -90,6 +90,7 @@ type CfnDomainName interface {
 	SetDomainName(val *string)
 	// A reference to a DomainName resource.
 	DomainNameRef() *interfacesawsapigateway.DomainNameReference
+	// The endpoint access mode for your DomainName.
 	EndpointAccessMode() *string
 	SetEndpointAccessMode(val *string)
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.

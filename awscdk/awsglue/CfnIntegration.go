@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Glue::Integration.
+// The `AWS::Glue::Integration` resource specifies an AWS Glue zero-ETL integration from a data source to a target.
+//
+// For more information, see [zero-ETL integration supported by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/zero-etl-using.html) and [integration structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html) in the AWS Glue developer guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,14 +54,24 @@ type CfnIntegration interface {
 	awscdk.IInspectable
 	interfacesawsglue.IIntegrationRef
 	awscdk.ITaggableV2
-	// An optional set of non-secret key value pairs that contains additional contextual information about the data.
+	// An optional set of non-secret key–value pairs that contains additional contextual information for encryption.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
-	// The time (UTC) when the integration was created.
+	// The time when the integration was created, in UTC.
 	AttrCreateTime() *string
-	// The Amazon Resource Name (ARN) of the integration.
+	// The Amazon Resource Name (ARN) for the created integration.
 	AttrIntegrationArn() *string
-	// The status of the integration.
+	// The status of the integration being created.
+	//
+	// The possible statuses are:
+	//
+	// - CREATING: The integration is being created.
+	// - ACTIVE: The integration creation succeeds.
+	// - MODIFYING: The integration is being modified.
+	// - FAILED: The integration creation fails.
+	// - DELETING: The integration is deleted.
+	// - SYNCING: The integration is synchronizing.
+	// - NEEDS_ATTENTION: The integration needs attention, such as synchronization.
 	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -72,20 +84,22 @@ type CfnIntegration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Selects source tables for the integration using Maxwell filter syntax.
 	DataFilter() *string
 	SetDataFilter(val *string)
+	// A description for the integration.
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// The configuration settings for the integration.
+	// The structure used to define properties associated with the zero-ETL integration.
 	IntegrationConfig() interface{}
 	SetIntegrationConfig(val interface{})
-	// The name of the integration.
+	// A unique name for the integration.
 	IntegrationName() *string
 	SetIntegrationName(val *string)
 	// A reference to a Integration resource.
 	IntegrationRef() *interfacesawsglue.IntegrationReference
-	// An KMS key identifier for the key to use to encrypt the integration.
+	// The ARN of a KMS key used for encrypting the channel.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -105,17 +119,17 @@ type CfnIntegration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of the database to use as the source for replication.
+	// The ARN for the source of the integration.
 	SourceArn() *string
 	SetSourceArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// Metadata assigned to the resource consisting of a list of key-value pairs.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The Amazon Resource Name (ARN) of the Glue data warehouse to use as the target for replication.
+	// The ARN for the target of the integration.
 	TargetArn() *string
 	SetTargetArn(val *string)
 	// Deprecated.

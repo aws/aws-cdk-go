@@ -73,6 +73,7 @@ import (
 //   	DomainList: []*string{
 //   		jsii.String("domainList"),
 //   	},
+//   	Platform: jsii.String("platform"),
 //   	ResourcePolicy: &ResourcePolicyProperty{
 //   		PolicyDocument: jsii.String("policyDocument"),
 //
@@ -134,6 +135,9 @@ type CfnAppMonitorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-domainlist
 	//
 	DomainList *[]*string `field:"optional" json:"domainList" yaml:"domainList"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html#cfn-rum-appmonitor-platform
+	//
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it.
 	//
 	// Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .

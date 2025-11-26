@@ -1,0 +1,136 @@
+package previewawsschedulermixins
+
+
+// The schedule's target.
+//
+// EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var tags interface{}
+//
+//   targetProperty := &TargetProperty{
+//   	Arn: jsii.String("arn"),
+//   	DeadLetterConfig: &DeadLetterConfigProperty{
+//   		Arn: jsii.String("arn"),
+//   	},
+//   	EcsParameters: &EcsParametersProperty{
+//   		CapacityProviderStrategy: []interface{}{
+//   			&CapacityProviderStrategyItemProperty{
+//   				Base: jsii.Number(123),
+//   				CapacityProvider: jsii.String("capacityProvider"),
+//   				Weight: jsii.Number(123),
+//   			},
+//   		},
+//   		EnableEcsManagedTags: jsii.Boolean(false),
+//   		EnableExecuteCommand: jsii.Boolean(false),
+//   		Group: jsii.String("group"),
+//   		LaunchType: jsii.String("launchType"),
+//   		NetworkConfiguration: &NetworkConfigurationProperty{
+//   			AwsvpcConfiguration: &AwsVpcConfigurationProperty{
+//   				AssignPublicIp: jsii.String("assignPublicIp"),
+//   				SecurityGroups: []*string{
+//   					jsii.String("securityGroups"),
+//   				},
+//   				Subnets: []*string{
+//   					jsii.String("subnets"),
+//   				},
+//   			},
+//   		},
+//   		PlacementConstraints: []interface{}{
+//   			&PlacementConstraintProperty{
+//   				Expression: jsii.String("expression"),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   		PlacementStrategy: []interface{}{
+//   			&PlacementStrategyProperty{
+//   				Field: jsii.String("field"),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   		PlatformVersion: jsii.String("platformVersion"),
+//   		PropagateTags: jsii.String("propagateTags"),
+//   		ReferenceId: jsii.String("referenceId"),
+//   		Tags: tags,
+//   		TaskCount: jsii.Number(123),
+//   		TaskDefinitionArn: jsii.String("taskDefinitionArn"),
+//   	},
+//   	EventBridgeParameters: &EventBridgeParametersProperty{
+//   		DetailType: jsii.String("detailType"),
+//   		Source: jsii.String("source"),
+//   	},
+//   	Input: jsii.String("input"),
+//   	KinesisParameters: &KinesisParametersProperty{
+//   		PartitionKey: jsii.String("partitionKey"),
+//   	},
+//   	RetryPolicy: &RetryPolicyProperty{
+//   		MaximumEventAgeInSeconds: jsii.Number(123),
+//   		MaximumRetryAttempts: jsii.Number(123),
+//   	},
+//   	RoleArn: jsii.String("roleArn"),
+//   	SageMakerPipelineParameters: &SageMakerPipelineParametersProperty{
+//   		PipelineParameterList: []interface{}{
+//   			&SageMakerPipelineParameterProperty{
+//   				Name: jsii.String("name"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	SqsParameters: &SqsParametersProperty{
+//   		MessageGroupId: jsii.String("messageGroupId"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html
+//
+type CfnSchedulePropsMixin_TargetProperty struct {
+	// The Amazon Resource Name (ARN) of the target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-arn
+	//
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	// An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule.
+	//
+	// If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-deadletterconfig
+	//
+	DeadLetterConfig interface{} `field:"optional" json:"deadLetterConfig" yaml:"deadLetterConfig"`
+	// The templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-ecsparameters
+	//
+	EcsParameters interface{} `field:"optional" json:"ecsParameters" yaml:"ecsParameters"`
+	// The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-eventbridgeparameters
+	//
+	EventBridgeParameters interface{} `field:"optional" json:"eventBridgeParameters" yaml:"eventBridgeParameters"`
+	// The text, or well-formed JSON, passed to the target.
+	//
+	// If you are configuring a templated Lambda , AWS Step Functions , or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, Amazon EventBridge Scheduler delivers a default notification to the target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-input
+	//
+	Input *string `field:"optional" json:"input" yaml:"input"`
+	// The templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-kinesisparameters
+	//
+	KinesisParameters interface{} `field:"optional" json:"kinesisParameters" yaml:"kinesisParameters"`
+	// A `RetryPolicy` object that includes information about the retry policy settings, including the maximum age of an event, and the maximum number of times EventBridge Scheduler will try to deliver the event to a target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-retrypolicy
+	//
+	RetryPolicy interface{} `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
+	// The Amazon Resource Name (ARN) of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-rolearn
+	//
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// The templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-sagemakerpipelineparameters
+	//
+	SageMakerPipelineParameters interface{} `field:"optional" json:"sageMakerPipelineParameters" yaml:"sageMakerPipelineParameters"`
+	// The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Contains the message group ID to use when the target is a FIFO queue. If you specify an Amazon SQS FIFO queue as a target, the queue must have content-based deduplication enabled. For more information, see [Using the Amazon SQS message deduplication ID](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html) in the *Amazon SQS Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-sqsparameters
+	//
+	SqsParameters interface{} `field:"optional" json:"sqsParameters" yaml:"sqsParameters"`
+}
+

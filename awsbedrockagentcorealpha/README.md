@@ -602,6 +602,62 @@ runtime.connections.AllowTo(databaseSecurityGroup, ec2.Port_Tcp(jsii.Number(5432
 runtime.connections.AllowToAnyIpv4(ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow HTTPS outbound"))
 ```
 
+### Runtime IAM Permissions
+
+The Runtime construct provides convenient methods for granting IAM permissions to principals that need to invoke the runtime or manage its execution role.
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Create a runtime
+runtime := agentcore.NewRuntime(this, jsii.String("MyRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("my_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+
+// Create a Lambda function that needs to invoke the runtime
+invokerFunction := lambda.NewFunction(this, jsii.String("InvokerFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	import boto3
+	def handler(event, context):
+	    client = boto3.client('bedrock-agentcore')
+	    # Invoke the runtime...
+	  `)),
+})
+
+// Grant permission to invoke the runtime directly
+runtime.GrantInvokeRuntime(invokerFunction)
+
+// Grant permission to invoke the runtime on behalf of a user
+// (requires X-Amzn-Bedrock-AgentCore-Runtime-User-Id header)
+runtime.GrantInvokeRuntimeForUser(invokerFunction)
+
+// Grant both invoke permissions (most common use case)
+runtime.GrantInvoke(invokerFunction)
+
+// Grant specific custom permissions to the runtime's execution role
+runtime.Grant([]*string{
+	jsii.String("bedrock:InvokeModel"),
+}, []*string{
+	jsii.String("arn:aws:bedrock:*:*:*"),
+})
+
+// Add a policy statement to the runtime's execution role
+runtime.AddToRolePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("s3:GetObject"),
+	},
+	Resources: []*string{
+		jsii.String("arn:aws:s3:::my-bucket/*"),
+	},
+}))
+```
+
 ### Other configuration
 
 #### Lifecycle configuration

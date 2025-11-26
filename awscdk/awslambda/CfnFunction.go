@@ -246,6 +246,7 @@ type CfnFunction interface {
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The function's tenant isolation configuration settings.
 	TenancyConfig() interface{}
 	SetTenancyConfig(val interface{})
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.

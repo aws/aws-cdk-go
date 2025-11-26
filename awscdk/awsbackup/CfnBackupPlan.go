@@ -65,6 +65,7 @@ import (
 //   				ScheduleExpression: jsii.String("scheduleExpression"),
 //   				ScheduleExpressionTimezone: jsii.String("scheduleExpressionTimezone"),
 //   				StartWindowMinutes: jsii.Number(123),
+//   				TargetLogicallyAirGappedBackupVaultArn: jsii.String("targetLogicallyAirGappedBackupVaultArn"),
 //   			},
 //   		},
 //

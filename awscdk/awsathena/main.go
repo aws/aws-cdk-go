@@ -304,6 +304,14 @@ func init() {
 		reflect.TypeOf((*CfnWorkGroup_AclConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup.ClassificationProperty",
+		reflect.TypeOf((*CfnWorkGroup_ClassificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup.CloudWatchLoggingConfigurationProperty",
+		reflect.TypeOf((*CfnWorkGroup_CloudWatchLoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_athena.CfnWorkGroup.CustomerContentEncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnWorkGroup_CustomerContentEncryptionConfigurationProperty)(nil)).Elem(),
 	)
@@ -312,8 +320,16 @@ func init() {
 		reflect.TypeOf((*CfnWorkGroup_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup.EngineConfigurationProperty",
+		reflect.TypeOf((*CfnWorkGroup_EngineConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_athena.CfnWorkGroup.EngineVersionProperty",
 		reflect.TypeOf((*CfnWorkGroup_EngineVersionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup.ManagedLoggingConfigurationProperty",
+		reflect.TypeOf((*CfnWorkGroup_ManagedLoggingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_athena.CfnWorkGroup.ManagedQueryResultsConfigurationProperty",
@@ -324,12 +340,20 @@ func init() {
 		reflect.TypeOf((*CfnWorkGroup_ManagedStorageEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup.MonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnWorkGroup_MonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_athena.CfnWorkGroup.ResultConfigurationProperty",
 		reflect.TypeOf((*CfnWorkGroup_ResultConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_athena.CfnWorkGroup.ResultConfigurationUpdatesProperty",
 		reflect.TypeOf((*CfnWorkGroup_ResultConfigurationUpdatesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup.S3LoggingConfigurationProperty",
+		reflect.TypeOf((*CfnWorkGroup_S3LoggingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_athena.CfnWorkGroup.WorkGroupConfigurationProperty",

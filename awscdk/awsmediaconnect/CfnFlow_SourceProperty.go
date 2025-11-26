@@ -153,10 +153,11 @@ type CfnFlow_SourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-protocol
 	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	// Indicates if router integration is enabled or disabled on the flow source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-routerintegrationstate
 	//
 	RouterIntegrationState *string `field:"optional" json:"routerIntegrationState" yaml:"routerIntegrationState"`
-	// The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+	// The decryption configuration for the flow source when router integration is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-routerintegrationtransitdecryption
 	//
 	RouterIntegrationTransitDecryption interface{} `field:"optional" json:"routerIntegrationTransitDecryption" yaml:"routerIntegrationTransitDecryption"`

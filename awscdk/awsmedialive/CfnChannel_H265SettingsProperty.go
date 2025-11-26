@@ -10,6 +10,8 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var hlg2020Settings interface{}
+//
 //   h265SettingsProperty := &H265SettingsProperty{
 //   	AdaptiveQuantization: jsii.String("adaptiveQuantization"),
 //   	AfdSignaling: jsii.String("afdSignaling"),
@@ -26,6 +28,7 @@ package awsmedialive
 //   			MaxCll: jsii.Number(123),
 //   			MaxFall: jsii.Number(123),
 //   		},
+//   		Hlg2020Settings: hlg2020Settings,
 //   		Rec601Settings: &Rec601SettingsProperty{
 //   		},
 //   		Rec709Settings: &Rec709SettingsProperty{

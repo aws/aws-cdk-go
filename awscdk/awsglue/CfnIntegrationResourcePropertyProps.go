@@ -49,7 +49,7 @@ type CfnIntegrationResourcePropertyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-integrationresourceproperty.html#cfn-glue-integrationresourceproperty-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The resource properties associated with the integration target.
+	// The structure used to define the resource properties associated with the integration target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-integrationresourceproperty.html#cfn-glue-integrationresourceproperty-targetprocessingproperties
 	//
 	TargetProcessingProperties interface{} `field:"optional" json:"targetProcessingProperties" yaml:"targetProcessingProperties"`

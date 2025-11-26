@@ -80,6 +80,11 @@ package awsbedrock
 //   		ResourceArn: jsii.String("resourceArn"),
 //   		TableName: jsii.String("tableName"),
 //   	},
+//   	S3VectorsConfiguration: &S3VectorsConfigurationProperty{
+//   		IndexArn: jsii.String("indexArn"),
+//   		IndexName: jsii.String("indexName"),
+//   		VectorBucketArn: jsii.String("vectorBucketArn"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html
@@ -119,5 +124,9 @@ type CfnKnowledgeBase_StorageConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-rdsconfiguration
 	//
 	RdsConfiguration interface{} `field:"optional" json:"rdsConfiguration" yaml:"rdsConfiguration"`
+	// Contains the storage configuration of the knowledge base for S3 vectors.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-s3vectorsconfiguration
+	//
+	S3VectorsConfiguration interface{} `field:"optional" json:"s3VectorsConfiguration" yaml:"s3VectorsConfiguration"`
 }
 

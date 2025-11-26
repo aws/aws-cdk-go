@@ -31,6 +31,9 @@ import (
 //   	// the properties below are optional
 //   	AdministrationRoleArn: jsii.String("administrationRoleArn"),
 //   	AutoDeployment: &AutoDeploymentProperty{
+//   		DependsOn: []*string{
+//   			jsii.String("dependsOn"),
+//   		},
 //   		Enabled: jsii.Boolean(false),
 //   		RetainStacksOnAccountRemoval: jsii.Boolean(false),
 //   	},

@@ -88,6 +88,10 @@ func validateCfnNatGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnNatGateway) validateSetAvailabilityZoneAddressesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnNatGateway) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

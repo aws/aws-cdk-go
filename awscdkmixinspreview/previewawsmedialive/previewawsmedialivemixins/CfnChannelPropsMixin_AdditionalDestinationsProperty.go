@@ -1,0 +1,22 @@
+package previewawsmedialivemixins
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   additionalDestinationsProperty := &AdditionalDestinationsProperty{
+//   	Destination: &OutputLocationRefProperty{
+//   		DestinationRefId: jsii.String("destinationRefId"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-additionaldestinations.html
+//
+type CfnChannelPropsMixin_AdditionalDestinationsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-additionaldestinations.html#cfn-medialive-channel-additionaldestinations-destination
+	//
+	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
+}
+

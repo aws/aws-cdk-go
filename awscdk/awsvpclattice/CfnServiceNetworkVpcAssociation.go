@@ -79,6 +79,7 @@ type CfnServiceNetworkVpcAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The DNS options for the service network VPC association.
 	DnsOptions() interface{}
 	SetDnsOptions(val interface{})
 	Env() *interfaces.ResourceEnvironment
@@ -94,6 +95,7 @@ type CfnServiceNetworkVpcAssociation interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Indicates if private DNS is enabled for the service network VPC association.
 	PrivateDnsEnabled() interface{}
 	SetPrivateDnsEnabled(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

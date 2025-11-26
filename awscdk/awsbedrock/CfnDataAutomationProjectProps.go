@@ -42,10 +42,34 @@ import (
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
 //   			},
+//   			SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   				DetectionMode: jsii.String("detectionMode"),
+//   				DetectionScope: []*string{
+//   					jsii.String("detectionScope"),
+//   				},
+//   				PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   					PiiEntityTypes: []*string{
+//   						jsii.String("piiEntityTypes"),
+//   					},
+//   					RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   				},
+//   			},
 //   		},
 //   		Document: &DocumentOverrideConfigurationProperty{
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
+//   			},
+//   			SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   				DetectionMode: jsii.String("detectionMode"),
+//   				DetectionScope: []*string{
+//   					jsii.String("detectionScope"),
+//   				},
+//   				PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   					PiiEntityTypes: []*string{
+//   						jsii.String("piiEntityTypes"),
+//   					},
+//   					RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   				},
 //   			},
 //   			Splitter: &SplitterConfigurationProperty{
 //   				State: jsii.String("state"),
@@ -54,6 +78,18 @@ import (
 //   		Image: &ImageOverrideConfigurationProperty{
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
+//   			},
+//   			SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   				DetectionMode: jsii.String("detectionMode"),
+//   				DetectionScope: []*string{
+//   					jsii.String("detectionScope"),
+//   				},
+//   				PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   					PiiEntityTypes: []*string{
+//   						jsii.String("piiEntityTypes"),
+//   					},
+//   					RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   				},
 //   			},
 //   		},
 //   		ModalityRouting: &ModalityRoutingConfigurationProperty{
@@ -66,9 +102,22 @@ import (
 //   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
 //   			},
+//   			SensitiveDataConfiguration: &SensitiveDataConfigurationProperty{
+//   				DetectionMode: jsii.String("detectionMode"),
+//   				DetectionScope: []*string{
+//   					jsii.String("detectionScope"),
+//   				},
+//   				PiiEntitiesConfiguration: &PIIEntitiesConfigurationProperty{
+//   					PiiEntityTypes: []*string{
+//   						jsii.String("piiEntityTypes"),
+//   					},
+//   					RedactionMaskMode: jsii.String("redactionMaskMode"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	ProjectDescription: jsii.String("projectDescription"),
+//   	ProjectType: jsii.String("projectType"),
 //   	StandardOutputConfiguration: &StandardOutputConfigurationProperty{
 //   		Audio: &AudioStandardOutputConfigurationProperty{
 //   			Extraction: &AudioStandardExtractionProperty{
@@ -207,6 +256,10 @@ type CfnDataAutomationProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-dataautomationproject.html#cfn-bedrock-dataautomationproject-projectdescription
 	//
 	ProjectDescription *string `field:"optional" json:"projectDescription" yaml:"projectDescription"`
+	// Type of the DataAutomationProject - Sync or Async.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-dataautomationproject.html#cfn-bedrock-dataautomationproject-projecttype
+	//
+	ProjectType *string `field:"optional" json:"projectType" yaml:"projectType"`
 	// The project's standard output configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-dataautomationproject.html#cfn-bedrock-dataautomationproject-standardoutputconfiguration
 	//

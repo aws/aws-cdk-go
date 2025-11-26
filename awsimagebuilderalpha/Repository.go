@@ -10,12 +10,19 @@ import (
 // A container repository used to distribute container images in EC2 Image Builder.
 //
 // Example:
-//   sourceRepo := ecr.Repository_FromRepositoryName(this, jsii.String("SourceRepo"), jsii.String("my-base-image"))
-//   targetRepo := ecr.Repository_FromRepositoryName(this, jsii.String("TargetRepo"), jsii.String("my-container-repo"))
+//   parameterizedComponent := imagebuilder.Component_FromComponentName(this, jsii.String("ParameterizedComponent"), jsii.String("my-parameterized-component"))
 //
-//   containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("EcrContainerRecipe"), &ContainerRecipeProps{
-//   	BaseImage: imagebuilder.BaseContainerImage_FromEcr(sourceRepo, jsii.String("1.0.0")),
-//   	TargetRepository: imagebuilder.Repository_FromEcr(targetRepo),
+//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("ParameterizedImageRecipe"), &ImageRecipeProps{
+//   	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+//   	Components: []ComponentConfiguration{
+//   		&ComponentConfiguration{
+//   			Component: parameterizedComponent,
+//   			Parameters: map[string]ComponentParameterValue{
+//   				"environment": imagebuilder.ComponentParameterValue_fromString(jsii.String("production")),
+//   				"version": imagebuilder.ComponentParameterValue_fromString(jsii.String("1.0.0")),
+//   			},
+//   		},
+//   	},
 //   })
 //
 // Experimental.

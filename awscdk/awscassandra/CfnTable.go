@@ -139,6 +139,10 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WarmThroughput: &WarmThroughputProperty{
+//   		ReadUnitsPerSecond: jsii.Number(123),
+//   		WriteUnitsPerSecond: jsii.Number(123),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
@@ -238,6 +242,9 @@ type CfnTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Warm throughput configuration for the table.
+	WarmThroughput() interface{}
+	SetWarmThroughput(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -643,6 +650,16 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) WarmThroughput() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"warmThroughput",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Cassandra::Table`.
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
@@ -817,6 +834,17 @@ func (j *jsiiProxy_CfnTable)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetWarmThroughput(val interface{}) {
+	if err := j.validateSetWarmThroughputParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"warmThroughput",
 		val,
 	)
 }
