@@ -532,6 +532,24 @@ func (j *jsiiProxy_CfnTableBucket)SetUnreferencedFileRemoval(val interface{}) {
 	)
 }
 
+func CfnTableBucket_ArnForTableBucket(resource interfacesawss3tables.ITableBucketRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTableBucket_ArnForTableBucketParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket",
+		"arnForTableBucket",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -568,6 +586,25 @@ func CfnTableBucket_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnTableBucket.
+func CfnTableBucket_IsCfnTableBucket(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTableBucket_IsCfnTableBucketParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket",
+		"isCfnTableBucket",
 		[]interface{}{x},
 		&returns,
 	)

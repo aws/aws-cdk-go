@@ -76,6 +76,10 @@ func validateCfnStreamConsumer_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStreamConsumer_IsCfnStreamConsumerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStreamConsumer_IsConstructParameters(x interface{}) error {
 	return nil
 }

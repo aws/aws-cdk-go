@@ -314,6 +314,7 @@ func init() {
 			"V3_0": GlueVersion_V3_0,
 			"V4_0": GlueVersion_V4_0,
 			"V5_0": GlueVersion_V5_0,
+			"V5_1": GlueVersion_V5_1,
 		},
 	)
 	_jsii_.RegisterInterface(

@@ -180,7 +180,31 @@ func validateCfnMailManagerAddonSubscription_FromAddonSubscriptionIdParameters(s
 	return nil
 }
 
+func validateCfnMailManagerAddonSubscription_FromMailManagerAddonSubscriptionArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnMailManagerAddonSubscription_IsCfnElementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnMailManagerAddonSubscription_IsCfnMailManagerAddonSubscriptionParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
 	}

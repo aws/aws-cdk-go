@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateValidatePrope
 	return nil
 }
 
+func validateCfnClusterCapacityProviderAssociations_IsCfnClusterCapacityProviderAssociationsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClusterCapacityProviderAssociations_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -164,6 +164,14 @@ func validateCfnApprovalTeam_ArnForApprovalTeamParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnApprovalTeam_IsCfnApprovalTeamParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApprovalTeam_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

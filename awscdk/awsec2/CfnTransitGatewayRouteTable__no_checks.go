@@ -84,6 +84,10 @@ func validateCfnTransitGatewayRouteTable_IsCfnResourceParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnTransitGatewayRouteTable_IsCfnTransitGatewayRouteTableParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransitGatewayRouteTable_IsConstructParameters(x interface{}) error {
 	return nil
 }

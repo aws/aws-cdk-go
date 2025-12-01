@@ -72,6 +72,10 @@ func validateCfnAggregationAuthorization_ArnForAggregationAuthorizationParameter
 	return nil
 }
 
+func validateCfnAggregationAuthorization_IsCfnAggregationAuthorizationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAggregationAuthorization_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

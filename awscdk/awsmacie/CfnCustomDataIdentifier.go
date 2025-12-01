@@ -600,6 +600,25 @@ func CfnCustomDataIdentifier_ArnForCustomDataIdentifier(resource interfacesawsma
 	return returns
 }
 
+// Checks whether the given object is a CfnCustomDataIdentifier.
+func CfnCustomDataIdentifier_IsCfnCustomDataIdentifier(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCustomDataIdentifier_IsCfnCustomDataIdentifierParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_macie.CfnCustomDataIdentifier",
+		"isCfnCustomDataIdentifier",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

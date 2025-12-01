@@ -72,6 +72,10 @@ func validateCfnDomain_ArnForDomainParameters(resource interfacesawselasticsearc
 	return nil
 }
 
+func validateCfnDomain_IsCfnDomainParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDomain_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

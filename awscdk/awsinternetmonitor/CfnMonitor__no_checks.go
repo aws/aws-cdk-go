@@ -84,6 +84,10 @@ func validateCfnMonitor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMonitor_IsCfnMonitorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMonitor_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

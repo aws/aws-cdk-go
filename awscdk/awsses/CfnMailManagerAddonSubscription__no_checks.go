@@ -76,7 +76,15 @@ func validateCfnMailManagerAddonSubscription_FromAddonSubscriptionIdParameters(s
 	return nil
 }
 
+func validateCfnMailManagerAddonSubscription_FromMailManagerAddonSubscriptionArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnMailManagerAddonSubscription_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnMailManagerAddonSubscription_IsCfnMailManagerAddonSubscriptionParameters(x interface{}) error {
 	return nil
 }
 

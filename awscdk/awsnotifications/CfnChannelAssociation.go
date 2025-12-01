@@ -409,6 +409,25 @@ func (j *jsiiProxy_CfnChannelAssociation)SetNotificationConfigurationArn(val *st
 	)
 }
 
+// Checks whether the given object is a CfnChannelAssociation.
+func CfnChannelAssociation_IsCfnChannelAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnChannelAssociation_IsCfnChannelAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notifications.CfnChannelAssociation",
+		"isCfnChannelAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

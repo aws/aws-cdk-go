@@ -76,6 +76,10 @@ func validateCfnModelPackageGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnModelPackageGroup_IsCfnModelPackageGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnModelPackageGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

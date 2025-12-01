@@ -536,6 +536,25 @@ func CfnLedger_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLedger.
+func CfnLedger_IsCfnLedger(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLedger_IsCfnLedgerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_qldb.CfnLedger",
+		"isCfnLedger",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLedger_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

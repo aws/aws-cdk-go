@@ -76,6 +76,10 @@ func validateCfnGuardrail_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGuardrail_IsCfnGuardrailParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGuardrail_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

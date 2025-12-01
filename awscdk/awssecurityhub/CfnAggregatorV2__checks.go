@@ -164,6 +164,14 @@ func validateCfnAggregatorV2_ArnForAggregatorV2Parameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnAggregatorV2_IsCfnAggregatorV2Parameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAggregatorV2_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

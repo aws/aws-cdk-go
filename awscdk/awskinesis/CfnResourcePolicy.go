@@ -461,6 +461,25 @@ func CfnResourcePolicy_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnResourcePolicy.
+func CfnResourcePolicy_IsCfnResourcePolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResourcePolicy_IsCfnResourcePolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesis.CfnResourcePolicy",
+		"isCfnResourcePolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -84,6 +84,10 @@ func validateCfnReferenceStore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnReferenceStore_IsCfnReferenceStoreParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnReferenceStore_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

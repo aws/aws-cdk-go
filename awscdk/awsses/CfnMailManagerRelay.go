@@ -547,6 +547,25 @@ func CfnMailManagerRelay_ArnForMailManagerRelay(resource interfacesawsses.IMailM
 	return returns
 }
 
+// Creates a new IMailManagerRelayRef from an ARN.
+func CfnMailManagerRelay_FromMailManagerRelayArn(scope constructs.Construct, id *string, arn *string) interfacesawsses.IMailManagerRelayRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerRelay_FromMailManagerRelayArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsses.IMailManagerRelayRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRelay",
+		"fromMailManagerRelayArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerRelayRef from a relayId.
 func CfnMailManagerRelay_FromRelayId(scope constructs.Construct, id *string, relayId *string) interfacesawsses.IMailManagerRelayRef {
 	_init_.Initialize()
@@ -583,6 +602,25 @@ func CfnMailManagerRelay_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerRelay",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMailManagerRelay.
+func CfnMailManagerRelay_IsCfnMailManagerRelay(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerRelay_IsCfnMailManagerRelayParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRelay",
+		"isCfnMailManagerRelay",
 		[]interface{}{x},
 		&returns,
 	)

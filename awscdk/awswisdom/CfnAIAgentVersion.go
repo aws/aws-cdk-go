@@ -475,6 +475,25 @@ func (j *jsiiProxy_CfnAIAgentVersion)SetModifiedTimeSeconds(val *float64) {
 	)
 }
 
+// Checks whether the given object is a CfnAIAgentVersion.
+func CfnAIAgentVersion_IsCfnAIAgentVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAIAgentVersion_IsCfnAIAgentVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgentVersion",
+		"isCfnAIAgentVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

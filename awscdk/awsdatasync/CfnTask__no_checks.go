@@ -80,6 +80,10 @@ func validateCfnTask_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTask_IsCfnTaskParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTask_IsConstructParameters(x interface{}) error {
 	return nil
 }

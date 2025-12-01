@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDelegatedAdmin) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnDelegatedAdmin_IsCfnDelegatedAdminParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDelegatedAdmin_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

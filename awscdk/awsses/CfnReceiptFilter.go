@@ -427,6 +427,25 @@ func CfnReceiptFilter_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnReceiptFilter.
+func CfnReceiptFilter_IsCfnReceiptFilter(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnReceiptFilter_IsCfnReceiptFilterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
+		"isCfnReceiptFilter",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnReceiptFilter_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

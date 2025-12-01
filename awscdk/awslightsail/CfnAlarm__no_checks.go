@@ -72,6 +72,10 @@ func validateCfnAlarm_ArnForAlarmParameters(resource interfacesawslightsail.IAla
 	return nil
 }
 
+func validateCfnAlarm_IsCfnAlarmParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAlarm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

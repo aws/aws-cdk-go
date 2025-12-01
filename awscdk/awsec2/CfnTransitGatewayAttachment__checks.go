@@ -196,6 +196,14 @@ func validateCfnTransitGatewayAttachment_IsCfnResourceParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnTransitGatewayAttachment_IsCfnTransitGatewayAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTransitGatewayAttachment_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

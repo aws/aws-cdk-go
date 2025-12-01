@@ -537,6 +537,25 @@ func CfnGlobalNetwork_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGlobalNetwork.
+func CfnGlobalNetwork_IsCfnGlobalNetwork(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalNetwork_IsCfnGlobalNetworkParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnGlobalNetwork",
+		"isCfnGlobalNetwork",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGlobalNetwork_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

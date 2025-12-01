@@ -80,6 +80,10 @@ func validateCfnStorageConfiguration_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnStorageConfiguration_IsCfnStorageConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStorageConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

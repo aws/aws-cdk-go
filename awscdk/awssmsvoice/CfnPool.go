@@ -731,6 +731,25 @@ func CfnPool_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPool.
+func CfnPool_IsCfnPool(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPool_IsCfnPoolParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnPool",
+		"isCfnPool",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPool_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

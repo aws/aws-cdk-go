@@ -943,6 +943,25 @@ func CfnModelCard_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnModelCard.
+func CfnModelCard_IsCfnModelCard(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnModelCard_IsCfnModelCardParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard",
+		"isCfnModelCard",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnModelCard_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

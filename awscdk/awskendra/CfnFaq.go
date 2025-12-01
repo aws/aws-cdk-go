@@ -640,6 +640,25 @@ func CfnFaq_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFaq.
+func CfnFaq_IsCfnFaq(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFaq_IsCfnFaqParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"isCfnFaq",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFaq_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -10,7 +10,7 @@ import (
 // Helper class for working with AWS-managed components.
 //
 // Example:
-//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AwsManagedImageRecipe"), &ImageRecipeProps{
+//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AmazonManagedImageRecipe"), &ImageRecipeProps{
 //   	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 //   	Components: []ComponentConfiguration{
 //   		&ComponentConfiguration{

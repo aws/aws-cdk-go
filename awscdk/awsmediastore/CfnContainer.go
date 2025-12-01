@@ -601,6 +601,43 @@ func (j *jsiiProxy_CfnContainer)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnContainer_ArnForContainer(resource interfacesawsmediastore.IContainerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnContainer_ArnForContainerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediastore.CfnContainer",
+		"arnForContainer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnContainer.
+func CfnContainer_IsCfnContainer(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnContainer_IsCfnContainerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediastore.CfnContainer",
+		"isCfnContainer",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

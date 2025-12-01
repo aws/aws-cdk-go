@@ -72,6 +72,10 @@ func validateCfnIpPoolRouteTableAssociation_IsCfnElementParameters(x interface{}
 	return nil
 }
 
+func validateCfnIpPoolRouteTableAssociation_IsCfnIpPoolRouteTableAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIpPoolRouteTableAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

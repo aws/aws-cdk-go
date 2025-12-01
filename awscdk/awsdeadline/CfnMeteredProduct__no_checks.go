@@ -76,6 +76,10 @@ func validateCfnMeteredProduct_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMeteredProduct_IsCfnMeteredProductParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMeteredProduct_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

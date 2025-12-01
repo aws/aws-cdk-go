@@ -159,7 +159,7 @@ type CfnTargetGroup interface {
 	// The tags.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+	// The port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature.
 	TargetControlPort() *float64
 	SetTargetControlPort(val *float64)
 	// The target group attributes.
@@ -956,6 +956,25 @@ func CfnTargetGroup_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnTargetGroup.
+func CfnTargetGroup_IsCfnTargetGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTargetGroup_IsCfnTargetGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+		"isCfnTargetGroup",
 		[]interface{}{x},
 		&returns,
 	)

@@ -634,6 +634,25 @@ func CfnFlowAlias_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFlowAlias.
+func CfnFlowAlias_IsCfnFlowAlias(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFlowAlias_IsCfnFlowAliasParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnFlowAlias",
+		"isCfnFlowAlias",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFlowAlias_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

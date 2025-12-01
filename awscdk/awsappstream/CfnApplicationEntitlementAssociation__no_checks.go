@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApplicationEntitlementAssociation) validateValidatePropert
 	return nil
 }
 
+func validateCfnApplicationEntitlementAssociation_IsCfnApplicationEntitlementAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApplicationEntitlementAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

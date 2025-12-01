@@ -76,6 +76,10 @@ func validateCfnNetworkSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnNetworkSettings_IsCfnNetworkSettingsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnNetworkSettings_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

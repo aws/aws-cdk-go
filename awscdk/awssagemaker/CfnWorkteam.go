@@ -559,6 +559,24 @@ func (j *jsiiProxy_CfnWorkteam)SetWorkteamName(val *string) {
 	)
 }
 
+func CfnWorkteam_ArnForWorkteam(resource interfacesawssagemaker.IWorkteamRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWorkteam_ArnForWorkteamParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnWorkteam",
+		"arnForWorkteam",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -595,6 +613,25 @@ func CfnWorkteam_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnWorkteam",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnWorkteam.
+func CfnWorkteam_IsCfnWorkteam(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnWorkteam_IsCfnWorkteamParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnWorkteam",
+		"isCfnWorkteam",
 		[]interface{}{x},
 		&returns,
 	)

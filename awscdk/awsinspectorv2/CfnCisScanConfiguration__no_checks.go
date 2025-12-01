@@ -72,6 +72,10 @@ func validateCfnCisScanConfiguration_ArnForCisScanConfigurationParameters(resour
 	return nil
 }
 
+func validateCfnCisScanConfiguration_IsCfnCisScanConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCisScanConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

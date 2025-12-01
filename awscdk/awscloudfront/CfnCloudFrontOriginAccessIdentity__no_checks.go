@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateValidateProperties
 	return nil
 }
 
+func validateCfnCloudFrontOriginAccessIdentity_ArnForCloudFrontOriginAccessIdentityParameters(resource interfacesawscloudfront.ICloudFrontOriginAccessIdentityRef) error {
+	return nil
+}
+
+func validateCfnCloudFrontOriginAccessIdentity_IsCfnCloudFrontOriginAccessIdentityParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCloudFrontOriginAccessIdentity_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

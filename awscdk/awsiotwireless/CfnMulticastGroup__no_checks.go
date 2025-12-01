@@ -84,6 +84,10 @@ func validateCfnMulticastGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMulticastGroup_IsCfnMulticastGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMulticastGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

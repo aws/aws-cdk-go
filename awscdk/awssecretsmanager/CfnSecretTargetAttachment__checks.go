@@ -171,6 +171,14 @@ func validateCfnSecretTargetAttachment_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnSecretTargetAttachment_IsCfnSecretTargetAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSecretTargetAttachment_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -180,6 +180,14 @@ func validateCfnTrafficDistributionGroup_IsCfnResourceParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnTrafficDistributionGroup_IsCfnTrafficDistributionGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTrafficDistributionGroup_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

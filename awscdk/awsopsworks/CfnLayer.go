@@ -933,6 +933,25 @@ func CfnLayer_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLayer.
+func CfnLayer_IsCfnLayer(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLayer_IsCfnLayerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_opsworks.CfnLayer",
+		"isCfnLayer",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLayer_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

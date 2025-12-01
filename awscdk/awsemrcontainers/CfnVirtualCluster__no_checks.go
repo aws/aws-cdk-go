@@ -88,6 +88,10 @@ func validateCfnVirtualCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVirtualCluster_IsCfnVirtualClusterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVirtualCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }

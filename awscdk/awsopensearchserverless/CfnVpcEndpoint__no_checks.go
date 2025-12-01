@@ -76,6 +76,10 @@ func validateCfnVpcEndpoint_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVpcEndpoint_IsCfnVpcEndpointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVpcEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }

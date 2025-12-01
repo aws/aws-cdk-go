@@ -579,6 +579,25 @@ func CfnDomainName_FromDomainNameArn(scope constructs.Construct, id *string, arn
 	return returns
 }
 
+// Checks whether the given object is a CfnDomainName.
+func CfnDomainName_IsCfnDomainName(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDomainName_IsCfnDomainNameParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appsync.CfnDomainName",
+		"isCfnDomainName",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

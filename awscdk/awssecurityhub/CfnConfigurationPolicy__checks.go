@@ -164,6 +164,14 @@ func validateCfnConfigurationPolicy_ArnForConfigurationPolicyParameters(resource
 	return nil
 }
 
+func validateCfnConfigurationPolicy_IsCfnConfigurationPolicyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConfigurationPolicy_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

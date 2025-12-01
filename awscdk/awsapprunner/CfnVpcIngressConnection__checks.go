@@ -180,6 +180,14 @@ func validateCfnVpcIngressConnection_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnVpcIngressConnection_IsCfnVpcIngressConnectionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVpcIngressConnection_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -84,6 +84,10 @@ func validateCfnOptOutList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnOptOutList_IsCfnOptOutListParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOptOutList_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

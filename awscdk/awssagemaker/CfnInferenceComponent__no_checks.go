@@ -76,6 +76,10 @@ func validateCfnInferenceComponent_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInferenceComponent_IsCfnInferenceComponentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInferenceComponent_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

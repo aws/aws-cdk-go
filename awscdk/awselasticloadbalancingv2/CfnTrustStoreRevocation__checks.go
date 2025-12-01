@@ -171,6 +171,14 @@ func validateCfnTrustStoreRevocation_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnTrustStoreRevocation_IsCfnTrustStoreRevocationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTrustStoreRevocation_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

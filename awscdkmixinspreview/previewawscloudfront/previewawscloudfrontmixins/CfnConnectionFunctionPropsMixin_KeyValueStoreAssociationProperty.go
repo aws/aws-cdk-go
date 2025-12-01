@@ -1,6 +1,8 @@
 package previewawscloudfrontmixins
 
 
+// The key value store association.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package previewawscloudfrontmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-connectionfunction-keyvaluestoreassociation.html
 //
 type CfnConnectionFunctionPropsMixin_KeyValueStoreAssociationProperty struct {
+	// The Amazon Resource Name (ARN) of the key value store association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-connectionfunction-keyvaluestoreassociation.html#cfn-cloudfront-connectionfunction-keyvaluestoreassociation-keyvaluestorearn
 	//
 	KeyValueStoreArn *string `field:"optional" json:"keyValueStoreArn" yaml:"keyValueStoreArn"`

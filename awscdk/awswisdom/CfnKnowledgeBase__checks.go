@@ -204,6 +204,14 @@ func validateCfnKnowledgeBase_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnKnowledgeBase_IsCfnKnowledgeBaseParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnKnowledgeBase_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

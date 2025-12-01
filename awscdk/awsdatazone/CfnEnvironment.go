@@ -742,6 +742,24 @@ func (j *jsiiProxy_CfnEnvironment)SetUserParameters(val interface{}) {
 	)
 }
 
+func CfnEnvironment_ArnForEnvironment(resource interfacesawsdatazone.IEnvironmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironment_ArnForEnvironmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnEnvironment",
+		"arnForEnvironment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -759,6 +777,25 @@ func CfnEnvironment_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_datazone.CfnEnvironment",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnEnvironment.
+func CfnEnvironment_IsCfnEnvironment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironment_IsCfnEnvironmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnEnvironment",
+		"isCfnEnvironment",
 		[]interface{}{x},
 		&returns,
 	)

@@ -80,6 +80,10 @@ func validateCfnVirtualGateway_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVirtualGateway_IsCfnVirtualGatewayParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVirtualGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }

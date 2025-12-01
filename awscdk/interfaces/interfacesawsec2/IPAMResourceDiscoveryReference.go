@@ -9,10 +9,13 @@ package interfacesawsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   iPAMResourceDiscoveryReference := map[string]*string{
+//   	"ipamResourceDiscoveryArn": jsii.String("ipamResourceDiscoveryArn"),
 //   	"ipamResourceDiscoveryId": jsii.String("ipamResourceDiscoveryId"),
 //   }
 //
 type IPAMResourceDiscoveryReference struct {
+	// The ARN of the IPAMResourceDiscovery resource.
+	IpamResourceDiscoveryArn *string `field:"required" json:"ipamResourceDiscoveryArn" yaml:"ipamResourceDiscoveryArn"`
 	// The IpamResourceDiscoveryId of the IPAMResourceDiscovery resource.
 	IpamResourceDiscoveryId *string `field:"required" json:"ipamResourceDiscoveryId" yaml:"ipamResourceDiscoveryId"`
 }

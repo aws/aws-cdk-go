@@ -658,6 +658,25 @@ func CfnRouteCalculator_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRouteCalculator.
+func CfnRouteCalculator_IsCfnRouteCalculator(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRouteCalculator_IsCfnRouteCalculatorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnRouteCalculator",
+		"isCfnRouteCalculator",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

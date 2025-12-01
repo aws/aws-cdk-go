@@ -80,6 +80,10 @@ func validateCfnReportDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnReportDefinition_IsCfnReportDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnReportDefinition_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

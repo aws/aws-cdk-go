@@ -1460,6 +1460,25 @@ func CfnEndpoint_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEndpoint.
+func CfnEndpoint_IsCfnEndpoint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEndpoint_IsCfnEndpointParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dms.CfnEndpoint",
+		"isCfnEndpoint",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEndpoint_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -171,6 +171,14 @@ func validateCfnVolumeAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVolumeAssociation_IsCfnVolumeAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVolumeAssociation_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

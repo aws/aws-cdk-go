@@ -72,6 +72,10 @@ func validateCfnCoreNetwork_ArnForCoreNetworkParameters(resource interfacesawsne
 	return nil
 }
 
+func validateCfnCoreNetwork_IsCfnCoreNetworkParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCoreNetwork_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -696,6 +696,24 @@ func (j *jsiiProxy_CfnExperimentTemplate)SetTargets(val interface{}) {
 	)
 }
 
+func CfnExperimentTemplate_ArnForExperimentTemplate(resource interfacesawsfis.IExperimentTemplateRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnExperimentTemplate_ArnForExperimentTemplateParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
+		"arnForExperimentTemplate",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -713,6 +731,25 @@ func CfnExperimentTemplate_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnExperimentTemplate.
+func CfnExperimentTemplate_IsCfnExperimentTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnExperimentTemplate_IsCfnExperimentTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
+		"isCfnExperimentTemplate",
 		[]interface{}{x},
 		&returns,
 	)

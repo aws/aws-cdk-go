@@ -674,6 +674,25 @@ func CfnLifecyclePolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLifecyclePolicy.
+func CfnLifecyclePolicy_IsCfnLifecyclePolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLifecyclePolicy_IsCfnLifecyclePolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_imagebuilder.CfnLifecyclePolicy",
+		"isCfnLifecyclePolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLifecyclePolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

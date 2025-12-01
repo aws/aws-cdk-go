@@ -164,6 +164,14 @@ func validateCfnContact_ArnForContactParameters(resource interfacesawsssmcontact
 	return nil
 }
 
+func validateCfnContact_IsCfnContactParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnContact_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

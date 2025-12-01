@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,7 +156,23 @@ func (c *jsiiProxy_CfnHealthCheck) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnHealthCheck_ArnForHealthCheckParameters(resource interfacesawsroute53.IHealthCheckRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnHealthCheck_IsCfnElementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnHealthCheck_IsCfnHealthCheckParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
 	}

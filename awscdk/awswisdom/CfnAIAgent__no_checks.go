@@ -72,6 +72,10 @@ func validateCfnAIAgent_ArnForAIAgentParameters(resource interfacesawswisdom.IAI
 	return nil
 }
 
+func validateCfnAIAgent_IsCfnAIAgentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAIAgent_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

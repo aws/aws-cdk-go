@@ -511,6 +511,25 @@ func CfnEventInvokeConfig_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventInvokeConfig.
+func CfnEventInvokeConfig_IsCfnEventInvokeConfig(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventInvokeConfig_IsCfnEventInvokeConfigParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnEventInvokeConfig",
+		"isCfnEventInvokeConfig",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventInvokeConfig_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

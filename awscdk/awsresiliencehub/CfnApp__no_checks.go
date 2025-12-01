@@ -72,6 +72,10 @@ func validateCfnApp_ArnForAppParameters(resource interfacesawsresiliencehub.IApp
 	return nil
 }
 
+func validateCfnApp_IsCfnAppParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApp_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -593,6 +593,25 @@ func CfnLocationEFS_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocationEFS.
+func CfnLocationEFS_IsCfnLocationEFS(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocationEFS_IsCfnLocationEFSParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datasync.CfnLocationEFS",
+		"isCfnLocationEFS",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocationEFS_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

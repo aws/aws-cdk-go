@@ -517,6 +517,25 @@ func CfnListener_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnListener.
+func CfnListener_IsCfnListener(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnListener_IsCfnListenerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_globalaccelerator.CfnListener",
+		"isCfnListener",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnListener_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -511,6 +511,25 @@ func CfnEnabledControl_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEnabledControl.
+func CfnEnabledControl_IsCfnEnabledControl(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEnabledControl_IsCfnEnabledControlParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_controltower.CfnEnabledControl",
+		"isCfnEnabledControl",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEnabledControl_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

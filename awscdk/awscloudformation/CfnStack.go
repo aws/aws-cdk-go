@@ -683,6 +683,25 @@ func CfnStack_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStack.
+func CfnStack_IsCfnStack(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStack_IsCfnStackParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudformation.CfnStack",
+		"isCfnStack",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

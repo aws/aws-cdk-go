@@ -441,6 +441,25 @@ func (j *jsiiProxy_CfnClusterSecurityGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Checks whether the given object is a CfnClusterSecurityGroup.
+func CfnClusterSecurityGroup_IsCfnClusterSecurityGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnClusterSecurityGroup_IsCfnClusterSecurityGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_redshift.CfnClusterSecurityGroup",
+		"isCfnClusterSecurityGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -76,6 +76,10 @@ func validateCfnClientCertificate_FromClientCertificateIdParameters(scope constr
 	return nil
 }
 
+func validateCfnClientCertificate_IsCfnClientCertificateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClientCertificate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

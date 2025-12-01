@@ -76,6 +76,10 @@ func validateCfnFilter_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFilter_IsCfnFilterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFilter_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

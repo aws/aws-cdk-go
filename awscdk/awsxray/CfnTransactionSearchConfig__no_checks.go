@@ -76,6 +76,10 @@ func validateCfnTransactionSearchConfig_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnTransactionSearchConfig_IsCfnTransactionSearchConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransactionSearchConfig_IsConstructParameters(x interface{}) error {
 	return nil
 }

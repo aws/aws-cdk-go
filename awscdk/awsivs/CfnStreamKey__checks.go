@@ -180,6 +180,14 @@ func validateCfnStreamKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStreamKey_IsCfnStreamKeyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnStreamKey_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

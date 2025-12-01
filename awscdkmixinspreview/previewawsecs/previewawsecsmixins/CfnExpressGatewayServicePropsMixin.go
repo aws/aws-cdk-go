@@ -10,7 +10,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ECS::ExpressGatewayService.
+// Creates an Express service that simplifies deploying containerized web applications on Amazon ECS with managed AWS infrastructure.
+//
+// This operation provisions and configures Application Load Balancers, target groups, security groups, and auto-scaling policies automatically.
+//
+// Specify a primary container configuration with your application image and basic settings. Amazon ECS creates the necessary AWS resources for traffic distribution, health monitoring, network access control, and capacity management.
+//
+// Provide an execution role for task operations and an infrastructure role for managing AWS resources on your behalf.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

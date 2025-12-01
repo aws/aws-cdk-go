@@ -72,6 +72,10 @@ func validateCfnMicrosoftAD_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMicrosoftAD_IsCfnMicrosoftADParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMicrosoftAD_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

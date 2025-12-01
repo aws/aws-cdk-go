@@ -470,6 +470,25 @@ func CfnGraphQLSchema_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGraphQLSchema.
+func CfnGraphQLSchema_IsCfnGraphQLSchema(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGraphQLSchema_IsCfnGraphQLSchemaParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appsync.CfnGraphQLSchema",
+		"isCfnGraphQLSchema",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGraphQLSchema_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

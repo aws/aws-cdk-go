@@ -484,6 +484,25 @@ func CfnMailManagerAddressList_FromAddressListId(scope constructs.Construct, id 
 	return returns
 }
 
+// Creates a new IMailManagerAddressListRef from an ARN.
+func CfnMailManagerAddressList_FromMailManagerAddressListArn(scope constructs.Construct, id *string, arn *string) interfacesawsses.IMailManagerAddressListRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerAddressList_FromMailManagerAddressListArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsses.IMailManagerAddressListRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddressList",
+		"fromMailManagerAddressListArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -501,6 +520,25 @@ func CfnMailManagerAddressList_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerAddressList",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMailManagerAddressList.
+func CfnMailManagerAddressList_IsCfnMailManagerAddressList(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerAddressList_IsCfnMailManagerAddressListParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddressList",
+		"isCfnMailManagerAddressList",
 		[]interface{}{x},
 		&returns,
 	)

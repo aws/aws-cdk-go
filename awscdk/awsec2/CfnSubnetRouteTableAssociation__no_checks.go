@@ -76,6 +76,10 @@ func validateCfnSubnetRouteTableAssociation_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnSubnetRouteTableAssociation_IsCfnSubnetRouteTableAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSubnetRouteTableAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

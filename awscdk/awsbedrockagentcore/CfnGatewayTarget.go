@@ -680,6 +680,25 @@ func CfnGatewayTarget_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGatewayTarget.
+func CfnGatewayTarget_IsCfnGatewayTarget(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGatewayTarget_IsCfnGatewayTargetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget",
+		"isCfnGatewayTarget",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGatewayTarget_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

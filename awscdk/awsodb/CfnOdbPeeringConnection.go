@@ -21,6 +21,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnOdbPeeringConnection := awscdk.Aws_odb.NewCfnOdbPeeringConnection(this, jsii.String("MyCfnOdbPeeringConnection"), &CfnOdbPeeringConnectionProps{
+//   	AdditionalPeerNetworkCidrs: []*string{
+//   		jsii.String("additionalPeerNetworkCidrs"),
+//   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	OdbNetworkId: jsii.String("odbNetworkId"),
 //   	PeerNetworkId: jsii.String("peerNetworkId"),
@@ -39,6 +42,9 @@ type CfnOdbPeeringConnection interface {
 	awscdk.IInspectable
 	interfacesawsodb.IOdbPeeringConnectionRef
 	awscdk.ITaggableV2
+	// The additional CIDR blocks for the ODB peering connection.
+	AdditionalPeerNetworkCidrs() *[]*string
+	SetAdditionalPeerNetworkCidrs(val *[]*string)
 	// The Amazon Resource Name (ARN) of the ODB network that initiated the peering connection.
 	AttrOdbNetworkArn() *string
 	// The Amazon Resource Name (ARN) of the ODB peering connection.
@@ -49,6 +55,8 @@ type CfnOdbPeeringConnection interface {
 	AttrOdbPeeringConnectionId() *string
 	// The Amazon Resource Name (ARN) of the peer network.
 	AttrPeerNetworkArn() *string
+	// The CIDR blocks for the ODB peering connection.
+	AttrPeerNetworkCidrs() *[]*string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -244,6 +252,16 @@ type jsiiProxy_CfnOdbPeeringConnection struct {
 	internal.Type__awscdkITaggableV2
 }
 
+func (j *jsiiProxy_CfnOdbPeeringConnection) AdditionalPeerNetworkCidrs() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"additionalPeerNetworkCidrs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOdbPeeringConnection) AttrOdbNetworkArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -279,6 +297,16 @@ func (j *jsiiProxy_CfnOdbPeeringConnection) AttrPeerNetworkArn() *string {
 	_jsii_.Get(
 		j,
 		"attrPeerNetworkArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOdbPeeringConnection) AttrPeerNetworkCidrs() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrPeerNetworkCidrs",
 		&returns,
 	)
 	return returns
@@ -484,6 +512,14 @@ func NewCfnOdbPeeringConnection_Override(c CfnOdbPeeringConnection, scope constr
 	)
 }
 
+func (j *jsiiProxy_CfnOdbPeeringConnection)SetAdditionalPeerNetworkCidrs(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"additionalPeerNetworkCidrs",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnOdbPeeringConnection)SetDisplayName(val *string) {
 	_jsii_.Set(
 		j,
@@ -554,6 +590,25 @@ func CfnOdbPeeringConnection_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_odb.CfnOdbPeeringConnection",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnOdbPeeringConnection.
+func CfnOdbPeeringConnection_IsCfnOdbPeeringConnection(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOdbPeeringConnection_IsCfnOdbPeeringConnectionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_odb.CfnOdbPeeringConnection",
+		"isCfnOdbPeeringConnection",
 		[]interface{}{x},
 		&returns,
 	)

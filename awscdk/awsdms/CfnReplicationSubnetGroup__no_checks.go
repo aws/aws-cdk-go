@@ -72,6 +72,10 @@ func validateCfnReplicationSubnetGroup_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnReplicationSubnetGroup_IsCfnReplicationSubnetGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnReplicationSubnetGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

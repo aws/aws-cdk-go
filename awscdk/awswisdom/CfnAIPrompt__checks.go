@@ -164,6 +164,14 @@ func validateCfnAIPrompt_ArnForAIPromptParameters(resource interfacesawswisdom.I
 	return nil
 }
 
+func validateCfnAIPrompt_IsCfnAIPromptParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAIPrompt_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -694,6 +694,25 @@ func CfnEnvironmentEC2_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEnvironmentEC2.
+func CfnEnvironmentEC2_IsCfnEnvironmentEC2(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironmentEC2_IsCfnEnvironmentEC2Parameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
+		"isCfnEnvironmentEC2",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEnvironmentEC2_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

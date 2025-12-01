@@ -620,6 +620,25 @@ func CfnHost_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnHost.
+func CfnHost_IsCfnHost(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnHost_IsCfnHostParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnHost",
+		"isCfnHost",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnHost_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

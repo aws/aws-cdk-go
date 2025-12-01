@@ -1,7 +1,11 @@
 package awsathena
 
 
-// The engine configuration for running queries.
+// The engine configuration for the workgroup, which includes the minimum/maximum number of Data Processing Units (DPU) that queries should use when running in provisioned capacity.
+//
+// If not specified, Athena uses default values (Default value for min is 4 and for max is Minimum of 124 and allocated DPUs).
+//
+// To specify DPU values for PC queries the WG containing EngineConfiguration should have the following values: The name of the Classifications should be `athena-query-engine-properties` , with the only allowed properties as `max-dpu-count` and `min-dpu-count` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,9 +35,9 @@ package awsathena
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineconfiguration.html
 //
 type CfnWorkGroup_EngineConfigurationProperty struct {
-	// Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs.
+	// Contains additional notebook engine `MAP<string, string>` parameter mappings in the form of key-value pairs.
 	//
-	// To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+	// To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the `StartSessionRequest$NotebookVersion` field, and then add a key named `NotebookId` to `AdditionalConfigs` that has the value of the Athena notebook ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineconfiguration.html#cfn-athena-workgroup-engineconfiguration-additionalconfigs
 	//
 	AdditionalConfigs interface{} `field:"optional" json:"additionalConfigs" yaml:"additionalConfigs"`

@@ -196,6 +196,14 @@ func validateCfnAppImageConfig_FromAppImageConfigNameParameters(scope constructs
 	return nil
 }
 
+func validateCfnAppImageConfig_IsCfnAppImageConfigParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAppImageConfig_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

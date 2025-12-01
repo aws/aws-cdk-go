@@ -212,6 +212,14 @@ func validateCfnSecurityProfile_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSecurityProfile_IsCfnSecurityProfileParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSecurityProfile_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnAppMonitor) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnAppMonitor_ArnForAppMonitorParameters(resource interfacesawsrum.IAppMonitorRef) error {
+	return nil
+}
+
+func validateCfnAppMonitor_IsCfnAppMonitorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAppMonitor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

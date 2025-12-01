@@ -164,6 +164,14 @@ func validateCfnAIGuardrail_ArnForAIGuardrailParameters(resource interfacesawswi
 	return nil
 }
 
+func validateCfnAIGuardrail_IsCfnAIGuardrailParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAIGuardrail_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

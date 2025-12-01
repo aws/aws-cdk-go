@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnCustomDBEngineVersion) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnCustomDBEngineVersion_IsCfnCustomDBEngineVersionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCustomDBEngineVersion_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

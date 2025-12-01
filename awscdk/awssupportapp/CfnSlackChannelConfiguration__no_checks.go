@@ -76,6 +76,10 @@ func validateCfnSlackChannelConfiguration_IsCfnResourceParameters(x interface{})
 	return nil
 }
 
+func validateCfnSlackChannelConfiguration_IsCfnSlackChannelConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSlackChannelConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -84,6 +84,10 @@ func validateCfnSoftwarePackage_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSoftwarePackage_IsCfnSoftwarePackageParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSoftwarePackage_IsConstructParameters(x interface{}) error {
 	return nil
 }

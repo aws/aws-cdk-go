@@ -76,6 +76,10 @@ func validateCfnDeploymentStrategy_FromDeploymentStrategyIdParameters(scope cons
 	return nil
 }
 
+func validateCfnDeploymentStrategy_IsCfnDeploymentStrategyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDeploymentStrategy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

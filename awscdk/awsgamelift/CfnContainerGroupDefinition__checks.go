@@ -164,6 +164,14 @@ func validateCfnContainerGroupDefinition_ArnForContainerGroupDefinitionParameter
 	return nil
 }
 
+func validateCfnContainerGroupDefinition_IsCfnContainerGroupDefinitionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnContainerGroupDefinition_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

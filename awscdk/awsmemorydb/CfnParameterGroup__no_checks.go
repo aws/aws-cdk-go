@@ -72,11 +72,19 @@ func validateCfnParameterGroup_ArnForParameterGroupParameters(resource interface
 	return nil
 }
 
+func validateCfnParameterGroup_FromParameterGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnParameterGroup_FromParameterGroupNameParameters(scope constructs.Construct, id *string, parameterGroupName *string) error {
 	return nil
 }
 
 func validateCfnParameterGroup_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnParameterGroup_IsCfnParameterGroupParameters(x interface{}) error {
 	return nil
 }
 

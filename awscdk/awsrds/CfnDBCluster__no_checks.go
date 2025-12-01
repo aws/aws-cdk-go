@@ -72,6 +72,10 @@ func validateCfnDBCluster_ArnForDBClusterParameters(resource interfacesawsrds.ID
 	return nil
 }
 
+func validateCfnDBCluster_IsCfnDBClusterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDBCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

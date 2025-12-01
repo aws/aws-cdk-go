@@ -72,6 +72,10 @@ func validateCfnModelExplainabilityJobDefinition_IsCfnElementParameters(x interf
 	return nil
 }
 
+func validateCfnModelExplainabilityJobDefinition_IsCfnModelExplainabilityJobDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnModelExplainabilityJobDefinition_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

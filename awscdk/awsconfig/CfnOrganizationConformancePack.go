@@ -552,6 +552,25 @@ func CfnOrganizationConformancePack_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOrganizationConformancePack.
+func CfnOrganizationConformancePack_IsCfnOrganizationConformancePack(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOrganizationConformancePack_IsCfnOrganizationConformancePackParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnOrganizationConformancePack",
+		"isCfnOrganizationConformancePack",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOrganizationConformancePack_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

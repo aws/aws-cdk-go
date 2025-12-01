@@ -438,6 +438,25 @@ func CfnNamespace_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNamespace.
+func CfnNamespace_IsCfnNamespace(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNamespace_IsCfnNamespaceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3tables.CfnNamespace",
+		"isCfnNamespace",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNamespace_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

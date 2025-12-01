@@ -72,6 +72,10 @@ func validateCfnLocalGatewayRoute_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocalGatewayRoute_IsCfnLocalGatewayRouteParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocalGatewayRoute_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

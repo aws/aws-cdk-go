@@ -163,6 +163,14 @@ func validateCfnEndpointAuthorization_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnEndpointAuthorization_IsCfnEndpointAuthorizationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEndpointAuthorization_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

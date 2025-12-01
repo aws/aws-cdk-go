@@ -76,6 +76,10 @@ func validateCfnConnectAttachment_FromAttachmentIdParameters(scope constructs.Co
 	return nil
 }
 
+func validateCfnConnectAttachment_IsCfnConnectAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConnectAttachment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

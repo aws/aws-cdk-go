@@ -902,6 +902,25 @@ func CfnInfluxDBInstance_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInfluxDBInstance.
+func CfnInfluxDBInstance_IsCfnInfluxDBInstance(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInfluxDBInstance_IsCfnInfluxDBInstanceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_timestream.CfnInfluxDBInstance",
+		"isCfnInfluxDBInstance",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInfluxDBInstance_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

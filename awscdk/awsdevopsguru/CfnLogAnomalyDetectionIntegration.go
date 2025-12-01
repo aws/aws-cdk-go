@@ -393,6 +393,25 @@ func CfnLogAnomalyDetectionIntegration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLogAnomalyDetectionIntegration.
+func CfnLogAnomalyDetectionIntegration_IsCfnLogAnomalyDetectionIntegration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLogAnomalyDetectionIntegration_IsCfnLogAnomalyDetectionIntegrationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devopsguru.CfnLogAnomalyDetectionIntegration",
+		"isCfnLogAnomalyDetectionIntegration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLogAnomalyDetectionIntegration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

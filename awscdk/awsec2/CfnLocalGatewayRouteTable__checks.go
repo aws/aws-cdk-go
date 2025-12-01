@@ -172,6 +172,14 @@ func validateCfnLocalGatewayRouteTable_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnLocalGatewayRouteTable_IsCfnLocalGatewayRouteTableParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLocalGatewayRouteTable_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

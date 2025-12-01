@@ -84,6 +84,10 @@ func validateCfnWorkGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWorkGroup_IsCfnWorkGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWorkGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }

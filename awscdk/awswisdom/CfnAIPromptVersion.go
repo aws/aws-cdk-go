@@ -477,6 +477,25 @@ func (j *jsiiProxy_CfnAIPromptVersion)SetModifiedTimeSeconds(val *float64) {
 	)
 }
 
+// Checks whether the given object is a CfnAIPromptVersion.
+func CfnAIPromptVersion_IsCfnAIPromptVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAIPromptVersion_IsCfnAIPromptVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAIPromptVersion",
+		"isCfnAIPromptVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

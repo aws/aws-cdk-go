@@ -76,6 +76,10 @@ func validateCfnSnapshotBlockPublicAccess_IsCfnResourceParameters(x interface{})
 	return nil
 }
 
+func validateCfnSnapshotBlockPublicAccess_IsCfnSnapshotBlockPublicAccessParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSnapshotBlockPublicAccess_IsConstructParameters(x interface{}) error {
 	return nil
 }

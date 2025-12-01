@@ -478,6 +478,25 @@ func CfnSecurityConfiguration_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSecurityConfiguration.
+func CfnSecurityConfiguration_IsCfnSecurityConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSecurityConfiguration_IsCfnSecurityConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnSecurityConfiguration",
+		"isCfnSecurityConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

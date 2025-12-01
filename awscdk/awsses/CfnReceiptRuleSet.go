@@ -418,6 +418,25 @@ func CfnReceiptRuleSet_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnReceiptRuleSet.
+func CfnReceiptRuleSet_IsCfnReceiptRuleSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnReceiptRuleSet_IsCfnReceiptRuleSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnReceiptRuleSet",
+		"isCfnReceiptRuleSet",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnReceiptRuleSet_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

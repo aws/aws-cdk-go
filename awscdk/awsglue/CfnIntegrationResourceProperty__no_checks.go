@@ -72,6 +72,10 @@ func validateCfnIntegrationResourceProperty_IsCfnElementParameters(x interface{}
 	return nil
 }
 
+func validateCfnIntegrationResourceProperty_IsCfnIntegrationResourcePropertyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIntegrationResourceProperty_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

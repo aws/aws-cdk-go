@@ -10,10 +10,13 @@ package interfacesawssagemaker
 //
 //   endpointConfigReference := &EndpointConfigReference{
 //   	EndpointConfigId: jsii.String("endpointConfigId"),
+//   	EndpointConfigName: jsii.String("endpointConfigName"),
 //   }
 //
 type EndpointConfigReference struct {
 	// The Id of the EndpointConfig resource.
 	EndpointConfigId *string `field:"required" json:"endpointConfigId" yaml:"endpointConfigId"`
+	// The EndpointConfigName of the EndpointConfig resource.
+	EndpointConfigName *string `field:"required" json:"endpointConfigName" yaml:"endpointConfigName"`
 }
 

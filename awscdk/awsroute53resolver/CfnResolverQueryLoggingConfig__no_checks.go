@@ -76,6 +76,10 @@ func validateCfnResolverQueryLoggingConfig_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnResolverQueryLoggingConfig_IsCfnResolverQueryLoggingConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResolverQueryLoggingConfig_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

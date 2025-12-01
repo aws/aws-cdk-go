@@ -204,6 +204,14 @@ func validateCfnNetworkInsightsAccessScope_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnNetworkInsightsAccessScope_IsCfnNetworkInsightsAccessScopeParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnNetworkInsightsAccessScope_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

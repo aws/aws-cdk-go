@@ -196,6 +196,14 @@ func validateCfnTrafficMirrorFilter_IsCfnResourceParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnTrafficMirrorFilter_IsCfnTrafficMirrorFilterParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTrafficMirrorFilter_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

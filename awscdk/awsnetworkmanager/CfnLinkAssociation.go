@@ -456,6 +456,25 @@ func CfnLinkAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLinkAssociation.
+func CfnLinkAssociation_IsCfnLinkAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLinkAssociation_IsCfnLinkAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnLinkAssociation",
+		"isCfnLinkAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLinkAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

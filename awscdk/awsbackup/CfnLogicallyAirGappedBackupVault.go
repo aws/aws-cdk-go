@@ -674,6 +674,25 @@ func CfnLogicallyAirGappedBackupVault_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLogicallyAirGappedBackupVault.
+func CfnLogicallyAirGappedBackupVault_IsCfnLogicallyAirGappedBackupVault(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLogicallyAirGappedBackupVault_IsCfnLogicallyAirGappedBackupVaultParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnLogicallyAirGappedBackupVault",
+		"isCfnLogicallyAirGappedBackupVault",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLogicallyAirGappedBackupVault_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -622,6 +622,25 @@ func CfnStorageVirtualMachine_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStorageVirtualMachine.
+func CfnStorageVirtualMachine_IsCfnStorageVirtualMachine(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStorageVirtualMachine_IsCfnStorageVirtualMachineParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_fsx.CfnStorageVirtualMachine",
+		"isCfnStorageVirtualMachine",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

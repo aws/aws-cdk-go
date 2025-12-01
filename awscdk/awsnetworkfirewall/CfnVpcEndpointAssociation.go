@@ -617,6 +617,25 @@ func CfnVpcEndpointAssociation_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVpcEndpointAssociation.
+func CfnVpcEndpointAssociation_IsCfnVpcEndpointAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVpcEndpointAssociation_IsCfnVpcEndpointAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkfirewall.CfnVpcEndpointAssociation",
+		"isCfnVpcEndpointAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

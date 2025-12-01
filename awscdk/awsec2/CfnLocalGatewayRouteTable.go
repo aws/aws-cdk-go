@@ -552,6 +552,25 @@ func CfnLocalGatewayRouteTable_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocalGatewayRouteTable.
+func CfnLocalGatewayRouteTable_IsCfnLocalGatewayRouteTable(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocalGatewayRouteTable_IsCfnLocalGatewayRouteTableParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteTable",
+		"isCfnLocalGatewayRouteTable",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocalGatewayRouteTable_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

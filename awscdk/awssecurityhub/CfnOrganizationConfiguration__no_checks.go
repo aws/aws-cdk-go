@@ -72,6 +72,10 @@ func validateCfnOrganizationConfiguration_IsCfnElementParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnOrganizationConfiguration_IsCfnOrganizationConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOrganizationConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

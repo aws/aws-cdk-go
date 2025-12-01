@@ -607,6 +607,25 @@ func CfnMlflowTrackingServer_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMlflowTrackingServer.
+func CfnMlflowTrackingServer_IsCfnMlflowTrackingServer(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMlflowTrackingServer_IsCfnMlflowTrackingServerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnMlflowTrackingServer",
+		"isCfnMlflowTrackingServer",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMlflowTrackingServer_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

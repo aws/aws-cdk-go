@@ -590,6 +590,25 @@ func CfnCustomerGateway_FromCustomerGatewayId(scope constructs.Construct, id *st
 	return returns
 }
 
+// Checks whether the given object is a CfnCustomerGateway.
+func CfnCustomerGateway_IsCfnCustomerGateway(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCustomerGateway_IsCfnCustomerGatewayParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCustomerGateway",
+		"isCfnCustomerGateway",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

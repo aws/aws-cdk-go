@@ -76,6 +76,10 @@ func validateCfnOutpostResolver_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnOutpostResolver_IsCfnOutpostResolverParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOutpostResolver_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

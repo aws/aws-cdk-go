@@ -72,6 +72,10 @@ func validateCfnComponentVersion_ArnForComponentVersionParameters(resource inter
 	return nil
 }
 
+func validateCfnComponentVersion_IsCfnComponentVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnComponentVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

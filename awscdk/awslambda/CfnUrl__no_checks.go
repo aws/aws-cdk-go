@@ -76,6 +76,10 @@ func validateCfnUrl_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnUrl_IsCfnUrlParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUrl_IsConstructParameters(x interface{}) error {
 	return nil
 }

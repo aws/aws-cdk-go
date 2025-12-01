@@ -80,6 +80,10 @@ func validateCfnFlowLog_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFlowLog_IsCfnFlowLogParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFlowLog_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

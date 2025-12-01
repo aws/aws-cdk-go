@@ -180,6 +180,14 @@ func validateCfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayIdParamet
 	return nil
 }
 
+func validateCfnEgressOnlyInternetGateway_IsCfnEgressOnlyInternetGatewayParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEgressOnlyInternetGateway_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

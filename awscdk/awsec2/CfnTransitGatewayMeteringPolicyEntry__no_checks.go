@@ -76,6 +76,10 @@ func validateCfnTransitGatewayMeteringPolicyEntry_IsCfnResourceParameters(x inte
 	return nil
 }
 
+func validateCfnTransitGatewayMeteringPolicyEntry_IsCfnTransitGatewayMeteringPolicyEntryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransitGatewayMeteringPolicyEntry_IsConstructParameters(x interface{}) error {
 	return nil
 }

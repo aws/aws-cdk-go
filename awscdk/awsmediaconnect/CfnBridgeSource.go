@@ -476,6 +476,25 @@ func (j *jsiiProxy_CfnBridgeSource)SetNetworkSource(val interface{}) {
 	)
 }
 
+// Checks whether the given object is a CfnBridgeSource.
+func CfnBridgeSource_IsCfnBridgeSource(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBridgeSource_IsCfnBridgeSourceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconnect.CfnBridgeSource",
+		"isCfnBridgeSource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnEndpointConfig) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnEndpointConfig_ArnForEndpointConfigParameters(resource interfacesawssagemaker.IEndpointConfigRef) error {
+	return nil
+}
+
 func validateCfnEndpointConfig_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnEndpointConfig_IsCfnEndpointConfigParameters(x interface{}) error {
 	return nil
 }
 

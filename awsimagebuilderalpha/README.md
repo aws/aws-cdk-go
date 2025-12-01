@@ -36,7 +36,10 @@ test phase during the test stage.
 
 ### Image Pipeline
 
-An image pipeline provides the automation framework for building secure AMIs and container images. The pipeline orchestrates the entire image creation process by combining an image recipe or container recipe with infrastructure configuration and distribution configuration. Pipelines can run on a schedule or be triggered manually, and they manage the build, test, and distribution phases automatically.
+An image pipeline provides the automation framework for building secure AMIs and container images. The pipeline
+orchestrates the entire image creation process by combining an image recipe or container recipe with infrastructure
+configuration and distribution configuration. Pipelines can run on a schedule or be triggered manually, and they manage
+the build, test, and distribution phases automatically.
 
 #### Image Pipeline Basic Usage
 
@@ -132,7 +135,7 @@ advancedSchedulePipeline := imagebuilder.NewImagePipeline(this, jsii.String("Adv
 
 #### Image Pipeline Configuration
 
-##### Infrastructure and Distribution
+##### Infrastructure and Distribution in Image Pipelines
 
 Configure custom infrastructure and distribution settings:
 
@@ -186,7 +189,7 @@ loggedPipeline := imagebuilder.NewImagePipeline(this, jsii.String("LoggedPipelin
 })
 ```
 
-##### Workflow Integration
+##### Workflow Integration in Image Pipelines
 
 Use AWS-managed workflows for common pipeline phases:
 
@@ -223,7 +226,7 @@ containerWorkflowPipeline := imagebuilder.NewImagePipeline(this, jsii.String("Co
 })
 ```
 
-##### Advanced Features
+##### Advanced Features in Image Pipelines
 
 Configure image scanning for container pipelines:
 
@@ -288,6 +291,200 @@ automationRole := iam.NewRole(this, jsii.String("AutomationRole"), &RoleProps{
 
 existingPipelineByName.GrantStartExecution(automationRole)
 existingPipelineByArn.GrantRead(lambdaRole)
+```
+
+### Image
+
+An image is the output resource created by Image Builder, consisting of an AMI or container image plus metadata such as
+version, platform, and creation details. Images are used as base images for future builds and can be shared across AWS
+accounts. While images are the output from image pipeline executions, they can also be created in an ad-hoc manner
+outside a pipeline, defined as a standalone resource.
+
+#### Image Basic Usage
+
+Create a simple AMI-based image from an image recipe:
+
+```go
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("MyImageRecipe"), &ImageRecipeProps{
+	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
+})
+
+amiImage := imagebuilder.NewImage(this, jsii.String("MyAmiImage"), &ImageProps{
+	Recipe: imageRecipe,
+})
+```
+
+Create a simple container image from a container recipe:
+
+```go
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("MyContainerRecipe"), &ContainerRecipeProps{
+	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
+})
+
+containerImage := imagebuilder.NewImage(this, jsii.String("MyContainerImage"), &ImageProps{
+	Recipe: containerRecipe,
+})
+```
+
+#### AWS-Managed Images
+
+##### Pre-defined OS Images
+
+Use AWS-managed images for common operating systems:
+
+```go
+// Amazon Linux 2023 AMI for x86_64
+amazonLinux2023Ami := imagebuilder.AmazonManagedImage_AmazonLinux2023(this, jsii.String("AmazonLinux2023"), &AmazonManagedImageOptions{
+	ImageType: imagebuilder.ImageType_AMI,
+	ImageArchitecture: imagebuilder.ImageArchitecture_X86_64,
+})
+
+// Ubuntu 22.04 AMI for ARM64
+ubuntu2204Ami := imagebuilder.AmazonManagedImage_UbuntuServer2204(this, jsii.String("Ubuntu2204"), &AmazonManagedImageOptions{
+	ImageType: imagebuilder.ImageType_AMI,
+	ImageArchitecture: imagebuilder.ImageArchitecture_ARM64,
+})
+
+// Windows Server 2022 Full AMI
+windows2022Ami := imagebuilder.AmazonManagedImage_WindowsServer2022Full(this, jsii.String("Windows2022"), &AmazonManagedImageOptions{
+	ImageType: imagebuilder.ImageType_AMI,
+	ImageArchitecture: imagebuilder.ImageArchitecture_X86_64,
+})
+
+// Use as base image in recipe
+managedImageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("ManagedImageRecipe"), &ImageRecipeProps{
+	BaseImage: amazonLinux2023Ami.ToBaseImage(),
+})
+```
+
+##### Custom AWS-Managed Images
+
+Import AWS-managed images by name or attributes:
+
+```go
+// Import by name
+managedImageByName := imagebuilder.AmazonManagedImage_FromAmazonManagedImageName(this, jsii.String("ManagedImageByName"), jsii.String("amazon-linux-2023-x86"))
+
+// Import by attributes with specific version
+managedImageByAttributes := imagebuilder.AmazonManagedImage_FromAmazonManagedImageAttributes(this, jsii.String("ManagedImageByAttributes"), &AmazonManagedImageAttributes{
+	ImageName: jsii.String("ubuntu-server-22-lts-x86"),
+	ImageVersion: jsii.String("2024.11.25"),
+})
+```
+
+#### Image Configuration
+
+##### Infrastructure and Distribution in Images
+
+Configure custom infrastructure and distribution settings:
+
+```go
+infrastructureConfiguration := imagebuilder.NewInfrastructureConfiguration(this, jsii.String("Infrastructure"), &InfrastructureConfigurationProps{
+	InfrastructureConfigurationName: jsii.String("production-infrastructure"),
+	InstanceTypes: []InstanceType{
+		ec2.InstanceType_*Of(ec2.InstanceClass_COMPUTE7_INTEL, ec2.InstanceSize_LARGE),
+	},
+	Vpc: vpc,
+	SubnetSelection: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+	},
+})
+
+distributionConfiguration := imagebuilder.NewDistributionConfiguration(this, jsii.String("Distribution"))
+distributionConfiguration.AddAmiDistributions(&AmiDistribution{
+	AmiName: jsii.String("production-ami-{{ imagebuilder:buildDate }}"),
+	AmiTargetAccountIds: []*string{
+		jsii.String("123456789012"),
+		jsii.String("098765432109"),
+	},
+})
+
+productionImage := imagebuilder.NewImage(this, jsii.String("ProductionImage"), &ImageProps{
+	Recipe: exampleImageRecipe,
+	InfrastructureConfiguration: infrastructureConfiguration,
+	DistributionConfiguration: distributionConfiguration,
+})
+```
+
+##### Logging Configuration
+
+Configure custom CloudWatch log groups for image builds:
+
+```go
+logGroup := logs.NewLogGroup(this, jsii.String("ImageLogGroup"), &LogGroupProps{
+	LogGroupName: jsii.String("/custom/imagebuilder/image/logs"),
+	Retention: logs.RetentionDays_ONE_MONTH,
+})
+
+loggedImage := imagebuilder.NewImage(this, jsii.String("LoggedImage"), &ImageProps{
+	Recipe: exampleImageRecipe,
+	LogGroup: logGroup,
+})
+```
+
+##### Workflow Integration in Images
+
+Use workflows for custom build, test, and distribution processes:
+
+```go
+imageWithWorkflows := imagebuilder.NewImage(this, jsii.String("ImageWithWorkflows"), &ImageProps{
+	Recipe: exampleImageRecipe,
+	Workflows: []WorkflowConfiguration{
+		&WorkflowConfiguration{
+			Workflow: imagebuilder.AwsManagedWorkflow_BuildImage(this, jsii.String("BuildWorkflow")),
+		},
+		&WorkflowConfiguration{
+			Workflow: imagebuilder.AwsManagedWorkflow_TestImage(this, jsii.String("TestWorkflow")),
+		},
+	},
+})
+```
+
+##### Advanced Features in Images
+
+Configure image scanning, metadata collection, and testing:
+
+```go
+scanningRepository := ecr.NewRepository(this, jsii.String("ScanningRepository"))
+
+advancedContainerImage := imagebuilder.NewImage(this, jsii.String("AdvancedContainerImage"), &ImageProps{
+	Recipe: exampleContainerRecipe,
+	ImageScanningEnabled: jsii.Boolean(true),
+	ImageScanningEcrRepository: scanningRepository,
+	ImageScanningEcrTags: []*string{
+		jsii.String("security-scan"),
+		jsii.String("latest"),
+	},
+	EnhancedImageMetadataEnabled: jsii.Boolean(true),
+	ImageTestsEnabled: jsii.Boolean(false),
+})
+```
+
+#### Importing Images
+
+Reference existing images created outside CDK:
+
+```go
+// Import by name
+existingImageByName := imagebuilder.Image_FromImageName(this, jsii.String("ExistingImageByName"), jsii.String("my-existing-image"))
+
+// Import by ARN
+existingImageByArn := imagebuilder.Image_FromImageArn(this, jsii.String("ExistingImageByArn"), jsii.String("arn:aws:imagebuilder:us-east-1:123456789012:image/imported-image/1.0.0"))
+
+// Import by attributes
+existingImageByAttributes := imagebuilder.Image_FromImageAttributes(this, jsii.String("ExistingImageByAttributes"), &ImageAttributes{
+	ImageName: jsii.String("shared-base-image"),
+	ImageVersion: jsii.String("2024.11.25"),
+})
+
+// Grant permissions to imported images
+role := iam.NewRole(this, jsii.String("ImageAccessRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+existingImageByName.GrantRead(role)
+existingImageByArn.Grant(role, jsii.String("imagebuilder:GetImage"), jsii.String("imagebuilder:ListImagePackages"))
 ```
 
 ### Image Recipe
@@ -392,7 +589,7 @@ imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("ComponentImageReci
 Use pre-built AWS components:
 
 ```go
-imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AwsManagedImageRecipe"), &ImageRecipeProps{
+imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AmazonManagedImageRecipe"), &ImageRecipeProps{
 	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 	Components: []ComponentConfiguration{
 		&ComponentConfiguration{
@@ -1086,7 +1283,8 @@ containerDistributionConfiguration.AddContainerDistributions(&ContainerDistribut
 
 ### Workflow
 
-Workflows define the sequence of steps that Image Builder performs during image creation. There are three workflow types: BUILD (image building), TEST (testing images), and DISTRIBUTION (distributing container images).
+Workflows define the sequence of steps that Image Builder performs during image creation. There are three workflow
+types: BUILD (image building), TEST (testing images), and DISTRIBUTION (distributing container images).
 
 #### Basic Workflow Usage
 
@@ -1247,7 +1445,8 @@ workflowFromS3 := imagebuilder.NewWorkflow(this, jsii.String("S3Workflow"), &Wor
 
 #### Encrypt workflow data with a KMS key
 
-You can encrypt workflow data with a KMS key, so that only principals with access to decrypt with the key are able to access the workflow data.
+You can encrypt workflow data with a KMS key, so that only principals with access to decrypt with the key are able to
+access the workflow data.
 
 ```go
 workflow := imagebuilder.NewWorkflow(this, jsii.String("EncryptedWorkflow"), &WorkflowProps{
@@ -1310,7 +1509,9 @@ distributeContainerWorkflow := imagebuilder.AwsManagedWorkflow_DistributeContain
 
 ### Lifecycle Policy
 
-Lifecycle policies help you manage the retention and cleanup of Image Builder resources automatically. These policies define rules for deprecating or deleting old image versions, managing AMI snapshots, and controlling resource costs by removing unused images based on age, count, or other criteria.
+Lifecycle policies help you manage the retention and cleanup of Image Builder resources automatically. These policies
+define rules for deprecating or deleting old image versions, managing AMI snapshots, and controlling resource costs by
+removing unused images based on age, count, or other criteria.
 
 #### Lifecycle Policy Basic Usage
 
@@ -1705,7 +1906,7 @@ disabledPolicy := imagebuilder.NewLifecyclePolicy(this, jsii.String("DisabledPol
 
 ##### Importing Lifecycle Policies
 
-Reference lifecycle policies created outside of CDK:
+Reference lifecycle policies created outside CDK:
 
 ```go
 // Import by name
@@ -1715,5 +1916,5 @@ importedByName := imagebuilder.LifecyclePolicy_FromLifecyclePolicyName(this, jsi
 importedByArn := imagebuilder.LifecyclePolicy_FromLifecyclePolicyArn(this, jsii.String("ImportedByArn"), jsii.String("arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/my-policy"))
 
 importedByName.GrantRead(lambdaRole)
-importedByArn.Grant(lambdaRole, jsii.String("imagebuilder:PutLifecyclePolicy"))
+importedByArn.Grant(lambdaRole, jsii.String("imagebuilder:UpdateLifecyclePolicy"))
 ```

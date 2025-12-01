@@ -180,6 +180,14 @@ func validateCfnSegmentDefinition_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSegmentDefinition_IsCfnSegmentDefinitionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSegmentDefinition_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -213,9 +221,6 @@ func (j *jsiiProxy_CfnSegmentDefinition) validateSetSegmentDefinitionNameParamet
 }
 
 func (j *jsiiProxy_CfnSegmentDefinition) validateSetSegmentGroupsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

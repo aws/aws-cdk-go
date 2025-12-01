@@ -76,6 +76,10 @@ func validateCfnScheduledAction_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnScheduledAction_IsCfnScheduledActionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnScheduledAction_IsConstructParameters(x interface{}) error {
 	return nil
 }

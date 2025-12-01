@@ -610,6 +610,25 @@ func CfnRecordingConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRecordingConfiguration.
+func CfnRecordingConfiguration_IsCfnRecordingConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRecordingConfiguration_IsCfnRecordingConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnRecordingConfiguration",
+		"isCfnRecordingConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRecordingConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

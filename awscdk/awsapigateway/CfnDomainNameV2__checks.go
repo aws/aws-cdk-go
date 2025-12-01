@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDomainNameV2) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnDomainNameV2_IsCfnDomainNameV2Parameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDomainNameV2_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

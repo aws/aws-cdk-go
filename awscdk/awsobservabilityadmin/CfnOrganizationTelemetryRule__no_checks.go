@@ -72,6 +72,10 @@ func validateCfnOrganizationTelemetryRule_IsCfnElementParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnOrganizationTelemetryRule_IsCfnOrganizationTelemetryRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOrganizationTelemetryRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

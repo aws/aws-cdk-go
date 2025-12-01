@@ -794,6 +794,25 @@ func CfnServiceProfile_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnServiceProfile.
+func CfnServiceProfile_IsCfnServiceProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnServiceProfile_IsCfnServiceProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"isCfnServiceProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

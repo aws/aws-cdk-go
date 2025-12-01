@@ -530,6 +530,25 @@ func CfnFlowVpcInterface_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFlowVpcInterface.
+func CfnFlowVpcInterface_IsCfnFlowVpcInterface(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFlowVpcInterface_IsCfnFlowVpcInterfaceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowVpcInterface",
+		"isCfnFlowVpcInterface",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFlowVpcInterface_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

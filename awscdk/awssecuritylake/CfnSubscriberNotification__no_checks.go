@@ -76,6 +76,10 @@ func validateCfnSubscriberNotification_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnSubscriberNotification_IsCfnSubscriberNotificationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSubscriberNotification_IsConstructParameters(x interface{}) error {
 	return nil
 }

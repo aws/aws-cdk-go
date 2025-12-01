@@ -72,6 +72,10 @@ func validateCfnLaunchRoleConstraint_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnLaunchRoleConstraint_IsCfnLaunchRoleConstraintParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLaunchRoleConstraint_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

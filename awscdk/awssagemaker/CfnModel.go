@@ -676,6 +676,24 @@ func (j *jsiiProxy_CfnModel)SetVpcConfig(val interface{}) {
 	)
 }
 
+func CfnModel_ArnForModel(resource interfacesawssagemaker.IModelRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnModel_ArnForModelParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnModel",
+		"arnForModel",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -693,6 +711,25 @@ func CfnModel_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnModel",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnModel.
+func CfnModel_IsCfnModel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnModel_IsCfnModelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnModel",
+		"isCfnModel",
 		[]interface{}{x},
 		&returns,
 	)

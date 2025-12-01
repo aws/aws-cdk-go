@@ -76,6 +76,10 @@ func validateCfnVPCBlockPublicAccessExclusion_IsCfnResourceParameters(x interfac
 	return nil
 }
 
+func validateCfnVPCBlockPublicAccessExclusion_IsCfnVPCBlockPublicAccessExclusionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPCBlockPublicAccessExclusion_IsConstructParameters(x interface{}) error {
 	return nil
 }

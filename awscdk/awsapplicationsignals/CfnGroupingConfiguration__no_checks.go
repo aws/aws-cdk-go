@@ -72,6 +72,10 @@ func validateCfnGroupingConfiguration_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnGroupingConfiguration_IsCfnGroupingConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGroupingConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

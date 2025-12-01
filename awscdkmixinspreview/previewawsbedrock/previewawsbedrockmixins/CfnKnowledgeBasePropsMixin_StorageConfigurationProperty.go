@@ -112,7 +112,9 @@ type CfnKnowledgeBasePropsMixin_StorageConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-rdsconfiguration
 	//
 	RdsConfiguration interface{} `field:"optional" json:"rdsConfiguration" yaml:"rdsConfiguration"`
-	// Contains the storage configuration of the knowledge base for S3 vectors.
+	// The configuration settings for storing knowledge base data using S3 vectors.
+	//
+	// This includes vector index information and S3 bucket details for vector storage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-s3vectorsconfiguration
 	//
 	S3VectorsConfiguration interface{} `field:"optional" json:"s3VectorsConfiguration" yaml:"s3VectorsConfiguration"`

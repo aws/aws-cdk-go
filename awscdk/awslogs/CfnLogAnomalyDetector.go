@@ -593,6 +593,25 @@ func CfnLogAnomalyDetector_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLogAnomalyDetector.
+func CfnLogAnomalyDetector_IsCfnLogAnomalyDetector(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLogAnomalyDetector_IsCfnLogAnomalyDetectorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnLogAnomalyDetector",
+		"isCfnLogAnomalyDetector",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLogAnomalyDetector_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

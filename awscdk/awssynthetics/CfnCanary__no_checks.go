@@ -76,6 +76,10 @@ func validateCfnCanary_FromCanaryNameParameters(scope constructs.Construct, id *
 	return nil
 }
 
+func validateCfnCanary_IsCfnCanaryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCanary_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

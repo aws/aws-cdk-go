@@ -467,6 +467,25 @@ func (j *jsiiProxy_CfnBasePathMappingV2)SetStage(val *string) {
 	)
 }
 
+// Checks whether the given object is a CfnBasePathMappingV2.
+func CfnBasePathMappingV2_IsCfnBasePathMappingV2(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBasePathMappingV2_IsCfnBasePathMappingV2Parameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnBasePathMappingV2",
+		"isCfnBasePathMappingV2",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

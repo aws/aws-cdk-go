@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDedicatedIpPool) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDedicatedIpPool_IsCfnDedicatedIpPoolParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDedicatedIpPool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

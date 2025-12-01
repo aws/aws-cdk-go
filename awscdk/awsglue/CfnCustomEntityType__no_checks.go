@@ -76,6 +76,10 @@ func validateCfnCustomEntityType_FromCustomEntityTypeIdParameters(scope construc
 	return nil
 }
 
+func validateCfnCustomEntityType_IsCfnCustomEntityTypeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomEntityType_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

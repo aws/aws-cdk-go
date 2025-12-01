@@ -76,6 +76,10 @@ func validateCfnResourceCollection_IsCfnResourceParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnResourceCollection_IsCfnResourceCollectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResourceCollection_IsConstructParameters(x interface{}) error {
 	return nil
 }

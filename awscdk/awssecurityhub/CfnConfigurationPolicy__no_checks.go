@@ -72,6 +72,10 @@ func validateCfnConfigurationPolicy_ArnForConfigurationPolicyParameters(resource
 	return nil
 }
 
+func validateCfnConfigurationPolicy_IsCfnConfigurationPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfigurationPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

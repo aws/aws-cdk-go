@@ -72,6 +72,10 @@ func validateCfnMonitoringSubscription_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnMonitoringSubscription_IsCfnMonitoringSubscriptionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMonitoringSubscription_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

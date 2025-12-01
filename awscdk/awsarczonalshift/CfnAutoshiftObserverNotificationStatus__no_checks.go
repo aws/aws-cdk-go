@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateValidatePrope
 	return nil
 }
 
+func validateCfnAutoshiftObserverNotificationStatus_IsCfnAutoshiftObserverNotificationStatusParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAutoshiftObserverNotificationStatus_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

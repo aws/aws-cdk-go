@@ -76,6 +76,10 @@ func validateCfnDocument_FromDocumentNameParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validateCfnDocument_IsCfnDocumentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDocument_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

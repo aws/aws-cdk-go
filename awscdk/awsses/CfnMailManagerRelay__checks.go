@@ -164,6 +164,22 @@ func validateCfnMailManagerRelay_ArnForMailManagerRelayParameters(resource inter
 	return nil
 }
 
+func validateCfnMailManagerRelay_FromMailManagerRelayArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnMailManagerRelay_FromRelayIdParameters(scope constructs.Construct, id *string, relayId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -181,6 +197,14 @@ func validateCfnMailManagerRelay_FromRelayIdParameters(scope constructs.Construc
 }
 
 func validateCfnMailManagerRelay_IsCfnElementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnMailManagerRelay_IsCfnMailManagerRelayParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
 	}

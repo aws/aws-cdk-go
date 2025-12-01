@@ -164,6 +164,14 @@ func validateCfnApiKey_ArnForApiKeyParameters(resource interfacesawsappsync.IApi
 	return nil
 }
 
+func validateCfnApiKey_IsCfnApiKeyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApiKey_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

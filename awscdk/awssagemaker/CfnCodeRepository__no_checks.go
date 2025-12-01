@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnCodeRepository) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnCodeRepository_ArnForCodeRepositoryParameters(resource interfacesawssagemaker.ICodeRepositoryRef) error {
+	return nil
+}
+
+func validateCfnCodeRepository_IsCfnCodeRepositoryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCodeRepository_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

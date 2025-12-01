@@ -80,6 +80,10 @@ func validateCfnLocalGatewayVirtualInterface_IsCfnElementParameters(x interface{
 	return nil
 }
 
+func validateCfnLocalGatewayVirtualInterface_IsCfnLocalGatewayVirtualInterfaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocalGatewayVirtualInterface_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

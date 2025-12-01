@@ -72,6 +72,10 @@ func validateCfnChannel_ArnForChannelParameters(resource interfacesawsmediapacka
 	return nil
 }
 
+func validateCfnChannel_IsCfnChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

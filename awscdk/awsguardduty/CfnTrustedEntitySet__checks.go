@@ -171,6 +171,14 @@ func validateCfnTrustedEntitySet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTrustedEntitySet_IsCfnTrustedEntitySetParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTrustedEntitySet_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

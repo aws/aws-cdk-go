@@ -39,7 +39,7 @@ type CfnFleet_AcceleratorSelectionProperty struct {
 	// - `grid:r570` - [NVIDIA vGPU software 18](https://docs.aws.amazon.com/https://docs.nvidia.com/vgpu/18.0/index.html)
 	// - `grid:r535` - [NVIDIA vGPU software 16](https://docs.aws.amazon.com/https://docs.nvidia.com/vgpu/16.0/index.html)
 	//
-	// If you don't specify a runtime, Deadline Cloud uses `latest` as the default. However, if you have multiple accelerators and specify `latest` for some and leave others blank, Deadline Cloud raises an exception.
+	// If you don't specify a runtime, AWS Deadline Cloud uses `latest` as the default. However, if you have multiple accelerators and specify `latest` for some and leave others blank, AWS Deadline Cloud raises an exception.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html#cfn-deadline-fleet-acceleratorselection-runtime
 	//
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`

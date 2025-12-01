@@ -80,6 +80,10 @@ func validateCfnCell_FromCellNameParameters(scope constructs.Construct, id *stri
 	return nil
 }
 
+func validateCfnCell_IsCfnCellParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCell_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

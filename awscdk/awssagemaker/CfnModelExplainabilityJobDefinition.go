@@ -777,6 +777,25 @@ func CfnModelExplainabilityJobDefinition_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnModelExplainabilityJobDefinition.
+func CfnModelExplainabilityJobDefinition_IsCfnModelExplainabilityJobDefinition(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnModelExplainabilityJobDefinition_IsCfnModelExplainabilityJobDefinitionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition",
+		"isCfnModelExplainabilityJobDefinition",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnModelExplainabilityJobDefinition_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

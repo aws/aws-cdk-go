@@ -72,6 +72,10 @@ func validateCfnLocationS3_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocationS3_IsCfnLocationS3Parameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocationS3_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -444,6 +444,25 @@ func CfnTagOptionAssociation_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTagOptionAssociation.
+func CfnTagOptionAssociation_IsCfnTagOptionAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTagOptionAssociation_IsCfnTagOptionAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.CfnTagOptionAssociation",
+		"isCfnTagOptionAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

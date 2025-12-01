@@ -114,7 +114,7 @@ type CfnRuleProps struct {
 	//
 	// For a list of services you can configure as targets for events, see [EventBridge targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) in the **Amazon EventBridge User Guide** .
 	//
-	// Creating rules with built-in targets is supported only in the the console . The built-in targets are:
+	// Creating rules with built-in targets is supported only in the AWS Management Console . The built-in targets are:
 	//
 	// - `Amazon EBS CreateSnapshot API call`
 	// - `Amazon EC2 RebootInstances API call`

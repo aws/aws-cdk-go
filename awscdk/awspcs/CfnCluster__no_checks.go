@@ -72,6 +72,10 @@ func validateCfnCluster_ArnForClusterParameters(resource interfacesawspcs.IClust
 	return nil
 }
 
+func validateCfnCluster_IsCfnClusterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

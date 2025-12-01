@@ -72,6 +72,10 @@ func validateCfnAutoScalingConfiguration_ArnForAutoScalingConfigurationParameter
 	return nil
 }
 
+func validateCfnAutoScalingConfiguration_IsCfnAutoScalingConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAutoScalingConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

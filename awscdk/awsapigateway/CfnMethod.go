@@ -750,6 +750,25 @@ func CfnMethod_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMethod.
+func CfnMethod_IsCfnMethod(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMethod_IsCfnMethodParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnMethod",
+		"isCfnMethod",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMethod_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

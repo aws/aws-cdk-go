@@ -513,6 +513,25 @@ func CfnTransitGatewayMulticastDomainAssociation_IsCfnResource(x interface{}) *b
 	return returns
 }
 
+// Checks whether the given object is a CfnTransitGatewayMulticastDomainAssociation.
+func CfnTransitGatewayMulticastDomainAssociation_IsCfnTransitGatewayMulticastDomainAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayMulticastDomainAssociation_IsCfnTransitGatewayMulticastDomainAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomainAssociation",
+		"isCfnTransitGatewayMulticastDomainAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

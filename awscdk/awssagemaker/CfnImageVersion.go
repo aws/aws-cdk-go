@@ -716,6 +716,25 @@ func CfnImageVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnImageVersion.
+func CfnImageVersion_IsCfnImageVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnImageVersion_IsCfnImageVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnImageVersion",
+		"isCfnImageVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnImageVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

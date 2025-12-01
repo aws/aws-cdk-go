@@ -655,6 +655,25 @@ func CfnTargetGroup_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTargetGroup.
+func CfnTargetGroup_IsCfnTargetGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTargetGroup_IsCfnTargetGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_vpclattice.CfnTargetGroup",
+		"isCfnTargetGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

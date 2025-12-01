@@ -72,6 +72,10 @@ func validateCfnBridge_ArnForBridgeParameters(resource interfacesawsmediaconnect
 	return nil
 }
 
+func validateCfnBridge_IsCfnBridgeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBridge_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

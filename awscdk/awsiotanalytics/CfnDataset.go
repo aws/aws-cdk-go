@@ -718,6 +718,25 @@ func CfnDataset_FromDatasetName(scope constructs.Construct, id *string, datasetN
 	return returns
 }
 
+// Checks whether the given object is a CfnDataset.
+func CfnDataset_IsCfnDataset(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDataset_IsCfnDatasetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotanalytics.CfnDataset",
+		"isCfnDataset",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

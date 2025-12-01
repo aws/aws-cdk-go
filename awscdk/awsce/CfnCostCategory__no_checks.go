@@ -72,6 +72,10 @@ func validateCfnCostCategory_ArnForCostCategoryParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnCostCategory_IsCfnCostCategoryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCostCategory_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

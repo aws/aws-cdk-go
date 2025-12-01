@@ -796,6 +796,25 @@ func CfnModelQualityJobDefinition_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnModelQualityJobDefinition.
+func CfnModelQualityJobDefinition_IsCfnModelQualityJobDefinition(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnModelQualityJobDefinition_IsCfnModelQualityJobDefinitionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition",
+		"isCfnModelQualityJobDefinition",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnModelQualityJobDefinition_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

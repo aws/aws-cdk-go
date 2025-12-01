@@ -1126,6 +1126,25 @@ func CfnCluster_ArnForCluster(resource interfacesawsmemorydb.IClusterRef) *strin
 	return returns
 }
 
+// Creates a new IClusterRef from an ARN.
+func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) interfacesawsmemorydb.IClusterRef {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_FromClusterArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmemorydb.IClusterRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnCluster",
+		"fromClusterArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IClusterRef from a clusterName.
 func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterName *string) interfacesawsmemorydb.IClusterRef {
 	_init_.Initialize()
@@ -1139,6 +1158,25 @@ func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterN
 		"aws-cdk-lib.aws_memorydb.CfnCluster",
 		"fromClusterName",
 		[]interface{}{scope, id, clusterName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnCluster.
+func CfnCluster_IsCfnCluster(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_IsCfnClusterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnCluster",
+		"isCfnCluster",
+		[]interface{}{x},
 		&returns,
 	)
 

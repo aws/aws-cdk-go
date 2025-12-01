@@ -570,6 +570,25 @@ func CfnCoreDefinition_FromCoreDefinitionId(scope constructs.Construct, id *stri
 	return returns
 }
 
+// Checks whether the given object is a CfnCoreDefinition.
+func CfnCoreDefinition_IsCfnCoreDefinition(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCoreDefinition_IsCfnCoreDefinitionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
+		"isCfnCoreDefinition",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

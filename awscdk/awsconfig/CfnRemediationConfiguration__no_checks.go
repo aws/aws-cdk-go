@@ -80,6 +80,10 @@ func validateCfnRemediationConfiguration_IsCfnElementParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnRemediationConfiguration_IsCfnRemediationConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRemediationConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

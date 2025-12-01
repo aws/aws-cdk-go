@@ -72,6 +72,10 @@ func validateCfnDatasetGroup_ArnForDatasetGroupParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnDatasetGroup_IsCfnDatasetGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDatasetGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

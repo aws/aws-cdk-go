@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnBatchScramSecret) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnBatchScramSecret_IsCfnBatchScramSecretParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBatchScramSecret_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

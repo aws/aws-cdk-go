@@ -72,6 +72,10 @@ func validateCfnLocationHDFS_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocationHDFS_IsCfnLocationHDFSParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocationHDFS_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

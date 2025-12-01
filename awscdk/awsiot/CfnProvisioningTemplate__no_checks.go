@@ -80,6 +80,10 @@ func validateCfnProvisioningTemplate_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnProvisioningTemplate_IsCfnProvisioningTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnProvisioningTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

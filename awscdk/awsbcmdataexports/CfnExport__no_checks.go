@@ -76,6 +76,10 @@ func validateCfnExport_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnExport_IsCfnExportParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnExport_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -523,6 +523,25 @@ func CfnConfigurationAggregator_ArnForConfigurationAggregator(resource interface
 	return returns
 }
 
+// Checks whether the given object is a CfnConfigurationAggregator.
+func CfnConfigurationAggregator_IsCfnConfigurationAggregator(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConfigurationAggregator_IsCfnConfigurationAggregatorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnConfigurationAggregator",
+		"isCfnConfigurationAggregator",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

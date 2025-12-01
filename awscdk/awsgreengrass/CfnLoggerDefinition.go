@@ -595,6 +595,25 @@ func CfnLoggerDefinition_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLoggerDefinition.
+func CfnLoggerDefinition_IsCfnLoggerDefinition(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLoggerDefinition_IsCfnLoggerDefinitionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"isCfnLoggerDefinition",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLoggerDefinition_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -80,6 +80,10 @@ func validateCfnWebExperience_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWebExperience_IsCfnWebExperienceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWebExperience_IsConstructParameters(x interface{}) error {
 	return nil
 }

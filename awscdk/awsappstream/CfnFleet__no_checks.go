@@ -72,6 +72,10 @@ func validateCfnFleet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFleet_IsCfnFleetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFleet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

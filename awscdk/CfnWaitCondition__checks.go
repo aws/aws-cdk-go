@@ -170,6 +170,14 @@ func validateCfnWaitCondition_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWaitCondition_IsCfnWaitConditionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnWaitCondition_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -72,6 +72,10 @@ func validateCfnChannelGroup_ArnForChannelGroupParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnChannelGroup_IsCfnChannelGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnChannelGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

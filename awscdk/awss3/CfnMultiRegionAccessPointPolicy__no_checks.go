@@ -72,6 +72,10 @@ func validateCfnMultiRegionAccessPointPolicy_IsCfnElementParameters(x interface{
 	return nil
 }
 
+func validateCfnMultiRegionAccessPointPolicy_IsCfnMultiRegionAccessPointPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMultiRegionAccessPointPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

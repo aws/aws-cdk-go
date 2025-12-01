@@ -652,6 +652,25 @@ func CfnMap_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMap.
+func CfnMap_IsCfnMap(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMap_IsCfnMapParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnMap",
+		"isCfnMap",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMap_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

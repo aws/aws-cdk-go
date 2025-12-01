@@ -72,6 +72,10 @@ func validateCfnCustomLineItem_ArnForCustomLineItemParameters(resource interface
 	return nil
 }
 
+func validateCfnCustomLineItem_IsCfnCustomLineItemParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomLineItem_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

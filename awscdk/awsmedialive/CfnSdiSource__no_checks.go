@@ -88,6 +88,10 @@ func validateCfnSdiSource_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSdiSource_IsCfnSdiSourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSdiSource_IsConstructParameters(x interface{}) error {
 	return nil
 }

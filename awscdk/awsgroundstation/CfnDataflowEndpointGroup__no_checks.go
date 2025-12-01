@@ -80,6 +80,10 @@ func validateCfnDataflowEndpointGroup_FromDataflowEndpointGroupIdParameters(scop
 	return nil
 }
 
+func validateCfnDataflowEndpointGroup_IsCfnDataflowEndpointGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataflowEndpointGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

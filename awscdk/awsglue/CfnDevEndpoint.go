@@ -726,6 +726,25 @@ func (j *jsiiProxy_CfnDevEndpoint)SetWorkerType(val *string) {
 	)
 }
 
+// Checks whether the given object is a CfnDevEndpoint.
+func CfnDevEndpoint_IsCfnDevEndpoint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDevEndpoint_IsCfnDevEndpointParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnDevEndpoint",
+		"isCfnDevEndpoint",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

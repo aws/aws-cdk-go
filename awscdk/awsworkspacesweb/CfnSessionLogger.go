@@ -638,6 +638,25 @@ func CfnSessionLogger_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSessionLogger.
+func CfnSessionLogger_IsCfnSessionLogger(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSessionLogger_IsCfnSessionLoggerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnSessionLogger",
+		"isCfnSessionLogger",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

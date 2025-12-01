@@ -72,6 +72,10 @@ func validateCfnLifecycleAutomation_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnLifecycleAutomation_IsCfnLifecycleAutomationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLifecycleAutomation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

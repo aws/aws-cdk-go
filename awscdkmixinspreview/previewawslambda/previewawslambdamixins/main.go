@@ -40,6 +40,46 @@ func init() {
 		reflect.TypeOf((*CfnAliasPropsMixin_VersionWeightProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnCapacityProviderMixinProps",
+		reflect.TypeOf((*CfnCapacityProviderMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnCapacityProviderPropsMixin",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnCapacityProviderPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnCapacityProviderPropsMixin.CapacityProviderPermissionsConfigProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_CapacityProviderPermissionsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnCapacityProviderPropsMixin.CapacityProviderScalingConfigProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_CapacityProviderScalingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnCapacityProviderPropsMixin.CapacityProviderVpcConfigProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_CapacityProviderVpcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnCapacityProviderPropsMixin.InstanceRequirementsProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_InstanceRequirementsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnCapacityProviderPropsMixin.TargetTrackingScalingPolicyProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_TargetTrackingScalingPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnCodeSigningConfigMixinProps",
 		reflect.TypeOf((*CfnCodeSigningConfigMixinProps)(nil)).Elem(),
 	)
@@ -208,6 +248,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnFunctionPropsMixin.CapacityProviderConfigProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_CapacityProviderConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnFunctionPropsMixin.CodeProperty",
 		reflect.TypeOf((*CfnFunctionPropsMixin_CodeProperty)(nil)).Elem(),
 	)
@@ -228,8 +272,16 @@ func init() {
 		reflect.TypeOf((*CfnFunctionPropsMixin_FileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnFunctionPropsMixin.FunctionScalingConfigProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_FunctionScalingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnFunctionPropsMixin.ImageConfigProperty",
 		reflect.TypeOf((*CfnFunctionPropsMixin_ImageConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnFunctionPropsMixin.LambdaManagedInstancesCapacityProviderConfigProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_LambdaManagedInstancesCapacityProviderConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnFunctionPropsMixin.LoggingConfigProperty",
@@ -366,6 +418,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnVersionPropsMixin.FunctionScalingConfigProperty",
+		reflect.TypeOf((*CfnVersionPropsMixin_FunctionScalingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnVersionPropsMixin.ProvisionedConcurrencyConfigurationProperty",

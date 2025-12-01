@@ -80,6 +80,10 @@ func validateCfnUserHierarchyGroup_IsCfnResourceParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnUserHierarchyGroup_IsCfnUserHierarchyGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUserHierarchyGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }

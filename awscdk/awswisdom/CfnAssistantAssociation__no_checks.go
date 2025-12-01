@@ -72,6 +72,10 @@ func validateCfnAssistantAssociation_ArnForAssistantAssociationParameters(resour
 	return nil
 }
 
+func validateCfnAssistantAssociation_IsCfnAssistantAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAssistantAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

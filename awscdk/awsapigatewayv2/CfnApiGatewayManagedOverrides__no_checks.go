@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnApiGatewayManagedOverrides_IsCfnApiGatewayManagedOverridesParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApiGatewayManagedOverrides_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

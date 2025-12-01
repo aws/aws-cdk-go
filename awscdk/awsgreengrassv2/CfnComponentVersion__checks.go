@@ -164,6 +164,14 @@ func validateCfnComponentVersion_ArnForComponentVersionParameters(resource inter
 	return nil
 }
 
+func validateCfnComponentVersion_IsCfnComponentVersionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnComponentVersion_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

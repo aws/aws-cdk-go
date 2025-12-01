@@ -76,6 +76,10 @@ func validateCfnStorageProfile_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStorageProfile_IsCfnStorageProfileParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStorageProfile_IsConstructParameters(x interface{}) error {
 	return nil
 }

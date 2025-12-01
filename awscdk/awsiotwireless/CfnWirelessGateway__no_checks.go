@@ -88,6 +88,10 @@ func validateCfnWirelessGateway_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWirelessGateway_IsCfnWirelessGatewayParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWirelessGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }

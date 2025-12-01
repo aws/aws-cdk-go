@@ -72,6 +72,10 @@ func validateCfnKeyGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnKeyGroup_IsCfnKeyGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnKeyGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

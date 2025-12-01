@@ -531,6 +531,25 @@ func CfnExport_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnExport.
+func CfnExport_IsCfnExport(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnExport_IsCfnExportParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bcmdataexports.CfnExport",
+		"isCfnExport",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnExport_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

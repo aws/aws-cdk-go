@@ -543,6 +543,25 @@ func CfnTrafficMirrorFilter_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTrafficMirrorFilter.
+func CfnTrafficMirrorFilter_IsCfnTrafficMirrorFilter(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTrafficMirrorFilter_IsCfnTrafficMirrorFilterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilter",
+		"isCfnTrafficMirrorFilter",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

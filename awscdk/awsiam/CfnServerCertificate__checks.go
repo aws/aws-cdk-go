@@ -180,6 +180,14 @@ func validateCfnServerCertificate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnServerCertificate_IsCfnServerCertificateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnServerCertificate_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

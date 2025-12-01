@@ -72,6 +72,10 @@ func validateCfnCodeSecurityScanConfiguration_ArnForCodeSecurityScanConfiguratio
 	return nil
 }
 
+func validateCfnCodeSecurityScanConfiguration_IsCfnCodeSecurityScanConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCodeSecurityScanConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

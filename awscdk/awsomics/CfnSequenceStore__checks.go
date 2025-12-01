@@ -212,6 +212,14 @@ func validateCfnSequenceStore_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSequenceStore_IsCfnSequenceStoreParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSequenceStore_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

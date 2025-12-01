@@ -88,6 +88,10 @@ func validateCfnStudioLifecycleConfig_IsCfnResourceParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnStudioLifecycleConfig_IsCfnStudioLifecycleConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStudioLifecycleConfig_IsConstructParameters(x interface{}) error {
 	return nil
 }

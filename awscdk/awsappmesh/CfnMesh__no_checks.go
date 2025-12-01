@@ -76,6 +76,10 @@ func validateCfnMesh_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMesh_IsCfnMeshParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMesh_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

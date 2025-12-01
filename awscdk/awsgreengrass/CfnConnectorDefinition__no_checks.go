@@ -80,6 +80,10 @@ func validateCfnConnectorDefinition_FromConnectorDefinitionIdParameters(scope co
 	return nil
 }
 
+func validateCfnConnectorDefinition_IsCfnConnectorDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConnectorDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

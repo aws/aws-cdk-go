@@ -520,6 +520,25 @@ func CfnStorageProfile_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStorageProfile.
+func CfnStorageProfile_IsCfnStorageProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStorageProfile_IsCfnStorageProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_deadline.CfnStorageProfile",
+		"isCfnStorageProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

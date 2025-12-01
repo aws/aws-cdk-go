@@ -80,6 +80,10 @@ func validateCfnConfiguration_FromConfigurationIdParameters(scope constructs.Con
 	return nil
 }
 
+func validateCfnConfiguration_IsCfnConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

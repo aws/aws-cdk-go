@@ -72,6 +72,10 @@ func validateCfnPatchBaseline_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPatchBaseline_IsCfnPatchBaselineParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPatchBaseline_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

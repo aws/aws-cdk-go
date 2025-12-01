@@ -76,6 +76,10 @@ func validateCfnSchemaVersionMetadata_IsCfnResourceParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnSchemaVersionMetadata_IsCfnSchemaVersionMetadataParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSchemaVersionMetadata_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -171,6 +171,14 @@ func validateCfnRotationSchedule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRotationSchedule_IsCfnRotationScheduleParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRotationSchedule_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

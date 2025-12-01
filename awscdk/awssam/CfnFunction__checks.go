@@ -163,6 +163,14 @@ func validateCfnFunction_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFunction_IsCfnFunctionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnFunction_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

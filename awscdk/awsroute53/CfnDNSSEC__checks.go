@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDNSSEC) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDNSSEC_IsCfnDNSSECParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDNSSEC_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

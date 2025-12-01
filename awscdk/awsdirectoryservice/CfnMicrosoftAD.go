@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::DirectoryService::MicrosoftAD` resource specifies a Microsoft Active Directory in AWS so that your directory users and groups can access the the console and AWS applications using their existing credentials.
+// The `AWS::DirectoryService::MicrosoftAD` resource specifies a Microsoft Active Directory in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials.
 //
 // For more information, see [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) in the *Directory Service Admin Guide* .
 //
@@ -592,6 +592,25 @@ func CfnMicrosoftAD_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMicrosoftAD.
+func CfnMicrosoftAD_IsCfnMicrosoftAD(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMicrosoftAD_IsCfnMicrosoftADParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
+		"isCfnMicrosoftAD",
 		[]interface{}{x},
 		&returns,
 	)

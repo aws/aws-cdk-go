@@ -80,6 +80,10 @@ func validateCfnRoom_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRoom_IsCfnRoomParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRoom_IsConstructParameters(x interface{}) error {
 	return nil
 }

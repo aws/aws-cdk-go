@@ -463,6 +463,25 @@ func CfnHubV2_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnHubV2.
+func CfnHubV2_IsCfnHubV2(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnHubV2_IsCfnHubV2Parameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnHubV2",
+		"isCfnHubV2",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnHubV2_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

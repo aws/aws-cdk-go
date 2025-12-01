@@ -741,6 +741,25 @@ func CfnMLTransform_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMLTransform.
+func CfnMLTransform_IsCfnMLTransform(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMLTransform_IsCfnMLTransformParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnMLTransform",
+		"isCfnMLTransform",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMLTransform_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

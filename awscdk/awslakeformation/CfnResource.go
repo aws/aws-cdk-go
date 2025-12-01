@@ -519,7 +519,7 @@ func CfnResource_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given object is a CfnResource.
+// Checks whether the given object is a CfnResource.
 func CfnResource_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 

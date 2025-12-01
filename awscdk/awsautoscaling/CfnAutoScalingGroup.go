@@ -1414,6 +1414,43 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetVpcZoneIdentifier(val *[]*string) {
 	)
 }
 
+func CfnAutoScalingGroup_ArnForAutoScalingGroup(resource interfacesawsautoscaling.IAutoScalingGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAutoScalingGroup_ArnForAutoScalingGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
+		"arnForAutoScalingGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnAutoScalingGroup.
+func CfnAutoScalingGroup_IsCfnAutoScalingGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAutoScalingGroup_IsCfnAutoScalingGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
+		"isCfnAutoScalingGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

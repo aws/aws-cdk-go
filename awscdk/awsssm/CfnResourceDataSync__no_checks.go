@@ -84,6 +84,10 @@ func validateCfnResourceDataSync_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnResourceDataSync_IsCfnResourceDataSyncParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResourceDataSync_IsConstructParameters(x interface{}) error {
 	return nil
 }

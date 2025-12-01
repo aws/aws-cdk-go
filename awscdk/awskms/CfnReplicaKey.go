@@ -610,6 +610,25 @@ func CfnReplicaKey_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnReplicaKey.
+func CfnReplicaKey_IsCfnReplicaKey(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnReplicaKey_IsCfnReplicaKeyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"isCfnReplicaKey",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnReplicaKey_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -72,6 +72,10 @@ func validateCfnIdentityPoolRoleAttachment_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnIdentityPoolRoleAttachment_IsCfnIdentityPoolRoleAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIdentityPoolRoleAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

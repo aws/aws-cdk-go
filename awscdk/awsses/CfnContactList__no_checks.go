@@ -76,6 +76,10 @@ func validateCfnContactList_FromContactListNameParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnContactList_IsCfnContactListParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContactList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

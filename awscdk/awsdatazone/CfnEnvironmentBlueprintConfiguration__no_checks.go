@@ -72,6 +72,10 @@ func validateCfnEnvironmentBlueprintConfiguration_IsCfnElementParameters(x inter
 	return nil
 }
 
+func validateCfnEnvironmentBlueprintConfiguration_IsCfnEnvironmentBlueprintConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEnvironmentBlueprintConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

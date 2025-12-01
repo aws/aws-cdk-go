@@ -436,6 +436,25 @@ func CfnNotificationChannel_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNotificationChannel.
+func CfnNotificationChannel_IsCfnNotificationChannel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNotificationChannel_IsCfnNotificationChannelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devopsguru.CfnNotificationChannel",
+		"isCfnNotificationChannel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNotificationChannel_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -639,6 +639,25 @@ func CfnPolicyGrant_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPolicyGrant.
+func CfnPolicyGrant_IsCfnPolicyGrant(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPolicyGrant_IsCfnPolicyGrantParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant",
+		"isCfnPolicyGrant",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPolicyGrant_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

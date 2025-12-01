@@ -76,6 +76,10 @@ func validateCfnDistribution_FromDistributionIdParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnDistribution_IsCfnDistributionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDistribution_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

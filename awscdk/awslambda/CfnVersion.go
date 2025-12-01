@@ -24,6 +24,10 @@ import (
 //   	// the properties below are optional
 //   	CodeSha256: jsii.String("codeSha256"),
 //   	Description: jsii.String("description"),
+//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
+//   	},
 //   	ProvisionedConcurrencyConfig: &ProvisionedConcurrencyConfigurationProperty{
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),
 //   	},
@@ -64,6 +68,9 @@ type CfnVersion interface {
 	// The name or ARN of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+	FunctionScalingConfig() interface{}
+	SetFunctionScalingConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -340,6 +347,16 @@ func (j *jsiiProxy_CfnVersion) FunctionName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVersion) FunctionScalingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"functionScalingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVersion) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -487,6 +504,17 @@ func (j *jsiiProxy_CfnVersion)SetFunctionName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnVersion)SetFunctionScalingConfig(val interface{}) {
+	if err := j.validateSetFunctionScalingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"functionScalingConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnVersion)SetProvisionedConcurrencyConfig(val interface{}) {
 	if err := j.validateSetProvisionedConcurrencyConfigParameters(val); err != nil {
 		panic(err)
@@ -545,6 +573,25 @@ func CfnVersion_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.CfnVersion",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnVersion.
+func CfnVersion_IsCfnVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVersion_IsCfnVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnVersion",
+		"isCfnVersion",
 		[]interface{}{x},
 		&returns,
 	)

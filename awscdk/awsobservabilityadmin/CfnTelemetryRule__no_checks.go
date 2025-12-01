@@ -76,6 +76,10 @@ func validateCfnTelemetryRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTelemetryRule_IsCfnTelemetryRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTelemetryRule_IsConstructParameters(x interface{}) error {
 	return nil
 }

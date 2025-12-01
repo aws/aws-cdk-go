@@ -164,6 +164,14 @@ func validateCfnConnectionGroup_ArnForConnectionGroupParameters(resource interfa
 	return nil
 }
 
+func validateCfnConnectionGroup_IsCfnConnectionGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConnectionGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -72,6 +72,10 @@ func validateCfnConfiguration_ArnForConfigurationParameters(resource interfacesa
 	return nil
 }
 
+func validateCfnConfiguration_IsCfnConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

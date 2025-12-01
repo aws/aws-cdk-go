@@ -80,6 +80,10 @@ func validateCfnSAMLProvider_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSAMLProvider_IsCfnSAMLProviderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSAMLProvider_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -482,6 +482,25 @@ func CfnHookDefaultVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnHookDefaultVersion.
+func CfnHookDefaultVersion_IsCfnHookDefaultVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnHookDefaultVersion_IsCfnHookDefaultVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookDefaultVersion",
+		"isCfnHookDefaultVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnHookDefaultVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

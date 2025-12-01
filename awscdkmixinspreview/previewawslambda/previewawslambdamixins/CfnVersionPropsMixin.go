@@ -22,6 +22,10 @@ import (
 //   	CodeSha256: jsii.String("codeSha256"),
 //   	Description: jsii.String("description"),
 //   	FunctionName: jsii.String("functionName"),
+//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
+//   	},
 //   	ProvisionedConcurrencyConfig: &ProvisionedConcurrencyConfigurationProperty{
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),
 //   	},

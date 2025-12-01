@@ -164,6 +164,14 @@ func validateCfnContactFlowModule_ArnForContactFlowModuleParameters(resource int
 	return nil
 }
 
+func validateCfnContactFlowModule_IsCfnContactFlowModuleParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnContactFlowModule_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

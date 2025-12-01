@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnSizeConstraintSet) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnSizeConstraintSet_ArnForSizeConstraintSetParameters(resource interfacesawswaf.ISizeConstraintSetRef) error {
+	return nil
+}
+
 func validateCfnSizeConstraintSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnSizeConstraintSet_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnSizeConstraintSet_IsCfnSizeConstraintSetParameters(x interface{}) error {
 	return nil
 }
 

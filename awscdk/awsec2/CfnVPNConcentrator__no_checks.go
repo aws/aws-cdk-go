@@ -76,6 +76,10 @@ func validateCfnVPNConcentrator_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVPNConcentrator_IsCfnVPNConcentratorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPNConcentrator_IsConstructParameters(x interface{}) error {
 	return nil
 }

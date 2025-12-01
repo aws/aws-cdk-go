@@ -545,6 +545,25 @@ func CfnPublishingDestination_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPublishingDestination.
+func CfnPublishingDestination_IsCfnPublishingDestination(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPublishingDestination_IsCfnPublishingDestinationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_guardduty.CfnPublishingDestination",
+		"isCfnPublishingDestination",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPublishingDestination_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

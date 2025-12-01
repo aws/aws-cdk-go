@@ -671,6 +671,25 @@ func CfnResolverRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnResolverRule.
+func CfnResolverRule_IsCfnResolverRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResolverRule_IsCfnResolverRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
+		"isCfnResolverRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnResolverRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

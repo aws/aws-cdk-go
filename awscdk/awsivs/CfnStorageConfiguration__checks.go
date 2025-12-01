@@ -180,6 +180,14 @@ func validateCfnStorageConfiguration_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnStorageConfiguration_IsCfnStorageConfigurationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnStorageConfiguration_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -15,6 +15,13 @@ import (
 //   	Architectures: []*string{
 //   		jsii.String("architectures"),
 //   	},
+//   	CapacityProviderConfig: &CapacityProviderConfigProperty{
+//   		LambdaManagedInstancesCapacityProviderConfig: &LambdaManagedInstancesCapacityProviderConfigProperty{
+//   			CapacityProviderArn: jsii.String("capacityProviderArn"),
+//   			ExecutionEnvironmentMemoryGiBPerVCpu: jsii.Number(123),
+//   			PerExecutionEnvironmentMaxConcurrency: jsii.Number(123),
+//   		},
+//   	},
 //   	Code: &CodeProperty{
 //   		ImageUri: jsii.String("imageUri"),
 //   		S3Bucket: jsii.String("s3Bucket"),
@@ -43,6 +50,10 @@ import (
 //   		},
 //   	},
 //   	FunctionName: jsii.String("functionName"),
+//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
+//   	},
 //   	Handler: jsii.String("handler"),
 //   	ImageConfig: &ImageConfigProperty{
 //   		Command: []*string{
@@ -65,6 +76,7 @@ import (
 //   	},
 //   	MemorySize: jsii.Number(123),
 //   	PackageType: jsii.String("packageType"),
+//   	PublishToLatestPublished: jsii.Boolean(false),
 //   	RecursiveLoop: jsii.String("recursiveLoop"),
 //   	ReservedConcurrentExecutions: jsii.Number(123),
 //   	Role: jsii.String("role"),
@@ -109,6 +121,9 @@ type CfnFunctionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-architectures
 	//
 	Architectures *[]*string `field:"optional" json:"architectures" yaml:"architectures"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-capacityproviderconfig
+	//
+	CapacityProviderConfig interface{} `field:"optional" json:"capacityProviderConfig" yaml:"capacityProviderConfig"`
 	// The code for the function. You can define your function code in multiple ways:.
 	//
 	// - For .zip deployment packages, you can specify the Amazon S3 location of the .zip file in the `S3Bucket` , `S3Key` , and `S3ObjectVersion` properties.
@@ -160,6 +175,9 @@ type CfnFunctionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
 	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionscalingconfig
+	//
+	FunctionScalingConfig interface{} `field:"optional" json:"functionScalingConfig" yaml:"functionScalingConfig"`
 	// The name of the method within your code that Lambda calls to run your function.
 	//
 	// Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html) .
@@ -201,6 +219,9 @@ type CfnFunctionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
 	//
 	PackageType *string `field:"optional" json:"packageType" yaml:"packageType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-publishtolatestpublished
+	//
+	PublishToLatestPublished interface{} `field:"optional" json:"publishToLatestPublished" yaml:"publishToLatestPublished"`
 	// The status of your function's recursive loop detection configuration.
 	//
 	// When this value is set to `Allow` and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.

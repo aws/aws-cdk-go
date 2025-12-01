@@ -495,6 +495,25 @@ func CfnTablePolicy_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTablePolicy.
+func CfnTablePolicy_IsCfnTablePolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTablePolicy_IsCfnTablePolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3tables.CfnTablePolicy",
+		"isCfnTablePolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

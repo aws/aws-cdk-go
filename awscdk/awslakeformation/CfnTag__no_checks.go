@@ -76,6 +76,10 @@ func validateCfnTag_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTag_IsCfnTagParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTag_IsConstructParameters(x interface{}) error {
 	return nil
 }

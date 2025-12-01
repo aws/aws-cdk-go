@@ -76,6 +76,10 @@ func validateCfnQuickResponse_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnQuickResponse_IsCfnQuickResponseParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnQuickResponse_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

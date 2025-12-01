@@ -72,11 +72,19 @@ func validateCfnMailManagerRelay_ArnForMailManagerRelayParameters(resource inter
 	return nil
 }
 
+func validateCfnMailManagerRelay_FromMailManagerRelayArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnMailManagerRelay_FromRelayIdParameters(scope constructs.Construct, id *string, relayId *string) error {
 	return nil
 }
 
 func validateCfnMailManagerRelay_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnMailManagerRelay_IsCfnMailManagerRelayParameters(x interface{}) error {
 	return nil
 }
 

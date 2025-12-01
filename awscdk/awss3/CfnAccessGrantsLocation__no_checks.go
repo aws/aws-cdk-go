@@ -72,6 +72,10 @@ func validateCfnAccessGrantsLocation_ArnForAccessGrantsLocationParameters(resour
 	return nil
 }
 
+func validateCfnAccessGrantsLocation_IsCfnAccessGrantsLocationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessGrantsLocation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

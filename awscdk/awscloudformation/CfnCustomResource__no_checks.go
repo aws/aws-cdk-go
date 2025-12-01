@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomResource) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnCustomResource_IsCfnCustomResourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomResource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

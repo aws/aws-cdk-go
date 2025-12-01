@@ -846,6 +846,25 @@ func CfnForm_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnForm.
+func CfnForm_IsCfnForm(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnForm_IsCfnFormParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnForm",
+		"isCfnForm",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnForm_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

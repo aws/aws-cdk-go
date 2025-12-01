@@ -180,6 +180,14 @@ func validateCfnServerlessCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnServerlessCluster_IsCfnServerlessClusterParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnServerlessCluster_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

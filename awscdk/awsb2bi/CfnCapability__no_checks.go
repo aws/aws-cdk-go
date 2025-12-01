@@ -72,6 +72,10 @@ func validateCfnCapability_ArnForCapabilityParameters(resource interfacesawsb2bi
 	return nil
 }
 
+func validateCfnCapability_IsCfnCapabilityParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCapability_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAssignment) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnAssignment_IsCfnAssignmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAssignment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

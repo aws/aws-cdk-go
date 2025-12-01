@@ -72,6 +72,10 @@ func validateCfnCidrCollection_ArnForCidrCollectionParameters(resource interface
 	return nil
 }
 
+func validateCfnCidrCollection_IsCfnCidrCollectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCidrCollection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnManagedLoginBranding_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnManagedLoginBranding_IsCfnManagedLoginBrandingParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnManagedLoginBranding_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

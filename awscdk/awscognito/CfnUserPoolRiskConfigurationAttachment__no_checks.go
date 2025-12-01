@@ -76,6 +76,10 @@ func validateCfnUserPoolRiskConfigurationAttachment_IsCfnResourceParameters(x in
 	return nil
 }
 
+func validateCfnUserPoolRiskConfigurationAttachment_IsCfnUserPoolRiskConfigurationAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUserPoolRiskConfigurationAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

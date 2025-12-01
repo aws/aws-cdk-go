@@ -5,8 +5,26 @@ package previewawselasticloadbalancingv2mixins
 import (
 	"fmt"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
+
+func (c *jsiiProxy_CfnLoadBalancerNlbAccessLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+	if deliveryStream == nil {
+		return fmt.Errorf("parameter deliveryStream is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnLoadBalancerNlbAccessLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+	if logGroup == nil {
+		return fmt.Errorf("parameter logGroup is required, but nil was provided")
+	}
+
+	return nil
+}
 
 func (c *jsiiProxy_CfnLoadBalancerNlbAccessLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
 	if bucket == nil {

@@ -11,6 +11,34 @@ package previewawsconnectmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   evaluationFormQuestionTypePropertiesProperty := &EvaluationFormQuestionTypePropertiesProperty{
+//   	MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
+//   		Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   				SourceType: jsii.String("sourceType"),
+//   			},
+//   			DefaultOptionRefIds: []*string{
+//   				jsii.String("defaultOptionRefIds"),
+//   			},
+//   			Options: []interface{}{
+//   				&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
+//   					RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
+//   						Category: jsii.String("category"),
+//   						Condition: jsii.String("condition"),
+//   						OptionRefIds: []*string{
+//   							jsii.String("optionRefIds"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		DisplayAs: jsii.String("displayAs"),
+//   		Options: []interface{}{
+//   			&EvaluationFormMultiSelectQuestionOptionProperty{
+//   				RefId: jsii.String("refId"),
+//   				Text: jsii.String("text"),
+//   			},
+//   		},
+//   	},
 //   	Numeric: &EvaluationFormNumericQuestionPropertiesProperty{
 //   		Automation: &EvaluationFormNumericQuestionAutomationProperty{
 //   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
@@ -75,6 +103,9 @@ package previewawsconnectmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html
 //
 type CfnEvaluationFormPropsMixin_EvaluationFormQuestionTypePropertiesProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-multiselect
+	//
+	MultiSelect interface{} `field:"optional" json:"multiSelect" yaml:"multiSelect"`
 	// The properties of the numeric question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-numeric
 	//

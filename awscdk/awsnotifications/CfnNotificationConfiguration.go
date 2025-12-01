@@ -553,6 +553,25 @@ func CfnNotificationConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNotificationConfiguration.
+func CfnNotificationConfiguration_IsCfnNotificationConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNotificationConfiguration_IsCfnNotificationConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notifications.CfnNotificationConfiguration",
+		"isCfnNotificationConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNotificationConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

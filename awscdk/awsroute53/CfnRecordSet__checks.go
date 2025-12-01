@@ -163,6 +163,14 @@ func validateCfnRecordSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRecordSet_IsCfnRecordSetParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRecordSet_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

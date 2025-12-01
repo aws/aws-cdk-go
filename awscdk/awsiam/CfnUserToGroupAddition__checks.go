@@ -171,6 +171,14 @@ func validateCfnUserToGroupAddition_IsCfnResourceParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnUserToGroupAddition_IsCfnUserToGroupAdditionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnUserToGroupAddition_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

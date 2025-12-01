@@ -180,6 +180,14 @@ func validateCfnTrustStore_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTrustStore_IsCfnTrustStoreParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTrustStore_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

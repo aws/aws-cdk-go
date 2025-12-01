@@ -570,6 +570,25 @@ func CfnPreset_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPreset.
+func CfnPreset_IsCfnPreset(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPreset_IsCfnPresetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"isCfnPreset",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPreset_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

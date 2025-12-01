@@ -554,6 +554,25 @@ func CfnNetworkSettings_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNetworkSettings.
+func CfnNetworkSettings_IsCfnNetworkSettings(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkSettings_IsCfnNetworkSettingsParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnNetworkSettings",
+		"isCfnNetworkSettings",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNetworkSettings_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -609,6 +609,25 @@ func CfnStreamingImage_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStreamingImage.
+func CfnStreamingImage_IsCfnStreamingImage(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStreamingImage_IsCfnStreamingImageParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_nimblestudio.CfnStreamingImage",
+		"isCfnStreamingImage",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

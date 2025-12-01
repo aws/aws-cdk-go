@@ -72,6 +72,10 @@ func validateCfnSubnetGroup_ArnForSubnetGroupParameters(resource interfacesawsme
 	return nil
 }
 
+func validateCfnSubnetGroup_FromSubnetGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnSubnetGroup_FromSubnetGroupNameParameters(scope constructs.Construct, id *string, subnetGroupName *string) error {
 	return nil
 }
@@ -81,6 +85,10 @@ func validateCfnSubnetGroup_IsCfnElementParameters(x interface{}) error {
 }
 
 func validateCfnSubnetGroup_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnSubnetGroup_IsCfnSubnetGroupParameters(x interface{}) error {
 	return nil
 }
 

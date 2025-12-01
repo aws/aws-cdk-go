@@ -513,6 +513,25 @@ func CfnApp_FromAppId(scope constructs.Construct, id *string, appId *string) int
 	return returns
 }
 
+// Checks whether the given object is a CfnApp.
+func CfnApp_IsCfnApp(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnApp_IsCfnAppParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnApp",
+		"isCfnApp",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

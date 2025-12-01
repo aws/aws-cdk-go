@@ -76,6 +76,10 @@ func validateCfnStateMachine_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStateMachine_IsCfnStateMachineParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStateMachine_IsConstructParameters(x interface{}) error {
 	return nil
 }

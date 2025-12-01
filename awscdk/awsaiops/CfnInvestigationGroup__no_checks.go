@@ -76,6 +76,10 @@ func validateCfnInvestigationGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInvestigationGroup_IsCfnInvestigationGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInvestigationGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -602,6 +602,25 @@ func CfnFargateProfile_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFargateProfile.
+func CfnFargateProfile_IsCfnFargateProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFargateProfile_IsCfnFargateProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.CfnFargateProfile",
+		"isCfnFargateProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFargateProfile_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

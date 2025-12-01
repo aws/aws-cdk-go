@@ -196,6 +196,14 @@ func validateCfnApplicationInstance_FromApplicationInstanceIdParameters(scope co
 	return nil
 }
 
+func validateCfnApplicationInstance_IsCfnApplicationInstanceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApplicationInstance_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

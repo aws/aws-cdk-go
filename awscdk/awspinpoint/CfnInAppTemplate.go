@@ -669,6 +669,25 @@ func CfnInAppTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInAppTemplate.
+func CfnInAppTemplate_IsCfnInAppTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInAppTemplate_IsCfnInAppTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnInAppTemplate",
+		"isCfnInAppTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInAppTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

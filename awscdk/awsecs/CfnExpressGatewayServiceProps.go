@@ -75,47 +75,59 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html
 //
 type CfnExpressGatewayServiceProps struct {
+	// The ARN of the task execution role for the service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-executionrolearn
 	//
 	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
+	// The ARN of the infrastructure role that manages AWS resources for the Express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-infrastructurerolearn
 	//
 	InfrastructureRoleArn *string `field:"required" json:"infrastructureRoleArn" yaml:"infrastructureRoleArn"`
+	// The primary container configuration for this service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-primarycontainer
 	//
 	PrimaryContainer interface{} `field:"required" json:"primaryContainer" yaml:"primaryContainer"`
+	// The short name or full ARN of the cluster that hosts the Express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-cluster
 	//
 	// Default: - "default".
 	//
 	Cluster *string `field:"optional" json:"cluster" yaml:"cluster"`
+	// The CPU allocation for tasks in this service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-cpu
 	//
 	// Default: - "256".
 	//
 	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
+	// The health check path for this service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-healthcheckpath
 	//
 	// Default: - "HTTP:80/ping".
 	//
 	HealthCheckPath *string `field:"optional" json:"healthCheckPath" yaml:"healthCheckPath"`
+	// The memory allocation for tasks in this service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-memory
 	//
 	// Default: - "512".
 	//
 	Memory *string `field:"optional" json:"memory" yaml:"memory"`
+	// The network configuration for tasks in this service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// The auto-scaling configuration for this service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-scalingtarget
 	//
 	ScalingTarget interface{} `field:"optional" json:"scalingTarget" yaml:"scalingTarget"`
+	// The name of the Express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-servicename
 	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
+	// The metadata applied to the Express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The ARN of the task role for the service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-taskrolearn
 	//
 	TaskRoleArn *string `field:"optional" json:"taskRoleArn" yaml:"taskRoleArn"`

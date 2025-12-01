@@ -432,6 +432,24 @@ func (j *jsiiProxy_CfnGeoMatchSet)SetName(val *string) {
 	)
 }
 
+func CfnGeoMatchSet_ArnForGeoMatchSet(resource interfacesawswafregional.IGeoMatchSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGeoMatchSet_ArnForGeoMatchSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnGeoMatchSet",
+		"arnForGeoMatchSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -449,6 +467,25 @@ func CfnGeoMatchSet_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wafregional.CfnGeoMatchSet",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnGeoMatchSet.
+func CfnGeoMatchSet_IsCfnGeoMatchSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGeoMatchSet_IsCfnGeoMatchSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnGeoMatchSet",
+		"isCfnGeoMatchSet",
 		[]interface{}{x},
 		&returns,
 	)

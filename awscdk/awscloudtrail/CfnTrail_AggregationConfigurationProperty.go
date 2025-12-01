@@ -1,7 +1,7 @@
 package awscloudtrail
 
 
-// Configure to add aggregation rules to aggregate CloudTrail Events.
+// An object that contains configuration settings for aggregating events.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,11 +18,11 @@ package awscloudtrail
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-aggregationconfiguration.html
 //
 type CfnTrail_AggregationConfigurationProperty struct {
-	// The category of events to be aggregated.
+	// Specifies the event category for which aggregation should be performed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-aggregationconfiguration.html#cfn-cloudtrail-trail-aggregationconfiguration-eventcategory
 	//
 	EventCategory *string `field:"required" json:"eventCategory" yaml:"eventCategory"`
-	// Contains all templates in an aggregation configuration.
+	// A list of aggregation templates that can be used to configure event aggregation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-aggregationconfiguration.html#cfn-cloudtrail-trail-aggregationconfiguration-templates
 	//
 	Templates *[]*string `field:"required" json:"templates" yaml:"templates"`

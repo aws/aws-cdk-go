@@ -551,6 +551,25 @@ func CfnSenderId_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSenderId.
+func CfnSenderId_IsCfnSenderId(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSenderId_IsCfnSenderIdParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnSenderId",
+		"isCfnSenderId",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

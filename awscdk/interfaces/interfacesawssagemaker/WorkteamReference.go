@@ -10,10 +10,13 @@ package interfacesawssagemaker
 //
 //   workteamReference := &WorkteamReference{
 //   	WorkteamId: jsii.String("workteamId"),
+//   	WorkteamName: jsii.String("workteamName"),
 //   }
 //
 type WorkteamReference struct {
 	// The Id of the Workteam resource.
 	WorkteamId *string `field:"required" json:"workteamId" yaml:"workteamId"`
+	// The WorkteamName of the Workteam resource.
+	WorkteamName *string `field:"required" json:"workteamName" yaml:"workteamName"`
 }
 

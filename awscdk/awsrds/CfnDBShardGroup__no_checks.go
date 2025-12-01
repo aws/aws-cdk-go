@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDBShardGroup) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnDBShardGroup_IsCfnDBShardGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDBShardGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

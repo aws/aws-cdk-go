@@ -163,6 +163,14 @@ func validateCfnEmailChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEmailChannel_IsCfnEmailChannelParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEmailChannel_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

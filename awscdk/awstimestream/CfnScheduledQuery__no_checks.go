@@ -80,6 +80,10 @@ func validateCfnScheduledQuery_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnScheduledQuery_IsCfnScheduledQueryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnScheduledQuery_IsConstructParameters(x interface{}) error {
 	return nil
 }

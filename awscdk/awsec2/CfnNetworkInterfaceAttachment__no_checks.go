@@ -72,6 +72,10 @@ func validateCfnNetworkInterfaceAttachment_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnNetworkInterfaceAttachment_IsCfnNetworkInterfaceAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnNetworkInterfaceAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

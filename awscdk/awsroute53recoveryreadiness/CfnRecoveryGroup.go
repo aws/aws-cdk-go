@@ -507,6 +507,25 @@ func CfnRecoveryGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRecoveryGroup.
+func CfnRecoveryGroup_IsCfnRecoveryGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRecoveryGroup_IsCfnRecoveryGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnRecoveryGroup",
+		"isCfnRecoveryGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRecoveryGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -84,6 +84,10 @@ func validateCfnGameSessionQueue_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGameSessionQueue_IsCfnGameSessionQueueParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGameSessionQueue_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

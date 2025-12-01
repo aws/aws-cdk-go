@@ -164,6 +164,14 @@ func validateCfnApi_ArnForApiParameters(resource interfacesawsappsync.IApiRef) e
 	return nil
 }
 
+func validateCfnApi_IsCfnApiParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApi_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

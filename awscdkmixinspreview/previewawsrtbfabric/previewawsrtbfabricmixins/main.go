@@ -124,6 +124,46 @@ func init() {
 		reflect.TypeOf((*CfnLinkPropsMixin_ResponderErrorMaskingForHttpCodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_rtbfabric.mixins.CfnOutboundExternalLinkMixinProps",
+		reflect.TypeOf((*CfnOutboundExternalLinkMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_rtbfabric.mixins.CfnOutboundExternalLinkPropsMixin",
+		reflect.TypeOf((*CfnOutboundExternalLinkPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnOutboundExternalLinkPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_rtbfabric.mixins.CfnOutboundExternalLinkPropsMixin.ApplicationLogsProperty",
+		reflect.TypeOf((*CfnOutboundExternalLinkPropsMixin_ApplicationLogsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_rtbfabric.mixins.CfnOutboundExternalLinkPropsMixin.LinkApplicationLogSamplingProperty",
+		reflect.TypeOf((*CfnOutboundExternalLinkPropsMixin_LinkApplicationLogSamplingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_rtbfabric.mixins.CfnOutboundExternalLinkPropsMixin.LinkAttributesProperty",
+		reflect.TypeOf((*CfnOutboundExternalLinkPropsMixin_LinkAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_rtbfabric.mixins.CfnOutboundExternalLinkPropsMixin.LinkLogSettingsProperty",
+		reflect.TypeOf((*CfnOutboundExternalLinkPropsMixin_LinkLogSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_rtbfabric.mixins.CfnOutboundExternalLinkPropsMixin.ResponderErrorMaskingForHttpCodeProperty",
+		reflect.TypeOf((*CfnOutboundExternalLinkPropsMixin_ResponderErrorMaskingForHttpCodeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_rtbfabric.mixins.CfnRequesterGatewayMixinProps",
 		reflect.TypeOf((*CfnRequesterGatewayMixinProps)(nil)).Elem(),
 	)

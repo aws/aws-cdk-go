@@ -983,6 +983,25 @@ func CfnGraphQLApi_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGraphQLApi.
+func CfnGraphQLApi_IsCfnGraphQLApi(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGraphQLApi_IsCfnGraphQLApiParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appsync.CfnGraphQLApi",
+		"isCfnGraphQLApi",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGraphQLApi_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

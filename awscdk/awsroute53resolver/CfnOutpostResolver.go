@@ -630,6 +630,25 @@ func CfnOutpostResolver_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOutpostResolver.
+func CfnOutpostResolver_IsCfnOutpostResolver(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOutpostResolver_IsCfnOutpostResolverParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnOutpostResolver",
+		"isCfnOutpostResolver",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOutpostResolver_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

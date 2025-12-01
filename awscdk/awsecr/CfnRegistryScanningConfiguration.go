@@ -453,6 +453,25 @@ func CfnRegistryScanningConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRegistryScanningConfiguration.
+func CfnRegistryScanningConfiguration_IsCfnRegistryScanningConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRegistryScanningConfiguration_IsCfnRegistryScanningConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnRegistryScanningConfiguration",
+		"isCfnRegistryScanningConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRegistryScanningConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

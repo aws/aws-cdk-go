@@ -501,6 +501,25 @@ func CfnTemplateGroupAccessControlEntry_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTemplateGroupAccessControlEntry.
+func CfnTemplateGroupAccessControlEntry_IsCfnTemplateGroupAccessControlEntry(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTemplateGroupAccessControlEntry_IsCfnTemplateGroupAccessControlEntryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pcaconnectorad.CfnTemplateGroupAccessControlEntry",
+		"isCfnTemplateGroupAccessControlEntry",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -80,6 +80,10 @@ func validateCfnRobotApplication_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRobotApplication_IsCfnRobotApplicationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRobotApplication_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -565,6 +565,25 @@ func CfnAlias_FromAliasId(scope constructs.Construct, id *string, aliasId *strin
 	return returns
 }
 
+// Checks whether the given object is a CfnAlias.
+func CfnAlias_IsCfnAlias(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAlias_IsCfnAliasParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnAlias",
+		"isCfnAlias",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -164,6 +164,14 @@ func validateCfnDistributionConfiguration_ArnForDistributionConfigurationParamet
 	return nil
 }
 
+func validateCfnDistributionConfiguration_IsCfnDistributionConfigurationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDistributionConfiguration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -38,6 +38,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_rtbfabric.IOutboundExternalLinkRef",
+		reflect.TypeOf((*IOutboundExternalLinkRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outboundExternalLinkRef", GoGetter: "OutboundExternalLinkRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IOutboundExternalLinkRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_rtbfabric.IRequesterGatewayRef",
 		reflect.TypeOf((*IRequesterGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -74,6 +89,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_rtbfabric.LinkReference",
 		reflect.TypeOf((*LinkReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_rtbfabric.OutboundExternalLinkReference",
+		reflect.TypeOf((*OutboundExternalLinkReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_rtbfabric.RequesterGatewayReference",

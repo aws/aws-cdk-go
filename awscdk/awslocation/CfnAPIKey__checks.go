@@ -196,6 +196,14 @@ func validateCfnAPIKey_FromKeyNameParameters(scope constructs.Construct, id *str
 	return nil
 }
 
+func validateCfnAPIKey_IsCfnAPIKeyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAPIKey_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

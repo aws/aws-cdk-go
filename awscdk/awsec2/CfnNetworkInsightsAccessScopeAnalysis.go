@@ -604,6 +604,25 @@ func CfnNetworkInsightsAccessScopeAnalysis_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNetworkInsightsAccessScopeAnalysis.
+func CfnNetworkInsightsAccessScopeAnalysis_IsCfnNetworkInsightsAccessScopeAnalysis(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInsightsAccessScopeAnalysis_IsCfnNetworkInsightsAccessScopeAnalysisParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScopeAnalysis",
+		"isCfnNetworkInsightsAccessScopeAnalysis",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNetworkInsightsAccessScopeAnalysis_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

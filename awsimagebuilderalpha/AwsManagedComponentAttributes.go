@@ -4,7 +4,7 @@ package awsimagebuilderalpha
 // Properties for an EC2 Image Builder AWS-managed component.
 //
 // Example:
-//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AwsManagedImageRecipe"), &ImageRecipeProps{
+//   imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AmazonManagedImageRecipe"), &ImageRecipeProps{
 //   	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 //   	Components: []ComponentConfiguration{
 //   		&ComponentConfiguration{

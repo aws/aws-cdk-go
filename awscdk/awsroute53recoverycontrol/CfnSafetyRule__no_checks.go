@@ -80,6 +80,10 @@ func validateCfnSafetyRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSafetyRule_IsCfnSafetyRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSafetyRule_IsConstructParameters(x interface{}) error {
 	return nil
 }

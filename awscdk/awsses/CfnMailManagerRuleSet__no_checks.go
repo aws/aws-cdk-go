@@ -72,11 +72,19 @@ func validateCfnMailManagerRuleSet_ArnForMailManagerRuleSetParameters(resource i
 	return nil
 }
 
+func validateCfnMailManagerRuleSet_FromMailManagerRuleSetArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnMailManagerRuleSet_FromRuleSetIdParameters(scope constructs.Construct, id *string, ruleSetId *string) error {
 	return nil
 }
 
 func validateCfnMailManagerRuleSet_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnMailManagerRuleSet_IsCfnMailManagerRuleSetParameters(x interface{}) error {
 	return nil
 }
 

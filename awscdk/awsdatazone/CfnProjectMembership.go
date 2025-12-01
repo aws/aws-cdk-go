@@ -508,6 +508,25 @@ func CfnProjectMembership_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProjectMembership.
+func CfnProjectMembership_IsCfnProjectMembership(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProjectMembership_IsCfnProjectMembershipParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnProjectMembership",
+		"isCfnProjectMembership",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProjectMembership_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -76,6 +76,10 @@ func validateCfnVirtualMFADevice_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVirtualMFADevice_IsCfnVirtualMFADeviceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVirtualMFADevice_IsConstructParameters(x interface{}) error {
 	return nil
 }

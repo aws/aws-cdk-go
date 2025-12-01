@@ -9,10 +9,13 @@ package interfacesawsses
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mailManagerAddonSubscriptionReference := &MailManagerAddonSubscriptionReference{
+//   	AddonSubscriptionArn: jsii.String("addonSubscriptionArn"),
 //   	AddonSubscriptionId: jsii.String("addonSubscriptionId"),
 //   }
 //
 type MailManagerAddonSubscriptionReference struct {
+	// The ARN of the MailManagerAddonSubscription resource.
+	AddonSubscriptionArn *string `field:"required" json:"addonSubscriptionArn" yaml:"addonSubscriptionArn"`
 	// The AddonSubscriptionId of the MailManagerAddonSubscription resource.
 	AddonSubscriptionId *string `field:"required" json:"addonSubscriptionId" yaml:"addonSubscriptionId"`
 }

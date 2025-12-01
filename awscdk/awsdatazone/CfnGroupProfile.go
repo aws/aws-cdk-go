@@ -491,6 +491,25 @@ func CfnGroupProfile_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGroupProfile.
+func CfnGroupProfile_IsCfnGroupProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGroupProfile_IsCfnGroupProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnGroupProfile",
+		"isCfnGroupProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGroupProfile_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

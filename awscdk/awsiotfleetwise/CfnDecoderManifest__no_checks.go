@@ -72,6 +72,10 @@ func validateCfnDecoderManifest_ArnForDecoderManifestParameters(resource interfa
 	return nil
 }
 
+func validateCfnDecoderManifest_IsCfnDecoderManifestParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDecoderManifest_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

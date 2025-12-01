@@ -164,6 +164,14 @@ func validateCfnDocumentClassifier_ArnForDocumentClassifierParameters(resource i
 	return nil
 }
 
+func validateCfnDocumentClassifier_IsCfnDocumentClassifierParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDocumentClassifier_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

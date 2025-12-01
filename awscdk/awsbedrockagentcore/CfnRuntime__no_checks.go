@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnRuntime) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnRuntime_ArnForRuntimeParameters(resource interfacesawsbedrockagentcore.IRuntimeRef) error {
+	return nil
+}
+
 func validateCfnRuntime_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnRuntime_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnRuntime_IsCfnRuntimeParameters(x interface{}) error {
 	return nil
 }
 

@@ -557,6 +557,25 @@ func CfnAutoScalingConfiguration_ArnForAutoScalingConfiguration(resource interfa
 	return returns
 }
 
+// Checks whether the given object is a CfnAutoScalingConfiguration.
+func CfnAutoScalingConfiguration_IsCfnAutoScalingConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAutoScalingConfiguration_IsCfnAutoScalingConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apprunner.CfnAutoScalingConfiguration",
+		"isCfnAutoScalingConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

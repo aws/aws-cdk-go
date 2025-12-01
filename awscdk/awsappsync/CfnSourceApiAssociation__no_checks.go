@@ -76,6 +76,10 @@ func validateCfnSourceApiAssociation_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnSourceApiAssociation_IsCfnSourceApiAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSourceApiAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

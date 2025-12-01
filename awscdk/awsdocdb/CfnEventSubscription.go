@@ -542,6 +542,25 @@ func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventSubscription.
+func CfnEventSubscription_IsCfnEventSubscription(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventSubscription_IsCfnEventSubscriptionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_docdb.CfnEventSubscription",
+		"isCfnEventSubscription",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventSubscription_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

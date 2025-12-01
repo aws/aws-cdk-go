@@ -72,6 +72,10 @@ func validateCfnMethod_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMethod_IsCfnMethodParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMethod_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

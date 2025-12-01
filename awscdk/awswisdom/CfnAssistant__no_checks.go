@@ -80,6 +80,10 @@ func validateCfnAssistant_FromAssistantIdParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validateCfnAssistant_IsCfnAssistantParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAssistant_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

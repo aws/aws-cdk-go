@@ -180,6 +180,14 @@ func validateCfnContactList_FromContactListNameParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnContactList_IsCfnContactListParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnContactList_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -84,6 +84,10 @@ func validateCfnNetworkInsightsAccessScopeAnalysis_IsCfnElementParameters(x inte
 	return nil
 }
 
+func validateCfnNetworkInsightsAccessScopeAnalysis_IsCfnNetworkInsightsAccessScopeAnalysisParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnNetworkInsightsAccessScopeAnalysis_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

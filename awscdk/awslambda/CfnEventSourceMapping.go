@@ -176,7 +176,7 @@ type CfnEventSourceMapping interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
+	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
 	DestinationConfig() interface{}
 	SetDestinationConfig(val interface{})
 	// Specific configuration settings for a DocumentDB event source.
@@ -221,10 +221,10 @@ type CfnEventSourceMapping interface {
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	MaximumBatchingWindowInSeconds() *float64
 	SetMaximumBatchingWindowInSeconds(val *float64)
-	// (Kinesis and DynamoDB Streams only) Discard records older than the specified age.
+	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age.
 	MaximumRecordAgeInSeconds() *float64
 	SetMaximumRecordAgeInSeconds(val *float64)
-	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries.
+	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries.
 	MaximumRetryAttempts() *float64
 	SetMaximumRetryAttempts(val *float64)
 	// The metrics configuration for your event source.
@@ -1191,6 +1191,25 @@ func CfnEventSourceMapping_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnEventSourceMapping.
+func CfnEventSourceMapping_IsCfnEventSourceMapping(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventSourceMapping_IsCfnEventSourceMappingParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
+		"isCfnEventSourceMapping",
 		[]interface{}{x},
 		&returns,
 	)

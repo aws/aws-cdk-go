@@ -545,6 +545,25 @@ func CfnOIDCProvider_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOIDCProvider.
+func CfnOIDCProvider_IsCfnOIDCProvider(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOIDCProvider_IsCfnOIDCProviderParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
+		"isCfnOIDCProvider",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOIDCProvider_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

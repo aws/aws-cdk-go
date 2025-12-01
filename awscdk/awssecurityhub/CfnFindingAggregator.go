@@ -484,6 +484,25 @@ func CfnFindingAggregator_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFindingAggregator.
+func CfnFindingAggregator_IsCfnFindingAggregator(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFindingAggregator_IsCfnFindingAggregatorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnFindingAggregator",
+		"isCfnFindingAggregator",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFindingAggregator_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

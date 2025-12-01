@@ -76,6 +76,10 @@ func validateCfnS3AccessPointAttachment_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnS3AccessPointAttachment_IsCfnS3AccessPointAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnS3AccessPointAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

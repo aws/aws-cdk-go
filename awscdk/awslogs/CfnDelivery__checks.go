@@ -164,6 +164,14 @@ func validateCfnDelivery_ArnForDeliveryParameters(resource interfacesawslogs.IDe
 	return nil
 }
 
+func validateCfnDelivery_IsCfnDeliveryParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDelivery_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

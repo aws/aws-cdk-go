@@ -72,6 +72,10 @@ func validateCfnRepositoryCreationTemplate_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnRepositoryCreationTemplate_IsCfnRepositoryCreationTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRepositoryCreationTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConnectPeer) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnConnectPeer_IsCfnConnectPeerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConnectPeer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

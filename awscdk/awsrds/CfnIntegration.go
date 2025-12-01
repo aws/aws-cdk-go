@@ -634,6 +634,25 @@ func CfnIntegration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIntegration.
+func CfnIntegration_IsCfnIntegration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIntegration_IsCfnIntegrationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnIntegration",
+		"isCfnIntegration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIntegration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

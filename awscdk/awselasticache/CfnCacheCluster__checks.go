@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnCacheCluster) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnCacheCluster_IsCfnCacheClusterParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCacheCluster_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

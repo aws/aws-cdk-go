@@ -212,6 +212,14 @@ func validateCfnUserPool_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnUserPool_IsCfnUserPoolParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnUserPool_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

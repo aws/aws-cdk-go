@@ -163,6 +163,14 @@ func validateCfnFlowEntitlement_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFlowEntitlement_IsCfnFlowEntitlementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnFlowEntitlement_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

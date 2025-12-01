@@ -164,6 +164,14 @@ func validateCfnDataProtectionSettings_ArnForDataProtectionSettingsParameters(re
 	return nil
 }
 
+func validateCfnDataProtectionSettings_IsCfnDataProtectionSettingsParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDataProtectionSettings_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

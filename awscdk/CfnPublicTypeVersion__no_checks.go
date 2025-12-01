@@ -72,6 +72,10 @@ func validateCfnPublicTypeVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPublicTypeVersion_IsCfnPublicTypeVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPublicTypeVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

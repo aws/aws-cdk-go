@@ -1,0 +1,47 @@
+package previewawssagemakerevents
+
+
+// Type definition for S3DataSource_1.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   s3DataSource1 := &S3DataSource1{
+//   	S3DataDistributionType: []*string{
+//   		jsii.String("s3DataDistributionType"),
+//   	},
+//   	S3DataType: []*string{
+//   		jsii.String("s3DataType"),
+//   	},
+//   	S3Uri: []*string{
+//   		jsii.String("s3Uri"),
+//   	},
+//   }
+//
+// Experimental.
+type ModelEvents_AWSAPICallViaCloudTrail_S3DataSource1 struct {
+	// s3DataDistributionType property.
+	//
+	// Specify an array of string values to match this event if the actual value of s3DataDistributionType is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
+	// Default: - Do not filter on this field.
+	//
+	// Experimental.
+	S3DataDistributionType *[]*string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
+	// s3DataType property.
+	//
+	// Specify an array of string values to match this event if the actual value of s3DataType is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
+	// Default: - Do not filter on this field.
+	//
+	// Experimental.
+	S3DataType *[]*string `field:"optional" json:"s3DataType" yaml:"s3DataType"`
+	// s3Uri property.
+	//
+	// Specify an array of string values to match this event if the actual value of s3Uri is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
+	// Default: - Do not filter on this field.
+	//
+	// Experimental.
+	S3Uri *[]*string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
+}
+

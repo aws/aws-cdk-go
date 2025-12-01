@@ -80,6 +80,10 @@ func validateCfnAppImageConfig_FromAppImageConfigNameParameters(scope constructs
 	return nil
 }
 
+func validateCfnAppImageConfig_IsCfnAppImageConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAppImageConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

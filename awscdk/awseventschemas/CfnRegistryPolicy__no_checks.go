@@ -72,6 +72,10 @@ func validateCfnRegistryPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRegistryPolicy_IsCfnRegistryPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRegistryPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

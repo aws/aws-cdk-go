@@ -72,6 +72,10 @@ func validateCfnInstanceAccessControlAttributeConfiguration_IsCfnElementParamete
 	return nil
 }
 
+func validateCfnInstanceAccessControlAttributeConfiguration_IsCfnInstanceAccessControlAttributeConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInstanceAccessControlAttributeConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -512,6 +512,25 @@ func CfnMacro_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMacro.
+func CfnMacro_IsCfnMacro(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMacro_IsCfnMacroParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnMacro",
+		"isCfnMacro",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMacro_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

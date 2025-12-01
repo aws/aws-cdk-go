@@ -433,6 +433,25 @@ func CfnManagedNotificationAccountContactAssociation_IsCfnElement(x interface{})
 	return returns
 }
 
+// Checks whether the given object is a CfnManagedNotificationAccountContactAssociation.
+func CfnManagedNotificationAccountContactAssociation_IsCfnManagedNotificationAccountContactAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnManagedNotificationAccountContactAssociation_IsCfnManagedNotificationAccountContactAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notifications.CfnManagedNotificationAccountContactAssociation",
+		"isCfnManagedNotificationAccountContactAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnManagedNotificationAccountContactAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

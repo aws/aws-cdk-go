@@ -76,6 +76,10 @@ func validateCfnLicense_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLicense_IsCfnLicenseParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLicense_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

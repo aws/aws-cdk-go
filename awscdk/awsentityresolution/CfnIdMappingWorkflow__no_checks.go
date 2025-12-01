@@ -80,6 +80,10 @@ func validateCfnIdMappingWorkflow_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIdMappingWorkflow_IsCfnIdMappingWorkflowParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIdMappingWorkflow_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

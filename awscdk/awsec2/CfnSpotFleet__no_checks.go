@@ -76,6 +76,10 @@ func validateCfnSpotFleet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSpotFleet_IsCfnSpotFleetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSpotFleet_IsConstructParameters(x interface{}) error {
 	return nil
 }

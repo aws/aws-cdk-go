@@ -72,6 +72,10 @@ func validateCfnChallenge_ArnForChallengeParameters(resource interfacesawspcacon
 	return nil
 }
 
+func validateCfnChallenge_IsCfnChallengeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnChallenge_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

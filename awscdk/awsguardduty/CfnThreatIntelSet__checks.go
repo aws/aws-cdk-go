@@ -171,6 +171,14 @@ func validateCfnThreatIntelSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnThreatIntelSet_IsCfnThreatIntelSetParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnThreatIntelSet_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

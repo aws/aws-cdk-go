@@ -72,6 +72,10 @@ func validateCfnPortfolioProductAssociation_IsCfnElementParameters(x interface{}
 	return nil
 }
 
+func validateCfnPortfolioProductAssociation_IsCfnPortfolioProductAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPortfolioProductAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

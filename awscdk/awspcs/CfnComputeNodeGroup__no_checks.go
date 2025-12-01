@@ -72,6 +72,10 @@ func validateCfnComputeNodeGroup_ArnForComputeNodeGroupParameters(resource inter
 	return nil
 }
 
+func validateCfnComputeNodeGroup_IsCfnComputeNodeGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnComputeNodeGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

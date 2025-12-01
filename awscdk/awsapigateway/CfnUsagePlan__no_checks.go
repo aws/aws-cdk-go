@@ -84,6 +84,10 @@ func validateCfnUsagePlan_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnUsagePlan_IsCfnUsagePlanParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUsagePlan_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -516,6 +516,25 @@ func CfnChannelGroup_ArnForChannelGroup(resource interfacesawsmediapackagev2.ICh
 	return returns
 }
 
+// Checks whether the given object is a CfnChannelGroup.
+func CfnChannelGroup_IsCfnChannelGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnChannelGroup_IsCfnChannelGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediapackagev2.CfnChannelGroup",
+		"isCfnChannelGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

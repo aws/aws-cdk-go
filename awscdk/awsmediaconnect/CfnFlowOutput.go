@@ -897,6 +897,25 @@ func CfnFlowOutput_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFlowOutput.
+func CfnFlowOutput_IsCfnFlowOutput(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFlowOutput_IsCfnFlowOutputParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput",
+		"isCfnFlowOutput",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFlowOutput_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

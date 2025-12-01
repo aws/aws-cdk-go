@@ -72,6 +72,10 @@ func validateCfnOrganizationCentralizationRule_IsCfnElementParameters(x interfac
 	return nil
 }
 
+func validateCfnOrganizationCentralizationRule_IsCfnOrganizationCentralizationRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOrganizationCentralizationRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

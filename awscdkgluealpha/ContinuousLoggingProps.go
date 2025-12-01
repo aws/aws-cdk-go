@@ -18,7 +18,7 @@ import (
 //   	Description: jsii.String("This is a description"),
 //   	Role: Role,
 //   	Script: Script,
-//   	GlueVersion: glue.GlueVersion_V3_0,
+//   	GlueVersion: glue.GlueVersion_V5_1,
 //   	ContinuousLogging: &ContinuousLoggingProps{
 //   		Enabled: jsii.Boolean(false),
 //   	},

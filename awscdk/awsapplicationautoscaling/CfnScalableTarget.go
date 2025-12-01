@@ -589,6 +589,24 @@ func (j *jsiiProxy_CfnScalableTarget)SetSuspendedState(val interface{}) {
 	)
 }
 
+func CfnScalableTarget_ArnForScalableTarget(resource interfacesawsapplicationautoscaling.IScalableTargetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnScalableTarget_ArnForScalableTargetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+		"arnForScalableTarget",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -625,6 +643,25 @@ func CfnScalableTarget_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnScalableTarget.
+func CfnScalableTarget_IsCfnScalableTarget(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnScalableTarget_IsCfnScalableTargetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+		"isCfnScalableTarget",
 		[]interface{}{x},
 		&returns,
 	)

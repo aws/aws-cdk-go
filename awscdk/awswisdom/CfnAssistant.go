@@ -582,6 +582,25 @@ func CfnAssistant_FromAssistantId(scope constructs.Construct, id *string, assist
 	return returns
 }
 
+// Checks whether the given object is a CfnAssistant.
+func CfnAssistant_IsCfnAssistant(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAssistant_IsCfnAssistantParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"isCfnAssistant",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

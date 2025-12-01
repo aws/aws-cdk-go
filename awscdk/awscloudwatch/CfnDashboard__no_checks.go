@@ -76,6 +76,10 @@ func validateCfnDashboard_FromDashboardNameParameters(scope constructs.Construct
 	return nil
 }
 
+func validateCfnDashboard_IsCfnDashboardParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDashboard_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

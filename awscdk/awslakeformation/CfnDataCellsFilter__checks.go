@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDataCellsFilter) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDataCellsFilter_IsCfnDataCellsFilterParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDataCellsFilter_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -76,6 +76,10 @@ func validateCfnGlobalTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGlobalTable_IsCfnGlobalTableParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGlobalTable_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -467,6 +467,25 @@ func CfnEventStream_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventStream.
+func CfnEventStream_IsCfnEventStream(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventStream_IsCfnEventStreamParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnEventStream",
+		"isCfnEventStream",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventStream_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -76,6 +76,10 @@ func validateCfnPreset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPreset_IsCfnPresetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPreset_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

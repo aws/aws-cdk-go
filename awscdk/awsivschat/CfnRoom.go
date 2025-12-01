@@ -610,6 +610,25 @@ func CfnRoom_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRoom.
+func CfnRoom_IsCfnRoom(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRoom_IsCfnRoomParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivschat.CfnRoom",
+		"isCfnRoom",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

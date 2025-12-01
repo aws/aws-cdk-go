@@ -72,6 +72,10 @@ func validateCfnAlert_ArnForAlertParameters(resource interfacesawslookoutmetrics
 	return nil
 }
 
+func validateCfnAlert_IsCfnAlertParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAlert_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -196,6 +196,14 @@ func validateCfnAccessPolicy_FromAccessPolicyIdParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnAccessPolicy_IsCfnAccessPolicyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAccessPolicy_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -567,6 +567,25 @@ func CfnEmailChannel_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEmailChannel.
+func CfnEmailChannel_IsCfnEmailChannel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEmailChannel_IsCfnEmailChannelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnEmailChannel",
+		"isCfnEmailChannel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEmailChannel_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

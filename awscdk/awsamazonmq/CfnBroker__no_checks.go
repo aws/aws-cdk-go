@@ -72,6 +72,10 @@ func validateCfnBroker_ArnForBrokerParameters(resource interfacesawsamazonmq.IBr
 	return nil
 }
 
+func validateCfnBroker_IsCfnBrokerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBroker_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

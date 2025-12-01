@@ -578,6 +578,25 @@ func CfnDeliverySource_FromDeliverySourceName(scope constructs.Construct, id *st
 	return returns
 }
 
+// Checks whether the given object is a CfnDeliverySource.
+func CfnDeliverySource_IsCfnDeliverySource(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDeliverySource_IsCfnDeliverySourceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnDeliverySource",
+		"isCfnDeliverySource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

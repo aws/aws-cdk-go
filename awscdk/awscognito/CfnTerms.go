@@ -11,7 +11,20 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Cognito::Terms.
+// Creates terms documents for the requested app client.
+//
+// When Terms and conditions and Privacy policy documents are configured, the app client displays links to them in the sign-up page of managed login for the app client.
+//
+// You can provide URLs for terms documents in the languages that are supported by [managed login localization](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization) . Amazon Cognito directs users to the terms documents for their current language, with fallback to `default` if no document exists for the language.
+//
+// Each request accepts one type of terms document and a map of language-to-link for that document type. You must provide both types of terms documents in at least one language before Amazon Cognito displays your terms documents. Supply each type in separate requests.
+//
+// For more information, see [Terms documents](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents) .
+//
+// > Amazon Cognito evaluates AWS Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+// >
+// > **Learn more** - [Signing AWS API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+// > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,21 +50,25 @@ type CfnTerms interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawscognito.ITermsRef
+	// The ID of the terms documents.
 	AttrTermsId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The ID of the app client that the terms documents are assigned to.
 	ClientId() *string
 	SetClientId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// This parameter is reserved for future use and currently accepts one value.
 	Enforcement() *string
 	SetEnforcement(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// A map of URLs to languages.
 	Links() interface{}
 	SetLinks(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -75,10 +92,12 @@ type CfnTerms interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The type and friendly name of the terms documents.
 	TermsName() *string
 	SetTermsName(val *string)
 	// A reference to a Terms resource.
 	TermsRef() *interfacesawscognito.TermsReference
+	// This parameter is reserved for future use and currently accepts one value.
 	TermsSource() *string
 	SetTermsSource(val *string)
 	// Deprecated.
@@ -94,6 +113,7 @@ type CfnTerms interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The ID of the user pool that contains the terms documents.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -549,6 +569,25 @@ func CfnTerms_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cognito.CfnTerms",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnTerms.
+func CfnTerms_IsCfnTerms(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTerms_IsCfnTermsParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnTerms",
+		"isCfnTerms",
 		[]interface{}{x},
 		&returns,
 	)

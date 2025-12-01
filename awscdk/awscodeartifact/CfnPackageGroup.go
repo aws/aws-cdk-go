@@ -627,6 +627,25 @@ func CfnPackageGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPackageGroup.
+func CfnPackageGroup_IsCfnPackageGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPackageGroup_IsCfnPackageGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codeartifact.CfnPackageGroup",
+		"isCfnPackageGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPackageGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

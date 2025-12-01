@@ -88,6 +88,10 @@ func validateCfnWorkflow_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWorkflow_IsCfnWorkflowParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWorkflow_IsConstructParameters(x interface{}) error {
 	return nil
 }

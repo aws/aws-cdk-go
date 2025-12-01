@@ -682,6 +682,25 @@ func CfnWorkspacesPool_FromPoolId(scope constructs.Construct, id *string, poolId
 	return returns
 }
 
+// Creates a new IWorkspacesPoolRef from an ARN.
+func CfnWorkspacesPool_FromWorkspacesPoolArn(scope constructs.Construct, id *string, arn *string) interfacesawsworkspaces.IWorkspacesPoolRef {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspacesPool_FromWorkspacesPoolArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsworkspaces.IWorkspacesPoolRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspaces.CfnWorkspacesPool",
+		"fromWorkspacesPoolArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -718,6 +737,25 @@ func CfnWorkspacesPool_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_workspaces.CfnWorkspacesPool",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnWorkspacesPool.
+func CfnWorkspacesPool_IsCfnWorkspacesPool(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspacesPool_IsCfnWorkspacesPoolParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspaces.CfnWorkspacesPool",
+		"isCfnWorkspacesPool",
 		[]interface{}{x},
 		&returns,
 	)

@@ -76,6 +76,10 @@ func validateCfnVPCEncryptionControl_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnVPCEncryptionControl_IsCfnVPCEncryptionControlParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPCEncryptionControl_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -80,6 +80,10 @@ func validateCfnResolverConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnResolverConfig_IsCfnResolverConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResolverConfig_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

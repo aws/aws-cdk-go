@@ -699,6 +699,25 @@ func CfnPlugin_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPlugin.
+func CfnPlugin_IsCfnPlugin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPlugin_IsCfnPluginParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_qbusiness.CfnPlugin",
+		"isCfnPlugin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPlugin_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

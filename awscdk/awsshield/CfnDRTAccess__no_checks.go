@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDRTAccess) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnDRTAccess_IsCfnDRTAccessParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDRTAccess_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

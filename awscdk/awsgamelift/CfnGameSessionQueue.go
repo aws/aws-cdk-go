@@ -722,6 +722,25 @@ func CfnGameSessionQueue_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGameSessionQueue.
+func CfnGameSessionQueue_IsCfnGameSessionQueue(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGameSessionQueue_IsCfnGameSessionQueueParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"isCfnGameSessionQueue",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGameSessionQueue_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

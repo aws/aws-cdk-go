@@ -948,6 +948,25 @@ func CfnIPAMPool_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIPAMPool.
+func CfnIPAMPool_IsCfnIPAMPool(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMPool_IsCfnIPAMPoolParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMPool",
+		"isCfnIPAMPool",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIPAMPool_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -72,6 +72,10 @@ func validateCfnContactChannel_ArnForContactChannelParameters(resource interface
 	return nil
 }
 
+func validateCfnContactChannel_IsCfnContactChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContactChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

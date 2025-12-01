@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDataLakeSettings) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnDataLakeSettings_IsCfnDataLakeSettingsParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDataLakeSettings_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -80,6 +80,10 @@ func validateCfnScraper_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnScraper_IsCfnScraperParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnScraper_IsConstructParameters(x interface{}) error {
 	return nil
 }

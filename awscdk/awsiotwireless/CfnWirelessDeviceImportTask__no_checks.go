@@ -80,6 +80,10 @@ func validateCfnWirelessDeviceImportTask_IsCfnResourceParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnWirelessDeviceImportTask_IsCfnWirelessDeviceImportTaskParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWirelessDeviceImportTask_IsConstructParameters(x interface{}) error {
 	return nil
 }

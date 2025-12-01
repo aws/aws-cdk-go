@@ -80,6 +80,10 @@ func validateCfnTestGridProject_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTestGridProject_IsCfnTestGridProjectParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTestGridProject_IsConstructParameters(x interface{}) error {
 	return nil
 }

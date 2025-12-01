@@ -76,6 +76,10 @@ func validateCfnRefreshSchedule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRefreshSchedule_IsCfnRefreshScheduleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRefreshSchedule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

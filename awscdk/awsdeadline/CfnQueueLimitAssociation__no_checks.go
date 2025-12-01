@@ -72,6 +72,10 @@ func validateCfnQueueLimitAssociation_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnQueueLimitAssociation_IsCfnQueueLimitAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnQueueLimitAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

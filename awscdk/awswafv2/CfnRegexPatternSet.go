@@ -571,6 +571,25 @@ func CfnRegexPatternSet_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRegexPatternSet.
+func CfnRegexPatternSet_IsCfnRegexPatternSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRegexPatternSet_IsCfnRegexPatternSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"isCfnRegexPatternSet",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRegexPatternSet_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -180,6 +180,14 @@ func validateCfnResourcePolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnResourcePolicy_IsCfnResourcePolicyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnResourcePolicy_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

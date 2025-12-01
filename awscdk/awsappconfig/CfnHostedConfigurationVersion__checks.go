@@ -163,6 +163,14 @@ func validateCfnHostedConfigurationVersion_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnHostedConfigurationVersion_IsCfnHostedConfigurationVersionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnHostedConfigurationVersion_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

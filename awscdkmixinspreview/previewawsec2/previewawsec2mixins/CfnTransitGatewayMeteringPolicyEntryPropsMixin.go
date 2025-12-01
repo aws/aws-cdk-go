@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// AWS::EC2::TransitGatewayMeteringPolicyEntry Resource Definition.
+// Creates an entry in a transit gateway metering policy to define traffic measurement rules.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

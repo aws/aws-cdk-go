@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDirectoryConfig) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDirectoryConfig_IsCfnDirectoryConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDirectoryConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -84,6 +84,10 @@ func validateCfnInAppTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInAppTemplate_IsCfnInAppTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInAppTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

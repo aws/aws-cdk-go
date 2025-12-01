@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::CloudFront::ConnectionFunction.
+// A connection function.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -50,13 +50,21 @@ type CfnConnectionFunction interface {
 	awscdk.IInspectable
 	interfacesawscloudfront.IConnectionFunctionRef
 	awscdk.ITaggableV2
+	// The connection function Amazon Resource Name (ARN).
 	AttrConnectionFunctionArn() *string
+	// The connection function created time.
 	AttrCreatedTime() *string
+	// A complex type that contains `Tag` key and `Tag` value.
 	AttrETag() *string
+	// The connection function ID.
 	AttrId() *string
+	// The connection function last modified time.
 	AttrLastModifiedTime() *string
+	// The connection function stage.
 	AttrStage() *string
+	// The connection function status.
 	AttrStatus() *string
+	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created.
 	AutoPublish() interface{}
 	SetAutoPublish(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -66,8 +74,10 @@ type CfnConnectionFunction interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The code for the connection function.
 	ConnectionFunctionCode() *string
 	SetConnectionFunctionCode(val *string)
+	// Contains configuration information about a CloudFront function.
 	ConnectionFunctionConfig() interface{}
 	SetConnectionFunctionConfig(val interface{})
 	// A reference to a ConnectionFunction resource.
@@ -87,6 +97,7 @@ type CfnConnectionFunction interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The connection function name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -100,6 +111,7 @@ type CfnConnectionFunction interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A complex type that contains zero or more `Tag` elements.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -597,6 +609,25 @@ func CfnConnectionFunction_ArnForConnectionFunction(resource interfacesawscloudf
 		"aws-cdk-lib.aws_cloudfront.CfnConnectionFunction",
 		"arnForConnectionFunction",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnConnectionFunction.
+func CfnConnectionFunction_IsCfnConnectionFunction(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConnectionFunction_IsCfnConnectionFunctionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnConnectionFunction",
+		"isCfnConnectionFunction",
+		[]interface{}{x},
 		&returns,
 	)
 

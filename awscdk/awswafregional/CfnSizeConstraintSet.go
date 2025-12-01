@@ -439,6 +439,24 @@ func (j *jsiiProxy_CfnSizeConstraintSet)SetSizeConstraints(val interface{}) {
 	)
 }
 
+func CfnSizeConstraintSet_ArnForSizeConstraintSet(resource interfacesawswafregional.ISizeConstraintSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSizeConstraintSet_ArnForSizeConstraintSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnSizeConstraintSet",
+		"arnForSizeConstraintSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -475,6 +493,25 @@ func CfnSizeConstraintSet_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wafregional.CfnSizeConstraintSet",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnSizeConstraintSet.
+func CfnSizeConstraintSet_IsCfnSizeConstraintSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSizeConstraintSet_IsCfnSizeConstraintSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnSizeConstraintSet",
+		"isCfnSizeConstraintSet",
 		[]interface{}{x},
 		&returns,
 	)

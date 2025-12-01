@@ -80,6 +80,10 @@ func validateCfnDataset_FromDatasetIdParameters(scope constructs.Construct, id *
 	return nil
 }
 
+func validateCfnDataset_IsCfnDatasetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

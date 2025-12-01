@@ -80,6 +80,10 @@ func validateCfnVectorBucket_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVectorBucket_IsCfnVectorBucketParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVectorBucket_IsConstructParameters(x interface{}) error {
 	return nil
 }

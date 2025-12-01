@@ -643,6 +643,25 @@ func CfnIdNamespaceAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIdNamespaceAssociation.
+func CfnIdNamespaceAssociation_IsCfnIdNamespaceAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIdNamespaceAssociation_IsCfnIdNamespaceAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cleanrooms.CfnIdNamespaceAssociation",
+		"isCfnIdNamespaceAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIdNamespaceAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

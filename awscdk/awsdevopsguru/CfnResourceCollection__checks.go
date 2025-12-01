@@ -171,6 +171,14 @@ func validateCfnResourceCollection_IsCfnResourceParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnResourceCollection_IsCfnResourceCollectionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnResourceCollection_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

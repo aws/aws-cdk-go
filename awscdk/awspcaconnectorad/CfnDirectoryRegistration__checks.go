@@ -164,6 +164,14 @@ func validateCfnDirectoryRegistration_ArnForDirectoryRegistrationParameters(reso
 	return nil
 }
 
+func validateCfnDirectoryRegistration_IsCfnDirectoryRegistrationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDirectoryRegistration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

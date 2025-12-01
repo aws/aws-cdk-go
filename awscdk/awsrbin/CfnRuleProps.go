@@ -50,7 +50,11 @@ import (
 type CfnRuleProps struct {
 	// The resource type to be retained by the retention rule.
 	//
-	// Currently, only Amazon EBS snapshots and EBS-backed AMIs are supported. To retain snapshots, specify `EBS_SNAPSHOT` . To retain EBS-backed AMIs, specify `EC2_IMAGE` .
+	// Currently, only EBS volumes, EBS snapshots, and EBS-backed AMIs are supported.
+	//
+	// - To retain EBS volumes, specify `EBS_VOLUME` .
+	// - To retain EBS snapshots, specify `EBS_SNAPSHOT`
+	// - To retain EBS-backed AMIs, specify `EC2_IMAGE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-resourcetype
 	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`

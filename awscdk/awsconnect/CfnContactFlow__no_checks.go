@@ -72,6 +72,10 @@ func validateCfnContactFlow_ArnForContactFlowParameters(resource interfacesawsco
 	return nil
 }
 
+func validateCfnContactFlow_IsCfnContactFlowParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContactFlow_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

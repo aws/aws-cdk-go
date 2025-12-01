@@ -72,6 +72,10 @@ func validateCfnBucket_ArnForBucketParameters(resource interfacesawslightsail.IB
 	return nil
 }
 
+func validateCfnBucket_IsCfnBucketParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBucket_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

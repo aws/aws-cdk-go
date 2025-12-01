@@ -72,6 +72,10 @@ func validateCfnBot_ArnForBotParameters(resource interfacesawslex.IBotRef) error
 	return nil
 }
 
+func validateCfnBot_IsCfnBotParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBot_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

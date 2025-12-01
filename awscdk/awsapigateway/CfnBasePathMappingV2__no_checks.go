@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBasePathMappingV2) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnBasePathMappingV2_IsCfnBasePathMappingV2Parameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBasePathMappingV2_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

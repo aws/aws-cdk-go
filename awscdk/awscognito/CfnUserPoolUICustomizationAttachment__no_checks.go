@@ -76,6 +76,10 @@ func validateCfnUserPoolUICustomizationAttachment_IsCfnResourceParameters(x inte
 	return nil
 }
 
+func validateCfnUserPoolUICustomizationAttachment_IsCfnUserPoolUICustomizationAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUserPoolUICustomizationAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

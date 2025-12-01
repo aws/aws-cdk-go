@@ -476,6 +476,25 @@ func CfnInternetGateway_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInternetGateway.
+func CfnInternetGateway_IsCfnInternetGateway(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInternetGateway_IsCfnInternetGatewayParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnInternetGateway",
+		"isCfnInternetGateway",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInternetGateway_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

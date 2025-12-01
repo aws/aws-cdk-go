@@ -72,7 +72,15 @@ func validateCfnBrowserCustom_ArnForBrowserCustomParameters(resource interfacesa
 	return nil
 }
 
+func validateCfnBrowserCustom_FromBrowserCustomArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnBrowserCustom_FromBrowserIdParameters(scope constructs.Construct, id *string, browserId *string) error {
+	return nil
+}
+
+func validateCfnBrowserCustom_IsCfnBrowserCustomParameters(x interface{}) error {
 	return nil
 }
 

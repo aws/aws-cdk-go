@@ -80,6 +80,10 @@ func validateCfnMatchingWorkflow_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMatchingWorkflow_IsCfnMatchingWorkflowParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMatchingWorkflow_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

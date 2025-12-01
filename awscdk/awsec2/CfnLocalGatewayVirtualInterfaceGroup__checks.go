@@ -204,6 +204,14 @@ func validateCfnLocalGatewayVirtualInterfaceGroup_IsCfnElementParameters(x inter
 	return nil
 }
 
+func validateCfnLocalGatewayVirtualInterfaceGroup_IsCfnLocalGatewayVirtualInterfaceGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLocalGatewayVirtualInterfaceGroup_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

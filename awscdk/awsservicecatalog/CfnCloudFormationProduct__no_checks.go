@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCloudFormationProduct) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnCloudFormationProduct_IsCfnCloudFormationProductParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCloudFormationProduct_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

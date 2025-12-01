@@ -76,6 +76,10 @@ func validateCfnStudioSessionMapping_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnStudioSessionMapping_IsCfnStudioSessionMappingParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStudioSessionMapping_IsConstructParameters(x interface{}) error {
 	return nil
 }

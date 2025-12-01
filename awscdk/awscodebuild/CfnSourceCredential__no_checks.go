@@ -76,6 +76,10 @@ func validateCfnSourceCredential_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSourceCredential_IsCfnSourceCredentialParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSourceCredential_IsConstructParameters(x interface{}) error {
 	return nil
 }

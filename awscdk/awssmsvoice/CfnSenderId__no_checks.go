@@ -80,6 +80,10 @@ func validateCfnSenderId_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSenderId_IsCfnSenderIdParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSenderId_IsConstructParameters(x interface{}) error {
 	return nil
 }

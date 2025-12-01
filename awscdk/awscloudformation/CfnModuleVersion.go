@@ -556,6 +556,25 @@ func CfnModuleVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnModuleVersion.
+func CfnModuleVersion_IsCfnModuleVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnModuleVersion_IsCfnModuleVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudformation.CfnModuleVersion",
+		"isCfnModuleVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnModuleVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

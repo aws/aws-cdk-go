@@ -80,6 +80,10 @@ func validateCfnReplicationGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnReplicationGroup_IsCfnReplicationGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnReplicationGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

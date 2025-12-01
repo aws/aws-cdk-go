@@ -762,6 +762,25 @@ func CfnOdbNetwork_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOdbNetwork.
+func CfnOdbNetwork_IsCfnOdbNetwork(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOdbNetwork_IsCfnOdbNetworkParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_odb.CfnOdbNetwork",
+		"isCfnOdbNetwork",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOdbNetwork_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

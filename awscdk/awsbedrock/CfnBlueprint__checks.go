@@ -164,6 +164,14 @@ func validateCfnBlueprint_ArnForBlueprintParameters(resource interfacesawsbedroc
 	return nil
 }
 
+func validateCfnBlueprint_IsCfnBlueprintParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBlueprint_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

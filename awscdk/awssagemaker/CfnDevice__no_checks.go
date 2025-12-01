@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDevice) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDevice_IsCfnDeviceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDevice_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

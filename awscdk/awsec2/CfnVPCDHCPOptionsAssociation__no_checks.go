@@ -76,6 +76,10 @@ func validateCfnVPCDHCPOptionsAssociation_IsCfnResourceParameters(x interface{})
 	return nil
 }
 
+func validateCfnVPCDHCPOptionsAssociation_IsCfnVPCDHCPOptionsAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPCDHCPOptionsAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

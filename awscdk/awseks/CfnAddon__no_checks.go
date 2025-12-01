@@ -72,6 +72,10 @@ func validateCfnAddon_ArnForAddonParameters(resource interfacesawseks.IAddonRef)
 	return nil
 }
 
+func validateCfnAddon_IsCfnAddonParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAddon_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

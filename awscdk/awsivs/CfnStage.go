@@ -561,6 +561,25 @@ func CfnStage_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStage.
+func CfnStage_IsCfnStage(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStage_IsCfnStageParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnStage",
+		"isCfnStage",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

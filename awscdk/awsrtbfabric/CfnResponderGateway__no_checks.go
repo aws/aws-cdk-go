@@ -80,6 +80,10 @@ func validateCfnResponderGateway_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnResponderGateway_IsCfnResponderGatewayParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResponderGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }

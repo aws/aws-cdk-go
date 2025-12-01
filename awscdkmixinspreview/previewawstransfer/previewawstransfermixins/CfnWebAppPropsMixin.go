@@ -12,6 +12,10 @@ import (
 
 // Creates a web app based on specified parameters, and returns the ID for the new web app.
 //
+// You can configure the web app to be publicly accessible or hosted within a VPC.
+//
+// For more information about using VPC endpoints with AWS Transfer Family , see [Create a Transfer Family web app in a VPC](https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -47,6 +47,15 @@ import (
 //   	Architectures: []*string{
 //   		jsii.String("architectures"),
 //   	},
+//   	CapacityProviderConfig: &CapacityProviderConfigProperty{
+//   		LambdaManagedInstancesCapacityProviderConfig: &LambdaManagedInstancesCapacityProviderConfigProperty{
+//   			CapacityProviderArn: jsii.String("capacityProviderArn"),
+//
+//   			// the properties below are optional
+//   			ExecutionEnvironmentMemoryGiBPerVCpu: jsii.Number(123),
+//   			PerExecutionEnvironmentMaxConcurrency: jsii.Number(123),
+//   		},
+//   	},
 //   	CodeSigningConfigArn: jsii.String("codeSigningConfigArn"),
 //   	DeadLetterConfig: &DeadLetterConfigProperty{
 //   		TargetArn: jsii.String("targetArn"),
@@ -67,6 +76,10 @@ import (
 //   		},
 //   	},
 //   	FunctionName: jsii.String("functionName"),
+//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
+//   	},
 //   	Handler: jsii.String("handler"),
 //   	ImageConfig: &ImageConfigProperty{
 //   		Command: []*string{
@@ -89,6 +102,7 @@ import (
 //   	},
 //   	MemorySize: jsii.Number(123),
 //   	PackageType: jsii.String("packageType"),
+//   	PublishToLatestPublished: jsii.Boolean(false),
 //   	RecursiveLoop: jsii.String("recursiveLoop"),
 //   	ReservedConcurrentExecutions: jsii.Number(123),
 //   	Runtime: jsii.String("runtime"),
@@ -143,6 +157,8 @@ type CfnFunction interface {
 	AttrSnapStartResponseApplyOn() *string
 	// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
 	AttrSnapStartResponseOptimizationStatus() *string
+	CapacityProviderConfig() interface{}
+	SetCapacityProviderConfig(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -181,6 +197,8 @@ type CfnFunction interface {
 	SetFunctionName(val *string)
 	// A reference to a Function resource.
 	FunctionRef() *interfacesawslambda.FunctionReference
+	FunctionScalingConfig() interface{}
+	SetFunctionScalingConfig(val interface{})
 	// The name of the method within your code that Lambda calls to run your function.
 	Handler() *string
 	SetHandler(val *string)
@@ -214,6 +232,8 @@ type CfnFunction interface {
 	// The type of deployment package.
 	PackageType() *string
 	SetPackageType(val *string)
+	PublishToLatestPublished() interface{}
+	SetPublishToLatestPublished(val interface{})
 	// The status of your function's recursive loop detection configuration.
 	RecursiveLoop() *string
 	SetRecursiveLoop(val *string)
@@ -456,6 +476,16 @@ func (j *jsiiProxy_CfnFunction) AttrSnapStartResponseOptimizationStatus() *strin
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) CapacityProviderConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"capacityProviderConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -596,6 +626,16 @@ func (j *jsiiProxy_CfnFunction) FunctionRef() *interfacesawslambda.FunctionRefer
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) FunctionScalingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"functionScalingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) Handler() *string {
 	var returns *string
 	_jsii_.Get(
@@ -681,6 +721,16 @@ func (j *jsiiProxy_CfnFunction) PackageType() *string {
 	_jsii_.Get(
 		j,
 		"packageType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) PublishToLatestPublished() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"publishToLatestPublished",
 		&returns,
 	)
 	return returns
@@ -884,6 +934,17 @@ func (j *jsiiProxy_CfnFunction)SetArchitectures(val *[]*string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFunction)SetCapacityProviderConfig(val interface{}) {
+	if err := j.validateSetCapacityProviderConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"capacityProviderConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFunction)SetCode(val interface{}) {
 	if err := j.validateSetCodeParameters(val); err != nil {
 		panic(err)
@@ -963,6 +1024,17 @@ func (j *jsiiProxy_CfnFunction)SetFunctionName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFunction)SetFunctionScalingConfig(val interface{}) {
+	if err := j.validateSetFunctionScalingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"functionScalingConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFunction)SetHandler(val *string) {
 	_jsii_.Set(
 		j,
@@ -1021,6 +1093,17 @@ func (j *jsiiProxy_CfnFunction)SetPackageType(val *string) {
 	_jsii_.Set(
 		j,
 		"packageType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetPublishToLatestPublished(val interface{}) {
+	if err := j.validateSetPublishToLatestPublishedParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"publishToLatestPublished",
 		val,
 	)
 }
@@ -1207,6 +1290,25 @@ func CfnFunction_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.CfnFunction",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnFunction.
+func CfnFunction_IsCfnFunction(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFunction_IsCfnFunctionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnFunction",
+		"isCfnFunction",
 		[]interface{}{x},
 		&returns,
 	)

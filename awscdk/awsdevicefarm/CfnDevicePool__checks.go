@@ -164,6 +164,14 @@ func validateCfnDevicePool_ArnForDevicePoolParameters(resource interfacesawsdevi
 	return nil
 }
 
+func validateCfnDevicePool_IsCfnDevicePoolParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDevicePool_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

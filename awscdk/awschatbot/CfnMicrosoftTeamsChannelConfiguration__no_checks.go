@@ -76,6 +76,10 @@ func validateCfnMicrosoftTeamsChannelConfiguration_IsCfnElementParameters(x inte
 	return nil
 }
 
+func validateCfnMicrosoftTeamsChannelConfiguration_IsCfnMicrosoftTeamsChannelConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMicrosoftTeamsChannelConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

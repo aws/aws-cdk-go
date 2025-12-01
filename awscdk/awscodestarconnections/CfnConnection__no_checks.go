@@ -72,6 +72,10 @@ func validateCfnConnection_ArnForConnectionParameters(resource interfacesawscode
 	return nil
 }
 
+func validateCfnConnection_IsCfnConnectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConnection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

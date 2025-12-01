@@ -171,6 +171,14 @@ func validateCfnUserPoolUserToGroupAttachment_IsCfnResourceParameters(x interfac
 	return nil
 }
 
+func validateCfnUserPoolUserToGroupAttachment_IsCfnUserPoolUserToGroupAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnUserPoolUserToGroupAttachment_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

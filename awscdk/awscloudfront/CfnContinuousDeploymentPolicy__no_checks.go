@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnContinuousDeploymentPolicy_ArnForContinuousDeploymentPolicyParameters(resource interfacesawscloudfront.IContinuousDeploymentPolicyRef) error {
+	return nil
+}
+
+func validateCfnContinuousDeploymentPolicy_IsCfnContinuousDeploymentPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContinuousDeploymentPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

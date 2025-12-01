@@ -180,6 +180,14 @@ func validateCfnUserHierarchyGroup_IsCfnResourceParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnUserHierarchyGroup_IsCfnUserHierarchyGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnUserHierarchyGroup_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

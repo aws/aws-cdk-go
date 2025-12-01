@@ -72,6 +72,10 @@ func validateCfnDiskSnapshot_ArnForDiskSnapshotParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnDiskSnapshot_IsCfnDiskSnapshotParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDiskSnapshot_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

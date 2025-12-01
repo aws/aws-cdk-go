@@ -88,6 +88,10 @@ func validateCfnSourceLocation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSourceLocation_IsCfnSourceLocationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSourceLocation_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnLocationFSxLustre_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocationFSxLustre_IsCfnLocationFSxLustreParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocationFSxLustre_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

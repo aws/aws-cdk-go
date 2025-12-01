@@ -196,6 +196,14 @@ func validateCfnDomainConfiguration_FromDomainConfigurationNameParameters(scope 
 	return nil
 }
 
+func validateCfnDomainConfiguration_IsCfnDomainConfigurationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDomainConfiguration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

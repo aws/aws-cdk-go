@@ -72,6 +72,10 @@ func validateCfnDataAccessor_ArnForDataAccessorParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnDataAccessor_IsCfnDataAccessorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataAccessor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -9,10 +9,13 @@ package interfacesawsses
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mailManagerRuleSetReference := &MailManagerRuleSetReference{
+//   	RuleSetArn: jsii.String("ruleSetArn"),
 //   	RuleSetId: jsii.String("ruleSetId"),
 //   }
 //
 type MailManagerRuleSetReference struct {
+	// The ARN of the MailManagerRuleSet resource.
+	RuleSetArn *string `field:"required" json:"ruleSetArn" yaml:"ruleSetArn"`
 	// The RuleSetId of the MailManagerRuleSet resource.
 	RuleSetId *string `field:"required" json:"ruleSetId" yaml:"ruleSetId"`
 }

@@ -80,6 +80,10 @@ func validateCfnServiceLevelObjective_IsCfnResourceParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnServiceLevelObjective_IsCfnServiceLevelObjectiveParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnServiceLevelObjective_IsConstructParameters(x interface{}) error {
 	return nil
 }

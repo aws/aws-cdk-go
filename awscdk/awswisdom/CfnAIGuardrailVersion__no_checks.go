@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAIGuardrailVersion) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnAIGuardrailVersion_IsCfnAIGuardrailVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAIGuardrailVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

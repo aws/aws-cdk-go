@@ -164,6 +164,14 @@ func validateCfnCloudWatchAlarmTemplateGroup_ArnForCloudWatchAlarmTemplateGroupP
 	return nil
 }
 
+func validateCfnCloudWatchAlarmTemplateGroup_IsCfnCloudWatchAlarmTemplateGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCloudWatchAlarmTemplateGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

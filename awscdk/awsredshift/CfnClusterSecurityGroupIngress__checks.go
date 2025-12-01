@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) validateValidatePropertiesPar
 	return nil
 }
 
+func validateCfnClusterSecurityGroupIngress_IsCfnClusterSecurityGroupIngressParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnClusterSecurityGroupIngress_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

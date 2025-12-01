@@ -618,6 +618,25 @@ func CfnSamplingRule_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSamplingRule.
+func CfnSamplingRule_IsCfnSamplingRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSamplingRule_IsCfnSamplingRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_xray.CfnSamplingRule",
+		"isCfnSamplingRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -788,6 +788,220 @@ lambda.NewLayerVersion(this, jsii.String("MyLayer"), &LayerVersionProps{
 })
 ```
 
+## Capacity Providers
+
+Lambda capacity providers allow you to run Lambda functions on dedicated compute resources instead of the default serverless execution environment. Capacity providers can have multiple functions and function versions associated with them, but a function can be attached to at most one capacity provider.
+
+### Creating a Capacity Provider
+
+To create a capacity provider, you need to specify the VPC configuration and optionally configure permissions, scaling, and instance requirements:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+// Create a VPC for the capacity provider
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+
+// Create a basic capacity provider
+capacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProvider"), &CapacityProviderProps{
+	CapacityProviderName: jsii.String("my-capacity-provider"),
+	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+})
+```
+
+By default, permissions are granted to the capacity provider to manage instances using the AWS managed policy AWSLambdaManagedEC2ResourceOperator. You can also supply a custom role via the `operatorRole` parameter.
+
+### Configuring Scaling Policies
+
+You can configure target tracking scaling policies to automatically scale your capacity provider based on CPU utilization:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+
+capacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProvider"), &CapacityProviderProps{
+	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+	ScalingOptions: lambda.ScalingOptions_Manual([]TargetTrackingScalingPolicy{
+		lambda.TargetTrackingScalingPolicy_CpuUtilization(jsii.Number(70)),
+	}),
+})
+```
+
+### Instance Type Configuration
+
+You can control which EC2 instance types the capacity provider can use:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+
+// Allow only specific instance families
+allowCapacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProviderAllowed"), &CapacityProviderProps{
+	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+	InstanceTypeFilter: lambda.InstanceTypeFilter_Allow([]InstanceType{
+		ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_LARGE),
+		ec2.InstanceType_*Of(ec2.InstanceClass_M5, ec2.InstanceSize_XLARGE),
+	}),
+})
+
+// Or exclude specific instance types
+excludeCapacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProviderExcluded"), &CapacityProviderProps{
+	Subnets: vpc.*PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+	InstanceTypeFilter: lambda.InstanceTypeFilter_Exclude([]InstanceType{
+		ec2.InstanceType_*Of(ec2.InstanceClass_T2, ec2.InstanceSize_MICRO),
+	}),
+})
+```
+
+### Using a Capacity Provider with Lambda Functions
+
+Once you have a capacity provider, you can configure Lambda functions to use it:
+
+```go
+var capacityProvider CapacityProvider
+
+
+fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	// Runtime must be equal to or newer than NODEJS_22_X
+	Runtime: lambda.Runtime_NODEJS_22_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+})
+
+// Associate the function with the capacity provider
+capacityProvider.AddFunction(fn, &CapacityProviderFunctionOptions{
+	PerExecutionEnvironmentMaxConcurrency: jsii.Number(10),
+	ExecutionEnvironmentMemoryGiBPerVCpu: jsii.Number(4),
+})
+```
+
+Note that once you use a capacity provider in a function, it cannot be removed, only changed.
+
+#### CapacityProviderFunctionOptions (addFunction method)
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| perExecutionEnvironmentMaxConcurrency | number | No | Maximum concurrent invokes per execution environment. |
+| executionEnvironmentMemoryGiBPerVCpu | number | No | Memory per VCPU in GiB. |
+| publishToLatestPublished | boolean | No | Whether to automatically publish to $LATEST.PUBLISHED version. |
+| latestPublishedScalingConfig | LatestPublishedScalingConfig | No | Scaling configuration for $LATEST.PUBLISHED version. |
+
+#### LatestPublishedScalingConfig
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| minExecutionEnvironments | number | No | Minimum execution environments for $LATEST.PUBLISHED version. |
+| maxExecutionEnvironments | number | No | Maximum execution environments for $LATEST.PUBLISHED version. |
+
+### Capacity Provider Versions
+
+When publishing Lambda versions that use capacity providers, you can configure scaling settings specific to each version.
+
+To publish a permanent version with specific scaling properties, you can use the [`currentVersion`](#currentversion-updated-hashing-logic) property of the function:
+
+```go
+fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_22_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+	CurrentVersionOptions: &VersionOptions{
+		MinExecutionEnvironments: jsii.Number(3),
+	},
+})
+
+version := fn.latestVersion
+```
+
+You can also specify scaling properties for the special `$LATEST.PUBLISHED` version when attaching the function to the capacity provider.
+
+`$LATEST.PUBLISHED` is a version that is automatically published when you deploy changes to your function.
+
+```go
+var capacityProvider CapacityProvider
+var fn Function
+
+
+capacityProvider.AddFunction(fn, &CapacityProviderFunctionOptions{
+	LatestPublishedScalingConfig: &LatestPublishedScalingConfig{
+		MinExecutionEnvironments: jsii.Number(5),
+		MaxExecutionEnvironments: jsii.Number(25),
+	},
+})
+```
+
+#### VersionOptions (Capacity Provider Related Fields)
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| minExecutionEnvironments | number | No | Minimum execution environments to maintain for this version. |
+| maxExecutionEnvironments | number | No | Maximum execution environments allowed for this version. |
+
+### Security and Encryption
+
+Capacity providers support encryption using AWS KMS keys:
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+kmsKey := kms.NewKey(this, jsii.String("MyKey"))
+
+capacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProvider"), &CapacityProviderProps{
+	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+	KmsKey: kmsKey,
+})
+```
+
+### Capacity Provider Configuration Reference
+
+#### CapacityProviderProps
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| capacityProviderName | string | No | Name of the capacity provider. Must be unique within the AWS account and region. |
+| securityGroups | ISecurityGroup[] | Yes | Security groups to associate with EC2 instances. Up to 5 allowed. |
+| subnets | ISubnet[] | Yes | Subnets where the capacity provider can launch EC2 instances. 1-16 subnets supported. |
+| operatorRole | IRole | No | IAM role for Lambda to manage the capacity provider. Uses AWS Managed Policy AWSLambdaManagedEC2ResourceOperator by default. |
+| architectures | Architecture[] | No | Instruction set architecture for compute instances. |
+| instanceTypeFilter | InstanceTypeFilter | No | Filter for allowed or excluded instance types. |
+| maxVCpuCount | number | No | Maximum number of EC2 instances for scaling. |
+| scalingOptions | ScalingOptions | No | Scaling configuration including policies. |
+| kmsKey | IKey | No | KMS key for encrypting capacity provider data. |
+
 ## Lambda Insights
 
 Lambda functions can be configured to use CloudWatch [Lambda Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights.html)

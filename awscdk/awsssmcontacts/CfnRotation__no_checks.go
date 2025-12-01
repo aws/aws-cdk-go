@@ -80,6 +80,10 @@ func validateCfnRotation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRotation_IsCfnRotationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRotation_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -517,6 +517,25 @@ func CfnFunctionDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFunctionDefinitionVersion.
+func CfnFunctionDefinitionVersion_IsCfnFunctionDefinitionVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFunctionDefinitionVersion_IsCfnFunctionDefinitionVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinitionVersion",
+		"isCfnFunctionDefinitionVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFunctionDefinitionVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

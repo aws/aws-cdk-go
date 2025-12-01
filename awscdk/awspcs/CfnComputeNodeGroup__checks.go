@@ -164,6 +164,14 @@ func validateCfnComputeNodeGroup_ArnForComputeNodeGroupParameters(resource inter
 	return nil
 }
 
+func validateCfnComputeNodeGroup_IsCfnComputeNodeGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnComputeNodeGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

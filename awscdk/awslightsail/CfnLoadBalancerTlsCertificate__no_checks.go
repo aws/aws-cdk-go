@@ -76,6 +76,10 @@ func validateCfnLoadBalancerTlsCertificate_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnLoadBalancerTlsCertificate_IsCfnLoadBalancerTlsCertificateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLoadBalancerTlsCertificate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

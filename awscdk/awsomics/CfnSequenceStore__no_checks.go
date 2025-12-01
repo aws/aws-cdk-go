@@ -88,6 +88,10 @@ func validateCfnSequenceStore_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSequenceStore_IsCfnSequenceStoreParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSequenceStore_IsConstructParameters(x interface{}) error {
 	return nil
 }

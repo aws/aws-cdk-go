@@ -80,6 +80,10 @@ func validateCfnAgent_FromAgentIdParameters(scope constructs.Construct, id *stri
 	return nil
 }
 
+func validateCfnAgent_IsCfnAgentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAgent_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

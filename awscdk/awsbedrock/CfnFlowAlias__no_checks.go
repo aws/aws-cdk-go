@@ -76,6 +76,10 @@ func validateCfnFlowAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFlowAlias_IsCfnFlowAliasParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFlowAlias_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

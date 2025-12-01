@@ -516,6 +516,25 @@ func CfnLaunchNotificationConstraint_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLaunchNotificationConstraint.
+func CfnLaunchNotificationConstraint_IsCfnLaunchNotificationConstraint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLaunchNotificationConstraint_IsCfnLaunchNotificationConstraintParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.CfnLaunchNotificationConstraint",
+		"isCfnLaunchNotificationConstraint",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLaunchNotificationConstraint_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

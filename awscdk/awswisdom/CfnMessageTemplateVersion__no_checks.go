@@ -76,6 +76,10 @@ func validateCfnMessageTemplateVersion_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnMessageTemplateVersion_IsCfnMessageTemplateVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMessageTemplateVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

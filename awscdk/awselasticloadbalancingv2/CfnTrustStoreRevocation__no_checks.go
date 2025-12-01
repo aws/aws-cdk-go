@@ -76,6 +76,10 @@ func validateCfnTrustStoreRevocation_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnTrustStoreRevocation_IsCfnTrustStoreRevocationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrustStoreRevocation_IsConstructParameters(x interface{}) error {
 	return nil
 }

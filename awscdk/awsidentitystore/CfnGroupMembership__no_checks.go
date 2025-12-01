@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnGroupMembership) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnGroupMembership_ArnForGroupMembershipParameters(resource interfacesawsidentitystore.IGroupMembershipRef) error {
+	return nil
+}
+
 func validateCfnGroupMembership_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnGroupMembership_IsCfnGroupMembershipParameters(x interface{}) error {
 	return nil
 }
 

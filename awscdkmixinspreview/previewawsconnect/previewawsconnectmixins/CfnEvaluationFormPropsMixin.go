@@ -61,6 +61,34 @@ import (
 //   							NotApplicableEnabled: jsii.Boolean(false),
 //   							QuestionType: jsii.String("questionType"),
 //   							QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
+//   								MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
+//   									Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   											SourceType: jsii.String("sourceType"),
+//   										},
+//   										DefaultOptionRefIds: []*string{
+//   											jsii.String("defaultOptionRefIds"),
+//   										},
+//   										Options: []interface{}{
+//   											&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
+//   												RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
+//   													Category: jsii.String("category"),
+//   													Condition: jsii.String("condition"),
+//   													OptionRefIds: []*string{
+//   														jsii.String("optionRefIds"),
+//   													},
+//   												},
+//   											},
+//   										},
+//   									},
+//   									DisplayAs: jsii.String("displayAs"),
+//   									Options: []interface{}{
+//   										&EvaluationFormMultiSelectQuestionOptionProperty{
+//   											RefId: jsii.String("refId"),
+//   											Text: jsii.String("text"),
+//   										},
+//   									},
+//   								},
 //   								Numeric: &EvaluationFormNumericQuestionPropertiesProperty{
 //   									Automation: &EvaluationFormNumericQuestionAutomationProperty{
 //   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
@@ -134,6 +162,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	LanguageConfiguration: &EvaluationFormLanguageConfigurationProperty{
+//   		FormLanguage: jsii.String("formLanguage"),
+//   	},
 //   	ScoringStrategy: &ScoringStrategyProperty{
 //   		Mode: jsii.String("mode"),
 //   		Status: jsii.String("status"),
@@ -144,6 +175,9 @@ import (
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
+//   	},
+//   	TargetConfiguration: &EvaluationFormTargetConfigurationProperty{
+//   		ContactInteractionType: jsii.String("contactInteractionType"),
 //   	},
 //   	Title: jsii.String("title"),
 //   }, &CfnPropertyMixinOptions{

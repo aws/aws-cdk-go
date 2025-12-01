@@ -12,6 +12,10 @@ package previewawslambdamixins
 //   	CodeSha256: jsii.String("codeSha256"),
 //   	Description: jsii.String("description"),
 //   	FunctionName: jsii.String("functionName"),
+//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
+//   	},
 //   	ProvisionedConcurrencyConfig: &ProvisionedConcurrencyConfigurationProperty{
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),
 //   	},
@@ -46,6 +50,10 @@ type CfnVersionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionname
 	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionscalingconfig
+	//
+	FunctionScalingConfig interface{} `field:"optional" json:"functionScalingConfig" yaml:"functionScalingConfig"`
 	// Specifies a provisioned concurrency configuration for a function's version.
 	//
 	// Updates are not supported for this property.

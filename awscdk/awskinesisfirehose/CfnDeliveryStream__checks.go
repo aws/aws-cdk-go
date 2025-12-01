@@ -196,6 +196,14 @@ func validateCfnDeliveryStream_FromDeliveryStreamNameParameters(scope constructs
 	return nil
 }
 
+func validateCfnDeliveryStream_IsCfnDeliveryStreamParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDeliveryStream_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -72,6 +72,10 @@ func validateCfnLocationSMB_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocationSMB_IsCfnLocationSMBParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocationSMB_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -171,6 +171,14 @@ func validateCfnVPCBlockPublicAccessOptions_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnVPCBlockPublicAccessOptions_IsCfnVPCBlockPublicAccessOptionsParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVPCBlockPublicAccessOptions_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

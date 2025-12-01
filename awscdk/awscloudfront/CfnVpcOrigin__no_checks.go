@@ -80,6 +80,10 @@ func validateCfnVpcOrigin_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVpcOrigin_IsCfnVpcOriginParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVpcOrigin_IsConstructParameters(x interface{}) error {
 	return nil
 }

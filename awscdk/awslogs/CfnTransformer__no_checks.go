@@ -76,6 +76,10 @@ func validateCfnTransformer_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTransformer_IsCfnTransformerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransformer_IsConstructParameters(x interface{}) error {
 	return nil
 }

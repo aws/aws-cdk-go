@@ -76,6 +76,10 @@ func validateCfnReplicationConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnReplicationConfig_IsCfnReplicationConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnReplicationConfig_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

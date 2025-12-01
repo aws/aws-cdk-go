@@ -72,6 +72,10 @@ func validateCfnLaunchNotificationConstraint_IsCfnElementParameters(x interface{
 	return nil
 }
 
+func validateCfnLaunchNotificationConstraint_IsCfnLaunchNotificationConstraintParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLaunchNotificationConstraint_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

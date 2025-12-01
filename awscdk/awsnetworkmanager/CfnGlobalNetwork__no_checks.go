@@ -76,6 +76,10 @@ func validateCfnGlobalNetwork_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGlobalNetwork_IsCfnGlobalNetworkParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGlobalNetwork_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

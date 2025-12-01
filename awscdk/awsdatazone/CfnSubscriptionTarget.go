@@ -728,6 +728,25 @@ func CfnSubscriptionTarget_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSubscriptionTarget.
+func CfnSubscriptionTarget_IsCfnSubscriptionTarget(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSubscriptionTarget_IsCfnSubscriptionTargetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnSubscriptionTarget",
+		"isCfnSubscriptionTarget",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -556,6 +556,25 @@ func CfnPartition_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPartition.
+func CfnPartition_IsCfnPartition(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPartition_IsCfnPartitionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnPartition",
+		"isCfnPartition",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPartition_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

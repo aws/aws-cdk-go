@@ -431,6 +431,25 @@ func CfnNotificationHub_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNotificationHub.
+func CfnNotificationHub_IsCfnNotificationHub(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNotificationHub_IsCfnNotificationHubParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notifications.CfnNotificationHub",
+		"isCfnNotificationHub",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNotificationHub_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

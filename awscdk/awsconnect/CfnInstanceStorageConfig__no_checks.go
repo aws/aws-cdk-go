@@ -72,6 +72,10 @@ func validateCfnInstanceStorageConfig_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnInstanceStorageConfig_IsCfnInstanceStorageConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInstanceStorageConfig_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

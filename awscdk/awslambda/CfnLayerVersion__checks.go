@@ -172,6 +172,14 @@ func validateCfnLayerVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLayerVersion_IsCfnLayerVersionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLayerVersion_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

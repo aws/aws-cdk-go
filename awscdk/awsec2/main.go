@@ -8239,6 +8239,14 @@ func init() {
 		"aws-cdk-lib.aws_ec2.GenericWindowsImageProps",
 		reflect.TypeOf((*GenericWindowsImageProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.HttpTokens",
+		reflect.TypeOf((*HttpTokens)(nil)).Elem(),
+		map[string]interface{}{
+			"OPTIONAL": HttpTokens_OPTIONAL,
+			"REQUIRED": HttpTokens_REQUIRED,
+		},
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler",
 		reflect.TypeOf((*IClientVpnConnectionHandler)(nil)).Elem(),

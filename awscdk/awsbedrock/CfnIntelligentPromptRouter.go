@@ -617,6 +617,25 @@ func CfnIntelligentPromptRouter_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIntelligentPromptRouter.
+func CfnIntelligentPromptRouter_IsCfnIntelligentPromptRouter(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIntelligentPromptRouter_IsCfnIntelligentPromptRouterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnIntelligentPromptRouter",
+		"isCfnIntelligentPromptRouter",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIntelligentPromptRouter_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

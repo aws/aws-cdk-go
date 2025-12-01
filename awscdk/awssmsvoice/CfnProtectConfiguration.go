@@ -576,6 +576,25 @@ func CfnProtectConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProtectConfiguration.
+func CfnProtectConfiguration_IsCfnProtectConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProtectConfiguration_IsCfnProtectConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnProtectConfiguration",
+		"isCfnProtectConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProtectConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

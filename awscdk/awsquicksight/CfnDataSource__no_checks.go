@@ -72,6 +72,10 @@ func validateCfnDataSource_ArnForDataSourceParameters(resource interfacesawsquic
 	return nil
 }
 
+func validateCfnDataSource_IsCfnDataSourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataSource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAutomationRuleV2) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnAutomationRuleV2_IsCfnAutomationRuleV2Parameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAutomationRuleV2_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

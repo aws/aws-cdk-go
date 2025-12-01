@@ -641,6 +641,25 @@ func CfnTrustAnchor_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTrustAnchor.
+func CfnTrustAnchor_IsCfnTrustAnchor(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTrustAnchor_IsCfnTrustAnchorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rolesanywhere.CfnTrustAnchor",
+		"isCfnTrustAnchor",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

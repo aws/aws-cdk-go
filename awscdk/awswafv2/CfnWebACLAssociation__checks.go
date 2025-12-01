@@ -171,6 +171,14 @@ func validateCfnWebACLAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWebACLAssociation_IsCfnWebACLAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnWebACLAssociation_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

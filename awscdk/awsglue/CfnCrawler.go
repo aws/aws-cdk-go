@@ -835,6 +835,25 @@ func CfnCrawler_FromCrawlerName(scope constructs.Construct, id *string, crawlerN
 	return returns
 }
 
+// Checks whether the given object is a CfnCrawler.
+func CfnCrawler_IsCfnCrawler(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCrawler_IsCfnCrawlerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnCrawler",
+		"isCfnCrawler",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

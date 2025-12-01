@@ -196,6 +196,14 @@ func validateCfnVerifiedAccessInstance_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnVerifiedAccessInstance_IsCfnVerifiedAccessInstanceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVerifiedAccessInstance_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

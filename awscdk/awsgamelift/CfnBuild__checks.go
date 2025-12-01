@@ -196,6 +196,14 @@ func validateCfnBuild_FromBuildIdParameters(scope constructs.Construct, id *stri
 	return nil
 }
 
+func validateCfnBuild_IsCfnBuildParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBuild_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

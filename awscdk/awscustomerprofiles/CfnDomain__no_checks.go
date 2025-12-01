@@ -76,6 +76,10 @@ func validateCfnDomain_FromDomainNameParameters(scope constructs.Construct, id *
 	return nil
 }
 
+func validateCfnDomain_IsCfnDomainParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDomain_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

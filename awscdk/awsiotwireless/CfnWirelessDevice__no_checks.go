@@ -88,6 +88,10 @@ func validateCfnWirelessDevice_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWirelessDevice_IsCfnWirelessDeviceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWirelessDevice_IsConstructParameters(x interface{}) error {
 	return nil
 }

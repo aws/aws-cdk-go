@@ -72,6 +72,10 @@ func validateCfnPredefinedAttribute_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnPredefinedAttribute_IsCfnPredefinedAttributeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPredefinedAttribute_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

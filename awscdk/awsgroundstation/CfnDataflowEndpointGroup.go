@@ -598,6 +598,25 @@ func CfnDataflowEndpointGroup_FromDataflowEndpointGroupId(scope constructs.Const
 	return returns
 }
 
+// Checks whether the given object is a CfnDataflowEndpointGroup.
+func CfnDataflowEndpointGroup_IsCfnDataflowEndpointGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDataflowEndpointGroup_IsCfnDataflowEndpointGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_groundstation.CfnDataflowEndpointGroup",
+		"isCfnDataflowEndpointGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

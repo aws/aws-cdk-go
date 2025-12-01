@@ -72,6 +72,10 @@ func validateCfnAccelerator_ArnForAcceleratorParameters(resource interfacesawsgl
 	return nil
 }
 
+func validateCfnAccelerator_IsCfnAcceleratorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccelerator_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

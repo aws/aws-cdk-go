@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnGeoMatchSet) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnGeoMatchSet_ArnForGeoMatchSetParameters(resource interfacesawswafregional.IGeoMatchSetRef) error {
+	return nil
+}
+
 func validateCfnGeoMatchSet_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnGeoMatchSet_IsCfnGeoMatchSetParameters(x interface{}) error {
 	return nil
 }
 

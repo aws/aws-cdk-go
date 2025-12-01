@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,7 +156,23 @@ func (c *jsiiProxy_CfnHostedZone) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnHostedZone_ArnForHostedZoneParameters(resource interfacesawsroute53.IHostedZoneRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnHostedZone_IsCfnElementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnHostedZone_IsCfnHostedZoneParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
 	}

@@ -196,6 +196,14 @@ func validateCfnVPNGateway_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVPNGateway_IsCfnVPNGatewayParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVPNGateway_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

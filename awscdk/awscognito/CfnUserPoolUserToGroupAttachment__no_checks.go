@@ -76,6 +76,10 @@ func validateCfnUserPoolUserToGroupAttachment_IsCfnResourceParameters(x interfac
 	return nil
 }
 
+func validateCfnUserPoolUserToGroupAttachment_IsCfnUserPoolUserToGroupAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUserPoolUserToGroupAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

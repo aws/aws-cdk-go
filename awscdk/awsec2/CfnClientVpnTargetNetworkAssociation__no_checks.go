@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateValidatePropert
 	return nil
 }
 
+func validateCfnClientVpnTargetNetworkAssociation_IsCfnClientVpnTargetNetworkAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClientVpnTargetNetworkAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

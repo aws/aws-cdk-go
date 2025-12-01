@@ -643,6 +643,25 @@ func CfnLambdaHook_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLambdaHook.
+func CfnLambdaHook_IsCfnLambdaHook(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLambdaHook_IsCfnLambdaHookParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnLambdaHook",
+		"isCfnLambdaHook",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLambdaHook_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

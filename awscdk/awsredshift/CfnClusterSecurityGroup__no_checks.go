@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnClusterSecurityGroup) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnClusterSecurityGroup_IsCfnClusterSecurityGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClusterSecurityGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

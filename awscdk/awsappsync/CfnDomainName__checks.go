@@ -196,6 +196,14 @@ func validateCfnDomainName_FromDomainNameArnParameters(scope constructs.Construc
 	return nil
 }
 
+func validateCfnDomainName_IsCfnDomainNameParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDomainName_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

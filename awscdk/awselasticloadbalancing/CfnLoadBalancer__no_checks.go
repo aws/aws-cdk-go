@@ -72,6 +72,10 @@ func validateCfnLoadBalancer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLoadBalancer_IsCfnLoadBalancerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLoadBalancer_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -84,6 +84,10 @@ func validateCfnVolume_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVolume_IsCfnVolumeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVolume_IsConstructParameters(x interface{}) error {
 	return nil
 }

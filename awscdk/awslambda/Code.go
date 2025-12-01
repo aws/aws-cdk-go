@@ -14,26 +14,25 @@ import (
 // Represents the Lambda Handler Code.
 //
 // Example:
-//   // Create or reference an existing L1 CfnApplicationInferenceProfile
-//   cfnProfile := awscdk.Aws_bedrock.NewCfnApplicationInferenceProfile(this, jsii.String("CfnProfile"), &CfnApplicationInferenceProfileProps{
-//   	InferenceProfileName: jsii.String("my-cfn-profile"),
-//   	ModelSource: &InferenceProfileModelSourceProperty{
-//   		CopyFrom: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0().InvokableArn,
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &SigningProfileProps{
+//   	Platform: signer.Platform_AWS_LAMBDA_SHA384_ECDSA(),
+//   })
+//
+//   codeSigningConfig := lambda.NewCodeSigningConfig(this, jsii.String("CodeSigningConfig"), &CodeSigningConfigProps{
+//   	SigningProfiles: []ISigningProfile{
+//   		signingProfile,
 //   	},
-//   	Description: jsii.String("Profile created via L1 construct"),
 //   })
 //
-//   // Import the L1 construct as an L2 ApplicationInferenceProfile
-//   importedFromCfn := bedrock.ApplicationInferenceProfile_FromCfnApplicationInferenceProfile(cfnProfile)
-//
-//   // Grant permissions to use the imported profile
-//   lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_11(),
+//   lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
+//   	CodeSigningConfig: CodeSigningConfig,
+//   	Runtime: lambda.Runtime_NODEJS_18_X(),
 //   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("def handler(event, context): return \"Hello\"")),
+//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
-//
-//   importedFromCfn.GrantProfileUsage(lambdaFunction)
 //
 type Code interface {
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.

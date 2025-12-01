@@ -72,6 +72,10 @@ func validateCfnAccessEntry_ArnForAccessEntryParameters(resource interfacesawsek
 	return nil
 }
 
+func validateCfnAccessEntry_IsCfnAccessEntryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessEntry_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

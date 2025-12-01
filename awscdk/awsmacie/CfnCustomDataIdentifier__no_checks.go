@@ -72,6 +72,10 @@ func validateCfnCustomDataIdentifier_ArnForCustomDataIdentifierParameters(resour
 	return nil
 }
 
+func validateCfnCustomDataIdentifier_IsCfnCustomDataIdentifierParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomDataIdentifier_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

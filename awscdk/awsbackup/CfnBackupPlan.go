@@ -575,6 +575,25 @@ func CfnBackupPlan_FromBackupPlanId(scope constructs.Construct, id *string, back
 	return returns
 }
 
+// Checks whether the given object is a CfnBackupPlan.
+func CfnBackupPlan_IsCfnBackupPlan(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBackupPlan_IsCfnBackupPlanParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnBackupPlan",
+		"isCfnBackupPlan",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -84,6 +84,10 @@ func validateCfnVPCPeeringConnection_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnVPCPeeringConnection_IsCfnVPCPeeringConnectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPCPeeringConnection_IsConstructParameters(x interface{}) error {
 	return nil
 }

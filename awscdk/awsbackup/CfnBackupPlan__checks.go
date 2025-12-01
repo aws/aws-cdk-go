@@ -196,6 +196,14 @@ func validateCfnBackupPlan_FromBackupPlanIdParameters(scope constructs.Construct
 	return nil
 }
 
+func validateCfnBackupPlan_IsCfnBackupPlanParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBackupPlan_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

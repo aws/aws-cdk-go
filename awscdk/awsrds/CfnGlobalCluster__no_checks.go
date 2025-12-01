@@ -72,6 +72,10 @@ func validateCfnGlobalCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGlobalCluster_IsCfnGlobalClusterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGlobalCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

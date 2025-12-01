@@ -76,6 +76,10 @@ func validateCfnVolumeAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVolumeAttachment_IsCfnVolumeAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVolumeAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -499,6 +499,25 @@ func CfnPolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPolicy.
+func CfnPolicy_IsCfnPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPolicy_IsCfnPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicy",
+		"isCfnPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

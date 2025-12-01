@@ -76,6 +76,10 @@ func validateCfnRouteServerPropagation_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnRouteServerPropagation_IsCfnRouteServerPropagationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRouteServerPropagation_IsConstructParameters(x interface{}) error {
 	return nil
 }

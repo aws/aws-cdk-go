@@ -76,6 +76,10 @@ func validateCfnSecretTargetAttachment_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnSecretTargetAttachment_IsCfnSecretTargetAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSecretTargetAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

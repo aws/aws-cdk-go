@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnCustomActionType) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnCustomActionType_IsCfnCustomActionTypeParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCustomActionType_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -22,9 +22,12 @@ type CfnRulePropsMixin_RetentionPeriodProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html#cfn-rbin-rule-retentionperiod-retentionperiodunit
 	//
 	RetentionPeriodUnit *string `field:"optional" json:"retentionPeriodUnit" yaml:"retentionPeriodUnit"`
-	// The period value for which the retention rule is to retain resources.
+	// The period value for which the retention rule is to retain resources, measured in days.
 	//
-	// The period is measured using the unit specified for *RetentionPeriodUnit* .
+	// The supported retention periods are:
+	//
+	// - EBS volumes: 1 - 7 days
+	// - EBS snapshots and EBS-backed AMIs: 1 - 365 days.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html#cfn-rbin-rule-retentionperiod-retentionperiodvalue
 	//
 	RetentionPeriodValue *float64 `field:"optional" json:"retentionPeriodValue" yaml:"retentionPeriodValue"`

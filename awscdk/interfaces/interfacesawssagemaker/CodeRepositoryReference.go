@@ -10,10 +10,13 @@ package interfacesawssagemaker
 //
 //   codeRepositoryReference := &CodeRepositoryReference{
 //   	CodeRepositoryId: jsii.String("codeRepositoryId"),
+//   	CodeRepositoryName: jsii.String("codeRepositoryName"),
 //   }
 //
 type CodeRepositoryReference struct {
 	// The Id of the CodeRepository resource.
 	CodeRepositoryId *string `field:"required" json:"codeRepositoryId" yaml:"codeRepositoryId"`
+	// The CodeRepositoryName of the CodeRepository resource.
+	CodeRepositoryName *string `field:"required" json:"codeRepositoryName" yaml:"codeRepositoryName"`
 }
 

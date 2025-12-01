@@ -76,6 +76,10 @@ func validateCfnWebhook_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWebhook_IsCfnWebhookParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWebhook_IsConstructParameters(x interface{}) error {
 	return nil
 }

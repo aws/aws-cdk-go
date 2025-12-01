@@ -196,6 +196,14 @@ func validateCfnApiDestination_FromApiDestinationNameParameters(scope constructs
 	return nil
 }
 
+func validateCfnApiDestination_IsCfnApiDestinationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApiDestination_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

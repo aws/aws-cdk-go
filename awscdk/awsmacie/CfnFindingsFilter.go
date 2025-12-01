@@ -621,6 +621,25 @@ func CfnFindingsFilter_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFindingsFilter.
+func CfnFindingsFilter_IsCfnFindingsFilter(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFindingsFilter_IsCfnFindingsFilterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_macie.CfnFindingsFilter",
+		"isCfnFindingsFilter",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFindingsFilter_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

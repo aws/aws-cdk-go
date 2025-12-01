@@ -572,6 +572,25 @@ func CfnScalingPlan_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnScalingPlan.
+func CfnScalingPlan_IsCfnScalingPlan(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnScalingPlan_IsCfnScalingPlanParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
+		"isCfnScalingPlan",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

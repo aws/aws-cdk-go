@@ -163,6 +163,14 @@ func validateCfnRecipe_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRecipe_IsCfnRecipeParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRecipe_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

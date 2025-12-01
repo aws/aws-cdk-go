@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::EC2::VPCEncryptionControl.
+// Describes the configuration and state of VPC encryption controls.
+//
+// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,35 +47,59 @@ type CfnVPCEncryptionControl interface {
 	interfacesawsec2.IVPCEncryptionControlRef
 	awscdk.ITaggableV2
 	AttrResourceExclusions() awscdk.IResolvable
+	// Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.
 	AttrResourceExclusionsEgressOnlyInternetGateway() awscdk.IResolvable
+	// The current state of the exclusion configuration.
 	AttrResourceExclusionsEgressOnlyInternetGatewayState() *string
+	// A message providing additional information about the exclusion state.
 	AttrResourceExclusionsEgressOnlyInternetGatewayStateMessage() *string
+	// Specifies whether to exclude Elastic File System traffic from encryption enforcement.
 	AttrResourceExclusionsElasticFileSystem() awscdk.IResolvable
+	// The current state of the exclusion configuration.
 	AttrResourceExclusionsElasticFileSystemState() *string
+	// A message providing additional information about the exclusion state.
 	AttrResourceExclusionsElasticFileSystemStateMessage() *string
+	// Specifies whether to exclude internet gateway traffic from encryption enforcement.
 	AttrResourceExclusionsInternetGateway() awscdk.IResolvable
+	// The current state of the exclusion configuration.
 	AttrResourceExclusionsInternetGatewayState() *string
+	// A message providing additional information about the exclusion state.
 	AttrResourceExclusionsInternetGatewayStateMessage() *string
+	// Specifies whether to exclude Lambda function traffic from encryption enforcement.
 	AttrResourceExclusionsLambda() awscdk.IResolvable
+	// The current state of the exclusion configuration.
 	AttrResourceExclusionsLambdaState() *string
+	// A message providing additional information about the exclusion state.
 	AttrResourceExclusionsLambdaStateMessage() *string
+	// Specifies whether to exclude NAT gateway traffic from encryption enforcement.
 	AttrResourceExclusionsNatGateway() awscdk.IResolvable
+	// The current state of the exclusion configuration.
 	AttrResourceExclusionsNatGatewayState() *string
+	// A message providing additional information about the exclusion state.
 	AttrResourceExclusionsNatGatewayStateMessage() *string
+	// Specifies whether to exclude virtual private gateway traffic from encryption enforcement.
 	AttrResourceExclusionsVirtualPrivateGateway() awscdk.IResolvable
+	// The current state of the exclusion configuration.
 	AttrResourceExclusionsVirtualPrivateGatewayState() *string
+	// A message providing additional information about the exclusion state.
 	AttrResourceExclusionsVirtualPrivateGatewayStateMessage() *string
+	// Specifies whether to exclude VPC Lattice traffic from encryption enforcement.
 	AttrResourceExclusionsVpcLattice() awscdk.IResolvable
+	// The current state of the exclusion configuration.
 	AttrResourceExclusionsVpcLatticeState() *string
+	// A message providing additional information about the exclusion state.
 	AttrResourceExclusionsVpcLatticeStateMessage() *string
+	// Specifies whether to exclude VPC peering connection traffic from encryption enforcement.
 	AttrResourceExclusionsVpcPeering() awscdk.IResolvable
+	// The current state of the exclusion configuration.
 	AttrResourceExclusionsVpcPeeringState() *string
+	// A message providing additional information about the exclusion state.
 	AttrResourceExclusionsVpcPeeringStateMessage() *string
-	// The current state of the VPC encryption control.
+	// The current state of the VPC Encryption Control configuration.
 	AttrState() *string
-	// Provides additional context on the state of the VPC encryption control.
+	// A message providing additional information about the encryption control state.
 	AttrStateMessage() *string
-	// The VPC encryption control resource id.
+	// The ID of the VPC Encryption Control configuration.
 	AttrVpcEncryptionControlId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -86,17 +112,17 @@ type CfnVPCEncryptionControl interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Used to enable or disable EIGW exclusion.
+	// Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.
 	EgressOnlyInternetGatewayExclusionInput() *string
 	SetEgressOnlyInternetGatewayExclusionInput(val *string)
-	// Used to enable or disable EFS exclusion.
+	// Specifies whether to exclude Elastic File System traffic from encryption enforcement.
 	ElasticFileSystemExclusionInput() *string
 	SetElasticFileSystemExclusionInput(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// Used to enable or disable IGW exclusion.
+	// Specifies whether to exclude internet gateway traffic from encryption enforcement.
 	InternetGatewayExclusionInput() *string
 	SetInternetGatewayExclusionInput(val *string)
-	// Used to enable or disable Lambda exclusion.
+	// Specifies whether to exclude Lambda function traffic from encryption enforcement.
 	LambdaExclusionInput() *string
 	SetLambdaExclusionInput(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -109,10 +135,10 @@ type CfnVPCEncryptionControl interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The VPC encryption control mode, either monitor or enforce.
+	// The encryption mode for the VPC Encryption Control configuration.
 	Mode() *string
 	SetMode(val *string)
-	// Used to enable or disable Nat gateway exclusion.
+	// Specifies whether to exclude NAT gateway traffic from encryption enforcement.
 	NatGatewayExclusionInput() *string
 	SetNatGatewayExclusionInput(val *string)
 	// The tree node.
@@ -126,7 +152,7 @@ type CfnVPCEncryptionControl interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to assign to the VPC encryption control.
+	// The tags assigned to the VPC Encryption Control configuration.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -142,18 +168,18 @@ type CfnVPCEncryptionControl interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Used to enable or disable VGW exclusion.
+	// Specifies whether to exclude virtual private gateway traffic from encryption enforcement.
 	VirtualPrivateGatewayExclusionInput() *string
 	SetVirtualPrivateGatewayExclusionInput(val *string)
 	// A reference to a VPCEncryptionControl resource.
 	VpcEncryptionControlRef() *interfacesawsec2.VPCEncryptionControlReference
-	// The VPC on which this VPC encryption control is applied.
+	// The ID of the VPC for which to create the encryption control configuration.
 	VpcId() *string
 	SetVpcId(val *string)
-	// Used to enable or disable Vpc Lattice exclusion.
+	// Specifies whether to exclude VPC Lattice traffic from encryption enforcement.
 	VpcLatticeExclusionInput() *string
 	SetVpcLatticeExclusionInput(val *string)
-	// Used to enable or disable VPC peering exclusion.
+	// Specifies whether to exclude VPC peering connection traffic from encryption enforcement.
 	VpcPeeringExclusionInput() *string
 	SetVpcPeeringExclusionInput(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -968,6 +994,25 @@ func CfnVPCEncryptionControl_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVPCEncryptionControl",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnVPCEncryptionControl.
+func CfnVPCEncryptionControl_IsCfnVPCEncryptionControl(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVPCEncryptionControl_IsCfnVPCEncryptionControlParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPCEncryptionControl",
+		"isCfnVPCEncryptionControl",
 		[]interface{}{x},
 		&returns,
 	)

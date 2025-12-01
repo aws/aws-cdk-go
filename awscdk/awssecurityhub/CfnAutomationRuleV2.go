@@ -667,6 +667,25 @@ func (j *jsiiProxy_CfnAutomationRuleV2)SetTags(val *map[string]*string) {
 	)
 }
 
+// Checks whether the given object is a CfnAutomationRuleV2.
+func CfnAutomationRuleV2_IsCfnAutomationRuleV2(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAutomationRuleV2_IsCfnAutomationRuleV2Parameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnAutomationRuleV2",
+		"isCfnAutomationRuleV2",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

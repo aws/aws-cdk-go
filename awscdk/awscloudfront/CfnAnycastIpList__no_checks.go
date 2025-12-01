@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnAnycastIpList) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnAnycastIpList_ArnForAnycastIpListParameters(resource interfacesawscloudfront.IAnycastIpListRef) error {
+	return nil
+}
+
+func validateCfnAnycastIpList_IsCfnAnycastIpListParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAnycastIpList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

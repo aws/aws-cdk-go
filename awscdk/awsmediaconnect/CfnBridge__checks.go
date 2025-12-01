@@ -164,6 +164,14 @@ func validateCfnBridge_ArnForBridgeParameters(resource interfacesawsmediaconnect
 	return nil
 }
 
+func validateCfnBridge_IsCfnBridgeParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBridge_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

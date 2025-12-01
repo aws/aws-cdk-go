@@ -80,6 +80,10 @@ func validateCfnVirtualRouter_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVirtualRouter_IsCfnVirtualRouterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVirtualRouter_IsConstructParameters(x interface{}) error {
 	return nil
 }

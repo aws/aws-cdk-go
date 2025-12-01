@@ -196,6 +196,14 @@ func validateCfnDeviceProfile_FromDeviceProfileIdParameters(scope constructs.Con
 	return nil
 }
 
+func validateCfnDeviceProfile_IsCfnDeviceProfileParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDeviceProfile_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

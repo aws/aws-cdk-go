@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateValidateProperti
 	return nil
 }
 
+func validateCfnConfigurationSetEventDestination_IsCfnConfigurationSetEventDestinationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfigurationSetEventDestination_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

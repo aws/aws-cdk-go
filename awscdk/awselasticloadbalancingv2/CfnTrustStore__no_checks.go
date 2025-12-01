@@ -80,6 +80,10 @@ func validateCfnTrustStore_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTrustStore_IsCfnTrustStoreParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrustStore_IsConstructParameters(x interface{}) error {
 	return nil
 }

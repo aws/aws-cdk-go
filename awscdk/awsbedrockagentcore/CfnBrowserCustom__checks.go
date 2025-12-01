@@ -164,6 +164,22 @@ func validateCfnBrowserCustom_ArnForBrowserCustomParameters(resource interfacesa
 	return nil
 }
 
+func validateCfnBrowserCustom_FromBrowserCustomArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBrowserCustom_FromBrowserIdParameters(scope constructs.Construct, id *string, browserId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -175,6 +191,14 @@ func validateCfnBrowserCustom_FromBrowserIdParameters(scope constructs.Construct
 
 	if browserId == nil {
 		return fmt.Errorf("parameter browserId is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnBrowserCustom_IsCfnBrowserCustomParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

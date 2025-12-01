@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomActionType) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnCustomActionType_IsCfnCustomActionTypeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomActionType_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

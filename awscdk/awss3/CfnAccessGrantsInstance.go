@@ -472,6 +472,25 @@ func CfnAccessGrantsInstance_ArnForAccessGrantsInstance(resource interfacesawss3
 	return returns
 }
 
+// Checks whether the given object is a CfnAccessGrantsInstance.
+func CfnAccessGrantsInstance_IsCfnAccessGrantsInstance(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAccessGrantsInstance_IsCfnAccessGrantsInstanceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.CfnAccessGrantsInstance",
+		"isCfnAccessGrantsInstance",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

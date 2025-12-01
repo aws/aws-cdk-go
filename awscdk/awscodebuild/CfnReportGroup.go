@@ -583,6 +583,25 @@ func CfnReportGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnReportGroup.
+func CfnReportGroup_IsCfnReportGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnReportGroup_IsCfnReportGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.CfnReportGroup",
+		"isCfnReportGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnReportGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

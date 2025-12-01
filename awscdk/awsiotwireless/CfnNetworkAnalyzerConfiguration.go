@@ -614,6 +614,25 @@ func CfnNetworkAnalyzerConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNetworkAnalyzerConfiguration.
+func CfnNetworkAnalyzerConfiguration_IsCfnNetworkAnalyzerConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkAnalyzerConfiguration_IsCfnNetworkAnalyzerConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnNetworkAnalyzerConfiguration",
+		"isCfnNetworkAnalyzerConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNetworkAnalyzerConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -529,6 +529,25 @@ func CfnConnector_FromConnectorLabel(scope constructs.Construct, id *string, con
 	return returns
 }
 
+// Checks whether the given object is a CfnConnector.
+func CfnConnector_IsCfnConnector(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConnector_IsCfnConnectorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appflow.CfnConnector",
+		"isCfnConnector",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

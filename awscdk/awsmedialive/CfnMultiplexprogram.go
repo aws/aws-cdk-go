@@ -578,6 +578,25 @@ func CfnMultiplexprogram_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMultiplexprogram.
+func CfnMultiplexprogram_IsCfnMultiplexprogram(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMultiplexprogram_IsCfnMultiplexprogramParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnMultiplexprogram",
+		"isCfnMultiplexprogram",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMultiplexprogram_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

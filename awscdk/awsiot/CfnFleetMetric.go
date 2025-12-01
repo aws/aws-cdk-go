@@ -684,6 +684,25 @@ func CfnFleetMetric_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFleetMetric.
+func CfnFleetMetric_IsCfnFleetMetric(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFleetMetric_IsCfnFleetMetricParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnFleetMetric",
+		"isCfnFleetMetric",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFleetMetric_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

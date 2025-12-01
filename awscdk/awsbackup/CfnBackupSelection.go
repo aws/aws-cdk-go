@@ -466,6 +466,25 @@ func (j *jsiiProxy_CfnBackupSelection)SetBackupSelection(val interface{}) {
 	)
 }
 
+// Checks whether the given object is a CfnBackupSelection.
+func CfnBackupSelection_IsCfnBackupSelection(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBackupSelection_IsCfnBackupSelectionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnBackupSelection",
+		"isCfnBackupSelection",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

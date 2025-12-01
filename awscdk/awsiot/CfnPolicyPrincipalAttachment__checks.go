@@ -163,6 +163,14 @@ func validateCfnPolicyPrincipalAttachment_IsCfnElementParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnPolicyPrincipalAttachment_IsCfnPolicyPrincipalAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnPolicyPrincipalAttachment_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

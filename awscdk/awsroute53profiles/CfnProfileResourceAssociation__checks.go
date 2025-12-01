@@ -163,6 +163,14 @@ func validateCfnProfileResourceAssociation_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnProfileResourceAssociation_IsCfnProfileResourceAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnProfileResourceAssociation_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

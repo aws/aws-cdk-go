@@ -80,6 +80,10 @@ func validateCfnDeliveryDestination_FromDeliveryDestinationNameParameters(scope 
 	return nil
 }
 
+func validateCfnDeliveryDestination_IsCfnDeliveryDestinationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDeliveryDestination_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

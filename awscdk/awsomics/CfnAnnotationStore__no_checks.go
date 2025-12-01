@@ -76,6 +76,10 @@ func validateCfnAnnotationStore_FromAnnotationStoreNameParameters(scope construc
 	return nil
 }
 
+func validateCfnAnnotationStore_IsCfnAnnotationStoreParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAnnotationStore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

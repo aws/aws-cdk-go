@@ -480,6 +480,26 @@ func (j *jsiiProxy_CfnApplicationOutputV2)SetOutput(val interface{}) {
 	)
 }
 
+// Checks whether the given object is a CfnApplicationOutputV2.
+// Deprecated: use `aws-kinesisanalyticsv2` instead.
+func CfnApplicationOutputV2_IsCfnApplicationOutputV2(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnApplicationOutputV2_IsCfnApplicationOutputV2Parameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationOutputV2",
+		"isCfnApplicationOutputV2",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

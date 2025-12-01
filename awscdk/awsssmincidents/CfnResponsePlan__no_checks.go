@@ -80,6 +80,10 @@ func validateCfnResponsePlan_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnResponsePlan_IsCfnResponsePlanParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResponsePlan_IsConstructParameters(x interface{}) error {
 	return nil
 }

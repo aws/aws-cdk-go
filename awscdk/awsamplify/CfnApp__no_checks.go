@@ -72,6 +72,10 @@ func validateCfnApp_ArnForAppParameters(resource interfacesawsamplify.IAppRef) e
 	return nil
 }
 
+func validateCfnApp_IsCfnAppParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApp_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnDBProxyEndpoint_ArnForDBProxyEndpointParameters(resource interfa
 	return nil
 }
 
+func validateCfnDBProxyEndpoint_IsCfnDBProxyEndpointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDBProxyEndpoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -212,6 +212,14 @@ func validateCfnSourceLocation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSourceLocation_IsCfnSourceLocationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSourceLocation_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

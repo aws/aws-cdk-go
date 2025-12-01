@@ -76,6 +76,10 @@ func validateCfnRouteResponse_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRouteResponse_IsCfnRouteResponseParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRouteResponse_IsConstructParameters(x interface{}) error {
 	return nil
 }

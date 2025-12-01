@@ -72,6 +72,10 @@ func validateCfnFlowVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFlowVersion_IsCfnFlowVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFlowVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

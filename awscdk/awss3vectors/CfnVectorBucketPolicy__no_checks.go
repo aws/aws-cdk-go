@@ -76,6 +76,10 @@ func validateCfnVectorBucketPolicy_IsCfnResourceParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnVectorBucketPolicy_IsCfnVectorBucketPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVectorBucketPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }

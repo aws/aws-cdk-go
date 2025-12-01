@@ -76,6 +76,10 @@ func validateCfnLandingZone_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLandingZone_IsCfnLandingZoneParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLandingZone_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

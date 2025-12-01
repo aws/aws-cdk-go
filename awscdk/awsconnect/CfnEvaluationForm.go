@@ -71,6 +71,38 @@ import (
 //   							Instructions: jsii.String("instructions"),
 //   							NotApplicableEnabled: jsii.Boolean(false),
 //   							QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
+//   								MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
+//   									Options: []interface{}{
+//   										&EvaluationFormMultiSelectQuestionOptionProperty{
+//   											RefId: jsii.String("refId"),
+//   											Text: jsii.String("text"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   										Options: []interface{}{
+//   											&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
+//   												RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
+//   													Category: jsii.String("category"),
+//   													Condition: jsii.String("condition"),
+//   													OptionRefIds: []*string{
+//   														jsii.String("optionRefIds"),
+//   													},
+//   												},
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   											SourceType: jsii.String("sourceType"),
+//   										},
+//   										DefaultOptionRefIds: []*string{
+//   											jsii.String("defaultOptionRefIds"),
+//   										},
+//   									},
+//   									DisplayAs: jsii.String("displayAs"),
+//   								},
 //   								Numeric: &EvaluationFormNumericQuestionPropertiesProperty{
 //   									MaxValue: jsii.Number(123),
 //   									MinValue: jsii.Number(123),
@@ -158,6 +190,9 @@ import (
 //   		Enabled: jsii.Boolean(false),
 //   	},
 //   	Description: jsii.String("description"),
+//   	LanguageConfiguration: &EvaluationFormLanguageConfigurationProperty{
+//   		FormLanguage: jsii.String("formLanguage"),
+//   	},
 //   	ScoringStrategy: &ScoringStrategyProperty{
 //   		Mode: jsii.String("mode"),
 //   		Status: jsii.String("status"),
@@ -167,6 +202,9 @@ import (
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
+//   	},
+//   	TargetConfiguration: &EvaluationFormTargetConfigurationProperty{
+//   		ContactInteractionType: jsii.String("contactInteractionType"),
 //   	},
 //   })
 //
@@ -203,6 +241,8 @@ type CfnEvaluationForm interface {
 	// Items that are part of the evaluation form.
 	Items() interface{}
 	SetItems(val interface{})
+	LanguageConfiguration() interface{}
+	SetLanguageConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -235,6 +275,8 @@ type CfnEvaluationForm interface {
 	// The tags used to organize, track, or control access for this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	TargetConfiguration() interface{}
+	SetTargetConfiguration(val interface{})
 	// A title of the evaluation form.
 	Title() *string
 	SetTitle(val *string)
@@ -496,6 +538,16 @@ func (j *jsiiProxy_CfnEvaluationForm) Items() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEvaluationForm) LanguageConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"languageConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEvaluationForm) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -571,6 +623,16 @@ func (j *jsiiProxy_CfnEvaluationForm) TagsRaw() *[]*awscdk.CfnTag {
 	_jsii_.Get(
 		j,
 		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEvaluationForm) TargetConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"targetConfiguration",
 		&returns,
 	)
 	return returns
@@ -677,6 +739,17 @@ func (j *jsiiProxy_CfnEvaluationForm)SetItems(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnEvaluationForm)SetLanguageConfiguration(val interface{}) {
+	if err := j.validateSetLanguageConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"languageConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEvaluationForm)SetScoringStrategy(val interface{}) {
 	if err := j.validateSetScoringStrategyParameters(val); err != nil {
 		panic(err)
@@ -706,6 +779,17 @@ func (j *jsiiProxy_CfnEvaluationForm)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEvaluationForm)SetTargetConfiguration(val interface{}) {
+	if err := j.validateSetTargetConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"targetConfiguration",
 		val,
 	)
 }
@@ -756,6 +840,25 @@ func CfnEvaluationForm_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnEvaluationForm.
+func CfnEvaluationForm_IsCfnEvaluationForm(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEvaluationForm_IsCfnEvaluationFormParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm",
+		"isCfnEvaluationForm",
 		[]interface{}{x},
 		&returns,
 	)

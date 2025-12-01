@@ -80,6 +80,10 @@ func validateCfnRuleGroupsNamespace_IsCfnResourceParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnRuleGroupsNamespace_IsCfnRuleGroupsNamespaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRuleGroupsNamespace_IsConstructParameters(x interface{}) error {
 	return nil
 }

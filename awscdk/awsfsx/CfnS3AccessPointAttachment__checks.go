@@ -171,6 +171,14 @@ func validateCfnS3AccessPointAttachment_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnS3AccessPointAttachment_IsCfnS3AccessPointAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnS3AccessPointAttachment_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

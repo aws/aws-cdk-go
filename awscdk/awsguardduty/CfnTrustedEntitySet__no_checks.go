@@ -76,6 +76,10 @@ func validateCfnTrustedEntitySet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTrustedEntitySet_IsCfnTrustedEntitySetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrustedEntitySet_IsConstructParameters(x interface{}) error {
 	return nil
 }

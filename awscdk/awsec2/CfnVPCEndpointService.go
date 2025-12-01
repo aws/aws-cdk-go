@@ -631,6 +631,25 @@ func CfnVPCEndpointService_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVPCEndpointService.
+func CfnVPCEndpointService_IsCfnVPCEndpointService(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVPCEndpointService_IsCfnVPCEndpointServiceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpointService",
+		"isCfnVPCEndpointService",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

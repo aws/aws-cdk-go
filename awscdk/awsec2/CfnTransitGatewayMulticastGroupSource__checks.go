@@ -171,6 +171,14 @@ func validateCfnTransitGatewayMulticastGroupSource_IsCfnResourceParameters(x int
 	return nil
 }
 
+func validateCfnTransitGatewayMulticastGroupSource_IsCfnTransitGatewayMulticastGroupSourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTransitGatewayMulticastGroupSource_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

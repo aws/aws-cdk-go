@@ -76,6 +76,10 @@ func validateCfnSigningConfiguration_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnSigningConfiguration_IsCfnSigningConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSigningConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -171,6 +171,14 @@ func validateCfnSession_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSession_IsCfnSessionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSession_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

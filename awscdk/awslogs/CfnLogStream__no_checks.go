@@ -72,6 +72,10 @@ func validateCfnLogStream_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLogStream_IsCfnLogStreamParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLogStream_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

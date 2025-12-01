@@ -76,6 +76,10 @@ func validateCfnResourceSpecificLogging_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnResourceSpecificLogging_IsCfnResourceSpecificLoggingParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResourceSpecificLogging_IsConstructParameters(x interface{}) error {
 	return nil
 }

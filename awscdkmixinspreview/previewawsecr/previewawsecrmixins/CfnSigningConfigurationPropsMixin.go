@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
+// The signing configuration for a registry, which specifies rules for automatically signing images when pushed.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

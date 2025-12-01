@@ -192,7 +192,7 @@ type CfnCluster interface {
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster.
 	ComputeConfig() interface{}
 	SetComputeConfig(val interface{})
-	// Configuration for provisioned control plane scaling.
+	// The control plane scaling tier configuration.
 	ControlPlaneScalingConfig() interface{}
 	SetControlPlaneScalingConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -1099,6 +1099,25 @@ func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterN
 		"aws-cdk-lib.aws_eks.CfnCluster",
 		"fromClusterName",
 		[]interface{}{scope, id, clusterName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnCluster.
+func CfnCluster_IsCfnCluster(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_IsCfnClusterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.CfnCluster",
+		"isCfnCluster",
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -20,7 +20,7 @@ package previewawsrbinmixins
 type CfnRulePropsMixin_UnlockDelayProperty struct {
 	// The unit of time in which to measure the unlock delay.
 	//
-	// Currently, the unlock delay can be measure only in days.
+	// Currently, the unlock delay can be measured only in days.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-unlockdelay.html#cfn-rbin-rule-unlockdelay-unlockdelayunit
 	//
 	UnlockDelayUnit *string `field:"optional" json:"unlockDelayUnit" yaml:"unlockDelayUnit"`

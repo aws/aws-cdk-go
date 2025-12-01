@@ -46,18 +46,24 @@ type CfnVolumeProps struct {
 	// The ID of the Availability Zone in which to create the volume. For example, `us-east-1a` .
 	//
 	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+	//
+	// If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// The ID of the Availability Zone for the volume.
+	// The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+	//
+	// If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-availabilityzoneid
 	//
 	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
 	// Indicates whether the volume should be encrypted.
 	//
-	// The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide* .
+	// The effect of setting the encryption state to `true` depends on the volume origin (new, from a snapshot, or from an existing volume), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide* .
 	//
-	// Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+	// If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-encrypted
 	//
 	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
@@ -87,6 +93,8 @@ type CfnVolumeProps struct {
 	// - Key alias. Specify the alias for the key, prefixed with `alias/` . For example, for a key with the alias `my_cmk` , use `alias/my_cmk` . Or to specify the AWS managed key , use `alias/aws/ebs` .
 	// - Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
 	// - Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+	//
+	// If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
@@ -96,15 +104,18 @@ type CfnVolumeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-multiattachenabled
 	//
 	MultiAttachEnabled interface{} `field:"optional" json:"multiAttachEnabled" yaml:"multiAttachEnabled"`
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
+	//
+	// If you intend to use a volume with an instance running on an outpost, then you must create the volume on the same outpost as the instance. You can't use a volume created in an AWS Region with an instance on an AWS outpost, or the other way around.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-outpostarn
 	//
 	OutpostArn *string `field:"optional" json:"outpostArn" yaml:"outpostArn"`
 	// The size of the volume, in GiBs.
 	//
-	// You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
+	// - Required for new empty volumes.
+	// - Optional for volumes created from snapshots and volume copies. In this case, the size defaults to the size of the snapshot or source volume. You can optionally specify a size that is equal to or larger than the size of the source snapshot or volume.
 	//
-	// Valid sizes:
+	// Supported volume sizes:
 	//
 	// - gp2: `1 - 16,384` GiB
 	// - gp3: `1 - 65,536` GiB
@@ -117,13 +128,13 @@ type CfnVolumeProps struct {
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
 	// The snapshot from which to create the volume.
 	//
-	// You must specify either a snapshot ID or a volume size.
+	// Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for `Size` instead. To create a volume copy, omit this parameter and specify `SourceVolumeId` instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-snapshotid
 	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
-	// The ID of the source volume from which the volume copy was created.
+	// The ID of the source EBS volume to copy.
 	//
-	// Only for volume copies.
+	// When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-sourcevolumeid
 	//
 	SourceVolumeId *string `field:"optional" json:"sourceVolumeId" yaml:"sourceVolumeId"`
@@ -164,7 +175,9 @@ type CfnVolumeProps struct {
 	// - Cold HDD: `sc1`
 	// - Magnetic: `standard`
 	//
-	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) .
+	// > Throughput Optimized HDD ( `st1` ) and Cold HDD ( `sc1` ) volumes can't be used as boot volumes.
+	//
+	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
 	//
 	// Default: `gp2`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-volumetype

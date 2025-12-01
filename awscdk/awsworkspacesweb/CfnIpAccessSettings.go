@@ -608,6 +608,25 @@ func CfnIpAccessSettings_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIpAccessSettings.
+func CfnIpAccessSettings_IsCfnIpAccessSettings(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIpAccessSettings_IsCfnIpAccessSettingsParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnIpAccessSettings",
+		"isCfnIpAccessSettings",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIpAccessSettings_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

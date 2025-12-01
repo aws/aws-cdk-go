@@ -53,6 +53,20 @@ type VersionOptions struct {
 	// Default: Description of the Lambda.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The maximum number of execution environments allowed for this version when published into a capacity provider.
+	//
+	// This setting limits the total number of execution environments that can be created
+	// to handle concurrent invocations of this specific version.
+	// Default: - No maximum specified.
+	//
+	MaxExecutionEnvironments *float64 `field:"optional" json:"maxExecutionEnvironments" yaml:"maxExecutionEnvironments"`
+	// The minimum number of execution environments to maintain for this version when published into a capacity provider.
+	//
+	// This setting ensures that at least this many execution environments are always
+	// available to handle function invocations for this specific version, reducing cold start latency.
+	// Default: - 3 execution environments are set to be the minimum.
+	//
+	MinExecutionEnvironments *float64 `field:"optional" json:"minExecutionEnvironments" yaml:"minExecutionEnvironments"`
 	// Specifies a provisioned concurrency configuration for a function's version.
 	// Default: No provisioned concurrency.
 	//

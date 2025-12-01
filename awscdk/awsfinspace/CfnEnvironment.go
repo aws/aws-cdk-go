@@ -750,6 +750,25 @@ func CfnEnvironment_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEnvironment.
+func CfnEnvironment_IsCfnEnvironment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironment_IsCfnEnvironmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_finspace.CfnEnvironment",
+		"isCfnEnvironment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEnvironment_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

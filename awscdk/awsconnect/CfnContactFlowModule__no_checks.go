@@ -72,6 +72,10 @@ func validateCfnContactFlowModule_ArnForContactFlowModuleParameters(resource int
 	return nil
 }
 
+func validateCfnContactFlowModule_IsCfnContactFlowModuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContactFlowModule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

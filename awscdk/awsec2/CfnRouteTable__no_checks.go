@@ -84,6 +84,10 @@ func validateCfnRouteTable_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRouteTable_IsCfnRouteTableParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRouteTable_IsConstructParameters(x interface{}) error {
 	return nil
 }

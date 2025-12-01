@@ -383,6 +383,25 @@ func NewCfnDiscovery_Override(c CfnDiscovery, scope constructs.Construct, id *st
 	)
 }
 
+// Checks whether the given object is a CfnDiscovery.
+func CfnDiscovery_IsCfnDiscovery(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDiscovery_IsCfnDiscoveryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_applicationsignals.CfnDiscovery",
+		"isCfnDiscovery",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

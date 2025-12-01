@@ -80,6 +80,10 @@ func validateCfnInput_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInput_IsCfnInputParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInput_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

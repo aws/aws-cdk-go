@@ -80,6 +80,10 @@ func validateCfnDataIntegration_FromDataIntegrationIdParameters(scope constructs
 	return nil
 }
 
+func validateCfnDataIntegration_IsCfnDataIntegrationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataIntegration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

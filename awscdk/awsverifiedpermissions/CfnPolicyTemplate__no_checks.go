@@ -72,6 +72,10 @@ func validateCfnPolicyTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPolicyTemplate_IsCfnPolicyTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPolicyTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

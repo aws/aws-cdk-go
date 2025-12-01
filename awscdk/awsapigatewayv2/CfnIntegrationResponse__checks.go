@@ -163,6 +163,14 @@ func validateCfnIntegrationResponse_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnIntegrationResponse_IsCfnIntegrationResponseParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnIntegrationResponse_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

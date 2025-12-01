@@ -171,6 +171,14 @@ func validateCfnVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVersion_IsCfnVersionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVersion_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -182,6 +190,30 @@ func validateCfnVersion_IsConstructParameters(x interface{}) error {
 func (j *jsiiProxy_CfnVersion) validateSetFunctionNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnVersion) validateSetFunctionScalingConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnVersion_FunctionScalingConfigProperty:
+		val := val.(*CfnVersion_FunctionScalingConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnVersion_FunctionScalingConfigProperty:
+		val_ := val.(CfnVersion_FunctionScalingConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVersion_FunctionScalingConfigProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

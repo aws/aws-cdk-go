@@ -617,6 +617,25 @@ func CfnKey_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnKey.
+func CfnKey_IsCfnKey(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnKey_IsCfnKeyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_paymentcryptography.CfnKey",
+		"isCfnKey",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnKey_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

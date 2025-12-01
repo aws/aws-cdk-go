@@ -84,6 +84,10 @@ func validateCfnModelCard_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnModelCard_IsCfnModelCardParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnModelCard_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

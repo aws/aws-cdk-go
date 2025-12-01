@@ -1,7 +1,9 @@
 package previewawskinesisvideomixins
 
 
-// Configuration for the storage tier of the Kinesis Video Stream.
+// The configuration for stream storage, including the default storage tier for stream data.
+//
+// This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +17,14 @@ package previewawskinesisvideomixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisvideo-stream-streamstorageconfiguration.html
 //
 type CfnStreamPropsMixin_StreamStorageConfigurationProperty struct {
-	// The storage tier for the Kinesis Video Stream.
+	// The default storage tier for the stream data.
 	//
-	// Determines the storage class used for stream data.
+	// This setting determines the storage class used for stream data, affecting both performance characteristics and storage costs.
+	//
+	// Available storage tiers:
+	//
+	// - `HOT` - Optimized for frequent access with the lowest latency and highest performance. Ideal for real-time applications and frequently accessed data.
+	// - `WARM` - Balanced performance and cost for moderately accessed data. Suitable for data that is accessed regularly but not continuously.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisvideo-stream-streamstorageconfiguration.html#cfn-kinesisvideo-stream-streamstorageconfiguration-defaultstoragetier
 	//
 	// Default: - "HOT".

@@ -80,6 +80,10 @@ func validateCfnAccessPoint_FromAccessPointNameParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnAccessPoint_IsCfnAccessPointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessPoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

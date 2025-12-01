@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataAutomationProject) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnDataAutomationProject_IsCfnDataAutomationProjectParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataAutomationProject_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

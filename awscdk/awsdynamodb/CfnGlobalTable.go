@@ -1066,6 +1066,25 @@ func CfnGlobalTable_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGlobalTable.
+func CfnGlobalTable_IsCfnGlobalTable(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalTable_IsCfnGlobalTableParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+		"isCfnGlobalTable",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGlobalTable_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -42,6 +42,34 @@ package previewawsconnectmixins
 //   		NotApplicableEnabled: jsii.Boolean(false),
 //   		QuestionType: jsii.String("questionType"),
 //   		QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
+//   			MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
+//   				Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   					AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   						SourceType: jsii.String("sourceType"),
+//   					},
+//   					DefaultOptionRefIds: []*string{
+//   						jsii.String("defaultOptionRefIds"),
+//   					},
+//   					Options: []interface{}{
+//   						&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
+//   							RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
+//   								Category: jsii.String("category"),
+//   								Condition: jsii.String("condition"),
+//   								OptionRefIds: []*string{
+//   									jsii.String("optionRefIds"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				DisplayAs: jsii.String("displayAs"),
+//   				Options: []interface{}{
+//   					&EvaluationFormMultiSelectQuestionOptionProperty{
+//   						RefId: jsii.String("refId"),
+//   						Text: jsii.String("text"),
+//   					},
+//   				},
+//   			},
 //   			Numeric: &EvaluationFormNumericQuestionPropertiesProperty{
 //   				Automation: &EvaluationFormNumericQuestionAutomationProperty{
 //   					AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{

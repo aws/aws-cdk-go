@@ -440,6 +440,25 @@ func CfnLogStream_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLogStream.
+func CfnLogStream_IsCfnLogStream(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLogStream_IsCfnLogStreamParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnLogStream",
+		"isCfnLogStream",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLogStream_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

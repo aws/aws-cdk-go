@@ -72,6 +72,10 @@ func validateCfnAgentStatus_ArnForAgentStatusParameters(resource interfacesawsco
 	return nil
 }
 
+func validateCfnAgentStatus_IsCfnAgentStatusParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAgentStatus_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

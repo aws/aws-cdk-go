@@ -69,6 +69,8 @@ import (
 //   		CodeSha256: jsii.String("codeSha256"),
 //   		Description: jsii.String("description"),
 //   		MaxEventAge: cdk.Duration_Minutes(jsii.Number(30)),
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
 //   		OnFailure: destination,
 //   		OnSuccess: destination,
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),

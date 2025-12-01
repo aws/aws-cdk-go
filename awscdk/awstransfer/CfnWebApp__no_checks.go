@@ -80,6 +80,10 @@ func validateCfnWebApp_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWebApp_IsCfnWebAppParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWebApp_IsConstructParameters(x interface{}) error {
 	return nil
 }

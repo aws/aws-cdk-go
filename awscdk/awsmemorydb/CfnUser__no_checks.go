@@ -88,6 +88,10 @@ func validateCfnUser_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnUser_IsCfnUserParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUser_IsConstructParameters(x interface{}) error {
 	return nil
 }

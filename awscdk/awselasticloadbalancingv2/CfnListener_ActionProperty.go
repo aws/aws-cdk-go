@@ -123,6 +123,9 @@ type CfnListener_ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
 	//
 	ForwardConfig interface{} `field:"optional" json:"forwardConfig" yaml:"forwardConfig"`
+	// [HTTPS listeners] Information for validating JWT access tokens in client requests.
+	//
+	// Specify only when `Type` is `jwt-validation` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-jwtvalidationconfig
 	//
 	JwtValidationConfig interface{} `field:"optional" json:"jwtValidationConfig" yaml:"jwtValidationConfig"`

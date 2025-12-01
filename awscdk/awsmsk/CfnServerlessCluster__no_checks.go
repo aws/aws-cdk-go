@@ -80,6 +80,10 @@ func validateCfnServerlessCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnServerlessCluster_IsCfnServerlessClusterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnServerlessCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }

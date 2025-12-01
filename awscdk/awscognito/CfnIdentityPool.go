@@ -732,6 +732,25 @@ func CfnIdentityPool_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIdentityPool.
+func CfnIdentityPool_IsCfnIdentityPool(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIdentityPool_IsCfnIdentityPoolParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
+		"isCfnIdentityPool",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIdentityPool_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) validateValidatePropertiesParamet
 	return nil
 }
 
+func validateCfnDBClusterParameterGroup_IsCfnDBClusterParameterGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDBClusterParameterGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

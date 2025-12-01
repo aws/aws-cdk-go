@@ -76,6 +76,10 @@ func validateCfnVdmAttributes_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVdmAttributes_IsCfnVdmAttributesParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVdmAttributes_IsConstructParameters(x interface{}) error {
 	return nil
 }

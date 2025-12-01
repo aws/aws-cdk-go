@@ -212,6 +212,14 @@ func validateCfnTopicRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTopicRule_IsCfnTopicRuleParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTopicRule_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

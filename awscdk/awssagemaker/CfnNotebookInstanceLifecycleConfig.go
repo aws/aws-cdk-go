@@ -462,6 +462,24 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig)SetOnStart(val interface{}
 	)
 }
 
+func CfnNotebookInstanceLifecycleConfig_ArnForNotebookInstanceLifecycleConfig(resource interfacesawssagemaker.INotebookInstanceLifecycleConfigRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnNotebookInstanceLifecycleConfig_ArnForNotebookInstanceLifecycleConfigParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstanceLifecycleConfig",
+		"arnForNotebookInstanceLifecycleConfig",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -479,6 +497,25 @@ func CfnNotebookInstanceLifecycleConfig_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstanceLifecycleConfig",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnNotebookInstanceLifecycleConfig.
+func CfnNotebookInstanceLifecycleConfig_IsCfnNotebookInstanceLifecycleConfig(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNotebookInstanceLifecycleConfig_IsCfnNotebookInstanceLifecycleConfigParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstanceLifecycleConfig",
+		"isCfnNotebookInstanceLifecycleConfig",
 		[]interface{}{x},
 		&returns,
 	)

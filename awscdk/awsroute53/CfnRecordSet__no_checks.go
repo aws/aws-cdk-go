@@ -72,6 +72,10 @@ func validateCfnRecordSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRecordSet_IsCfnRecordSetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRecordSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

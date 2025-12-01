@@ -1165,6 +1165,25 @@ func CfnInsight_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInsight.
+func CfnInsight_IsCfnInsight(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInsight_IsCfnInsightParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnInsight",
+		"isCfnInsight",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInsight_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

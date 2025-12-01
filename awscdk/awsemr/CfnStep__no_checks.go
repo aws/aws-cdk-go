@@ -76,6 +76,10 @@ func validateCfnStep_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStep_IsCfnStepParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStep_IsConstructParameters(x interface{}) error {
 	return nil
 }

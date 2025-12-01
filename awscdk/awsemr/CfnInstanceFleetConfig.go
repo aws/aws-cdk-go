@@ -664,6 +664,25 @@ func CfnInstanceFleetConfig_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInstanceFleetConfig.
+func CfnInstanceFleetConfig_IsCfnInstanceFleetConfig(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceFleetConfig_IsCfnInstanceFleetConfigParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig",
+		"isCfnInstanceFleetConfig",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInstanceFleetConfig_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

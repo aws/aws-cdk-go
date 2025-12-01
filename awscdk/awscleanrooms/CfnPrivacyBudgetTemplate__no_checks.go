@@ -76,6 +76,10 @@ func validateCfnPrivacyBudgetTemplate_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnPrivacyBudgetTemplate_IsCfnPrivacyBudgetTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPrivacyBudgetTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

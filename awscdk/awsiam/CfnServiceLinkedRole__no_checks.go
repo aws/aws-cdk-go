@@ -76,6 +76,10 @@ func validateCfnServiceLinkedRole_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnServiceLinkedRole_IsCfnServiceLinkedRoleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnServiceLinkedRole_IsConstructParameters(x interface{}) error {
 	return nil
 }

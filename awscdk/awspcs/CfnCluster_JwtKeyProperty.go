@@ -1,7 +1,7 @@
 package awspcs
 
 
-// JWT key configuration.
+// The JWT key stored in AWS Secrets Manager for Slurm REST API authentication.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package awspcs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtkey.html
 //
 type CfnCluster_JwtKeyProperty struct {
-	// The Amazon Resource Name (ARN) of the JWT key secret.
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the JWT key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtkey.html#cfn-pcs-cluster-jwtkey-secretarn
 	//
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
-	// The version of the JWT key secret.
+	// The version of the AWS Secrets Manager secret containing the JWT key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtkey.html#cfn-pcs-cluster-jwtkey-secretversion
 	//
 	SecretVersion *string `field:"required" json:"secretVersion" yaml:"secretVersion"`

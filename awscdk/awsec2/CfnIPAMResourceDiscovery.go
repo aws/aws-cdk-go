@@ -586,6 +586,25 @@ func CfnIPAMResourceDiscovery_ArnForIPAMResourceDiscovery(resource interfacesaws
 	return returns
 }
 
+// Creates a new IIPAMResourceDiscoveryRef from an ARN.
+func CfnIPAMResourceDiscovery_FromIPAMResourceDiscoveryArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IIPAMResourceDiscoveryRef {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMResourceDiscovery_FromIPAMResourceDiscoveryArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.IIPAMResourceDiscoveryRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscovery",
+		"fromIPAMResourceDiscoveryArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IIPAMResourceDiscoveryRef from a ipamResourceDiscoveryId.
 func CfnIPAMResourceDiscovery_FromIpamResourceDiscoveryId(scope constructs.Construct, id *string, ipamResourceDiscoveryId *string) interfacesawsec2.IIPAMResourceDiscoveryRef {
 	_init_.Initialize()
@@ -622,6 +641,25 @@ func CfnIPAMResourceDiscovery_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscovery",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnIPAMResourceDiscovery.
+func CfnIPAMResourceDiscovery_IsCfnIPAMResourceDiscovery(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMResourceDiscovery_IsCfnIPAMResourceDiscoveryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscovery",
+		"isCfnIPAMResourceDiscovery",
 		[]interface{}{x},
 		&returns,
 	)

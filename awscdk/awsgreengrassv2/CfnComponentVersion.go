@@ -574,6 +574,25 @@ func CfnComponentVersion_ArnForComponentVersion(resource interfacesawsgreengrass
 	return returns
 }
 
+// Checks whether the given object is a CfnComponentVersion.
+func CfnComponentVersion_IsCfnComponentVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnComponentVersion_IsCfnComponentVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion",
+		"isCfnComponentVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

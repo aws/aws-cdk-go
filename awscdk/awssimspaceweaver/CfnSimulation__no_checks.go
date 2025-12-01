@@ -84,6 +84,10 @@ func validateCfnSimulation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSimulation_IsCfnSimulationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSimulation_IsConstructParameters(x interface{}) error {
 	return nil
 }

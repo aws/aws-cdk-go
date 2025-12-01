@@ -539,6 +539,25 @@ func CfnSoftwarePackage_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSoftwarePackage.
+func CfnSoftwarePackage_IsCfnSoftwarePackage(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSoftwarePackage_IsCfnSoftwarePackageParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnSoftwarePackage",
+		"isCfnSoftwarePackage",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

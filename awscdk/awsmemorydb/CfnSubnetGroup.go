@@ -523,6 +523,25 @@ func CfnSubnetGroup_ArnForSubnetGroup(resource interfacesawsmemorydb.ISubnetGrou
 	return returns
 }
 
+// Creates a new ISubnetGroupRef from an ARN.
+func CfnSubnetGroup_FromSubnetGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsmemorydb.ISubnetGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnSubnetGroup_FromSubnetGroupArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmemorydb.ISubnetGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnSubnetGroup",
+		"fromSubnetGroupArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ISubnetGroupRef from a subnetGroupName.
 func CfnSubnetGroup_FromSubnetGroupName(scope constructs.Construct, id *string, subnetGroupName *string) interfacesawsmemorydb.ISubnetGroupRef {
 	_init_.Initialize()
@@ -578,6 +597,25 @@ func CfnSubnetGroup_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_memorydb.CfnSubnetGroup",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnSubnetGroup.
+func CfnSubnetGroup_IsCfnSubnetGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSubnetGroup_IsCfnSubnetGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnSubnetGroup",
+		"isCfnSubnetGroup",
 		[]interface{}{x},
 		&returns,
 	)

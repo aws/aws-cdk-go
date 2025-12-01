@@ -22,6 +22,9 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainName: jsii.String("domainName"),
 //   	SegmentDefinitionName: jsii.String("segmentDefinitionName"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	SegmentGroups: &SegmentGroupProperty{
 //   		Groups: []interface{}{
 //   			&GroupProperty{
@@ -323,9 +326,7 @@ import (
 //   		},
 //   		Include: jsii.String("include"),
 //   	},
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
+//   	SegmentSqlQuery: jsii.String("segmentSqlQuery"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -345,6 +346,8 @@ type CfnSegmentDefinition interface {
 	AttrCreatedAt() *string
 	// The arn of the segment definition.
 	AttrSegmentDefinitionArn() *string
+	// The SQL query that defines the segment criteria.
+	AttrSegmentType() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -391,6 +394,9 @@ type CfnSegmentDefinition interface {
 	// Contains all groups of the segment definition.
 	SegmentGroups() interface{}
 	SetSegmentGroups(val interface{})
+	// The SQL query that defines the segment criteria.
+	SegmentSqlQuery() *string
+	SetSegmentSqlQuery(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -566,6 +572,16 @@ func (j *jsiiProxy_CfnSegmentDefinition) AttrSegmentDefinitionArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSegmentDefinition) AttrSegmentType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSegmentType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSegmentDefinition) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -716,6 +732,16 @@ func (j *jsiiProxy_CfnSegmentDefinition) SegmentGroups() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSegmentDefinition) SegmentSqlQuery() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"segmentSqlQuery",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSegmentDefinition) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -838,6 +864,14 @@ func (j *jsiiProxy_CfnSegmentDefinition)SetSegmentGroups(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnSegmentDefinition)SetSegmentSqlQuery(val *string) {
+	_jsii_.Set(
+		j,
+		"segmentSqlQuery",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSegmentDefinition)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
@@ -903,6 +937,25 @@ func CfnSegmentDefinition_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_customerprofiles.CfnSegmentDefinition",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnSegmentDefinition.
+func CfnSegmentDefinition_IsCfnSegmentDefinition(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSegmentDefinition_IsCfnSegmentDefinitionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_customerprofiles.CfnSegmentDefinition",
+		"isCfnSegmentDefinition",
 		[]interface{}{x},
 		&returns,
 	)

@@ -80,6 +80,10 @@ func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_IsCfnElem
 	return nil
 }
 
+func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_IsCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

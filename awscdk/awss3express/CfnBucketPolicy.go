@@ -444,6 +444,25 @@ func (j *jsiiProxy_CfnBucketPolicy)SetPolicyDocument(val interface{}) {
 	)
 }
 
+// Checks whether the given object is a CfnBucketPolicy.
+func CfnBucketPolicy_IsCfnBucketPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBucketPolicy_IsCfnBucketPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3express.CfnBucketPolicy",
+		"isCfnBucketPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

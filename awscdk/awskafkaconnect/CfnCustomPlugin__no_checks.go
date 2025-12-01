@@ -72,6 +72,10 @@ func validateCfnCustomPlugin_ArnForCustomPluginParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnCustomPlugin_IsCfnCustomPluginParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomPlugin_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

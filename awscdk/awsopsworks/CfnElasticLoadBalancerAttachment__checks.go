@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnElasticLoadBalancerAttachment_IsCfnElasticLoadBalancerAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnElasticLoadBalancerAttachment_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

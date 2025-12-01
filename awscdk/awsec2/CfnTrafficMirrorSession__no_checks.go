@@ -84,6 +84,10 @@ func validateCfnTrafficMirrorSession_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnTrafficMirrorSession_IsCfnTrafficMirrorSessionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrafficMirrorSession_IsConstructParameters(x interface{}) error {
 	return nil
 }

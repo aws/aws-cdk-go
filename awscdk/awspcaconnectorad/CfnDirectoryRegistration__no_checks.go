@@ -72,6 +72,10 @@ func validateCfnDirectoryRegistration_ArnForDirectoryRegistrationParameters(reso
 	return nil
 }
 
+func validateCfnDirectoryRegistration_IsCfnDirectoryRegistrationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDirectoryRegistration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

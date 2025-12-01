@@ -671,6 +671,25 @@ func CfnMailManagerIngressPoint_FromIngressPointId(scope constructs.Construct, i
 	return returns
 }
 
+// Creates a new IMailManagerIngressPointRef from an ARN.
+func CfnMailManagerIngressPoint_FromMailManagerIngressPointArn(scope constructs.Construct, id *string, arn *string) interfacesawsses.IMailManagerIngressPointRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerIngressPoint_FromMailManagerIngressPointArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsses.IMailManagerIngressPointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint",
+		"fromMailManagerIngressPointArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -688,6 +707,25 @@ func CfnMailManagerIngressPoint_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMailManagerIngressPoint.
+func CfnMailManagerIngressPoint_IsCfnMailManagerIngressPoint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerIngressPoint_IsCfnMailManagerIngressPointParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint",
+		"isCfnMailManagerIngressPoint",
 		[]interface{}{x},
 		&returns,
 	)

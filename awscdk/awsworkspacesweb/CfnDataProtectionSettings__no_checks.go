@@ -72,6 +72,10 @@ func validateCfnDataProtectionSettings_ArnForDataProtectionSettingsParameters(re
 	return nil
 }
 
+func validateCfnDataProtectionSettings_IsCfnDataProtectionSettingsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataProtectionSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

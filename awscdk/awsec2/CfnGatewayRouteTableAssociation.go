@@ -445,6 +445,25 @@ func CfnGatewayRouteTableAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGatewayRouteTableAssociation.
+func CfnGatewayRouteTableAssociation_IsCfnGatewayRouteTableAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGatewayRouteTableAssociation_IsCfnGatewayRouteTableAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnGatewayRouteTableAssociation",
+		"isCfnGatewayRouteTableAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGatewayRouteTableAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

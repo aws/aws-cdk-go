@@ -72,6 +72,10 @@ func validateCfnAnalysisTemplate_ArnForAnalysisTemplateParameters(resource inter
 	return nil
 }
 
+func validateCfnAnalysisTemplate_IsCfnAnalysisTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAnalysisTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

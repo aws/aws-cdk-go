@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnHealthCheck) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnHealthCheck_ArnForHealthCheckParameters(resource interfacesawsroute53.IHealthCheckRef) error {
+	return nil
+}
+
 func validateCfnHealthCheck_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnHealthCheck_IsCfnHealthCheckParameters(x interface{}) error {
 	return nil
 }
 

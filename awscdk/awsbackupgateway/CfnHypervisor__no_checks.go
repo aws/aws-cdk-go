@@ -76,6 +76,10 @@ func validateCfnHypervisor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnHypervisor_IsCfnHypervisorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnHypervisor_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

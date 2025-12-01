@@ -644,6 +644,25 @@ func CfnReplicator_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnReplicator.
+func CfnReplicator_IsCfnReplicator(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnReplicator_IsCfnReplicatorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_msk.CfnReplicator",
+		"isCfnReplicator",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnReplicator_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

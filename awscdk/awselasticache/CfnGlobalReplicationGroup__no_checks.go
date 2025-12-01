@@ -80,6 +80,10 @@ func validateCfnGlobalReplicationGroup_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnGlobalReplicationGroup_IsCfnGlobalReplicationGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGlobalReplicationGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

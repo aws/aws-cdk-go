@@ -80,6 +80,10 @@ func validateCfnDeviceDefinition_FromDeviceDefinitionIdParameters(scope construc
 	return nil
 }
 
+func validateCfnDeviceDefinition_IsCfnDeviceDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDeviceDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

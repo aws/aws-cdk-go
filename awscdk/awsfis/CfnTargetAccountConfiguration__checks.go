@@ -171,6 +171,14 @@ func validateCfnTargetAccountConfiguration_IsCfnResourceParameters(x interface{}
 	return nil
 }
 
+func validateCfnTargetAccountConfiguration_IsCfnTargetAccountConfigurationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTargetAccountConfiguration_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

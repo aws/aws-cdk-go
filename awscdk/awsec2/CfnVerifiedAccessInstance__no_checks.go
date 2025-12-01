@@ -84,6 +84,10 @@ func validateCfnVerifiedAccessInstance_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnVerifiedAccessInstance_IsCfnVerifiedAccessInstanceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVerifiedAccessInstance_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -76,6 +76,10 @@ func validateCfnEventBridgeRuleTemplate_IsCfnElementParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnEventBridgeRuleTemplate_IsCfnEventBridgeRuleTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEventBridgeRuleTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

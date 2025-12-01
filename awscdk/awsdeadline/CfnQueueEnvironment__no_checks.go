@@ -72,6 +72,10 @@ func validateCfnQueueEnvironment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnQueueEnvironment_IsCfnQueueEnvironmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnQueueEnvironment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -439,6 +439,25 @@ func CfnPublicKey_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPublicKey.
+func CfnPublicKey_IsCfnPublicKey(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPublicKey_IsCfnPublicKeyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnPublicKey",
+		"isCfnPublicKey",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPublicKey_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

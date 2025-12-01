@@ -626,6 +626,25 @@ func CfnNetworkAclEntry_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNetworkAclEntry.
+func CfnNetworkAclEntry_IsCfnNetworkAclEntry(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkAclEntry_IsCfnNetworkAclEntryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkAclEntry",
+		"isCfnNetworkAclEntry",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNetworkAclEntry_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

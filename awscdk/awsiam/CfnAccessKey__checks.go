@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAccessKey) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnAccessKey_IsCfnAccessKeyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAccessKey_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -313,6 +313,7 @@ import (
 //   		},
 //   		Include: jsii.String("include"),
 //   	},
+//   	SegmentSqlQuery: jsii.String("segmentSqlQuery"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -344,6 +345,10 @@ type CfnSegmentDefinitionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentgroups
 	//
 	SegmentGroups interface{} `field:"optional" json:"segmentGroups" yaml:"segmentGroups"`
+	// The SQL query that defines the segment criteria.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentsqlquery
+	//
+	SegmentSqlQuery *string `field:"optional" json:"segmentSqlQuery" yaml:"segmentSqlQuery"`
 	// The tags belonging to the segment definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-tags
 	//

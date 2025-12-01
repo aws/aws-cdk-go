@@ -76,6 +76,10 @@ func validateCfnEncoderConfiguration_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnEncoderConfiguration_IsCfnEncoderConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEncoderConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

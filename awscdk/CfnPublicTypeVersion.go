@@ -541,6 +541,25 @@ func CfnPublicTypeVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPublicTypeVersion.
+func CfnPublicTypeVersion_IsCfnPublicTypeVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPublicTypeVersion_IsCfnPublicTypeVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnPublicTypeVersion",
+		"isCfnPublicTypeVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPublicTypeVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

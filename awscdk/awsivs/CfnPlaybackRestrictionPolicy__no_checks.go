@@ -76,6 +76,10 @@ func validateCfnPlaybackRestrictionPolicy_IsCfnElementParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnPlaybackRestrictionPolicy_IsCfnPlaybackRestrictionPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPlaybackRestrictionPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

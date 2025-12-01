@@ -196,6 +196,14 @@ func validateCfnDataflowEndpointGroup_FromDataflowEndpointGroupIdParameters(scop
 	return nil
 }
 
+func validateCfnDataflowEndpointGroup_IsCfnDataflowEndpointGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDataflowEndpointGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

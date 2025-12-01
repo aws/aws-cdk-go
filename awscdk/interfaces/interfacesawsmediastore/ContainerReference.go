@@ -10,10 +10,13 @@ package interfacesawsmediastore
 //
 //   containerReference := &ContainerReference{
 //   	ContainerId: jsii.String("containerId"),
+//   	ContainerName: jsii.String("containerName"),
 //   }
 //
 type ContainerReference struct {
 	// The Id of the Container resource.
 	ContainerId *string `field:"required" json:"containerId" yaml:"containerId"`
+	// The ContainerName of the Container resource.
+	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
 }
 

@@ -511,6 +511,25 @@ func CfnEncoderConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEncoderConfiguration.
+func CfnEncoderConfiguration_IsCfnEncoderConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEncoderConfiguration_IsCfnEncoderConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnEncoderConfiguration",
+		"isCfnEncoderConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEncoderConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

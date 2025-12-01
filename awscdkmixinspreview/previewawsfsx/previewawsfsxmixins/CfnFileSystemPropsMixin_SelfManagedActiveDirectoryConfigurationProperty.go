@@ -29,6 +29,16 @@ type CfnFileSystemPropsMixin_SelfManagedActiveDirectoryConfigurationProperty str
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-filesystem-selfmanagedactivedirectoryconfiguration-dnsips
 	//
 	DnsIps *[]*string `field:"optional" json:"dnsIps" yaml:"dnsIps"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials.
+	//
+	// When provided, Amazon FSx uses the credentials stored in this secret to join the file system to your self-managed Active Directory domain.
+	//
+	// The secret must contain two key-value pairs:
+	//
+	// - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` - The username for the service account
+	// - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD` - The password for the service account
+	//
+	// For more information, see [Using Amazon FSx for Windows with your self-managed Microsoft Active Directory](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-manage-prereqs.html) or [Using Amazon FSx for ONTAP with your self-managed Microsoft Active Directory](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-manage-prereqs.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-filesystem-selfmanagedactivedirectoryconfiguration-domainjoinserviceaccountsecret
 	//
 	DomainJoinServiceAccountSecret *string `field:"optional" json:"domainJoinServiceAccountSecret" yaml:"domainJoinServiceAccountSecret"`

@@ -72,6 +72,10 @@ func validateCfnPrimaryTaskSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPrimaryTaskSet_IsCfnPrimaryTaskSetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPrimaryTaskSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnActivity_ArnForActivityParameters(resource interfacesawsstepfunc
 	return nil
 }
 
+func validateCfnActivity_IsCfnActivityParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnActivity_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

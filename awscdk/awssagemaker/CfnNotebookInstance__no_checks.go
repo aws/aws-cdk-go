@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnNotebookInstance) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnNotebookInstance_ArnForNotebookInstanceParameters(resource interfacesawssagemaker.INotebookInstanceRef) error {
+	return nil
+}
+
 func validateCfnNotebookInstance_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnNotebookInstance_IsCfnNotebookInstanceParameters(x interface{}) error {
 	return nil
 }
 

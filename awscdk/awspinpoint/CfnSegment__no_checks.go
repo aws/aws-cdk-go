@@ -80,6 +80,10 @@ func validateCfnSegment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSegment_IsCfnSegmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSegment_IsConstructParameters(x interface{}) error {
 	return nil
 }

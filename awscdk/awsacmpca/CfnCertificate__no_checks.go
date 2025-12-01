@@ -72,6 +72,10 @@ func validateCfnCertificate_ArnForCertificateParameters(resource interfacesawsac
 	return nil
 }
 
+func validateCfnCertificate_IsCfnCertificateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCertificate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

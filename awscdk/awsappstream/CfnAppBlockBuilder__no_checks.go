@@ -80,6 +80,10 @@ func validateCfnAppBlockBuilder_FromAppBlockBuilderNameParameters(scope construc
 	return nil
 }
 
+func validateCfnAppBlockBuilder_IsCfnAppBlockBuilderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAppBlockBuilder_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

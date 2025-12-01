@@ -16,6 +16,10 @@ func init() {
 		reflect.TypeOf((*AddonReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_eks.CapabilityReference",
+		reflect.TypeOf((*CapabilityReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_eks.ClusterReference",
 		reflect.TypeOf((*ClusterReference)(nil)).Elem(),
 	)
@@ -48,6 +52,21 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAddonRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_eks.ICapabilityRef",
+		reflect.TypeOf((*ICapabilityRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "capabilityRef", GoGetter: "CapabilityRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICapabilityRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

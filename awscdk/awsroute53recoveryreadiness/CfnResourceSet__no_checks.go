@@ -80,6 +80,10 @@ func validateCfnResourceSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnResourceSet_IsCfnResourceSetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResourceSet_IsConstructParameters(x interface{}) error {
 	return nil
 }

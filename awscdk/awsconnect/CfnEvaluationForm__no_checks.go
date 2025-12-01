@@ -76,6 +76,10 @@ func validateCfnEvaluationForm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEvaluationForm_IsCfnEvaluationFormParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEvaluationForm_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
@@ -96,6 +100,10 @@ func (j *jsiiProxy_CfnEvaluationForm) validateSetItemsParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnEvaluationForm) validateSetLanguageConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEvaluationForm) validateSetScoringStrategyParameters(val interface{}) error {
 	return nil
 }
@@ -105,6 +113,10 @@ func (j *jsiiProxy_CfnEvaluationForm) validateSetStatusParameters(val *string) e
 }
 
 func (j *jsiiProxy_CfnEvaluationForm) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnEvaluationForm) validateSetTargetConfigurationParameters(val interface{}) error {
 	return nil
 }
 

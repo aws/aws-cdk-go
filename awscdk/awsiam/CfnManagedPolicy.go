@@ -660,6 +660,25 @@ func CfnManagedPolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnManagedPolicy.
+func CfnManagedPolicy_IsCfnManagedPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnManagedPolicy_IsCfnManagedPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.CfnManagedPolicy",
+		"isCfnManagedPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnManagedPolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

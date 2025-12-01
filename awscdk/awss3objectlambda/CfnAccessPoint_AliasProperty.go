@@ -1,11 +1,9 @@
 package awss3objectlambda
 
 
-// > Amazon S3 Object Lambda will no longer be open to new customers starting on 11/7/2025.
+// The alias of an Object Lambda Access Point.
 //
-// If you would like to use the service, please sign up prior to 11/7/2025. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html) .
-//
-// The alias of an Object Lambda Access Point. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
+// For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

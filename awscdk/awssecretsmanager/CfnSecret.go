@@ -129,6 +129,7 @@ type CfnSecret interface {
 	// A list of tags to attach to the secret.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The exact string that identifies the third-party partner that holds the external secret.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -675,6 +676,25 @@ func CfnSecret_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnSecret.
+func CfnSecret_IsCfnSecret(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSecret_IsCfnSecretParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
+		"isCfnSecret",
 		[]interface{}{x},
 		&returns,
 	)

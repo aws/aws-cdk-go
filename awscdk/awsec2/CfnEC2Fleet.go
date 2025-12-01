@@ -864,6 +864,25 @@ func CfnEC2Fleet_FromFleetId(scope constructs.Construct, id *string, fleetId *st
 	return returns
 }
 
+// Checks whether the given object is a CfnEC2Fleet.
+func CfnEC2Fleet_IsCfnEC2Fleet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEC2Fleet_IsCfnEC2FleetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet",
+		"isCfnEC2Fleet",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

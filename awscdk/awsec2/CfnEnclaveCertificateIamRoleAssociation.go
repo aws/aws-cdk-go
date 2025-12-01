@@ -475,6 +475,25 @@ func CfnEnclaveCertificateIamRoleAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEnclaveCertificateIamRoleAssociation.
+func CfnEnclaveCertificateIamRoleAssociation_IsCfnEnclaveCertificateIamRoleAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEnclaveCertificateIamRoleAssociation_IsCfnEnclaveCertificateIamRoleAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnEnclaveCertificateIamRoleAssociation",
+		"isCfnEnclaveCertificateIamRoleAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEnclaveCertificateIamRoleAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -76,6 +76,10 @@ func validateCfnOIDCProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnOIDCProvider_IsCfnOIDCProviderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOIDCProvider_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

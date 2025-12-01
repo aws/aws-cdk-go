@@ -180,6 +180,14 @@ func validateCfnCustomMetric_FromMetricNameParameters(scope constructs.Construct
 	return nil
 }
 
+func validateCfnCustomMetric_IsCfnCustomMetricParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCustomMetric_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

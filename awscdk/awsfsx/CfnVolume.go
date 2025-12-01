@@ -700,6 +700,25 @@ func CfnVolume_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVolume.
+func CfnVolume_IsCfnVolume(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVolume_IsCfnVolumeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_fsx.CfnVolume",
+		"isCfnVolume",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

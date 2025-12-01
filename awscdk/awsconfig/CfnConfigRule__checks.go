@@ -164,6 +164,14 @@ func validateCfnConfigRule_ArnForConfigRuleParameters(resource interfacesawsconf
 	return nil
 }
 
+func validateCfnConfigRule_IsCfnConfigRuleParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConfigRule_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

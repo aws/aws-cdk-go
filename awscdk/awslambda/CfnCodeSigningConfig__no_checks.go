@@ -72,6 +72,10 @@ func validateCfnCodeSigningConfig_ArnForCodeSigningConfigParameters(resource int
 	return nil
 }
 
+func validateCfnCodeSigningConfig_IsCfnCodeSigningConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCodeSigningConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

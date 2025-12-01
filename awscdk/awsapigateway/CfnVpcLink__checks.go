@@ -196,6 +196,14 @@ func validateCfnVpcLink_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVpcLink_IsCfnVpcLinkParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVpcLink_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

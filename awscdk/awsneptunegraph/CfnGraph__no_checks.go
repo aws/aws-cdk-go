@@ -76,6 +76,10 @@ func validateCfnGraph_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGraph_IsCfnGraphParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGraph_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

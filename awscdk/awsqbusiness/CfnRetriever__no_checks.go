@@ -80,6 +80,10 @@ func validateCfnRetriever_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRetriever_IsCfnRetrieverParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRetriever_IsConstructParameters(x interface{}) error {
 	return nil
 }

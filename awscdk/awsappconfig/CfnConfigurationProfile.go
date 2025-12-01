@@ -662,6 +662,25 @@ func (j *jsiiProxy_CfnConfigurationProfile)SetValidators(val interface{}) {
 	)
 }
 
+// Checks whether the given object is a CfnConfigurationProfile.
+func CfnConfigurationProfile_IsCfnConfigurationProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConfigurationProfile_IsCfnConfigurationProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appconfig.CfnConfigurationProfile",
+		"isCfnConfigurationProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

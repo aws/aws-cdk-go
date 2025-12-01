@@ -72,6 +72,10 @@ func validateCfnFlowVpcInterface_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFlowVpcInterface_IsCfnFlowVpcInterfaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFlowVpcInterface_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

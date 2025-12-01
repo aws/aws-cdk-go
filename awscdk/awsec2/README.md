@@ -2200,13 +2200,42 @@ The `volumeInitializationRate` must be:
 
 ### Configuring Instance Metadata Service (IMDS)
 
-#### Toggling IMDSv1
+#### Comprehensive Metadata Options
 
-You can configure [EC2 Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) options to either
-allow both IMDSv1 and IMDSv2 or enforce IMDSv2 when interacting with the IMDS.
+You can configure [EC2 Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) options using individual properties. This provides comprehensive control over all metadata service settings:
 
-To do this for a single `Instance`, you can use the `requireImdsv2` property.
-The example below demonstrates IMDSv2 being required on a single `Instance`:
+```go
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
+
+
+// Example 1: Enforce IMDSv2 with comprehensive options
+// Example 1: Enforce IMDSv2 with comprehensive options
+ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
+	HttpEndpoint: jsii.Boolean(true),
+	HttpProtocolIpv6: jsii.Boolean(false),
+	HttpPutResponseHopLimit: jsii.Number(2),
+	HttpTokens: ec2.HttpTokens_REQUIRED,
+	InstanceMetadataTags: jsii.Boolean(true),
+})
+
+// Example 2: Enforce IMDSv2 with minimal configuration
+// Example 2: Enforce IMDSv2 with minimal configuration
+ec2.NewInstance(this, jsii.String("SecureInstance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
+	HttpTokens: ec2.HttpTokens_REQUIRED,
+})
+```
+
+#### Simple IMDSv2 Enforcement
+
+For simple IMDSv2 enforcement without additional configuration, you can use the `requireImdsv2` property:
 
 ```go
 var vpc Vpc
@@ -2219,11 +2248,12 @@ ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 	InstanceType: InstanceType,
 	MachineImage: MachineImage,
 
-	// ...
-
+	// Simple IMDSv2 enforcement
 	RequireImdsv2: jsii.Boolean(true),
 })
 ```
+
+#### Applying to Multiple Instances
 
 You can also use the either the `InstanceRequireImdsv2Aspect` for EC2 instances or the `LaunchTemplateRequireImdsv2Aspect` for EC2 launch templates
 to apply the operation to multiple instances or launch templates, respectively.

@@ -188,6 +188,14 @@ func validateCfnLaunchTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLaunchTemplate_IsCfnLaunchTemplateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLaunchTemplate_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

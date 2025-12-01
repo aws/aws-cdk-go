@@ -572,6 +572,25 @@ func CfnVpcOrigin_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVpcOrigin.
+func CfnVpcOrigin_IsCfnVpcOrigin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVpcOrigin_IsCfnVpcOriginParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnVpcOrigin",
+		"isCfnVpcOrigin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

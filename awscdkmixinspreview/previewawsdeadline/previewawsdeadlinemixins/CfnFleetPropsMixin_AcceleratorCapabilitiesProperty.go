@@ -30,7 +30,7 @@ type CfnFleetPropsMixin_AcceleratorCapabilitiesProperty struct {
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
 	// A list of accelerator capabilities requested for this fleet.
 	//
-	// Only Amazon Elastic Compute Cloud instances that provide these capabilities will be used. For example, if you specify both L4 and T4 chips, Deadline Cloud will use Amazon EC2 instances that have either the L4 or the T4 chip installed.
+	// Only Amazon Elastic Compute Cloud instances that provide these capabilities will be used. For example, if you specify both L4 and T4 chips, AWS Deadline Cloud will use Amazon EC2 instances that have either the L4 or the T4 chip installed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html#cfn-deadline-fleet-acceleratorcapabilities-selections
 	//
 	Selections interface{} `field:"optional" json:"selections" yaml:"selections"`

@@ -667,6 +667,25 @@ func CfnFlywheel_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFlywheel.
+func CfnFlywheel_IsCfnFlywheel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFlywheel_IsCfnFlywheelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_comprehend.CfnFlywheel",
+		"isCfnFlywheel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFlywheel_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

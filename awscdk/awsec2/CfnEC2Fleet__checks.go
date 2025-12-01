@@ -180,6 +180,14 @@ func validateCfnEC2Fleet_FromFleetIdParameters(scope constructs.Construct, id *s
 	return nil
 }
 
+func validateCfnEC2Fleet_IsCfnEC2FleetParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEC2Fleet_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

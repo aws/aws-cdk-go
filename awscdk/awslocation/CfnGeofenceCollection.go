@@ -655,6 +655,25 @@ func CfnGeofenceCollection_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGeofenceCollection.
+func CfnGeofenceCollection_IsCfnGeofenceCollection(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGeofenceCollection_IsCfnGeofenceCollectionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnGeofenceCollection",
+		"isCfnGeofenceCollection",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGeofenceCollection_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

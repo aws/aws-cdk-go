@@ -72,6 +72,10 @@ func validateCfnServerlessCache_ArnForServerlessCacheParameters(resource interfa
 	return nil
 }
 
+func validateCfnServerlessCache_FromServerlessCacheArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnServerlessCache_FromServerlessCacheNameParameters(scope constructs.Construct, id *string, serverlessCacheName *string) error {
 	return nil
 }
@@ -81,6 +85,10 @@ func validateCfnServerlessCache_IsCfnElementParameters(x interface{}) error {
 }
 
 func validateCfnServerlessCache_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnServerlessCache_IsCfnServerlessCacheParameters(x interface{}) error {
 	return nil
 }
 

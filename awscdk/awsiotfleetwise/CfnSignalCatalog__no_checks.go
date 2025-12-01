@@ -80,6 +80,10 @@ func validateCfnSignalCatalog_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSignalCatalog_IsCfnSignalCatalogParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSignalCatalog_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -164,6 +164,22 @@ func validateCfnMailManagerRuleSet_ArnForMailManagerRuleSetParameters(resource i
 	return nil
 }
 
+func validateCfnMailManagerRuleSet_FromMailManagerRuleSetArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnMailManagerRuleSet_FromRuleSetIdParameters(scope constructs.Construct, id *string, ruleSetId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -181,6 +197,14 @@ func validateCfnMailManagerRuleSet_FromRuleSetIdParameters(scope constructs.Cons
 }
 
 func validateCfnMailManagerRuleSet_IsCfnElementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnMailManagerRuleSet_IsCfnMailManagerRuleSetParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
 	}

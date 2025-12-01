@@ -482,6 +482,25 @@ func CfnIdentityPoolPrincipalTag_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIdentityPoolPrincipalTag.
+func CfnIdentityPoolPrincipalTag_IsCfnIdentityPoolPrincipalTag(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIdentityPoolPrincipalTag_IsCfnIdentityPoolPrincipalTagParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolPrincipalTag",
+		"isCfnIdentityPoolPrincipalTag",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIdentityPoolPrincipalTag_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

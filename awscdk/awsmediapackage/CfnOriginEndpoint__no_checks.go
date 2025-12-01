@@ -76,6 +76,10 @@ func validateCfnOriginEndpoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnOriginEndpoint_IsCfnOriginEndpointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOriginEndpoint_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

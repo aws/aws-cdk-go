@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataRepositoryAssociation) validateValidatePropertiesParam
 	return nil
 }
 
+func validateCfnDataRepositoryAssociation_IsCfnDataRepositoryAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataRepositoryAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

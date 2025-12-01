@@ -779,6 +779,25 @@ func CfnMaintenanceWindowTask_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMaintenanceWindowTask.
+func CfnMaintenanceWindowTask_IsCfnMaintenanceWindowTask(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMaintenanceWindowTask_IsCfnMaintenanceWindowTaskParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnMaintenanceWindowTask",
+		"isCfnMaintenanceWindowTask",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMaintenanceWindowTask_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

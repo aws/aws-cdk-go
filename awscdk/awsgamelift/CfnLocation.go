@@ -484,6 +484,25 @@ func CfnLocation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocation.
+func CfnLocation_IsCfnLocation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocation_IsCfnLocationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnLocation",
+		"isCfnLocation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

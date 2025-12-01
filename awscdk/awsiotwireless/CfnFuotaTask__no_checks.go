@@ -84,6 +84,10 @@ func validateCfnFuotaTask_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFuotaTask_IsCfnFuotaTaskParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFuotaTask_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

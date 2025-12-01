@@ -84,6 +84,10 @@ func validateCfnPlaceIndex_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPlaceIndex_IsCfnPlaceIndexParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPlaceIndex_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

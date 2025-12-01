@@ -76,6 +76,10 @@ func validateCfnRecordingConfiguration_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnRecordingConfiguration_IsCfnRecordingConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRecordingConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

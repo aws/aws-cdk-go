@@ -80,6 +80,10 @@ func validateCfnCertificate_FromCertificateIdParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnCertificate_IsCfnCertificateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCertificate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

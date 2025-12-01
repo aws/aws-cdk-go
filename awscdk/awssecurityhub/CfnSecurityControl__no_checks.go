@@ -76,6 +76,10 @@ func validateCfnSecurityControl_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSecurityControl_IsCfnSecurityControlParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSecurityControl_IsConstructParameters(x interface{}) error {
 	return nil
 }

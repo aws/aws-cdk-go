@@ -72,6 +72,10 @@ func validateCfnNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnNamespace_IsCfnNamespaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnNamespace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

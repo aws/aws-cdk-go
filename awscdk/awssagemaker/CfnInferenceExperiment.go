@@ -917,6 +917,25 @@ func CfnInferenceExperiment_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInferenceExperiment.
+func CfnInferenceExperiment_IsCfnInferenceExperiment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInferenceExperiment_IsCfnInferenceExperimentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnInferenceExperiment",
+		"isCfnInferenceExperiment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInferenceExperiment_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

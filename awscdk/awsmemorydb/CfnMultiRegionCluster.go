@@ -643,6 +643,24 @@ func (j *jsiiProxy_CfnMultiRegionCluster)SetUpdateStrategy(val *string) {
 	)
 }
 
+func CfnMultiRegionCluster_ArnForMultiRegionCluster(resource interfacesawsmemorydb.IMultiRegionClusterRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMultiRegionCluster_ArnForMultiRegionClusterParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnMultiRegionCluster",
+		"arnForMultiRegionCluster",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -660,6 +678,25 @@ func CfnMultiRegionCluster_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_memorydb.CfnMultiRegionCluster",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMultiRegionCluster.
+func CfnMultiRegionCluster_IsCfnMultiRegionCluster(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMultiRegionCluster_IsCfnMultiRegionClusterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnMultiRegionCluster",
+		"isCfnMultiRegionCluster",
 		[]interface{}{x},
 		&returns,
 	)

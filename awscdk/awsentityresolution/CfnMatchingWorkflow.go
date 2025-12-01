@@ -737,6 +737,25 @@ func CfnMatchingWorkflow_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMatchingWorkflow.
+func CfnMatchingWorkflow_IsCfnMatchingWorkflow(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMatchingWorkflow_IsCfnMatchingWorkflowParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow",
+		"isCfnMatchingWorkflow",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMatchingWorkflow_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

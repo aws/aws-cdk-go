@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateValidateProper
 	return nil
 }
 
+func validateCfnApplicationCloudWatchLoggingOption_IsCfnApplicationCloudWatchLoggingOptionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApplicationCloudWatchLoggingOption_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

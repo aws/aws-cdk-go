@@ -137,7 +137,9 @@ type CfnClusterMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-computeconfig
 	//
 	ComputeConfig interface{} `field:"optional" json:"computeConfig" yaml:"computeConfig"`
-	// Configuration for provisioned control plane scaling.
+	// The control plane scaling tier configuration.
+	//
+	// For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-controlplanescalingconfig
 	//
 	ControlPlaneScalingConfig interface{} `field:"optional" json:"controlPlaneScalingConfig" yaml:"controlPlaneScalingConfig"`

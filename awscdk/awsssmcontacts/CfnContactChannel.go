@@ -518,6 +518,25 @@ func CfnContactChannel_ArnForContactChannel(resource interfacesawsssmcontacts.IC
 	return returns
 }
 
+// Checks whether the given object is a CfnContactChannel.
+func CfnContactChannel_IsCfnContactChannel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnContactChannel_IsCfnContactChannelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
+		"isCfnContactChannel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

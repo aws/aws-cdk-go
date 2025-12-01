@@ -80,6 +80,10 @@ func validateCfnSpace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSpace_IsCfnSpaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSpace_IsConstructParameters(x interface{}) error {
 	return nil
 }

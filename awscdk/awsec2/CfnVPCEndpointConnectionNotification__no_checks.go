@@ -76,6 +76,10 @@ func validateCfnVPCEndpointConnectionNotification_IsCfnResourceParameters(x inte
 	return nil
 }
 
+func validateCfnVPCEndpointConnectionNotification_IsCfnVPCEndpointConnectionNotificationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPCEndpointConnectionNotification_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -528,6 +528,25 @@ func CfnStep_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStep.
+func CfnStep_IsCfnStep(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStep_IsCfnStepParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emr.CfnStep",
+		"isCfnStep",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

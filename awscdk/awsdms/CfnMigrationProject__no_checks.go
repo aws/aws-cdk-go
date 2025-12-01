@@ -76,6 +76,10 @@ func validateCfnMigrationProject_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMigrationProject_IsCfnMigrationProjectParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMigrationProject_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

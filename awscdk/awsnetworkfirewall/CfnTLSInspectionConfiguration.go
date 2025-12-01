@@ -610,6 +610,25 @@ func CfnTLSInspectionConfiguration_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTLSInspectionConfiguration.
+func CfnTLSInspectionConfiguration_IsCfnTLSInspectionConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTLSInspectionConfiguration_IsCfnTLSInspectionConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkfirewall.CfnTLSInspectionConfiguration",
+		"isCfnTLSInspectionConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

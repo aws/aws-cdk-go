@@ -443,6 +443,24 @@ func (j *jsiiProxy_CfnGroup)SetIdentityStoreId(val *string) {
 	)
 }
 
+func CfnGroup_ArnForGroup(resource interfacesawsidentitystore.IGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGroup_ArnForGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_identitystore.CfnGroup",
+		"arnForGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -460,6 +478,25 @@ func CfnGroup_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_identitystore.CfnGroup",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnGroup.
+func CfnGroup_IsCfnGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGroup_IsCfnGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_identitystore.CfnGroup",
+		"isCfnGroup",
 		[]interface{}{x},
 		&returns,
 	)

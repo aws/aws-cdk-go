@@ -84,6 +84,10 @@ func validateCfnIPAMPool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIPAMPool_IsCfnIPAMPoolParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIPAMPool_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

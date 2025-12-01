@@ -800,6 +800,25 @@ func CfnFirewall_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFirewall.
+func CfnFirewall_IsCfnFirewall(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFirewall_IsCfnFirewallParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"isCfnFirewall",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFirewall_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

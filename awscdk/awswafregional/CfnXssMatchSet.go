@@ -437,6 +437,24 @@ func (j *jsiiProxy_CfnXssMatchSet)SetXssMatchTuples(val interface{}) {
 	)
 }
 
+func CfnXssMatchSet_ArnForXssMatchSet(resource interfacesawswafregional.IXssMatchSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnXssMatchSet_ArnForXssMatchSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnXssMatchSet",
+		"arnForXssMatchSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -473,6 +491,25 @@ func CfnXssMatchSet_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wafregional.CfnXssMatchSet",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnXssMatchSet.
+func CfnXssMatchSet_IsCfnXssMatchSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnXssMatchSet_IsCfnXssMatchSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnXssMatchSet",
+		"isCfnXssMatchSet",
 		[]interface{}{x},
 		&returns,
 	)

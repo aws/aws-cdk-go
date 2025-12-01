@@ -84,6 +84,10 @@ func validateCfnIPAM_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIPAM_IsCfnIPAMParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIPAM_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

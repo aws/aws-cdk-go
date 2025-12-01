@@ -212,6 +212,14 @@ func validateCfnThingGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnThingGroup_IsCfnThingGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnThingGroup_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

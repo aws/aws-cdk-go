@@ -80,6 +80,10 @@ func validateCfnCapacityReservation_FromCapacityReservationIdParameters(scope co
 	return nil
 }
 
+func validateCfnCapacityReservation_IsCfnCapacityReservationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCapacityReservation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

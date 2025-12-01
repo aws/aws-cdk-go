@@ -16,6 +16,10 @@ func validateBaseContainerImage_FromEcrPublicParameters(registryAlias *string, r
 	return nil
 }
 
+func validateBaseContainerImage_FromImageParameters(image IImage) error {
+	return nil
+}
+
 func validateBaseContainerImage_FromStringParameters(baseContainerImageString *string) error {
 	return nil
 }

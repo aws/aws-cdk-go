@@ -72,6 +72,10 @@ func validateCfnDistributionTenant_ArnForDistributionTenantParameters(resource i
 	return nil
 }
 
+func validateCfnDistributionTenant_IsCfnDistributionTenantParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDistributionTenant_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

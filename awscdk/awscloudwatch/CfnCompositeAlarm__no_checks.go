@@ -72,6 +72,10 @@ func validateCfnCompositeAlarm_ArnForCompositeAlarmParameters(resource interface
 	return nil
 }
 
+func validateCfnCompositeAlarm_IsCfnCompositeAlarmParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCompositeAlarm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

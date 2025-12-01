@@ -770,6 +770,25 @@ func CfnConnectAttachment_FromAttachmentId(scope constructs.Construct, id *strin
 	return returns
 }
 
+// Checks whether the given object is a CfnConnectAttachment.
+func CfnConnectAttachment_IsCfnConnectAttachment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConnectAttachment_IsCfnConnectAttachmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment",
+		"isCfnConnectAttachment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

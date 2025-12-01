@@ -601,6 +601,25 @@ func CfnModelManifest_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnModelManifest.
+func CfnModelManifest_IsCfnModelManifest(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnModelManifest_IsCfnModelManifestParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotfleetwise.CfnModelManifest",
+		"isCfnModelManifest",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnModelManifest_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

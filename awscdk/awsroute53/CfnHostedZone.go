@@ -558,6 +558,24 @@ func (j *jsiiProxy_CfnHostedZone)SetVpcs(val interface{}) {
 	)
 }
 
+func CfnHostedZone_ArnForHostedZone(resource interfacesawsroute53.IHostedZoneRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnHostedZone_ArnForHostedZoneParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53.CfnHostedZone",
+		"arnForHostedZone",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -575,6 +593,25 @@ func CfnHostedZone_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_route53.CfnHostedZone",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnHostedZone.
+func CfnHostedZone_IsCfnHostedZone(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnHostedZone_IsCfnHostedZoneParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53.CfnHostedZone",
+		"isCfnHostedZone",
 		[]interface{}{x},
 		&returns,
 	)

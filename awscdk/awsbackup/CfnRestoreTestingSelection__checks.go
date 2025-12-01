@@ -171,6 +171,14 @@ func validateCfnRestoreTestingSelection_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnRestoreTestingSelection_IsCfnRestoreTestingSelectionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRestoreTestingSelection_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -479,6 +479,25 @@ func (j *jsiiProxy_CfnAIGuardrailVersion)SetModifiedTimeSeconds(val *float64) {
 	)
 }
 
+// Checks whether the given object is a CfnAIGuardrailVersion.
+func CfnAIGuardrailVersion_IsCfnAIGuardrailVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAIGuardrailVersion_IsCfnAIGuardrailVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAIGuardrailVersion",
+		"isCfnAIGuardrailVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

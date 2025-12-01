@@ -76,6 +76,10 @@ func validateCfnApplicationV2_FromApplicationNameParameters(scope constructs.Con
 	return nil
 }
 
+func validateCfnApplicationV2_IsCfnApplicationV2Parameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApplicationV2_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnPullTimeUpdateExclusion_IsCfnElementParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnPullTimeUpdateExclusion_IsCfnPullTimeUpdateExclusionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPullTimeUpdateExclusion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

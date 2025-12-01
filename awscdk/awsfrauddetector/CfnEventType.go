@@ -654,6 +654,25 @@ func CfnEventType_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventType.
+func CfnEventType_IsCfnEventType(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventType_IsCfnEventTypeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnEventType",
+		"isCfnEventType",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventType_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

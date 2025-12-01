@@ -80,6 +80,10 @@ func validateCfnBackupPlan_FromBackupPlanIdParameters(scope constructs.Construct
 	return nil
 }
 
+func validateCfnBackupPlan_IsCfnBackupPlanParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBackupPlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

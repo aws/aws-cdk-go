@@ -641,6 +641,25 @@ func CfnGraph_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGraph.
+func CfnGraph_IsCfnGraph(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGraph_IsCfnGraphParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_neptunegraph.CfnGraph",
+		"isCfnGraph",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGraph_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

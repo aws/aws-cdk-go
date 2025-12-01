@@ -484,6 +484,25 @@ func CfnInstanceAccessControlAttributeConfiguration_IsCfnElement(x interface{}) 
 	return returns
 }
 
+// Checks whether the given object is a CfnInstanceAccessControlAttributeConfiguration.
+func CfnInstanceAccessControlAttributeConfiguration_IsCfnInstanceAccessControlAttributeConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceAccessControlAttributeConfiguration_IsCfnInstanceAccessControlAttributeConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sso.CfnInstanceAccessControlAttributeConfiguration",
+		"isCfnInstanceAccessControlAttributeConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInstanceAccessControlAttributeConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

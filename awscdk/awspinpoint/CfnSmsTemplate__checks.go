@@ -180,6 +180,14 @@ func validateCfnSmsTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSmsTemplate_IsCfnSmsTemplateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSmsTemplate_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

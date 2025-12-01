@@ -458,6 +458,25 @@ func CfnPrimaryTaskSet_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPrimaryTaskSet.
+func CfnPrimaryTaskSet_IsCfnPrimaryTaskSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPrimaryTaskSet_IsCfnPrimaryTaskSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSet",
+		"isCfnPrimaryTaskSet",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPrimaryTaskSet_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

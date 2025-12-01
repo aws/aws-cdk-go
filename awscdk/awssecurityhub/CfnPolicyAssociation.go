@@ -520,6 +520,25 @@ func CfnPolicyAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPolicyAssociation.
+func CfnPolicyAssociation_IsCfnPolicyAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPolicyAssociation_IsCfnPolicyAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnPolicyAssociation",
+		"isCfnPolicyAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPolicyAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

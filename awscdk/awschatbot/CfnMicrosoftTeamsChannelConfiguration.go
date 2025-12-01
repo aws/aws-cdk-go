@@ -729,6 +729,25 @@ func CfnMicrosoftTeamsChannelConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMicrosoftTeamsChannelConfiguration.
+func CfnMicrosoftTeamsChannelConfiguration_IsCfnMicrosoftTeamsChannelConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMicrosoftTeamsChannelConfiguration_IsCfnMicrosoftTeamsChannelConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_chatbot.CfnMicrosoftTeamsChannelConfiguration",
+		"isCfnMicrosoftTeamsChannelConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMicrosoftTeamsChannelConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

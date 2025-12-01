@@ -72,6 +72,10 @@ func validateCfnEventStream_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEventStream_IsCfnEventStreamParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEventStream_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

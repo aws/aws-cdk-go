@@ -180,6 +180,14 @@ func validateCfnVirtualRouter_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVirtualRouter_IsCfnVirtualRouterParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVirtualRouter_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -52,6 +52,38 @@ package awsconnect
 //   		Instructions: jsii.String("instructions"),
 //   		NotApplicableEnabled: jsii.Boolean(false),
 //   		QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
+//   			MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
+//   				Options: []interface{}{
+//   					&EvaluationFormMultiSelectQuestionOptionProperty{
+//   						RefId: jsii.String("refId"),
+//   						Text: jsii.String("text"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   					Options: []interface{}{
+//   						&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
+//   							RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
+//   								Category: jsii.String("category"),
+//   								Condition: jsii.String("condition"),
+//   								OptionRefIds: []*string{
+//   									jsii.String("optionRefIds"),
+//   								},
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   						SourceType: jsii.String("sourceType"),
+//   					},
+//   					DefaultOptionRefIds: []*string{
+//   						jsii.String("defaultOptionRefIds"),
+//   					},
+//   				},
+//   				DisplayAs: jsii.String("displayAs"),
+//   			},
 //   			Numeric: &EvaluationFormNumericQuestionPropertiesProperty{
 //   				MaxValue: jsii.Number(123),
 //   				MinValue: jsii.Number(123),

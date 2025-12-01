@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAnomalyMonitor) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnAnomalyMonitor_IsCfnAnomalyMonitorParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAnomalyMonitor_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

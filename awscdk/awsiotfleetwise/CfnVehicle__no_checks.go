@@ -80,6 +80,10 @@ func validateCfnVehicle_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVehicle_IsCfnVehicleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVehicle_IsConstructParameters(x interface{}) error {
 	return nil
 }

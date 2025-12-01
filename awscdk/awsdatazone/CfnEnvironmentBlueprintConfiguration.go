@@ -642,6 +642,25 @@ func CfnEnvironmentBlueprintConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEnvironmentBlueprintConfiguration.
+func CfnEnvironmentBlueprintConfiguration_IsCfnEnvironmentBlueprintConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironmentBlueprintConfiguration_IsCfnEnvironmentBlueprintConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnEnvironmentBlueprintConfiguration",
+		"isCfnEnvironmentBlueprintConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEnvironmentBlueprintConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -196,6 +196,14 @@ func validateCfnSecret_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSecret_IsCfnSecretParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSecret_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

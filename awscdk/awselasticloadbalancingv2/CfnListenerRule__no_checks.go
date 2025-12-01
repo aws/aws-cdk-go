@@ -72,6 +72,10 @@ func validateCfnListenerRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnListenerRule_IsCfnListenerRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnListenerRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

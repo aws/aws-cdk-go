@@ -72,6 +72,10 @@ func validateCfnCloudWatchAlarmTemplateGroup_ArnForCloudWatchAlarmTemplateGroupP
 	return nil
 }
 
+func validateCfnCloudWatchAlarmTemplateGroup_IsCfnCloudWatchAlarmTemplateGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCloudWatchAlarmTemplateGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

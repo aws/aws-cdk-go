@@ -437,6 +437,25 @@ func CfnMonitoringSubscription_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMonitoringSubscription.
+func CfnMonitoringSubscription_IsCfnMonitoringSubscription(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMonitoringSubscription_IsCfnMonitoringSubscriptionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnMonitoringSubscription",
+		"isCfnMonitoringSubscription",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMonitoringSubscription_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -76,6 +76,10 @@ func validateCfnVPCGatewayAttachment_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnVPCGatewayAttachment_IsCfnVPCGatewayAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPCGatewayAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

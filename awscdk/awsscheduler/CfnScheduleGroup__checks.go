@@ -180,6 +180,14 @@ func validateCfnScheduleGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnScheduleGroup_IsCfnScheduleGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnScheduleGroup_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

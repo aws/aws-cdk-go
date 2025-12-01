@@ -576,6 +576,25 @@ func CfnEventRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventRule.
+func CfnEventRule_IsCfnEventRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventRule_IsCfnEventRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notifications.CfnEventRule",
+		"isCfnEventRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -80,6 +80,10 @@ func validateCfnSignalingChannel_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSignalingChannel_IsCfnSignalingChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSignalingChannel_IsConstructParameters(x interface{}) error {
 	return nil
 }

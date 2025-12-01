@@ -80,6 +80,10 @@ func validateCfnLogicallyAirGappedBackupVault_IsCfnElementParameters(x interface
 	return nil
 }
 
+func validateCfnLogicallyAirGappedBackupVault_IsCfnLogicallyAirGappedBackupVaultParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLogicallyAirGappedBackupVault_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

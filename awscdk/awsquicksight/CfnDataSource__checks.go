@@ -164,6 +164,14 @@ func validateCfnDataSource_ArnForDataSourceParameters(resource interfacesawsquic
 	return nil
 }
 
+func validateCfnDataSource_IsCfnDataSourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDataSource_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -72,6 +72,10 @@ func validateCfnPolicyPrincipalAttachment_IsCfnElementParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnPolicyPrincipalAttachment_IsCfnPolicyPrincipalAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPolicyPrincipalAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

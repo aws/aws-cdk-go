@@ -528,6 +528,25 @@ func CfnOutcome_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOutcome.
+func CfnOutcome_IsCfnOutcome(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOutcome_IsCfnOutcomeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnOutcome",
+		"isCfnOutcome",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOutcome_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

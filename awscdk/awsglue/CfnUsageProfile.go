@@ -550,6 +550,25 @@ func CfnUsageProfile_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnUsageProfile.
+func CfnUsageProfile_IsCfnUsageProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnUsageProfile_IsCfnUsageProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnUsageProfile",
+		"isCfnUsageProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

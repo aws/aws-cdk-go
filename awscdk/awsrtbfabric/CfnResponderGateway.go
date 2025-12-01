@@ -763,6 +763,25 @@ func CfnResponderGateway_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnResponderGateway.
+func CfnResponderGateway_IsCfnResponderGateway(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResponderGateway_IsCfnResponderGatewayParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rtbfabric.CfnResponderGateway",
+		"isCfnResponderGateway",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

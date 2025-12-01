@@ -1,7 +1,7 @@
 package previewawsathenamixins
 
 
-// Configuration settings for managed log persistence.
+// Configuration settings for delivering logs to Amazon S3 buckets.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,7 +16,7 @@ package previewawsathenamixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-managedloggingconfiguration.html
 //
 type CfnWorkGroupPropsMixin_ManagedLoggingConfigurationProperty struct {
-	// Enables managed log persistence.
+	// Enables mamanged log persistence.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-managedloggingconfiguration.html#cfn-athena-workgroup-managedloggingconfiguration-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`

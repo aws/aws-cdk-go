@@ -536,6 +536,25 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion)SetTags(val *[]*awscdk.Cfn
 	)
 }
 
+// Checks whether the given object is a CfnAutomatedReasoningPolicyVersion.
+func CfnAutomatedReasoningPolicyVersion_IsCfnAutomatedReasoningPolicyVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAutomatedReasoningPolicyVersion_IsCfnAutomatedReasoningPolicyVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnAutomatedReasoningPolicyVersion",
+		"isCfnAutomatedReasoningPolicyVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

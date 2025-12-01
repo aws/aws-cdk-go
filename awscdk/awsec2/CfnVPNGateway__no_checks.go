@@ -84,6 +84,10 @@ func validateCfnVPNGateway_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVPNGateway_IsCfnVPNGatewayParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPNGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }

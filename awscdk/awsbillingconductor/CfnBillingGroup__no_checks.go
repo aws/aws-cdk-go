@@ -72,6 +72,10 @@ func validateCfnBillingGroup_ArnForBillingGroupParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnBillingGroup_IsCfnBillingGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBillingGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

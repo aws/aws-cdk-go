@@ -84,6 +84,10 @@ func validateCfnJobDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnJobDefinition_IsCfnJobDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnJobDefinition_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

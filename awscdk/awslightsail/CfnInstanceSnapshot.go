@@ -605,6 +605,25 @@ func CfnInstanceSnapshot_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInstanceSnapshot.
+func CfnInstanceSnapshot_IsCfnInstanceSnapshot(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceSnapshot_IsCfnInstanceSnapshotParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lightsail.CfnInstanceSnapshot",
+		"isCfnInstanceSnapshot",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInstanceSnapshot_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

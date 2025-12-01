@@ -554,6 +554,25 @@ func CfnPlaybackRestrictionPolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPlaybackRestrictionPolicy.
+func CfnPlaybackRestrictionPolicy_IsCfnPlaybackRestrictionPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPlaybackRestrictionPolicy_IsCfnPlaybackRestrictionPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnPlaybackRestrictionPolicy",
+		"isCfnPlaybackRestrictionPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPlaybackRestrictionPolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

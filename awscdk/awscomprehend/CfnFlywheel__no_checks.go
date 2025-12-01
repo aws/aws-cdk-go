@@ -76,6 +76,10 @@ func validateCfnFlywheel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFlywheel_IsCfnFlywheelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFlywheel_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

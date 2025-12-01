@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnDataQualityJobDefinition_IsCfnDataQualityJobDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataQualityJobDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

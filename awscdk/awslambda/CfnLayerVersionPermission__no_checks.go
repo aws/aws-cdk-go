@@ -72,6 +72,10 @@ func validateCfnLayerVersionPermission_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnLayerVersionPermission_IsCfnLayerVersionPermissionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLayerVersionPermission_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

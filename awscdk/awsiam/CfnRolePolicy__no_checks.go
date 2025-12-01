@@ -76,6 +76,10 @@ func validateCfnRolePolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRolePolicy_IsCfnRolePolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRolePolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }

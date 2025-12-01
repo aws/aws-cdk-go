@@ -180,6 +180,14 @@ func validateCfnSigningProfile_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSigningProfile_IsCfnSigningProfileParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSigningProfile_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

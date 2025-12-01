@@ -50,7 +50,7 @@ type CfnPullTimeUpdateExclusion interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Principal arn that should not update image pull times.
+	// The ARN of the IAM principal to remove from the pull time update exclusion list.
 	PrincipalArn() *string
 	SetPrincipalArn(val *string)
 	// A reference to a PullTimeUpdateExclusion resource.
@@ -399,6 +399,25 @@ func CfnPullTimeUpdateExclusion_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecr.CfnPullTimeUpdateExclusion",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnPullTimeUpdateExclusion.
+func CfnPullTimeUpdateExclusion_IsCfnPullTimeUpdateExclusion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPullTimeUpdateExclusion_IsCfnPullTimeUpdateExclusionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnPullTimeUpdateExclusion",
+		"isCfnPullTimeUpdateExclusion",
 		[]interface{}{x},
 		&returns,
 	)

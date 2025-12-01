@@ -76,6 +76,10 @@ func validateCfnPrivateDnsNamespace_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnPrivateDnsNamespace_IsCfnPrivateDnsNamespaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPrivateDnsNamespace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -139,40 +139,10 @@ type CfnConnectionPropsMixin_ConnectionInputProperty struct {
 	// - `SAPODATA` - Designates a connection to SAP OData.
 	// - `SERVICENOW` - Designates a connection to ServiceNow.
 	// - `SLACK` - Designates a connection to Slack.
-	// - `SNOWFLAKE` - Designates a connection to Snowflake.
 	// - `SNAPCHATADS` - Designates a connection to Snapchat Ads.
 	// - `STRIPE` - Designates a connection to Stripe.
 	// - `ZENDESK` - Designates a connection to Zendesk.
 	// - `ZOHOCRM` - Designates a connection to Zoho CRM.
-	// - `ADOBEANALYTICS` - Designates a connection to Adobe Analytics.
-	// - `LINKEDIN` - Designates a connection to LinkedIn.
-	// - `MIXPANEL` - Designates a connection to Mixpanel.
-	// - `ASANA` - Designates a connection to Asana.
-	// - `SMARTSHEET` - Designates a connection to Smartsheet.
-	// - `DATADOG` - Designates a connection to Datadog.
-	// - `WOOCOMMERCE` - Designates a connection to WooCommerce.
-	// - `PAYPAL` - Designates a connection to PayPal.
-	// - `QUICKBOOKS` - Designates a connection to QuickBooks.
-	// - `FACEBOOKPAGEINSIGHTS` - Designates a connection to Facebook Page Insights.
-	// - `FRESHDESK` - Designates a connection to Freshdesk.
-	// - `TWILIO` - Designates a connection to Twilio.
-	// - `DOCUSIGNMONITOR` - Designates a connection to DocuSign Monitor.
-	// - `FRESHSALES` - Designates a connection to Freshsales.
-	// - `ZOOM` - Designates a connection to Zoom.
-	// - `GOOGLESEARCHCONSOLE` - Designates a connection to Google Search Console.
-	// - `SALESFORCECOMMERCECLOUD` - Designates a connection to Salesforce Commerce Cloud.
-	// - `SAPCONCUR` - Designates a connection to SAP Concur.
-	// - `DYNATRACE` - Designates a connection to Dynatrace.
-	// - `MICROSOFTDYNAMIC365FINANCEANDOPS` - Designates a connection to Microsoft Dynamics 365 Finance and Operations.
-	// - `MICROSOFTTEAMS` - Designates a connection to Microsoft Teams.
-	// - `BLACKBAUDRAISEREDGENXT` - Designates a connection to Blackbaud Raiser's Edge NXT.
-	// - `MAILCHIMP` - Designates a connection to Mailchimp.
-	// - `GITLAB` - Designates a connection to GitLab.
-	// - `PENDO` - Designates a connection to Pendo.
-	// - `PRODUCTBOARD` - Designates a connection to Productboard.
-	// - `CIRCLECI` - Designates a connection to CircleCI.
-	// - `PIPEDIVE` - Designates a connection to Pipedrive.
-	// - `SENDGRID` - Designates a connection to SendGrid.
 	//
 	// For more information on the connection parameters needed for a particular connector, see the documentation for the connector in [Adding an AWS Glue connection](https://docs.aws.amazon.com/glue/latest/dg/console-connections.html) in the AWS Glue User Guide.
 	//

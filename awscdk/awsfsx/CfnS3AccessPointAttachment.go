@@ -551,6 +551,25 @@ func CfnS3AccessPointAttachment_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnS3AccessPointAttachment.
+func CfnS3AccessPointAttachment_IsCfnS3AccessPointAttachment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnS3AccessPointAttachment_IsCfnS3AccessPointAttachmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_fsx.CfnS3AccessPointAttachment",
+		"isCfnS3AccessPointAttachment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -72,6 +72,10 @@ func validateCfnOrganizationConformancePack_IsCfnElementParameters(x interface{}
 	return nil
 }
 
+func validateCfnOrganizationConformancePack_IsCfnOrganizationConformancePackParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOrganizationConformancePack_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

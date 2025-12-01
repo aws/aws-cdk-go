@@ -72,6 +72,10 @@ func validateCfnCustomAction_ArnForCustomActionParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnCustomAction_IsCfnCustomActionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomAction_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

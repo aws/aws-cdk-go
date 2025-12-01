@@ -172,6 +172,14 @@ func validateCfnGraphQLApi_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGraphQLApi_IsCfnGraphQLApiParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnGraphQLApi_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

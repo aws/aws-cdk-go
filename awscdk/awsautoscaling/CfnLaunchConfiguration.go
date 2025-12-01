@@ -853,6 +853,25 @@ func CfnLaunchConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLaunchConfiguration.
+func CfnLaunchConfiguration_IsCfnLaunchConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLaunchConfiguration_IsCfnLaunchConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_autoscaling.CfnLaunchConfiguration",
+		"isCfnLaunchConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLaunchConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

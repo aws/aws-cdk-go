@@ -623,6 +623,25 @@ func CfnRotationSchedule_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRotationSchedule.
+func CfnRotationSchedule_IsCfnRotationSchedule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRotationSchedule_IsCfnRotationScheduleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule",
+		"isCfnRotationSchedule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

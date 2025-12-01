@@ -48,6 +48,14 @@ func validateBaseContainerImage_FromEcrPublicParameters(registryAlias *string, r
 	return nil
 }
 
+func validateBaseContainerImage_FromImageParameters(image IImage) error {
+	if image == nil {
+		return fmt.Errorf("parameter image is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateBaseContainerImage_FromStringParameters(baseContainerImageString *string) error {
 	if baseContainerImageString == nil {
 		return fmt.Errorf("parameter baseContainerImageString is required, but nil was provided")

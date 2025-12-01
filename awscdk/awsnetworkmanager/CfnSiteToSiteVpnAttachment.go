@@ -734,6 +734,25 @@ func CfnSiteToSiteVpnAttachment_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSiteToSiteVpnAttachment.
+func CfnSiteToSiteVpnAttachment_IsCfnSiteToSiteVpnAttachment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSiteToSiteVpnAttachment_IsCfnSiteToSiteVpnAttachmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnSiteToSiteVpnAttachment",
+		"isCfnSiteToSiteVpnAttachment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

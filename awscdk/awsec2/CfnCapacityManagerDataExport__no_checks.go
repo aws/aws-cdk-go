@@ -76,6 +76,10 @@ func validateCfnCapacityManagerDataExport_FromCapacityManagerDataExportIdParamet
 	return nil
 }
 
+func validateCfnCapacityManagerDataExport_IsCfnCapacityManagerDataExportParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCapacityManagerDataExport_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

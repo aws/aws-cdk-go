@@ -657,6 +657,25 @@ func CfnWorkflow_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnWorkflow.
+func CfnWorkflow_IsCfnWorkflow(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnWorkflow_IsCfnWorkflowParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnWorkflow",
+		"isCfnWorkflow",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

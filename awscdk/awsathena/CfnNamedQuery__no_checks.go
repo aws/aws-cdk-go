@@ -72,6 +72,10 @@ func validateCfnNamedQuery_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnNamedQuery_IsCfnNamedQueryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnNamedQuery_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

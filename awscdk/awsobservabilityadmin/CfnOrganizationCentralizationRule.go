@@ -522,6 +522,25 @@ func CfnOrganizationCentralizationRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOrganizationCentralizationRule.
+func CfnOrganizationCentralizationRule_IsCfnOrganizationCentralizationRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOrganizationCentralizationRule_IsCfnOrganizationCentralizationRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule",
+		"isCfnOrganizationCentralizationRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOrganizationCentralizationRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -72,6 +72,10 @@ func validateCfnAccessGrantsInstance_ArnForAccessGrantsInstanceParameters(resour
 	return nil
 }
 
+func validateCfnAccessGrantsInstance_IsCfnAccessGrantsInstanceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessGrantsInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

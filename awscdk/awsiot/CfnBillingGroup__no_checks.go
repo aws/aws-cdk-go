@@ -80,6 +80,10 @@ func validateCfnBillingGroup_FromBillingGroupNameParameters(scope constructs.Con
 	return nil
 }
 
+func validateCfnBillingGroup_IsCfnBillingGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBillingGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

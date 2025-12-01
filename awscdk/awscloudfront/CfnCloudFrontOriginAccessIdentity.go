@@ -412,6 +412,43 @@ func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity)SetCloudFrontOriginAccessId
 	)
 }
 
+func CfnCloudFrontOriginAccessIdentity_ArnForCloudFrontOriginAccessIdentity(resource interfacesawscloudfront.ICloudFrontOriginAccessIdentityRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCloudFrontOriginAccessIdentity_ArnForCloudFrontOriginAccessIdentityParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentity",
+		"arnForCloudFrontOriginAccessIdentity",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnCloudFrontOriginAccessIdentity.
+func CfnCloudFrontOriginAccessIdentity_IsCfnCloudFrontOriginAccessIdentity(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCloudFrontOriginAccessIdentity_IsCfnCloudFrontOriginAccessIdentityParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentity",
+		"isCfnCloudFrontOriginAccessIdentity",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

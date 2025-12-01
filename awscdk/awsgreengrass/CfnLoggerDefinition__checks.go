@@ -204,6 +204,14 @@ func validateCfnLoggerDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLoggerDefinition_IsCfnLoggerDefinitionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLoggerDefinition_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

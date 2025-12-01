@@ -80,6 +80,10 @@ func validateCfnSyncJob_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSyncJob_IsCfnSyncJobParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSyncJob_IsConstructParameters(x interface{}) error {
 	return nil
 }

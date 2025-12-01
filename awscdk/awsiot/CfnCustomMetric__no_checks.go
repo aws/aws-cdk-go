@@ -76,6 +76,10 @@ func validateCfnCustomMetric_FromMetricNameParameters(scope constructs.Construct
 	return nil
 }
 
+func validateCfnCustomMetric_IsCfnCustomMetricParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomMetric_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -80,6 +80,10 @@ func validateCfnWorkloadIdentity_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWorkloadIdentity_IsCfnWorkloadIdentityParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWorkloadIdentity_IsConstructParameters(x interface{}) error {
 	return nil
 }

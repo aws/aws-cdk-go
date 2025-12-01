@@ -163,6 +163,14 @@ func validateCfnPortfolioProductAssociation_IsCfnElementParameters(x interface{}
 	return nil
 }
 
+func validateCfnPortfolioProductAssociation_IsCfnPortfolioProductAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnPortfolioProductAssociation_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

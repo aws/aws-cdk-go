@@ -525,6 +525,25 @@ func CfnGatewayResponse_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGatewayResponse.
+func CfnGatewayResponse_IsCfnGatewayResponse(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGatewayResponse_IsCfnGatewayResponseParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnGatewayResponse",
+		"isCfnGatewayResponse",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGatewayResponse_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

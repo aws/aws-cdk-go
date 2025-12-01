@@ -72,6 +72,10 @@ func validateCfnDBInstance_ArnForDBInstanceParameters(resource interfacesawsrds.
 	return nil
 }
 
+func validateCfnDBInstance_IsCfnDBInstanceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDBInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

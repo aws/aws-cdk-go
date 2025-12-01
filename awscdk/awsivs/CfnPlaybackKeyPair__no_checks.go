@@ -76,6 +76,10 @@ func validateCfnPlaybackKeyPair_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPlaybackKeyPair_IsCfnPlaybackKeyPairParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPlaybackKeyPair_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

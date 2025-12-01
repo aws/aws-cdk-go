@@ -180,6 +180,14 @@ func validateCfnRetriever_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRetriever_IsCfnRetrieverParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRetriever_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

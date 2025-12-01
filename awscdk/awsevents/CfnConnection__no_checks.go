@@ -80,6 +80,10 @@ func validateCfnConnection_FromConnectionNameParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnConnection_IsCfnConnectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConnection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

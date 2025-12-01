@@ -783,6 +783,24 @@ func (j *jsiiProxy_CfnRuntime)SetTags(val *map[string]*string) {
 	)
 }
 
+func CfnRuntime_ArnForRuntime(resource interfacesawsbedrockagentcore.IRuntimeRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRuntime_ArnForRuntimeParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime",
+		"arnForRuntime",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -819,6 +837,25 @@ func CfnRuntime_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnRuntime.
+func CfnRuntime_IsCfnRuntime(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRuntime_IsCfnRuntimeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime",
+		"isCfnRuntime",
 		[]interface{}{x},
 		&returns,
 	)

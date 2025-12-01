@@ -84,6 +84,10 @@ func validateCfnPool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPool_IsCfnPoolParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPool_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

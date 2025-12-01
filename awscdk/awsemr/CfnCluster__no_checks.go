@@ -76,6 +76,10 @@ func validateCfnCluster_FromClusterIdParameters(scope constructs.Construct, id *
 	return nil
 }
 
+func validateCfnCluster_IsCfnClusterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

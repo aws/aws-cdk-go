@@ -80,6 +80,10 @@ func validateCfnSchedulingPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSchedulingPolicy_IsCfnSchedulingPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSchedulingPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }

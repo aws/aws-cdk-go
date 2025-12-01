@@ -571,6 +571,25 @@ func CfnServiceEnvironment_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnServiceEnvironment.
+func CfnServiceEnvironment_IsCfnServiceEnvironment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnServiceEnvironment_IsCfnServiceEnvironmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_batch.CfnServiceEnvironment",
+		"isCfnServiceEnvironment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

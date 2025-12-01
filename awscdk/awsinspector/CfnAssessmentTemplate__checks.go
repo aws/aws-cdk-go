@@ -164,6 +164,14 @@ func validateCfnAssessmentTemplate_ArnForAssessmentTemplateParameters(resource i
 	return nil
 }
 
+func validateCfnAssessmentTemplate_IsCfnAssessmentTemplateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAssessmentTemplate_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

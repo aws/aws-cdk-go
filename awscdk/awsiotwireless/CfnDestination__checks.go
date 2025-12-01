@@ -196,6 +196,14 @@ func validateCfnDestination_FromDestinationNameParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnDestination_IsCfnDestinationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDestination_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

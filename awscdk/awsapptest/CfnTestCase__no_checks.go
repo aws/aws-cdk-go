@@ -88,6 +88,10 @@ func validateCfnTestCase_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTestCase_IsCfnTestCaseParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTestCase_IsConstructParameters(x interface{}) error {
 	return nil
 }

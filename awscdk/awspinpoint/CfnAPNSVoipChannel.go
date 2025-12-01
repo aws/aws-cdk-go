@@ -581,6 +581,25 @@ func (j *jsiiProxy_CfnAPNSVoipChannel)SetTokenKeyId(val *string) {
 	)
 }
 
+// Checks whether the given object is a CfnAPNSVoipChannel.
+func CfnAPNSVoipChannel_IsCfnAPNSVoipChannel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAPNSVoipChannel_IsCfnAPNSVoipChannelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnAPNSVoipChannel",
+		"isCfnAPNSVoipChannel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

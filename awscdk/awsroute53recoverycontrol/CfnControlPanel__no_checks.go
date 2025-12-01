@@ -72,6 +72,10 @@ func validateCfnControlPanel_ArnForControlPanelParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnControlPanel_IsCfnControlPanelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnControlPanel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

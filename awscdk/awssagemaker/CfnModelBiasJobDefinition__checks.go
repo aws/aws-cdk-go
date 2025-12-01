@@ -163,6 +163,14 @@ func validateCfnModelBiasJobDefinition_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnModelBiasJobDefinition_IsCfnModelBiasJobDefinitionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnModelBiasJobDefinition_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

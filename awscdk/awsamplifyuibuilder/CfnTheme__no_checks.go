@@ -76,6 +76,10 @@ func validateCfnTheme_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTheme_IsCfnThemeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTheme_IsConstructParameters(x interface{}) error {
 	return nil
 }

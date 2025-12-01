@@ -84,6 +84,10 @@ func validateCfnTransitGatewayConnectPeer_IsCfnResourceParameters(x interface{})
 	return nil
 }
 
+func validateCfnTransitGatewayConnectPeer_IsCfnTransitGatewayConnectPeerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransitGatewayConnectPeer_IsConstructParameters(x interface{}) error {
 	return nil
 }

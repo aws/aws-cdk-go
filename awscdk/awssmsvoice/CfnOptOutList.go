@@ -519,6 +519,25 @@ func CfnOptOutList_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOptOutList.
+func CfnOptOutList_IsCfnOptOutList(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOptOutList_IsCfnOptOutListParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_smsvoice.CfnOptOutList",
+		"isCfnOptOutList",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOptOutList_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

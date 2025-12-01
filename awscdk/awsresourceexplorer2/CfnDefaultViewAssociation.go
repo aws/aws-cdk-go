@@ -400,6 +400,25 @@ func (j *jsiiProxy_CfnDefaultViewAssociation)SetViewArn(val *string) {
 	)
 }
 
+// Checks whether the given object is a CfnDefaultViewAssociation.
+func CfnDefaultViewAssociation_IsCfnDefaultViewAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDefaultViewAssociation_IsCfnDefaultViewAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_resourceexplorer2.CfnDefaultViewAssociation",
+		"isCfnDefaultViewAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

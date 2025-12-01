@@ -80,6 +80,10 @@ func validateCfnStreamGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStreamGroup_IsCfnStreamGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStreamGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnRegistryScanningConfiguration_IsCfnElementParameters(x interface
 	return nil
 }
 
+func validateCfnRegistryScanningConfiguration_IsCfnRegistryScanningConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRegistryScanningConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

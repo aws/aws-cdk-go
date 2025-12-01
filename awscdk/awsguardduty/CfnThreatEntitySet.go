@@ -653,6 +653,25 @@ func CfnThreatEntitySet_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnThreatEntitySet.
+func CfnThreatEntitySet_IsCfnThreatEntitySet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnThreatEntitySet_IsCfnThreatEntitySetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_guardduty.CfnThreatEntitySet",
+		"isCfnThreatEntitySet",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -72,6 +72,10 @@ func validateCfnApprovalTeam_ArnForApprovalTeamParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnApprovalTeam_IsCfnApprovalTeamParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApprovalTeam_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

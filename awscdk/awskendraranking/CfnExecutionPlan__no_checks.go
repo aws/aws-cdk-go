@@ -76,6 +76,10 @@ func validateCfnExecutionPlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnExecutionPlan_IsCfnExecutionPlanParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnExecutionPlan_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

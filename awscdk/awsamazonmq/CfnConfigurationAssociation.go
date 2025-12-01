@@ -422,6 +422,25 @@ func (j *jsiiProxy_CfnConfigurationAssociation)SetConfiguration(val interface{})
 	)
 }
 
+// Checks whether the given object is a CfnConfigurationAssociation.
+func CfnConfigurationAssociation_IsCfnConfigurationAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConfigurationAssociation_IsCfnConfigurationAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation",
+		"isCfnConfigurationAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

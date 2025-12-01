@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnApplicationOutput) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnApplicationOutput_IsCfnApplicationOutputParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApplicationOutput_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

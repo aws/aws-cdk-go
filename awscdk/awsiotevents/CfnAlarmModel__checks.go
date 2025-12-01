@@ -180,6 +180,14 @@ func validateCfnAlarmModel_FromAlarmModelNameParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnAlarmModel_IsCfnAlarmModelParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAlarmModel_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

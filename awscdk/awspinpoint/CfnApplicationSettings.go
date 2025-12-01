@@ -508,6 +508,25 @@ func (j *jsiiProxy_CfnApplicationSettings)SetQuietTime(val interface{}) {
 	)
 }
 
+// Checks whether the given object is a CfnApplicationSettings.
+func CfnApplicationSettings_IsCfnApplicationSettings(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnApplicationSettings_IsCfnApplicationSettingsParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnApplicationSettings",
+		"isCfnApplicationSettings",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -15,7 +15,7 @@ package awscdkgluealpha
 //   	Description: jsii.String("This is a description"),
 //   	Role: Role,
 //   	Script: Script,
-//   	GlueVersion: glue.GlueVersion_V3_0,
+//   	GlueVersion: glue.GlueVersion_V5_1,
 //   	ContinuousLogging: &ContinuousLoggingProps{
 //   		Enabled: jsii.Boolean(false),
 //   	},
@@ -56,8 +56,11 @@ const (
 	// Glue version using Spark 3.3.0 and Python 3.10.
 	// Experimental.
 	GlueVersion_V4_0 GlueVersion = "V4_0"
-	// Glue version using Spark 3.5.2 and Python 3.11.
+	// Glue version using Spark 3.5.4, Python 3.11, and Scala 2.12.18.
 	// Experimental.
 	GlueVersion_V5_0 GlueVersion = "V5_0"
+	// Glue version using Spark 3.5.6, Python 3.11, and Scala 2.12.18.
+	// Experimental.
+	GlueVersion_V5_1 GlueVersion = "V5_1"
 )
 

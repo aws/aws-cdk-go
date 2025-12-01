@@ -76,6 +76,10 @@ func validateCfnFindingAggregator_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFindingAggregator_IsCfnFindingAggregatorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFindingAggregator_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

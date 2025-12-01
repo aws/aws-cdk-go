@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// AWS::EC2::TransitGatewayMeteringPolicy Resource Definition.
+// Describes a transit gateway metering policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,11 +40,11 @@ type CfnTransitGatewayMeteringPolicy interface {
 	awscdk.IInspectable
 	interfacesawsec2.ITransitGatewayMeteringPolicyRef
 	awscdk.ITaggableV2
-	// State of the transit gateway metering policy.
+	// The state of the transit gateway metering policy.
 	AttrState() *string
-	// The Id of the transit gateway metering policy.
+	// The ID of the transit gateway metering policy.
 	AttrTransitGatewayMeteringPolicyId() *string
-	// The timestamp at which the latest action performed on the metering policy will become effective.
+	// The date and time when the metering policy update becomes effective.
 	AttrUpdateEffectiveAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -68,7 +68,7 @@ type CfnTransitGatewayMeteringPolicy interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Middle box attachment Ids.
+	// The IDs of the middlebox attachments associated with the metering policy.
 	MiddleboxAttachmentIds() *[]*string
 	SetMiddleboxAttachmentIds(val *[]*string)
 	// The tree node.
@@ -82,9 +82,10 @@ type CfnTransitGatewayMeteringPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags assigned to the transit gateway metering policy.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The Id of transit gateway.
+	// The ID of the transit gateway associated with the metering policy.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
 	// A reference to a TransitGatewayMeteringPolicy resource.
@@ -523,6 +524,25 @@ func CfnTransitGatewayMeteringPolicy_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMeteringPolicy",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnTransitGatewayMeteringPolicy.
+func CfnTransitGatewayMeteringPolicy_IsCfnTransitGatewayMeteringPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayMeteringPolicy_IsCfnTransitGatewayMeteringPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMeteringPolicy",
+		"isCfnTransitGatewayMeteringPolicy",
 		[]interface{}{x},
 		&returns,
 	)

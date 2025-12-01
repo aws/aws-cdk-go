@@ -939,6 +939,25 @@ func CfnProcessingJob_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProcessingJob.
+func CfnProcessingJob_IsCfnProcessingJob(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProcessingJob_IsCfnProcessingJobParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob",
+		"isCfnProcessingJob",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProcessingJob_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

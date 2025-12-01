@@ -72,6 +72,10 @@ func validateCfnLimit_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLimit_IsCfnLimitParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLimit_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

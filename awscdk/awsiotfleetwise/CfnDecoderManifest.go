@@ -693,6 +693,25 @@ func CfnDecoderManifest_ArnForDecoderManifest(resource interfacesawsiotfleetwise
 	return returns
 }
 
+// Checks whether the given object is a CfnDecoderManifest.
+func CfnDecoderManifest_IsCfnDecoderManifest(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDecoderManifest_IsCfnDecoderManifestParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotfleetwise.CfnDecoderManifest",
+		"isCfnDecoderManifest",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

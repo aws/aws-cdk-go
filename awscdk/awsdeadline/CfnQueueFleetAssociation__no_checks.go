@@ -72,6 +72,10 @@ func validateCfnQueueFleetAssociation_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnQueueFleetAssociation_IsCfnQueueFleetAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnQueueFleetAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -501,6 +501,24 @@ func (j *jsiiProxy_CfnResponseHeadersPolicy)SetResponseHeadersPolicyConfig(val i
 	)
 }
 
+func CfnResponseHeadersPolicy_ArnForResponseHeadersPolicy(resource interfacesawscloudfront.IResponseHeadersPolicyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnResponseHeadersPolicy_ArnForResponseHeadersPolicyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy",
+		"arnForResponseHeadersPolicy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -537,6 +555,25 @@ func CfnResponseHeadersPolicy_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnResponseHeadersPolicy.
+func CfnResponseHeadersPolicy_IsCfnResponseHeadersPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResponseHeadersPolicy_IsCfnResponseHeadersPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy",
+		"isCfnResponseHeadersPolicy",
 		[]interface{}{x},
 		&returns,
 	)

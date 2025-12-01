@@ -76,6 +76,10 @@ func validateCfnPipe_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPipe_IsCfnPipeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPipe_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

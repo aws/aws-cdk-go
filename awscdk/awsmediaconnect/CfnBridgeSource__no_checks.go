@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBridgeSource) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnBridgeSource_IsCfnBridgeSourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBridgeSource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

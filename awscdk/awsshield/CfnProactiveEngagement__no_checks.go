@@ -72,6 +72,10 @@ func validateCfnProactiveEngagement_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnProactiveEngagement_IsCfnProactiveEngagementParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnProactiveEngagement_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

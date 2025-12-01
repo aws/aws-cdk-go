@@ -483,6 +483,43 @@ func (j *jsiiProxy_CfnCodeRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnCodeRepository_ArnForCodeRepository(resource interfacesawssagemaker.ICodeRepositoryRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnCodeRepository_ArnForCodeRepositoryParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnCodeRepository",
+		"arnForCodeRepository",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnCodeRepository.
+func CfnCodeRepository_IsCfnCodeRepository(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCodeRepository_IsCfnCodeRepositoryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnCodeRepository",
+		"isCfnCodeRepository",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

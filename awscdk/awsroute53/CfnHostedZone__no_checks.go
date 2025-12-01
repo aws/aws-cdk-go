@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnHostedZone) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnHostedZone_ArnForHostedZoneParameters(resource interfacesawsroute53.IHostedZoneRef) error {
+	return nil
+}
+
 func validateCfnHostedZone_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnHostedZone_IsCfnHostedZoneParameters(x interface{}) error {
 	return nil
 }
 

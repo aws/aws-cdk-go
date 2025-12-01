@@ -80,6 +80,10 @@ func validateCfnDeviceProfile_FromDeviceProfileIdParameters(scope constructs.Con
 	return nil
 }
 
+func validateCfnDeviceProfile_IsCfnDeviceProfileParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDeviceProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

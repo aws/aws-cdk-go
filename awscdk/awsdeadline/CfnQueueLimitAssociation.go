@@ -458,6 +458,25 @@ func CfnQueueLimitAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnQueueLimitAssociation.
+func CfnQueueLimitAssociation_IsCfnQueueLimitAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnQueueLimitAssociation_IsCfnQueueLimitAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_deadline.CfnQueueLimitAssociation",
+		"isCfnQueueLimitAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnQueueLimitAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

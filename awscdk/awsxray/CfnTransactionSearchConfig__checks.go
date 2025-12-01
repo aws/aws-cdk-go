@@ -171,6 +171,14 @@ func validateCfnTransactionSearchConfig_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnTransactionSearchConfig_IsCfnTransactionSearchConfigParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTransactionSearchConfig_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

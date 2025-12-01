@@ -76,6 +76,10 @@ func validateCfnGatewayRoute_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGatewayRoute_IsCfnGatewayRouteParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGatewayRoute_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

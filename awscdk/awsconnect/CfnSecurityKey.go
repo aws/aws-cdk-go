@@ -466,6 +466,25 @@ func CfnSecurityKey_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSecurityKey.
+func CfnSecurityKey_IsCfnSecurityKey(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSecurityKey_IsCfnSecurityKeyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnSecurityKey",
+		"isCfnSecurityKey",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

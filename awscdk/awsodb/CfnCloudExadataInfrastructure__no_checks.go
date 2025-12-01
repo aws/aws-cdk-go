@@ -72,6 +72,10 @@ func validateCfnCloudExadataInfrastructure_ArnForCloudExadataInfrastructureParam
 	return nil
 }
 
+func validateCfnCloudExadataInfrastructure_IsCfnCloudExadataInfrastructureParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCloudExadataInfrastructure_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

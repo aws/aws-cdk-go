@@ -164,6 +164,14 @@ func validateCfnChannelNamespace_ArnForChannelNamespaceParameters(resource inter
 	return nil
 }
 
+func validateCfnChannelNamespace_IsCfnChannelNamespaceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnChannelNamespace_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

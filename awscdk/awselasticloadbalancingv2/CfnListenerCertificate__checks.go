@@ -163,6 +163,14 @@ func validateCfnListenerCertificate_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnListenerCertificate_IsCfnListenerCertificateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnListenerCertificate_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

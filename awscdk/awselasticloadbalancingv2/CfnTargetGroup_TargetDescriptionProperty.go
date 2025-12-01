@@ -48,7 +48,11 @@ type CfnTargetGroup_TargetDescriptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
-	// The Server ID used by targets when using QUIC or TCP_QUIC protocols.
+	// The server ID for the targets.
+	//
+	// This value is required if the protocol is `QUIC` or `TCP_QUIC` and can't be used with other protocols.
+	//
+	// The ID consists of the `0x` prefix followed by 16 hexadecimal characters. Any letters must be lowercase. The value must be unique at the listener level. You can't modify the server ID for a registered target. You must deregister the target and then provide a new server ID when you register the target again.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-quicserverid
 	//
 	QuicServerId *string `field:"optional" json:"quicServerId" yaml:"quicServerId"`

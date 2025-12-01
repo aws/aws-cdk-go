@@ -196,6 +196,14 @@ func validateCfnSubnetGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSubnetGroup_IsCfnSubnetGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSubnetGroup_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

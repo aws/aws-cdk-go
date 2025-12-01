@@ -546,6 +546,25 @@ func CfnLocationS3_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocationS3.
+func CfnLocationS3_IsCfnLocationS3(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocationS3_IsCfnLocationS3Parameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datasync.CfnLocationS3",
+		"isCfnLocationS3",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocationS3_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

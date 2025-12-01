@@ -604,6 +604,25 @@ func CfnPackageVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPackageVersion.
+func CfnPackageVersion_IsCfnPackageVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPackageVersion_IsCfnPackageVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_panorama.CfnPackageVersion",
+		"isCfnPackageVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPackageVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

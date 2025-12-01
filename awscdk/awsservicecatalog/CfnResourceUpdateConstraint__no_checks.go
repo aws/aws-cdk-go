@@ -76,6 +76,10 @@ func validateCfnResourceUpdateConstraint_IsCfnResourceParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnResourceUpdateConstraint_IsCfnResourceUpdateConstraintParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResourceUpdateConstraint_IsConstructParameters(x interface{}) error {
 	return nil
 }

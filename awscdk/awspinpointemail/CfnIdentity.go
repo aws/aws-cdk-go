@@ -623,6 +623,25 @@ func CfnIdentity_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIdentity.
+func CfnIdentity_IsCfnIdentity(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIdentity_IsCfnIdentityParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpointemail.CfnIdentity",
+		"isCfnIdentity",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIdentity_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -612,6 +612,25 @@ func CfnLocalGatewayVirtualInterfaceGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocalGatewayVirtualInterfaceGroup.
+func CfnLocalGatewayVirtualInterfaceGroup_IsCfnLocalGatewayVirtualInterfaceGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocalGatewayVirtualInterfaceGroup_IsCfnLocalGatewayVirtualInterfaceGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterfaceGroup",
+		"isCfnLocalGatewayVirtualInterfaceGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocalGatewayVirtualInterfaceGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

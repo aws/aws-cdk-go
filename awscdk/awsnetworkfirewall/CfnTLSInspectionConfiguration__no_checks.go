@@ -80,6 +80,10 @@ func validateCfnTLSInspectionConfiguration_IsCfnResourceParameters(x interface{}
 	return nil
 }
 
+func validateCfnTLSInspectionConfiguration_IsCfnTLSInspectionConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTLSInspectionConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

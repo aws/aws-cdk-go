@@ -72,6 +72,10 @@ func validateCfnBranch_ArnForBranchParameters(resource interfacesawsamplify.IBra
 	return nil
 }
 
+func validateCfnBranch_IsCfnBranchParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBranch_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnConfigurationSet) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnConfigurationSet_IsCfnConfigurationSetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfigurationSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

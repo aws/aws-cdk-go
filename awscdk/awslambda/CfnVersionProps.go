@@ -14,6 +14,10 @@ package awslambda
 //   	// the properties below are optional
 //   	CodeSha256: jsii.String("codeSha256"),
 //   	Description: jsii.String("description"),
+//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
+//   	},
 //   	ProvisionedConcurrencyConfig: &ProvisionedConcurrencyConfigurationProperty{
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),
 //   	},
@@ -50,6 +54,10 @@ type CfnVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionscalingconfig
+	//
+	FunctionScalingConfig interface{} `field:"optional" json:"functionScalingConfig" yaml:"functionScalingConfig"`
 	// Specifies a provisioned concurrency configuration for a function's version.
 	//
 	// Updates are not supported for this property.

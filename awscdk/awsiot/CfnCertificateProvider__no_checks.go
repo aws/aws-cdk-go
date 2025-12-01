@@ -80,6 +80,10 @@ func validateCfnCertificateProvider_FromCertificateProviderNameParameters(scope 
 	return nil
 }
 
+func validateCfnCertificateProvider_IsCfnCertificateProviderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCertificateProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

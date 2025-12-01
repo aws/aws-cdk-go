@@ -72,6 +72,10 @@ func validateCfnDataset_ArnForDatasetParameters(resource interfacesawsforecast.I
 	return nil
 }
 
+func validateCfnDataset_IsCfnDatasetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

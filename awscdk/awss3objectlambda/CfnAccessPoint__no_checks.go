@@ -72,6 +72,10 @@ func validateCfnAccessPoint_ArnForAccessPointParameters(resource interfacesawss3
 	return nil
 }
 
+func validateCfnAccessPoint_IsCfnAccessPointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessPoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -76,6 +76,10 @@ func validateCfnWALWorkspace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWALWorkspace_IsCfnWALWorkspaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWALWorkspace_IsConstructParameters(x interface{}) error {
 	return nil
 }

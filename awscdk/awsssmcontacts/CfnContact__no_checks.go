@@ -72,6 +72,10 @@ func validateCfnContact_ArnForContactParameters(resource interfacesawsssmcontact
 	return nil
 }
 
+func validateCfnContact_IsCfnContactParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContact_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

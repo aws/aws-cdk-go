@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnTable) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnTable_ArnForTableParameters(resource interfacesawss3tables.ITableRef) error {
+	return nil
+}
+
 func validateCfnTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnTable_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnTable_IsCfnTableParameters(x interface{}) error {
 	return nil
 }
 

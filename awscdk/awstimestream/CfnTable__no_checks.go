@@ -80,6 +80,10 @@ func validateCfnTable_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTable_IsCfnTableParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTable_IsConstructParameters(x interface{}) error {
 	return nil
 }

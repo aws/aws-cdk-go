@@ -72,6 +72,10 @@ func validateCfnAnalysis_ArnForAnalysisParameters(resource interfacesawsquicksig
 	return nil
 }
 
+func validateCfnAnalysis_IsCfnAnalysisParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAnalysis_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

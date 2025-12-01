@@ -645,6 +645,25 @@ func CfnProvisioningTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProvisioningTemplate.
+func CfnProvisioningTemplate_IsCfnProvisioningTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProvisioningTemplate_IsCfnProvisioningTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnProvisioningTemplate",
+		"isCfnProvisioningTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProvisioningTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

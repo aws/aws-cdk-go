@@ -72,6 +72,10 @@ func validateCfnAppBlock_ArnForAppBlockParameters(resource interfacesawsappstrea
 	return nil
 }
 
+func validateCfnAppBlock_IsCfnAppBlockParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAppBlock_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

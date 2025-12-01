@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAutomatedReasoningPolicy) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnAutomatedReasoningPolicy_IsCfnAutomatedReasoningPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAutomatedReasoningPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

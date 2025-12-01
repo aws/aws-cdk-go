@@ -72,6 +72,10 @@ func validateCfnCertificateAuthority_ArnForCertificateAuthorityParameters(resour
 	return nil
 }
 
+func validateCfnCertificateAuthority_IsCfnCertificateAuthorityParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCertificateAuthority_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

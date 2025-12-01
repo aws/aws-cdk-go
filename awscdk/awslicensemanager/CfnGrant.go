@@ -563,6 +563,25 @@ func CfnGrant_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGrant.
+func CfnGrant_IsCfnGrant(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGrant_IsCfnGrantParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_licensemanager.CfnGrant",
+		"isCfnGrant",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGrant_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

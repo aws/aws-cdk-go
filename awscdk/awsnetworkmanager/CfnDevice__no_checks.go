@@ -72,6 +72,10 @@ func validateCfnDevice_ArnForDeviceParameters(resource interfacesawsnetworkmanag
 	return nil
 }
 
+func validateCfnDevice_IsCfnDeviceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDevice_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

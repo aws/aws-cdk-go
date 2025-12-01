@@ -76,6 +76,10 @@ func validateCfnRecoveryGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRecoveryGroup_IsCfnRecoveryGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRecoveryGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

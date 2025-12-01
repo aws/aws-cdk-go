@@ -528,6 +528,25 @@ func CfnIndex_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIndex.
+func CfnIndex_IsCfnIndex(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIndex_IsCfnIndexParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_opensearchserverless.CfnIndex",
+		"isCfnIndex",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIndex_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

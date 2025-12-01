@@ -72,6 +72,10 @@ func validateCfnOriginEndpointPolicy_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnOriginEndpointPolicy_IsCfnOriginEndpointPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOriginEndpointPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

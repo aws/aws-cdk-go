@@ -88,6 +88,10 @@ func validateCfnTrail_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTrail_IsCfnTrailParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrail_IsConstructParameters(x interface{}) error {
 	return nil
 }

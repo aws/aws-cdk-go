@@ -72,6 +72,10 @@ func validateCfnAllowList_ArnForAllowListParameters(resource interfacesawsmacie.
 	return nil
 }
 
+func validateCfnAllowList_IsCfnAllowListParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAllowList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

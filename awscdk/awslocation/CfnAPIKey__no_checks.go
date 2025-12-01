@@ -80,6 +80,10 @@ func validateCfnAPIKey_FromKeyNameParameters(scope constructs.Construct, id *str
 	return nil
 }
 
+func validateCfnAPIKey_IsCfnAPIKeyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAPIKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

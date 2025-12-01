@@ -196,6 +196,14 @@ func validateCfnDataIntegration_FromDataIntegrationIdParameters(scope constructs
 	return nil
 }
 
+func validateCfnDataIntegration_IsCfnDataIntegrationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDataIntegration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

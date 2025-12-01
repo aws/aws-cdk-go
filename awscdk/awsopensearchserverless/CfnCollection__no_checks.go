@@ -80,6 +80,10 @@ func validateCfnCollection_FromCollectionIdParameters(scope constructs.Construct
 	return nil
 }
 
+func validateCfnCollection_IsCfnCollectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCollection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

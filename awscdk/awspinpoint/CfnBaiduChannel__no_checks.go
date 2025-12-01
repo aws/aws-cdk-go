@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBaiduChannel) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnBaiduChannel_IsCfnBaiduChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBaiduChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

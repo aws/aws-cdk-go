@@ -437,6 +437,24 @@ func (j *jsiiProxy_CfnSqlInjectionMatchSet)SetSqlInjectionMatchTuples(val interf
 	)
 }
 
+func CfnSqlInjectionMatchSet_ArnForSqlInjectionMatchSet(resource interfacesawswaf.ISqlInjectionMatchSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSqlInjectionMatchSet_ArnForSqlInjectionMatchSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_waf.CfnSqlInjectionMatchSet",
+		"arnForSqlInjectionMatchSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -473,6 +491,25 @@ func CfnSqlInjectionMatchSet_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_waf.CfnSqlInjectionMatchSet",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnSqlInjectionMatchSet.
+func CfnSqlInjectionMatchSet_IsCfnSqlInjectionMatchSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSqlInjectionMatchSet_IsCfnSqlInjectionMatchSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_waf.CfnSqlInjectionMatchSet",
+		"isCfnSqlInjectionMatchSet",
 		[]interface{}{x},
 		&returns,
 	)

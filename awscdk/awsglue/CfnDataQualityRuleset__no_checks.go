@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataQualityRuleset) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnDataQualityRuleset_IsCfnDataQualityRulesetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataQualityRuleset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnLifecycleHook_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLifecycleHook_IsCfnLifecycleHookParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLifecycleHook_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

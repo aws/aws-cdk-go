@@ -196,6 +196,14 @@ func validateCfnWorkGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWorkGroup_IsCfnWorkGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnWorkGroup_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -164,6 +164,14 @@ func validateCfnConnector_ArnForConnectorParameters(resource interfacesawskafkac
 	return nil
 }
 
+func validateCfnConnector_IsCfnConnectorParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConnector_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -761,6 +761,25 @@ func CfnMemory_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMemory.
+func CfnMemory_IsCfnMemory(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMemory_IsCfnMemoryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory",
+		"isCfnMemory",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMemory_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

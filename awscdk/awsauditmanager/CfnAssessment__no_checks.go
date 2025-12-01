@@ -80,6 +80,10 @@ func validateCfnAssessment_FromAssessmentIdParameters(scope constructs.Construct
 	return nil
 }
 
+func validateCfnAssessment_IsCfnAssessmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAssessment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

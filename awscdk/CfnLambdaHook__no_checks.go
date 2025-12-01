@@ -72,6 +72,10 @@ func validateCfnLambdaHook_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLambdaHook_IsCfnLambdaHookParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLambdaHook_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

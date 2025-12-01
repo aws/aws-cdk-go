@@ -80,6 +80,10 @@ func validateCfnComputationModel_FromComputationModelIdParameters(scope construc
 	return nil
 }
 
+func validateCfnComputationModel_IsCfnComputationModelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnComputationModel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

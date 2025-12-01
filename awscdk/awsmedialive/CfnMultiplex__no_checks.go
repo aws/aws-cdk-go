@@ -84,6 +84,10 @@ func validateCfnMultiplex_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMultiplex_IsCfnMultiplexParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMultiplex_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

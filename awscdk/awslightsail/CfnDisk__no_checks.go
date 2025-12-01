@@ -72,6 +72,10 @@ func validateCfnDisk_ArnForDiskParameters(resource interfacesawslightsail.IDiskR
 	return nil
 }
 
+func validateCfnDisk_IsCfnDiskParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDisk_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

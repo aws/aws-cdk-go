@@ -76,6 +76,10 @@ func validateCfnSkill_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSkill_IsCfnSkillParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSkill_IsConstructParameters(x interface{}) error {
 	return nil
 }

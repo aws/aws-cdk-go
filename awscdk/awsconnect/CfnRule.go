@@ -716,6 +716,25 @@ func CfnRule_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRule.
+func CfnRule_IsCfnRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRule_IsCfnRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnRule",
+		"isCfnRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

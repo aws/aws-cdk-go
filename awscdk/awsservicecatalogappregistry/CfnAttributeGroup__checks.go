@@ -196,6 +196,14 @@ func validateCfnAttributeGroup_FromAttributeGroupIdParameters(scope constructs.C
 	return nil
 }
 
+func validateCfnAttributeGroup_IsCfnAttributeGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAttributeGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

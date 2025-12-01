@@ -445,6 +445,25 @@ func CfnResolverDNSSECConfig_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnResolverDNSSECConfig.
+func CfnResolverDNSSECConfig_IsCfnResolverDNSSECConfig(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResolverDNSSECConfig_IsCfnResolverDNSSECConfigParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnResolverDNSSECConfig",
+		"isCfnResolverDNSSECConfig",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnResolverDNSSECConfig_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

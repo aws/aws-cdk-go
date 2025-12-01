@@ -172,6 +172,14 @@ func validateCfnFirewallRuleGroupAssociation_IsCfnElementParameters(x interface{
 	return nil
 }
 
+func validateCfnFirewallRuleGroupAssociation_IsCfnFirewallRuleGroupAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnFirewallRuleGroupAssociation_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

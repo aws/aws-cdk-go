@@ -180,6 +180,14 @@ func validateCfnServiceNetworkResourceAssociation_IsCfnResourceParameters(x inte
 	return nil
 }
 
+func validateCfnServiceNetworkResourceAssociation_IsCfnServiceNetworkResourceAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnServiceNetworkResourceAssociation_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -76,6 +76,10 @@ func validateCfnStackUserAssociation_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnStackUserAssociation_IsCfnStackUserAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStackUserAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

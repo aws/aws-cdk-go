@@ -76,6 +76,10 @@ func validateCfnPublicDnsNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPublicDnsNamespace_IsCfnPublicDnsNamespaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPublicDnsNamespace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

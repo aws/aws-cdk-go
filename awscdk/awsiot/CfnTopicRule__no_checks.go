@@ -88,6 +88,10 @@ func validateCfnTopicRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTopicRule_IsCfnTopicRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTopicRule_IsConstructParameters(x interface{}) error {
 	return nil
 }

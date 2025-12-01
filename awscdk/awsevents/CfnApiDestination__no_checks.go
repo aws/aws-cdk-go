@@ -80,6 +80,10 @@ func validateCfnApiDestination_FromApiDestinationNameParameters(scope constructs
 	return nil
 }
 
+func validateCfnApiDestination_IsCfnApiDestinationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApiDestination_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

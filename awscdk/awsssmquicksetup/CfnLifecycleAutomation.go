@@ -514,6 +514,25 @@ func CfnLifecycleAutomation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLifecycleAutomation.
+func CfnLifecycleAutomation_IsCfnLifecycleAutomation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLifecycleAutomation_IsCfnLifecycleAutomationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmquicksetup.CfnLifecycleAutomation",
+		"isCfnLifecycleAutomation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLifecycleAutomation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -76,6 +76,10 @@ func validateCfnReplicaKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnReplicaKey_IsCfnReplicaKeyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnReplicaKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

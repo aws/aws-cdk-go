@@ -622,6 +622,25 @@ func CfnSdiSource_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSdiSource.
+func CfnSdiSource_IsCfnSdiSource(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSdiSource_IsCfnSdiSourceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnSdiSource",
+		"isCfnSdiSource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

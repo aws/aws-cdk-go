@@ -80,6 +80,10 @@ func validateCfnStaticIp_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStaticIp_IsCfnStaticIpParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStaticIp_IsConstructParameters(x interface{}) error {
 	return nil
 }

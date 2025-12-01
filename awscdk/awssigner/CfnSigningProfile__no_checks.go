@@ -80,6 +80,10 @@ func validateCfnSigningProfile_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSigningProfile_IsCfnSigningProfileParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSigningProfile_IsConstructParameters(x interface{}) error {
 	return nil
 }

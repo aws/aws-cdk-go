@@ -84,6 +84,10 @@ func validateCfnInputSecurityGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInputSecurityGroup_IsCfnInputSecurityGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInputSecurityGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

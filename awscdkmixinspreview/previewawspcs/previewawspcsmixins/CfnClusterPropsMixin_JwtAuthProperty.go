@@ -1,7 +1,7 @@
 package previewawspcsmixins
 
 
-// JWT authentication configuration for Slurm.
+// The JWT authentication configuration for Slurm REST API access.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,7 +18,7 @@ package previewawspcsmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtauth.html
 //
 type CfnClusterPropsMixin_JwtAuthProperty struct {
-	// JWT key configuration.
+	// The JWT key for Slurm REST API authentication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtauth.html#cfn-pcs-cluster-jwtauth-jwtkey
 	//
 	JwtKey interface{} `field:"optional" json:"jwtKey" yaml:"jwtKey"`

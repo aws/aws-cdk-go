@@ -547,6 +547,25 @@ func (j *jsiiProxy_CfnAccountPolicy)SetSelectionCriteria(val *string) {
 	)
 }
 
+// Checks whether the given object is a CfnAccountPolicy.
+func CfnAccountPolicy_IsCfnAccountPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAccountPolicy_IsCfnAccountPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnAccountPolicy",
+		"isCfnAccountPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

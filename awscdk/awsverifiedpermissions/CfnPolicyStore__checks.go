@@ -204,6 +204,14 @@ func validateCfnPolicyStore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPolicyStore_IsCfnPolicyStoreParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnPolicyStore_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

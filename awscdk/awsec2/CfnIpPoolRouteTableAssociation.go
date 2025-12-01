@@ -443,6 +443,25 @@ func CfnIpPoolRouteTableAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIpPoolRouteTableAssociation.
+func CfnIpPoolRouteTableAssociation_IsCfnIpPoolRouteTableAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIpPoolRouteTableAssociation_IsCfnIpPoolRouteTableAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIpPoolRouteTableAssociation",
+		"isCfnIpPoolRouteTableAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIpPoolRouteTableAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

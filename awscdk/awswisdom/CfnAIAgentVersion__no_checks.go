@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAIAgentVersion) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnAIAgentVersion_IsCfnAIAgentVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAIAgentVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

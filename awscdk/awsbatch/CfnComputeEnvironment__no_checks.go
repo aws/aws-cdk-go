@@ -72,6 +72,10 @@ func validateCfnComputeEnvironment_ArnForComputeEnvironmentParameters(resource i
 	return nil
 }
 
+func validateCfnComputeEnvironment_IsCfnComputeEnvironmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnComputeEnvironment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

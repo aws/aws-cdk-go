@@ -536,6 +536,25 @@ func CfnEntitlement_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEntitlement.
+func CfnEntitlement_IsCfnEntitlement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEntitlement_IsCfnEntitlementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnEntitlement",
+		"isCfnEntitlement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEntitlement_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

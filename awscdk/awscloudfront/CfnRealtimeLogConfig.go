@@ -523,6 +523,25 @@ func CfnRealtimeLogConfig_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRealtimeLogConfig.
+func CfnRealtimeLogConfig_IsCfnRealtimeLogConfig(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRealtimeLogConfig_IsCfnRealtimeLogConfigParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnRealtimeLogConfig",
+		"isCfnRealtimeLogConfig",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRealtimeLogConfig_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

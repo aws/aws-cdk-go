@@ -84,6 +84,10 @@ func validateCfnIdNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIdNamespace_IsCfnIdNamespaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIdNamespace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

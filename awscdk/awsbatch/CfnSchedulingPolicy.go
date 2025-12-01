@@ -526,6 +526,25 @@ func CfnSchedulingPolicy_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSchedulingPolicy.
+func CfnSchedulingPolicy_IsCfnSchedulingPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSchedulingPolicy_IsCfnSchedulingPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_batch.CfnSchedulingPolicy",
+		"isCfnSchedulingPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

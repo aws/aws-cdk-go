@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnProfileAssociation) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnProfileAssociation_ArnForProfileAssociationParameters(resource interfacesawsroute53profiles.IProfileAssociationRef) error {
+	return nil
+}
+
 func validateCfnProfileAssociation_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnProfileAssociation_IsCfnProfileAssociationParameters(x interface{}) error {
 	return nil
 }
 

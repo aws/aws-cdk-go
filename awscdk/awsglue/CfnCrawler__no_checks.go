@@ -76,6 +76,10 @@ func validateCfnCrawler_FromCrawlerNameParameters(scope constructs.Construct, id
 	return nil
 }
 
+func validateCfnCrawler_IsCfnCrawlerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCrawler_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

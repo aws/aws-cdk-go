@@ -8,6 +8,10 @@ func validateBaseImage_FromAmiIdParameters(amiId *string) error {
 	return nil
 }
 
+func validateBaseImage_FromImageParameters(image IImage) error {
+	return nil
+}
+
 func validateBaseImage_FromMarketplaceProductIdParameters(productId *string) error {
 	return nil
 }

@@ -620,6 +620,25 @@ func CfnResourceVersion_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnResourceVersion.
+func CfnResourceVersion_IsCfnResourceVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResourceVersion_IsCfnResourceVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnResourceVersion",
+		"isCfnResourceVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

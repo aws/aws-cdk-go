@@ -72,6 +72,10 @@ func validateCfnAgentAlias_ArnForAgentAliasParameters(resource interfacesawsbedr
 	return nil
 }
 
+func validateCfnAgentAlias_IsCfnAgentAliasParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAgentAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

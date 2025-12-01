@@ -84,6 +84,10 @@ func validateCfnKnowledgeBase_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnKnowledgeBase_IsCfnKnowledgeBaseParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnKnowledgeBase_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

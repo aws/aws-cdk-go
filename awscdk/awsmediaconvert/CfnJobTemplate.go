@@ -694,6 +694,25 @@ func CfnJobTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnJobTemplate.
+func CfnJobTemplate_IsCfnJobTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnJobTemplate_IsCfnJobTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"isCfnJobTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnJobTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

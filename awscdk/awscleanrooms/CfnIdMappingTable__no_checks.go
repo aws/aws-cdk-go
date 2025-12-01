@@ -76,6 +76,10 @@ func validateCfnIdMappingTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIdMappingTable_IsCfnIdMappingTableParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIdMappingTable_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

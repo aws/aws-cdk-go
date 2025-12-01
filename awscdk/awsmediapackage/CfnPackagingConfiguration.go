@@ -752,6 +752,25 @@ func CfnPackagingConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPackagingConfiguration.
+func CfnPackagingConfiguration_IsCfnPackagingConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPackagingConfiguration_IsCfnPackagingConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration",
+		"isCfnPackagingConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPackagingConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

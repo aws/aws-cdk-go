@@ -72,6 +72,10 @@ func validateCfnProjectMembership_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnProjectMembership_IsCfnProjectMembershipParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnProjectMembership_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

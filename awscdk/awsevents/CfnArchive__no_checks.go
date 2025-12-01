@@ -80,6 +80,10 @@ func validateCfnArchive_FromArchiveNameParameters(scope constructs.Construct, id
 	return nil
 }
 
+func validateCfnArchive_IsCfnArchiveParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnArchive_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

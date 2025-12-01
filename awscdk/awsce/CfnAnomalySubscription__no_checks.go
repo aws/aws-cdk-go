@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAnomalySubscription) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnAnomalySubscription_IsCfnAnomalySubscriptionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAnomalySubscription_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

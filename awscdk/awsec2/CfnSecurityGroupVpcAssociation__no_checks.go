@@ -76,6 +76,10 @@ func validateCfnSecurityGroupVpcAssociation_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnSecurityGroupVpcAssociation_IsCfnSecurityGroupVpcAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSecurityGroupVpcAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

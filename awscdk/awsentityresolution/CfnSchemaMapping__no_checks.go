@@ -84,6 +84,10 @@ func validateCfnSchemaMapping_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSchemaMapping_IsCfnSchemaMappingParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSchemaMapping_IsConstructParameters(x interface{}) error {
 	return nil
 }

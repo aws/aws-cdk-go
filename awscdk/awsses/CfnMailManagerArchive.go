@@ -548,6 +548,25 @@ func CfnMailManagerArchive_FromArchiveId(scope constructs.Construct, id *string,
 	return returns
 }
 
+// Creates a new IMailManagerArchiveRef from an ARN.
+func CfnMailManagerArchive_FromMailManagerArchiveArn(scope constructs.Construct, id *string, arn *string) interfacesawsses.IMailManagerArchiveRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerArchive_FromMailManagerArchiveArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsses.IMailManagerArchiveRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerArchive",
+		"fromMailManagerArchiveArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -565,6 +584,25 @@ func CfnMailManagerArchive_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerArchive",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMailManagerArchive.
+func CfnMailManagerArchive_IsCfnMailManagerArchive(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerArchive_IsCfnMailManagerArchiveParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerArchive",
+		"isCfnMailManagerArchive",
 		[]interface{}{x},
 		&returns,
 	)

@@ -76,6 +76,10 @@ func validateCfnCapacityReservationFleet_FromCapacityReservationFleetIdParameter
 	return nil
 }
 
+func validateCfnCapacityReservationFleet_IsCfnCapacityReservationFleetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCapacityReservationFleet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

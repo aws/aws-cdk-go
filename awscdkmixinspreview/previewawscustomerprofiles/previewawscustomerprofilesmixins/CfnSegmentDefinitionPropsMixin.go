@@ -320,6 +320,7 @@ import (
 //   		},
 //   		Include: jsii.String("include"),
 //   	},
+//   	SegmentSqlQuery: jsii.String("segmentSqlQuery"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

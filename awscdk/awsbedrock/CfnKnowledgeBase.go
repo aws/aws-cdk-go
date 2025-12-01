@@ -870,6 +870,25 @@ func CfnKnowledgeBase_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnKnowledgeBase.
+func CfnKnowledgeBase_IsCfnKnowledgeBase(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnKnowledgeBase_IsCfnKnowledgeBaseParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase",
+		"isCfnKnowledgeBase",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnKnowledgeBase_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

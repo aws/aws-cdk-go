@@ -51,7 +51,9 @@ type CfnStreamProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-stream.html#cfn-kinesisvideo-stream-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Configuration for the storage tier of the Kinesis Video Stream.
+	// The configuration for stream storage, including the default storage tier for stream data.
+	//
+	// This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-stream.html#cfn-kinesisvideo-stream-streamstorageconfiguration
 	//
 	StreamStorageConfiguration interface{} `field:"optional" json:"streamStorageConfiguration" yaml:"streamStorageConfiguration"`

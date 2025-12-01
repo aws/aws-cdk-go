@@ -503,6 +503,25 @@ func CfnSecurityPolicy_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSecurityPolicy.
+func CfnSecurityPolicy_IsCfnSecurityPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSecurityPolicy_IsCfnSecurityPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_opensearchserverless.CfnSecurityPolicy",
+		"isCfnSecurityPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

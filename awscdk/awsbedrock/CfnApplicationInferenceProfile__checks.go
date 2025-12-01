@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnApplicationInferenceProfile) validateValidatePropertiesPar
 	return nil
 }
 
+func validateCfnApplicationInferenceProfile_IsCfnApplicationInferenceProfileParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApplicationInferenceProfile_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

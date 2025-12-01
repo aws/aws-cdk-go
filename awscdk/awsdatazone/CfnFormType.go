@@ -601,6 +601,25 @@ func CfnFormType_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFormType.
+func CfnFormType_IsCfnFormType(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFormType_IsCfnFormTypeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnFormType",
+		"isCfnFormType",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFormType_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

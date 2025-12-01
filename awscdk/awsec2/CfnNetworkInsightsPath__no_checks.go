@@ -84,6 +84,10 @@ func validateCfnNetworkInsightsPath_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnNetworkInsightsPath_IsCfnNetworkInsightsPathParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnNetworkInsightsPath_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

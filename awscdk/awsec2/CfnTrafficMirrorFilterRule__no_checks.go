@@ -84,6 +84,10 @@ func validateCfnTrafficMirrorFilterRule_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnTrafficMirrorFilterRule_IsCfnTrafficMirrorFilterRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrafficMirrorFilterRule_IsConstructParameters(x interface{}) error {
 	return nil
 }

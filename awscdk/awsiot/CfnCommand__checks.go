@@ -196,6 +196,14 @@ func validateCfnCommand_FromCommandIdParameters(scope constructs.Construct, id *
 	return nil
 }
 
+func validateCfnCommand_IsCfnCommandParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCommand_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

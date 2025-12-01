@@ -958,6 +958,25 @@ func CfnContainerFleet_ArnForContainerFleet(resource interfacesawsgamelift.ICont
 	return returns
 }
 
+// Creates a new IContainerFleetRef from an ARN.
+func CfnContainerFleet_FromContainerFleetArn(scope constructs.Construct, id *string, arn *string) interfacesawsgamelift.IContainerFleetRef {
+	_init_.Initialize()
+
+	if err := validateCfnContainerFleet_FromContainerFleetArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsgamelift.IContainerFleetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet",
+		"fromContainerFleetArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IContainerFleetRef from a fleetId.
 func CfnContainerFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) interfacesawsgamelift.IContainerFleetRef {
 	_init_.Initialize()
@@ -971,6 +990,25 @@ func CfnContainerFleet_FromFleetId(scope constructs.Construct, id *string, fleet
 		"aws-cdk-lib.aws_gamelift.CfnContainerFleet",
 		"fromFleetId",
 		[]interface{}{scope, id, fleetId},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnContainerFleet.
+func CfnContainerFleet_IsCfnContainerFleet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnContainerFleet_IsCfnContainerFleetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet",
+		"isCfnContainerFleet",
+		[]interface{}{x},
 		&returns,
 	)
 

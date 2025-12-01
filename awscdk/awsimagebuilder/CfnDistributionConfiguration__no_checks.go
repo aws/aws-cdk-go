@@ -72,6 +72,10 @@ func validateCfnDistributionConfiguration_ArnForDistributionConfigurationParamet
 	return nil
 }
 
+func validateCfnDistributionConfiguration_IsCfnDistributionConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDistributionConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

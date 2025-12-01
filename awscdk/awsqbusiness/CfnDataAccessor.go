@@ -716,6 +716,25 @@ func CfnDataAccessor_ArnForDataAccessor(resource interfacesawsqbusiness.IDataAcc
 	return returns
 }
 
+// Checks whether the given object is a CfnDataAccessor.
+func CfnDataAccessor_IsCfnDataAccessor(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDataAccessor_IsCfnDataAccessorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_qbusiness.CfnDataAccessor",
+		"isCfnDataAccessor",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

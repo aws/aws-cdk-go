@@ -1,7 +1,7 @@
 package previewawsdeadlinemixins
 
 
-// The configuration details for a service managed Amazon EC2 fleet.
+// The configuration details for a service managed EC2 fleet.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -73,19 +73,19 @@ package previewawsdeadlinemixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html
 //
 type CfnFleetPropsMixin_ServiceManagedEc2FleetConfigurationProperty struct {
-	// The Amazon EC2 instance capabilities.
+	// The instance capabilities for the service managed EC2 fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-instancecapabilities
 	//
 	InstanceCapabilities interface{} `field:"optional" json:"instanceCapabilities" yaml:"instanceCapabilities"`
-	// The Amazon EC2 market type.
+	// The instance market options for the service managed EC2 fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-instancemarketoptions
 	//
 	InstanceMarketOptions interface{} `field:"optional" json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
-	// The storage profile ID.
+	// The storage profile ID for the service managed EC2 fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-storageprofileid
 	//
 	StorageProfileId *string `field:"optional" json:"storageProfileId" yaml:"storageProfileId"`
-	// The VPC configuration details for a service managed Amazon EC2 fleet.
+	// The VPC configuration for the service managed EC2 fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-vpcconfiguration
 	//
 	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`

@@ -498,6 +498,25 @@ func CfnModel_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnModel.
+func CfnModel_IsCfnModel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnModel_IsCfnModelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnModel",
+		"isCfnModel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnModel_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

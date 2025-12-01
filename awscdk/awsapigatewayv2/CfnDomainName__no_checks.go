@@ -72,6 +72,10 @@ func validateCfnDomainName_ArnForDomainNameParameters(resource interfacesawsapig
 	return nil
 }
 
+func validateCfnDomainName_IsCfnDomainNameParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDomainName_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -9,10 +9,13 @@ package interfacesawsses
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mailManagerArchiveReference := &MailManagerArchiveReference{
+//   	ArchiveArn: jsii.String("archiveArn"),
 //   	ArchiveId: jsii.String("archiveId"),
 //   }
 //
 type MailManagerArchiveReference struct {
+	// The ARN of the MailManagerArchive resource.
+	ArchiveArn *string `field:"required" json:"archiveArn" yaml:"archiveArn"`
 	// The ArchiveId of the MailManagerArchive resource.
 	ArchiveId *string `field:"required" json:"archiveId" yaml:"archiveId"`
 }

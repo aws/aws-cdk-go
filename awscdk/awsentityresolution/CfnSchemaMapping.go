@@ -616,6 +616,25 @@ func CfnSchemaMapping_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSchemaMapping.
+func CfnSchemaMapping_IsCfnSchemaMapping(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSchemaMapping_IsCfnSchemaMappingParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnSchemaMapping",
+		"isCfnSchemaMapping",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

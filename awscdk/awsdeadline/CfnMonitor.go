@@ -44,7 +44,7 @@ type CfnMonitor interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the monitor.
 	AttrArn() *string
-	// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+	// The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
 	AttrIdentityCenterApplicationArn() *string
 	// The unique identifier for the monitor.
 	AttrMonitorId() *string
@@ -67,7 +67,7 @@ type CfnMonitor interface {
 	DisplayName() *string
 	SetDisplayName(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn() *string
 	SetIdentityCenterInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -89,7 +89,7 @@ type CfnMonitor interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of the IAM role for the monitor.
+	// The Amazon Resource Name of the IAM role for the monitor.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -590,6 +590,25 @@ func CfnMonitor_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_deadline.CfnMonitor",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMonitor.
+func CfnMonitor_IsCfnMonitor(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMonitor_IsCfnMonitorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_deadline.CfnMonitor",
+		"isCfnMonitor",
 		[]interface{}{x},
 		&returns,
 	)

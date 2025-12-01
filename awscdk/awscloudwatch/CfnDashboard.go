@@ -447,6 +447,25 @@ func CfnDashboard_FromDashboardName(scope constructs.Construct, id *string, dash
 	return returns
 }
 
+// Checks whether the given object is a CfnDashboard.
+func CfnDashboard_IsCfnDashboard(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDashboard_IsCfnDashboardParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnDashboard",
+		"isCfnDashboard",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

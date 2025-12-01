@@ -80,6 +80,10 @@ func validateCfnVirtualService_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVirtualService_IsCfnVirtualServiceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVirtualService_IsConstructParameters(x interface{}) error {
 	return nil
 }

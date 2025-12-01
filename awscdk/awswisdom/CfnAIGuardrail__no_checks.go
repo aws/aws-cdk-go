@@ -72,6 +72,10 @@ func validateCfnAIGuardrail_ArnForAIGuardrailParameters(resource interfacesawswi
 	return nil
 }
 
+func validateCfnAIGuardrail_IsCfnAIGuardrailParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAIGuardrail_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

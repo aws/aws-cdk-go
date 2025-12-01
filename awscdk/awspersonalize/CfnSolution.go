@@ -620,6 +620,25 @@ func CfnSolution_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSolution.
+func CfnSolution_IsCfnSolution(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSolution_IsCfnSolutionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_personalize.CfnSolution",
+		"isCfnSolution",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

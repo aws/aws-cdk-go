@@ -512,6 +512,24 @@ func (j *jsiiProxy_CfnProfileAssociation)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnProfileAssociation_ArnForProfileAssociation(resource interfacesawsroute53profiles.IProfileAssociationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnProfileAssociation_ArnForProfileAssociationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53profiles.CfnProfileAssociation",
+		"arnForProfileAssociation",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -529,6 +547,25 @@ func CfnProfileAssociation_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_route53profiles.CfnProfileAssociation",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnProfileAssociation.
+func CfnProfileAssociation_IsCfnProfileAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProfileAssociation_IsCfnProfileAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53profiles.CfnProfileAssociation",
+		"isCfnProfileAssociation",
 		[]interface{}{x},
 		&returns,
 	)

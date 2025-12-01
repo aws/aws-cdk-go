@@ -76,6 +76,10 @@ func validateCfnSimpleTable_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSimpleTable_IsCfnSimpleTableParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSimpleTable_IsConstructParameters(x interface{}) error {
 	return nil
 }

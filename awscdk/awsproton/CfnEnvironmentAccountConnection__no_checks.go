@@ -76,6 +76,10 @@ func validateCfnEnvironmentAccountConnection_IsCfnElementParameters(x interface{
 	return nil
 }
 
+func validateCfnEnvironmentAccountConnection_IsCfnEnvironmentAccountConnectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEnvironmentAccountConnection_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

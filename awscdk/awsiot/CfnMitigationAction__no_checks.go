@@ -76,6 +76,10 @@ func validateCfnMitigationAction_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMitigationAction_IsCfnMitigationActionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMitigationAction_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

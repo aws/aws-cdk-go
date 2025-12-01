@@ -72,6 +72,10 @@ func validateCfnPodIdentityAssociation_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnPodIdentityAssociation_IsCfnPodIdentityAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPodIdentityAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

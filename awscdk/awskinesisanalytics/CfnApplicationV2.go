@@ -859,6 +859,26 @@ func CfnApplicationV2_FromApplicationName(scope constructs.Construct, id *string
 	return returns
 }
 
+// Checks whether the given object is a CfnApplicationV2.
+// Deprecated: use `aws-kinesisanalyticsv2` instead.
+func CfnApplicationV2_IsCfnApplicationV2(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnApplicationV2_IsCfnApplicationV2Parameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2",
+		"isCfnApplicationV2",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

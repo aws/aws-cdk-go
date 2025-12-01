@@ -133,9 +133,9 @@ type CfnCapacityProvider_ManagedInstancesProviderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesprovider.html#cfn-ecs-capacityprovider-managedinstancesprovider-instancelaunchtemplate
 	//
 	InstanceLaunchTemplate interface{} `field:"required" json:"instanceLaunchTemplate" yaml:"instanceLaunchTemplate"`
-	// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider.
+	// Defines how Amazon ECS Managed Instances optimizes the infrastastructure in your capacity provider.
 	//
-	// Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+	// Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle or underutilized EC2 instances optimization delay.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesprovider.html#cfn-ecs-capacityprovider-managedinstancesprovider-infrastructureoptimization
 	//
 	InfrastructureOptimization interface{} `field:"optional" json:"infrastructureOptimization" yaml:"infrastructureOptimization"`

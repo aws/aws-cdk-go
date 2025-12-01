@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnMultiRegionCluster) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnMultiRegionCluster_ArnForMultiRegionClusterParameters(resource interfacesawsmemorydb.IMultiRegionClusterRef) error {
+	return nil
+}
+
 func validateCfnMultiRegionCluster_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnMultiRegionCluster_IsCfnMultiRegionClusterParameters(x interface{}) error {
 	return nil
 }
 

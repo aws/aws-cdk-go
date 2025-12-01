@@ -834,6 +834,25 @@ func CfnFilter_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFilter.
+func CfnFilter_IsCfnFilter(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFilter_IsCfnFilterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter",
+		"isCfnFilter",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFilter_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

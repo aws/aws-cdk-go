@@ -892,6 +892,25 @@ func CfnTable_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTable.
+func CfnTable_IsCfnTable(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTable_IsCfnTableParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cassandra.CfnTable",
+		"isCfnTable",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

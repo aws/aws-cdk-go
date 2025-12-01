@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBatchScramSecret) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnBatchScramSecret_IsCfnBatchScramSecretParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBatchScramSecret_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

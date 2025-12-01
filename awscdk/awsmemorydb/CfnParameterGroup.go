@@ -531,6 +531,25 @@ func CfnParameterGroup_ArnForParameterGroup(resource interfacesawsmemorydb.IPara
 	return returns
 }
 
+// Creates a new IParameterGroupRef from an ARN.
+func CfnParameterGroup_FromParameterGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsmemorydb.IParameterGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnParameterGroup_FromParameterGroupArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmemorydb.IParameterGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnParameterGroup",
+		"fromParameterGroupArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IParameterGroupRef from a parameterGroupName.
 func CfnParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) interfacesawsmemorydb.IParameterGroupRef {
 	_init_.Initialize()
@@ -567,6 +586,25 @@ func CfnParameterGroup_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_memorydb.CfnParameterGroup",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnParameterGroup.
+func CfnParameterGroup_IsCfnParameterGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnParameterGroup_IsCfnParameterGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnParameterGroup",
+		"isCfnParameterGroup",
 		[]interface{}{x},
 		&returns,
 	)

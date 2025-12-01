@@ -80,6 +80,10 @@ func validateCfnWebACL_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWebACL_IsCfnWebACLParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWebACL_IsConstructParameters(x interface{}) error {
 	return nil
 }

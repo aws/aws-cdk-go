@@ -505,6 +505,25 @@ func (j *jsiiProxy_CfnCrossAccountAttachment)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Checks whether the given object is a CfnCrossAccountAttachment.
+func CfnCrossAccountAttachment_IsCfnCrossAccountAttachment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCrossAccountAttachment_IsCfnCrossAccountAttachmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_globalaccelerator.CfnCrossAccountAttachment",
+		"isCfnCrossAccountAttachment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

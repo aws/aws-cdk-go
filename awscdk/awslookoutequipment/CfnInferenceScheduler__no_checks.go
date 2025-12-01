@@ -76,6 +76,10 @@ func validateCfnInferenceScheduler_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInferenceScheduler_IsCfnInferenceSchedulerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInferenceScheduler_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -620,6 +620,25 @@ func CfnPrivacyBudgetTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPrivacyBudgetTemplate.
+func CfnPrivacyBudgetTemplate_IsCfnPrivacyBudgetTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPrivacyBudgetTemplate_IsCfnPrivacyBudgetTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cleanrooms.CfnPrivacyBudgetTemplate",
+		"isCfnPrivacyBudgetTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPrivacyBudgetTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

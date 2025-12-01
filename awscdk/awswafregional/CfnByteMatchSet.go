@@ -441,6 +441,43 @@ func (j *jsiiProxy_CfnByteMatchSet)SetName(val *string) {
 	)
 }
 
+func CfnByteMatchSet_ArnForByteMatchSet(resource interfacesawswafregional.IByteMatchSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnByteMatchSet_ArnForByteMatchSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnByteMatchSet",
+		"arnForByteMatchSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnByteMatchSet.
+func CfnByteMatchSet_IsCfnByteMatchSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnByteMatchSet_IsCfnByteMatchSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnByteMatchSet",
+		"isCfnByteMatchSet",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

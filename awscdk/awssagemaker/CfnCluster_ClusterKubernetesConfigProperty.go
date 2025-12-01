@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// Kubernetes configuration for cluster nodes including labels and taints.
+// Kubernetes configuration that specifies labels and taints to be applied to cluster nodes in an instance group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,13 +26,11 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkubernetesconfig.html
 //
 type CfnCluster_ClusterKubernetesConfigProperty struct {
-	// A map of Kubernetes labels to apply to cluster nodes.
+	// Key-value pairs of labels to be applied to cluster nodes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkubernetesconfig.html#cfn-sagemaker-cluster-clusterkubernetesconfig-labels
 	//
 	Labels interface{} `field:"optional" json:"labels" yaml:"labels"`
-	// A list of Kubernetes taints to apply to cluster nodes.
-	//
-	// Maximum of 50 taints.
+	// List of taints to be applied to cluster nodes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkubernetesconfig.html#cfn-sagemaker-cluster-clusterkubernetesconfig-taints
 	//
 	Taints interface{} `field:"optional" json:"taints" yaml:"taints"`

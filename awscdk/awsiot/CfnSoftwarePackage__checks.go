@@ -196,6 +196,14 @@ func validateCfnSoftwarePackage_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSoftwarePackage_IsCfnSoftwarePackageParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSoftwarePackage_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
+// The signing configuration for a registry, which specifies rules for automatically signing images when pushed.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,7 +40,7 @@ type CfnSigningConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsecr.ISigningConfigurationRef
-	// 12-digit AWS account ID of the ECR registry.
+	// The account ID of the destination registry.
 	AttrRegistryId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -69,7 +69,7 @@ type CfnSigningConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Array of signing rules that define which repositories should be signed and with which signing profiles.
+	// A list of signing rules.
 	Rules() interface{}
 	SetRules(val interface{})
 	// A reference to a SigningConfiguration resource.
@@ -442,6 +442,25 @@ func CfnSigningConfiguration_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecr.CfnSigningConfiguration",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnSigningConfiguration.
+func CfnSigningConfiguration_IsCfnSigningConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSigningConfiguration_IsCfnSigningConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnSigningConfiguration",
+		"isCfnSigningConfiguration",
 		[]interface{}{x},
 		&returns,
 	)

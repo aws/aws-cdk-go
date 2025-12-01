@@ -76,6 +76,10 @@ func validateCfnFirewallRuleGroupAssociation_IsCfnElementParameters(x interface{
 	return nil
 }
 
+func validateCfnFirewallRuleGroupAssociation_IsCfnFirewallRuleGroupAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFirewallRuleGroupAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

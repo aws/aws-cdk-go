@@ -1,7 +1,9 @@
 package awspcs
 
 
-// The SlurmRest configuration includes configurable settings for Slurm Rest.
+// The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API.
+//
+// It's a property of the [ClusterSlurmConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html) object.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +17,9 @@ package awspcs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmrest.html
 //
 type CfnCluster_SlurmRestProperty struct {
-	// The default value is `STANDARD`.
+	// The default value for `mode` is `STANDARD` .
 	//
-	// A value of `STANDARD` means that Slurm Rest is enabled.
+	// A value of `STANDARD` means the Slurm REST API is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmrest.html#cfn-pcs-cluster-slurmrest-mode
 	//
 	// Default: - "NONE".

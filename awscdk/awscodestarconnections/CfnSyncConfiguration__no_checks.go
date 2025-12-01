@@ -76,6 +76,10 @@ func validateCfnSyncConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSyncConfiguration_IsCfnSyncConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSyncConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

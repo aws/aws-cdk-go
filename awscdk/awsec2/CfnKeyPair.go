@@ -561,6 +561,25 @@ func CfnKeyPair_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnKeyPair.
+func CfnKeyPair_IsCfnKeyPair(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnKeyPair_IsCfnKeyPairParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnKeyPair",
+		"isCfnKeyPair",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnKeyPair_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

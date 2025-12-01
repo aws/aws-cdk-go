@@ -76,6 +76,10 @@ func validateCfnScalingPlan_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnScalingPlan_IsCfnScalingPlanParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnScalingPlan_IsConstructParameters(x interface{}) error {
 	return nil
 }

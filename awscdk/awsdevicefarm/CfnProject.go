@@ -539,6 +539,25 @@ func CfnProject_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProject.
+func CfnProject_IsCfnProject(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProject_IsCfnProjectParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devicefarm.CfnProject",
+		"isCfnProject",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProject_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

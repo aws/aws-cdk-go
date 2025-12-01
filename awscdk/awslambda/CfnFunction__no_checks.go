@@ -84,11 +84,19 @@ func validateCfnFunction_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFunction_IsCfnFunctionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFunction_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnFunction_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFunction) validateSetCapacityProviderConfigParameters(val interface{}) error {
 	return nil
 }
 
@@ -112,11 +120,19 @@ func (j *jsiiProxy_CfnFunction) validateSetFileSystemConfigsParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetFunctionScalingConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetImageConfigParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnFunction) validateSetLoggingConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFunction) validateSetPublishToLatestPublishedParameters(val interface{}) error {
 	return nil
 }
 

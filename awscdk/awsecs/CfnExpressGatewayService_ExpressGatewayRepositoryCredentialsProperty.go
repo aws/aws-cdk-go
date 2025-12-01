@@ -1,6 +1,8 @@
 package awsecs
 
 
+// The repository credentials for private registry authentication to pass to the container.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-expressgatewayrepositorycredentials.html
 //
 type CfnExpressGatewayService_ExpressGatewayRepositoryCredentialsProperty struct {
+	// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-expressgatewayrepositorycredentials.html#cfn-ecs-expressgatewayservice-expressgatewayrepositorycredentials-credentialsparameter
 	//
 	CredentialsParameter *string `field:"required" json:"credentialsParameter" yaml:"credentialsParameter"`

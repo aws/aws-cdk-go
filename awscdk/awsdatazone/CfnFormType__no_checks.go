@@ -72,6 +72,10 @@ func validateCfnFormType_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFormType_IsCfnFormTypeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFormType_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

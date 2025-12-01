@@ -76,6 +76,10 @@ func validateCfnThreatEntitySet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnThreatEntitySet_IsCfnThreatEntitySetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnThreatEntitySet_IsConstructParameters(x interface{}) error {
 	return nil
 }

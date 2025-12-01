@@ -80,6 +80,10 @@ func validateCfnSmsTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSmsTemplate_IsCfnSmsTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSmsTemplate_IsConstructParameters(x interface{}) error {
 	return nil
 }

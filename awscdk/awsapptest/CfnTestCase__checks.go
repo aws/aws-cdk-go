@@ -212,6 +212,14 @@ func validateCfnTestCase_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTestCase_IsCfnTestCaseParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTestCase_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

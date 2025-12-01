@@ -80,6 +80,10 @@ func validateCfnTrafficDistributionGroup_IsCfnResourceParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnTrafficDistributionGroup_IsCfnTrafficDistributionGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrafficDistributionGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }

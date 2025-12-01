@@ -80,6 +80,10 @@ func validateCfnDeliverySource_FromDeliverySourceNameParameters(scope constructs
 	return nil
 }
 
+func validateCfnDeliverySource_IsCfnDeliverySourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDeliverySource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

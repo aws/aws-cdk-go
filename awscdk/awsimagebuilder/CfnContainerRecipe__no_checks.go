@@ -72,6 +72,10 @@ func validateCfnContainerRecipe_ArnForContainerRecipeParameters(resource interfa
 	return nil
 }
 
+func validateCfnContainerRecipe_IsCfnContainerRecipeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContainerRecipe_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

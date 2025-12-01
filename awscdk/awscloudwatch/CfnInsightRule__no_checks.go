@@ -76,6 +76,10 @@ func validateCfnInsightRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInsightRule_IsCfnInsightRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInsightRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

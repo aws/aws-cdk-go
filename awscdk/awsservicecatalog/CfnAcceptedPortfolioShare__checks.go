@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnAcceptedPortfolioShare_IsCfnAcceptedPortfolioShareParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAcceptedPortfolioShare_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

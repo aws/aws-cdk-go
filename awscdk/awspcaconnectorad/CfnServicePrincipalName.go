@@ -446,6 +446,25 @@ func CfnServicePrincipalName_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnServicePrincipalName.
+func CfnServicePrincipalName_IsCfnServicePrincipalName(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnServicePrincipalName_IsCfnServicePrincipalNameParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pcaconnectorad.CfnServicePrincipalName",
+		"isCfnServicePrincipalName",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

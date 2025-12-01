@@ -64,6 +64,38 @@ import (
 //   							Instructions: jsii.String("instructions"),
 //   							NotApplicableEnabled: jsii.Boolean(false),
 //   							QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
+//   								MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
+//   									Options: []interface{}{
+//   										&EvaluationFormMultiSelectQuestionOptionProperty{
+//   											RefId: jsii.String("refId"),
+//   											Text: jsii.String("text"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   										Options: []interface{}{
+//   											&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
+//   												RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
+//   													Category: jsii.String("category"),
+//   													Condition: jsii.String("condition"),
+//   													OptionRefIds: []*string{
+//   														jsii.String("optionRefIds"),
+//   													},
+//   												},
+//   											},
+//   										},
+//
+//   										// the properties below are optional
+//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   											SourceType: jsii.String("sourceType"),
+//   										},
+//   										DefaultOptionRefIds: []*string{
+//   											jsii.String("defaultOptionRefIds"),
+//   										},
+//   									},
+//   									DisplayAs: jsii.String("displayAs"),
+//   								},
 //   								Numeric: &EvaluationFormNumericQuestionPropertiesProperty{
 //   									MaxValue: jsii.Number(123),
 //   									MinValue: jsii.Number(123),
@@ -151,6 +183,9 @@ import (
 //   		Enabled: jsii.Boolean(false),
 //   	},
 //   	Description: jsii.String("description"),
+//   	LanguageConfiguration: &EvaluationFormLanguageConfigurationProperty{
+//   		FormLanguage: jsii.String("formLanguage"),
+//   	},
 //   	ScoringStrategy: &ScoringStrategyProperty{
 //   		Mode: jsii.String("mode"),
 //   		Status: jsii.String("status"),
@@ -160,6 +195,9 @@ import (
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
+//   	},
+//   	TargetConfiguration: &EvaluationFormTargetConfigurationProperty{
+//   		ContactInteractionType: jsii.String("contactInteractionType"),
 //   	},
 //   }
 //
@@ -202,6 +240,9 @@ type CfnEvaluationFormProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-languageconfiguration
+	//
+	LanguageConfiguration interface{} `field:"optional" json:"languageConfiguration" yaml:"languageConfiguration"`
 	// A scoring strategy of the evaluation form.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-scoringstrategy
 	//
@@ -212,5 +253,8 @@ type CfnEvaluationFormProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-targetconfiguration
+	//
+	TargetConfiguration interface{} `field:"optional" json:"targetConfiguration" yaml:"targetConfiguration"`
 }
 

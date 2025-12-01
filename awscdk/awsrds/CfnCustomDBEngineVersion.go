@@ -666,6 +666,25 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion)SetUseAwsProvidedLatestImage(val int
 	)
 }
 
+// Checks whether the given object is a CfnCustomDBEngineVersion.
+func CfnCustomDBEngineVersion_IsCfnCustomDBEngineVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCustomDBEngineVersion_IsCfnCustomDBEngineVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnCustomDBEngineVersion",
+		"isCfnCustomDBEngineVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

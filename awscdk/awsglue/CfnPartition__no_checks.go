@@ -72,6 +72,10 @@ func validateCfnPartition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPartition_IsCfnPartitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPartition_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

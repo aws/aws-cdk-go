@@ -72,6 +72,10 @@ func validateCfnEncryptionConfiguration_IsCfnElementParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnEncryptionConfiguration_IsCfnEncryptionConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEncryptionConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

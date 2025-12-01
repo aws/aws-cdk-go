@@ -84,6 +84,10 @@ func validateCfnEventIntegration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEventIntegration_IsCfnEventIntegrationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEventIntegration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

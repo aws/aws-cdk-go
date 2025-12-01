@@ -562,6 +562,25 @@ func CfnCustomPlugin_ArnForCustomPlugin(resource interfacesawskafkaconnect.ICust
 	return returns
 }
 
+// Checks whether the given object is a CfnCustomPlugin.
+func CfnCustomPlugin_IsCfnCustomPlugin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCustomPlugin_IsCfnCustomPluginParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kafkaconnect.CfnCustomPlugin",
+		"isCfnCustomPlugin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

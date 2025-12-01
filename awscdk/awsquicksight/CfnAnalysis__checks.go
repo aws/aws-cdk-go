@@ -164,6 +164,14 @@ func validateCfnAnalysis_ArnForAnalysisParameters(resource interfacesawsquicksig
 	return nil
 }
 
+func validateCfnAnalysis_IsCfnAnalysisParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAnalysis_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

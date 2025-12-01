@@ -583,6 +583,25 @@ func CfnMatchmakingRuleSet_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMatchmakingRuleSet.
+func CfnMatchmakingRuleSet_IsCfnMatchmakingRuleSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMatchmakingRuleSet_IsCfnMatchmakingRuleSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
+		"isCfnMatchmakingRuleSet",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMatchmakingRuleSet_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

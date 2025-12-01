@@ -582,6 +582,25 @@ func CfnProtectionGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProtectionGroup.
+func CfnProtectionGroup_IsCfnProtectionGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProtectionGroup_IsCfnProtectionGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_shield.CfnProtectionGroup",
+		"isCfnProtectionGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProtectionGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

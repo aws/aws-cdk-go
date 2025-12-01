@@ -570,6 +570,25 @@ func CfnDeviceDefinition_FromDeviceDefinitionId(scope constructs.Construct, id *
 	return returns
 }
 
+// Checks whether the given object is a CfnDeviceDefinition.
+func CfnDeviceDefinition_IsCfnDeviceDefinition(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDeviceDefinition_IsCfnDeviceDefinitionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
+		"isCfnDeviceDefinition",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -547,6 +547,25 @@ func CfnDimension_FromDimensionName(scope constructs.Construct, id *string, dime
 	return returns
 }
 
+// Checks whether the given object is a CfnDimension.
+func CfnDimension_IsCfnDimension(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDimension_IsCfnDimensionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnDimension",
+		"isCfnDimension",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -49,7 +49,7 @@ type CfnGuardrail interface {
 	awscdk.IInspectable
 	interfacesawsbedrock.IGuardrailRef
 	awscdk.ITaggableV2
-	// The date and time at which the guardrail was created.
+	// Timestamp.
 	AttrCreatedAt() *string
 	// Appears if the `status` of the guardrail is `FAILED` .
 	//
@@ -65,7 +65,7 @@ type CfnGuardrail interface {
 	//
 	// A list of reasons for why the guardrail failed to be created, updated, versioned, or deleted.
 	AttrStatusReasons() *[]*string
-	// The date and time at which the guardrail was last updated.
+	// Timestamp.
 	AttrUpdatedAt() *string
 	// The version of the guardrail that was created.
 	//
@@ -835,6 +835,25 @@ func CfnGuardrail_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrock.CfnGuardrail",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnGuardrail.
+func CfnGuardrail_IsCfnGuardrail(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGuardrail_IsCfnGuardrailParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnGuardrail",
+		"isCfnGuardrail",
 		[]interface{}{x},
 		&returns,
 	)

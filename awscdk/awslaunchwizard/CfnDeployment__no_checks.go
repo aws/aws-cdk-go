@@ -72,6 +72,10 @@ func validateCfnDeployment_ArnForDeploymentParameters(resource interfacesawslaun
 	return nil
 }
 
+func validateCfnDeployment_IsCfnDeploymentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDeployment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

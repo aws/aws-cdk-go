@@ -84,6 +84,10 @@ func validateCfnSubnet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSubnet_IsCfnSubnetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSubnet_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -80,6 +80,10 @@ func validateCfnImageBuilder_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnImageBuilder_IsCfnImageBuilderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnImageBuilder_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

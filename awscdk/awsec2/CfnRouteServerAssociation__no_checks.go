@@ -76,6 +76,10 @@ func validateCfnRouteServerAssociation_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnRouteServerAssociation_IsCfnRouteServerAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRouteServerAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

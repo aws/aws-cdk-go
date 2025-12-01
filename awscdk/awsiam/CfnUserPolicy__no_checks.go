@@ -76,6 +76,10 @@ func validateCfnUserPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnUserPolicy_IsCfnUserPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUserPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }

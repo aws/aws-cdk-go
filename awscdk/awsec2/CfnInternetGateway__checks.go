@@ -188,6 +188,14 @@ func validateCfnInternetGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInternetGateway_IsCfnInternetGatewayParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnInternetGateway_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

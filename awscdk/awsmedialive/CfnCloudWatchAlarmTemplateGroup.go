@@ -523,6 +523,25 @@ func CfnCloudWatchAlarmTemplateGroup_ArnForCloudWatchAlarmTemplateGroup(resource
 	return returns
 }
 
+// Checks whether the given object is a CfnCloudWatchAlarmTemplateGroup.
+func CfnCloudWatchAlarmTemplateGroup_IsCfnCloudWatchAlarmTemplateGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCloudWatchAlarmTemplateGroup_IsCfnCloudWatchAlarmTemplateGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnCloudWatchAlarmTemplateGroup",
+		"isCfnCloudWatchAlarmTemplateGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

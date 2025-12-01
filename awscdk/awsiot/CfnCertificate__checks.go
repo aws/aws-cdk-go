@@ -196,6 +196,14 @@ func validateCfnCertificate_FromCertificateIdParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnCertificate_IsCfnCertificateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCertificate_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

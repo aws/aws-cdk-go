@@ -180,6 +180,14 @@ func validateCfnCustomerGateway_FromCustomerGatewayIdParameters(scope constructs
 	return nil
 }
 
+func validateCfnCustomerGateway_IsCfnCustomerGatewayParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCustomerGateway_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -9,10 +9,13 @@ package interfacesawselasticache
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   serverlessCacheReference := &ServerlessCacheReference{
+//   	ServerlessCacheArn: jsii.String("serverlessCacheArn"),
 //   	ServerlessCacheName: jsii.String("serverlessCacheName"),
 //   }
 //
 type ServerlessCacheReference struct {
+	// The ARN of the ServerlessCache resource.
+	ServerlessCacheArn *string `field:"required" json:"serverlessCacheArn" yaml:"serverlessCacheArn"`
 	// The ServerlessCacheName of the ServerlessCache resource.
 	ServerlessCacheName *string `field:"required" json:"serverlessCacheName" yaml:"serverlessCacheName"`
 }

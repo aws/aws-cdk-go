@@ -693,6 +693,25 @@ func CfnListenerRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnListenerRule.
+func CfnListenerRule_IsCfnListenerRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnListenerRule_IsCfnListenerRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule",
+		"isCfnListenerRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnListenerRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

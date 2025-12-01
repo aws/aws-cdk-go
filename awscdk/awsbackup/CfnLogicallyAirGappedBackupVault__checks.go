@@ -188,6 +188,14 @@ func validateCfnLogicallyAirGappedBackupVault_IsCfnElementParameters(x interface
 	return nil
 }
 
+func validateCfnLogicallyAirGappedBackupVault_IsCfnLogicallyAirGappedBackupVaultParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLogicallyAirGappedBackupVault_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

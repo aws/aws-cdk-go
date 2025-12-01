@@ -88,6 +88,10 @@ func validateCfnSubscriptionDefinition_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnSubscriptionDefinition_IsCfnSubscriptionDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSubscriptionDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }

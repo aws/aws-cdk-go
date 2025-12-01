@@ -163,6 +163,14 @@ func validateCfnOrganizationalUnitAssociation_IsCfnElementParameters(x interface
 	return nil
 }
 
+func validateCfnOrganizationalUnitAssociation_IsCfnOrganizationalUnitAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnOrganizationalUnitAssociation_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

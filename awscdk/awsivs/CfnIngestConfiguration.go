@@ -614,6 +614,25 @@ func CfnIngestConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIngestConfiguration.
+func CfnIngestConfiguration_IsCfnIngestConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIngestConfiguration_IsCfnIngestConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ivs.CfnIngestConfiguration",
+		"isCfnIngestConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIngestConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -72,6 +72,10 @@ func validateCfnChannelPlacementGroup_ArnForChannelPlacementGroupParameters(reso
 	return nil
 }
 
+func validateCfnChannelPlacementGroup_IsCfnChannelPlacementGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnChannelPlacementGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

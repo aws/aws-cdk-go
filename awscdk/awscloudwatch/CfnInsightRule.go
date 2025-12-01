@@ -582,6 +582,25 @@ func CfnInsightRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInsightRule.
+func CfnInsightRule_IsCfnInsightRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInsightRule_IsCfnInsightRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnInsightRule",
+		"isCfnInsightRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInsightRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

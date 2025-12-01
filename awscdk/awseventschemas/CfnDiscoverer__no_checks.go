@@ -72,6 +72,10 @@ func validateCfnDiscoverer_ArnForDiscovererParameters(resource interfacesawseven
 	return nil
 }
 
+func validateCfnDiscoverer_IsCfnDiscovererParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDiscoverer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnAsset_ArnForAssetParameters(resource interfacesawsmediapackage.I
 	return nil
 }
 
+func validateCfnAsset_IsCfnAssetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAsset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

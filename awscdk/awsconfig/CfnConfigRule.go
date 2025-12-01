@@ -653,6 +653,25 @@ func CfnConfigRule_ArnForConfigRule(resource interfacesawsconfig.IConfigRuleRef)
 	return returns
 }
 
+// Checks whether the given object is a CfnConfigRule.
+func CfnConfigRule_IsCfnConfigRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConfigRule_IsCfnConfigRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnConfigRule",
+		"isCfnConfigRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

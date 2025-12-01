@@ -533,6 +533,25 @@ func CfnThing_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnThing.
+func CfnThing_IsCfnThing(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnThing_IsCfnThingParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnThing",
+		"isCfnThing",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

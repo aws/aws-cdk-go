@@ -76,6 +76,10 @@ func validateCfnPackagingConfiguration_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnPackagingConfiguration_IsCfnPackagingConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPackagingConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

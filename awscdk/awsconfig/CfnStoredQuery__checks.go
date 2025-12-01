@@ -171,6 +171,14 @@ func validateCfnStoredQuery_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStoredQuery_IsCfnStoredQueryParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnStoredQuery_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

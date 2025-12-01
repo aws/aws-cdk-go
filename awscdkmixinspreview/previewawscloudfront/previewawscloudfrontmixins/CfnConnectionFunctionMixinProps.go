@@ -35,20 +35,27 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectionfunction.html
 //
 type CfnConnectionFunctionMixinProps struct {
+	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created.
+	//
+	// To automatically publish to the `LIVE` stage, set this property to `true` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectionfunction.html#cfn-cloudfront-connectionfunction-autopublish
 	//
 	// Default: - false.
 	//
 	AutoPublish interface{} `field:"optional" json:"autoPublish" yaml:"autoPublish"`
+	// The code for the connection function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectionfunction.html#cfn-cloudfront-connectionfunction-connectionfunctioncode
 	//
 	ConnectionFunctionCode *string `field:"optional" json:"connectionFunctionCode" yaml:"connectionFunctionCode"`
+	// Contains configuration information about a CloudFront function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectionfunction.html#cfn-cloudfront-connectionfunction-connectionfunctionconfig
 	//
 	ConnectionFunctionConfig interface{} `field:"optional" json:"connectionFunctionConfig" yaml:"connectionFunctionConfig"`
+	// The connection function name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectionfunction.html#cfn-cloudfront-connectionfunction-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// A complex type that contains zero or more `Tag` elements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectionfunction.html#cfn-cloudfront-connectionfunction-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

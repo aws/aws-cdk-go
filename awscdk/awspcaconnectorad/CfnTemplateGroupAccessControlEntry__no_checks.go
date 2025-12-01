@@ -76,6 +76,10 @@ func validateCfnTemplateGroupAccessControlEntry_IsCfnResourceParameters(x interf
 	return nil
 }
 
+func validateCfnTemplateGroupAccessControlEntry_IsCfnTemplateGroupAccessControlEntryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTemplateGroupAccessControlEntry_IsConstructParameters(x interface{}) error {
 	return nil
 }

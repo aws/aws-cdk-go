@@ -80,6 +80,10 @@ func validateCfnVpcIngressConnection_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnVpcIngressConnection_IsCfnVpcIngressConnectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVpcIngressConnection_IsConstructParameters(x interface{}) error {
 	return nil
 }

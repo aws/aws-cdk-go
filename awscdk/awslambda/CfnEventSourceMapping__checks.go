@@ -172,6 +172,14 @@ func validateCfnEventSourceMapping_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEventSourceMapping_IsCfnEventSourceMappingParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEventSourceMapping_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

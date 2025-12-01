@@ -43,7 +43,7 @@ type CfnIPAMScopeProps struct {
 	//
 	// It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
 	//
-	// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* ..
+	// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-externalauthorityconfiguration
 	//
 	ExternalAuthorityConfiguration interface{} `field:"optional" json:"externalAuthorityConfiguration" yaml:"externalAuthorityConfiguration"`

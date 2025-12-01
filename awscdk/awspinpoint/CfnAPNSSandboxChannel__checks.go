@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnAPNSSandboxChannel_IsCfnAPNSSandboxChannelParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAPNSSandboxChannel_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -484,6 +484,25 @@ func (j *jsiiProxy_CfnEIPAssociation)SetPrivateIpAddress(val *string) {
 	)
 }
 
+// Checks whether the given object is a CfnEIPAssociation.
+func CfnEIPAssociation_IsCfnEIPAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEIPAssociation_IsCfnEIPAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnEIPAssociation",
+		"isCfnEIPAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

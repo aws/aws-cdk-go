@@ -80,6 +80,10 @@ func validateCfnVpcEndpointAssociation_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnVpcEndpointAssociation_IsCfnVpcEndpointAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVpcEndpointAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

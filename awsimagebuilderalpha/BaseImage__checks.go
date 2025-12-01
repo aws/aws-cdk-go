@@ -16,6 +16,14 @@ func validateBaseImage_FromAmiIdParameters(amiId *string) error {
 	return nil
 }
 
+func validateBaseImage_FromImageParameters(image IImage) error {
+	if image == nil {
+		return fmt.Errorf("parameter image is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateBaseImage_FromMarketplaceProductIdParameters(productId *string) error {
 	if productId == nil {
 		return fmt.Errorf("parameter productId is required, but nil was provided")

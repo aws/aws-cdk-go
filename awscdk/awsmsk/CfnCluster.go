@@ -175,7 +175,6 @@ type CfnCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The version of the cluster that you want to update.
 	CurrentVersion() *string
 	SetCurrentVersion(val *string)
 	// Includes all encryption-related information.
@@ -850,6 +849,25 @@ func CfnCluster_ArnForCluster(resource interfacesawsmsk.IClusterRef) *string {
 		"aws-cdk-lib.aws_msk.CfnCluster",
 		"arnForCluster",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnCluster.
+func CfnCluster_IsCfnCluster(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_IsCfnClusterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_msk.CfnCluster",
+		"isCfnCluster",
+		[]interface{}{x},
 		&returns,
 	)
 

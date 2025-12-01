@@ -72,6 +72,10 @@ func validateCfnDetector_ArnForDetectorParameters(resource interfacesawsfrauddet
 	return nil
 }
 
+func validateCfnDetector_IsCfnDetectorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDetector_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

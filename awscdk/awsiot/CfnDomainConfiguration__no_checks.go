@@ -80,6 +80,10 @@ func validateCfnDomainConfiguration_FromDomainConfigurationNameParameters(scope 
 	return nil
 }
 
+func validateCfnDomainConfiguration_IsCfnDomainConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDomainConfiguration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

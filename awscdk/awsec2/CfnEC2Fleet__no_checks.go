@@ -76,6 +76,10 @@ func validateCfnEC2Fleet_FromFleetIdParameters(scope constructs.Construct, id *s
 	return nil
 }
 
+func validateCfnEC2Fleet_IsCfnEC2FleetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEC2Fleet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

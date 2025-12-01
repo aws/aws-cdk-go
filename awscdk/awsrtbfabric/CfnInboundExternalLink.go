@@ -593,6 +593,25 @@ func CfnInboundExternalLink_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInboundExternalLink.
+func CfnInboundExternalLink_IsCfnInboundExternalLink(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInboundExternalLink_IsCfnInboundExternalLinkParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rtbfabric.CfnInboundExternalLink",
+		"isCfnInboundExternalLink",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInboundExternalLink_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

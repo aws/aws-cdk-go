@@ -72,6 +72,10 @@ func validateCfnConfiguredTableAssociation_ArnForConfiguredTableAssociationParam
 	return nil
 }
 
+func validateCfnConfiguredTableAssociation_IsCfnConfiguredTableAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfiguredTableAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

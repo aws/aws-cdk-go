@@ -489,6 +489,25 @@ func CfnEncryptionConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEncryptionConfiguration.
+func CfnEncryptionConfiguration_IsCfnEncryptionConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEncryptionConfiguration_IsCfnEncryptionConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnEncryptionConfiguration",
+		"isCfnEncryptionConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEncryptionConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

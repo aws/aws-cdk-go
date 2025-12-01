@@ -76,6 +76,10 @@ func validateCfnSMSChannel_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSMSChannel_IsCfnSMSChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSMSChannel_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -779,6 +779,25 @@ func CfnDatabase_ArnForDatabase(resource interfacesawslightsail.IDatabaseRef) *s
 	return returns
 }
 
+// Checks whether the given object is a CfnDatabase.
+func CfnDatabase_IsCfnDatabase(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDatabase_IsCfnDatabaseParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lightsail.CfnDatabase",
+		"isCfnDatabase",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

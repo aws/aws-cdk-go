@@ -50,9 +50,9 @@ type CfnUserMixinProps struct {
 	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// Creates a password for the specified IAM user.
 	//
-	// A password allows an IAM user to access AWS services through the the console .
+	// A password allows an IAM user to access AWS services through the AWS Management Console .
 	//
-	// You can use the AWS CLI , the AWS API, or the *Users* page in the IAM console to create a password for any IAM user. Use [ChangePassword](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html) to update your own existing password in the *My Security Credentials* page in the the console .
+	// You can use the AWS CLI , the AWS API, or the *Users* page in the IAM console to create a password for any IAM user. Use [ChangePassword](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html) to update your own existing password in the *My Security Credentials* page in the AWS Management Console .
 	//
 	// For more information about managing passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *IAM User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-loginprofile

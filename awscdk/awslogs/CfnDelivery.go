@@ -606,6 +606,25 @@ func CfnDelivery_ArnForDelivery(resource interfacesawslogs.IDeliveryRef) *string
 	return returns
 }
 
+// Checks whether the given object is a CfnDelivery.
+func CfnDelivery_IsCfnDelivery(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDelivery_IsCfnDeliveryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnDelivery",
+		"isCfnDelivery",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

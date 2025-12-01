@@ -781,6 +781,25 @@ func CfnImageRecipe_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnImageRecipe.
+func CfnImageRecipe_IsCfnImageRecipe(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnImageRecipe_IsCfnImageRecipeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_imagebuilder.CfnImageRecipe",
+		"isCfnImageRecipe",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnImageRecipe_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

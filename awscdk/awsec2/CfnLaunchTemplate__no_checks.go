@@ -80,6 +80,10 @@ func validateCfnLaunchTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLaunchTemplate_IsCfnLaunchTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLaunchTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

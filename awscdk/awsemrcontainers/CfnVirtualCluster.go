@@ -608,6 +608,25 @@ func CfnVirtualCluster_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVirtualCluster.
+func CfnVirtualCluster_IsCfnVirtualCluster(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVirtualCluster_IsCfnVirtualClusterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emrcontainers.CfnVirtualCluster",
+		"isCfnVirtualCluster",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -72,6 +72,10 @@ func validateCfnLocationFSxONTAP_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocationFSxONTAP_IsCfnLocationFSxONTAPParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocationFSxONTAP_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

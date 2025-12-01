@@ -72,6 +72,10 @@ func validateCfnGraphQLSchema_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGraphQLSchema_IsCfnGraphQLSchemaParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGraphQLSchema_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

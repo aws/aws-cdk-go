@@ -76,6 +76,10 @@ func validateCfnTrackerConsumer_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTrackerConsumer_IsCfnTrackerConsumerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrackerConsumer_IsConstructParameters(x interface{}) error {
 	return nil
 }

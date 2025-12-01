@@ -1205,6 +1205,25 @@ func CfnDataSource_ArnForDataSource(resource interfacesawskendra.IDataSourceRef)
 	return returns
 }
 
+// Checks whether the given object is a CfnDataSource.
+func CfnDataSource_IsCfnDataSource(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDataSource_IsCfnDataSourceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"isCfnDataSource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

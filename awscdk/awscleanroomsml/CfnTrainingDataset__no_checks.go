@@ -80,6 +80,10 @@ func validateCfnTrainingDataset_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTrainingDataset_IsCfnTrainingDatasetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrainingDataset_IsConstructParameters(x interface{}) error {
 	return nil
 }

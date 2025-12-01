@@ -84,6 +84,10 @@ func validateCfnStack_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStack_IsCfnStackParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStack_IsConstructParameters(x interface{}) error {
 	return nil
 }

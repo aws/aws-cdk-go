@@ -494,6 +494,25 @@ func CfnLayerVersionPermission_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLayerVersionPermission.
+func CfnLayerVersionPermission_IsCfnLayerVersionPermission(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLayerVersionPermission_IsCfnLayerVersionPermissionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnLayerVersionPermission",
+		"isCfnLayerVersionPermission",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLayerVersionPermission_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -164,6 +164,14 @@ func validateCfnDomainNameAccessAssociation_ArnForDomainNameAccessAssociationPar
 	return nil
 }
 
+func validateCfnDomainNameAccessAssociation_IsCfnDomainNameAccessAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDomainNameAccessAssociation_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

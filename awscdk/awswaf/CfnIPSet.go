@@ -434,6 +434,24 @@ func (j *jsiiProxy_CfnIPSet)SetName(val *string) {
 	)
 }
 
+func CfnIPSet_ArnForIPSet(resource interfacesawswaf.IIPSetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnIPSet_ArnForIPSetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_waf.CfnIPSet",
+		"arnForIPSet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -451,6 +469,25 @@ func CfnIPSet_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_waf.CfnIPSet",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnIPSet.
+func CfnIPSet_IsCfnIPSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIPSet_IsCfnIPSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_waf.CfnIPSet",
+		"isCfnIPSet",
 		[]interface{}{x},
 		&returns,
 	)

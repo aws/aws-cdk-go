@@ -76,6 +76,10 @@ func validateCfnClusterParameterGroup_FromParameterGroupNameParameters(scope con
 	return nil
 }
 
+func validateCfnClusterParameterGroup_IsCfnClusterParameterGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClusterParameterGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

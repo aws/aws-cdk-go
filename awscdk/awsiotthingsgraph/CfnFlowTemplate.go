@@ -442,6 +442,25 @@ func CfnFlowTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFlowTemplate.
+func CfnFlowTemplate_IsCfnFlowTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFlowTemplate_IsCfnFlowTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotthingsgraph.CfnFlowTemplate",
+		"isCfnFlowTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFlowTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

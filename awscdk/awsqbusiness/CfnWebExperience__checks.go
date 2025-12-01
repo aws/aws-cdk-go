@@ -180,6 +180,14 @@ func validateCfnWebExperience_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWebExperience_IsCfnWebExperienceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnWebExperience_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

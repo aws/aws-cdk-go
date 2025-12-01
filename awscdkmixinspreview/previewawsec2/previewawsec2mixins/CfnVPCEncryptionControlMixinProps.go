@@ -33,47 +33,47 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html
 //
 type CfnVPCEncryptionControlMixinProps struct {
-	// Used to enable or disable EIGW exclusion.
+	// Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-egressonlyinternetgatewayexclusioninput
 	//
 	EgressOnlyInternetGatewayExclusionInput *string `field:"optional" json:"egressOnlyInternetGatewayExclusionInput" yaml:"egressOnlyInternetGatewayExclusionInput"`
-	// Used to enable or disable EFS exclusion.
+	// Specifies whether to exclude Elastic File System traffic from encryption enforcement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-elasticfilesystemexclusioninput
 	//
 	ElasticFileSystemExclusionInput *string `field:"optional" json:"elasticFileSystemExclusionInput" yaml:"elasticFileSystemExclusionInput"`
-	// Used to enable or disable IGW exclusion.
+	// Specifies whether to exclude internet gateway traffic from encryption enforcement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-internetgatewayexclusioninput
 	//
 	InternetGatewayExclusionInput *string `field:"optional" json:"internetGatewayExclusionInput" yaml:"internetGatewayExclusionInput"`
-	// Used to enable or disable Lambda exclusion.
+	// Specifies whether to exclude Lambda function traffic from encryption enforcement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-lambdaexclusioninput
 	//
 	LambdaExclusionInput *string `field:"optional" json:"lambdaExclusionInput" yaml:"lambdaExclusionInput"`
-	// The VPC encryption control mode, either monitor or enforce.
+	// The encryption mode for the VPC Encryption Control configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
-	// Used to enable or disable Nat gateway exclusion.
+	// Specifies whether to exclude NAT gateway traffic from encryption enforcement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-natgatewayexclusioninput
 	//
 	NatGatewayExclusionInput *string `field:"optional" json:"natGatewayExclusionInput" yaml:"natGatewayExclusionInput"`
-	// The tags to assign to the VPC encryption control.
+	// The tags assigned to the VPC Encryption Control configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// Used to enable or disable VGW exclusion.
+	// Specifies whether to exclude virtual private gateway traffic from encryption enforcement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-virtualprivategatewayexclusioninput
 	//
 	VirtualPrivateGatewayExclusionInput *string `field:"optional" json:"virtualPrivateGatewayExclusionInput" yaml:"virtualPrivateGatewayExclusionInput"`
-	// The VPC on which this VPC encryption control is applied.
+	// The ID of the VPC for which to create the encryption control configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-vpcid
 	//
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
-	// Used to enable or disable Vpc Lattice exclusion.
+	// Specifies whether to exclude VPC Lattice traffic from encryption enforcement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-vpclatticeexclusioninput
 	//
 	VpcLatticeExclusionInput *string `field:"optional" json:"vpcLatticeExclusionInput" yaml:"vpcLatticeExclusionInput"`
-	// Used to enable or disable VPC peering exclusion.
+	// Specifies whether to exclude VPC peering connection traffic from encryption enforcement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html#cfn-ec2-vpcencryptioncontrol-vpcpeeringexclusioninput
 	//
 	VpcPeeringExclusionInput *string `field:"optional" json:"vpcPeeringExclusionInput" yaml:"vpcPeeringExclusionInput"`

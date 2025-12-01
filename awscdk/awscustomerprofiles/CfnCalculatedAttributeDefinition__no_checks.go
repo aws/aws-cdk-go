@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCalculatedAttributeDefinition) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnCalculatedAttributeDefinition_IsCfnCalculatedAttributeDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCalculatedAttributeDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -602,6 +602,25 @@ func CfnGlobalCluster_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGlobalCluster.
+func CfnGlobalCluster_IsCfnGlobalCluster(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalCluster_IsCfnGlobalClusterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"isCfnGlobalCluster",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGlobalCluster_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

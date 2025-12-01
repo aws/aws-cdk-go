@@ -72,6 +72,10 @@ func validateCfnDomainNameAccessAssociation_ArnForDomainNameAccessAssociationPar
 	return nil
 }
 
+func validateCfnDomainNameAccessAssociation_IsCfnDomainNameAccessAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDomainNameAccessAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

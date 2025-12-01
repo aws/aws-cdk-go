@@ -76,6 +76,10 @@ func validateCfnStorageVirtualMachine_IsCfnResourceParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnStorageVirtualMachine_IsCfnStorageVirtualMachineParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStorageVirtualMachine_IsConstructParameters(x interface{}) error {
 	return nil
 }

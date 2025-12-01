@@ -504,6 +504,25 @@ func CfnProfileResourceAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProfileResourceAssociation.
+func CfnProfileResourceAssociation_IsCfnProfileResourceAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProfileResourceAssociation_IsCfnProfileResourceAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53profiles.CfnProfileResourceAssociation",
+		"isCfnProfileResourceAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProfileResourceAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

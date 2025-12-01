@@ -72,6 +72,10 @@ func validateCfnConfigRule_ArnForConfigRuleParameters(resource interfacesawsconf
 	return nil
 }
 
+func validateCfnConfigRule_IsCfnConfigRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfigRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

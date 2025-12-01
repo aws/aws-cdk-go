@@ -76,6 +76,10 @@ func validateCfnJobQueue_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnJobQueue_IsCfnJobQueueParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnJobQueue_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -28,6 +28,7 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html
 //
 type CfnTransitGatewayMeteringPolicyEntryProps struct {
+	// The AWS account ID to which the metered traffic is attributed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html#cfn-ec2-transitgatewaymeteringpolicyentry-meteredaccount
 	//
 	MeteredAccount *string `field:"required" json:"meteredAccount" yaml:"meteredAccount"`
@@ -39,11 +40,11 @@ type CfnTransitGatewayMeteringPolicyEntryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html#cfn-ec2-transitgatewaymeteringpolicyentry-transitgatewaymeteringpolicyid
 	//
 	TransitGatewayMeteringPolicyId *string `field:"required" json:"transitGatewayMeteringPolicyId" yaml:"transitGatewayMeteringPolicyId"`
-	// The list of IP addresses of the instances receiving traffic from the transit gateway.
+	// Describes an IPv4 CIDR block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html#cfn-ec2-transitgatewaymeteringpolicyentry-destinationcidrblock
 	//
 	DestinationCidrBlock *string `field:"optional" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
-	// The list of ports on destination instances receiving traffic from the transit gateway.
+	// Describes a range of ports.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html#cfn-ec2-transitgatewaymeteringpolicyentry-destinationportrange
 	//
 	DestinationPortRange *string `field:"optional" json:"destinationPortRange" yaml:"destinationPortRange"`
@@ -58,11 +59,11 @@ type CfnTransitGatewayMeteringPolicyEntryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html#cfn-ec2-transitgatewaymeteringpolicyentry-protocol
 	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
-	// The list of IP addresses of the instances sending traffic to the transit gateway for which the metering policy entry is applicable.
+	// Describes an IPv4 CIDR block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html#cfn-ec2-transitgatewaymeteringpolicyentry-sourcecidrblock
 	//
 	SourceCidrBlock *string `field:"optional" json:"sourceCidrBlock" yaml:"sourceCidrBlock"`
-	// The list of ports on source instances sending traffic to the transit gateway.
+	// Describes a range of ports.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html#cfn-ec2-transitgatewaymeteringpolicyentry-sourceportrange
 	//
 	SourcePortRange *string `field:"optional" json:"sourcePortRange" yaml:"sourcePortRange"`

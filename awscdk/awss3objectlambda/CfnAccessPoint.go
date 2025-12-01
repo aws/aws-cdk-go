@@ -102,7 +102,7 @@ type CfnAccessPoint interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// > Amazon S3 Object Lambda will no longer be open to new customers starting on 11/7/2025.
+	// A configuration used when creating an Object Lambda Access Point.
 	ObjectLambdaConfiguration() interface{}
 	SetObjectLambdaConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -582,6 +582,25 @@ func CfnAccessPoint_ArnForAccessPoint(resource interfacesawss3objectlambda.IAcce
 		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
 		"arnForAccessPoint",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnAccessPoint.
+func CfnAccessPoint_IsCfnAccessPoint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPoint_IsCfnAccessPointParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
+		"isCfnAccessPoint",
+		[]interface{}{x},
 		&returns,
 	)
 

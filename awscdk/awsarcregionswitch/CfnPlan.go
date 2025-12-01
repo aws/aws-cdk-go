@@ -948,6 +948,25 @@ func CfnPlan_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPlan.
+func CfnPlan_IsCfnPlan(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPlan_IsCfnPlanParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan",
+		"isCfnPlan",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPlan_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

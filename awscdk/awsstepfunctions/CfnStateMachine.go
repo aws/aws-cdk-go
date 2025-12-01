@@ -780,6 +780,25 @@ func CfnStateMachine_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStateMachine.
+func CfnStateMachine_IsCfnStateMachine(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStateMachine_IsCfnStateMachineParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+		"isCfnStateMachine",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

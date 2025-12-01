@@ -72,6 +72,10 @@ func validateCfnCustomPermissions_ArnForCustomPermissionsParameters(resource int
 	return nil
 }
 
+func validateCfnCustomPermissions_IsCfnCustomPermissionsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomPermissions_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

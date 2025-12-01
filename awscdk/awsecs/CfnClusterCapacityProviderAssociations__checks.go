@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateValidatePrope
 	return nil
 }
 
+func validateCfnClusterCapacityProviderAssociations_IsCfnClusterCapacityProviderAssociationsParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnClusterCapacityProviderAssociations_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

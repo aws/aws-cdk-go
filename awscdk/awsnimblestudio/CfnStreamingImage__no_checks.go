@@ -76,6 +76,10 @@ func validateCfnStreamingImage_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStreamingImage_IsCfnStreamingImageParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStreamingImage_IsConstructParameters(x interface{}) error {
 	return nil
 }

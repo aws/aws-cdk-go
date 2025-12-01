@@ -196,6 +196,14 @@ func validateCfnConnection_FromConnectionNameParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnConnection_IsCfnConnectionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConnection_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -76,6 +76,10 @@ func validateCfnApiKey_FromApiKeyIdParameters(scope constructs.Construct, id *st
 	return nil
 }
 
+func validateCfnApiKey_IsCfnApiKeyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApiKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

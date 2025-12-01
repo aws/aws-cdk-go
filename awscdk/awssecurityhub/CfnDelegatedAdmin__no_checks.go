@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDelegatedAdmin) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnDelegatedAdmin_IsCfnDelegatedAdminParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDelegatedAdmin_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

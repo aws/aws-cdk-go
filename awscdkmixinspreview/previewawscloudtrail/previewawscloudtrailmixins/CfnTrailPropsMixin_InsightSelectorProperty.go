@@ -18,9 +18,10 @@ package previewawscloudtrailmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
 //
 type CfnTrailPropsMixin_InsightSelectorProperty struct {
-	// The categories of events for which to log insights.
+	// Select the event category on which Insights should be enabled.
 	//
-	// By default, insights are logged for management events only.
+	// - If EventCategories is not provided, the specified Insights types are enabled on management API calls by default.
+	// - If EventCategories is provided, the given event categories will overwrite the existing ones. For example, if a trail already has Insights enabled on management events, and then a PutInsightSelectors request is made with only data events specified in EventCategories, Insights on management events will be disabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-eventcategories
 	//
 	EventCategories *[]*string `field:"optional" json:"eventCategories" yaml:"eventCategories"`

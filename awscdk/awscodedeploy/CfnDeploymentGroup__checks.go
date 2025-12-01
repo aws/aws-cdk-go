@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDeploymentGroup) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDeploymentGroup_IsCfnDeploymentGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDeploymentGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

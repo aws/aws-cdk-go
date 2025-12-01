@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCustomDBEngineVersion) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnCustomDBEngineVersion_IsCfnCustomDBEngineVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomDBEngineVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

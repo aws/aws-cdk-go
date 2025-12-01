@@ -634,6 +634,25 @@ func CfnRequesterGateway_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRequesterGateway.
+func CfnRequesterGateway_IsCfnRequesterGateway(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRequesterGateway_IsCfnRequesterGatewayParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rtbfabric.CfnRequesterGateway",
+		"isCfnRequesterGateway",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRequesterGateway_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

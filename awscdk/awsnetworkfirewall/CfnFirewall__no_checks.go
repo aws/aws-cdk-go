@@ -76,6 +76,10 @@ func validateCfnFirewall_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFirewall_IsCfnFirewallParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFirewall_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

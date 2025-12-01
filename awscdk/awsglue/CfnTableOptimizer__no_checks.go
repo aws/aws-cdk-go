@@ -76,6 +76,10 @@ func validateCfnTableOptimizer_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTableOptimizer_IsCfnTableOptimizerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTableOptimizer_IsConstructParameters(x interface{}) error {
 	return nil
 }

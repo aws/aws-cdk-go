@@ -80,6 +80,10 @@ func validateCfnDestination_FromDestinationNameParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnDestination_IsCfnDestinationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDestination_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

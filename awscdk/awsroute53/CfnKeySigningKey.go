@@ -483,6 +483,25 @@ func CfnKeySigningKey_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnKeySigningKey.
+func CfnKeySigningKey_IsCfnKeySigningKey(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnKeySigningKey_IsCfnKeySigningKeyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53.CfnKeySigningKey",
+		"isCfnKeySigningKey",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnKeySigningKey_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

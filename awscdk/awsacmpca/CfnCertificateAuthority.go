@@ -642,6 +642,25 @@ func CfnCertificateAuthority_ArnForCertificateAuthority(resource interfacesawsac
 	return returns
 }
 
+// Checks whether the given object is a CfnCertificateAuthority.
+func CfnCertificateAuthority_IsCfnCertificateAuthority(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCertificateAuthority_IsCfnCertificateAuthorityParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"isCfnCertificateAuthority",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

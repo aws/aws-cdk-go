@@ -585,6 +585,25 @@ func CfnAccelerator_ArnForAccelerator(resource interfacesawsglobalaccelerator.IA
 	return returns
 }
 
+// Checks whether the given object is a CfnAccelerator.
+func CfnAccelerator_IsCfnAccelerator(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAccelerator_IsCfnAcceleratorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_globalaccelerator.CfnAccelerator",
+		"isCfnAccelerator",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

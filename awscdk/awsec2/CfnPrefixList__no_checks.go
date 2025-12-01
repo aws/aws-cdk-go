@@ -84,6 +84,10 @@ func validateCfnPrefixList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPrefixList_IsCfnPrefixListParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPrefixList_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

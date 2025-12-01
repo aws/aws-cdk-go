@@ -76,6 +76,10 @@ func validateCfnObservabilityConfiguration_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnObservabilityConfiguration_IsCfnObservabilityConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnObservabilityConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

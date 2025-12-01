@@ -72,6 +72,10 @@ func validateCfnDistribution_ArnForDistributionParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnDistribution_IsCfnDistributionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDistribution_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

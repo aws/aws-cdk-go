@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBotVersion) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnBotVersion_IsCfnBotVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBotVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -512,6 +512,25 @@ func CfnOwner_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOwner.
+func CfnOwner_IsCfnOwner(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOwner_IsCfnOwnerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datazone.CfnOwner",
+		"isCfnOwner",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOwner_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

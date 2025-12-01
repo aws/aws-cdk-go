@@ -72,6 +72,10 @@ func validateCfnKeySigningKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnKeySigningKey_IsCfnKeySigningKeyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnKeySigningKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

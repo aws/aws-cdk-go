@@ -544,6 +544,25 @@ func CfnEnabledBaseline_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEnabledBaseline.
+func CfnEnabledBaseline_IsCfnEnabledBaseline(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEnabledBaseline_IsCfnEnabledBaselineParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_controltower.CfnEnabledBaseline",
+		"isCfnEnabledBaseline",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEnabledBaseline_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

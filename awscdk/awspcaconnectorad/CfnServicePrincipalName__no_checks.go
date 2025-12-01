@@ -76,6 +76,10 @@ func validateCfnServicePrincipalName_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnServicePrincipalName_IsCfnServicePrincipalNameParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnServicePrincipalName_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -620,6 +620,25 @@ func CfnTransitGatewayPeering_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTransitGatewayPeering.
+func CfnTransitGatewayPeering_IsCfnTransitGatewayPeering(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayPeering_IsCfnTransitGatewayPeeringParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnTransitGatewayPeering",
+		"isCfnTransitGatewayPeering",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

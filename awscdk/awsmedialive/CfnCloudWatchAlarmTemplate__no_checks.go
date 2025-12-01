@@ -72,6 +72,10 @@ func validateCfnCloudWatchAlarmTemplate_ArnForCloudWatchAlarmTemplateParameters(
 	return nil
 }
 
+func validateCfnCloudWatchAlarmTemplate_IsCfnCloudWatchAlarmTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCloudWatchAlarmTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

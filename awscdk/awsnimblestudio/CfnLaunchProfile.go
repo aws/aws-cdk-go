@@ -636,6 +636,25 @@ func CfnLaunchProfile_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLaunchProfile.
+func CfnLaunchProfile_IsCfnLaunchProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLaunchProfile_IsCfnLaunchProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfile",
+		"isCfnLaunchProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLaunchProfile_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

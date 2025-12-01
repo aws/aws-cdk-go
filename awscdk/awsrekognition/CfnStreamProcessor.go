@@ -835,6 +835,25 @@ func CfnStreamProcessor_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStreamProcessor.
+func CfnStreamProcessor_IsCfnStreamProcessor(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStreamProcessor_IsCfnStreamProcessorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rekognition.CfnStreamProcessor",
+		"isCfnStreamProcessor",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

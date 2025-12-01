@@ -584,6 +584,25 @@ func CfnLicenseEndpoint_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLicenseEndpoint.
+func CfnLicenseEndpoint_IsCfnLicenseEndpoint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLicenseEndpoint_IsCfnLicenseEndpointParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_deadline.CfnLicenseEndpoint",
+		"isCfnLicenseEndpoint",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLicenseEndpoint_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

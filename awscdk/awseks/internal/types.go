@@ -14,6 +14,7 @@ type Type__interfacesawseksIAccessEntryRef = interfacesawseks.IAccessEntryRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawseksIAddonRef = interfacesawseks.IAddonRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawseksICapabilityRef = interfacesawseks.ICapabilityRef
 type Type__interfacesawseksIClusterRef = interfacesawseks.IClusterRef
 type Type__interfacesawseksIFargateProfileRef = interfacesawseks.IFargateProfileRef
 type Type__interfacesawseksIIdentityProviderConfigRef = interfacesawseks.IIdentityProviderConfigRef

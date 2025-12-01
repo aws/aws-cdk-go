@@ -180,6 +180,14 @@ func validateCfnCapacityReservationFleet_FromCapacityReservationFleetIdParameter
 	return nil
 }
 
+func validateCfnCapacityReservationFleet_IsCfnCapacityReservationFleetParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCapacityReservationFleet_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

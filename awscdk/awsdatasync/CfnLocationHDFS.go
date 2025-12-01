@@ -737,6 +737,25 @@ func CfnLocationHDFS_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocationHDFS.
+func CfnLocationHDFS_IsCfnLocationHDFS(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocationHDFS_IsCfnLocationHDFSParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS",
+		"isCfnLocationHDFS",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocationHDFS_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -80,6 +80,10 @@ func validateCfnBucket_FromBucketNameParameters(scope constructs.Construct, id *
 	return nil
 }
 
+func validateCfnBucket_IsCfnBucketParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBucket_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

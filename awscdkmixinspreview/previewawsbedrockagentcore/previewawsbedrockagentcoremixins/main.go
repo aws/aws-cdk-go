@@ -363,6 +363,18 @@ func init() {
 			return &jsiiProxy_CfnMemoryTraces{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeApplicationLogs",
+		reflect.TypeOf((*CfnRuntimeApplicationLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnRuntimeApplicationLogs{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeEndpointMixinProps",
 		reflect.TypeOf((*CfnRuntimeEndpointMixinProps)(nil)).Elem(),
@@ -378,6 +390,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRuntimeEndpointPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeLogsMixin",
+		reflect.TypeOf((*CfnRuntimeLogsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "logDelivery", GoGetter: "LogDelivery"},
+			_jsii_.MemberProperty{JsiiProperty: "logType", GoGetter: "LogType"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRuntimeLogsMixin{}
 			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
 			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
 			return &j
@@ -450,6 +478,28 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimePropsMixin.WorkloadIdentityDetailsProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_WorkloadIdentityDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeTraces",
+		reflect.TypeOf((*CfnRuntimeTraces)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toXRay", GoMethod: "ToXRay"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnRuntimeTraces{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeUsageLogs",
+		reflect.TypeOf((*CfnRuntimeUsageLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnRuntimeUsageLogs{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityMixinProps",

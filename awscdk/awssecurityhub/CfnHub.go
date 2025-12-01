@@ -499,6 +499,24 @@ func (j *jsiiProxy_CfnHub)SetTagsRaw(val interface{}) {
 	)
 }
 
+func CfnHub_ArnForHub(resource interfacesawssecurityhub.IHubRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnHub_ArnForHubParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnHub",
+		"arnForHub",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -516,6 +534,25 @@ func CfnHub_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_securityhub.CfnHub",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnHub.
+func CfnHub_IsCfnHub(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnHub_IsCfnHubParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnHub",
+		"isCfnHub",
 		[]interface{}{x},
 		&returns,
 	)

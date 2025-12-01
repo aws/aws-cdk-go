@@ -171,6 +171,14 @@ func validateCfnVPCEncryptionControl_IsCfnResourceParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnVPCEncryptionControl_IsCfnVPCEncryptionControlParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVPCEncryptionControl_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

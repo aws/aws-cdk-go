@@ -76,11 +76,19 @@ func validateCfnWorkspacesPool_FromPoolIdParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validateCfnWorkspacesPool_FromWorkspacesPoolArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnWorkspacesPool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnWorkspacesPool_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnWorkspacesPool_IsCfnWorkspacesPoolParameters(x interface{}) error {
 	return nil
 }
 

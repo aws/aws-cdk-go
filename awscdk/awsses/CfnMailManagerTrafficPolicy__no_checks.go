@@ -72,11 +72,19 @@ func validateCfnMailManagerTrafficPolicy_ArnForMailManagerTrafficPolicyParameter
 	return nil
 }
 
+func validateCfnMailManagerTrafficPolicy_FromMailManagerTrafficPolicyArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnMailManagerTrafficPolicy_FromTrafficPolicyIdParameters(scope constructs.Construct, id *string, trafficPolicyId *string) error {
 	return nil
 }
 
 func validateCfnMailManagerTrafficPolicy_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnMailManagerTrafficPolicy_IsCfnMailManagerTrafficPolicyParameters(x interface{}) error {
 	return nil
 }
 

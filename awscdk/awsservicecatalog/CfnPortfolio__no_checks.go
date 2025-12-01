@@ -80,6 +80,10 @@ func validateCfnPortfolio_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPortfolio_IsCfnPortfolioParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPortfolio_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

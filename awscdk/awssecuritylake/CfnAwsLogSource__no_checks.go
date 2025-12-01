@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAwsLogSource) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnAwsLogSource_IsCfnAwsLogSourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAwsLogSource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

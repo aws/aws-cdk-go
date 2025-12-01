@@ -80,6 +80,10 @@ func validateCfnACL_FromAclNameParameters(scope constructs.Construct, id *string
 	return nil
 }
 
+func validateCfnACL_IsCfnACLParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnACL_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

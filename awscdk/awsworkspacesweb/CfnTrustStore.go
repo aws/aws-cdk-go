@@ -517,6 +517,25 @@ func CfnTrustStore_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTrustStore.
+func CfnTrustStore_IsCfnTrustStore(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTrustStore_IsCfnTrustStoreParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnTrustStore",
+		"isCfnTrustStore",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

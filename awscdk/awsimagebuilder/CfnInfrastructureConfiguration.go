@@ -793,6 +793,25 @@ func CfnInfrastructureConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInfrastructureConfiguration.
+func CfnInfrastructureConfiguration_IsCfnInfrastructureConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInfrastructureConfiguration_IsCfnInfrastructureConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration",
+		"isCfnInfrastructureConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInfrastructureConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

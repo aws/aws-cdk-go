@@ -76,6 +76,10 @@ func validateCfnClientVpnEndpoint_FromClientVpnEndpointIdParameters(scope constr
 	return nil
 }
 
+func validateCfnClientVpnEndpoint_IsCfnClientVpnEndpointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClientVpnEndpoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

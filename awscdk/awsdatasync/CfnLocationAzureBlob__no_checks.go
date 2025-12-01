@@ -72,6 +72,10 @@ func validateCfnLocationAzureBlob_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocationAzureBlob_IsCfnLocationAzureBlobParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocationAzureBlob_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

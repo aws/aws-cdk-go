@@ -705,6 +705,25 @@ func CfnIdNamespace_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIdNamespace.
+func CfnIdNamespace_IsCfnIdNamespace(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIdNamespace_IsCfnIdNamespaceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace",
+		"isCfnIdNamespace",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIdNamespace_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

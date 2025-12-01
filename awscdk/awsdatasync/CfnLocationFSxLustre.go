@@ -524,6 +524,25 @@ func CfnLocationFSxLustre_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocationFSxLustre.
+func CfnLocationFSxLustre_IsCfnLocationFSxLustre(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocationFSxLustre_IsCfnLocationFSxLustreParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxLustre",
+		"isCfnLocationFSxLustre",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocationFSxLustre_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

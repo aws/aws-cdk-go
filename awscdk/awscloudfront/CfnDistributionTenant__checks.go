@@ -164,6 +164,14 @@ func validateCfnDistributionTenant_ArnForDistributionTenantParameters(resource i
 	return nil
 }
 
+func validateCfnDistributionTenant_IsCfnDistributionTenantParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDistributionTenant_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

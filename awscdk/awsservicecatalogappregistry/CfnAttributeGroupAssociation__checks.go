@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) validateValidatePropertiesParam
 	return nil
 }
 
+func validateCfnAttributeGroupAssociation_IsCfnAttributeGroupAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAttributeGroupAssociation_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

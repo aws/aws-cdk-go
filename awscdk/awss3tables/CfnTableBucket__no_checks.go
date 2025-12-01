@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnTableBucket) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnTableBucket_ArnForTableBucketParameters(resource interfacesawss3tables.ITableBucketRef) error {
+	return nil
+}
+
 func validateCfnTableBucket_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnTableBucket_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnTableBucket_IsCfnTableBucketParameters(x interface{}) error {
 	return nil
 }
 

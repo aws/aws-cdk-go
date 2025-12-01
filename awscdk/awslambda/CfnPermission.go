@@ -612,6 +612,25 @@ func CfnPermission_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPermission.
+func CfnPermission_IsCfnPermission(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPermission_IsCfnPermissionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnPermission",
+		"isCfnPermission",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPermission_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

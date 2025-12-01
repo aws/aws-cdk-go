@@ -72,6 +72,10 @@ func validateCfnMacro_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMacro_IsCfnMacroParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMacro_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

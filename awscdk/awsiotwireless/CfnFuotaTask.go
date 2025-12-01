@@ -743,6 +743,25 @@ func CfnFuotaTask_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFuotaTask.
+func CfnFuotaTask_IsCfnFuotaTask(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFuotaTask_IsCfnFuotaTaskParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
+		"isCfnFuotaTask",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFuotaTask_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

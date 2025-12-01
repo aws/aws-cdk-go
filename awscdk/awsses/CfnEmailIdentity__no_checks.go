@@ -72,6 +72,10 @@ func validateCfnEmailIdentity_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEmailIdentity_IsCfnEmailIdentityParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEmailIdentity_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

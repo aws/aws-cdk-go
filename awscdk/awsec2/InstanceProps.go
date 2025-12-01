@@ -117,6 +117,40 @@ type InstanceProps struct {
 	// Default: - false.
 	//
 	HibernationEnabled *bool `field:"optional" json:"hibernationEnabled" yaml:"hibernationEnabled"`
+	// Enables or disables the HTTP metadata endpoint on your instances.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-metadataoptions.html#cfn-ec2-instance-metadataoptions-httpendpoint
+	//
+	// Default: true.
+	//
+	HttpEndpoint *bool `field:"optional" json:"httpEndpoint" yaml:"httpEndpoint"`
+	// Enables or disables the IPv6 endpoint for the instance metadata service.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-metadataoptions.html#cfn-ec2-instance-metadataoptions-httpprotocolipv6
+	//
+	// Default: false.
+	//
+	HttpProtocolIpv6 *bool `field:"optional" json:"httpProtocolIpv6" yaml:"httpProtocolIpv6"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	//
+	// The larger the number, the further instance metadata requests can travel.
+	//
+	// Possible values: Integers from 1 to 64.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-metadataoptions.html#cfn-ec2-instance-metadataoptions-httpputresponsehoplimit
+	//
+	// Default: - No default value specified by CloudFormation.
+	//
+	HttpPutResponseHopLimit *float64 `field:"optional" json:"httpPutResponseHopLimit" yaml:"httpPutResponseHopLimit"`
+	// The state of token usage for your instance metadata requests.
+	//
+	// Set to 'required' to enforce IMDSv2. This is equivalent to using `requireImdsv2: true`,
+	// but allows you to configure other metadata options alongside IMDSv2 enforcement.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-metadataoptions.html#cfn-ec2-instance-metadataoptions-httptokens
+	//
+	// Default: - The default is conditional based on the AMI and account-level settings:
+	// - If the AMI's `ImdsSupport` is `v2.0` and the account level default is `no-preference`, the default is `HttpTokens.REQUIRED`
+	// - If the AMI's `ImdsSupport` is `v2.0` and the account level default is `V1 or V2`, the default is `HttpTokens.OPTIONAL`
+	// - See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence
+	//
+	HttpTokens HttpTokens `field:"optional" json:"httpTokens" yaml:"httpTokens"`
 	// Apply the given CloudFormation Init configuration to the instance at startup.
 	// Default: - no CloudFormation init.
 	//
@@ -133,6 +167,14 @@ type InstanceProps struct {
 	// Default: InstanceInitiatedShutdownBehavior.STOP
 	//
 	InstanceInitiatedShutdownBehavior InstanceInitiatedShutdownBehavior `field:"optional" json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
+	// Set to enabled to allow access to instance tags from the instance metadata.
+	//
+	// Set to disabled to turn off access to instance tags from the instance metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-metadataoptions.html#cfn-ec2-instance-metadataoptions-instancemetadatatags
+	//
+	// Default: false.
+	//
+	InstanceMetadataTags *bool `field:"optional" json:"instanceMetadataTags" yaml:"instanceMetadataTags"`
 	// The name of the instance.
 	// Default: - CDK generated name.
 	//
@@ -175,6 +217,12 @@ type InstanceProps struct {
 	//
 	PropagateTagsToVolumeOnCreation *bool `field:"optional" json:"propagateTagsToVolumeOnCreation" yaml:"propagateTagsToVolumeOnCreation"`
 	// Whether IMDSv2 should be required on this instance.
+	//
+	// This is a simple boolean flag that enforces IMDSv2 by creating a Launch Template
+	// with `httpTokens: 'required'`. Use this for straightforward IMDSv2 enforcement.
+	//
+	// For more granular control over metadata options (like disabling the metadata endpoint,
+	// configuring hop limits, or enabling instance tags), use the individual metadata option properties instead.
 	// Default: - false.
 	//
 	RequireImdsv2 *bool `field:"optional" json:"requireImdsv2" yaml:"requireImdsv2"`

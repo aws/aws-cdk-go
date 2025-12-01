@@ -76,6 +76,10 @@ func validateCfnInfluxDBInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInfluxDBInstance_IsCfnInfluxDBInstanceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInfluxDBInstance_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -446,6 +446,25 @@ func CfnListenerCertificate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnListenerCertificate.
+func CfnListenerCertificate_IsCfnListenerCertificate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnListenerCertificate_IsCfnListenerCertificateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerCertificate",
+		"isCfnListenerCertificate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnListenerCertificate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

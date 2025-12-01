@@ -72,6 +72,10 @@ func validateCfnMlflowTrackingServer_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnMlflowTrackingServer_IsCfnMlflowTrackingServerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMlflowTrackingServer_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

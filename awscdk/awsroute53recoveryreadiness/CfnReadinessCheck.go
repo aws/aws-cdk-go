@@ -505,6 +505,25 @@ func CfnReadinessCheck_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnReadinessCheck.
+func CfnReadinessCheck_IsCfnReadinessCheck(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnReadinessCheck_IsCfnReadinessCheckParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnReadinessCheck",
+		"isCfnReadinessCheck",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnReadinessCheck_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

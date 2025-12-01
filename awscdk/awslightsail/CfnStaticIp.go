@@ -503,6 +503,25 @@ func CfnStaticIp_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStaticIp.
+func CfnStaticIp_IsCfnStaticIp(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStaticIp_IsCfnStaticIpParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lightsail.CfnStaticIp",
+		"isCfnStaticIp",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

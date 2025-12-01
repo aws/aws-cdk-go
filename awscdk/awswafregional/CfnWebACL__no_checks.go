@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnWebACL) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnWebACL_ArnForWebACLParameters(resource interfacesawswafregional.IWebACLRef) error {
+	return nil
+}
+
 func validateCfnWebACL_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnWebACL_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnWebACL_IsCfnWebACLParameters(x interface{}) error {
 	return nil
 }
 

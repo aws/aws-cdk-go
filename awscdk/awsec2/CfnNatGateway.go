@@ -70,15 +70,28 @@ type CfnNatGateway interface {
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
 	AllocationId() *string
 	SetAllocationId(val *string)
+	// For regional NAT gateways only: Indicates whether AWS automatically manages AZ coverage.
+	//
+	// When enabled, the NAT gateway associates EIPs in all AZs where your VPC has subnets to handle outbound NAT traffic, expands to new AZs when you create subnets there, and retracts from AZs where you've removed all subnets. When disabled, you must manually manage which AZs the NAT gateway supports and their corresponding EIPs.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
 	AttrAutoProvisionZones() *string
+	// For regional NAT gateways only: Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
 	AttrAutoScalingIps() *string
 	// The ID of the network interface.
 	AttrEniId() *string
 	// The ID of the NAT gateway.
 	AttrNatGatewayId() *string
+	// For regional NAT gateways only, this is the ID of the NAT gateway.
 	AttrRouteTableId() *string
+	// Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
 	AvailabilityMode() *string
 	SetAvailabilityMode(val *string)
+	// For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ.
 	AvailabilityZoneAddresses() interface{}
 	SetAvailabilityZoneAddresses(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -777,6 +790,25 @@ func CfnNatGateway_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNatGateway",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnNatGateway.
+func CfnNatGateway_IsCfnNatGateway(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNatGateway_IsCfnNatGatewayParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNatGateway",
+		"isCfnNatGateway",
 		[]interface{}{x},
 		&returns,
 	)

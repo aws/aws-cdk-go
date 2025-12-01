@@ -72,6 +72,10 @@ func validateCfnDomainVerification_ArnForDomainVerificationParameters(resource i
 	return nil
 }
 
+func validateCfnDomainVerification_IsCfnDomainVerificationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDomainVerification_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

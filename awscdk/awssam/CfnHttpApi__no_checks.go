@@ -72,6 +72,10 @@ func validateCfnHttpApi_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnHttpApi_IsCfnHttpApiParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnHttpApi_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

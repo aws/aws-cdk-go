@@ -72,6 +72,10 @@ func validateCfnEnclaveCertificateIamRoleAssociation_IsCfnElementParameters(x in
 	return nil
 }
 
+func validateCfnEnclaveCertificateIamRoleAssociation_IsCfnEnclaveCertificateIamRoleAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEnclaveCertificateIamRoleAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

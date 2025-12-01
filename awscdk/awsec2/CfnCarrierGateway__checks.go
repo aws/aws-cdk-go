@@ -180,6 +180,14 @@ func validateCfnCarrierGateway_FromCarrierGatewayIdParameters(scope constructs.C
 	return nil
 }
 
+func validateCfnCarrierGateway_IsCfnCarrierGatewayParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCarrierGateway_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

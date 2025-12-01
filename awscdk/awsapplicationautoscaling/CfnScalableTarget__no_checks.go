@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnScalableTarget) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnScalableTarget_ArnForScalableTargetParameters(resource interfacesawsapplicationautoscaling.IScalableTargetRef) error {
+	return nil
+}
+
 func validateCfnScalableTarget_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnScalableTarget_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnScalableTarget_IsCfnScalableTargetParameters(x interface{}) error {
 	return nil
 }
 

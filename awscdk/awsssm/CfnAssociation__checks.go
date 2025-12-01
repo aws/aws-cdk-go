@@ -180,6 +180,14 @@ func validateCfnAssociation_FromAssociationIdParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnAssociation_IsCfnAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAssociation_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

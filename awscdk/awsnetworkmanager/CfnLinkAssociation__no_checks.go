@@ -72,6 +72,10 @@ func validateCfnLinkAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLinkAssociation_IsCfnLinkAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLinkAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

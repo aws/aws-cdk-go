@@ -698,6 +698,25 @@ func CfnPushTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPushTemplate.
+func CfnPushTemplate_IsCfnPushTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPushTemplate_IsCfnPushTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnPushTemplate",
+		"isCfnPushTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPushTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

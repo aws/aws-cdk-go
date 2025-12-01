@@ -76,6 +76,10 @@ func validateCfnEventRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEventRule_IsCfnEventRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEventRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

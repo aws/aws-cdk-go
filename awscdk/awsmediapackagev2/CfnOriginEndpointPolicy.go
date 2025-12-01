@@ -515,6 +515,25 @@ func CfnOriginEndpointPolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOriginEndpointPolicy.
+func CfnOriginEndpointPolicy_IsCfnOriginEndpointPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOriginEndpointPolicy_IsCfnOriginEndpointPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpointPolicy",
+		"isCfnOriginEndpointPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOriginEndpointPolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

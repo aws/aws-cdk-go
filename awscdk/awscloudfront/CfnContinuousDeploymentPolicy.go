@@ -449,6 +449,43 @@ func (j *jsiiProxy_CfnContinuousDeploymentPolicy)SetContinuousDeploymentPolicyCo
 	)
 }
 
+func CfnContinuousDeploymentPolicy_ArnForContinuousDeploymentPolicy(resource interfacesawscloudfront.IContinuousDeploymentPolicyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnContinuousDeploymentPolicy_ArnForContinuousDeploymentPolicyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy",
+		"arnForContinuousDeploymentPolicy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnContinuousDeploymentPolicy.
+func CfnContinuousDeploymentPolicy_IsCfnContinuousDeploymentPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnContinuousDeploymentPolicy_IsCfnContinuousDeploymentPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy",
+		"isCfnContinuousDeploymentPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

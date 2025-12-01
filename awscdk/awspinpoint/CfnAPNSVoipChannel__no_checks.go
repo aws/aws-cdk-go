@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAPNSVoipChannel) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnAPNSVoipChannel_IsCfnAPNSVoipChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAPNSVoipChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

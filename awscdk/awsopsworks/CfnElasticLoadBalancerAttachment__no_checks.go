@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnElasticLoadBalancerAttachment_IsCfnElasticLoadBalancerAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnElasticLoadBalancerAttachment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnClassifier) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnClassifier_IsCfnClassifierParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnClassifier_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

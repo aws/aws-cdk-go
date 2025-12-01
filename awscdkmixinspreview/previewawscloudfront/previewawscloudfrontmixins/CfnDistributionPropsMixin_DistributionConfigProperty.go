@@ -315,6 +315,7 @@ type CfnDistributionPropsMixin_DistributionConfigProperty struct {
 	// Default: - "".
 	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// The distribution's connection function association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-connectionfunctionassociation
 	//
 	ConnectionFunctionAssociation interface{} `field:"optional" json:"connectionFunctionAssociation" yaml:"connectionFunctionAssociation"`
@@ -466,6 +467,7 @@ type CfnDistributionPropsMixin_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
 	//
 	ViewerCertificate interface{} `field:"optional" json:"viewerCertificate" yaml:"viewerCertificate"`
+	// The distribution's viewer mTLS configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewermtlsconfig
 	//
 	ViewerMtlsConfig interface{} `field:"optional" json:"viewerMtlsConfig" yaml:"viewerMtlsConfig"`

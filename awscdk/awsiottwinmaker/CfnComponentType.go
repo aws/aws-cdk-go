@@ -832,6 +832,25 @@ func CfnComponentType_ArnForComponentType(resource interfacesawsiottwinmaker.ICo
 	return returns
 }
 
+// Checks whether the given object is a CfnComponentType.
+func CfnComponentType_IsCfnComponentType(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnComponentType_IsCfnComponentTypeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
+		"isCfnComponentType",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

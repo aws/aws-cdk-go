@@ -72,6 +72,10 @@ func validateCfnIPAMPoolCidr_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIPAMPoolCidr_IsCfnIPAMPoolCidrParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIPAMPoolCidr_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

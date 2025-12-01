@@ -564,6 +564,25 @@ func CfnContactFlowModule_ArnForContactFlowModule(resource interfacesawsconnect.
 	return returns
 }
 
+// Checks whether the given object is a CfnContactFlowModule.
+func CfnContactFlowModule_IsCfnContactFlowModule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnContactFlowModule_IsCfnContactFlowModuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnContactFlowModule",
+		"isCfnContactFlowModule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

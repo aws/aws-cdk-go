@@ -171,6 +171,14 @@ func validateCfnTransitGatewayMeteringPolicy_IsCfnResourceParameters(x interface
 	return nil
 }
 
+func validateCfnTransitGatewayMeteringPolicy_IsCfnTransitGatewayMeteringPolicyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTransitGatewayMeteringPolicy_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

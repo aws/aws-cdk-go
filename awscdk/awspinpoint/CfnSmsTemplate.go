@@ -577,6 +577,25 @@ func CfnSmsTemplate_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSmsTemplate.
+func CfnSmsTemplate_IsCfnSmsTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSmsTemplate_IsCfnSmsTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnSmsTemplate",
+		"isCfnSmsTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

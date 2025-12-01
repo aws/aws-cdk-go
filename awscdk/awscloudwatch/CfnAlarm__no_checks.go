@@ -80,6 +80,10 @@ func validateCfnAlarm_FromAlarmNameParameters(scope constructs.Construct, id *st
 	return nil
 }
 
+func validateCfnAlarm_IsCfnAlarmParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAlarm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -772,6 +772,25 @@ func CfnDistributionTenant_ArnForDistributionTenant(resource interfacesawscloudf
 	return returns
 }
 
+// Checks whether the given object is a CfnDistributionTenant.
+func CfnDistributionTenant_IsCfnDistributionTenant(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDistributionTenant_IsCfnDistributionTenantParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnDistributionTenant",
+		"isCfnDistributionTenant",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

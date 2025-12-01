@@ -80,6 +80,10 @@ func validateCfnAlias_FromAliasIdParameters(scope constructs.Construct, id *stri
 	return nil
 }
 
+func validateCfnAlias_IsCfnAliasParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

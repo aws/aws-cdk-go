@@ -578,6 +578,25 @@ func CfnEndpointAuthorization_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEndpointAuthorization.
+func CfnEndpointAuthorization_IsCfnEndpointAuthorization(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEndpointAuthorization_IsCfnEndpointAuthorizationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_redshift.CfnEndpointAuthorization",
+		"isCfnEndpointAuthorization",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEndpointAuthorization_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

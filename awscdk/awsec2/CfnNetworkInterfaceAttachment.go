@@ -549,6 +549,25 @@ func CfnNetworkInterfaceAttachment_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNetworkInterfaceAttachment.
+func CfnNetworkInterfaceAttachment_IsCfnNetworkInterfaceAttachment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInterfaceAttachment_IsCfnNetworkInterfaceAttachmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterfaceAttachment",
+		"isCfnNetworkInterfaceAttachment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNetworkInterfaceAttachment_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

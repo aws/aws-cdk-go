@@ -76,6 +76,10 @@ func validateCfnStoredQuery_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStoredQuery_IsCfnStoredQueryParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStoredQuery_IsConstructParameters(x interface{}) error {
 	return nil
 }

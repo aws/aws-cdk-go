@@ -417,6 +417,25 @@ func (j *jsiiProxy_CfnAcceptedPortfolioShare)SetPortfolioId(val *string) {
 	)
 }
 
+// Checks whether the given object is a CfnAcceptedPortfolioShare.
+func CfnAcceptedPortfolioShare_IsCfnAcceptedPortfolioShare(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAcceptedPortfolioShare_IsCfnAcceptedPortfolioShareParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.CfnAcceptedPortfolioShare",
+		"isCfnAcceptedPortfolioShare",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

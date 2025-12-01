@@ -72,6 +72,10 @@ func validateCfnResolverRuleAssociation_IsCfnElementParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnResolverRuleAssociation_IsCfnResolverRuleAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnResolverRuleAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

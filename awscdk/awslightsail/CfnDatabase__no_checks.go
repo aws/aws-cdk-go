@@ -72,6 +72,10 @@ func validateCfnDatabase_ArnForDatabaseParameters(resource interfacesawslightsai
 	return nil
 }
 
+func validateCfnDatabase_IsCfnDatabaseParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDatabase_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

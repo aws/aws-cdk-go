@@ -164,6 +164,14 @@ func validateCfnAIAgent_ArnForAIAgentParameters(resource interfacesawswisdom.IAI
 	return nil
 }
 
+func validateCfnAIAgent_IsCfnAIAgentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAIAgent_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

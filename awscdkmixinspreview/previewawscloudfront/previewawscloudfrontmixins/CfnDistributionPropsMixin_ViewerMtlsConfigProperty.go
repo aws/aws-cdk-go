@@ -1,6 +1,8 @@
 package previewawscloudfrontmixins
 
 
+// A viewer mTLS configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,9 +20,11 @@ package previewawscloudfrontmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewermtlsconfig.html
 //
 type CfnDistributionPropsMixin_ViewerMtlsConfigProperty struct {
+	// The viewer mTLS mode.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewermtlsconfig.html#cfn-cloudfront-distribution-viewermtlsconfig-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
+	// The trust store configuration associated with the viewer mTLS configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewermtlsconfig.html#cfn-cloudfront-distribution-viewermtlsconfig-truststoreconfig
 	//
 	TrustStoreConfig interface{} `field:"optional" json:"trustStoreConfig" yaml:"trustStoreConfig"`

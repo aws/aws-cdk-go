@@ -9,10 +9,13 @@ package interfacesawsmemorydb
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   clusterReference := &ClusterReference{
+//   	ClusterArn: jsii.String("clusterArn"),
 //   	ClusterName: jsii.String("clusterName"),
 //   }
 //
 type ClusterReference struct {
+	// The ARN of the Cluster resource.
+	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
 	// The ClusterName of the Cluster resource.
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 }

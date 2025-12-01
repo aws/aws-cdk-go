@@ -163,6 +163,14 @@ func validateCfnGraphQLSchema_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGraphQLSchema_IsCfnGraphQLSchemaParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnGraphQLSchema_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

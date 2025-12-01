@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBucketPolicy) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnBucketPolicy_IsCfnBucketPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBucketPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

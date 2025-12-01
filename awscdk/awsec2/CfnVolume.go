@@ -13,16 +13,15 @@ import (
 
 // Specifies an Amazon Elastic Block Store (Amazon EBS) volume.
 //
-// When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.
+// You can create an empty volume, a volume from a snapshot, or a volume copy from an existing source volume.
 //
-// Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
-//
-// Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
-//
-// - You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
-// - You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.
-//
-// For more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .
+// > - When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time. Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
+// >
+// > - You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
+// > - You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.
+// >
+// > For more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .
+// > - Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
 //
 // *DeletionPolicy attribute*
 //
@@ -75,7 +74,9 @@ type CfnVolume interface {
 	// For example, `us-east-1a` .
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
-	// The ID of the Availability Zone for the volume.
+	// The ID of the Availability Zone in which to create the volume.
+	//
+	// For example, `use1-az1` .
 	AvailabilityZoneId() *string
 	SetAvailabilityZoneId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -112,7 +113,7 @@ type CfnVolume interface {
 	SetMultiAttachEnabled(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
 	OutpostArn() *string
 	SetOutpostArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -126,7 +127,7 @@ type CfnVolume interface {
 	// The snapshot from which to create the volume.
 	SnapshotId() *string
 	SetSnapshotId(val *string)
-	// The ID of the source volume from which the volume copy was created.
+	// The ID of the source EBS volume to copy.
 	SourceVolumeId() *string
 	SetSourceVolumeId(val *string)
 	// The stack in which this element is defined.
@@ -824,6 +825,25 @@ func CfnVolume_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVolume",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnVolume.
+func CfnVolume_IsCfnVolume(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVolume_IsCfnVolumeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVolume",
+		"isCfnVolume",
 		[]interface{}{x},
 		&returns,
 	)

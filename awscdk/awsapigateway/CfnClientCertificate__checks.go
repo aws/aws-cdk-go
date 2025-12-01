@@ -180,6 +180,14 @@ func validateCfnClientCertificate_FromClientCertificateIdParameters(scope constr
 	return nil
 }
 
+func validateCfnClientCertificate_IsCfnClientCertificateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnClientCertificate_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

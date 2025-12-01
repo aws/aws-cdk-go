@@ -10,9 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::CloudFront::TrustStore.
-//
-// TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+// A trust store.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -735,6 +735,25 @@ func CfnLocationObjectStorage_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocationObjectStorage.
+func CfnLocationObjectStorage_IsCfnLocationObjectStorage(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocationObjectStorage_IsCfnLocationObjectStorageParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage",
+		"isCfnLocationObjectStorage",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocationObjectStorage_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

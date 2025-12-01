@@ -9,11 +9,11 @@ package interfacesawssecurityhub
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   hubReference := &HubReference{
-//   	HubARN: jsii.String("hubARN"),
+//   	HubArn: jsii.String("hubArn"),
 //   }
 //
 type HubReference struct {
 	// The ARN of the Hub resource.
-	HubARN *string `field:"required" json:"hubARN" yaml:"hubARN"`
+	HubArn *string `field:"required" json:"hubArn" yaml:"hubArn"`
 }
 

@@ -80,6 +80,10 @@ func validateCfnMissionProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMissionProfile_IsCfnMissionProfileParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMissionProfile_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

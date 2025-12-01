@@ -484,6 +484,25 @@ func CfnDatasetGroup_ArnForDatasetGroup(resource interfacesawspersonalize.IDatas
 	return returns
 }
 
+// Checks whether the given object is a CfnDatasetGroup.
+func CfnDatasetGroup_IsCfnDatasetGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDatasetGroup_IsCfnDatasetGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_personalize.CfnDatasetGroup",
+		"isCfnDatasetGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

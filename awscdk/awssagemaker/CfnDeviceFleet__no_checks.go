@@ -76,6 +76,10 @@ func validateCfnDeviceFleet_FromDeviceFleetNameParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnDeviceFleet_IsCfnDeviceFleetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDeviceFleet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

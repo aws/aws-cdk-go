@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAuthPolicy) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnAuthPolicy_IsCfnAuthPolicyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAuthPolicy_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

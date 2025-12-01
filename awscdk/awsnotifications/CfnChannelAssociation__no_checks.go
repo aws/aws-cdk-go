@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnChannelAssociation) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnChannelAssociation_IsCfnChannelAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnChannelAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

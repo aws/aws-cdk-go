@@ -692,6 +692,25 @@ func CfnEventBus_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventBus.
+func CfnEventBus_IsCfnEventBus(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventBus_IsCfnEventBusParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnEventBus",
+		"isCfnEventBus",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventBus_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

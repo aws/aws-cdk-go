@@ -180,6 +180,14 @@ func validateCfnStaticIp_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStaticIp_IsCfnStaticIpParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnStaticIp_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -477,6 +477,25 @@ func CfnStandard_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStandard.
+func CfnStandard_IsCfnStandard(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStandard_IsCfnStandardParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnStandard",
+		"isCfnStandard",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

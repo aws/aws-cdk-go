@@ -164,6 +164,14 @@ func validateCfnCustomDataIdentifier_ArnForCustomDataIdentifierParameters(resour
 	return nil
 }
 
+func validateCfnCustomDataIdentifier_IsCfnCustomDataIdentifierParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCustomDataIdentifier_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

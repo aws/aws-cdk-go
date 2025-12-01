@@ -491,6 +491,25 @@ func CfnMailManagerAddonSubscription_FromAddonSubscriptionId(scope constructs.Co
 	return returns
 }
 
+// Creates a new IMailManagerAddonSubscriptionRef from an ARN.
+func CfnMailManagerAddonSubscription_FromMailManagerAddonSubscriptionArn(scope constructs.Construct, id *string, arn *string) interfacesawsses.IMailManagerAddonSubscriptionRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerAddonSubscription_FromMailManagerAddonSubscriptionArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsses.IMailManagerAddonSubscriptionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddonSubscription",
+		"fromMailManagerAddonSubscriptionArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -508,6 +527,25 @@ func CfnMailManagerAddonSubscription_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerAddonSubscription",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMailManagerAddonSubscription.
+func CfnMailManagerAddonSubscription_IsCfnMailManagerAddonSubscription(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerAddonSubscription_IsCfnMailManagerAddonSubscriptionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddonSubscription",
+		"isCfnMailManagerAddonSubscription",
 		[]interface{}{x},
 		&returns,
 	)

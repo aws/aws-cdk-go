@@ -72,6 +72,10 @@ func validateCfnFlowEntitlement_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFlowEntitlement_IsCfnFlowEntitlementParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFlowEntitlement_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

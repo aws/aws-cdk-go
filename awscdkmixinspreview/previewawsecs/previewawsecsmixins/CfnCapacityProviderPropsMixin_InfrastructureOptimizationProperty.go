@@ -1,9 +1,7 @@
 package previewawsecsmixins
 
 
-// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider.
-//
-// Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+// The configuration that controls how Amazon ECS optimizes your infrastructure.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,7 +17,13 @@ package previewawsecsmixins
 type CfnCapacityProviderPropsMixin_InfrastructureOptimizationProperty struct {
 	// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized.
 	//
-	// A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
+	// A longer delay increases the likelihood of placing new tasks on idle or underutilized instances instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle or underutilized instances,instances more quickly.
+	//
+	// Valid values are:
+	//
+	// - `null` - Uses the default optimization behavior.
+	// - `-1` - Disables automatic infrastructure optimization.
+	// - A value between `0` and `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-infrastructureoptimization.html#cfn-ecs-capacityprovider-infrastructureoptimization-scaleinafter
 	//
 	ScaleInAfter *float64 `field:"optional" json:"scaleInAfter" yaml:"scaleInAfter"`

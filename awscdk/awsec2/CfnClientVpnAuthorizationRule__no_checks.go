@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateValidatePropertiesPara
 	return nil
 }
 
+func validateCfnClientVpnAuthorizationRule_IsCfnClientVpnAuthorizationRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClientVpnAuthorizationRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

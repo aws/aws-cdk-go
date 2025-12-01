@@ -659,6 +659,25 @@ func CfnRepositoryCreationTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRepositoryCreationTemplate.
+func CfnRepositoryCreationTemplate_IsCfnRepositoryCreationTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRepositoryCreationTemplate_IsCfnRepositoryCreationTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnRepositoryCreationTemplate",
+		"isCfnRepositoryCreationTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRepositoryCreationTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

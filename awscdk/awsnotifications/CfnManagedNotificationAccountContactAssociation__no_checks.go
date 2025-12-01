@@ -72,6 +72,10 @@ func validateCfnManagedNotificationAccountContactAssociation_IsCfnElementParamet
 	return nil
 }
 
+func validateCfnManagedNotificationAccountContactAssociation_IsCfnManagedNotificationAccountContactAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnManagedNotificationAccountContactAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

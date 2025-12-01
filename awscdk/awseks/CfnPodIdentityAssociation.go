@@ -616,6 +616,25 @@ func CfnPodIdentityAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPodIdentityAssociation.
+func CfnPodIdentityAssociation_IsCfnPodIdentityAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPodIdentityAssociation_IsCfnPodIdentityAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.CfnPodIdentityAssociation",
+		"isCfnPodIdentityAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPodIdentityAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

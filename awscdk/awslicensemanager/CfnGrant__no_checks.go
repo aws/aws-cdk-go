@@ -76,6 +76,10 @@ func validateCfnGrant_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGrant_IsCfnGrantParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGrant_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

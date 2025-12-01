@@ -76,6 +76,10 @@ func validateCfnRegexPatternSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRegexPatternSet_IsCfnRegexPatternSetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRegexPatternSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -212,6 +212,14 @@ func validateCfnTracker_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTracker_IsCfnTrackerParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTracker_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

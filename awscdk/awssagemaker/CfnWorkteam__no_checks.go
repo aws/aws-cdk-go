@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnWorkteam) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnWorkteam_ArnForWorkteamParameters(resource interfacesawssagemaker.IWorkteamRef) error {
+	return nil
+}
+
 func validateCfnWorkteam_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnWorkteam_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnWorkteam_IsCfnWorkteamParameters(x interface{}) error {
 	return nil
 }
 

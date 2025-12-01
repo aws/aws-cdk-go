@@ -63,6 +63,50 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnAddonPropsMixin.PodIdentityAssociationProperty",
 		reflect.TypeOf((*CfnAddonPropsMixin_PodIdentityAssociationProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityMixinProps",
+		reflect.TypeOf((*CfnCapabilityMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityPropsMixin",
+		reflect.TypeOf((*CfnCapabilityPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnCapabilityPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityPropsMixin.ArgoCdProperty",
+		reflect.TypeOf((*CfnCapabilityPropsMixin_ArgoCdProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityPropsMixin.ArgoCdRoleMappingProperty",
+		reflect.TypeOf((*CfnCapabilityPropsMixin_ArgoCdRoleMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityPropsMixin.AwsIdcProperty",
+		reflect.TypeOf((*CfnCapabilityPropsMixin_AwsIdcProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityPropsMixin.CapabilityConfigurationProperty",
+		reflect.TypeOf((*CfnCapabilityPropsMixin_CapabilityConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityPropsMixin.NetworkAccessProperty",
+		reflect.TypeOf((*CfnCapabilityPropsMixin_NetworkAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityPropsMixin.SsoIdentityProperty",
+		reflect.TypeOf((*CfnCapabilityPropsMixin_SsoIdentityProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogs",
 		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogs)(nil)).Elem(),

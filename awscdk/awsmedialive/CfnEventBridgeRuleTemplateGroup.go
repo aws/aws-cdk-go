@@ -547,6 +547,25 @@ func CfnEventBridgeRuleTemplateGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventBridgeRuleTemplateGroup.
+func CfnEventBridgeRuleTemplateGroup_IsCfnEventBridgeRuleTemplateGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventBridgeRuleTemplateGroup_IsCfnEventBridgeRuleTemplateGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnEventBridgeRuleTemplateGroup",
+		"isCfnEventBridgeRuleTemplateGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventBridgeRuleTemplateGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

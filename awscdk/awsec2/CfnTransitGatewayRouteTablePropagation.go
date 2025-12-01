@@ -452,6 +452,25 @@ func CfnTransitGatewayRouteTablePropagation_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTransitGatewayRouteTablePropagation.
+func CfnTransitGatewayRouteTablePropagation_IsCfnTransitGatewayRouteTablePropagation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayRouteTablePropagation_IsCfnTransitGatewayRouteTablePropagationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTablePropagation",
+		"isCfnTransitGatewayRouteTablePropagation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

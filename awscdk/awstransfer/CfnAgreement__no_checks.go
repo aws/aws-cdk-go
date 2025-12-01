@@ -72,6 +72,10 @@ func validateCfnAgreement_ArnForAgreementParameters(resource interfacesawstransf
 	return nil
 }
 
+func validateCfnAgreement_IsCfnAgreementParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAgreement_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

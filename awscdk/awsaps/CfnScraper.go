@@ -708,6 +708,25 @@ func CfnScraper_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnScraper.
+func CfnScraper_IsCfnScraper(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnScraper_IsCfnScraperParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_aps.CfnScraper",
+		"isCfnScraper",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

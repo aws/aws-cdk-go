@@ -76,6 +76,10 @@ func validateCfnInboundExternalLink_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnInboundExternalLink_IsCfnInboundExternalLinkParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInboundExternalLink_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

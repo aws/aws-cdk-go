@@ -448,6 +448,24 @@ func (j *jsiiProxy_CfnGroupMembership)SetMemberId(val interface{}) {
 	)
 }
 
+func CfnGroupMembership_ArnForGroupMembership(resource interfacesawsidentitystore.IGroupMembershipRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnGroupMembership_ArnForGroupMembershipParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_identitystore.CfnGroupMembership",
+		"arnForGroupMembership",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -465,6 +483,25 @@ func CfnGroupMembership_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_identitystore.CfnGroupMembership",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnGroupMembership.
+func CfnGroupMembership_IsCfnGroupMembership(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGroupMembership_IsCfnGroupMembershipParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_identitystore.CfnGroupMembership",
+		"isCfnGroupMembership",
 		[]interface{}{x},
 		&returns,
 	)

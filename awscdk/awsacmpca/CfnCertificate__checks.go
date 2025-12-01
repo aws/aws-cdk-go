@@ -164,6 +164,14 @@ func validateCfnCertificate_ArnForCertificateParameters(resource interfacesawsac
 	return nil
 }
 
+func validateCfnCertificate_IsCfnCertificateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCertificate_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

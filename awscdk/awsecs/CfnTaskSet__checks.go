@@ -171,6 +171,14 @@ func validateCfnTaskSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTaskSet_IsCfnTaskSetParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTaskSet_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

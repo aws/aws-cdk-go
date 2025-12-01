@@ -76,6 +76,10 @@ func validateCfnRuleset_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRuleset_IsCfnRulesetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRuleset_IsConstructParameters(x interface{}) error {
 	return nil
 }

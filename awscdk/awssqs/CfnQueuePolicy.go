@@ -449,6 +449,25 @@ func CfnQueuePolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnQueuePolicy.
+func CfnQueuePolicy_IsCfnQueuePolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnQueuePolicy_IsCfnQueuePolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"isCfnQueuePolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnQueuePolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

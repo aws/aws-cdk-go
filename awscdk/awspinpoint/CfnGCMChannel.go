@@ -517,6 +517,25 @@ func CfnGCMChannel_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGCMChannel.
+func CfnGCMChannel_IsCfnGCMChannel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGCMChannel_IsCfnGCMChannelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnGCMChannel",
+		"isCfnGCMChannel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGCMChannel_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -180,6 +180,14 @@ func validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope constr
 	return nil
 }
 
+func validateCfnCapacityProvider_IsCfnCapacityProviderParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCapacityProvider_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

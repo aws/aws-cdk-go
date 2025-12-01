@@ -76,6 +76,10 @@ func validateCfnEventSourceMapping_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEventSourceMapping_IsCfnEventSourceMappingParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEventSourceMapping_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

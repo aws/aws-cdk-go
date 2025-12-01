@@ -76,6 +76,10 @@ func validateCfnOdbPeeringConnection_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnOdbPeeringConnection_IsCfnOdbPeeringConnectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOdbPeeringConnection_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

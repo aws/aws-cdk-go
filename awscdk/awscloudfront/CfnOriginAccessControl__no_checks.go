@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnOriginAccessControl) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnOriginAccessControl_ArnForOriginAccessControlParameters(resource interfacesawscloudfront.IOriginAccessControlRef) error {
+	return nil
+}
+
 func validateCfnOriginAccessControl_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnOriginAccessControl_IsCfnOriginAccessControlParameters(x interface{}) error {
 	return nil
 }
 

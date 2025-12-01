@@ -72,6 +72,10 @@ func validateCfnHookTypeConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnHookTypeConfig_IsCfnHookTypeConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnHookTypeConfig_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

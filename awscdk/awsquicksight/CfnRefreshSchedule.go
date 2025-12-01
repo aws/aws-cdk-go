@@ -493,6 +493,25 @@ func CfnRefreshSchedule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRefreshSchedule.
+func CfnRefreshSchedule_IsCfnRefreshSchedule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRefreshSchedule_IsCfnRefreshScheduleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_quicksight.CfnRefreshSchedule",
+		"isCfnRefreshSchedule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRefreshSchedule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

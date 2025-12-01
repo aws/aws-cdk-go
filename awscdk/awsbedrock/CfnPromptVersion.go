@@ -598,6 +598,25 @@ func CfnPromptVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPromptVersion.
+func CfnPromptVersion_IsCfnPromptVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPromptVersion_IsCfnPromptVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion",
+		"isCfnPromptVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPromptVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

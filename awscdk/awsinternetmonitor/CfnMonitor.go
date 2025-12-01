@@ -830,6 +830,25 @@ func CfnMonitor_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMonitor.
+func CfnMonitor_IsCfnMonitor(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMonitor_IsCfnMonitorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_internetmonitor.CfnMonitor",
+		"isCfnMonitor",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMonitor_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -433,6 +433,25 @@ func CfnManagedNotificationAdditionalChannelAssociation_IsCfnElement(x interface
 	return returns
 }
 
+// Checks whether the given object is a CfnManagedNotificationAdditionalChannelAssociation.
+func CfnManagedNotificationAdditionalChannelAssociation_IsCfnManagedNotificationAdditionalChannelAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnManagedNotificationAdditionalChannelAssociation_IsCfnManagedNotificationAdditionalChannelAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notifications.CfnManagedNotificationAdditionalChannelAssociation",
+		"isCfnManagedNotificationAdditionalChannelAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnManagedNotificationAdditionalChannelAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

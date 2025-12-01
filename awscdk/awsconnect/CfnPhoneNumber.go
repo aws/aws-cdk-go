@@ -606,6 +606,25 @@ func CfnPhoneNumber_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPhoneNumber.
+func CfnPhoneNumber_IsCfnPhoneNumber(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPhoneNumber_IsCfnPhoneNumberParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnPhoneNumber",
+		"isCfnPhoneNumber",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPhoneNumber_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

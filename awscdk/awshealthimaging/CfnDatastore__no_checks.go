@@ -80,6 +80,10 @@ func validateCfnDatastore_FromDatastoreIdParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validateCfnDatastore_IsCfnDatastoreParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDatastore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

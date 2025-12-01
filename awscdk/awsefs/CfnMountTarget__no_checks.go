@@ -72,6 +72,10 @@ func validateCfnMountTarget_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMountTarget_IsCfnMountTargetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMountTarget_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

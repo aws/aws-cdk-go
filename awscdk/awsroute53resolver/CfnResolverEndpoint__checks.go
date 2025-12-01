@@ -172,6 +172,14 @@ func validateCfnResolverEndpoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnResolverEndpoint_IsCfnResolverEndpointParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnResolverEndpoint_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

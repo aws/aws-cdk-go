@@ -623,6 +623,25 @@ func CfnAgentStatus_ArnForAgentStatus(resource interfacesawsconnect.IAgentStatus
 	return returns
 }
 
+// Checks whether the given object is a CfnAgentStatus.
+func CfnAgentStatus_IsCfnAgentStatus(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAgentStatus_IsCfnAgentStatusParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_connect.CfnAgentStatus",
+		"isCfnAgentStatus",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

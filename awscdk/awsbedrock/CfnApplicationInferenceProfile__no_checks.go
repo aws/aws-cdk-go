@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApplicationInferenceProfile) validateValidatePropertiesPar
 	return nil
 }
 
+func validateCfnApplicationInferenceProfile_IsCfnApplicationInferenceProfileParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApplicationInferenceProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -727,6 +727,25 @@ func CfnMigrationProject_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMigrationProject.
+func CfnMigrationProject_IsCfnMigrationProject(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMigrationProject_IsCfnMigrationProjectParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dms.CfnMigrationProject",
+		"isCfnMigrationProject",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMigrationProject_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

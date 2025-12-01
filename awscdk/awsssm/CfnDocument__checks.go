@@ -180,6 +180,14 @@ func validateCfnDocument_FromDocumentNameParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validateCfnDocument_IsCfnDocumentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDocument_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

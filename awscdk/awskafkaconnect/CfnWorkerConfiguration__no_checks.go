@@ -80,6 +80,10 @@ func validateCfnWorkerConfiguration_IsCfnResourceParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnWorkerConfiguration_IsCfnWorkerConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWorkerConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

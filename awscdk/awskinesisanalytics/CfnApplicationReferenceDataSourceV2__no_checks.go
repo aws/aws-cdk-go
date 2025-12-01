@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateValidateProperti
 	return nil
 }
 
+func validateCfnApplicationReferenceDataSourceV2_IsCfnApplicationReferenceDataSourceV2Parameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApplicationReferenceDataSourceV2_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

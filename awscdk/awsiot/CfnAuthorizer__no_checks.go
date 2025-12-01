@@ -80,6 +80,10 @@ func validateCfnAuthorizer_FromAuthorizerNameParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnAuthorizer_IsCfnAuthorizerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAuthorizer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

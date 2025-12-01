@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDedicatedIpPool) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDedicatedIpPool_IsCfnDedicatedIpPoolParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDedicatedIpPool_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

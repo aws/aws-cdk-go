@@ -97,6 +97,26 @@ func BaseImage_FromAmiId(amiId *string) BaseImage {
 	return returns
 }
 
+// The EC2 Image Builder image to use as a base image in an image recipe.
+// Experimental.
+func BaseImage_FromImage(image IImage) BaseImage {
+	_init_.Initialize()
+
+	if err := validateBaseImage_FromImageParameters(image); err != nil {
+		panic(err)
+	}
+	var returns BaseImage
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-imagebuilder-alpha.BaseImage",
+		"fromImage",
+		[]interface{}{image},
+		&returns,
+	)
+
+	return returns
+}
+
 // The marketplace product ID for an AMI product to use as the base image in an image recipe.
 // Experimental.
 func BaseImage_FromMarketplaceProductId(productId *string) BaseImage {

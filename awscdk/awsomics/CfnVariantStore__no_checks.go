@@ -84,6 +84,10 @@ func validateCfnVariantStore_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVariantStore_IsCfnVariantStoreParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVariantStore_IsConstructParameters(x interface{}) error {
 	return nil
 }

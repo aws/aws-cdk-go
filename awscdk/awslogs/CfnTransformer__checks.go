@@ -171,6 +171,14 @@ func validateCfnTransformer_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTransformer_IsCfnTransformerParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTransformer_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

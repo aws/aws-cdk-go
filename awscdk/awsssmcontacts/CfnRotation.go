@@ -636,6 +636,25 @@ func CfnRotation_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRotation.
+func CfnRotation_IsCfnRotation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRotation_IsCfnRotationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmcontacts.CfnRotation",
+		"isCfnRotation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

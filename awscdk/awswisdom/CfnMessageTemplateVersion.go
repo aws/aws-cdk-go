@@ -474,6 +474,25 @@ func CfnMessageTemplateVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMessageTemplateVersion.
+func CfnMessageTemplateVersion_IsCfnMessageTemplateVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMessageTemplateVersion_IsCfnMessageTemplateVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplateVersion",
+		"isCfnMessageTemplateVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMessageTemplateVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

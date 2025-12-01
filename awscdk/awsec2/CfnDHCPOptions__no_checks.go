@@ -76,6 +76,10 @@ func validateCfnDHCPOptions_FromDhcpOptionsIdParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnDHCPOptions_IsCfnDHCPOptionsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDHCPOptions_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

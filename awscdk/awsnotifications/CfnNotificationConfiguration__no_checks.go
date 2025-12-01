@@ -76,6 +76,10 @@ func validateCfnNotificationConfiguration_IsCfnElementParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnNotificationConfiguration_IsCfnNotificationConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnNotificationConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

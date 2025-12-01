@@ -164,6 +164,14 @@ func validateCfnApplication_ArnForApplicationParameters(resource interfacesawsss
 	return nil
 }
 
+func validateCfnApplication_IsCfnApplicationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApplication_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

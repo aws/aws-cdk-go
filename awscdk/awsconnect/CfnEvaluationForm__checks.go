@@ -172,6 +172,14 @@ func validateCfnEvaluationForm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEvaluationForm_IsCfnEvaluationFormParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEvaluationForm_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -283,6 +291,30 @@ func (j *jsiiProxy_CfnEvaluationForm) validateSetItemsParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnEvaluationForm) validateSetLanguageConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEvaluationForm_EvaluationFormLanguageConfigurationProperty:
+		val := val.(*CfnEvaluationForm_EvaluationFormLanguageConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEvaluationForm_EvaluationFormLanguageConfigurationProperty:
+		val_ := val.(CfnEvaluationForm_EvaluationFormLanguageConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEvaluationForm_EvaluationFormLanguageConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEvaluationForm) validateSetScoringStrategyParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -319,6 +351,30 @@ func (j *jsiiProxy_CfnEvaluationForm) validateSetTagsRawParameters(val *[]*awscd
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnEvaluationForm) validateSetTargetConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEvaluationForm_EvaluationFormTargetConfigurationProperty:
+		val := val.(*CfnEvaluationForm_EvaluationFormTargetConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEvaluationForm_EvaluationFormTargetConfigurationProperty:
+		val_ := val.(CfnEvaluationForm_EvaluationFormTargetConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEvaluationForm_EvaluationFormTargetConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

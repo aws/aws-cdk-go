@@ -76,7 +76,15 @@ func validateCfnFHIRDatastore_FromDatastoreIdParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnFHIRDatastore_FromFHIRDatastoreArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnFHIRDatastore_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnFHIRDatastore_IsCfnFHIRDatastoreParameters(x interface{}) error {
 	return nil
 }
 

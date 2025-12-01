@@ -10,10 +10,13 @@ package interfacesawssagemaker
 //
 //   modelReference := &ModelReference{
 //   	ModelId: jsii.String("modelId"),
+//   	ModelName: jsii.String("modelName"),
 //   }
 //
 type ModelReference struct {
 	// The Id of the Model resource.
 	ModelId *string `field:"required" json:"modelId" yaml:"modelId"`
+	// The ModelName of the Model resource.
+	ModelName *string `field:"required" json:"modelName" yaml:"modelName"`
 }
 

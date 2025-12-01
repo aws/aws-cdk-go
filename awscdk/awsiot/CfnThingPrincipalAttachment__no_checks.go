@@ -76,6 +76,10 @@ func validateCfnThingPrincipalAttachment_IsCfnResourceParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnThingPrincipalAttachment_IsCfnThingPrincipalAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnThingPrincipalAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

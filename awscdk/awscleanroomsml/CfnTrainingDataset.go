@@ -610,6 +610,25 @@ func CfnTrainingDataset_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTrainingDataset.
+func CfnTrainingDataset_IsCfnTrainingDataset(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTrainingDataset_IsCfnTrainingDatasetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cleanroomsml.CfnTrainingDataset",
+		"isCfnTrainingDataset",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

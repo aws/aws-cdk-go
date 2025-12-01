@@ -76,6 +76,10 @@ func validateCfnStreamingDistribution_IsCfnResourceParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnStreamingDistribution_IsCfnStreamingDistributionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStreamingDistribution_IsConstructParameters(x interface{}) error {
 	return nil
 }

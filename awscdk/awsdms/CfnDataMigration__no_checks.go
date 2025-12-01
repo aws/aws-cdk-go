@@ -72,6 +72,10 @@ func validateCfnDataMigration_ArnForDataMigrationParameters(resource interfacesa
 	return nil
 }
 
+func validateCfnDataMigration_IsCfnDataMigrationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataMigration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

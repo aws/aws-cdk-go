@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnApiMapping) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnApiMapping_IsCfnApiMappingParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApiMapping_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

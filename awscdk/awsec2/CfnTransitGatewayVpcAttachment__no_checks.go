@@ -76,6 +76,10 @@ func validateCfnTransitGatewayVpcAttachment_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnTransitGatewayVpcAttachment_IsCfnTransitGatewayVpcAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransitGatewayVpcAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

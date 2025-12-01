@@ -80,6 +80,10 @@ func validateCfnDimension_FromDimensionNameParameters(scope constructs.Construct
 	return nil
 }
 
+func validateCfnDimension_IsCfnDimensionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDimension_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -84,6 +84,10 @@ func validateCfnMatchmakingConfiguration_IsCfnElementParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnMatchmakingConfiguration_IsCfnMatchmakingConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMatchmakingConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -543,6 +543,25 @@ func CfnKeyspace_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnKeyspace.
+func CfnKeyspace_IsCfnKeyspace(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnKeyspace_IsCfnKeyspaceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"isCfnKeyspace",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnKeyspace_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnBasePathMappingV2) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnBasePathMappingV2_IsCfnBasePathMappingV2Parameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBasePathMappingV2_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

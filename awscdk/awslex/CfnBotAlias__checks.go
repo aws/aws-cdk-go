@@ -164,6 +164,14 @@ func validateCfnBotAlias_ArnForBotAliasParameters(resource interfacesawslex.IBot
 	return nil
 }
 
+func validateCfnBotAlias_IsCfnBotAliasParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBotAlias_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

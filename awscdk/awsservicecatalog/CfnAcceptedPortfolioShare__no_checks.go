@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnAcceptedPortfolioShare_IsCfnAcceptedPortfolioShareParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAcceptedPortfolioShare_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

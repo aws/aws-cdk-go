@@ -72,6 +72,10 @@ func validateCfnAccessLogSubscription_ArnForAccessLogSubscriptionParameters(reso
 	return nil
 }
 
+func validateCfnAccessLogSubscription_IsCfnAccessLogSubscriptionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessLogSubscription_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

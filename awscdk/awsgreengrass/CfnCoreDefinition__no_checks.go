@@ -80,6 +80,10 @@ func validateCfnCoreDefinition_FromCoreDefinitionIdParameters(scope constructs.C
 	return nil
 }
 
+func validateCfnCoreDefinition_IsCfnCoreDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCoreDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

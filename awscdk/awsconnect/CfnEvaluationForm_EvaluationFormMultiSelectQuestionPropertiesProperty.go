@@ -1,0 +1,57 @@
+package awsconnect
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   evaluationFormMultiSelectQuestionPropertiesProperty := &EvaluationFormMultiSelectQuestionPropertiesProperty{
+//   	Options: []interface{}{
+//   		&EvaluationFormMultiSelectQuestionOptionProperty{
+//   			RefId: jsii.String("refId"),
+//   			Text: jsii.String("text"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   		Options: []interface{}{
+//   			&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
+//   				RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
+//   					Category: jsii.String("category"),
+//   					Condition: jsii.String("condition"),
+//   					OptionRefIds: []*string{
+//   						jsii.String("optionRefIds"),
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   			SourceType: jsii.String("sourceType"),
+//   		},
+//   		DefaultOptionRefIds: []*string{
+//   			jsii.String("defaultOptionRefIds"),
+//   		},
+//   	},
+//   	DisplayAs: jsii.String("displayAs"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html
+//
+type CfnEvaluationForm_EvaluationFormMultiSelectQuestionPropertiesProperty struct {
+	// The list of options for the question.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html#cfn-connect-evaluationform-evaluationformmultiselectquestionproperties-options
+	//
+	Options interface{} `field:"required" json:"options" yaml:"options"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html#cfn-connect-evaluationform-evaluationformmultiselectquestionproperties-automation
+	//
+	Automation interface{} `field:"optional" json:"automation" yaml:"automation"`
+	// The display mode of the multi-select question.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html#cfn-connect-evaluationform-evaluationformmultiselectquestionproperties-displayas
+	//
+	DisplayAs *string `field:"optional" json:"displayAs" yaml:"displayAs"`
+}
+

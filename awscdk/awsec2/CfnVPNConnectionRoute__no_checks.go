@@ -76,6 +76,10 @@ func validateCfnVPNConnectionRoute_IsCfnResourceParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnVPNConnectionRoute_IsCfnVPNConnectionRouteParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPNConnectionRoute_IsConstructParameters(x interface{}) error {
 	return nil
 }

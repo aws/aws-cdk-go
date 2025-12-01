@@ -461,6 +461,25 @@ func CfnLogDeliveryConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLogDeliveryConfiguration.
+func CfnLogDeliveryConfiguration_IsCfnLogDeliveryConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLogDeliveryConfiguration_IsCfnLogDeliveryConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnLogDeliveryConfiguration",
+		"isCfnLogDeliveryConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLogDeliveryConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

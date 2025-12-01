@@ -72,6 +72,10 @@ func validateCfnAIPrompt_ArnForAIPromptParameters(resource interfacesawswisdom.I
 	return nil
 }
 
+func validateCfnAIPrompt_IsCfnAIPromptParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAIPrompt_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

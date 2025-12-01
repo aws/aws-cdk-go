@@ -163,6 +163,14 @@ func validateCfnInstanceStorageConfig_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnInstanceStorageConfig_IsCfnInstanceStorageConfigParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnInstanceStorageConfig_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

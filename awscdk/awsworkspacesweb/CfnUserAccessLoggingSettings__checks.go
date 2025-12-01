@@ -180,6 +180,14 @@ func validateCfnUserAccessLoggingSettings_IsCfnResourceParameters(x interface{})
 	return nil
 }
 
+func validateCfnUserAccessLoggingSettings_IsCfnUserAccessLoggingSettingsParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnUserAccessLoggingSettings_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

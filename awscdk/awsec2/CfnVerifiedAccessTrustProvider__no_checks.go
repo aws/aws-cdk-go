@@ -84,6 +84,10 @@ func validateCfnVerifiedAccessTrustProvider_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnVerifiedAccessTrustProvider_IsCfnVerifiedAccessTrustProviderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVerifiedAccessTrustProvider_IsConstructParameters(x interface{}) error {
 	return nil
 }

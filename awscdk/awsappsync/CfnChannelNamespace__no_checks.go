@@ -72,6 +72,10 @@ func validateCfnChannelNamespace_ArnForChannelNamespaceParameters(resource inter
 	return nil
 }
 
+func validateCfnChannelNamespace_IsCfnChannelNamespaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnChannelNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

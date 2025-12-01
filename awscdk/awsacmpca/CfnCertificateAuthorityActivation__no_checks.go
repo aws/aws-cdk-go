@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) validateValidateProperties
 	return nil
 }
 
+func validateCfnCertificateAuthorityActivation_IsCfnCertificateAuthorityActivationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCertificateAuthorityActivation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

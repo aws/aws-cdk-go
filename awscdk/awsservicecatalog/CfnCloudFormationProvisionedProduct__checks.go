@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnCloudFormationProvisionedProduct) validateValidateProperti
 	return nil
 }
 
+func validateCfnCloudFormationProvisionedProduct_IsCfnCloudFormationProvisionedProductParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCloudFormationProvisionedProduct_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

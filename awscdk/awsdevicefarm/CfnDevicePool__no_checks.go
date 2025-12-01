@@ -72,6 +72,10 @@ func validateCfnDevicePool_ArnForDevicePoolParameters(resource interfacesawsdevi
 	return nil
 }
 
+func validateCfnDevicePool_IsCfnDevicePoolParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDevicePool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

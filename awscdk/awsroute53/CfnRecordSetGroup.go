@@ -528,6 +528,25 @@ func CfnRecordSetGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRecordSetGroup.
+func CfnRecordSetGroup_IsCfnRecordSetGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRecordSetGroup_IsCfnRecordSetGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",
+		"isCfnRecordSetGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRecordSetGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -76,6 +76,10 @@ func validateCfnZonalAutoshiftConfiguration_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnZonalAutoshiftConfiguration_IsCfnZonalAutoshiftConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnZonalAutoshiftConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

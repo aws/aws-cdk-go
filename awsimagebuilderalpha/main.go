@@ -8,6 +8,22 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedImage",
+		reflect.TypeOf((*AmazonManagedImage)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_AmazonManagedImage{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedImageAttributes",
+		reflect.TypeOf((*AmazonManagedImageAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedImageOptions",
+		reflect.TypeOf((*AmazonManagedImageOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-imagebuilder-alpha.AmiDistribution",
 		reflect.TypeOf((*AmiDistribution)(nil)).Elem(),
@@ -456,6 +472,29 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-imagebuilder-alpha.IImage",
+		reflect.TypeOf((*IImage)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDefaultExecutionRolePermissions", GoMethod: "GrantDefaultExecutionRolePermissions"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "imageArn", GoGetter: "ImageArn"},
+			_jsii_.MemberProperty{JsiiProperty: "imageName", GoGetter: "ImageName"},
+			_jsii_.MemberProperty{JsiiProperty: "imageVersion", GoGetter: "ImageVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toBaseImage", GoMethod: "ToBaseImage"},
+			_jsii_.MemberMethod{JsiiMethod: "toContainerBaseImage", GoMethod: "ToContainerBaseImage"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IImage{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-imagebuilder-alpha.IImagePipeline",
 		reflect.TypeOf((*IImagePipeline)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -581,6 +620,50 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.Image",
+		reflect.TypeOf((*Image)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantDefaultExecutionRolePermissions", GoMethod: "GrantDefaultExecutionRolePermissions"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "imageArn", GoGetter: "ImageArn"},
+			_jsii_.MemberProperty{JsiiProperty: "imageId", GoGetter: "ImageId"},
+			_jsii_.MemberProperty{JsiiProperty: "imageName", GoGetter: "ImageName"},
+			_jsii_.MemberProperty{JsiiProperty: "imageVersion", GoGetter: "ImageVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "infrastructureConfiguration", GoGetter: "InfrastructureConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toBaseImage", GoMethod: "ToBaseImage"},
+			_jsii_.MemberMethod{JsiiMethod: "toContainerBaseImage", GoMethod: "ToContainerBaseImage"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Image{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IImage)
+			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ImageArchitecture",
+		reflect.TypeOf((*ImageArchitecture)(nil)).Elem(),
+		map[string]interface{}{
+			"ARM64": ImageArchitecture_ARM64,
+			"X86_64": ImageArchitecture_X86_64,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ImageAttributes",
+		reflect.TypeOf((*ImageAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-imagebuilder-alpha.ImagePipeline",
 		reflect.TypeOf((*ImagePipeline)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -633,6 +716,10 @@ func init() {
 			"DISABLED": ImagePipelineStatus_DISABLED,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ImageProps",
+		reflect.TypeOf((*ImageProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-imagebuilder-alpha.ImageRecipe",
 		reflect.TypeOf((*ImageRecipe)(nil)).Elem(),
@@ -667,6 +754,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-imagebuilder-alpha.ImageRecipeProps",
 		reflect.TypeOf((*ImageRecipeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-imagebuilder-alpha.ImageType",
+		reflect.TypeOf((*ImageType)(nil)).Elem(),
+		map[string]interface{}{
+			"AMI": ImageType_AMI,
+			"DOCKER": ImageType_DOCKER,
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-imagebuilder-alpha.InfrastructureConfiguration",

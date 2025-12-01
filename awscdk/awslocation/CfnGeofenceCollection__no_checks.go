@@ -84,6 +84,10 @@ func validateCfnGeofenceCollection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGeofenceCollection_IsCfnGeofenceCollectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGeofenceCollection_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

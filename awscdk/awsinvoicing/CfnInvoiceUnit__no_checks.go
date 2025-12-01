@@ -76,6 +76,10 @@ func validateCfnInvoiceUnit_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInvoiceUnit_IsCfnInvoiceUnitParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInvoiceUnit_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

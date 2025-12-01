@@ -566,6 +566,25 @@ func CfnCostCategory_ArnForCostCategory(resource interfacesawsce.ICostCategoryRe
 	return returns
 }
 
+// Checks whether the given object is a CfnCostCategory.
+func CfnCostCategory_IsCfnCostCategory(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCostCategory_IsCfnCostCategoryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ce.CfnCostCategory",
+		"isCfnCostCategory",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -1,7 +1,7 @@
 package previewawssagemakermixins
 
 
-// A Kubernetes taint to apply to cluster nodes.
+// A Kubernetes taint that can be applied to cluster nodes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,6 +18,8 @@ package previewawssagemakermixins
 //
 type CfnClusterPropsMixin_ClusterKubernetesTaintProperty struct {
 	// The effect of the taint.
+	//
+	// Valid values are `NoSchedule` , `PreferNoSchedule` , and `NoExecute` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkubernetestaint.html#cfn-sagemaker-cluster-clusterkubernetestaint-effect
 	//
 	Effect *string `field:"optional" json:"effect" yaml:"effect"`

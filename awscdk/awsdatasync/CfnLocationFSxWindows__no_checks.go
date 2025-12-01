@@ -72,6 +72,10 @@ func validateCfnLocationFSxWindows_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocationFSxWindows_IsCfnLocationFSxWindowsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocationFSxWindows_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

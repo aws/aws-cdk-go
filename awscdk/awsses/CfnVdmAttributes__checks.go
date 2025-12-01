@@ -171,6 +171,14 @@ func validateCfnVdmAttributes_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVdmAttributes_IsCfnVdmAttributesParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVdmAttributes_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

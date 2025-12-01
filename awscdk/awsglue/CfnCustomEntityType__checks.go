@@ -180,6 +180,14 @@ func validateCfnCustomEntityType_FromCustomEntityTypeIdParameters(scope construc
 	return nil
 }
 
+func validateCfnCustomEntityType_IsCfnCustomEntityTypeParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCustomEntityType_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBudget) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnBudget_IsCfnBudgetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBudget_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

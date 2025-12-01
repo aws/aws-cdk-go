@@ -76,6 +76,10 @@ func validateCfnWarmPool_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWarmPool_IsCfnWarmPoolParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWarmPool_IsConstructParameters(x interface{}) error {
 	return nil
 }

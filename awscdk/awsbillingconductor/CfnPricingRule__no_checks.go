@@ -76,6 +76,10 @@ func validateCfnPricingRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPricingRule_IsCfnPricingRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPricingRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

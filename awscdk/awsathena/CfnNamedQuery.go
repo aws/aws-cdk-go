@@ -511,6 +511,25 @@ func CfnNamedQuery_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNamedQuery.
+func CfnNamedQuery_IsCfnNamedQuery(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNamedQuery_IsCfnNamedQueryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_athena.CfnNamedQuery",
+		"isCfnNamedQuery",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNamedQuery_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

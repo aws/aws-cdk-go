@@ -76,6 +76,10 @@ func validateCfnLabel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLabel_IsCfnLabelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLabel_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

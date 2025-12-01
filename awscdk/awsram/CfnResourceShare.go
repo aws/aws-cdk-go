@@ -628,6 +628,25 @@ func CfnResourceShare_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnResourceShare.
+func CfnResourceShare_IsCfnResourceShare(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResourceShare_IsCfnResourceShareParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ram.CfnResourceShare",
+		"isCfnResourceShare",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

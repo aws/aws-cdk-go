@@ -72,6 +72,10 @@ func validateCfnBotAlias_ArnForBotAliasParameters(resource interfacesawslex.IBot
 	return nil
 }
 
+func validateCfnBotAlias_IsCfnBotAliasParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBotAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

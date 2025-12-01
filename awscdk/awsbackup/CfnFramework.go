@@ -585,6 +585,25 @@ func CfnFramework_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFramework.
+func CfnFramework_IsCfnFramework(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFramework_IsCfnFrameworkParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnFramework",
+		"isCfnFramework",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFramework_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

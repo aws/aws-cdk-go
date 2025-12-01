@@ -164,6 +164,14 @@ func validateCfnComputeEnvironment_ArnForComputeEnvironmentParameters(resource i
 	return nil
 }
 
+func validateCfnComputeEnvironment_IsCfnComputeEnvironmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnComputeEnvironment_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

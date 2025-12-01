@@ -164,6 +164,14 @@ func validateCfnChannel_ArnForChannelParameters(resource interfacesawsmediapacka
 	return nil
 }
 
+func validateCfnChannel_IsCfnChannelParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnChannel_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

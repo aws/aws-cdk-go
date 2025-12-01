@@ -505,6 +505,25 @@ func CfnProfilePermission_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProfilePermission.
+func CfnProfilePermission_IsCfnProfilePermission(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProfilePermission_IsCfnProfilePermissionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_signer.CfnProfilePermission",
+		"isCfnProfilePermission",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProfilePermission_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

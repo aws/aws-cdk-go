@@ -164,6 +164,22 @@ func validateCfnContainerFleet_ArnForContainerFleetParameters(resource interface
 	return nil
 }
 
+func validateCfnContainerFleet_FromContainerFleetArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnContainerFleet_FromFleetIdParameters(scope constructs.Construct, id *string, fleetId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -175,6 +191,14 @@ func validateCfnContainerFleet_FromFleetIdParameters(scope constructs.Construct,
 
 	if fleetId == nil {
 		return fmt.Errorf("parameter fleetId is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnContainerFleet_IsCfnContainerFleetParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

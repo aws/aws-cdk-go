@@ -100,7 +100,7 @@ type CfnStream interface {
 	Stack() awscdk.Stack
 	// A reference to a Stream resource.
 	StreamRef() *interfacesawskinesisvideo.StreamReference
-	// Configuration for the storage tier of the Kinesis Video Stream.
+	// The configuration for stream storage, including the default storage tier for stream data.
 	StreamStorageConfiguration() interface{}
 	SetStreamStorageConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -612,6 +612,25 @@ func CfnStream_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kinesisvideo.CfnStream",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnStream.
+func CfnStream_IsCfnStream(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStream_IsCfnStreamParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesisvideo.CfnStream",
+		"isCfnStream",
 		[]interface{}{x},
 		&returns,
 	)

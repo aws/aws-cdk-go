@@ -4,6 +4,8 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
@@ -17,6 +19,10 @@ import (
 //   cfnLoadBalancerNlbAccessLogs := awscdkmixinspreview.Mixins.NewCfnLoadBalancerNlbAccessLogs()
 //
 type CfnLoadBalancerNlbAccessLogs interface {
+	// Send logs to a Firehose Delivery Stream.
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnLoadBalancerLogsMixin
+	// Send logs to a CloudWatch Log Group.
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnLoadBalancerLogsMixin
 	// Send logs to an S3 Bucket.
 	ToS3(bucket interfacesawss3.IBucketRef) CfnLoadBalancerLogsMixin
 }
@@ -50,6 +56,38 @@ func NewCfnLoadBalancerNlbAccessLogs_Override(c CfnLoadBalancerNlbAccessLogs) {
 		nil, // no parameters
 		c,
 	)
+}
+
+func (c *jsiiProxy_CfnLoadBalancerNlbAccessLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnLoadBalancerLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+		panic(err)
+	}
+	var returns CfnLoadBalancerLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toFirehose",
+		[]interface{}{deliveryStream},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnLoadBalancerNlbAccessLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnLoadBalancerLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+		panic(err)
+	}
+	var returns CfnLoadBalancerLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toLogGroup",
+		[]interface{}{logGroup},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnLoadBalancerNlbAccessLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnLoadBalancerLogsMixin {

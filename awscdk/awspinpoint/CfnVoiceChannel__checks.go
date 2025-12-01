@@ -171,6 +171,14 @@ func validateCfnVoiceChannel_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVoiceChannel_IsCfnVoiceChannelParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVoiceChannel_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -164,6 +164,14 @@ func validateCfnCodeSecurityIntegration_ArnForCodeSecurityIntegrationParameters(
 	return nil
 }
 
+func validateCfnCodeSecurityIntegration_IsCfnCodeSecurityIntegrationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCodeSecurityIntegration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

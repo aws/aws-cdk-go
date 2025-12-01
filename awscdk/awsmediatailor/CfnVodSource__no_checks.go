@@ -80,6 +80,10 @@ func validateCfnVodSource_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVodSource_IsCfnVodSourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVodSource_IsConstructParameters(x interface{}) error {
 	return nil
 }

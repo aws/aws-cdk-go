@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnContactFlowVersion) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnContactFlowVersion_ArnForContactFlowVersionParameters(resource interfacesawsconnect.IContactFlowVersionRef) error {
+	return nil
+}
+
+func validateCfnContactFlowVersion_IsCfnContactFlowVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContactFlowVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

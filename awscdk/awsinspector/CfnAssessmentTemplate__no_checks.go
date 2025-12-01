@@ -72,6 +72,10 @@ func validateCfnAssessmentTemplate_ArnForAssessmentTemplateParameters(resource i
 	return nil
 }
 
+func validateCfnAssessmentTemplate_IsCfnAssessmentTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAssessmentTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

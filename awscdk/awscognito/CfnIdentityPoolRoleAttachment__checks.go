@@ -163,6 +163,14 @@ func validateCfnIdentityPoolRoleAttachment_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnIdentityPoolRoleAttachment_IsCfnIdentityPoolRoleAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnIdentityPoolRoleAttachment_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

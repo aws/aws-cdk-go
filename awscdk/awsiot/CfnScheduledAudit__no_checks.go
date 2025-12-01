@@ -88,6 +88,10 @@ func validateCfnScheduledAudit_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnScheduledAudit_IsCfnScheduledAuditParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnScheduledAudit_IsConstructParameters(x interface{}) error {
 	return nil
 }

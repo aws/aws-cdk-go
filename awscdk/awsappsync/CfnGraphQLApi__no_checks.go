@@ -76,6 +76,10 @@ func validateCfnGraphQLApi_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGraphQLApi_IsCfnGraphQLApiParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGraphQLApi_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

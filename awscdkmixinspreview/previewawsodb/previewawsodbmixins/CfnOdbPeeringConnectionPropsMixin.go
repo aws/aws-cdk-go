@@ -21,6 +21,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnOdbPeeringConnectionPropsMixin := awscdkmixinspreview.Mixins.NewCfnOdbPeeringConnectionPropsMixin(&CfnOdbPeeringConnectionMixinProps{
+//   	AdditionalPeerNetworkCidrs: []*string{
+//   		jsii.String("additionalPeerNetworkCidrs"),
+//   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	OdbNetworkId: jsii.String("odbNetworkId"),
 //   	PeerNetworkId: jsii.String("peerNetworkId"),

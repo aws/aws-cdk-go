@@ -420,6 +420,25 @@ func CfnOrganizationAdmin_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOrganizationAdmin.
+func CfnOrganizationAdmin_IsCfnOrganizationAdmin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOrganizationAdmin_IsCfnOrganizationAdminParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_detective.CfnOrganizationAdmin",
+		"isCfnOrganizationAdmin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOrganizationAdmin_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

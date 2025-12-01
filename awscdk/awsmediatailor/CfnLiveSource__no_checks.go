@@ -76,6 +76,10 @@ func validateCfnLiveSource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLiveSource_IsCfnLiveSourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLiveSource_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

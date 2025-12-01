@@ -76,7 +76,15 @@ func validateCfnMailManagerArchive_FromArchiveIdParameters(scope constructs.Cons
 	return nil
 }
 
+func validateCfnMailManagerArchive_FromMailManagerArchiveArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnMailManagerArchive_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnMailManagerArchive_IsCfnMailManagerArchiveParameters(x interface{}) error {
 	return nil
 }
 

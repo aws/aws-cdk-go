@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAwsLogSource) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnAwsLogSource_IsCfnAwsLogSourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAwsLogSource_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

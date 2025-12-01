@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAnomalyMonitor) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnAnomalyMonitor_IsCfnAnomalyMonitorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAnomalyMonitor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

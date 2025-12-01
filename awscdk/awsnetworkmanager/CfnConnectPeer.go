@@ -690,6 +690,25 @@ func (j *jsiiProxy_CfnConnectPeer)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Checks whether the given object is a CfnConnectPeer.
+func CfnConnectPeer_IsCfnConnectPeer(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConnectPeer_IsCfnConnectPeerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectPeer",
+		"isCfnConnectPeer",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCrossAccountAttachment) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnCrossAccountAttachment_IsCfnCrossAccountAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCrossAccountAttachment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

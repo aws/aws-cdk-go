@@ -72,6 +72,10 @@ func validateCfnConfiguredTable_ArnForConfiguredTableParameters(resource interfa
 	return nil
 }
 
+func validateCfnConfiguredTable_IsCfnConfiguredTableParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfiguredTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -525,6 +525,25 @@ func CfnTopicRuleDestination_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTopicRuleDestination.
+func CfnTopicRuleDestination_IsCfnTopicRuleDestination(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTopicRuleDestination_IsCfnTopicRuleDestinationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnTopicRuleDestination",
+		"isCfnTopicRuleDestination",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

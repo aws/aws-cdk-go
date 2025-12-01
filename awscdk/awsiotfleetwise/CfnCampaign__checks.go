@@ -196,6 +196,14 @@ func validateCfnCampaign_FromCampaignNameParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validateCfnCampaign_IsCfnCampaignParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCampaign_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

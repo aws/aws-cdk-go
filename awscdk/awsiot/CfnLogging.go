@@ -461,6 +461,25 @@ func CfnLogging_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLogging.
+func CfnLogging_IsCfnLogging(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLogging_IsCfnLoggingParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnLogging",
+		"isCfnLogging",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLogging_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

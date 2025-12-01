@@ -76,6 +76,10 @@ func validateCfnHoursOfOperation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnHoursOfOperation_IsCfnHoursOfOperationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnHoursOfOperation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

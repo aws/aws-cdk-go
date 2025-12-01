@@ -88,6 +88,10 @@ func validateCfnSuiteDefinition_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSuiteDefinition_IsCfnSuiteDefinitionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSuiteDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -72,6 +72,10 @@ func validateCfnCodeSecurityIntegration_ArnForCodeSecurityIntegrationParameters(
 	return nil
 }
 
+func validateCfnCodeSecurityIntegration_IsCfnCodeSecurityIntegrationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCodeSecurityIntegration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

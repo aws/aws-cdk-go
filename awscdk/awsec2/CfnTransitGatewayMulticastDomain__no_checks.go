@@ -88,6 +88,10 @@ func validateCfnTransitGatewayMulticastDomain_IsCfnResourceParameters(x interfac
 	return nil
 }
 
+func validateCfnTransitGatewayMulticastDomain_IsCfnTransitGatewayMulticastDomainParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransitGatewayMulticastDomain_IsConstructParameters(x interface{}) error {
 	return nil
 }

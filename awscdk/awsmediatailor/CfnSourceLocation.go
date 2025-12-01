@@ -657,6 +657,25 @@ func CfnSourceLocation_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSourceLocation.
+func CfnSourceLocation_IsCfnSourceLocation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSourceLocation_IsCfnSourceLocationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediatailor.CfnSourceLocation",
+		"isCfnSourceLocation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

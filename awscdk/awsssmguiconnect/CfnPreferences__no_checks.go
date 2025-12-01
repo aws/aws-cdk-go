@@ -72,6 +72,10 @@ func validateCfnPreferences_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPreferences_IsCfnPreferencesParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPreferences_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

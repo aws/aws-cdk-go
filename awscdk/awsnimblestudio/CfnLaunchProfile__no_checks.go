@@ -72,6 +72,10 @@ func validateCfnLaunchProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLaunchProfile_IsCfnLaunchProfileParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLaunchProfile_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

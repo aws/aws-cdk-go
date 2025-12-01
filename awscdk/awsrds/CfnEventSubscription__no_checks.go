@@ -80,6 +80,10 @@ func validateCfnEventSubscription_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEventSubscription_IsCfnEventSubscriptionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEventSubscription_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

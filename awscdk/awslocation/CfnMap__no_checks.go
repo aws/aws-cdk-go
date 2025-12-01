@@ -84,6 +84,10 @@ func validateCfnMap_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMap_IsCfnMapParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMap_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

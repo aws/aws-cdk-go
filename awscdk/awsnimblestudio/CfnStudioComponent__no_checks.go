@@ -76,6 +76,10 @@ func validateCfnStudioComponent_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStudioComponent_IsCfnStudioComponentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStudioComponent_IsConstructParameters(x interface{}) error {
 	return nil
 }

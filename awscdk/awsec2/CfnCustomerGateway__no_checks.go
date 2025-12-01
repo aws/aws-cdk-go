@@ -76,6 +76,10 @@ func validateCfnCustomerGateway_FromCustomerGatewayIdParameters(scope constructs
 	return nil
 }
 
+func validateCfnCustomerGateway_IsCfnCustomerGatewayParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCustomerGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

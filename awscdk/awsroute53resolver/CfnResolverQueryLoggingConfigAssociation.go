@@ -499,6 +499,25 @@ func CfnResolverQueryLoggingConfigAssociation_IsCfnElement(x interface{}) *bool 
 	return returns
 }
 
+// Checks whether the given object is a CfnResolverQueryLoggingConfigAssociation.
+func CfnResolverQueryLoggingConfigAssociation_IsCfnResolverQueryLoggingConfigAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResolverQueryLoggingConfigAssociation_IsCfnResolverQueryLoggingConfigAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
+		"isCfnResolverQueryLoggingConfigAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnResolverQueryLoggingConfigAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

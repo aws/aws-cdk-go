@@ -737,6 +737,25 @@ func CfnQuickResponse_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnQuickResponse.
+func CfnQuickResponse_IsCfnQuickResponse(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnQuickResponse_IsCfnQuickResponseParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnQuickResponse",
+		"isCfnQuickResponse",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnQuickResponse_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

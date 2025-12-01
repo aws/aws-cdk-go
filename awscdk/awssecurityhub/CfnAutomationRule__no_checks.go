@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAutomationRule) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnAutomationRule_IsCfnAutomationRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAutomationRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

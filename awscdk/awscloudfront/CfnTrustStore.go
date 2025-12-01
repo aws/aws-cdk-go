@@ -11,9 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::CloudFront::TrustStore.
-//
-// TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+// A trust store.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -49,17 +47,19 @@ type CfnTrustStore interface {
 	awscdk.IInspectable
 	interfacesawscloudfront.ITrustStoreRef
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the trust store.
+	// The trust store's Amazon Resource Name (ARN).
 	AttrArn() *string
+	// The version identifier for the current version of the trust store.
 	AttrETag() *string
-	// The unique identifier for the trust store.
+	// The trust store's ID.
 	AttrId() *string
-	// The last modification timestamp of the trust store PEM file.
+	// The trust store's last modified time.
 	AttrLastModifiedTime() *string
-	// The number of CA certificates in the trust store PEM file.
+	// The trust store's number of CA certificates.
 	AttrNumberOfCaCertificates() *float64
-	// Current status of the trust store.
+	// The trust store's status.
 	AttrStatus() *string
+	// A CA certificates bundle source.
 	CaCertificatesBundleSource() interface{}
 	SetCaCertificatesBundleSource(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -84,7 +84,7 @@ type CfnTrustStore interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A unique name to identify the trust store.
+	// The trust store's name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -98,7 +98,7 @@ type CfnTrustStore interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Key-value pairs for resource tagging.
+	// A complex type that contains zero or more `Tag` elements.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// A reference to a TrustStore resource.
@@ -588,6 +588,25 @@ func CfnTrustStore_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudfront.CfnTrustStore",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnTrustStore.
+func CfnTrustStore_IsCfnTrustStore(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTrustStore_IsCfnTrustStoreParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnTrustStore",
+		"isCfnTrustStore",
 		[]interface{}{x},
 		&returns,
 	)

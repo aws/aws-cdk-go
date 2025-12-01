@@ -80,6 +80,10 @@ func validateCfnIdentityPool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIdentityPool_IsCfnIdentityPoolParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIdentityPool_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

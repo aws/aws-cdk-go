@@ -476,6 +476,25 @@ func CfnIPAMPoolCidr_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIPAMPoolCidr.
+func CfnIPAMPoolCidr_IsCfnIPAMPoolCidr(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMPoolCidr_IsCfnIPAMPoolCidrParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMPoolCidr",
+		"isCfnIPAMPoolCidr",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIPAMPoolCidr_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -517,6 +517,43 @@ func (j *jsiiProxy_CfnAnycastIpList)SetTags(val *CfnAnycastIpList_TagsProperty) 
 	)
 }
 
+func CfnAnycastIpList_ArnForAnycastIpList(resource interfacesawscloudfront.IAnycastIpListRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAnycastIpList_ArnForAnycastIpListParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnAnycastIpList",
+		"arnForAnycastIpList",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnAnycastIpList.
+func CfnAnycastIpList_IsCfnAnycastIpList(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAnycastIpList_IsCfnAnycastIpListParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.CfnAnycastIpList",
+		"isCfnAnycastIpList",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

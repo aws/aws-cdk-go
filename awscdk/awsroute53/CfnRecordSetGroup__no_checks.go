@@ -72,6 +72,10 @@ func validateCfnRecordSetGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRecordSetGroup_IsCfnRecordSetGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRecordSetGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

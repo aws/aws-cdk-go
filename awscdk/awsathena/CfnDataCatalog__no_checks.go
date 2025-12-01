@@ -76,6 +76,10 @@ func validateCfnDataCatalog_FromDataCatalogNameParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnDataCatalog_IsCfnDataCatalogParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataCatalog_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

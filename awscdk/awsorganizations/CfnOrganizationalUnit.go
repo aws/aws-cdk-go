@@ -531,6 +531,25 @@ func CfnOrganizationalUnit_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOrganizationalUnit.
+func CfnOrganizationalUnit_IsCfnOrganizationalUnit(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOrganizationalUnit_IsCfnOrganizationalUnitParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_organizations.CfnOrganizationalUnit",
+		"isCfnOrganizationalUnit",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOrganizationalUnit_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -180,6 +180,14 @@ func validateCfnDatabase_FromDatabaseNameParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validateCfnDatabase_IsCfnDatabaseParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDatabase_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

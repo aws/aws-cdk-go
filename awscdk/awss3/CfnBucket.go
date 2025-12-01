@@ -41,6 +41,7 @@ type CfnBucket interface {
 	awscdk.IInspectable
 	interfacesawss3.IBucketRef
 	awscdk.ITaggable
+	// The ABAC status of the general purpose bucket.
 	AbacStatus() *string
 	SetAbacStatus(val *string)
 	// Configures the transfer acceleration state for an Amazon S3 bucket.
@@ -1138,6 +1139,25 @@ func CfnBucket_FromBucketName(scope constructs.Construct, id *string, bucketName
 		"aws-cdk-lib.aws_s3.CfnBucket",
 		"fromBucketName",
 		[]interface{}{scope, id, bucketName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnBucket.
+func CfnBucket_IsCfnBucket(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBucket_IsCfnBucketParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.CfnBucket",
+		"isCfnBucket",
+		[]interface{}{x},
 		&returns,
 	)
 

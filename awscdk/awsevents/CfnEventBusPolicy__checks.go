@@ -163,6 +163,14 @@ func validateCfnEventBusPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEventBusPolicy_IsCfnEventBusPolicyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEventBusPolicy_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

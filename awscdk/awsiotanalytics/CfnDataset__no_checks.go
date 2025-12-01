@@ -76,6 +76,10 @@ func validateCfnDataset_FromDatasetNameParameters(scope constructs.Construct, id
 	return nil
 }
 
+func validateCfnDataset_IsCfnDatasetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

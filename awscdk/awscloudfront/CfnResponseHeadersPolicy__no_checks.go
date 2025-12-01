@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnResponseHeadersPolicy) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnResponseHeadersPolicy_ArnForResponseHeadersPolicyParameters(resource interfacesawscloudfront.IResponseHeadersPolicyRef) error {
+	return nil
+}
+
 func validateCfnResponseHeadersPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnResponseHeadersPolicy_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnResponseHeadersPolicy_IsCfnResponseHeadersPolicyParameters(x interface{}) error {
 	return nil
 }
 

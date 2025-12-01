@@ -72,6 +72,10 @@ func validateCfnBlueprint_ArnForBlueprintParameters(resource interfacesawsbedroc
 	return nil
 }
 
+func validateCfnBlueprint_IsCfnBlueprintParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBlueprint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

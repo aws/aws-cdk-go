@@ -1001,6 +1001,25 @@ func CfnUserPoolClient_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnUserPoolClient.
+func CfnUserPoolClient_IsCfnUserPoolClient(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnUserPoolClient_IsCfnUserPoolClientParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
+		"isCfnUserPoolClient",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

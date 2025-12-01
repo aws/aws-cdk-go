@@ -80,6 +80,10 @@ func validateCfnDomainName_FromDomainNameArnParameters(scope constructs.Construc
 	return nil
 }
 
+func validateCfnDomainName_IsCfnDomainNameParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDomainName_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

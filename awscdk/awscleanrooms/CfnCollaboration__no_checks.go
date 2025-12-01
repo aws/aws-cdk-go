@@ -72,6 +72,10 @@ func validateCfnCollaboration_ArnForCollaborationParameters(resource interfacesa
 	return nil
 }
 
+func validateCfnCollaboration_IsCfnCollaborationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCollaboration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

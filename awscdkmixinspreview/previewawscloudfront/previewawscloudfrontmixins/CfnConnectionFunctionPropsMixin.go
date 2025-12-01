@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::CloudFront::ConnectionFunction.
+// A connection function.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

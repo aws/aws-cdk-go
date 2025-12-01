@@ -459,6 +459,25 @@ func CfnMultiRegionAccessPointPolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMultiRegionAccessPointPolicy.
+func CfnMultiRegionAccessPointPolicy_IsCfnMultiRegionAccessPointPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMultiRegionAccessPointPolicy_IsCfnMultiRegionAccessPointPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicy",
+		"isCfnMultiRegionAccessPointPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMultiRegionAccessPointPolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

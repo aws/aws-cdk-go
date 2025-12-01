@@ -995,6 +995,25 @@ func CfnAlarm_FromAlarmName(scope constructs.Construct, id *string, alarmName *s
 	return returns
 }
 
+// Checks whether the given object is a CfnAlarm.
+func CfnAlarm_IsCfnAlarm(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAlarm_IsCfnAlarmParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
+		"isCfnAlarm",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

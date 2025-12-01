@@ -888,6 +888,25 @@ func CfnServerlessCache_ArnForServerlessCache(resource interfacesawselasticache.
 	return returns
 }
 
+// Creates a new IServerlessCacheRef from an ARN.
+func CfnServerlessCache_FromServerlessCacheArn(scope constructs.Construct, id *string, arn *string) interfacesawselasticache.IServerlessCacheRef {
+	_init_.Initialize()
+
+	if err := validateCfnServerlessCache_FromServerlessCacheArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawselasticache.IServerlessCacheRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnServerlessCache",
+		"fromServerlessCacheArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IServerlessCacheRef from a serverlessCacheName.
 func CfnServerlessCache_FromServerlessCacheName(scope constructs.Construct, id *string, serverlessCacheName *string) interfacesawselasticache.IServerlessCacheRef {
 	_init_.Initialize()
@@ -943,6 +962,25 @@ func CfnServerlessCache_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnServerlessCache",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnServerlessCache.
+func CfnServerlessCache_IsCfnServerlessCache(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnServerlessCache_IsCfnServerlessCacheParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnServerlessCache",
+		"isCfnServerlessCache",
 		[]interface{}{x},
 		&returns,
 	)

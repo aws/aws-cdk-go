@@ -72,6 +72,10 @@ func validateCfnManagedNotificationAdditionalChannelAssociation_IsCfnElementPara
 	return nil
 }
 
+func validateCfnManagedNotificationAdditionalChannelAssociation_IsCfnManagedNotificationAdditionalChannelAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnManagedNotificationAdditionalChannelAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

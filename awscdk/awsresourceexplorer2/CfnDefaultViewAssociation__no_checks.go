@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDefaultViewAssociation) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnDefaultViewAssociation_IsCfnDefaultViewAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDefaultViewAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

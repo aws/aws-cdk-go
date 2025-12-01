@@ -72,6 +72,10 @@ func validateCfnDataLake_ArnForDataLakeParameters(resource interfacesawssecurity
 	return nil
 }
 
+func validateCfnDataLake_IsCfnDataLakeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataLake_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

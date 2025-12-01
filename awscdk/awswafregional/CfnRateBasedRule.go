@@ -516,6 +516,24 @@ func (j *jsiiProxy_CfnRateBasedRule)SetRateLimit(val *float64) {
 	)
 }
 
+func CfnRateBasedRule_ArnForRateBasedRule(resource interfacesawswafregional.IRateBasedRuleRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRateBasedRule_ArnForRateBasedRuleParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnRateBasedRule",
+		"arnForRateBasedRule",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -533,6 +551,25 @@ func CfnRateBasedRule_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wafregional.CfnRateBasedRule",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnRateBasedRule.
+func CfnRateBasedRule_IsCfnRateBasedRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRateBasedRule_IsCfnRateBasedRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wafregional.CfnRateBasedRule",
+		"isCfnRateBasedRule",
 		[]interface{}{x},
 		&returns,
 	)

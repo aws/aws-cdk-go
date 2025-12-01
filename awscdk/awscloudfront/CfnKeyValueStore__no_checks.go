@@ -76,6 +76,10 @@ func validateCfnKeyValueStore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnKeyValueStore_IsCfnKeyValueStoreParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnKeyValueStore_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

@@ -163,6 +163,14 @@ func validateCfnGlobalCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGlobalCluster_IsCfnGlobalClusterParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnGlobalCluster_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -496,6 +496,25 @@ func CfnRequestValidator_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRequestValidator.
+func CfnRequestValidator_IsCfnRequestValidator(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRequestValidator_IsCfnRequestValidatorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnRequestValidator",
+		"isCfnRequestValidator",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRequestValidator_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

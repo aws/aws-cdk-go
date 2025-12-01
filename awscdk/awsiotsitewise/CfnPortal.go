@@ -759,6 +759,25 @@ func CfnPortal_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPortal.
+func CfnPortal_IsCfnPortal(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPortal_IsCfnPortalParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"isCfnPortal",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPortal_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

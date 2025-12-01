@@ -521,6 +521,25 @@ func CfnRecipe_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRecipe.
+func CfnRecipe_IsCfnRecipe(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRecipe_IsCfnRecipeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_databrew.CfnRecipe",
+		"isCfnRecipe",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRecipe_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

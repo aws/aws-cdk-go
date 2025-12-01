@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnByteMatchSet) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnByteMatchSet_ArnForByteMatchSetParameters(resource interfacesawswaf.IByteMatchSetRef) error {
+	return nil
+}
+
+func validateCfnByteMatchSet_IsCfnByteMatchSetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnByteMatchSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

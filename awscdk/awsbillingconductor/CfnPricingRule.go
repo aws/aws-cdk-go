@@ -729,6 +729,25 @@ func CfnPricingRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPricingRule.
+func CfnPricingRule_IsCfnPricingRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPricingRule_IsCfnPricingRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_billingconductor.CfnPricingRule",
+		"isCfnPricingRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPricingRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

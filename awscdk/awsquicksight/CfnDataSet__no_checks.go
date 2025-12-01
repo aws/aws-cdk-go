@@ -72,6 +72,10 @@ func validateCfnDataSet_ArnForDataSetParameters(resource interfacesawsquicksight
 	return nil
 }
 
+func validateCfnDataSet_IsCfnDataSetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

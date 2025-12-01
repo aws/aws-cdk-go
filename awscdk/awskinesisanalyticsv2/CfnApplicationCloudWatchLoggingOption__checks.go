@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateValidateProper
 	return nil
 }
 
+func validateCfnApplicationCloudWatchLoggingOption_IsCfnApplicationCloudWatchLoggingOptionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApplicationCloudWatchLoggingOption_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

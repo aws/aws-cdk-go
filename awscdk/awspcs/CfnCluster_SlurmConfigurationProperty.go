@@ -48,7 +48,7 @@ type CfnCluster_SlurmConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-authkey
 	//
 	AuthKey interface{} `field:"optional" json:"authKey" yaml:"authKey"`
-	// JWT authentication configuration for Slurm.
+	// The JWT authentication configuration for Slurm REST API access.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-jwtauth
 	//
 	JwtAuth interface{} `field:"optional" json:"jwtAuth" yaml:"jwtAuth"`
@@ -62,7 +62,7 @@ type CfnCluster_SlurmConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmcustomsettings
 	//
 	SlurmCustomSettings interface{} `field:"optional" json:"slurmCustomSettings" yaml:"slurmCustomSettings"`
-	// The SlurmRest configuration includes configurable settings for Slurm Rest.
+	// The Slurm REST API configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmrest
 	//
 	SlurmRest interface{} `field:"optional" json:"slurmRest" yaml:"slurmRest"`

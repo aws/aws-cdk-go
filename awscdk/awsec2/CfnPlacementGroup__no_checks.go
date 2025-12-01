@@ -72,6 +72,10 @@ func validateCfnPlacementGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPlacementGroup_IsCfnPlacementGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPlacementGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

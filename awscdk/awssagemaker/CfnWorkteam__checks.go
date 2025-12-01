@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,6 +156,14 @@ func (c *jsiiProxy_CfnWorkteam) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnWorkteam_ArnForWorkteamParameters(resource interfacesawssagemaker.IWorkteamRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnWorkteam_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -164,6 +173,14 @@ func validateCfnWorkteam_IsCfnElementParameters(x interface{}) error {
 }
 
 func validateCfnWorkteam_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnWorkteam_IsCfnWorkteamParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
 	}

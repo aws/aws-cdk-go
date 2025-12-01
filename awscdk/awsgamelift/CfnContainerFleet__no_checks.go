@@ -72,7 +72,15 @@ func validateCfnContainerFleet_ArnForContainerFleetParameters(resource interface
 	return nil
 }
 
+func validateCfnContainerFleet_FromContainerFleetArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnContainerFleet_FromFleetIdParameters(scope constructs.Construct, id *string, fleetId *string) error {
+	return nil
+}
+
+func validateCfnContainerFleet_IsCfnContainerFleetParameters(x interface{}) error {
 	return nil
 }
 

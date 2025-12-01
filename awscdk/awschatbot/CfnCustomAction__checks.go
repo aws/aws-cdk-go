@@ -164,6 +164,14 @@ func validateCfnCustomAction_ArnForCustomActionParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnCustomAction_IsCfnCustomActionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCustomAction_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

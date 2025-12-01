@@ -80,6 +80,10 @@ func validateCfnSink_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSink_IsCfnSinkParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSink_IsConstructParameters(x interface{}) error {
 	return nil
 }

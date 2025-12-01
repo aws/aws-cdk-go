@@ -453,6 +453,25 @@ func CfnVPCBlockPublicAccessOptions_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVPCBlockPublicAccessOptions.
+func CfnVPCBlockPublicAccessOptions_IsCfnVPCBlockPublicAccessOptions(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVPCBlockPublicAccessOptions_IsCfnVPCBlockPublicAccessOptionsParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPCBlockPublicAccessOptions",
+		"isCfnVPCBlockPublicAccessOptions",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

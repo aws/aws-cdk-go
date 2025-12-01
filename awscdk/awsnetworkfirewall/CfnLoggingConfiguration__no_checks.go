@@ -72,6 +72,10 @@ func validateCfnLoggingConfiguration_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnLoggingConfiguration_IsCfnLoggingConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLoggingConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

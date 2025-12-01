@@ -493,6 +493,25 @@ func CfnAggregatorV2_ArnForAggregatorV2(resource interfacesawssecurityhub.IAggre
 	return returns
 }
 
+// Checks whether the given object is a CfnAggregatorV2.
+func CfnAggregatorV2_IsCfnAggregatorV2(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAggregatorV2_IsCfnAggregatorV2Parameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_securityhub.CfnAggregatorV2",
+		"isCfnAggregatorV2",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

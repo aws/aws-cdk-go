@@ -592,6 +592,25 @@ func CfnEmailContact_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEmailContact.
+func CfnEmailContact_IsCfnEmailContact(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEmailContact_IsCfnEmailContactParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_notificationscontacts.CfnEmailContact",
+		"isCfnEmailContact",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEmailContact_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

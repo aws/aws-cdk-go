@@ -29,6 +29,9 @@ type CfnEventSourceMappingPropsMixin_ProvisionedPollerConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html#cfn-lambda-eventsourcemapping-provisionedpollerconfig-minimumpollers
 	//
 	MinimumPollers *float64 `field:"optional" json:"minimumPollers" yaml:"minimumPollers"`
+	// (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group.
+	//
+	// Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html#cfn-lambda-eventsourcemapping-provisionedpollerconfig-pollergroupname
 	//
 	PollerGroupName *string `field:"optional" json:"pollerGroupName" yaml:"pollerGroupName"`

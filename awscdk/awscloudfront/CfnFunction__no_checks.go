@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnFunction) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnFunction_ArnForFunctionParameters(resource interfacesawscloudfront.IFunctionRef) error {
+	return nil
+}
+
 func validateCfnFunction_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnFunction_IsCfnFunctionParameters(x interface{}) error {
 	return nil
 }
 

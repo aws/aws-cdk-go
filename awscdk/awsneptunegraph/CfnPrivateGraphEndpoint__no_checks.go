@@ -72,6 +72,10 @@ func validateCfnPrivateGraphEndpoint_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnPrivateGraphEndpoint_IsCfnPrivateGraphEndpointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPrivateGraphEndpoint_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

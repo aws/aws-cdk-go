@@ -1,7 +1,9 @@
 package awsecr
 
 
-// An array of objects representing the details of a repository filter.
+// A repository filter used to determine which repositories have their images automatically signed on push.
+//
+// Each filter consists of a filter type and filter value.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +18,21 @@ package awsecr
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-signingconfiguration-repositoryfilter.html
 //
 type CfnSigningConfiguration_RepositoryFilterProperty struct {
-	// Repository name pattern (supports '*' wildcard).
+	// The filter value used to match repository names.
+	//
+	// When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
+	//
+	// Examples:
+	//
+	// - `myapp/*` - Matches all repositories starting with `myapp/`
+	// - `* /production` - Matches all repositories ending with `/production`
+	// - `*prod*` - Matches all repositories containing `prod`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-signingconfiguration-repositoryfilter.html#cfn-ecr-signingconfiguration-repositoryfilter-filter
 	//
 	Filter *string `field:"required" json:"filter" yaml:"filter"`
-	// Type of repository filter.
+	// The type of filter to apply.
+	//
+	// Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-signingconfiguration-repositoryfilter.html#cfn-ecr-signingconfiguration-repositoryfilter-filtertype
 	//
 	FilterType *string `field:"required" json:"filterType" yaml:"filterType"`

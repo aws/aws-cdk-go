@@ -72,6 +72,10 @@ func validateCfnCloudVmCluster_ArnForCloudVmClusterParameters(resource interface
 	return nil
 }
 
+func validateCfnCloudVmCluster_IsCfnCloudVmClusterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCloudVmCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

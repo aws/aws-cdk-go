@@ -80,6 +80,10 @@ func validateCfnVPCEConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVPCEConfiguration_IsCfnVPCEConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPCEConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

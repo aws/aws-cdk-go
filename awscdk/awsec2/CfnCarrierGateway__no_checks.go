@@ -76,6 +76,10 @@ func validateCfnCarrierGateway_FromCarrierGatewayIdParameters(scope constructs.C
 	return nil
 }
 
+func validateCfnCarrierGateway_IsCfnCarrierGatewayParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCarrierGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

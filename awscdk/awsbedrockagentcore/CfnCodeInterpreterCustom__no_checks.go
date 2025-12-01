@@ -72,7 +72,15 @@ func validateCfnCodeInterpreterCustom_ArnForCodeInterpreterCustomParameters(reso
 	return nil
 }
 
+func validateCfnCodeInterpreterCustom_FromCodeInterpreterCustomArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnCodeInterpreterCustom_FromCodeInterpreterIdParameters(scope constructs.Construct, id *string, codeInterpreterId *string) error {
+	return nil
+}
+
+func validateCfnCodeInterpreterCustom_IsCfnCodeInterpreterCustomParameters(x interface{}) error {
 	return nil
 }
 

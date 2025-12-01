@@ -580,6 +580,25 @@ func CfnInstanceProfile_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInstanceProfile.
+func CfnInstanceProfile_IsCfnInstanceProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceProfile_IsCfnInstanceProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devicefarm.CfnInstanceProfile",
+		"isCfnInstanceProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInstanceProfile_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

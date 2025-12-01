@@ -10,10 +10,13 @@ package interfacesawsroute53profiles
 //
 //   profileAssociationReference := &ProfileAssociationReference{
 //   	ProfileAssociationId: jsii.String("profileAssociationId"),
+//   	ResourceId: jsii.String("resourceId"),
 //   }
 //
 type ProfileAssociationReference struct {
 	// The Id of the ProfileAssociation resource.
 	ProfileAssociationId *string `field:"required" json:"profileAssociationId" yaml:"profileAssociationId"`
+	// The ResourceId of the ProfileAssociation resource.
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 }
 

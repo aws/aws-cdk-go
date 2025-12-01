@@ -164,6 +164,14 @@ func validateCfnAccount_ArnForAccountParameters(resource interfacesawsorganizati
 	return nil
 }
 
+func validateCfnAccount_IsCfnAccountParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAccount_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

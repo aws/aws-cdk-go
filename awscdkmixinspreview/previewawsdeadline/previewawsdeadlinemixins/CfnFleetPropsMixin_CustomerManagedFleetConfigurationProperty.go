@@ -1,7 +1,7 @@
 package previewawsdeadlinemixins
 
 
-// The details of a customer managed fleet configuration.
+// The configuration details for a customer managed fleet.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,23 +55,19 @@ package previewawsdeadlinemixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html
 //
 type CfnFleetPropsMixin_CustomerManagedFleetConfigurationProperty struct {
-	// The AWS Auto Scaling mode for the customer managed fleet configuration.
+	// The Auto Scaling mode for the customer managed fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
-	// The storage profile ID.
+	// The storage profile ID for the customer managed fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-storageprofileid
 	//
 	StorageProfileId *string `field:"optional" json:"storageProfileId" yaml:"storageProfileId"`
-	// Specifies whether tags associated with a fleet are attached to workers when the worker is launched.
-	//
-	// When the `tagPropagationMode` is set to `PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH` any tag associated with a fleet is attached to workers when they launch. If the tags for a fleet change, the tags associated with running workers *do not* change.
-	//
-	// If you don't specify `tagPropagationMode` , the default is `NO_PROPAGATION` .
+	// The tag propagation mode for the customer managed fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-tagpropagationmode
 	//
 	TagPropagationMode *string `field:"optional" json:"tagPropagationMode" yaml:"tagPropagationMode"`
-	// The worker capabilities for a customer managed fleet configuration.
+	// The worker capabilities for the customer managed fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-workercapabilities
 	//
 	WorkerCapabilities interface{} `field:"optional" json:"workerCapabilities" yaml:"workerCapabilities"`

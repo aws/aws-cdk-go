@@ -76,6 +76,10 @@ func validateCfnStandard_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStandard_IsCfnStandardParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStandard_IsConstructParameters(x interface{}) error {
 	return nil
 }

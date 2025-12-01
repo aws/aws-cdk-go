@@ -164,6 +164,14 @@ func validateCfnContainerRecipe_ArnForContainerRecipeParameters(resource interfa
 	return nil
 }
 
+func validateCfnContainerRecipe_IsCfnContainerRecipeParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnContainerRecipe_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

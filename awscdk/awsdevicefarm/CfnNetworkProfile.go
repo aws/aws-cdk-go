@@ -707,6 +707,25 @@ func CfnNetworkProfile_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnNetworkProfile.
+func CfnNetworkProfile_IsCfnNetworkProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkProfile_IsCfnNetworkProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devicefarm.CfnNetworkProfile",
+		"isCfnNetworkProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnNetworkProfile_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

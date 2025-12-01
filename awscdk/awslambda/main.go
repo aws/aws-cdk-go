@@ -221,6 +221,42 @@ func init() {
 		reflect.TypeOf((*BucketOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.CapacityProvider",
+		reflect.TypeOf((*CapacityProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addFunction", GoMethod: "AddFunction"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderArn", GoGetter: "CapacityProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderName", GoGetter: "CapacityProviderName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CapacityProvider{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICapacityProvider)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CapacityProviderAttributes",
+		reflect.TypeOf((*CapacityProviderAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CapacityProviderFunctionOptions",
+		reflect.TypeOf((*CapacityProviderFunctionOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CapacityProviderProps",
+		reflect.TypeOf((*CapacityProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.CfnAlias",
 		reflect.TypeOf((*CfnAlias)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -287,6 +323,86 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnAliasProps",
 		reflect.TypeOf((*CfnAliasProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProvider",
+		reflect.TypeOf((*CfnCapacityProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderName", GoGetter: "CapacityProviderName"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderRef", GoGetter: "CapacityProviderRef"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderScalingConfig", GoGetter: "CapacityProviderScalingConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRequirements", GoGetter: "InstanceRequirements"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyArn", GoGetter: "KmsKeyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "permissionsConfig", GoGetter: "PermissionsConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcConfig", GoGetter: "VpcConfig"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnCapacityProvider{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslambdaICapacityProviderRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProvider.CapacityProviderPermissionsConfigProperty",
+		reflect.TypeOf((*CfnCapacityProvider_CapacityProviderPermissionsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProvider.CapacityProviderScalingConfigProperty",
+		reflect.TypeOf((*CfnCapacityProvider_CapacityProviderScalingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProvider.CapacityProviderVpcConfigProperty",
+		reflect.TypeOf((*CfnCapacityProvider_CapacityProviderVpcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProvider.InstanceRequirementsProperty",
+		reflect.TypeOf((*CfnCapacityProvider_InstanceRequirementsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProvider.TargetTrackingScalingPolicyProperty",
+		reflect.TypeOf((*CfnCapacityProvider_TargetTrackingScalingPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProviderProps",
+		reflect.TypeOf((*CfnCapacityProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
@@ -585,6 +701,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponse", GoGetter: "AttrSnapStartResponse"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponseApplyOn", GoGetter: "AttrSnapStartResponseApplyOn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSnapStartResponseOptimizationStatus", GoGetter: "AttrSnapStartResponseOptimizationStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderConfig", GoGetter: "CapacityProviderConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -599,6 +716,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "fileSystemConfigs", GoGetter: "FileSystemConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
 			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "functionScalingConfig", GoGetter: "FunctionScalingConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "handler", GoGetter: "Handler"},
@@ -614,6 +732,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "packageType", GoGetter: "PackageType"},
+			_jsii_.MemberProperty{JsiiProperty: "publishToLatestPublished", GoGetter: "PublishToLatestPublished"},
 			_jsii_.MemberProperty{JsiiProperty: "recursiveLoop", GoGetter: "RecursiveLoop"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -647,6 +766,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.CapacityProviderConfigProperty",
+		reflect.TypeOf((*CfnFunction_CapacityProviderConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.CodeProperty",
 		reflect.TypeOf((*CfnFunction_CodeProperty)(nil)).Elem(),
 	)
@@ -667,8 +790,16 @@ func init() {
 		reflect.TypeOf((*CfnFunction_FileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.FunctionScalingConfigProperty",
+		reflect.TypeOf((*CfnFunction_FunctionScalingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.ImageConfigProperty",
 		reflect.TypeOf((*CfnFunction_ImageConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.LambdaManagedInstancesCapacityProviderConfigProperty",
+		reflect.TypeOf((*CfnFunction_LambdaManagedInstancesCapacityProviderConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.LoggingConfigProperty",
@@ -978,6 +1109,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "functionScalingConfig", GoGetter: "FunctionScalingConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -1007,6 +1139,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawslambdaIVersionRef)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnVersion.FunctionScalingConfigProperty",
+		reflect.TypeOf((*CfnVersion_FunctionScalingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnVersion.ProvisionedConcurrencyConfigurationProperty",
@@ -1543,6 +1679,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_lambda.ICapacityProvider",
+		reflect.TypeOf((*ICapacityProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderArn", GoGetter: "CapacityProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderName", GoGetter: "CapacityProviderName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICapacityProvider{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_lambda.ICodeSigningConfig",
 		reflect.TypeOf((*ICodeSigningConfig)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1782,6 +1935,17 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.InstanceTypeFilter",
+		reflect.TypeOf((*InstanceTypeFilter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "allowedInstanceTypes", GoGetter: "AllowedInstanceTypes"},
+			_jsii_.MemberProperty{JsiiProperty: "excludedInstanceTypes", GoGetter: "ExcludedInstanceTypes"},
+		},
+		func() interface{} {
+			return &jsiiProxy_InstanceTypeFilter{}
+		},
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_lambda.InvokeMode",
 		reflect.TypeOf((*InvokeMode)(nil)).Elem(),
@@ -1835,6 +1999,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.LambdaRuntimeProps",
 		reflect.TypeOf((*LambdaRuntimeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.LatestPublishedScalingConfig",
+		reflect.TypeOf((*LatestPublishedScalingConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.LayerVersion",
@@ -2082,6 +2250,17 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.ScalingOptions",
+		reflect.TypeOf((*ScalingOptions)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "scalingMode", GoGetter: "ScalingMode"},
+			_jsii_.MemberProperty{JsiiProperty: "scalingPolicies", GoGetter: "ScalingPolicies"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ScalingOptions{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.SchemaRegistryProps",
 		reflect.TypeOf((*SchemaRegistryProps)(nil)).Elem(),
@@ -2188,6 +2367,19 @@ func init() {
 			"INFO": SystemLogLevel_INFO,
 			"DEBUG": SystemLogLevel_DEBUG,
 			"WARN": SystemLogLevel_WARN,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.TargetTrackingScalingPolicy",
+		reflect.TypeOf((*TargetTrackingScalingPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "metricType", GoGetter: "MetricType"},
+			_jsii_.MemberProperty{JsiiProperty: "predefinedMetricType", GoGetter: "PredefinedMetricType"},
+			_jsii_.MemberProperty{JsiiProperty: "targetValue", GoGetter: "TargetValue"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TargetTrackingScalingPolicy{}
 		},
 	)
 	_jsii_.RegisterClass(

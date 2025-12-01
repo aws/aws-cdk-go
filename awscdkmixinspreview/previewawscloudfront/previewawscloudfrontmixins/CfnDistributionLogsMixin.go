@@ -122,6 +122,17 @@ func CfnDistributionLogsMixin_IsMixin(x interface{}) *bool {
 	return returns
 }
 
+func CfnDistributionLogsMixin_ACCESS_LOGS() CfnDistributionAccessLogs {
+	_init_.Initialize()
+	var returns CfnDistributionAccessLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_cloudfront.mixins.CfnDistributionLogsMixin",
+		"ACCESS_LOGS",
+		&returns,
+	)
+	return returns
+}
+
 func CfnDistributionLogsMixin_CONNECTION_LOGS() CfnDistributionConnectionLogs {
 	_init_.Initialize()
 	var returns CfnDistributionConnectionLogs

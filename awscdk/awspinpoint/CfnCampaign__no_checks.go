@@ -72,6 +72,10 @@ func validateCfnCampaign_ArnForCampaignParameters(resource interfacesawspinpoint
 	return nil
 }
 
+func validateCfnCampaign_IsCfnCampaignParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCampaign_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

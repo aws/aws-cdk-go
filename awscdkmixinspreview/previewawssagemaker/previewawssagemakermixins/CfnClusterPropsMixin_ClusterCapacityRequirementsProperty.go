@@ -1,7 +1,7 @@
 package previewawssagemakermixins
 
 
-// Specifies the capacity requirements configuration for an instance group.
+// Defines the instance capacity requirements for an instance group, including configurations for both Spot and On-Demand capacity types.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,11 +19,11 @@ package previewawssagemakermixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clustercapacityrequirements.html
 //
 type CfnClusterPropsMixin_ClusterCapacityRequirementsProperty struct {
-	// Options for OnDemand capacity.
+	// Configuration options specific to On-Demand instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clustercapacityrequirements.html#cfn-sagemaker-cluster-clustercapacityrequirements-ondemand
 	//
 	OnDemand interface{} `field:"optional" json:"onDemand" yaml:"onDemand"`
-	// Options for Spot capacity.
+	// Configuration options specific to Spot instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clustercapacityrequirements.html#cfn-sagemaker-cluster-clustercapacityrequirements-spot
 	//
 	Spot interface{} `field:"optional" json:"spot" yaml:"spot"`

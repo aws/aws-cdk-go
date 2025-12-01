@@ -456,6 +456,25 @@ func CfnQueueFleetAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnQueueFleetAssociation.
+func CfnQueueFleetAssociation_IsCfnQueueFleetAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnQueueFleetAssociation_IsCfnQueueFleetAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_deadline.CfnQueueFleetAssociation",
+		"isCfnQueueFleetAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnQueueFleetAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

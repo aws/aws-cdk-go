@@ -171,6 +171,14 @@ func validateCfnSecurityPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSecurityPolicy_IsCfnSecurityPolicyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSecurityPolicy_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

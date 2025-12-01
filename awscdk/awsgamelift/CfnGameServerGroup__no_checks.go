@@ -76,6 +76,10 @@ func validateCfnGameServerGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGameServerGroup_IsCfnGameServerGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnGameServerGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

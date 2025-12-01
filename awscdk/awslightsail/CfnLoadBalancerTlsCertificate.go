@@ -576,6 +576,25 @@ func CfnLoadBalancerTlsCertificate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLoadBalancerTlsCertificate.
+func CfnLoadBalancerTlsCertificate_IsCfnLoadBalancerTlsCertificate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLoadBalancerTlsCertificate_IsCfnLoadBalancerTlsCertificateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lightsail.CfnLoadBalancerTlsCertificate",
+		"isCfnLoadBalancerTlsCertificate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLoadBalancerTlsCertificate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

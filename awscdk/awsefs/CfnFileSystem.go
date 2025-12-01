@@ -817,6 +817,25 @@ func CfnFileSystem_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFileSystem.
+func CfnFileSystem_IsCfnFileSystem(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFileSystem_IsCfnFileSystemParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_efs.CfnFileSystem",
+		"isCfnFileSystem",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFileSystem_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

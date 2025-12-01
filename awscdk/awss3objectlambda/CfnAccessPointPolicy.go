@@ -55,7 +55,7 @@ type CfnAccessPointPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// > Amazon S3 Object Lambda will no longer be open to new customers starting on 11/7/2025.
+	// An access point with an attached AWS Lambda function used to access transformed data from an Amazon S3 bucket.
 	ObjectLambdaAccessPoint() *string
 	SetObjectLambdaAccessPoint(val *string)
 	// Object Lambda Access Point resource policy document.
@@ -407,6 +407,25 @@ func (j *jsiiProxy_CfnAccessPointPolicy)SetPolicyDocument(val interface{}) {
 		"policyDocument",
 		val,
 	)
+}
+
+// Checks whether the given object is a CfnAccessPointPolicy.
+func CfnAccessPointPolicy_IsCfnAccessPointPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPointPolicy_IsCfnAccessPointPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicy",
+		"isCfnAccessPointPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

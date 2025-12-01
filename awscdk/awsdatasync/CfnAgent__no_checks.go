@@ -72,6 +72,10 @@ func validateCfnAgent_ArnForAgentParameters(resource interfacesawsdatasync.IAgen
 	return nil
 }
 
+func validateCfnAgent_IsCfnAgentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAgent_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

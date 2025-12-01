@@ -212,6 +212,14 @@ func validateCfnVirtualCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVirtualCluster_IsCfnVirtualClusterParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVirtualCluster_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

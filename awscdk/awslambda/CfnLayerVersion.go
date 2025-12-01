@@ -560,6 +560,25 @@ func CfnLayerVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLayerVersion.
+func CfnLayerVersion_IsCfnLayerVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLayerVersion_IsCfnLayerVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnLayerVersion",
+		"isCfnLayerVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLayerVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

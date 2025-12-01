@@ -700,6 +700,25 @@ func CfnGuardHook_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGuardHook.
+func CfnGuardHook_IsCfnGuardHook(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGuardHook_IsCfnGuardHookParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnGuardHook",
+		"isCfnGuardHook",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGuardHook_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

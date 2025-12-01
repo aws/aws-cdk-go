@@ -84,6 +84,10 @@ func validateCfnFileSystem_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFileSystem_IsCfnFileSystemParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFileSystem_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

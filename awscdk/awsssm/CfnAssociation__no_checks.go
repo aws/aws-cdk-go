@@ -76,6 +76,10 @@ func validateCfnAssociation_FromAssociationIdParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnAssociation_IsCfnAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

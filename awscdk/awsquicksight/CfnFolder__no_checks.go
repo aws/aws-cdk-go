@@ -76,6 +76,10 @@ func validateCfnFolder_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFolder_IsCfnFolderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFolder_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

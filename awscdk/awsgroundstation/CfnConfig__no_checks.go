@@ -72,6 +72,10 @@ func validateCfnConfig_ArnForConfigParameters(resource interfacesawsgroundstatio
 	return nil
 }
 
+func validateCfnConfig_IsCfnConfigParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

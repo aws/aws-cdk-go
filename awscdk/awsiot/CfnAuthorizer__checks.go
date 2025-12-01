@@ -196,6 +196,14 @@ func validateCfnAuthorizer_FromAuthorizerNameParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnAuthorizer_IsCfnAuthorizerParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAuthorizer_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

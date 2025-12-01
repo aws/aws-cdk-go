@@ -72,6 +72,10 @@ func validateCfnPublishingDestination_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnPublishingDestination_IsCfnPublishingDestinationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPublishingDestination_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

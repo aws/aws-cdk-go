@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDeploymentGroup) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDeploymentGroup_IsCfnDeploymentGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDeploymentGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

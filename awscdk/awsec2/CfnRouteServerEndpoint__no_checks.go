@@ -88,6 +88,10 @@ func validateCfnRouteServerEndpoint_IsCfnResourceParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnRouteServerEndpoint_IsCfnRouteServerEndpointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRouteServerEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }

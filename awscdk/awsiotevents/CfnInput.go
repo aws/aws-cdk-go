@@ -541,6 +541,25 @@ func CfnInput_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInput.
+func CfnInput_IsCfnInput(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInput_IsCfnInputParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotevents.CfnInput",
+		"isCfnInput",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInput_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

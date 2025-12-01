@@ -80,6 +80,10 @@ func validateCfnChannel_FromChannelIdParameters(scope constructs.Construct, id *
 	return nil
 }
 
+func validateCfnChannel_IsCfnChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

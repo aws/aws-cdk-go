@@ -515,6 +515,25 @@ func CfnPullThroughCacheRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPullThroughCacheRule.
+func CfnPullThroughCacheRule_IsCfnPullThroughCacheRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPullThroughCacheRule_IsCfnPullThroughCacheRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnPullThroughCacheRule",
+		"isCfnPullThroughCacheRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPullThroughCacheRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

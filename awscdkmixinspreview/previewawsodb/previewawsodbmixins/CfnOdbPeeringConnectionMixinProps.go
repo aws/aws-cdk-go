@@ -12,6 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnOdbPeeringConnectionMixinProps := &CfnOdbPeeringConnectionMixinProps{
+//   	AdditionalPeerNetworkCidrs: []*string{
+//   		jsii.String("additionalPeerNetworkCidrs"),
+//   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	OdbNetworkId: jsii.String("odbNetworkId"),
 //   	PeerNetworkId: jsii.String("peerNetworkId"),
@@ -26,6 +29,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbpeeringconnection.html
 //
 type CfnOdbPeeringConnectionMixinProps struct {
+	// The additional CIDR blocks for the ODB peering connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbpeeringconnection.html#cfn-odb-odbpeeringconnection-additionalpeernetworkcidrs
+	//
+	AdditionalPeerNetworkCidrs *[]*string `field:"optional" json:"additionalPeerNetworkCidrs" yaml:"additionalPeerNetworkCidrs"`
 	// The display name of the ODB peering connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbpeeringconnection.html#cfn-odb-odbpeeringconnection-displayname
 	//

@@ -72,6 +72,10 @@ func validateCfnExpressGatewayService_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnExpressGatewayService_IsCfnExpressGatewayServiceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnExpressGatewayService_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

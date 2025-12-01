@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnClusterPolicy) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnClusterPolicy_IsCfnClusterPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClusterPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

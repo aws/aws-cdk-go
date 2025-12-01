@@ -164,6 +164,14 @@ func validateCfnCustomPermissions_ArnForCustomPermissionsParameters(resource int
 	return nil
 }
 
+func validateCfnCustomPermissions_IsCfnCustomPermissionsParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCustomPermissions_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -585,6 +585,25 @@ func CfnLandingZone_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLandingZone.
+func CfnLandingZone_IsCfnLandingZone(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLandingZone_IsCfnLandingZoneParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_controltower.CfnLandingZone",
+		"isCfnLandingZone",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLandingZone_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

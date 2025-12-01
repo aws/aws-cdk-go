@@ -76,6 +76,10 @@ func validateCfnVolumeAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVolumeAssociation_IsCfnVolumeAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVolumeAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

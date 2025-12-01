@@ -80,6 +80,10 @@ func validateCfnServiceEnvironment_IsCfnResourceParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnServiceEnvironment_IsCfnServiceEnvironmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnServiceEnvironment_IsConstructParameters(x interface{}) error {
 	return nil
 }

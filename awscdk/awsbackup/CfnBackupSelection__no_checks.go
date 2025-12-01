@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBackupSelection) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnBackupSelection_IsCfnBackupSelectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBackupSelection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

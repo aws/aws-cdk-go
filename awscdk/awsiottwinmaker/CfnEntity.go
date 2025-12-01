@@ -791,6 +791,25 @@ func CfnEntity_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEntity.
+func CfnEntity_IsCfnEntity(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEntity_IsCfnEntityParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
+		"isCfnEntity",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEntity_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

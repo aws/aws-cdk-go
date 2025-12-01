@@ -180,6 +180,14 @@ func validateCfnVirtualGateway_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVirtualGateway_IsCfnVirtualGatewayParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVirtualGateway_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

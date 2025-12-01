@@ -76,6 +76,10 @@ func validateCfnServiceActionAssociation_IsCfnResourceParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnServiceActionAssociation_IsCfnServiceActionAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnServiceActionAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -196,6 +196,18 @@ func init() {
 		reflect.TypeOf((*CfnContinuousDeploymentPolicyPropsMixin_TrafficConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_cloudfront.mixins.CfnDistributionAccessLogs",
+		reflect.TypeOf((*CfnDistributionAccessLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnDistributionAccessLogs{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_cloudfront.mixins.CfnDistributionConnectionLogs",
 		reflect.TypeOf((*CfnDistributionConnectionLogs)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -80,6 +80,10 @@ func validateCfnConfigurationSet_FromConfigurationSetNameParameters(scope constr
 	return nil
 }
 
+func validateCfnConfigurationSet_IsCfnConfigurationSetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConfigurationSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

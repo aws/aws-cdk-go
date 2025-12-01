@@ -180,6 +180,14 @@ func validateCfnTestGridProject_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTestGridProject_IsCfnTestGridProjectParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTestGridProject_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

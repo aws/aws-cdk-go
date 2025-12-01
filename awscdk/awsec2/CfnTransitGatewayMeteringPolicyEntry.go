@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// AWS::EC2::TransitGatewayMeteringPolicyEntry Resource Definition.
+// Creates an entry in a transit gateway metering policy to define traffic measurement rules.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,9 +41,9 @@ type CfnTransitGatewayMeteringPolicyEntry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsec2.ITransitGatewayMeteringPolicyEntryRef
-	// State of the transit gateway metering policy.
+	// The state of the metering policy entry.
 	AttrState() *string
-	// The timestamp at which the latest action performed on the metering policy entry will become effective.
+	// The date and time when the metering policy entry update becomes effective.
 	AttrUpdateEffectiveAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,10 +54,10 @@ type CfnTransitGatewayMeteringPolicyEntry interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The list of IP addresses of the instances receiving traffic from the transit gateway.
+	// Describes an IPv4 CIDR block.
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
-	// The list of ports on destination instances receiving traffic from the transit gateway.
+	// Describes a range of ports.
 	DestinationPortRange() *string
 	SetDestinationPortRange(val *string)
 	// The ID of the source attachment through which traffic leaves a transit gateway.
@@ -76,6 +76,7 @@ type CfnTransitGatewayMeteringPolicyEntry interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The AWS account ID to which the metered traffic is attributed.
 	MeteredAccount() *string
 	SetMeteredAccount(val *string)
 	// The tree node.
@@ -91,10 +92,10 @@ type CfnTransitGatewayMeteringPolicyEntry interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The list of IP addresses of the instances sending traffic to the transit gateway for which the metering policy entry is applicable.
+	// Describes an IPv4 CIDR block.
 	SourceCidrBlock() *string
 	SetSourceCidrBlock(val *string)
-	// The list of ports on source instances sending traffic to the transit gateway.
+	// Describes a range of ports.
 	SourcePortRange() *string
 	SetSourcePortRange(val *string)
 	// The ID of the source attachment through which traffic enters a transit gateway.
@@ -689,6 +690,25 @@ func CfnTransitGatewayMeteringPolicyEntry_IsCfnResource(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMeteringPolicyEntry",
 		"isCfnResource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnTransitGatewayMeteringPolicyEntry.
+func CfnTransitGatewayMeteringPolicyEntry_IsCfnTransitGatewayMeteringPolicyEntry(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayMeteringPolicyEntry_IsCfnTransitGatewayMeteringPolicyEntryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMeteringPolicyEntry",
+		"isCfnTransitGatewayMeteringPolicyEntry",
 		[]interface{}{x},
 		&returns,
 	)

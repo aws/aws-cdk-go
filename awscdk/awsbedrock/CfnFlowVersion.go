@@ -530,6 +530,25 @@ func CfnFlowVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFlowVersion.
+func CfnFlowVersion_IsCfnFlowVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFlowVersion_IsCfnFlowVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion",
+		"isCfnFlowVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFlowVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

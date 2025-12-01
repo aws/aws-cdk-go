@@ -665,6 +665,25 @@ func CfnStateTemplate_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStateTemplate.
+func CfnStateTemplate_IsCfnStateTemplate(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStateTemplate_IsCfnStateTemplateParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotfleetwise.CfnStateTemplate",
+		"isCfnStateTemplate",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

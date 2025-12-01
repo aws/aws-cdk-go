@@ -76,6 +76,10 @@ func validateCfnRotationSchedule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRotationSchedule_IsCfnRotationScheduleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRotationSchedule_IsConstructParameters(x interface{}) error {
 	return nil
 }

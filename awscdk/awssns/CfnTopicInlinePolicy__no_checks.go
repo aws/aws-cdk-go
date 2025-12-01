@@ -76,6 +76,10 @@ func validateCfnTopicInlinePolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTopicInlinePolicy_IsCfnTopicInlinePolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTopicInlinePolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }

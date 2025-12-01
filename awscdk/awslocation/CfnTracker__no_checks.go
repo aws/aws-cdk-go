@@ -88,6 +88,10 @@ func validateCfnTracker_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTracker_IsCfnTrackerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTracker_IsConstructParameters(x interface{}) error {
 	return nil
 }

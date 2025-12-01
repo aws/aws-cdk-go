@@ -76,6 +76,10 @@ func validateCfnPartnerAccount_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPartnerAccount_IsCfnPartnerAccountParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPartnerAccount_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

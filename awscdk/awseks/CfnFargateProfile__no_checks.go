@@ -76,6 +76,10 @@ func validateCfnFargateProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFargateProfile_IsCfnFargateProfileParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFargateProfile_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

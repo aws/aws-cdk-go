@@ -76,6 +76,10 @@ func validateCfnVoiceChannel_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVoiceChannel_IsCfnVoiceChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVoiceChannel_IsConstructParameters(x interface{}) error {
 	return nil
 }

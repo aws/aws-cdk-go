@@ -196,6 +196,14 @@ func validateCfnAppBlockBuilder_FromAppBlockBuilderNameParameters(scope construc
 	return nil
 }
 
+func validateCfnAppBlockBuilder_IsCfnAppBlockBuilderParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAppBlockBuilder_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

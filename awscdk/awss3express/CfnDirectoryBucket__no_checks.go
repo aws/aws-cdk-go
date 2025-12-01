@@ -80,6 +80,10 @@ func validateCfnDirectoryBucket_FromDirectoryBucketArnParameters(scope construct
 	return nil
 }
 
+func validateCfnDirectoryBucket_IsCfnDirectoryBucketParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDirectoryBucket_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

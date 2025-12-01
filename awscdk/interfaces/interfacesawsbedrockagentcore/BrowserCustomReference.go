@@ -9,10 +9,13 @@ package interfacesawsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   browserCustomReference := &BrowserCustomReference{
+//   	BrowserArn: jsii.String("browserArn"),
 //   	BrowserId: jsii.String("browserId"),
 //   }
 //
 type BrowserCustomReference struct {
+	// The ARN of the BrowserCustom resource.
+	BrowserArn *string `field:"required" json:"browserArn" yaml:"browserArn"`
 	// The BrowserId of the BrowserCustom resource.
 	BrowserId *string `field:"required" json:"browserId" yaml:"browserId"`
 }

@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnAutoScalingGroup_ArnForAutoScalingGroupParameters(resource interfacesawsautoscaling.IAutoScalingGroupRef) error {
+	return nil
+}
+
+func validateCfnAutoScalingGroup_IsCfnAutoScalingGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAutoScalingGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

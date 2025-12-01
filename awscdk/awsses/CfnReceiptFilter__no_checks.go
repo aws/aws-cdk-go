@@ -72,6 +72,10 @@ func validateCfnReceiptFilter_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnReceiptFilter_IsCfnReceiptFilterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnReceiptFilter_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

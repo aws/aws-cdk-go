@@ -80,6 +80,10 @@ func validateCfnApplication_FromApplicationIdParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnApplication_IsCfnApplicationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApplication_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -76,6 +76,10 @@ func validateCfnImagePipeline_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnImagePipeline_IsCfnImagePipelineParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnImagePipeline_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

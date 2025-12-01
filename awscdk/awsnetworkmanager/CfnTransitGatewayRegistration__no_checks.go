@@ -76,6 +76,10 @@ func validateCfnTransitGatewayRegistration_IsCfnResourceParameters(x interface{}
 	return nil
 }
 
+func validateCfnTransitGatewayRegistration_IsCfnTransitGatewayRegistrationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransitGatewayRegistration_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -171,6 +171,14 @@ func validateCfnTagOption_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTagOption_IsCfnTagOptionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTagOption_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -76,7 +76,15 @@ func validateCfnMailManagerAddressList_FromAddressListIdParameters(scope constru
 	return nil
 }
 
+func validateCfnMailManagerAddressList_FromMailManagerAddressListArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnMailManagerAddressList_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnMailManagerAddressList_IsCfnMailManagerAddressListParameters(x interface{}) error {
 	return nil
 }
 

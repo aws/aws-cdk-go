@@ -72,6 +72,10 @@ func validateCfnCloudAutonomousVmCluster_ArnForCloudAutonomousVmClusterParameter
 	return nil
 }
 
+func validateCfnCloudAutonomousVmCluster_IsCfnCloudAutonomousVmClusterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCloudAutonomousVmCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

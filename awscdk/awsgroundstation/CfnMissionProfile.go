@@ -700,6 +700,25 @@ func CfnMissionProfile_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMissionProfile.
+func CfnMissionProfile_IsCfnMissionProfile(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMissionProfile_IsCfnMissionProfileParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_groundstation.CfnMissionProfile",
+		"isCfnMissionProfile",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMissionProfile_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

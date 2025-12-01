@@ -693,6 +693,43 @@ func (j *jsiiProxy_CfnAppMonitor)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnAppMonitor_ArnForAppMonitor(resource interfacesawsrum.IAppMonitorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnAppMonitor_ArnForAppMonitorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rum.CfnAppMonitor",
+		"arnForAppMonitor",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnAppMonitor.
+func CfnAppMonitor_IsCfnAppMonitor(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAppMonitor_IsCfnAppMonitorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rum.CfnAppMonitor",
+		"isCfnAppMonitor",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

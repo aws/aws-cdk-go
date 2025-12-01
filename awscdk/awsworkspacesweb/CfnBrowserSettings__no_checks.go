@@ -72,6 +72,10 @@ func validateCfnBrowserSettings_ArnForBrowserSettingsParameters(resource interfa
 	return nil
 }
 
+func validateCfnBrowserSettings_IsCfnBrowserSettingsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnBrowserSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

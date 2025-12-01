@@ -180,6 +180,14 @@ func validateCfnVpcEndpointAssociation_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnVpcEndpointAssociation_IsCfnVpcEndpointAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVpcEndpointAssociation_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

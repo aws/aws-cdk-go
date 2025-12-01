@@ -164,6 +164,14 @@ func validateCfnCidrCollection_ArnForCidrCollectionParameters(resource interface
 	return nil
 }
 
+func validateCfnCidrCollection_IsCfnCidrCollectionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCidrCollection_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

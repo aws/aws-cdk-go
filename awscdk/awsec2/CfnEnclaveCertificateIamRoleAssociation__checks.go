@@ -163,6 +163,14 @@ func validateCfnEnclaveCertificateIamRoleAssociation_IsCfnElementParameters(x in
 	return nil
 }
 
+func validateCfnEnclaveCertificateIamRoleAssociation_IsCfnEnclaveCertificateIamRoleAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEnclaveCertificateIamRoleAssociation_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -679,6 +679,25 @@ func CfnDataProvider_ArnForDataProvider(resource interfacesawsdms.IDataProviderR
 	return returns
 }
 
+// Checks whether the given object is a CfnDataProvider.
+func CfnDataProvider_IsCfnDataProvider(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDataProvider_IsCfnDataProviderParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dms.CfnDataProvider",
+		"isCfnDataProvider",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

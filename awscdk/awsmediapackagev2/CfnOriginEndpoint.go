@@ -1000,6 +1000,25 @@ func CfnOriginEndpoint_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnOriginEndpoint.
+func CfnOriginEndpoint_IsCfnOriginEndpoint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOriginEndpoint_IsCfnOriginEndpointParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint",
+		"isCfnOriginEndpoint",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnOriginEndpoint_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

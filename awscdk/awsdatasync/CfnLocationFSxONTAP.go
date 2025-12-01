@@ -580,6 +580,25 @@ func CfnLocationFSxONTAP_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLocationFSxONTAP.
+func CfnLocationFSxONTAP_IsCfnLocationFSxONTAP(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLocationFSxONTAP_IsCfnLocationFSxONTAPParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxONTAP",
+		"isCfnLocationFSxONTAP",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLocationFSxONTAP_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

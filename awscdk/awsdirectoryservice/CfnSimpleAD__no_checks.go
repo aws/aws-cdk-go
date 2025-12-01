@@ -84,6 +84,10 @@ func validateCfnSimpleAD_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSimpleAD_IsCfnSimpleADParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSimpleAD_IsConstructParameters(x interface{}) error {
 	return nil
 }

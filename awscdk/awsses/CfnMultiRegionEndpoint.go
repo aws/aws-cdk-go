@@ -485,6 +485,25 @@ func CfnMultiRegionEndpoint_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMultiRegionEndpoint.
+func CfnMultiRegionEndpoint_IsCfnMultiRegionEndpoint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMultiRegionEndpoint_IsCfnMultiRegionEndpointParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMultiRegionEndpoint",
+		"isCfnMultiRegionEndpoint",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMultiRegionEndpoint_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

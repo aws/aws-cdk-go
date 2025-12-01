@@ -80,6 +80,10 @@ func validateCfnKeyspace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnKeyspace_IsCfnKeyspaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnKeyspace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

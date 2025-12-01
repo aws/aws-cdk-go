@@ -76,6 +76,10 @@ func validateCfnFirewallDomainList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFirewallDomainList_IsCfnFirewallDomainListParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFirewallDomainList_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

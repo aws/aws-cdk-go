@@ -171,6 +171,14 @@ func validateCfnSiteToSiteVpnAttachment_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnSiteToSiteVpnAttachment_IsCfnSiteToSiteVpnAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSiteToSiteVpnAttachment_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

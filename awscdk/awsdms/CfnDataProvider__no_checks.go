@@ -72,6 +72,10 @@ func validateCfnDataProvider_ArnForDataProviderParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnDataProvider_IsCfnDataProviderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

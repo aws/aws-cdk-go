@@ -171,6 +171,14 @@ func validateCfnStep_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStep_IsCfnStepParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnStep_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

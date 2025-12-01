@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnAPNSSandboxChannel_IsCfnAPNSSandboxChannelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAPNSSandboxChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

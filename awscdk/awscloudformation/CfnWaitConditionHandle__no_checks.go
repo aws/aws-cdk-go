@@ -76,6 +76,10 @@ func validateCfnWaitConditionHandle_IsCfnResourceParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnWaitConditionHandle_IsCfnWaitConditionHandleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWaitConditionHandle_IsConstructParameters(x interface{}) error {
 	return nil
 }

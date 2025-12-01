@@ -480,6 +480,25 @@ func CfnVolumeAttachment_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVolumeAttachment.
+func CfnVolumeAttachment_IsCfnVolumeAttachment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVolumeAttachment_IsCfnVolumeAttachmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVolumeAttachment",
+		"isCfnVolumeAttachment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

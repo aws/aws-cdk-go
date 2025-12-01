@@ -76,6 +76,10 @@ func validateCfnStackFleetAssociation_IsCfnResourceParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnStackFleetAssociation_IsCfnStackFleetAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStackFleetAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

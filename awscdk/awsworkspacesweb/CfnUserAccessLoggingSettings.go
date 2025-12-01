@@ -519,6 +519,25 @@ func CfnUserAccessLoggingSettings_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnUserAccessLoggingSettings.
+func CfnUserAccessLoggingSettings_IsCfnUserAccessLoggingSettings(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnUserAccessLoggingSettings_IsCfnUserAccessLoggingSettingsParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_workspacesweb.CfnUserAccessLoggingSettings",
+		"isCfnUserAccessLoggingSettings",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

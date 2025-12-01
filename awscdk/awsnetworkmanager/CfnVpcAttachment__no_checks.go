@@ -84,6 +84,10 @@ func validateCfnVpcAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVpcAttachment_IsCfnVpcAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVpcAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }

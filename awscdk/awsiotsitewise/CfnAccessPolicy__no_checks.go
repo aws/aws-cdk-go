@@ -80,6 +80,10 @@ func validateCfnAccessPolicy_FromAccessPolicyIdParameters(scope constructs.Const
 	return nil
 }
 
+func validateCfnAccessPolicy_IsCfnAccessPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

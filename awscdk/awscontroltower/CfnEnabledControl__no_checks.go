@@ -72,6 +72,10 @@ func validateCfnEnabledControl_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEnabledControl_IsCfnEnabledControlParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEnabledControl_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

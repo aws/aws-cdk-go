@@ -196,6 +196,14 @@ func validateCfnACL_FromAclNameParameters(scope constructs.Construct, id *string
 	return nil
 }
 
+func validateCfnACL_IsCfnACLParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnACL_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

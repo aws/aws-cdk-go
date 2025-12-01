@@ -80,6 +80,10 @@ func validateCfnStreamKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStreamKey_IsCfnStreamKeyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStreamKey_IsConstructParameters(x interface{}) error {
 	return nil
 }

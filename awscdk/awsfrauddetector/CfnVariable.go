@@ -646,6 +646,25 @@ func CfnVariable_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVariable.
+func CfnVariable_IsCfnVariable(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVariable_IsCfnVariableParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnVariable",
+		"isCfnVariable",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

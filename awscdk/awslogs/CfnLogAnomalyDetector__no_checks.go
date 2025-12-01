@@ -72,6 +72,10 @@ func validateCfnLogAnomalyDetector_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLogAnomalyDetector_IsCfnLogAnomalyDetectorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLogAnomalyDetector_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

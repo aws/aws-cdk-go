@@ -84,6 +84,10 @@ func validateCfnEventBus_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnEventBus_IsCfnEventBusParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEventBus_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

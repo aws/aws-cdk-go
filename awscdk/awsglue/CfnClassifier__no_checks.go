@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnClassifier) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnClassifier_IsCfnClassifierParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnClassifier_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

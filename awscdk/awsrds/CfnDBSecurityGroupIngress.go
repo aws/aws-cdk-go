@@ -491,6 +491,25 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress)SetEc2SecurityGroupOwnerId(val *str
 	)
 }
 
+// Checks whether the given object is a CfnDBSecurityGroupIngress.
+func CfnDBSecurityGroupIngress_IsCfnDBSecurityGroupIngress(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDBSecurityGroupIngress_IsCfnDBSecurityGroupIngressParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"isCfnDBSecurityGroupIngress",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

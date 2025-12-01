@@ -196,6 +196,14 @@ func validateCfnCertificateProvider_FromCertificateProviderNameParameters(scope 
 	return nil
 }
 
+func validateCfnCertificateProvider_IsCfnCertificateProviderParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCertificateProvider_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

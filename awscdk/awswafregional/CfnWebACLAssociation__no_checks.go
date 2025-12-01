@@ -76,6 +76,10 @@ func validateCfnWebACLAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnWebACLAssociation_IsCfnWebACLAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnWebACLAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

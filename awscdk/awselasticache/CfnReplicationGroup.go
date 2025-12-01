@@ -1501,6 +1501,25 @@ func CfnReplicationGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnReplicationGroup.
+func CfnReplicationGroup_IsCfnReplicationGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnReplicationGroup_IsCfnReplicationGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
+		"isCfnReplicationGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnReplicationGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

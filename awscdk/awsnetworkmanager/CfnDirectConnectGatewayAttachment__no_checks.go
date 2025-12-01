@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDirectConnectGatewayAttachment) validateValidateProperties
 	return nil
 }
 
+func validateCfnDirectConnectGatewayAttachment_IsCfnDirectConnectGatewayAttachmentParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDirectConnectGatewayAttachment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnBudgetsAction) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnBudgetsAction_IsCfnBudgetsActionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBudgetsAction_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

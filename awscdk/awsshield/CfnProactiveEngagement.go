@@ -465,6 +465,25 @@ func CfnProactiveEngagement_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnProactiveEngagement.
+func CfnProactiveEngagement_IsCfnProactiveEngagement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnProactiveEngagement_IsCfnProactiveEngagementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_shield.CfnProactiveEngagement",
+		"isCfnProactiveEngagement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnProactiveEngagement_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

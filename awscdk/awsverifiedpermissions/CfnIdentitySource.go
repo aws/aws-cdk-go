@@ -570,6 +570,25 @@ func CfnIdentitySource_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIdentitySource.
+func CfnIdentitySource_IsCfnIdentitySource(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIdentitySource_IsCfnIdentitySourceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource",
+		"isCfnIdentitySource",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIdentitySource_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -72,6 +72,10 @@ func validateCfnAggregatorV2_ArnForAggregatorV2Parameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnAggregatorV2_IsCfnAggregatorV2Parameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAggregatorV2_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -171,6 +171,14 @@ func validateCfnTransitGatewayVpcAttachment_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnTransitGatewayVpcAttachment_IsCfnTransitGatewayVpcAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTransitGatewayVpcAttachment_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

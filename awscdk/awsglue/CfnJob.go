@@ -981,6 +981,25 @@ func CfnJob_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnJob.
+func CfnJob_IsCfnJob(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnJob_IsCfnJobParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnJob",
+		"isCfnJob",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnJob_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

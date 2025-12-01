@@ -72,6 +72,10 @@ func validateCfnConsumableResource_ArnForConsumableResourceParameters(resource i
 	return nil
 }
 
+func validateCfnConsumableResource_IsCfnConsumableResourceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnConsumableResource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

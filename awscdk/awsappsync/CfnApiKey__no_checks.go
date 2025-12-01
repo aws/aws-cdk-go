@@ -72,6 +72,10 @@ func validateCfnApiKey_ArnForApiKeyParameters(resource interfacesawsappsync.IApi
 	return nil
 }
 
+func validateCfnApiKey_IsCfnApiKeyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnApiKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

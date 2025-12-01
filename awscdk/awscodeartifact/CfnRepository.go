@@ -661,6 +661,25 @@ func CfnRepository_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRepository.
+func CfnRepository_IsCfnRepository(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRepository_IsCfnRepositoryParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codeartifact.CfnRepository",
+		"isCfnRepository",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRepository_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

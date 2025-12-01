@@ -164,6 +164,14 @@ func validateCfnDashboard_ArnForDashboardParameters(resource interfacesawsquicks
 	return nil
 }
 
+func validateCfnDashboard_IsCfnDashboardParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDashboard_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

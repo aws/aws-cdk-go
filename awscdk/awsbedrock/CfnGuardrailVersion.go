@@ -468,6 +468,25 @@ func CfnGuardrailVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGuardrailVersion.
+func CfnGuardrailVersion_IsCfnGuardrailVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGuardrailVersion_IsCfnGuardrailVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnGuardrailVersion",
+		"isCfnGuardrailVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGuardrailVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

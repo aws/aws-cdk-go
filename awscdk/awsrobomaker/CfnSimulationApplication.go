@@ -667,6 +667,25 @@ func CfnSimulationApplication_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSimulationApplication.
+func CfnSimulationApplication_IsCfnSimulationApplication(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSimulationApplication_IsCfnSimulationApplicationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_robomaker.CfnSimulationApplication",
+		"isCfnSimulationApplication",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

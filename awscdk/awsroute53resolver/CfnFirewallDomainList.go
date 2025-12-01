@@ -625,6 +625,25 @@ func CfnFirewallDomainList_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnFirewallDomainList.
+func CfnFirewallDomainList_IsCfnFirewallDomainList(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFirewallDomainList_IsCfnFirewallDomainListParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnFirewallDomainList",
+		"isCfnFirewallDomainList",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnFirewallDomainList_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

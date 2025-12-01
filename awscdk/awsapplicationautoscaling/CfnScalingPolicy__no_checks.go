@@ -80,6 +80,10 @@ func validateCfnScalingPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnScalingPolicy_IsCfnScalingPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnScalingPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }

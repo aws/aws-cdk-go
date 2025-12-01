@@ -9,10 +9,13 @@ package interfacesawsses
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mailManagerRelayReference := &MailManagerRelayReference{
+//   	RelayArn: jsii.String("relayArn"),
 //   	RelayId: jsii.String("relayId"),
 //   }
 //
 type MailManagerRelayReference struct {
+	// The ARN of the MailManagerRelay resource.
+	RelayArn *string `field:"required" json:"relayArn" yaml:"relayArn"`
 	// The RelayId of the MailManagerRelay resource.
 	RelayId *string `field:"required" json:"relayId" yaml:"relayId"`
 }

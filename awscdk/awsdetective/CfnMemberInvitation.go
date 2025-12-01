@@ -507,6 +507,25 @@ func CfnMemberInvitation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnMemberInvitation.
+func CfnMemberInvitation_IsCfnMemberInvitation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMemberInvitation_IsCfnMemberInvitationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_detective.CfnMemberInvitation",
+		"isCfnMemberInvitation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnMemberInvitation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

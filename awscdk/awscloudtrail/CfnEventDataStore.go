@@ -887,6 +887,25 @@ func CfnEventDataStore_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventDataStore.
+func CfnEventDataStore_IsCfnEventDataStore(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventDataStore_IsCfnEventDataStoreParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStore",
+		"isCfnEventDataStore",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventDataStore_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

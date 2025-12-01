@@ -80,6 +80,10 @@ func validateCfnScene_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnScene_IsCfnSceneParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnScene_IsConstructParameters(x interface{}) error {
 	return nil
 }

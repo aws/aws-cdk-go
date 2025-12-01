@@ -612,6 +612,25 @@ func CfnSlackChannelConfiguration_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSlackChannelConfiguration.
+func CfnSlackChannelConfiguration_IsCfnSlackChannelConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSlackChannelConfiguration_IsCfnSlackChannelConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_supportapp.CfnSlackChannelConfiguration",
+		"isCfnSlackChannelConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

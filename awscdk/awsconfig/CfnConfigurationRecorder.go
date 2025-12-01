@@ -512,6 +512,25 @@ func (j *jsiiProxy_CfnConfigurationRecorder)SetRoleArn(val *string) {
 	)
 }
 
+// Checks whether the given object is a CfnConfigurationRecorder.
+func CfnConfigurationRecorder_IsCfnConfigurationRecorder(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConfigurationRecorder_IsCfnConfigurationRecorderParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnConfigurationRecorder",
+		"isCfnConfigurationRecorder",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

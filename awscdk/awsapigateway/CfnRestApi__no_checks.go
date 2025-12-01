@@ -84,6 +84,10 @@ func validateCfnRestApi_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRestApi_IsCfnRestApiParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRestApi_IsConstructParameters(x interface{}) error {
 	return nil
 }

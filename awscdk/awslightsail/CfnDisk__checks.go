@@ -164,6 +164,14 @@ func validateCfnDisk_ArnForDiskParameters(resource interfacesawslightsail.IDiskR
 	return nil
 }
 
+func validateCfnDisk_IsCfnDiskParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDisk_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

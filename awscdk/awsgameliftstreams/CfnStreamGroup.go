@@ -606,6 +606,25 @@ func CfnStreamGroup_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnStreamGroup.
+func CfnStreamGroup_IsCfnStreamGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStreamGroup_IsCfnStreamGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gameliftstreams.CfnStreamGroup",
+		"isCfnStreamGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

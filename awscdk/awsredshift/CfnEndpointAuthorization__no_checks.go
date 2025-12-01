@@ -72,6 +72,10 @@ func validateCfnEndpointAuthorization_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
+func validateCfnEndpointAuthorization_IsCfnEndpointAuthorizationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnEndpointAuthorization_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

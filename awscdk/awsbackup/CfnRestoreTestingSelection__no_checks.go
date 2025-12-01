@@ -76,6 +76,10 @@ func validateCfnRestoreTestingSelection_IsCfnResourceParameters(x interface{}) e
 	return nil
 }
 
+func validateCfnRestoreTestingSelection_IsCfnRestoreTestingSelectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRestoreTestingSelection_IsConstructParameters(x interface{}) error {
 	return nil
 }

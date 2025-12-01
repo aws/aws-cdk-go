@@ -76,6 +76,10 @@ func validateCfnSamplingRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSamplingRule_IsCfnSamplingRuleParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSamplingRule_IsConstructParameters(x interface{}) error {
 	return nil
 }

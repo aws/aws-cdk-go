@@ -635,6 +635,25 @@ func CfnParameter_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnParameter.
+func CfnParameter_IsCfnParameter(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnParameter_IsCfnParameterParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnParameter",
+		"isCfnParameter",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnParameter_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -163,6 +163,14 @@ func validateCfnRepositoryCreationTemplate_IsCfnElementParameters(x interface{})
 	return nil
 }
 
+func validateCfnRepositoryCreationTemplate_IsCfnRepositoryCreationTemplateParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRepositoryCreationTemplate_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

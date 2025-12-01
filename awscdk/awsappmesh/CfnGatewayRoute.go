@@ -848,6 +848,25 @@ func CfnGatewayRoute_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGatewayRoute.
+func CfnGatewayRoute_IsCfnGatewayRoute(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGatewayRoute_IsCfnGatewayRouteParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appmesh.CfnGatewayRoute",
+		"isCfnGatewayRoute",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGatewayRoute_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

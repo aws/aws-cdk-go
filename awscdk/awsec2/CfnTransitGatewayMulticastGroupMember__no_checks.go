@@ -76,6 +76,10 @@ func validateCfnTransitGatewayMulticastGroupMember_IsCfnResourceParameters(x int
 	return nil
 }
 
+func validateCfnTransitGatewayMulticastGroupMember_IsCfnTransitGatewayMulticastGroupMemberParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTransitGatewayMulticastGroupMember_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -80,6 +80,10 @@ func validateCfnStage_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStage_IsCfnStageParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStage_IsConstructParameters(x interface{}) error {
 	return nil
 }

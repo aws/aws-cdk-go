@@ -599,6 +599,25 @@ func CfnCodeInterpreterCustom_ArnForCodeInterpreterCustom(resource interfacesaws
 	return returns
 }
 
+// Creates a new ICodeInterpreterCustomRef from an ARN.
+func CfnCodeInterpreterCustom_FromCodeInterpreterCustomArn(scope constructs.Construct, id *string, arn *string) interfacesawsbedrockagentcore.ICodeInterpreterCustomRef {
+	_init_.Initialize()
+
+	if err := validateCfnCodeInterpreterCustom_FromCodeInterpreterCustomArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsbedrockagentcore.ICodeInterpreterCustomRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterCustom",
+		"fromCodeInterpreterCustomArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new ICodeInterpreterCustomRef from a codeInterpreterId.
 func CfnCodeInterpreterCustom_FromCodeInterpreterId(scope constructs.Construct, id *string, codeInterpreterId *string) interfacesawsbedrockagentcore.ICodeInterpreterCustomRef {
 	_init_.Initialize()
@@ -612,6 +631,25 @@ func CfnCodeInterpreterCustom_FromCodeInterpreterId(scope constructs.Construct, 
 		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterCustom",
 		"fromCodeInterpreterId",
 		[]interface{}{scope, id, codeInterpreterId},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnCodeInterpreterCustom.
+func CfnCodeInterpreterCustom_IsCfnCodeInterpreterCustom(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCodeInterpreterCustom_IsCfnCodeInterpreterCustomParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterCustom",
+		"isCfnCodeInterpreterCustom",
+		[]interface{}{x},
 		&returns,
 	)
 

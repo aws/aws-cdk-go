@@ -33,11 +33,11 @@ type CfnMonitorMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
-	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-identitycenterinstancearn
 	//
 	IdentityCenterInstanceArn *string `field:"optional" json:"identityCenterInstanceArn" yaml:"identityCenterInstanceArn"`
-	// The Amazon Resource Name (ARN) of the IAM role for the monitor.
+	// The Amazon Resource Name of the IAM role for the monitor.
 	//
 	// Users of the monitor use this role to access Deadline Cloud resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-rolearn

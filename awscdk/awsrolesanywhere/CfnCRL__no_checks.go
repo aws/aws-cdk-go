@@ -76,6 +76,10 @@ func validateCfnCRL_FromCrlIdParameters(scope constructs.Construct, id *string, 
 	return nil
 }
 
+func validateCfnCRL_IsCfnCRLParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCRL_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

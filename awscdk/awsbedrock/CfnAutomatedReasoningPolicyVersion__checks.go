@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAutomatedReasoningPolicyVersion) validateValidatePropertie
 	return nil
 }
 
+func validateCfnAutomatedReasoningPolicyVersion_IsCfnAutomatedReasoningPolicyVersionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAutomatedReasoningPolicyVersion_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

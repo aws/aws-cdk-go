@@ -666,6 +666,25 @@ func CfnFHIRDatastore_FromDatastoreId(scope constructs.Construct, id *string, da
 	return returns
 }
 
+// Creates a new IFHIRDatastoreRef from an ARN.
+func CfnFHIRDatastore_FromFHIRDatastoreArn(scope constructs.Construct, id *string, arn *string) interfacesawshealthlake.IFHIRDatastoreRef {
+	_init_.Initialize()
+
+	if err := validateCfnFHIRDatastore_FromFHIRDatastoreArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawshealthlake.IFHIRDatastoreRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore",
+		"fromFHIRDatastoreArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
@@ -683,6 +702,25 @@ func CfnFHIRDatastore_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnFHIRDatastore.
+func CfnFHIRDatastore_IsCfnFHIRDatastore(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFHIRDatastore_IsCfnFHIRDatastoreParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore",
+		"isCfnFHIRDatastore",
 		[]interface{}{x},
 		&returns,
 	)

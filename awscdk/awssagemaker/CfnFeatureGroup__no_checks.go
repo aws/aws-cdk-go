@@ -80,6 +80,10 @@ func validateCfnFeatureGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnFeatureGroup_IsCfnFeatureGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnFeatureGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

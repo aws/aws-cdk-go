@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnSqlInjectionMatchSet_ArnForSqlInjectionMatchSetParameters(resource interfacesawswafregional.ISqlInjectionMatchSetRef) error {
+	return nil
+}
+
 func validateCfnSqlInjectionMatchSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnSqlInjectionMatchSet_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnSqlInjectionMatchSet_IsCfnSqlInjectionMatchSetParameters(x interface{}) error {
 	return nil
 }
 

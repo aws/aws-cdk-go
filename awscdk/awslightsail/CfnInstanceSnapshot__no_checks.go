@@ -76,6 +76,10 @@ func validateCfnInstanceSnapshot_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnInstanceSnapshot_IsCfnInstanceSnapshotParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInstanceSnapshot_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

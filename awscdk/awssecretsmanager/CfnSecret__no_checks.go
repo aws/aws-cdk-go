@@ -84,6 +84,10 @@ func validateCfnSecret_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSecret_IsCfnSecretParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSecret_IsConstructParameters(x interface{}) error {
 	return nil
 }

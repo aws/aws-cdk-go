@@ -163,6 +163,14 @@ func validateCfnIPAMAllocation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIPAMAllocation_IsCfnIPAMAllocationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnIPAMAllocation_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

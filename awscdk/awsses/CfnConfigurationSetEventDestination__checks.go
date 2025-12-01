@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateValidateProperti
 	return nil
 }
 
+func validateCfnConfigurationSetEventDestination_IsCfnConfigurationSetEventDestinationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConfigurationSetEventDestination_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

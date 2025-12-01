@@ -80,6 +80,10 @@ func validateCfnAttributeGroup_FromAttributeGroupIdParameters(scope constructs.C
 	return nil
 }
 
+func validateCfnAttributeGroup_IsCfnAttributeGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAttributeGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

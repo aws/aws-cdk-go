@@ -72,6 +72,10 @@ func validateCfnDBProxy_ArnForDBProxyParameters(resource interfacesawsrds.IDBPro
 	return nil
 }
 
+func validateCfnDBProxy_IsCfnDBProxyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDBProxy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

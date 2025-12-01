@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateValidatePrope
 	return nil
 }
 
+func validateCfnAutoshiftObserverNotificationStatus_IsCfnAutoshiftObserverNotificationStatusParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAutoshiftObserverNotificationStatus_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

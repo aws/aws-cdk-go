@@ -789,6 +789,25 @@ func CfnWebExperience_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnWebExperience.
+func CfnWebExperience_IsCfnWebExperience(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnWebExperience_IsCfnWebExperienceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_qbusiness.CfnWebExperience",
+		"isCfnWebExperience",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

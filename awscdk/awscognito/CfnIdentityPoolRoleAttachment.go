@@ -487,6 +487,25 @@ func CfnIdentityPoolRoleAttachment_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnIdentityPoolRoleAttachment.
+func CfnIdentityPoolRoleAttachment_IsCfnIdentityPoolRoleAttachment(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIdentityPoolRoleAttachment_IsCfnIdentityPoolRoleAttachmentParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"isCfnIdentityPoolRoleAttachment",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnIdentityPoolRoleAttachment_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

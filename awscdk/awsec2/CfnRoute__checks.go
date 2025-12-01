@@ -171,6 +171,14 @@ func validateCfnRoute_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRoute_IsCfnRouteParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRoute_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

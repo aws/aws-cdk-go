@@ -72,6 +72,10 @@ func validateCfnLoggerDefinitionVersion_IsCfnElementParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnLoggerDefinitionVersion_IsCfnLoggerDefinitionVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLoggerDefinitionVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

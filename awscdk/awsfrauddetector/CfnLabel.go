@@ -530,6 +530,25 @@ func CfnLabel_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLabel.
+func CfnLabel_IsCfnLabel(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLabel_IsCfnLabelParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnLabel",
+		"isCfnLabel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLabel_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

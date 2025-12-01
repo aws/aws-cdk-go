@@ -80,6 +80,10 @@ func validateCfnRoutingProfile_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRoutingProfile_IsCfnRoutingProfileParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRoutingProfile_IsConstructParameters(x interface{}) error {
 	return nil
 }

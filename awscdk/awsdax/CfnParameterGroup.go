@@ -460,6 +460,25 @@ func CfnParameterGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnParameterGroup.
+func CfnParameterGroup_IsCfnParameterGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnParameterGroup_IsCfnParameterGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dax.CfnParameterGroup",
+		"isCfnParameterGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnParameterGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

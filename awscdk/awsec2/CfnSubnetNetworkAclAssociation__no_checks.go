@@ -76,6 +76,10 @@ func validateCfnSubnetNetworkAclAssociation_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnSubnetNetworkAclAssociation_IsCfnSubnetNetworkAclAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSubnetNetworkAclAssociation_IsConstructParameters(x interface{}) error {
 	return nil
 }

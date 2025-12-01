@@ -164,6 +164,14 @@ func validateCfnChallenge_ArnForChallengeParameters(resource interfacesawspcacon
 	return nil
 }
 
+func validateCfnChallenge_IsCfnChallengeParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnChallenge_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::DirectoryService::SimpleAD` resource specifies an Directory Service Simple Active Directory ( Simple AD ) in AWS so that your directory users and groups can access the the console and AWS applications using their existing credentials.
+// The `AWS::DirectoryService::SimpleAD` resource specifies an Directory Service Simple Active Directory ( Simple AD ) in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials.
 //
 // Simple AD is a Microsoft Active Directory–compatible directory. For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html) in the *Directory Service Admin Guide* .
 //

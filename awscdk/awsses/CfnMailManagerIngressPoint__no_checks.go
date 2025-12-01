@@ -76,7 +76,15 @@ func validateCfnMailManagerIngressPoint_FromIngressPointIdParameters(scope const
 	return nil
 }
 
+func validateCfnMailManagerIngressPoint_FromMailManagerIngressPointArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnMailManagerIngressPoint_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnMailManagerIngressPoint_IsCfnMailManagerIngressPointParameters(x interface{}) error {
 	return nil
 }
 

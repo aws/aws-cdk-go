@@ -422,6 +422,25 @@ func CfnRegistryPolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRegistryPolicy.
+func CfnRegistryPolicy_IsCfnRegistryPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRegistryPolicy_IsCfnRegistryPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnRegistryPolicy",
+		"isCfnRegistryPolicy",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRegistryPolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

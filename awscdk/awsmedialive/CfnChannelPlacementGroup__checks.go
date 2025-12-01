@@ -164,6 +164,14 @@ func validateCfnChannelPlacementGroup_ArnForChannelPlacementGroupParameters(reso
 	return nil
 }
 
+func validateCfnChannelPlacementGroup_IsCfnChannelPlacementGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnChannelPlacementGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

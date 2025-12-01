@@ -10,7 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::EC2::VPCEncryptionControl.
+// Describes the configuration and state of VPC encryption controls.
+//
+// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

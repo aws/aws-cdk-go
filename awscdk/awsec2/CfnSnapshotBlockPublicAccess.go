@@ -439,6 +439,25 @@ func CfnSnapshotBlockPublicAccess_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSnapshotBlockPublicAccess.
+func CfnSnapshotBlockPublicAccess_IsCfnSnapshotBlockPublicAccess(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSnapshotBlockPublicAccess_IsCfnSnapshotBlockPublicAccessParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnSnapshotBlockPublicAccess",
+		"isCfnSnapshotBlockPublicAccess",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -72,6 +72,10 @@ func validateCfnLocationNFS_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnLocationNFS_IsCfnLocationNFSParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnLocationNFS_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

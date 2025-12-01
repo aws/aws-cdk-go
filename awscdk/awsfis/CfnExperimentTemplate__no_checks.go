@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnExperimentTemplate) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnExperimentTemplate_ArnForExperimentTemplateParameters(resource interfacesawsfis.IExperimentTemplateRef) error {
+	return nil
+}
+
 func validateCfnExperimentTemplate_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnExperimentTemplate_IsCfnExperimentTemplateParameters(x interface{}) error {
 	return nil
 }
 

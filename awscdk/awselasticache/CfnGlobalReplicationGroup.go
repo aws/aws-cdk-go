@@ -698,6 +698,25 @@ func CfnGlobalReplicationGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGlobalReplicationGroup.
+func CfnGlobalReplicationGroup_IsCfnGlobalReplicationGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalReplicationGroup_IsCfnGlobalReplicationGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
+		"isCfnGlobalReplicationGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGlobalReplicationGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

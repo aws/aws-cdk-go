@@ -72,6 +72,10 @@ func validateCfnAssessmentTarget_ArnForAssessmentTargetParameters(resource inter
 	return nil
 }
 
+func validateCfnAssessmentTarget_IsCfnAssessmentTargetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAssessmentTarget_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

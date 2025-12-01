@@ -164,6 +164,14 @@ func validateCfnAnomalyDetector_ArnForAnomalyDetectorParameters(resource interfa
 	return nil
 }
 
+func validateCfnAnomalyDetector_IsCfnAnomalyDetectorParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAnomalyDetector_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

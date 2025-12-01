@@ -72,6 +72,10 @@ func validateCfnIPAMAllocation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnIPAMAllocation_IsCfnIPAMAllocationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnIPAMAllocation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

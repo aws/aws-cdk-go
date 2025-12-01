@@ -172,6 +172,14 @@ func validateCfnPlaybackRestrictionPolicy_IsCfnElementParameters(x interface{}) 
 	return nil
 }
 
+func validateCfnPlaybackRestrictionPolicy_IsCfnPlaybackRestrictionPolicyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnPlaybackRestrictionPolicy_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

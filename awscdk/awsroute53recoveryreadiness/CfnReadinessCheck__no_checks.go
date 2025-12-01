@@ -76,6 +76,10 @@ func validateCfnReadinessCheck_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnReadinessCheck_IsCfnReadinessCheckParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnReadinessCheck_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

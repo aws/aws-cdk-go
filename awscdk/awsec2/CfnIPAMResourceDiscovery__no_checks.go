@@ -72,11 +72,19 @@ func validateCfnIPAMResourceDiscovery_ArnForIPAMResourceDiscoveryParameters(reso
 	return nil
 }
 
+func validateCfnIPAMResourceDiscovery_FromIPAMResourceDiscoveryArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnIPAMResourceDiscovery_FromIpamResourceDiscoveryIdParameters(scope constructs.Construct, id *string, ipamResourceDiscoveryId *string) error {
 	return nil
 }
 
 func validateCfnIPAMResourceDiscovery_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnIPAMResourceDiscovery_IsCfnIPAMResourceDiscoveryParameters(x interface{}) error {
 	return nil
 }
 

@@ -80,6 +80,10 @@ func validateCfnAsset_FromAssetIdParameters(scope constructs.Construct, id *stri
 	return nil
 }
 
+func validateCfnAsset_IsCfnAssetParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAsset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

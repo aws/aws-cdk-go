@@ -706,6 +706,25 @@ func CfnResponsePlan_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnResponsePlan.
+func CfnResponsePlan_IsCfnResponsePlan(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResponsePlan_IsCfnResponsePlanParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan",
+		"isCfnResponsePlan",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

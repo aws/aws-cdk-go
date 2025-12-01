@@ -36,6 +36,13 @@ import (
 //   	Architectures: []*string{
 //   		jsii.String("architectures"),
 //   	},
+//   	CapacityProviderConfig: &CapacityProviderConfigProperty{
+//   		LambdaManagedInstancesCapacityProviderConfig: &LambdaManagedInstancesCapacityProviderConfigProperty{
+//   			CapacityProviderArn: jsii.String("capacityProviderArn"),
+//   			ExecutionEnvironmentMemoryGiBPerVCpu: jsii.Number(123),
+//   			PerExecutionEnvironmentMaxConcurrency: jsii.Number(123),
+//   		},
+//   	},
 //   	Code: &CodeProperty{
 //   		ImageUri: jsii.String("imageUri"),
 //   		S3Bucket: jsii.String("s3Bucket"),
@@ -64,6 +71,10 @@ import (
 //   		},
 //   	},
 //   	FunctionName: jsii.String("functionName"),
+//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
+//   		MaxExecutionEnvironments: jsii.Number(123),
+//   		MinExecutionEnvironments: jsii.Number(123),
+//   	},
 //   	Handler: jsii.String("handler"),
 //   	ImageConfig: &ImageConfigProperty{
 //   		Command: []*string{
@@ -86,6 +97,7 @@ import (
 //   	},
 //   	MemorySize: jsii.Number(123),
 //   	PackageType: jsii.String("packageType"),
+//   	PublishToLatestPublished: jsii.Boolean(false),
 //   	RecursiveLoop: jsii.String("recursiveLoop"),
 //   	ReservedConcurrentExecutions: jsii.Number(123),
 //   	Role: jsii.String("role"),

@@ -551,6 +551,25 @@ func CfnCapacityManagerDataExport_FromCapacityManagerDataExportId(scope construc
 	return returns
 }
 
+// Checks whether the given object is a CfnCapacityManagerDataExport.
+func CfnCapacityManagerDataExport_IsCfnCapacityManagerDataExport(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityManagerDataExport_IsCfnCapacityManagerDataExportParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCapacityManagerDataExport",
+		"isCfnCapacityManagerDataExport",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

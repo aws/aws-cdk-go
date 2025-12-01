@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnContainer) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnContainer_ArnForContainerParameters(resource interfacesawsmediastore.IContainerRef) error {
+	return nil
+}
+
+func validateCfnContainer_IsCfnContainerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContainer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

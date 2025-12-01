@@ -442,6 +442,25 @@ func CfnGroupingConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnGroupingConfiguration.
+func CfnGroupingConfiguration_IsCfnGroupingConfiguration(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnGroupingConfiguration_IsCfnGroupingConfigurationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_applicationsignals.CfnGroupingConfiguration",
+		"isCfnGroupingConfiguration",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnGroupingConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

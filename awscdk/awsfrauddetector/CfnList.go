@@ -576,6 +576,25 @@ func CfnList_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnList.
+func CfnList_IsCfnList(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnList_IsCfnListParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnList",
+		"isCfnList",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnList_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

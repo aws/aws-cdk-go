@@ -68,7 +68,15 @@ func (c *jsiiProxy_CfnRateBasedRule) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnRateBasedRule_ArnForRateBasedRuleParameters(resource interfacesawswafregional.IRateBasedRuleRef) error {
+	return nil
+}
+
 func validateCfnRateBasedRule_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnRateBasedRule_IsCfnRateBasedRuleParameters(x interface{}) error {
 	return nil
 }
 

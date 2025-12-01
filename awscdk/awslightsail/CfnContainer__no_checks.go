@@ -72,6 +72,10 @@ func validateCfnContainer_ArnForContainerParameters(resource interfacesawslights
 	return nil
 }
 
+func validateCfnContainer_IsCfnContainerParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnContainer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

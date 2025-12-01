@@ -76,6 +76,10 @@ func validateCfnPublicKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPublicKey_IsCfnPublicKeyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPublicKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

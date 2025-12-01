@@ -80,6 +80,10 @@ func validateCfnStreamProcessor_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnStreamProcessor_IsCfnStreamProcessorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnStreamProcessor_IsConstructParameters(x interface{}) error {
 	return nil
 }

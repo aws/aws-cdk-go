@@ -192,6 +192,26 @@ func init() {
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormLanguageConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormLanguageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormMultiSelectQuestionAutomationOptionProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormMultiSelectQuestionAutomationOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormMultiSelectQuestionAutomationProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormMultiSelectQuestionAutomationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormMultiSelectQuestionOptionProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormMultiSelectQuestionOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormMultiSelectQuestionPropertiesProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormMultiSelectQuestionPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormNumericQuestionAutomationProperty",
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormNumericQuestionAutomationProperty)(nil)).Elem(),
 	)
@@ -236,12 +256,20 @@ func init() {
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormSingleSelectQuestionPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormTargetConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormTextQuestionAutomationProperty",
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormTextQuestionAutomationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationFormTextQuestionPropertiesProperty",
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormTextQuestionPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.MultiSelectQuestionRuleCategoryAutomationProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_MultiSelectQuestionRuleCategoryAutomationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.NumericQuestionPropertyValueAutomationProperty",

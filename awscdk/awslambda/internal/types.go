@@ -6,11 +6,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
+type Type__awscdkResource = awscdk.Resource
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawslambdaIAliasRef = interfacesawslambda.IAliasRef
-type Type__interfacesawslambdaICodeSigningConfigRef = interfacesawslambda.ICodeSigningConfigRef
+type Type__interfacesawslambdaICapacityProviderRef = interfacesawslambda.ICapacityProviderRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawslambdaICodeSigningConfigRef = interfacesawslambda.ICodeSigningConfigRef
 type Type__interfacesawslambdaIEventInvokeConfigRef = interfacesawslambda.IEventInvokeConfigRef
 type Type__interfacesawslambdaIEventSourceMappingRef = interfacesawslambda.IEventSourceMappingRef
 type Type__interfacesawslambdaIFunctionRef = interfacesawslambda.IFunctionRef
@@ -20,7 +22,6 @@ type Type__interfacesawslambdaILayerVersionPermissionRef = interfacesawslambda.I
 type Type__interfacesawslambdaIPermissionRef = interfacesawslambda.IPermissionRef
 type Type__interfacesawslambdaIUrlRef = interfacesawslambda.IUrlRef
 type Type__interfacesawslambdaIVersionRef = interfacesawslambda.IVersionRef
-type Type__awscdkResource = awscdk.Resource
 type Type__awsec2IClientVpnConnectionHandler = awsec2.IClientVpnConnectionHandler
 type Type__awscdkIAspect = awscdk.IAspect
 type Type__awscdkIResource = awscdk.IResource

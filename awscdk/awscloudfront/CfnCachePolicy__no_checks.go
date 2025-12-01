@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnCachePolicy) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnCachePolicy_ArnForCachePolicyParameters(resource interfacesawscloudfront.ICachePolicyRef) error {
+	return nil
+}
+
+func validateCfnCachePolicy_IsCfnCachePolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCachePolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -180,6 +180,14 @@ func validateCfnDHCPOptions_FromDhcpOptionsIdParameters(scope constructs.Constru
 	return nil
 }
 
+func validateCfnDHCPOptions_IsCfnDHCPOptionsParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDHCPOptions_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

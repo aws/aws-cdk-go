@@ -88,6 +88,10 @@ func validateCfnVerifiedAccessGroup_IsCfnResourceParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnVerifiedAccessGroup_IsCfnVerifiedAccessGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVerifiedAccessGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }

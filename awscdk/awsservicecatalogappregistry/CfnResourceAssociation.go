@@ -512,6 +512,25 @@ func CfnResourceAssociation_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnResourceAssociation.
+func CfnResourceAssociation_IsCfnResourceAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnResourceAssociation_IsCfnResourceAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalogappregistry.CfnResourceAssociation",
+		"isCfnResourceAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

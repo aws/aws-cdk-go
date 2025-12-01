@@ -76,6 +76,10 @@ func validateCfnTargetAccountConfiguration_IsCfnResourceParameters(x interface{}
 	return nil
 }
 
+func validateCfnTargetAccountConfiguration_IsCfnTargetAccountConfigurationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTargetAccountConfiguration_IsConstructParameters(x interface{}) error {
 	return nil
 }

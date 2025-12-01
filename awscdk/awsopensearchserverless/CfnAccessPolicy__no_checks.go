@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAccessPolicy) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnAccessPolicy_IsCfnAccessPolicyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -164,6 +164,14 @@ func validateCfnDataLake_ArnForDataLakeParameters(resource interfacesawssecurity
 	return nil
 }
 
+func validateCfnDataLake_IsCfnDataLakeParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDataLake_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

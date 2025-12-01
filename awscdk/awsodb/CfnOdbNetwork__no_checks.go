@@ -76,6 +76,10 @@ func validateCfnOdbNetwork_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnOdbNetwork_IsCfnOdbNetworkParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnOdbNetwork_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

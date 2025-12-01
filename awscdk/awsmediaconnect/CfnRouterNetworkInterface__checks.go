@@ -180,6 +180,14 @@ func validateCfnRouterNetworkInterface_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnRouterNetworkInterface_IsCfnRouterNetworkInterfaceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRouterNetworkInterface_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

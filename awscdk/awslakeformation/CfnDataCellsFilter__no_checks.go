@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataCellsFilter) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDataCellsFilter_IsCfnDataCellsFilterParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataCellsFilter_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

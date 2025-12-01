@@ -137,6 +137,26 @@ func BaseContainerImage_FromEcrPublic(registryAlias *string, repositoryName *str
 	return returns
 }
 
+// The EC2 Image Builder image to use as a base image in a container recipe.
+// Experimental.
+func BaseContainerImage_FromImage(image IImage) BaseContainerImage {
+	_init_.Initialize()
+
+	if err := validateBaseContainerImage_FromImageParameters(image); err != nil {
+		panic(err)
+	}
+	var returns BaseContainerImage
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-imagebuilder-alpha.BaseContainerImage",
+		"fromImage",
+		[]interface{}{image},
+		&returns,
+	)
+
+	return returns
+}
+
 // The string value of the base image to use in a container recipe.
 //
 // This can be an EC2 Image Builder image ARN,

@@ -171,6 +171,14 @@ func validateCfnSubscriptionDefinitionVersion_IsCfnResourceParameters(x interfac
 	return nil
 }
 
+func validateCfnSubscriptionDefinitionVersion_IsCfnSubscriptionDefinitionVersionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSubscriptionDefinitionVersion_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

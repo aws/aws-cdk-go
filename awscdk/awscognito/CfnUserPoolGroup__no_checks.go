@@ -76,6 +76,10 @@ func validateCfnUserPoolGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnUserPoolGroup_IsCfnUserPoolGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnUserPoolGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }

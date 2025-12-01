@@ -597,6 +597,25 @@ func CfnScheduledAction_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnScheduledAction.
+func CfnScheduledAction_IsCfnScheduledAction(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnScheduledAction_IsCfnScheduledActionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_autoscaling.CfnScheduledAction",
+		"isCfnScheduledAction",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

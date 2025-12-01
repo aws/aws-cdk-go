@@ -969,6 +969,25 @@ func (j *jsiiProxy_CfnApi)SetVariables(val interface{}) {
 	)
 }
 
+// Checks whether the given object is a CfnApi.
+func CfnApi_IsCfnApi(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnApi_IsCfnApiParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sam.CfnApi",
+		"isCfnApi",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

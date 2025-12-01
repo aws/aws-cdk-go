@@ -212,6 +212,14 @@ func validateCfnStudioLifecycleConfig_IsCfnResourceParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnStudioLifecycleConfig_IsCfnStudioLifecycleConfigParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnStudioLifecycleConfig_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

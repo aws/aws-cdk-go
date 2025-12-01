@@ -80,6 +80,10 @@ func validateCfnRouterNetworkInterface_IsCfnResourceParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnRouterNetworkInterface_IsCfnRouterNetworkInterfaceParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRouterNetworkInterface_IsConstructParameters(x interface{}) error {
 	return nil
 }

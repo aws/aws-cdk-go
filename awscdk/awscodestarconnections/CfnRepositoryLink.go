@@ -578,6 +578,25 @@ func CfnRepositoryLink_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRepositoryLink.
+func CfnRepositoryLink_IsCfnRepositoryLink(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRepositoryLink_IsCfnRepositoryLinkParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codestarconnections.CfnRepositoryLink",
+		"isCfnRepositoryLink",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnRepositoryLink_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -642,6 +642,25 @@ func CfnSafetyRule_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnSafetyRule.
+func CfnSafetyRule_IsCfnSafetyRule(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSafetyRule_IsCfnSafetyRuleParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRule",
+		"isCfnSafetyRule",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -14,21 +14,13 @@ import (
 // Represents an EC2 Image Builder Container Recipe.
 //
 // Example:
-//   containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("InstanceConfigContainerRecipe"), &ContainerRecipeProps{
+//   containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("MyContainerRecipe"), &ContainerRecipeProps{
 //   	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
 //   	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
-//   	// Custom ECS-optimized AMI for building
-//   	InstanceImage: imagebuilder.ContainerInstanceImage_FromSsmParameterName(jsii.String("/aws/service/ecs/optimized-ami/amazon-linux-2023/recommended/image_id")),
-//   	// Additional storage for build process
-//   	InstanceBlockDevices: []BlockDevice{
-//   		&BlockDevice{
-//   			DeviceName: jsii.String("/dev/xvda"),
-//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(50), &EbsDeviceOptions{
-//   				Encrypted: jsii.Boolean(true),
-//   				VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
-//   			}),
-//   		},
-//   	},
+//   })
+//
+//   containerPipeline := imagebuilder.NewImagePipeline(this, jsii.String("MyContainerPipeline"), &ImagePipelineProps{
+//   	Recipe: exampleContainerRecipe,
 //   })
 //
 // See: https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-recipes.html

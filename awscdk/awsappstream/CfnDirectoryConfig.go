@@ -467,6 +467,25 @@ func (j *jsiiProxy_CfnDirectoryConfig)SetServiceAccountCredentials(val interface
 	)
 }
 
+// Checks whether the given object is a CfnDirectoryConfig.
+func CfnDirectoryConfig_IsCfnDirectoryConfig(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDirectoryConfig_IsCfnDirectoryConfigParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnDirectoryConfig",
+		"isCfnDirectoryConfig",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

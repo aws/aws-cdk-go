@@ -480,6 +480,25 @@ func CfnPreparedStatement_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPreparedStatement.
+func CfnPreparedStatement_IsCfnPreparedStatement(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPreparedStatement_IsCfnPreparedStatementParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_athena.CfnPreparedStatement",
+		"isCfnPreparedStatement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPreparedStatement_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

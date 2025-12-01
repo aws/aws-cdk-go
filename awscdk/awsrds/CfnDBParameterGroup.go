@@ -519,6 +519,25 @@ func (j *jsiiProxy_CfnDBParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Checks whether the given object is a CfnDBParameterGroup.
+func CfnDBParameterGroup_IsCfnDBParameterGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDBParameterGroup_IsCfnDBParameterGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"isCfnDBParameterGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

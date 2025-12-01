@@ -652,6 +652,25 @@ func CfnEventTrigger_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEventTrigger.
+func CfnEventTrigger_IsCfnEventTrigger(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEventTrigger_IsCfnEventTriggerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_customerprofiles.CfnEventTrigger",
+		"isCfnEventTrigger",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEventTrigger_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

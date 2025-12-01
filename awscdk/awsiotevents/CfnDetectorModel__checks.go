@@ -180,6 +180,14 @@ func validateCfnDetectorModel_FromDetectorModelNameParameters(scope constructs.C
 	return nil
 }
 
+func validateCfnDetectorModel_IsCfnDetectorModelParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDetectorModel_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -523,6 +523,25 @@ func CfnVectorBucket_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnVectorBucket.
+func CfnVectorBucket_IsCfnVectorBucket(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVectorBucket_IsCfnVectorBucketParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3vectors.CfnVectorBucket",
+		"isCfnVectorBucket",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

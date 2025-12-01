@@ -80,6 +80,10 @@ func validateCfnDatabase_FromDatabaseNameParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validateCfnDatabase_IsCfnDatabaseParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDatabase_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

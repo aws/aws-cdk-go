@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnAccessKey) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnAccessKey_IsCfnAccessKeyParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -76,6 +76,10 @@ func validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope constr
 	return nil
 }
 
+func validateCfnCapacityProvider_IsCfnCapacityProviderParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnCapacityProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

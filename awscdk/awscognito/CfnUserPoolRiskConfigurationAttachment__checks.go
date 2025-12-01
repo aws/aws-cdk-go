@@ -171,6 +171,14 @@ func validateCfnUserPoolRiskConfigurationAttachment_IsCfnResourceParameters(x in
 	return nil
 }
 
+func validateCfnUserPoolRiskConfigurationAttachment_IsCfnUserPoolRiskConfigurationAttachmentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnUserPoolRiskConfigurationAttachment_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

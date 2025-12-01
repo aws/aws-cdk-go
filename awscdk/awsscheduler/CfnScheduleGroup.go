@@ -538,6 +538,25 @@ func CfnScheduleGroup_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnScheduleGroup.
+func CfnScheduleGroup_IsCfnScheduleGroup(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnScheduleGroup_IsCfnScheduleGroupParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_scheduler.CfnScheduleGroup",
+		"isCfnScheduleGroup",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnDataCatalogEncryptionSettings_IsCfnDataCatalogEncryptionSettingsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDataCatalogEncryptionSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

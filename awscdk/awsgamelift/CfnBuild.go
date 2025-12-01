@@ -603,6 +603,25 @@ func CfnBuild_FromBuildId(scope constructs.Construct, id *string, buildId *strin
 	return returns
 }
 
+// Checks whether the given object is a CfnBuild.
+func CfnBuild_IsCfnBuild(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBuild_IsCfnBuildParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnBuild",
+		"isCfnBuild",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

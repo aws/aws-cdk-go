@@ -655,6 +655,25 @@ func CfnBrowserCustom_ArnForBrowserCustom(resource interfacesawsbedrockagentcore
 	return returns
 }
 
+// Creates a new IBrowserCustomRef from an ARN.
+func CfnBrowserCustom_FromBrowserCustomArn(scope constructs.Construct, id *string, arn *string) interfacesawsbedrockagentcore.IBrowserCustomRef {
+	_init_.Initialize()
+
+	if err := validateCfnBrowserCustom_FromBrowserCustomArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsbedrockagentcore.IBrowserCustomRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserCustom",
+		"fromBrowserCustomArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IBrowserCustomRef from a browserId.
 func CfnBrowserCustom_FromBrowserId(scope constructs.Construct, id *string, browserId *string) interfacesawsbedrockagentcore.IBrowserCustomRef {
 	_init_.Initialize()
@@ -668,6 +687,25 @@ func CfnBrowserCustom_FromBrowserId(scope constructs.Construct, id *string, brow
 		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserCustom",
 		"fromBrowserId",
 		[]interface{}{scope, id, browserId},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnBrowserCustom.
+func CfnBrowserCustom_IsCfnBrowserCustom(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBrowserCustom_IsCfnBrowserCustomParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserCustom",
+		"isCfnBrowserCustom",
+		[]interface{}{x},
 		&returns,
 	)
 

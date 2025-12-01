@@ -10,10 +10,13 @@ package interfacesawssagemaker
 //
 //   notebookInstanceReference := &NotebookInstanceReference{
 //   	NotebookInstanceId: jsii.String("notebookInstanceId"),
+//   	NotebookInstanceName: jsii.String("notebookInstanceName"),
 //   }
 //
 type NotebookInstanceReference struct {
 	// The Id of the NotebookInstance resource.
 	NotebookInstanceId *string `field:"required" json:"notebookInstanceId" yaml:"notebookInstanceId"`
+	// The NotebookInstanceName of the NotebookInstance resource.
+	NotebookInstanceName *string `field:"required" json:"notebookInstanceName" yaml:"notebookInstanceName"`
 }
 

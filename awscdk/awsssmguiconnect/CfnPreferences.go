@@ -428,6 +428,25 @@ func CfnPreferences_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPreferences.
+func CfnPreferences_IsCfnPreferences(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPreferences_IsCfnPreferencesParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssmguiconnect.CfnPreferences",
+		"isCfnPreferences",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPreferences_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

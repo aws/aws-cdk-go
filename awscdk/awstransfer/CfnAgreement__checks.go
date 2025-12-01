@@ -164,6 +164,14 @@ func validateCfnAgreement_ArnForAgreementParameters(resource interfacesawstransf
 	return nil
 }
 
+func validateCfnAgreement_IsCfnAgreementParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAgreement_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

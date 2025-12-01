@@ -76,11 +76,19 @@ func validateCfnVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVersion_IsCfnVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVersion_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnVersion) validateSetFunctionNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnVersion) validateSetFunctionScalingConfigParameters(val interface{}) error {
 	return nil
 }
 

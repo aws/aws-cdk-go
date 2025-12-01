@@ -172,6 +172,14 @@ func validateCfnGameServerGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnGameServerGroup_IsCfnGameServerGroupParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnGameServerGroup_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

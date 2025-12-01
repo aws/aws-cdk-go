@@ -196,6 +196,14 @@ func validateCfnUsagePlan_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnUsagePlan_IsCfnUsagePlanParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnUsagePlan_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

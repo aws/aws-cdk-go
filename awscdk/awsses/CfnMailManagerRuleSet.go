@@ -704,6 +704,25 @@ func CfnMailManagerRuleSet_ArnForMailManagerRuleSet(resource interfacesawsses.IM
 	return returns
 }
 
+// Creates a new IMailManagerRuleSetRef from an ARN.
+func CfnMailManagerRuleSet_FromMailManagerRuleSetArn(scope constructs.Construct, id *string, arn *string) interfacesawsses.IMailManagerRuleSetRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerRuleSet_FromMailManagerRuleSetArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsses.IMailManagerRuleSetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet",
+		"fromMailManagerRuleSetArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerRuleSetRef from a ruleSetId.
 func CfnMailManagerRuleSet_FromRuleSetId(scope constructs.Construct, id *string, ruleSetId *string) interfacesawsses.IMailManagerRuleSetRef {
 	_init_.Initialize()
@@ -740,6 +759,25 @@ func CfnMailManagerRuleSet_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMailManagerRuleSet.
+func CfnMailManagerRuleSet_IsCfnMailManagerRuleSet(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerRuleSet_IsCfnMailManagerRuleSetParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet",
+		"isCfnMailManagerRuleSet",
 		[]interface{}{x},
 		&returns,
 	)

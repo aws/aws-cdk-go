@@ -645,6 +645,25 @@ func CfnPrefixList_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPrefixList.
+func CfnPrefixList_IsCfnPrefixList(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPrefixList_IsCfnPrefixListParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnPrefixList",
+		"isCfnPrefixList",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPrefixList_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

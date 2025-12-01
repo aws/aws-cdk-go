@@ -164,6 +164,14 @@ func validateCfnBranch_ArnForBranchParameters(resource interfacesawsamplify.IBra
 	return nil
 }
 
+func validateCfnBranch_IsCfnBranchParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnBranch_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

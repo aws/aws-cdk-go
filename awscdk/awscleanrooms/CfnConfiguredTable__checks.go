@@ -164,6 +164,14 @@ func validateCfnConfiguredTable_ArnForConfiguredTableParameters(resource interfa
 	return nil
 }
 
+func validateCfnConfiguredTable_IsCfnConfiguredTableParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConfiguredTable_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

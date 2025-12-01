@@ -532,6 +532,25 @@ func CfnLaunchRoleConstraint_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnLaunchRoleConstraint.
+func CfnLaunchRoleConstraint_IsCfnLaunchRoleConstraint(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLaunchRoleConstraint_IsCfnLaunchRoleConstraintParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.CfnLaunchRoleConstraint",
+		"isCfnLaunchRoleConstraint",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnLaunchRoleConstraint_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

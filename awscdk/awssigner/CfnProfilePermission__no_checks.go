@@ -72,6 +72,10 @@ func validateCfnProfilePermission_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnProfilePermission_IsCfnProfilePermissionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnProfilePermission_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

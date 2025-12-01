@@ -76,6 +76,10 @@ func validateCfnPushTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPushTemplate_IsCfnPushTemplateParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPushTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

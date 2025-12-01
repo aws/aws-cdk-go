@@ -164,6 +164,14 @@ func validateCfnCoreNetwork_ArnForCoreNetworkParameters(resource interfacesawsne
 	return nil
 }
 
+func validateCfnCoreNetwork_IsCfnCoreNetworkParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCoreNetwork_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

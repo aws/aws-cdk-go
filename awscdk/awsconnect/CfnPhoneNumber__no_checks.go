@@ -76,6 +76,10 @@ func validateCfnPhoneNumber_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnPhoneNumber_IsCfnPhoneNumberParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnPhoneNumber_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

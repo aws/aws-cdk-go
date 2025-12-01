@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnDBProxyTargetGroup_IsCfnDBProxyTargetGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDBProxyTargetGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

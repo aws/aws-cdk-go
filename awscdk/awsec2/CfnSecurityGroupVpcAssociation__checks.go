@@ -171,6 +171,14 @@ func validateCfnSecurityGroupVpcAssociation_IsCfnResourceParameters(x interface{
 	return nil
 }
 
+func validateCfnSecurityGroupVpcAssociation_IsCfnSecurityGroupVpcAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSecurityGroupVpcAssociation_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

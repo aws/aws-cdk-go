@@ -11,7 +11,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ECS::ExpressGatewayService.
+// Creates an Express service that simplifies deploying containerized web applications on Amazon ECS with managed AWS infrastructure.
+//
+// This operation provisions and configures Application Load Balancers, target groups, security groups, and auto-scaling policies automatically.
+//
+// Specify a primary container configuration with your application image and basic settings. Amazon ECS creates the necessary AWS resources for traffic distribution, health monitoring, network access control, and capacity management.
+//
+// Provide an execution role for task operations and an infrastructure role for managing AWS resources on your behalf.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -86,10 +92,14 @@ type CfnExpressGatewayService interface {
 	awscdk.IInspectable
 	interfacesawsecs.IExpressGatewayServiceRef
 	awscdk.ITaggableV2
+	// The list of active service configurations for the Express service.
 	AttrActiveConfigurations() awscdk.IResolvable
+	// The Unix timestamp for when the Express service was created.
 	AttrCreatedAt() *string
+	// The ARN that identifies the Express service.
 	AttrServiceArn() *string
 	AttrStatus() awscdk.IResolvable
+	// The Unix timestamp for when the Express service was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -98,8 +108,10 @@ type CfnExpressGatewayService interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The short name or full ARN of the cluster that hosts the Express service.
 	Cluster() *string
 	SetCluster(val *string)
+	// The CPU allocation for tasks in this service revision.
 	Cpu() *string
 	SetCpu(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -107,12 +119,15 @@ type CfnExpressGatewayService interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// The ARN of the task execution role for the service revision.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// A reference to a ExpressGatewayService resource.
 	ExpressGatewayServiceRef() *interfacesawsecs.ExpressGatewayServiceReference
+	// The health check path for this service revision.
 	HealthCheckPath() *string
 	SetHealthCheckPath(val *string)
+	// The ARN of the infrastructure role that manages AWS resources for the Express service.
 	InfrastructureRoleArn() *string
 	SetInfrastructureRoleArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -125,12 +140,15 @@ type CfnExpressGatewayService interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The memory allocation for tasks in this service revision.
 	Memory() *string
 	SetMemory(val *string)
+	// The network configuration for tasks in this service revision.
 	NetworkConfiguration() interface{}
 	SetNetworkConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// The primary container configuration for this service revision.
 	PrimaryContainer() interface{}
 	SetPrimaryContainer(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -138,16 +156,20 @@ type CfnExpressGatewayService interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The auto-scaling configuration for this service revision.
 	ScalingTarget() interface{}
 	SetScalingTarget(val interface{})
+	// The name of the Express service.
 	ServiceName() *string
 	SetServiceName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The metadata applied to the Express service.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The ARN of the task role for the service revision.
 	TaskRoleArn() *string
 	SetTaskRoleArn(val *string)
 	// Deprecated.
@@ -759,6 +781,25 @@ func CfnExpressGatewayService_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecs.CfnExpressGatewayService",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnExpressGatewayService.
+func CfnExpressGatewayService_IsCfnExpressGatewayService(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnExpressGatewayService_IsCfnExpressGatewayServiceParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.CfnExpressGatewayService",
+		"isCfnExpressGatewayService",
 		[]interface{}{x},
 		&returns,
 	)

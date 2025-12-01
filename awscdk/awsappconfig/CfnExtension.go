@@ -620,6 +620,25 @@ func CfnExtension_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnExtension.
+func CfnExtension_IsCfnExtension(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnExtension_IsCfnExtensionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appconfig.CfnExtension",
+		"isCfnExtension",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnExtension_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

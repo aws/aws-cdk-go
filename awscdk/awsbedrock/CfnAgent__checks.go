@@ -196,6 +196,14 @@ func validateCfnAgent_FromAgentIdParameters(scope constructs.Construct, id *stri
 	return nil
 }
 
+func validateCfnAgent_IsCfnAgentParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAgent_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

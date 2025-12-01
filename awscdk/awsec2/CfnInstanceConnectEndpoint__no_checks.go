@@ -80,6 +80,10 @@ func validateCfnInstanceConnectEndpoint_IsCfnElementParameters(x interface{}) er
 	return nil
 }
 
+func validateCfnInstanceConnectEndpoint_IsCfnInstanceConnectEndpointParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnInstanceConnectEndpoint_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

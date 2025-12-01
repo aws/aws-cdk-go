@@ -471,6 +471,25 @@ func CfnPortfolioProductAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnPortfolioProductAssociation.
+func CfnPortfolioProductAssociation_IsCfnPortfolioProductAssociation(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPortfolioProductAssociation_IsCfnPortfolioProductAssociationParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.CfnPortfolioProductAssociation",
+		"isCfnPortfolioProductAssociation",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnPortfolioProductAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

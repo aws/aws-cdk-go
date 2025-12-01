@@ -155,6 +155,14 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) validateValidatePropertiesParamet
 	return nil
 }
 
+func validateCfnDeviceDefinitionVersion_IsCfnDeviceDefinitionVersionParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDeviceDefinitionVersion_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

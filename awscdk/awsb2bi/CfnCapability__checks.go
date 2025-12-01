@@ -164,6 +164,14 @@ func validateCfnCapability_ArnForCapabilityParameters(resource interfacesawsb2bi
 	return nil
 }
 
+func validateCfnCapability_IsCfnCapabilityParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCapability_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

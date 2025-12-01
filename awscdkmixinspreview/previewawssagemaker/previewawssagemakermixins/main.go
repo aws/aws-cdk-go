@@ -2027,6 +2027,33 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnUserProfilePropsMixin.UserSettingsProperty",
 		reflect.TypeOf((*CfnUserProfilePropsMixin_UserSettingsProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnWorkteamActivityLogs",
+		reflect.TypeOf((*CfnWorkteamActivityLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnWorkteamActivityLogs{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnWorkteamLogsMixin",
+		reflect.TypeOf((*CfnWorkteamLogsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "logDelivery", GoGetter: "LogDelivery"},
+			_jsii_.MemberProperty{JsiiProperty: "logType", GoGetter: "LogType"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWorkteamLogsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnWorkteamMixinProps",
 		reflect.TypeOf((*CfnWorkteamMixinProps)(nil)).Elem(),

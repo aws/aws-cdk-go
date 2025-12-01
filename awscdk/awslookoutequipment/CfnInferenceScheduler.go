@@ -655,6 +655,25 @@ func CfnInferenceScheduler_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnInferenceScheduler.
+func CfnInferenceScheduler_IsCfnInferenceScheduler(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnInferenceScheduler_IsCfnInferenceSchedulerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"isCfnInferenceScheduler",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnInferenceScheduler_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

@@ -163,6 +163,14 @@ func validateCfnOrganizationCentralizationRule_IsCfnElementParameters(x interfac
 	return nil
 }
 
+func validateCfnOrganizationCentralizationRule_IsCfnOrganizationCentralizationRuleParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnOrganizationCentralizationRule_IsCfnResourceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

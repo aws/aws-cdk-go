@@ -80,6 +80,10 @@ func validateCfnAccessor_FromAccessorIdParameters(scope constructs.Construct, id
 	return nil
 }
 
+func validateCfnAccessor_IsCfnAccessorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnAccessor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

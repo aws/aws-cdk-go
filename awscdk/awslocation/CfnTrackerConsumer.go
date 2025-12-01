@@ -454,6 +454,25 @@ func CfnTrackerConsumer_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTrackerConsumer.
+func CfnTrackerConsumer_IsCfnTrackerConsumer(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTrackerConsumer_IsCfnTrackerConsumerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnTrackerConsumer",
+		"isCfnTrackerConsumer",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -76,6 +76,10 @@ func validateCfnVPCEndpointServicePermissions_IsCfnResourceParameters(x interfac
 	return nil
 }
 
+func validateCfnVPCEndpointServicePermissions_IsCfnVPCEndpointServicePermissionsParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPCEndpointServicePermissions_IsConstructParameters(x interface{}) error {
 	return nil
 }

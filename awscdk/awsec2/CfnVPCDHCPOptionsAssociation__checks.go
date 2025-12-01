@@ -171,6 +171,14 @@ func validateCfnVPCDHCPOptionsAssociation_IsCfnResourceParameters(x interface{})
 	return nil
 }
 
+func validateCfnVPCDHCPOptionsAssociation_IsCfnVPCDHCPOptionsAssociationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVPCDHCPOptionsAssociation_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

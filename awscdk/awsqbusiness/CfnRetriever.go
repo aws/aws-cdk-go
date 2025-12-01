@@ -653,6 +653,25 @@ func CfnRetriever_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnRetriever.
+func CfnRetriever_IsCfnRetriever(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnRetriever_IsCfnRetrieverParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_qbusiness.CfnRetriever",
+		"isCfnRetriever",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

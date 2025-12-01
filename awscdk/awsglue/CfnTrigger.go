@@ -720,6 +720,25 @@ func CfnTrigger_IsCfnResource(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnTrigger.
+func CfnTrigger_IsCfnTrigger(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnTrigger_IsCfnTriggerParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnTrigger",
+		"isCfnTrigger",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

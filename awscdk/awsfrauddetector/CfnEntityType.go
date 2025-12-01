@@ -530,6 +530,25 @@ func CfnEntityType_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnEntityType.
+func CfnEntityType_IsCfnEntityType(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEntityType_IsCfnEntityTypeParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_frauddetector.CfnEntityType",
+		"isCfnEntityType",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnEntityType_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

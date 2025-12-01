@@ -84,6 +84,10 @@ func validateCfnVPNConnection_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnVPNConnection_IsCfnVPNConnectionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnVPNConnection_IsConstructParameters(x interface{}) error {
 	return nil
 }

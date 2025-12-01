@@ -76,6 +76,10 @@ func validateCfnHookVersion_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnHookVersion_IsCfnHookVersionParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnHookVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

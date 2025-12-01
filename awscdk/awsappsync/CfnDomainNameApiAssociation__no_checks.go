@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDomainNameApiAssociation) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnDomainNameApiAssociation_IsCfnDomainNameApiAssociationParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDomainNameApiAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

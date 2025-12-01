@@ -25,7 +25,9 @@ package previewawsecrmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-signingconfiguration.html
 //
 type CfnSigningConfigurationMixinProps struct {
-	// Array of signing rules that define which repositories should be signed and with which signing profiles.
+	// A list of signing rules.
+	//
+	// Each rule defines a signing profile and optional repository filters that determine which images are automatically signed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-signingconfiguration.html#cfn-ecr-signingconfiguration-rules
 	//
 	Rules interface{} `field:"optional" json:"rules" yaml:"rules"`

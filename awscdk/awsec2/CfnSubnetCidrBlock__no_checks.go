@@ -76,6 +76,10 @@ func validateCfnSubnetCidrBlock_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnSubnetCidrBlock_IsCfnSubnetCidrBlockParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSubnetCidrBlock_IsConstructParameters(x interface{}) error {
 	return nil
 }

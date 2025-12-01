@@ -180,6 +180,14 @@ func validateCfnSimulationApplication_IsCfnResourceParameters(x interface{}) err
 	return nil
 }
 
+func validateCfnSimulationApplication_IsCfnSimulationApplicationParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSimulationApplication_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

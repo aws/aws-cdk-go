@@ -164,6 +164,14 @@ func validateCfnDBProxy_ArnForDBProxyParameters(resource interfacesawsrds.IDBPro
 	return nil
 }
 
+func validateCfnDBProxy_IsCfnDBProxyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDBProxy_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

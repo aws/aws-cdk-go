@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDBSecurityGroup) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDBSecurityGroup_IsCfnDBSecurityGroupParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDBSecurityGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

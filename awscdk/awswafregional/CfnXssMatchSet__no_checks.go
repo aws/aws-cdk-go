@@ -68,11 +68,19 @@ func (c *jsiiProxy_CfnXssMatchSet) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnXssMatchSet_ArnForXssMatchSetParameters(resource interfacesawswafregional.IXssMatchSetRef) error {
+	return nil
+}
+
 func validateCfnXssMatchSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnXssMatchSet_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnXssMatchSet_IsCfnXssMatchSetParameters(x interface{}) error {
 	return nil
 }
 

@@ -380,6 +380,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceArn", GoGetter: "InstanceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "items", GoGetter: "Items"},
+			_jsii_.MemberProperty{JsiiProperty: "languageConfiguration", GoGetter: "LanguageConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -395,6 +396,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
+			_jsii_.MemberProperty{JsiiProperty: "targetConfiguration", GoGetter: "TargetConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
@@ -451,6 +453,26 @@ func init() {
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormLanguageConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormLanguageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormMultiSelectQuestionAutomationOptionProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormMultiSelectQuestionAutomationOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormMultiSelectQuestionAutomationProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormMultiSelectQuestionAutomationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormMultiSelectQuestionOptionProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormMultiSelectQuestionOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormMultiSelectQuestionPropertiesProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormMultiSelectQuestionPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormNumericQuestionAutomationProperty",
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormNumericQuestionAutomationProperty)(nil)).Elem(),
 	)
@@ -495,12 +517,20 @@ func init() {
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormSingleSelectQuestionPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormTargetConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormTextQuestionAutomationProperty",
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormTextQuestionAutomationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormTextQuestionPropertiesProperty",
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormTextQuestionPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.MultiSelectQuestionRuleCategoryAutomationProperty",
+		reflect.TypeOf((*CfnEvaluationForm_MultiSelectQuestionRuleCategoryAutomationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.NumericQuestionPropertyValueAutomationProperty",

@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3tables"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -155,6 +156,14 @@ func (c *jsiiProxy_CfnTableBucket) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnTableBucket_ArnForTableBucketParameters(resource interfacesawss3tables.ITableBucketRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTableBucket_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -164,6 +173,14 @@ func validateCfnTableBucket_IsCfnElementParameters(x interface{}) error {
 }
 
 func validateCfnTableBucket_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTableBucket_IsCfnTableBucketParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
 	}

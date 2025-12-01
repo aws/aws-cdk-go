@@ -84,6 +84,10 @@ func validateCfnMetricStream_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnMetricStream_IsCfnMetricStreamParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnMetricStream_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }

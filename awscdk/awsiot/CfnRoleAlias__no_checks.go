@@ -88,6 +88,10 @@ func validateCfnRoleAlias_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnRoleAlias_IsCfnRoleAliasParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnRoleAlias_IsConstructParameters(x interface{}) error {
 	return nil
 }

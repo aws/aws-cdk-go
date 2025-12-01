@@ -433,6 +433,25 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion)SetCores(val interface{}) {
 	)
 }
 
+// Checks whether the given object is a CfnCoreDefinitionVersion.
+func CfnCoreDefinitionVersion_IsCfnCoreDefinitionVersion(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCoreDefinitionVersion_IsCfnCoreDefinitionVersionParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnCoreDefinitionVersion",
+		"isCfnCoreDefinitionVersion",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

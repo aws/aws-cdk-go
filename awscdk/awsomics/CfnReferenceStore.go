@@ -590,6 +590,25 @@ func CfnReferenceStore_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
+// Checks whether the given object is a CfnReferenceStore.
+func CfnReferenceStore_IsCfnReferenceStore(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnReferenceStore_IsCfnReferenceStoreParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnReferenceStore",
+		"isCfnReferenceStore",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given object is a CfnResource.
 func CfnReferenceStore_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()

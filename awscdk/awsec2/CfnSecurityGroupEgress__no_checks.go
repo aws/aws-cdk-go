@@ -76,6 +76,10 @@ func validateCfnSecurityGroupEgress_IsCfnResourceParameters(x interface{}) error
 	return nil
 }
 
+func validateCfnSecurityGroupEgress_IsCfnSecurityGroupEgressParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnSecurityGroupEgress_IsConstructParameters(x interface{}) error {
 	return nil
 }

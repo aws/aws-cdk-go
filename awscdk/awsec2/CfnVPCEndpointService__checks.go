@@ -171,6 +171,14 @@ func validateCfnVPCEndpointService_IsCfnResourceParameters(x interface{}) error 
 	return nil
 }
 
+func validateCfnVPCEndpointService_IsCfnVPCEndpointServiceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVPCEndpointService_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

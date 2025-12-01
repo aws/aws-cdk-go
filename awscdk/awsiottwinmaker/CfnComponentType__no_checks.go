@@ -72,6 +72,10 @@ func validateCfnComponentType_ArnForComponentTypeParameters(resource interfacesa
 	return nil
 }
 
+func validateCfnComponentType_IsCfnComponentTypeParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnComponentType_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

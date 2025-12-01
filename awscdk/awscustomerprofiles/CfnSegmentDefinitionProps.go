@@ -15,6 +15,9 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainName: jsii.String("domainName"),
 //   	SegmentDefinitionName: jsii.String("segmentDefinitionName"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	SegmentGroups: &SegmentGroupProperty{
 //   		Groups: []interface{}{
 //   			&GroupProperty{
@@ -316,9 +319,7 @@ import (
 //   		},
 //   		Include: jsii.String("include"),
 //   	},
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
+//   	SegmentSqlQuery: jsii.String("segmentSqlQuery"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -342,14 +343,18 @@ type CfnSegmentDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentdefinitionname
 	//
 	SegmentDefinitionName *string `field:"required" json:"segmentDefinitionName" yaml:"segmentDefinitionName"`
-	// Contains all groups of the segment definition.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentgroups
-	//
-	SegmentGroups interface{} `field:"required" json:"segmentGroups" yaml:"segmentGroups"`
 	// The description of the segment definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Contains all groups of the segment definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentgroups
+	//
+	SegmentGroups interface{} `field:"optional" json:"segmentGroups" yaml:"segmentGroups"`
+	// The SQL query that defines the segment criteria.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentsqlquery
+	//
+	SegmentSqlQuery *string `field:"optional" json:"segmentSqlQuery" yaml:"segmentSqlQuery"`
 	// The tags belonging to the segment definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-tags
 	//

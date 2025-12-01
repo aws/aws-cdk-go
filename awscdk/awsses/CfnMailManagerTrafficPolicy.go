@@ -600,6 +600,25 @@ func CfnMailManagerTrafficPolicy_ArnForMailManagerTrafficPolicy(resource interfa
 	return returns
 }
 
+// Creates a new IMailManagerTrafficPolicyRef from an ARN.
+func CfnMailManagerTrafficPolicy_FromMailManagerTrafficPolicyArn(scope constructs.Construct, id *string, arn *string) interfacesawsses.IMailManagerTrafficPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerTrafficPolicy_FromMailManagerTrafficPolicyArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsses.IMailManagerTrafficPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy",
+		"fromMailManagerTrafficPolicyArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new IMailManagerTrafficPolicyRef from a trafficPolicyId.
 func CfnMailManagerTrafficPolicy_FromTrafficPolicyId(scope constructs.Construct, id *string, trafficPolicyId *string) interfacesawsses.IMailManagerTrafficPolicyRef {
 	_init_.Initialize()
@@ -636,6 +655,25 @@ func CfnMailManagerTrafficPolicy_IsCfnElement(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy",
 		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks whether the given object is a CfnMailManagerTrafficPolicy.
+func CfnMailManagerTrafficPolicy_IsCfnMailManagerTrafficPolicy(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerTrafficPolicy_IsCfnMailManagerTrafficPolicyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy",
+		"isCfnMailManagerTrafficPolicy",
 		[]interface{}{x},
 		&returns,
 	)

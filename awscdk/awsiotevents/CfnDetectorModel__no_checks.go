@@ -76,6 +76,10 @@ func validateCfnDetectorModel_FromDetectorModelNameParameters(scope constructs.C
 	return nil
 }
 
+func validateCfnDetectorModel_IsCfnDetectorModelParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnDetectorModel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

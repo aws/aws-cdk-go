@@ -88,6 +88,10 @@ func validateCfnTrustAnchor_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
+func validateCfnTrustAnchor_IsCfnTrustAnchorParameters(x interface{}) error {
+	return nil
+}
+
 func validateCfnTrustAnchor_IsConstructParameters(x interface{}) error {
 	return nil
 }
