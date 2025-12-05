@@ -28,16 +28,16 @@ package awsdynamodb
 //   	},
 //   })
 //
-//   // Add a GSI with compound keys
+//   // Add a GSI with multi-attribute keys
 //   table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexPropsV2{
-//   	IndexName: jsii.String("compound-gsi2"),
+//   	IndexName: jsii.String("multi-attribute-gsi2"),
 //   	PartitionKeys: []Attribute{
 //   		&Attribute{
-//   			Name: jsii.String("compound_pk1"),
+//   			Name: jsii.String("multi-attribute_pk1"),
 //   			Type: dynamodb.AttributeType_STRING,
 //   		},
 //   		&Attribute{
-//   			Name: jsii.String("compound_pk2"),
+//   			Name: jsii.String("multi-attribute_pk2"),
 //   			Type: dynamodb.AttributeType_NUMBER,
 //   		},
 //   	},
@@ -73,18 +73,18 @@ type GlobalSecondaryIndexPropsV2 struct {
 	// Partition key attribute definition.
 	//
 	// If a single field forms the partition key, you can use this field.  Use the
-	// `partitionKeys` field if the partition key is a compound key (consists of
+	// `partitionKeys` field if the partition key is a multi-attribute key (consists of
 	// multiple fields).
 	// Default: - exactly one of `partitionKey` and `partitionKeys` must be specified.
 	//
 	PartitionKey *Attribute `field:"optional" json:"partitionKey" yaml:"partitionKey"`
-	// Compound partition key.
+	// Multi-attribute partition key.
 	//
 	// If a single field forms the partition key, you can use either
 	// `partitionKey` or `partitionKeys` to specify the partition key. Exactly
 	// one of these must be specified.
 	//
-	// You must use `partitionKeys` field if the partition key is a compound key
+	// You must use `partitionKeys` field if the partition key is a multi-attribute key
 	// (consists of multiple fields).
 	//
 	// NOTE: although the name of this field makes it sound like it creates
@@ -104,18 +104,18 @@ type GlobalSecondaryIndexPropsV2 struct {
 	// Sort key attribute definition.
 	//
 	// If a single field forms the sort key, you can use this field.  Use the
-	// `sortKeys` field if the sort key is a compound key (consists of multiple
+	// `sortKeys` field if the sort key is a multi-attribute key (consists of multiple
 	// fields).
 	// Default: - no sort key.
 	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
-	// Compound sort key.
+	// Multi-attribute sort key.
 	//
 	// If a single field forms the sort key, you can use either
 	// `sortKey` or `sortKeys` to specify the sort key. At most one of these
 	// may be specified.
 	//
-	// You must use `sortKeys` field if the sort key is a compound key
+	// You must use `sortKeys` field if the sort key is a multi-attribute key
 	// (consists of multiple fields).
 	//
 	// NOTE: although the name of this field makes it sound like it creates

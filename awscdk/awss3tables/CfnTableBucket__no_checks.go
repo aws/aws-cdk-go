@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnTableBucket) validateSetMetricsConfigurationParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnTableBucket) validateSetStorageClassConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTableBucket) validateSetTableBucketNameParameters(val *string) error {
 	return nil
 }

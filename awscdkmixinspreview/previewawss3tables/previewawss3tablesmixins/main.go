@@ -76,6 +76,10 @@ func init() {
 		reflect.TypeOf((*CfnTableBucketPropsMixin_MetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_s3tables.mixins.CfnTableBucketPropsMixin.StorageClassConfigurationProperty",
+		reflect.TypeOf((*CfnTableBucketPropsMixin_StorageClassConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3tables.mixins.CfnTableBucketPropsMixin.UnreferencedFileRemovalProperty",
 		reflect.TypeOf((*CfnTableBucketPropsMixin_UnreferencedFileRemovalProperty)(nil)).Elem(),
 	)
@@ -138,5 +142,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3tables.mixins.CfnTablePropsMixin.SnapshotManagementProperty",
 		reflect.TypeOf((*CfnTablePropsMixin_SnapshotManagementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_s3tables.mixins.CfnTablePropsMixin.StorageClassConfigurationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_StorageClassConfigurationProperty)(nil)).Elem(),
 	)
 }

@@ -32,6 +32,9 @@ import (
 //   			AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
 //   				IsEnabled: jsii.Boolean(false),
 //   			},
+//   			AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
+//   				IsEnabled: jsii.Boolean(false),
+//   			},
 //   			BucketLevel: &BucketLevelProperty{
 //   				ActivityMetrics: &ActivityMetricsProperty{
 //   					IsEnabled: jsii.Boolean(false),
@@ -40,6 +43,9 @@ import (
 //   					IsEnabled: jsii.Boolean(false),
 //   				},
 //   				AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
+//   					IsEnabled: jsii.Boolean(false),
+//   				},
+//   				AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
 //   					IsEnabled: jsii.Boolean(false),
 //   				},
 //   				DetailedStatusCodesMetrics: &DetailedStatusCodesMetricsProperty{
@@ -90,6 +96,15 @@ import (
 //   				OutputSchemaVersion: jsii.String("outputSchemaVersion"),
 //   				Prefix: jsii.String("prefix"),
 //   			},
+//   			StorageLensTableDestination: &StorageLensTableDestinationProperty{
+//   				Encryption: &EncryptionProperty{
+//   					Ssekms: &SSEKMSProperty{
+//   						KeyId: jsii.String("keyId"),
+//   					},
+//   					Sses3: sses3,
+//   				},
+//   				IsEnabled: jsii.Boolean(false),
+//   			},
 //   		},
 //   		Exclude: &BucketsAndRegionsProperty{
 //   			Buckets: []*string{
@@ -97,6 +112,30 @@ import (
 //   			},
 //   			Regions: []*string{
 //   				jsii.String("regions"),
+//   			},
+//   		},
+//   		ExpandedPrefixesDataExport: &StorageLensExpandedPrefixesDataExportProperty{
+//   			S3BucketDestination: &S3BucketDestinationProperty{
+//   				AccountId: jsii.String("accountId"),
+//   				Arn: jsii.String("arn"),
+//   				Encryption: &EncryptionProperty{
+//   					Ssekms: &SSEKMSProperty{
+//   						KeyId: jsii.String("keyId"),
+//   					},
+//   					Sses3: sses3,
+//   				},
+//   				Format: jsii.String("format"),
+//   				OutputSchemaVersion: jsii.String("outputSchemaVersion"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			StorageLensTableDestination: &StorageLensTableDestinationProperty{
+//   				Encryption: &EncryptionProperty{
+//   					Ssekms: &SSEKMSProperty{
+//   						KeyId: jsii.String("keyId"),
+//   					},
+//   					Sses3: sses3,
+//   				},
+//   				IsEnabled: jsii.Boolean(false),
 //   			},
 //   		},
 //   		Id: jsii.String("id"),
@@ -109,6 +148,7 @@ import (
 //   			},
 //   		},
 //   		IsEnabled: jsii.Boolean(false),
+//   		PrefixDelimiter: jsii.String("prefixDelimiter"),
 //   		StorageLensArn: jsii.String("storageLensArn"),
 //   	},
 //   	Tags: []CfnTag{

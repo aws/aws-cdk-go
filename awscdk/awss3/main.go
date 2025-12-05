@@ -1089,6 +1089,10 @@ func init() {
 		reflect.TypeOf((*CfnStorageLens_AdvancedDataProtectionMetricsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.CfnStorageLens.AdvancedPerformanceMetricsProperty",
+		reflect.TypeOf((*CfnStorageLens_AdvancedPerformanceMetricsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnStorageLens.AwsOrgProperty",
 		reflect.TypeOf((*CfnStorageLens_AwsOrgProperty)(nil)).Elem(),
 	)
@@ -1141,12 +1145,20 @@ func init() {
 		reflect.TypeOf((*CfnStorageLens_StorageLensConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.CfnStorageLens.StorageLensExpandedPrefixesDataExportProperty",
+		reflect.TypeOf((*CfnStorageLens_StorageLensExpandedPrefixesDataExportProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnStorageLens.StorageLensGroupLevelProperty",
 		reflect.TypeOf((*CfnStorageLens_StorageLensGroupLevelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnStorageLens.StorageLensGroupSelectionCriteriaProperty",
 		reflect.TypeOf((*CfnStorageLens_StorageLensGroupSelectionCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.CfnStorageLens.StorageLensTableDestinationProperty",
+		reflect.TypeOf((*CfnStorageLens_StorageLensTableDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_s3.CfnStorageLensGroup",

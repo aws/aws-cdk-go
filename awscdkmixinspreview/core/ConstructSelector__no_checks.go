@@ -4,15 +4,11 @@ package core
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_ConstructSelector) validateSelectParameters(scope constructs.IConstruct) error {
+func validateConstructSelector_ByIdParameters(pattern *string) error {
 	return nil
 }
 
-func validateConstructSelector_ByIdParameters(pattern interface{}) error {
-	return nil
-}
-
-func validateConstructSelector_ResourcesOfTypeParameters(type_ interface{}) error {
+func validateConstructSelector_ByPathParameters(pattern *string) error {
 	return nil
 }
 

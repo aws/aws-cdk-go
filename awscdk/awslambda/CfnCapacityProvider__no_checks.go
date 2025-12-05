@@ -72,6 +72,14 @@ func validateCfnCapacityProvider_ArnForCapacityProviderParameters(resource inter
 	return nil
 }
 
+func validateCfnCapacityProvider_FromCapacityProviderArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope constructs.Construct, id *string, capacityProviderName *string) error {
+	return nil
+}
+
 func validateCfnCapacityProvider_IsCfnCapacityProviderParameters(x interface{}) error {
 	return nil
 }

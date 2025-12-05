@@ -1,0 +1,35 @@
+package previewawsdevopsagentmixins
+
+
+// Dynatrace monitoring configuration.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   dynatraceConfigurationProperty := &DynatraceConfigurationProperty{
+//   	EnableWebhookUpdates: jsii.Boolean(false),
+//   	EnvId: jsii.String("envId"),
+//   	Resources: []*string{
+//   		jsii.String("resources"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-dynatraceconfiguration.html
+//
+type CfnAssociationPropsMixin_DynatraceConfigurationProperty struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-dynatraceconfiguration.html#cfn-devopsagent-association-dynatraceconfiguration-enablewebhookupdates
+	//
+	EnableWebhookUpdates interface{} `field:"optional" json:"enableWebhookUpdates" yaml:"enableWebhookUpdates"`
+	// Dynatrace environment id.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-dynatraceconfiguration.html#cfn-devopsagent-association-dynatraceconfiguration-envid
+	//
+	EnvId *string `field:"optional" json:"envId" yaml:"envId"`
+	// List of Dynatrace resources to monitor.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-dynatraceconfiguration.html#cfn-devopsagent-association-dynatraceconfiguration-resources
+	//
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
+}
+

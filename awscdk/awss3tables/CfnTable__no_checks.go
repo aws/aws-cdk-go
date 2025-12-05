@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnTable) validateSetSnapshotManagementParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetStorageClassConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetTableBucketArnParameters(val *string) error {
 	return nil
 }

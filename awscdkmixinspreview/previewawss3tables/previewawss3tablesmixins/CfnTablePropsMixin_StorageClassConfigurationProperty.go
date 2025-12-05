@@ -1,0 +1,23 @@
+package previewawss3tablesmixins
+
+
+// Specifies storage class settings for the table.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   storageClassConfigurationProperty := &StorageClassConfigurationProperty{
+//   	StorageClass: jsii.String("storageClass"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-storageclassconfiguration.html
+//
+type CfnTablePropsMixin_StorageClassConfigurationProperty struct {
+	// The storage class for the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-storageclassconfiguration.html#cfn-s3tables-table-storageclassconfiguration-storageclass
+	//
+	StorageClass *string `field:"optional" json:"storageClass" yaml:"storageClass"`
+}
+

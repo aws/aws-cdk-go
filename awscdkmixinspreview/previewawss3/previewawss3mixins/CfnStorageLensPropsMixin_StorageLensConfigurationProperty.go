@@ -21,6 +21,9 @@ package previewawss3mixins
 //   		AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
 //   			IsEnabled: jsii.Boolean(false),
 //   		},
+//   		AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
+//   			IsEnabled: jsii.Boolean(false),
+//   		},
 //   		BucketLevel: &BucketLevelProperty{
 //   			ActivityMetrics: &ActivityMetricsProperty{
 //   				IsEnabled: jsii.Boolean(false),
@@ -29,6 +32,9 @@ package previewawss3mixins
 //   				IsEnabled: jsii.Boolean(false),
 //   			},
 //   			AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
+//   				IsEnabled: jsii.Boolean(false),
+//   			},
+//   			AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
 //   				IsEnabled: jsii.Boolean(false),
 //   			},
 //   			DetailedStatusCodesMetrics: &DetailedStatusCodesMetricsProperty{
@@ -79,6 +85,15 @@ package previewawss3mixins
 //   			OutputSchemaVersion: jsii.String("outputSchemaVersion"),
 //   			Prefix: jsii.String("prefix"),
 //   		},
+//   		StorageLensTableDestination: &StorageLensTableDestinationProperty{
+//   			Encryption: &EncryptionProperty{
+//   				Ssekms: &SSEKMSProperty{
+//   					KeyId: jsii.String("keyId"),
+//   				},
+//   				Sses3: sses3,
+//   			},
+//   			IsEnabled: jsii.Boolean(false),
+//   		},
 //   	},
 //   	Exclude: &BucketsAndRegionsProperty{
 //   		Buckets: []*string{
@@ -86,6 +101,30 @@ package previewawss3mixins
 //   		},
 //   		Regions: []*string{
 //   			jsii.String("regions"),
+//   		},
+//   	},
+//   	ExpandedPrefixesDataExport: &StorageLensExpandedPrefixesDataExportProperty{
+//   		S3BucketDestination: &S3BucketDestinationProperty{
+//   			AccountId: jsii.String("accountId"),
+//   			Arn: jsii.String("arn"),
+//   			Encryption: &EncryptionProperty{
+//   				Ssekms: &SSEKMSProperty{
+//   					KeyId: jsii.String("keyId"),
+//   				},
+//   				Sses3: sses3,
+//   			},
+//   			Format: jsii.String("format"),
+//   			OutputSchemaVersion: jsii.String("outputSchemaVersion"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   		StorageLensTableDestination: &StorageLensTableDestinationProperty{
+//   			Encryption: &EncryptionProperty{
+//   				Ssekms: &SSEKMSProperty{
+//   					KeyId: jsii.String("keyId"),
+//   				},
+//   				Sses3: sses3,
+//   			},
+//   			IsEnabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   	Id: jsii.String("id"),
@@ -98,6 +137,7 @@ package previewawss3mixins
 //   		},
 //   	},
 //   	IsEnabled: jsii.Boolean(false),
+//   	PrefixDelimiter: jsii.String("prefixDelimiter"),
 //   	StorageLensArn: jsii.String("storageLensArn"),
 //   }
 //
@@ -120,6 +160,10 @@ type CfnStorageLensPropsMixin_StorageLensConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
 	//
 	Exclude interface{} `field:"optional" json:"exclude" yaml:"exclude"`
+	// Expanded Prefixes Data Export.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-expandedprefixesdataexport
+	//
+	ExpandedPrefixesDataExport interface{} `field:"optional" json:"expandedPrefixesDataExport" yaml:"expandedPrefixesDataExport"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
 	//
@@ -132,6 +176,10 @@ type CfnStorageLensPropsMixin_StorageLensConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
 	//
 	IsEnabled interface{} `field:"optional" json:"isEnabled" yaml:"isEnabled"`
+	// The delimiter to divide S3 key into hierarchy of prefixes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-prefixdelimiter
+	//
+	PrefixDelimiter *string `field:"optional" json:"prefixDelimiter" yaml:"prefixDelimiter"`
 	// This property contains the details of the ARN of the S3 Storage Lens configuration.
 	//
 	// This property is read-only.

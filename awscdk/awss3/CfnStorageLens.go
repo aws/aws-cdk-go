@@ -33,6 +33,9 @@ import (
 //   				AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
 //   					IsEnabled: jsii.Boolean(false),
 //   				},
+//   				AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
+//   					IsEnabled: jsii.Boolean(false),
+//   				},
 //   				DetailedStatusCodesMetrics: &DetailedStatusCodesMetricsProperty{
 //   					IsEnabled: jsii.Boolean(false),
 //   				},
@@ -56,6 +59,9 @@ import (
 //   				IsEnabled: jsii.Boolean(false),
 //   			},
 //   			AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
+//   				IsEnabled: jsii.Boolean(false),
+//   			},
+//   			AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
 //   				IsEnabled: jsii.Boolean(false),
 //   			},
 //   			DetailedStatusCodesMetrics: &DetailedStatusCodesMetricsProperty{
@@ -98,6 +104,17 @@ import (
 //   				},
 //   				Prefix: jsii.String("prefix"),
 //   			},
+//   			StorageLensTableDestination: &StorageLensTableDestinationProperty{
+//   				IsEnabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				Encryption: &EncryptionProperty{
+//   					Ssekms: &SSEKMSProperty{
+//   						KeyId: jsii.String("keyId"),
+//   					},
+//   					Sses3: sses3,
+//   				},
+//   			},
 //   		},
 //   		Exclude: &BucketsAndRegionsProperty{
 //   			Buckets: []*string{
@@ -105,6 +122,34 @@ import (
 //   			},
 //   			Regions: []*string{
 //   				jsii.String("regions"),
+//   			},
+//   		},
+//   		ExpandedPrefixesDataExport: &StorageLensExpandedPrefixesDataExportProperty{
+//   			S3BucketDestination: &S3BucketDestinationProperty{
+//   				AccountId: jsii.String("accountId"),
+//   				Arn: jsii.String("arn"),
+//   				Format: jsii.String("format"),
+//   				OutputSchemaVersion: jsii.String("outputSchemaVersion"),
+//
+//   				// the properties below are optional
+//   				Encryption: &EncryptionProperty{
+//   					Ssekms: &SSEKMSProperty{
+//   						KeyId: jsii.String("keyId"),
+//   					},
+//   					Sses3: sses3,
+//   				},
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			StorageLensTableDestination: &StorageLensTableDestinationProperty{
+//   				IsEnabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				Encryption: &EncryptionProperty{
+//   					Ssekms: &SSEKMSProperty{
+//   						KeyId: jsii.String("keyId"),
+//   					},
+//   					Sses3: sses3,
+//   				},
 //   			},
 //   		},
 //   		Include: &BucketsAndRegionsProperty{
@@ -115,6 +160,7 @@ import (
 //   				jsii.String("regions"),
 //   			},
 //   		},
+//   		PrefixDelimiter: jsii.String("prefixDelimiter"),
 //   		StorageLensArn: jsii.String("storageLensArn"),
 //   	},
 //

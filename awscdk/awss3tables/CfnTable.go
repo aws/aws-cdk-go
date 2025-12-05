@@ -58,6 +58,9 @@ import (
 //   		MinSnapshotsToKeep: jsii.Number(123),
 //   		Status: jsii.String("status"),
 //   	},
+//   	StorageClassConfiguration: &StorageClassConfigurationProperty{
+//   		StorageClass: jsii.String("storageClass"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -128,6 +131,9 @@ type CfnTable interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Specifies storage class settings for the table.
+	StorageClassConfiguration() interface{}
+	SetStorageClassConfiguration(val interface{})
 	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
 	TableBucketArn() *string
 	SetTableBucketArn(val *string)
@@ -470,6 +476,16 @@ func (j *jsiiProxy_CfnTable) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) StorageClassConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"storageClassConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) TableBucketArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -621,6 +637,17 @@ func (j *jsiiProxy_CfnTable)SetSnapshotManagement(val interface{}) {
 	_jsii_.Set(
 		j,
 		"snapshotManagement",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetStorageClassConfiguration(val interface{}) {
+	if err := j.validateSetStorageClassConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"storageClassConfiguration",
 		val,
 	)
 }

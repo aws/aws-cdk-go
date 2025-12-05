@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnS3AccessPointAttachment) validateSetNameParameters(val *st
 	return nil
 }
 
+func (j *jsiiProxy_CfnS3AccessPointAttachment) validateSetOntapConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnS3AccessPointAttachment) validateSetOpenZfsConfigurationParameters(val interface{}) error {
 	return nil
 }

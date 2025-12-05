@@ -22,6 +22,9 @@ import (
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},
+//   	StorageClassConfiguration: &StorageClassConfigurationProperty{
+//   		StorageClass: jsii.String("storageClass"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -52,6 +55,10 @@ type CfnTableBucketProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-metricsconfiguration
 	//
 	MetricsConfiguration interface{} `field:"optional" json:"metricsConfiguration" yaml:"metricsConfiguration"`
+	// Specifies storage class settings for the table bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-storageclassconfiguration
+	//
+	StorageClassConfiguration interface{} `field:"optional" json:"storageClassConfiguration" yaml:"storageClassConfiguration"`
 	// User tags (key-value pairs) to associate with the table bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-tags
 	//

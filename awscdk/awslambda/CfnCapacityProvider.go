@@ -621,6 +621,44 @@ func CfnCapacityProvider_ArnForCapacityProvider(resource interfacesawslambda.ICa
 	return returns
 }
 
+// Creates a new ICapacityProviderRef from an ARN.
+func CfnCapacityProvider_FromCapacityProviderArn(scope constructs.Construct, id *string, arn *string) interfacesawslambda.ICapacityProviderRef {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityProvider_FromCapacityProviderArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawslambda.ICapacityProviderRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProvider",
+		"fromCapacityProviderArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ICapacityProviderRef from a capacityProviderName.
+func CfnCapacityProvider_FromCapacityProviderName(scope constructs.Construct, id *string, capacityProviderName *string) interfacesawslambda.ICapacityProviderRef {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope, id, capacityProviderName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawslambda.ICapacityProviderRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnCapacityProvider",
+		"fromCapacityProviderName",
+		[]interface{}{scope, id, capacityProviderName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnCapacityProvider.
 func CfnCapacityProvider_IsCfnCapacityProvider(x interface{}) *bool {
 	_init_.Initialize()

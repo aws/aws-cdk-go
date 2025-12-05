@@ -553,6 +553,10 @@ func init() {
 		reflect.TypeOf((*CfnStorageLensPropsMixin_AdvancedDataProtectionMetricsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnStorageLensPropsMixin.AdvancedPerformanceMetricsProperty",
+		reflect.TypeOf((*CfnStorageLensPropsMixin_AdvancedPerformanceMetricsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnStorageLensPropsMixin.AwsOrgProperty",
 		reflect.TypeOf((*CfnStorageLensPropsMixin_AwsOrgProperty)(nil)).Elem(),
 	)
@@ -605,12 +609,20 @@ func init() {
 		reflect.TypeOf((*CfnStorageLensPropsMixin_StorageLensConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnStorageLensPropsMixin.StorageLensExpandedPrefixesDataExportProperty",
+		reflect.TypeOf((*CfnStorageLensPropsMixin_StorageLensExpandedPrefixesDataExportProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnStorageLensPropsMixin.StorageLensGroupLevelProperty",
 		reflect.TypeOf((*CfnStorageLensPropsMixin_StorageLensGroupLevelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnStorageLensPropsMixin.StorageLensGroupSelectionCriteriaProperty",
 		reflect.TypeOf((*CfnStorageLensPropsMixin_StorageLensGroupSelectionCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnStorageLensPropsMixin.StorageLensTableDestinationProperty",
+		reflect.TypeOf((*CfnStorageLensPropsMixin_StorageLensTableDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.EnableVersioning",

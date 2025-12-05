@@ -140,12 +140,28 @@ func init() {
 		reflect.TypeOf((*CfnS3AccessPointAttachmentPropsMixin_FileSystemGIDProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_fsx.mixins.CfnS3AccessPointAttachmentPropsMixin.OntapFileSystemIdentityProperty",
+		reflect.TypeOf((*CfnS3AccessPointAttachmentPropsMixin_OntapFileSystemIdentityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_fsx.mixins.CfnS3AccessPointAttachmentPropsMixin.OntapUnixFileSystemUserProperty",
+		reflect.TypeOf((*CfnS3AccessPointAttachmentPropsMixin_OntapUnixFileSystemUserProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_fsx.mixins.CfnS3AccessPointAttachmentPropsMixin.OntapWindowsFileSystemUserProperty",
+		reflect.TypeOf((*CfnS3AccessPointAttachmentPropsMixin_OntapWindowsFileSystemUserProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_fsx.mixins.CfnS3AccessPointAttachmentPropsMixin.OpenZFSFileSystemIdentityProperty",
 		reflect.TypeOf((*CfnS3AccessPointAttachmentPropsMixin_OpenZFSFileSystemIdentityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_fsx.mixins.CfnS3AccessPointAttachmentPropsMixin.OpenZFSPosixFileSystemUserProperty",
 		reflect.TypeOf((*CfnS3AccessPointAttachmentPropsMixin_OpenZFSPosixFileSystemUserProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_fsx.mixins.CfnS3AccessPointAttachmentPropsMixin.S3AccessPointOntapConfigurationProperty",
+		reflect.TypeOf((*CfnS3AccessPointAttachmentPropsMixin_S3AccessPointOntapConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_fsx.mixins.CfnS3AccessPointAttachmentPropsMixin.S3AccessPointOpenZFSConfigurationProperty",

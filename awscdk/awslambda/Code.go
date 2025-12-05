@@ -14,24 +14,23 @@ import (
 // Represents the Lambda Handler Code.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &SigningProfileProps{
-//   	Platform: signer.Platform_AWS_LAMBDA_SHA384_ECDSA(),
-//   })
-//
-//   codeSigningConfig := lambda.NewCodeSigningConfig(this, jsii.String("CodeSigningConfig"), &CodeSigningConfigProps{
-//   	SigningProfiles: []ISigningProfile{
-//   		signingProfile,
-//   	},
-//   })
-//
-//   lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
-//   	CodeSigningConfig: CodeSigningConfig,
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   myFunctionHandler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+//   	Code: lambda.Code_FromAsset(jsii.String("resource/myfunction")),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+//   })
+//
+//   eventRule := cloudtrail.Trail_OnEvent(this, jsii.String("MyCloudWatchEvent"), &OnEventOptions{
+//   	Target: targets.NewLambdaFunction(myFunctionHandler),
+//   })
+//
+//   eventRule.AddEventPattern(&EventPattern{
+//   	Account: []*string{
+//   		jsii.String("123456789012"),
+//   	},
+//   	Source: []*string{
+//   		jsii.String("aws.s3"),
+//   	},
 //   })
 //
 type Code interface {

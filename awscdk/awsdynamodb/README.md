@@ -552,9 +552,9 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 })
 ```
 
-#### Compound Keys
+#### Multi-attribute Keys
 
-Global secondary indexes support compound keys, allowing you to specify multiple partition keys and/or multiple sort keys. This enables more flexible query patterns for complex data models.
+Global secondary indexes support multi-attribute keys, allowing you to specify multiple partition keys and/or multiple sort keys. This enables more flexible query patterns for complex data models.
 
 **Key Constraints:**
 
@@ -566,7 +566,7 @@ Global secondary indexes support compound keys, allowing you to specify multiple
 * For multiple keys, you **must** use the plural parameters (`partitionKeys` and/or `sortKeys`)
 * **Keys cannot be added or modified after index creation** - attempting to add additional keys to an existing index will result in an error
 
-**Example with compound partition and sort keys:**
+**Example with multi-attribute partition and sort keys:**
 
 ```go
 table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
@@ -576,7 +576,7 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 	},
 	GlobalSecondaryIndexes: []GlobalSecondaryIndexPropsV2{
 		&GlobalSecondaryIndexPropsV2{
-			IndexName: jsii.String("compound-gsi"),
+			IndexName: jsii.String("multi-attribute-gsi"),
 			PartitionKeys: []Attribute{
 				&Attribute{
 					Name: jsii.String("gsi_pk1"),
@@ -629,16 +629,16 @@ table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexPropsV2{
 	},
 })
 
-// Add a GSI with compound keys
+// Add a GSI with multi-attribute keys
 table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexPropsV2{
-	IndexName: jsii.String("compound-gsi2"),
+	IndexName: jsii.String("multi-attribute-gsi2"),
 	PartitionKeys: []Attribute{
 		&Attribute{
-			Name: jsii.String("compound_pk1"),
+			Name: jsii.String("multi-attribute_pk1"),
 			Type: dynamodb.AttributeType_STRING,
 		},
 		&Attribute{
-			Name: jsii.String("compound_pk2"),
+			Name: jsii.String("multi-attribute_pk2"),
 			Type: dynamodb.AttributeType_NUMBER,
 		},
 	},

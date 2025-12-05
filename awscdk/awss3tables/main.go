@@ -98,6 +98,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "snapshotManagement", GoGetter: "SnapshotManagement"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "storageClassConfiguration", GoGetter: "StorageClassConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "tableBucketArn", GoGetter: "TableBucketArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
@@ -137,6 +138,10 @@ func init() {
 		"aws-cdk-lib.aws_s3tables.CfnTable.SnapshotManagementProperty",
 		reflect.TypeOf((*CfnTable_SnapshotManagementProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTable.StorageClassConfigurationProperty",
+		reflect.TypeOf((*CfnTable_StorageClassConfigurationProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket",
 		reflect.TypeOf((*CfnTableBucket)(nil)).Elem(),
@@ -172,6 +177,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "storageClassConfiguration", GoGetter: "StorageClassConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "tableBucketName", GoGetter: "TableBucketName"},
 			_jsii_.MemberProperty{JsiiProperty: "tableBucketRef", GoGetter: "TableBucketRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -197,6 +203,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.MetricsConfigurationProperty",
 		reflect.TypeOf((*CfnTableBucket_MetricsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket.StorageClassConfigurationProperty",
+		reflect.TypeOf((*CfnTableBucket_StorageClassConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.UnreferencedFileRemovalProperty",

@@ -264,6 +264,37 @@ runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &Ru
 })
 ```
 
+#### Option 4: Use an ECR container image URI
+
+Reference an ECR container image directly by its URI. This is useful when you have a pre-existing ECR image URI from CloudFormation parameters or cross-stack references. No IAM permissions are automatically granted - you must ensure the runtime has ECR pull permissions.
+
+```go
+// Direct URI reference
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromImageUri(jsii.String("123456789012.dkr.ecr.us-east-1.amazonaws.com/my-agent:v1.0.0"))
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
+You can also use CloudFormation parameters or references:
+
+```go
+// Using a CloudFormation parameter
+imageUriParam := cdk.NewCfnParameter(this, jsii.String("ImageUri"), &CfnParameterProps{
+	Type: jsii.String("String"),
+	Description: jsii.String("Container image URI for the agent runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromImageUri(imageUriParam.valueAsString)
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
 ### Granting Permissions to Invoke Bedrock Models or Inference Profiles
 
 To grant the runtime permissions to invoke Bedrock models or inference profiles:

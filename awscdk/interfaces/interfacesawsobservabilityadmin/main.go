@@ -38,6 +38,36 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.IS3TableIntegrationRef",
+		reflect.TypeOf((*IS3TableIntegrationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "s3TableIntegrationRef", GoGetter: "S3TableIntegrationRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IS3TableIntegrationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.ITelemetryPipelinesRef",
+		reflect.TypeOf((*ITelemetryPipelinesRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "telemetryPipelinesRef", GoGetter: "TelemetryPipelinesRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITelemetryPipelinesRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_observabilityadmin.ITelemetryRuleRef",
 		reflect.TypeOf((*ITelemetryRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -59,6 +89,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_observabilityadmin.OrganizationTelemetryRuleReference",
 		reflect.TypeOf((*OrganizationTelemetryRuleReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.S3TableIntegrationReference",
+		reflect.TypeOf((*S3TableIntegrationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.TelemetryPipelinesReference",
+		reflect.TypeOf((*TelemetryPipelinesReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_observabilityadmin.TelemetryRuleReference",

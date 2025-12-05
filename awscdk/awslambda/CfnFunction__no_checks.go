@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnFunction) validateSetDeadLetterConfigParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetDurableConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetEnvironmentParameters(val interface{}) error {
 	return nil
 }

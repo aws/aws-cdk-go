@@ -35,6 +35,10 @@ import (
 //   		TargetArn: jsii.String("targetArn"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DurableConfig: &DurableConfigProperty{
+//   		ExecutionTimeout: jsii.Number(123),
+//   		RetentionPeriodInDays: jsii.Number(123),
+//   	},
 //   	Environment: &EnvironmentProperty{
 //   		Variables: map[string]*string{
 //   			"variablesKey": jsii.String("variables"),
@@ -149,6 +153,9 @@ type CfnFunctionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-durableconfig
+	//
+	DurableConfig interface{} `field:"optional" json:"durableConfig" yaml:"durableConfig"`
 	// Environment variables that are accessible from function code during execution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
 	//

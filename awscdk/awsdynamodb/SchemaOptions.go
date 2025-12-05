@@ -23,7 +23,7 @@ type SchemaOptions struct {
 	// Partition key attribute definition.
 	//
 	// If a single field forms the partition key, you can use this field.  Use the
-	// `partitionKeys` field if the partition key is a compound key (consists of
+	// `partitionKeys` field if the partition key is a multi-attribute key (consists of
 	// multiple fields).
 	// Default: - exactly one of `partitionKey` and `partitionKeys` must be specified.
 	//
@@ -31,7 +31,7 @@ type SchemaOptions struct {
 	// Sort key attribute definition.
 	//
 	// If a single field forms the sort key, you can use this field.  Use the
-	// `sortKeys` field if the sort key is a compound key (consists of multiple
+	// `sortKeys` field if the sort key is a multi-attribute key (consists of multiple
 	// fields).
 	// Default: - no sort key.
 	//

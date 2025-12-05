@@ -2,17 +2,15 @@ package awscdk
 
 
 // Example:
-//   param := awscdk.NewCfnParameter(this, jsii.String("ParameterName"), &CfnParameterProps{
+//   stack := awscdk.Newstack()
+//   durToken := awscdk.NewCfnParameter(stack, jsii.String("MyParameter"), &CfnParameterProps{
+//   	Type: jsii.String("Number"),
+//   	Default: jsii.Number(60),
 //   })
-//
-//   // If the parameter is a String
-//   param.valueAsString
-//
-//   // If the parameter is a Number
-//   param.valueAsNumber
-//
-//   // If the parameter is a List
-//   param.valueAsList
+//   awscdk.NewCustomResource(stack, jsii.String("MyCustomResource"), &CustomResourceProps{
+//   	ServiceToken: jsii.String("MyServiceToken"),
+//   	ServiceTimeout: awscdk.Duration_Seconds(durToken.valueAsNumber),
+//   })
 //
 type CfnParameterProps struct {
 	// A regular expression that represents the patterns to allow for String types.

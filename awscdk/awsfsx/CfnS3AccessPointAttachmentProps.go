@@ -12,6 +12,23 @@ package awsfsx
 //
 //   cfnS3AccessPointAttachmentProps := &CfnS3AccessPointAttachmentProps{
 //   	Name: jsii.String("name"),
+//   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	OntapConfiguration: &S3AccessPointOntapConfigurationProperty{
+//   		FileSystemIdentity: &OntapFileSystemIdentityProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			UnixUser: &OntapUnixFileSystemUserProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   			WindowsUser: &OntapWindowsFileSystemUserProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
+//   		VolumeId: jsii.String("volumeId"),
+//   	},
 //   	OpenZfsConfiguration: &S3AccessPointOpenZFSConfigurationProperty{
 //   		FileSystemIdentity: &OpenZFSFileSystemIdentityProperty{
 //   			PosixUser: &OpenZFSPosixFileSystemUserProperty{
@@ -29,9 +46,6 @@ package awsfsx
 //   		},
 //   		VolumeId: jsii.String("volumeId"),
 //   	},
-//   	Type: jsii.String("type"),
-//
-//   	// the properties below are optional
 //   	S3AccessPoint: &S3AccessPointProperty{
 //   		Alias: jsii.String("alias"),
 //   		Policy: policy,
@@ -51,14 +65,17 @@ type CfnS3AccessPointAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The OpenZFSConfiguration of the S3 access point attachment.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-openzfsconfiguration
-	//
-	OpenZfsConfiguration interface{} `field:"required" json:"openZfsConfiguration" yaml:"openZfsConfiguration"`
 	// The type of Amazon FSx volume that the S3 access point is attached to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-ontapconfiguration
+	//
+	OntapConfiguration interface{} `field:"optional" json:"ontapConfiguration" yaml:"ontapConfiguration"`
+	// The OpenZFSConfiguration of the S3 access point attachment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-openzfsconfiguration
+	//
+	OpenZfsConfiguration interface{} `field:"optional" json:"openZfsConfiguration" yaml:"openZfsConfiguration"`
 	// The S3 access point configuration of the S3 access point attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-s3accesspoint
 	//

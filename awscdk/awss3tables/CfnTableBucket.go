@@ -37,6 +37,9 @@ import (
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},
+//   	StorageClassConfiguration: &StorageClassConfigurationProperty{
+//   		StorageClass: jsii.String("storageClass"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -98,6 +101,9 @@ type CfnTableBucket interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Specifies storage class settings for the table bucket.
+	StorageClassConfiguration() interface{}
+	SetStorageClassConfiguration(val interface{})
 	// The name for the table bucket.
 	TableBucketName() *string
 	SetTableBucketName(val *string)
@@ -387,6 +393,16 @@ func (j *jsiiProxy_CfnTableBucket) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTableBucket) StorageClassConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"storageClassConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTableBucket) TableBucketName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -495,6 +511,17 @@ func (j *jsiiProxy_CfnTableBucket)SetMetricsConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"metricsConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTableBucket)SetStorageClassConfiguration(val interface{}) {
+	if err := j.validateSetStorageClassConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"storageClassConfiguration",
 		val,
 	)
 }

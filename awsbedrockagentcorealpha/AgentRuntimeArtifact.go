@@ -15,25 +15,15 @@ import (
 // Provides methods to reference container images from ECR repositories or local assets.
 //
 // Example:
-//   // S3 bucket containing the agent core
-//   codeBucket := s3.NewBucket(this, jsii.String("AgentCode"), &BucketProps{
-//   	BucketName: jsii.String("my-code-bucket"),
-//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+//   	RepositoryName: jsii.String("test-agent-runtime"),
 //   })
+//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
 //
-//   // the bucket above needs to contain the agent code
-//
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromS3(&Location{
-//   	BucketName: codeBucket.BucketName,
-//   	ObjectKey: jsii.String("deployment_package.zip"),
-//   }, agentcore.AgentCoreRuntime_PYTHON_3_12, []*string{
-//   	jsii.String("opentelemetry-instrument"),
-//   	jsii.String("main.py"),
-//   })
-//
-//   runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 //   	RuntimeName: jsii.String("myAgent"),
 //   	AgentRuntimeArtifact: agentRuntimeArtifact,
+//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123")),
 //   })
 //
 // Experimental.
@@ -93,6 +83,31 @@ func AgentRuntimeArtifact_FromEcrRepository(repository awsecr.IRepository, tag *
 		"@aws-cdk/aws-bedrock-agentcore-alpha.AgentRuntimeArtifact",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
+		&returns,
+	)
+
+	return returns
+}
+
+// Reference an image using an ECR container URI.
+//
+// Use this when referencing ECR images from CloudFormation parameters or cross-stack references.
+//
+// **Note:** No IAM permissions are automatically granted. You must ensure the runtime has
+// ECR pull permissions for the repository.
+// Experimental.
+func AgentRuntimeArtifact_FromImageUri(containerUri *string) AgentRuntimeArtifact {
+	_init_.Initialize()
+
+	if err := validateAgentRuntimeArtifact_FromImageUriParameters(containerUri); err != nil {
+		panic(err)
+	}
+	var returns AgentRuntimeArtifact
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.AgentRuntimeArtifact",
+		"fromImageUri",
+		[]interface{}{containerUri},
 		&returns,
 	)
 

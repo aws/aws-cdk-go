@@ -164,6 +164,38 @@ func validateCfnCapacityProvider_ArnForCapacityProviderParameters(resource inter
 	return nil
 }
 
+func validateCfnCapacityProvider_FromCapacityProviderArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope constructs.Construct, id *string, capacityProviderName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if capacityProviderName == nil {
+		return fmt.Errorf("parameter capacityProviderName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCapacityProvider_IsCfnCapacityProviderParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

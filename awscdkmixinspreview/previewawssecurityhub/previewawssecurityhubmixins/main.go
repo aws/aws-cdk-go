@@ -228,6 +228,38 @@ func init() {
 		reflect.TypeOf((*CfnConfigurationPolicyPropsMixin_SecurityHubPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2MixinProps",
+		reflect.TypeOf((*CfnConnectorV2MixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnConnectorV2PropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin.JiraCloudProperty",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin_JiraCloudProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin.ProviderProperty",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin_ProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin.ServiceNowProperty",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin_ServiceNowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnDelegatedAdminMixinProps",
 		reflect.TypeOf((*CfnDelegatedAdminMixinProps)(nil)).Elem(),
 	)

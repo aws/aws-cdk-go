@@ -53,7 +53,7 @@ func NewMixins_Override(m Mixins) {
 
 // Creates a MixinApplicator for the given scope.
 // Experimental.
-func Mixins_Of(scope constructs.IConstruct, selector ConstructSelector) MixinApplicator {
+func Mixins_Of(scope constructs.IConstruct, selector IConstructSelector) MixinApplicator {
 	_init_.Initialize()
 
 	if err := validateMixins_OfParameters(scope); err != nil {

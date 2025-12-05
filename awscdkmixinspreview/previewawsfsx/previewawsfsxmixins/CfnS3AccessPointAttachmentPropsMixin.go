@@ -22,6 +22,18 @@ import (
 //
 //   cfnS3AccessPointAttachmentPropsMixin := awscdkmixinspreview.Mixins.NewCfnS3AccessPointAttachmentPropsMixin(&CfnS3AccessPointAttachmentMixinProps{
 //   	Name: jsii.String("name"),
+//   	OntapConfiguration: &S3AccessPointOntapConfigurationProperty{
+//   		FileSystemIdentity: &OntapFileSystemIdentityProperty{
+//   			Type: jsii.String("type"),
+//   			UnixUser: &OntapUnixFileSystemUserProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   			WindowsUser: &OntapWindowsFileSystemUserProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
+//   		VolumeId: jsii.String("volumeId"),
+//   	},
 //   	OpenZfsConfiguration: &S3AccessPointOpenZFSConfigurationProperty{
 //   		FileSystemIdentity: &OpenZFSFileSystemIdentityProperty{
 //   			PosixUser: &OpenZFSPosixFileSystemUserProperty{

@@ -310,6 +310,10 @@ func init() {
 		reflect.TypeOf((*TreeArtifactProperties)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.UnconfiguredBehavesLike",
+		reflect.TypeOf((*UnconfiguredBehavesLike)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cloud_assembly_schema.VpcContextQuery",
 		reflect.TypeOf((*VpcContextQuery)(nil)).Elem(),
 	)

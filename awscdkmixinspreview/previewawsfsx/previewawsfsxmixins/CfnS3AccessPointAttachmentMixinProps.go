@@ -12,6 +12,18 @@ package previewawsfsxmixins
 //
 //   cfnS3AccessPointAttachmentMixinProps := &CfnS3AccessPointAttachmentMixinProps{
 //   	Name: jsii.String("name"),
+//   	OntapConfiguration: &S3AccessPointOntapConfigurationProperty{
+//   		FileSystemIdentity: &OntapFileSystemIdentityProperty{
+//   			Type: jsii.String("type"),
+//   			UnixUser: &OntapUnixFileSystemUserProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   			WindowsUser: &OntapWindowsFileSystemUserProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
+//   		VolumeId: jsii.String("volumeId"),
+//   	},
 //   	OpenZfsConfiguration: &S3AccessPointOpenZFSConfigurationProperty{
 //   		FileSystemIdentity: &OpenZFSFileSystemIdentityProperty{
 //   			PosixUser: &OpenZFSPosixFileSystemUserProperty{
@@ -47,6 +59,9 @@ type CfnS3AccessPointAttachmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-ontapconfiguration
+	//
+	OntapConfiguration interface{} `field:"optional" json:"ontapConfiguration" yaml:"ontapConfiguration"`
 	// The OpenZFSConfiguration of the S3 access point attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-openzfsconfiguration
 	//

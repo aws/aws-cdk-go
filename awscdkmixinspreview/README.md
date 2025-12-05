@@ -94,10 +94,10 @@ Mixins operate on construct trees and can be applied selectively:
 awscdkmixinspreview.Mixins_Of(scope).Apply(NewEncryptionAtRest())
 
 // Apply to specific resource types
-awscdkmixinspreview.Mixins_Of(scope, awscdkmixinspreview.ConstructSelector_ResourcesOfType(s3.CfnBucket)).Apply(NewEncryptionAtRest())
+awscdkmixinspreview.Mixins_Of(scope, awscdkmixinspreview.ConstructSelector_ResourcesOfType(s3.CfnBucket_CFN_RESOURCE_TYPE_NAME())).Apply(NewEncryptionAtRest())
 
-// Apply to constructs matching a pattern
-awscdkmixinspreview.Mixins_Of(scope, awscdkmixinspreview.ConstructSelector_ById(/.*-prod-.*/)).Apply(NewProductionSecurityMixin())
+// Apply to constructs matching a path pattern
+awscdkmixinspreview.Mixins_Of(scope, awscdkmixinspreview.ConstructSelector_ByPath(jsii.String("**/*-prod-*/**"))).Apply(NewProductionSecurityMixin())
 ```
 
 ### Built-in Mixins

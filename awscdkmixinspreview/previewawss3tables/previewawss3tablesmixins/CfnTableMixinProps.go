@@ -34,6 +34,9 @@ import (
 //   		MinSnapshotsToKeep: jsii.Number(123),
 //   		Status: jsii.String("status"),
 //   	},
+//   	StorageClassConfiguration: &StorageClassConfigurationProperty{
+//   		StorageClass: jsii.String("storageClass"),
+//   	},
 //   	TableBucketArn: jsii.String("tableBucketArn"),
 //   	TableName: jsii.String("tableName"),
 //   	Tags: []CfnTag{
@@ -68,6 +71,10 @@ type CfnTableMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-snapshotmanagement
 	//
 	SnapshotManagement interface{} `field:"optional" json:"snapshotManagement" yaml:"snapshotManagement"`
+	// Specifies storage class settings for the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-storageclassconfiguration
+	//
+	StorageClassConfiguration interface{} `field:"optional" json:"storageClassConfiguration" yaml:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-tablebucketarn
 	//

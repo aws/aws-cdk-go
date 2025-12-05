@@ -10,11 +10,19 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.core.ConstructSelector",
 		reflect.TypeOf((*ConstructSelector)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ConstructSelector{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/mixins-preview.core.IConstructSelector",
+		reflect.TypeOf((*IConstructSelector)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "select", GoMethod: "Select"},
 		},
 		func() interface{} {
-			return &jsiiProxy_ConstructSelector{}
+			return &jsiiProxy_IConstructSelector{}
 		},
 	)
 	_jsii_.RegisterInterface(

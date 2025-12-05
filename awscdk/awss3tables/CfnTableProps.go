@@ -40,6 +40,9 @@ import (
 //   		MinSnapshotsToKeep: jsii.Number(123),
 //   		Status: jsii.String("status"),
 //   	},
+//   	StorageClassConfiguration: &StorageClassConfigurationProperty{
+//   		StorageClass: jsii.String("storageClass"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -80,6 +83,10 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-snapshotmanagement
 	//
 	SnapshotManagement interface{} `field:"optional" json:"snapshotManagement" yaml:"snapshotManagement"`
+	// Specifies storage class settings for the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-storageclassconfiguration
+	//
+	StorageClassConfiguration interface{} `field:"optional" json:"storageClassConfiguration" yaml:"storageClassConfiguration"`
 	// User tags (key-value pairs) to associate with the table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-tags
 	//

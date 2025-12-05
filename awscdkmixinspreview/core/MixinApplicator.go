@@ -14,7 +14,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var constructSelector ConstructSelector
+//   var constructSelector IConstructSelector
 //
 //   mixinApplicator := awscdkmixinspreview.Core.NewMixinApplicator(this, constructSelector)
 //
@@ -34,7 +34,7 @@ type jsiiProxy_MixinApplicator struct {
 }
 
 // Experimental.
-func NewMixinApplicator(scope constructs.IConstruct, selector ConstructSelector) MixinApplicator {
+func NewMixinApplicator(scope constructs.IConstruct, selector IConstructSelector) MixinApplicator {
 	_init_.Initialize()
 
 	if err := validateNewMixinApplicatorParameters(scope); err != nil {
@@ -52,7 +52,7 @@ func NewMixinApplicator(scope constructs.IConstruct, selector ConstructSelector)
 }
 
 // Experimental.
-func NewMixinApplicator_Override(m MixinApplicator, scope constructs.IConstruct, selector ConstructSelector) {
+func NewMixinApplicator_Override(m MixinApplicator, scope constructs.IConstruct, selector IConstructSelector) {
 	_init_.Initialize()
 
 	_jsii_.Create(

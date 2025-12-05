@@ -18,6 +18,9 @@ package previewawss3mixins
 //   	AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
 //   		IsEnabled: jsii.Boolean(false),
 //   	},
+//   	AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
+//   		IsEnabled: jsii.Boolean(false),
+//   	},
 //   	BucketLevel: &BucketLevelProperty{
 //   		ActivityMetrics: &ActivityMetricsProperty{
 //   			IsEnabled: jsii.Boolean(false),
@@ -26,6 +29,9 @@ package previewawss3mixins
 //   			IsEnabled: jsii.Boolean(false),
 //   		},
 //   		AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
+//   			IsEnabled: jsii.Boolean(false),
+//   		},
+//   		AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
 //   			IsEnabled: jsii.Boolean(false),
 //   		},
 //   		DetailedStatusCodesMetrics: &DetailedStatusCodesMetricsProperty{
@@ -72,6 +78,10 @@ type CfnStorageLensPropsMixin_AccountLevelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advanceddataprotectionmetrics
 	//
 	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
+	// Advanced Performance Metrics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advancedperformancemetrics
+	//
+	AdvancedPerformanceMetrics interface{} `field:"optional" json:"advancedPerformanceMetrics" yaml:"advancedPerformanceMetrics"`
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
 	//
 	// To enable bucket-level configurations, make sure to also set the same metrics at the account level.

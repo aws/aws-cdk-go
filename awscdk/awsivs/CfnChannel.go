@@ -51,11 +51,17 @@ type CfnChannel interface {
 	awscdk.IInspectable
 	interfacesawsivs.IChannelRef
 	awscdk.ITaggable
-	// Channel ARN is automatically generated on creation and assigned as the unique identifier.
+	// The channel ARN.
+	//
+	// For example: `arn:aws:ivs:us-west-2:123456789012:channel/abcdABCDefgh`.
 	AttrArn() *string
 	// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
+	//
+	// For example: `a1b2c3d4e5f6.global-contribute.live-video.net`
 	AttrIngestEndpoint() *string
-	// Channel Playback URL.
+	// Channel playback URL.
+	//
+	// For example: `https://a1b2c3d4e5f6.us-west-2.playback.live-video.net/api/video/v1/us-west-2.123456789012.channel.abcdEFGH.m3u8`
 	AttrPlaybackUrl() *string
 	// Whether the channel is authorized.
 	Authorized() interface{}
@@ -75,10 +81,12 @@ type CfnChannel interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
-	// Whether the channel allows insecure ingest.
+	// Whether the channel allows insecure RTMP ingest.
 	InsecureIngest() interface{}
 	SetInsecureIngest(val interface{})
 	// Channel latency mode.
+	//
+	// Valid values:.
 	LatencyMode() *string
 	SetLatencyMode(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -94,15 +102,15 @@ type CfnChannel interface {
 	// Object specifying multitrack input configuration.
 	MultitrackInputConfiguration() interface{}
 	SetMultitrackInputConfiguration(val interface{})
-	// Channel.
+	// Channel name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Optional transcode preset for the channel.
+	// An optional transcode preset for the channel.
 	Preset() *string
 	SetPreset(val *string)
-	// Recording Configuration ARN.
+	// The ARN of a RecordingConfiguration resource.
 	RecordingConfigurationArn() *string
 	SetRecordingConfigurationArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -116,10 +124,10 @@ type CfnChannel interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of key-value pairs that contain metadata for the asset model.
+	// An array of key-value pairs to apply to this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// Channel type, which determines the allowable resolution and bitrate.
+	// The channel type, which determines the allowable resolution and bitrate.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

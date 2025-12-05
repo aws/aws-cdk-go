@@ -45,6 +45,14 @@ func validateAgentRuntimeArtifact_FromEcrRepositoryParameters(repository awsecr.
 	return nil
 }
 
+func validateAgentRuntimeArtifact_FromImageUriParameters(containerUri *string) error {
+	if containerUri == nil {
+		return fmt.Errorf("parameter containerUri is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateAgentRuntimeArtifact_FromS3Parameters(s3Location *awss3.Location, runtime AgentCoreRuntime, entrypoint *[]*string) error {
 	if s3Location == nil {
 		return fmt.Errorf("parameter s3Location is required, but nil was provided")

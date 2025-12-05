@@ -18,6 +18,9 @@ package previewawss3mixins
 //   	AdvancedDataProtectionMetrics: &AdvancedDataProtectionMetricsProperty{
 //   		IsEnabled: jsii.Boolean(false),
 //   	},
+//   	AdvancedPerformanceMetrics: &AdvancedPerformanceMetricsProperty{
+//   		IsEnabled: jsii.Boolean(false),
+//   	},
 //   	DetailedStatusCodesMetrics: &DetailedStatusCodesMetricsProperty{
 //   		IsEnabled: jsii.Boolean(false),
 //   	},
@@ -48,6 +51,10 @@ type CfnStorageLensPropsMixin_BucketLevelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advanceddataprotectionmetrics
 	//
 	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
+	// Advanced Performance Metrics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advancedperformancemetrics
+	//
+	AdvancedPerformanceMetrics interface{} `field:"optional" json:"advancedPerformanceMetrics" yaml:"advancedPerformanceMetrics"`
 	// A property for bucket-level detailed status code metrics for S3 Storage Lens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-detailedstatuscodesmetrics
 	//

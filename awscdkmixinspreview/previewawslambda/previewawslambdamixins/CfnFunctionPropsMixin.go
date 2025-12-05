@@ -56,6 +56,10 @@ import (
 //   		TargetArn: jsii.String("targetArn"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DurableConfig: &DurableConfigProperty{
+//   		ExecutionTimeout: jsii.Number(123),
+//   		RetentionPeriodInDays: jsii.Number(123),
+//   	},
 //   	Environment: &EnvironmentProperty{
 //   		Variables: map[string]*string{
 //   			"variablesKey": jsii.String("variables"),

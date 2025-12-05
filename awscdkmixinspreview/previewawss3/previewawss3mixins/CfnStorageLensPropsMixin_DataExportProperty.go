@@ -27,6 +27,15 @@ package previewawss3mixins
 //   		OutputSchemaVersion: jsii.String("outputSchemaVersion"),
 //   		Prefix: jsii.String("prefix"),
 //   	},
+//   	StorageLensTableDestination: &StorageLensTableDestinationProperty{
+//   		Encryption: &EncryptionProperty{
+//   			Ssekms: &SSEKMSProperty{
+//   				KeyId: jsii.String("keyId"),
+//   			},
+//   			Sses3: sses3,
+//   		},
+//   		IsEnabled: jsii.Boolean(false),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
@@ -40,5 +49,9 @@ type CfnStorageLensPropsMixin_DataExportProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
 	//
 	S3BucketDestination interface{} `field:"optional" json:"s3BucketDestination" yaml:"s3BucketDestination"`
+	// S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-storagelenstabledestination
+	//
+	StorageLensTableDestination interface{} `field:"optional" json:"storageLensTableDestination" yaml:"storageLensTableDestination"`
 }
 

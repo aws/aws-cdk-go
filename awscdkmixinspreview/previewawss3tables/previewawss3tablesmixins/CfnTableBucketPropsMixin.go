@@ -34,6 +34,9 @@ import (
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},
+//   	StorageClassConfiguration: &StorageClassConfigurationProperty{
+//   		StorageClass: jsii.String("storageClass"),
+//   	},
 //   	TableBucketName: jsii.String("tableBucketName"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

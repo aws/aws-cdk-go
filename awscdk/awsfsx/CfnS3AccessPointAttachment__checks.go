@@ -195,10 +195,31 @@ func (j *jsiiProxy_CfnS3AccessPointAttachment) validateSetNameParameters(val *st
 	return nil
 }
 
-func (j *jsiiProxy_CfnS3AccessPointAttachment) validateSetOpenZfsConfigurationParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnS3AccessPointAttachment) validateSetOntapConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnS3AccessPointAttachment_S3AccessPointOntapConfigurationProperty:
+		val := val.(*CfnS3AccessPointAttachment_S3AccessPointOntapConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnS3AccessPointAttachment_S3AccessPointOntapConfigurationProperty:
+		val_ := val.(CfnS3AccessPointAttachment_S3AccessPointOntapConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnS3AccessPointAttachment_S3AccessPointOntapConfigurationProperty; received %#v (a %T)", val, val)
+		}
 	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnS3AccessPointAttachment) validateSetOpenZfsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

@@ -52,6 +52,9 @@ import (
 //   		MinSnapshotsToKeep: jsii.Number(123),
 //   		Status: jsii.String("status"),
 //   	},
+//   	StorageClassConfiguration: &StorageClassConfigurationProperty{
+//   		StorageClass: jsii.String("storageClass"),
+//   	},
 //   	TableBucketArn: jsii.String("tableBucketArn"),
 //   	TableName: jsii.String("tableName"),
 //   	Tags: []CfnTag{

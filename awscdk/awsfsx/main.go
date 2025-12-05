@@ -232,6 +232,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberProperty{JsiiProperty: "ontapConfiguration", GoGetter: "OntapConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "openZfsConfiguration", GoGetter: "OpenZfsConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -261,12 +262,28 @@ func init() {
 		reflect.TypeOf((*CfnS3AccessPointAttachment_FileSystemGIDProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnS3AccessPointAttachment.OntapFileSystemIdentityProperty",
+		reflect.TypeOf((*CfnS3AccessPointAttachment_OntapFileSystemIdentityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnS3AccessPointAttachment.OntapUnixFileSystemUserProperty",
+		reflect.TypeOf((*CfnS3AccessPointAttachment_OntapUnixFileSystemUserProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnS3AccessPointAttachment.OntapWindowsFileSystemUserProperty",
+		reflect.TypeOf((*CfnS3AccessPointAttachment_OntapWindowsFileSystemUserProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnS3AccessPointAttachment.OpenZFSFileSystemIdentityProperty",
 		reflect.TypeOf((*CfnS3AccessPointAttachment_OpenZFSFileSystemIdentityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnS3AccessPointAttachment.OpenZFSPosixFileSystemUserProperty",
 		reflect.TypeOf((*CfnS3AccessPointAttachment_OpenZFSPosixFileSystemUserProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnS3AccessPointAttachment.S3AccessPointOntapConfigurationProperty",
+		reflect.TypeOf((*CfnS3AccessPointAttachment_S3AccessPointOntapConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnS3AccessPointAttachment.S3AccessPointOpenZFSConfigurationProperty",

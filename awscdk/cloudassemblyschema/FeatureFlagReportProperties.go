@@ -12,16 +12,18 @@ package cloudassemblyschema
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var recommendedValue interface{}
-//   var unconfiguredBehavesLike interface{}
 //   var userValue interface{}
+//   var v1 interface{}
+//   var v2 interface{}
 //
 //   featureFlagReportProperties := &FeatureFlagReportProperties{
 //   	Flags: map[string]FeatureFlag{
 //   		"flagsKey": &FeatureFlag{
 //   			"explanation": jsii.String("explanation"),
 //   			"recommendedValue": recommendedValue,
-//   			"unconfiguredBehavesLike": map[string]interface{}{
-//   				"unconfiguredBehavesLikeKey": unconfiguredBehavesLike,
+//   			"unconfiguredBehavesLike": &UnconfiguredBehavesLike{
+//   				"v1": v1,
+//   				"v2": v2,
 //   			},
 //   			"userValue": userValue,
 //   		},

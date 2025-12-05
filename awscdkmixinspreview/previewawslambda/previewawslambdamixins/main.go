@@ -260,6 +260,10 @@ func init() {
 		reflect.TypeOf((*CfnFunctionPropsMixin_DeadLetterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnFunctionPropsMixin.DurableConfigProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_DurableConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lambda.mixins.CfnFunctionPropsMixin.EnvironmentProperty",
 		reflect.TypeOf((*CfnFunctionPropsMixin_EnvironmentProperty)(nil)).Elem(),
 	)

@@ -22,6 +22,23 @@ import (
 //
 //   cfnS3AccessPointAttachment := awscdk.Aws_fsx.NewCfnS3AccessPointAttachment(this, jsii.String("MyCfnS3AccessPointAttachment"), &CfnS3AccessPointAttachmentProps{
 //   	Name: jsii.String("name"),
+//   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	OntapConfiguration: &S3AccessPointOntapConfigurationProperty{
+//   		FileSystemIdentity: &OntapFileSystemIdentityProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			UnixUser: &OntapUnixFileSystemUserProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   			WindowsUser: &OntapWindowsFileSystemUserProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
+//   		VolumeId: jsii.String("volumeId"),
+//   	},
 //   	OpenZfsConfiguration: &S3AccessPointOpenZFSConfigurationProperty{
 //   		FileSystemIdentity: &OpenZFSFileSystemIdentityProperty{
 //   			PosixUser: &OpenZFSPosixFileSystemUserProperty{
@@ -39,9 +56,6 @@ import (
 //   		},
 //   		VolumeId: jsii.String("volumeId"),
 //   	},
-//   	Type: jsii.String("type"),
-//
-//   	// the properties below are optional
 //   	S3AccessPoint: &S3AccessPointProperty{
 //   		Alias: jsii.String("alias"),
 //   		Policy: policy,
@@ -87,6 +101,8 @@ type CfnS3AccessPointAttachment interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	OntapConfiguration() interface{}
+	SetOntapConfiguration(val interface{})
 	// The OpenZFSConfiguration of the S3 access point attachment.
 	OpenZfsConfiguration() interface{}
 	SetOpenZfsConfiguration(val interface{})
@@ -354,6 +370,16 @@ func (j *jsiiProxy_CfnS3AccessPointAttachment) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnS3AccessPointAttachment) OntapConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ontapConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnS3AccessPointAttachment) OpenZfsConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -471,6 +497,17 @@ func (j *jsiiProxy_CfnS3AccessPointAttachment)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnS3AccessPointAttachment)SetOntapConfiguration(val interface{}) {
+	if err := j.validateSetOntapConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ontapConfiguration",
 		val,
 	)
 }

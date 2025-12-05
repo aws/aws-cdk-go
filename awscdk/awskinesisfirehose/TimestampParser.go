@@ -41,7 +41,7 @@ func (j *jsiiProxy_TimestampParser) Format() *string {
 // Creates a TimestampParser from the given format string.
 //
 // The format string should be a valid Joda Time pattern string.
-// See [Class DateTimeFormat](https://docs.aws.amazon.com/https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html) for more details
+// See [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html) for more details
 func TimestampParser_FromFormatString(format *string) TimestampParser {
 	_init_.Initialize()
 

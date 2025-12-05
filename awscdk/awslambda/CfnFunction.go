@@ -61,6 +61,12 @@ import (
 //   		TargetArn: jsii.String("targetArn"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DurableConfig: &DurableConfigProperty{
+//   		ExecutionTimeout: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		RetentionPeriodInDays: jsii.Number(123),
+//   	},
 //   	Environment: &EnvironmentProperty{
 //   		Variables: map[string]*string{
 //   			"variablesKey": jsii.String("variables"),
@@ -182,6 +188,8 @@ type CfnFunction interface {
 	// A description of the function.
 	Description() *string
 	SetDescription(val *string)
+	DurableConfig() interface{}
+	SetDurableConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// Environment variables that are accessible from function code during execution.
 	Environment() interface{}
@@ -561,6 +569,16 @@ func (j *jsiiProxy_CfnFunction) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) DurableConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"durableConfig",
 		&returns,
 	)
 	return returns
@@ -979,6 +997,17 @@ func (j *jsiiProxy_CfnFunction)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetDurableConfig(val interface{}) {
+	if err := j.validateSetDurableConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"durableConfig",
 		val,
 	)
 }

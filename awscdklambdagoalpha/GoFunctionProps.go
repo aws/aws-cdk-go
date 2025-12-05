@@ -145,6 +145,14 @@ type GoFunctionProps struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The durable configuration for the function.
+	//
+	// If durability is added to an existing function, a resource replacement will be triggered.
+	// See the 'durableConfig' section in the module README for more details.
+	// Default: - No durable configuration.
+	//
+	// Experimental.
+	DurableConfig *awslambda.DurableConfig `field:"optional" json:"durableConfig" yaml:"durableConfig"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such

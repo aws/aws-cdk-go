@@ -25,9 +25,9 @@ To create a new Flink application, use the `Application` construct:
 
 ```go
 import path "github.com/aws-samples/dummy/path"
-import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
 import integ "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
+import "github.com/aws/aws-cdk-go/awscdk"
+import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
 
 app := core.NewApp()

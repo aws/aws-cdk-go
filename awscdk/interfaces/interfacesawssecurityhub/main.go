@@ -24,6 +24,10 @@ func init() {
 		reflect.TypeOf((*ConfigurationPolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_securityhub.ConnectorV2Reference",
+		reflect.TypeOf((*ConnectorV2Reference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_securityhub.DelegatedAdminReference",
 		reflect.TypeOf((*DelegatedAdminReference)(nil)).Elem(),
 	)
@@ -94,6 +98,21 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IConfigurationPolicyRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_securityhub.IConnectorV2Ref",
+		reflect.TypeOf((*IConnectorV2Ref)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "connectorV2Ref", GoGetter: "ConnectorV2Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IConnectorV2Ref{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
