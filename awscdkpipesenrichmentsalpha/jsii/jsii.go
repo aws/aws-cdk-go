@@ -14,7 +14,7 @@ import (
 	constructs       "github.com/aws/constructs-go/constructs/v10/jsii"
 )
 
-//go:embed aws-cdk-aws-pipes-enrichments-alpha-2.232.1-alpha.0.tgz
+//go:embed aws-cdk-aws-pipes-enrichments-alpha-2.232.2-alpha.0.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -26,5 +26,5 @@ func Initialize() {
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("@aws-cdk/aws-pipes-enrichments-alpha", "2.232.1-alpha.0", tarball)
+	_jsii_.Load("@aws-cdk/aws-pipes-enrichments-alpha", "2.232.2-alpha.0", tarball)
 }

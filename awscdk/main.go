@@ -2274,16 +2274,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.IEnvironmentAware",
-		reflect.TypeOf((*IEnvironmentAware)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-		},
-		func() interface{} {
-			return &jsiiProxy_IEnvironmentAware{}
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.IFragmentConcatenator",
 		reflect.TypeOf((*IFragmentConcatenator)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2940,10 +2930,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResource)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.ResourceEnvironment",
-		reflect.TypeOf((*ResourceEnvironment)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.ResourceProps",
