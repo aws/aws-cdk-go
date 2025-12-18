@@ -37,6 +37,9 @@ package awscleanrooms
 //   			ModelTraining: &ModelTrainingPaymentConfigProperty{
 //   				IsResponsible: jsii.Boolean(false),
 //   			},
+//   			SyntheticDataGeneration: &SyntheticDataGenerationPaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
 //   		},
 //   	},
 //   }

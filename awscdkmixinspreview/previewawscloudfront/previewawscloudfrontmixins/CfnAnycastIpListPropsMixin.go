@@ -22,6 +22,12 @@ import (
 //
 //   cfnAnycastIpListPropsMixin := awscdkmixinspreview.Mixins.NewCfnAnycastIpListPropsMixin(&CfnAnycastIpListMixinProps{
 //   	IpAddressType: jsii.String("ipAddressType"),
+//   	IpamCidrConfigs: []interface{}{
+//   		&IpamCidrConfigProperty{
+//   			Cidr: jsii.String("cidr"),
+//   			IpamPoolArn: jsii.String("ipamPoolArn"),
+//   		},
+//   	},
 //   	IpCount: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   }, &CfnPropertyMixinOptions{

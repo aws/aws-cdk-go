@@ -1,7 +1,7 @@
 package awslambda
 
 
-// A target tracking scaling policy for the capacity provider.
+// A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-targettrackingscalingpolicy.html
 //
 type CfnCapacityProvider_TargetTrackingScalingPolicyProperty struct {
-	// The predefined metric for target tracking.
+	// The predefined metric type to track for scaling decisions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-targettrackingscalingpolicy.html#cfn-lambda-capacityprovider-targettrackingscalingpolicy-predefinedmetrictype
 	//
 	PredefinedMetricType *string `field:"required" json:"predefinedMetricType" yaml:"predefinedMetricType"`
-	// The target value for the metric as a percentage (for example, 70.0 for 70%).
+	// The target value for the metric that the scaling policy attempts to maintain through scaling actions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-targettrackingscalingpolicy.html#cfn-lambda-capacityprovider-targettrackingscalingpolicy-targetvalue
 	//
 	TargetValue *float64 `field:"required" json:"targetValue" yaml:"targetValue"`

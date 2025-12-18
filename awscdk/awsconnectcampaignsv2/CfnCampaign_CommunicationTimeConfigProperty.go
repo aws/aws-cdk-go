@@ -101,6 +101,34 @@ package awsconnectcampaignsv2
 //   			},
 //   		},
 //   	},
+//   	WhatsApp: &TimeWindowProperty{
+//   		OpenHours: &OpenHoursProperty{
+//   			DailyHours: []interface{}{
+//   				&DailyHourProperty{
+//   					Key: jsii.String("key"),
+//   					Value: []interface{}{
+//   						&TimeRangeProperty{
+//   							EndTime: jsii.String("endTime"),
+//   							StartTime: jsii.String("startTime"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		RestrictedPeriods: &RestrictedPeriodsProperty{
+//   			RestrictedPeriodList: []interface{}{
+//   				&RestrictedPeriodProperty{
+//   					EndDate: jsii.String("endDate"),
+//   					StartDate: jsii.String("startDate"),
+//
+//   					// the properties below are optional
+//   					Name: jsii.String("name"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html
@@ -122,5 +150,9 @@ type CfnCampaign_CommunicationTimeConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html#cfn-connectcampaignsv2-campaign-communicationtimeconfig-telephony
 	//
 	Telephony interface{} `field:"optional" json:"telephony" yaml:"telephony"`
+	// The communication time configuration for the WhatsApp channel subtype.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html#cfn-connectcampaignsv2-campaign-communicationtimeconfig-whatsapp
+	//
+	WhatsApp interface{} `field:"optional" json:"whatsApp" yaml:"whatsApp"`
 }
 

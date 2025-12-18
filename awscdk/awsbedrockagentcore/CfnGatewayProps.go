@@ -30,6 +30,23 @@ package awsbedrockagentcore
 //   	},
 //   	Description: jsii.String("description"),
 //   	ExceptionLevel: jsii.String("exceptionLevel"),
+//   	InterceptorConfigurations: []interface{}{
+//   		&GatewayInterceptorConfigurationProperty{
+//   			InterceptionPoints: []*string{
+//   				jsii.String("interceptionPoints"),
+//   			},
+//   			Interceptor: &InterceptorConfigurationProperty{
+//   				Lambda: &LambdaInterceptorConfigurationProperty{
+//   					Arn: jsii.String("arn"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			InputConfiguration: &InterceptorInputConfigurationProperty{
+//   				PassRequestHeaders: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ProtocolConfiguration: &GatewayProtocolConfigurationProperty{
 //   		Mcp: &MCPGatewayConfigurationProperty{
@@ -74,6 +91,9 @@ type CfnGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-exceptionlevel
 	//
 	ExceptionLevel *string `field:"optional" json:"exceptionLevel" yaml:"exceptionLevel"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-interceptorconfigurations
+	//
+	InterceptorConfigurations interface{} `field:"optional" json:"interceptorConfigurations" yaml:"interceptorConfigurations"`
 	// The KMS key ARN for the gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-kmskeyarn
 	//

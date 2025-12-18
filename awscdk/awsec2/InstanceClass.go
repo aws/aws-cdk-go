@@ -635,6 +635,10 @@ const (
 	InstanceClass_STANDARD8_AMD InstanceClass = "STANDARD8_AMD"
 	// Standard instances based on 5th generation AMD EPYC (formerly code named Turin), 8th generation.
 	InstanceClass_M8A InstanceClass = "M8A"
+	// Standard instances, 9th generation with Graviton5 processors.
+	InstanceClass_STANDARD9_GRAVITON InstanceClass = "STANDARD9_GRAVITON"
+	// Standard instances, 9th generation with Graviton5 processors.
+	InstanceClass_M9G InstanceClass = "M9G"
 	// High memory and compute capacity instances, 1st generation.
 	InstanceClass_HIGH_COMPUTE_MEMORY1 InstanceClass = "HIGH_COMPUTE_MEMORY1"
 	// High memory and compute capacity instances, 1st generation.

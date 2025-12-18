@@ -17,7 +17,7 @@ package previewawssecurityhubmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hubv2.html
 //
 type CfnHubV2MixinProps struct {
-	// The tags to add to the hub V2 resource when you enable Security Hub.
+	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hubv2.html#cfn-securityhub-hubv2-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

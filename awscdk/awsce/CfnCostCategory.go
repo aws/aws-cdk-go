@@ -90,7 +90,7 @@ type CfnCostCategory interface {
 	// The rule schema version in this particular Cost Category.
 	RuleVersion() *string
 	SetRuleVersion(val *string)
-	// The split charge rules that are used to allocate your charges between your Cost Category values.
+	// The split charge rules that are used to allocate your charges between your cost category values.
 	SplitChargeRules() *string
 	SetSplitChargeRules(val *string)
 	// The stack in which this element is defined.

@@ -91,13 +91,13 @@ type CfnImageRecipe interface {
 	AttrArn() *string
 	// The latest version references of the image recipe.
 	AttrLatestVersion() awscdk.IResolvable
-	// The Amazon Resource Name (ARN) of the image recipe.
+	// The latest version Amazon Resource Name (ARN) of the Image Builder resource.
 	AttrLatestVersionArn() *string
-	// The latest version ARN of the created image recipe, with the same major version.
+	// The latest version Amazon Resource Name (ARN) with the same `major` version of the Image Builder resource.
 	AttrLatestVersionMajor() *string
-	// The latest version ARN of the created image recipe, with the same minor version.
+	// The latest version Amazon Resource Name (ARN) with the same `minor` version of the Image Builder resource.
 	AttrLatestVersionMinor() *string
-	// The latest version ARN of the created image recipe, with the same patch version.
+	// The latest version Amazon Resource Name (ARN) with the same `patch` version of the Image Builder resource.
 	AttrLatestVersionPatch() *string
 	// The name of the image recipe.
 	AttrName() *string
@@ -167,7 +167,9 @@ type CfnImageRecipe interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The version of the image recipe.
+	// The semantic version of the image recipe.
+	//
+	// This version follows the semantic version syntax.
 	Version() *string
 	SetVersion(val *string)
 	// The working directory to be used during build and test workflows.

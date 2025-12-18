@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,6 +64,8 @@ type Environment interface {
 	EnvironmentArn() *string
 	// The ID of the environment.
 	EnvironmentId() *string
+	// A reference to a Environment resource.
+	EnvironmentRef() *interfacesawsappconfig.EnvironmentReference
 	Extensible() ExtensibleBase
 	SetExtensible(val ExtensibleBase)
 	// The monitors for the environment.
@@ -217,6 +220,16 @@ func (j *jsiiProxy_Environment) EnvironmentId() *string {
 	_jsii_.Get(
 		j,
 		"environmentId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Environment) EnvironmentRef() *interfacesawsappconfig.EnvironmentReference {
+	var returns *interfacesawsappconfig.EnvironmentReference
+	_jsii_.Get(
+		j,
+		"environmentRef",
 		&returns,
 	)
 	return returns

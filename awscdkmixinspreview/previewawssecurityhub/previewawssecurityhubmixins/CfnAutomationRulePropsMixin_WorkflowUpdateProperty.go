@@ -23,7 +23,7 @@ type CfnAutomationRulePropsMixin_WorkflowUpdateProperty struct {
 	//
 	// - `NEW` - The initial state of a finding, before it is reviewed.
 	//
-	// Security Hub also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
+	// Security Hub CSPM also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
 	//
 	// - The record state changes from `ARCHIVED` to `ACTIVE` .
 	// - The compliance status changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .

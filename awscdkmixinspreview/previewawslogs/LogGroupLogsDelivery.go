@@ -23,9 +23,9 @@ import (
 // Experimental.
 type LogGroupLogsDelivery interface {
 	ILogsDelivery
-	// Binds the log group destination to a delivery source and creates a delivery connection between them.
+	// Binds Log Group to a source resource for the purposes of log delivery and creates a delivery source, a delivery destination, and a connection between them.
 	// Experimental.
-	Bind(scope constructs.IConstruct, deliverySource interfacesawslogs.IDeliverySourceRef, sourceResourceArn *string) ILogsDeliveryConfig
+	Bind(scope constructs.IConstruct, logType *string, sourceResourceArn *string) ILogsDeliveryConfig
 }
 
 // The jsii proxy struct for LogGroupLogsDelivery
@@ -64,8 +64,8 @@ func NewLogGroupLogsDelivery_Override(l LogGroupLogsDelivery, logGroup interface
 	)
 }
 
-func (l *jsiiProxy_LogGroupLogsDelivery) Bind(scope constructs.IConstruct, deliverySource interfacesawslogs.IDeliverySourceRef, sourceResourceArn *string) ILogsDeliveryConfig {
-	if err := l.validateBindParameters(scope, deliverySource, sourceResourceArn); err != nil {
+func (l *jsiiProxy_LogGroupLogsDelivery) Bind(scope constructs.IConstruct, logType *string, sourceResourceArn *string) ILogsDeliveryConfig {
+	if err := l.validateBindParameters(scope, logType, sourceResourceArn); err != nil {
 		panic(err)
 	}
 	var returns ILogsDeliveryConfig
@@ -73,7 +73,7 @@ func (l *jsiiProxy_LogGroupLogsDelivery) Bind(scope constructs.IConstruct, deliv
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{scope, deliverySource, sourceResourceArn},
+		[]interface{}{scope, logType, sourceResourceArn},
 		&returns,
 	)
 

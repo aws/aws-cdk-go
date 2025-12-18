@@ -28,6 +28,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataType", GoGetter: "DataType"},
 			_jsii_.MemberProperty{JsiiProperty: "dimension", GoGetter: "Dimension"},
 			_jsii_.MemberProperty{JsiiProperty: "distanceMetric", GoGetter: "DistanceMetric"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -60,6 +61,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawss3vectorsIIndexRef)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3vectors.CfnIndex.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnIndex_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3vectors.CfnIndex.MetadataConfigurationProperty",

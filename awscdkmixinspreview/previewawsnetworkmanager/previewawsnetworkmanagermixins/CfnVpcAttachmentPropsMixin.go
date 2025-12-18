@@ -46,6 +46,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	SubnetArns: []*string{
 //   		jsii.String("subnetArns"),
 //   	},

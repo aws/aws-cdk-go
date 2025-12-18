@@ -13,7 +13,7 @@ import (
 
 // The `AWS::SecurityHub::ConfigurationPolicy` resource creates a central configuration policy with the defined settings.
 //
-// Only the Security Hub delegated administrator can create this resource in the home Region. For more information, see [Central configuration in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in the *Security Hub User Guide* .
+// Only the AWS Security Hub CSPM delegated administrator can create this resource in the home Region. For more information, see [Central configuration in Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -100,7 +100,7 @@ type CfnConfigurationPolicy interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// An object that defines how Security Hub is configured.
+	// An object that defines how AWS Security Hub CSPM is configured.
 	ConfigurationPolicy() interface{}
 	SetConfigurationPolicy(val interface{})
 	// A reference to a ConfigurationPolicy resource.

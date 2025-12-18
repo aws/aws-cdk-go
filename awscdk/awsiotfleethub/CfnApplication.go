@@ -591,44 +591,6 @@ func CfnApplication_ArnForApplication(resource interfacesawsiotfleethub.IApplica
 	return returns
 }
 
-// Creates a new IApplicationRef from an ARN.
-func CfnApplication_FromApplicationArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotfleethub.IApplicationRef {
-	_init_.Initialize()
-
-	if err := validateCfnApplication_FromApplicationArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsiotfleethub.IApplicationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotfleethub.CfnApplication",
-		"fromApplicationArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IApplicationRef from a applicationId.
-func CfnApplication_FromApplicationId(scope constructs.Construct, id *string, applicationId *string) interfacesawsiotfleethub.IApplicationRef {
-	_init_.Initialize()
-
-	if err := validateCfnApplication_FromApplicationIdParameters(scope, id, applicationId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsiotfleethub.IApplicationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotfleethub.CfnApplication",
-		"fromApplicationId",
-		[]interface{}{scope, id, applicationId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Checks whether the given object is a CfnApplication.
 func CfnApplication_IsCfnApplication(x interface{}) *bool {
 	_init_.Initialize()

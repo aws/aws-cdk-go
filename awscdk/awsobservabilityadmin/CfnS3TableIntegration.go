@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for a CloudWatch Observability Admin S3 Table Integration.
+// Creates an integration between CloudWatch and S3 Tables for analytics.
+//
+// This integration enables querying CloudWatch telemetry data using analytics engines like Amazon Athena, Amazon Redshift, and Apache Spark.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -65,7 +67,7 @@ type CfnS3TableIntegration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Encryption configuration for the S3 Table Integration.
+	// Defines the encryption configuration for S3 Table integrations, including the encryption algorithm and KMS key settings.
 	Encryption() interface{}
 	SetEncryption(val interface{})
 	Env() *interfaces.ResourceEnvironment

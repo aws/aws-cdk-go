@@ -81,7 +81,9 @@ type CfnLogicallyAirGappedBackupVault interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The server-side encryption key that is used to protect your backups;.
+	// The server-side encryption key that is used to protect your backups;
+	//
+	// for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
 	Env() *interfaces.ResourceEnvironment
@@ -103,6 +105,7 @@ type CfnLogicallyAirGappedBackupVault interface {
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	MinRetentionDays() *float64
 	SetMinRetentionDays(val *float64)
+	// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault.
 	MpaApprovalTeamArn() *string
 	SetMpaApprovalTeamArn(val *string)
 	// The tree node.

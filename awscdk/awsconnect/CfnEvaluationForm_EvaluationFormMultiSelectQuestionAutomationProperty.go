@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Automation configuration for multi-select questions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,7 +33,7 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html
 //
 type CfnEvaluationForm_EvaluationFormMultiSelectQuestionAutomationProperty struct {
-	// The answer options for the automation.
+	// Automation options for the multi-select question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html#cfn-connect-evaluationform-evaluationformmultiselectquestionautomation-options
 	//
 	Options interface{} `field:"required" json:"options" yaml:"options"`
@@ -39,7 +41,7 @@ type CfnEvaluationForm_EvaluationFormMultiSelectQuestionAutomationProperty struc
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html#cfn-connect-evaluationform-evaluationformmultiselectquestionautomation-answersource
 	//
 	AnswerSource interface{} `field:"optional" json:"answerSource" yaml:"answerSource"`
-	// The list of reference id.
+	// Reference IDs of default options.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html#cfn-connect-evaluationform-evaluationformmultiselectquestionautomation-defaultoptionrefids
 	//
 	DefaultOptionRefIds *[]*string `field:"optional" json:"defaultOptionRefIds" yaml:"defaultOptionRefIds"`

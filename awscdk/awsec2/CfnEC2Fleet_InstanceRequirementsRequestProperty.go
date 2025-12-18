@@ -92,6 +92,7 @@ package awsec2
 //   		Min: jsii.Number(123),
 //   	},
 //   	OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   	RequireEncryptionInTransit: jsii.Boolean(false),
 //   	RequireHibernateSupport: jsii.Boolean(false),
 //   	SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   	TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
@@ -330,6 +331,14 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-ondemandmaxpricepercentageoverlowestprice
 	//
 	OnDemandMaxPricePercentageOverLowestPrice *float64 `field:"optional" json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Specifies whether instance types must support encrypting in-transit traffic between instances.
+	//
+	// For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+	//
+	// Default: `false`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-requireencryptionintransit
+	//
+	RequireEncryptionInTransit interface{} `field:"optional" json:"requireEncryptionInTransit" yaml:"requireEncryptionInTransit"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .

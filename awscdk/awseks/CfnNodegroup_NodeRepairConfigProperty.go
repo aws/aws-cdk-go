@@ -35,25 +35,25 @@ type CfnNodegroup_NodeRepairConfigProperty struct {
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes.
 	//
-	// This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedPercentage at the same time.
+	// This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set `maxParallelNodesRepairedPercentage` at the same time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html#cfn-eks-nodegroup-noderepairconfig-maxparallelnodesrepairedcount
 	//
 	MaxParallelNodesRepairedCount *float64 `field:"optional" json:"maxParallelNodesRepairedCount" yaml:"maxParallelNodesRepairedCount"`
 	// Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes.
 	//
-	// This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedCount at the same time.
+	// This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set `maxParallelNodesRepairedCount` at the same time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html#cfn-eks-nodegroup-noderepairconfig-maxparallelnodesrepairedpercentage
 	//
 	MaxParallelNodesRepairedPercentage *float64 `field:"optional" json:"maxParallelNodesRepairedPercentage" yaml:"maxParallelNodesRepairedPercentage"`
 	// Specify a count threshold of unhealthy nodes, above which node auto repair actions will stop.
 	//
-	// When using this, you cannot also set MaxUnhealthyNodeThresholdPercentage at the same time.
+	// When using this, you cannot also set `maxUnhealthyNodeThresholdPercentage` at the same time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html#cfn-eks-nodegroup-noderepairconfig-maxunhealthynodethresholdcount
 	//
 	MaxUnhealthyNodeThresholdCount *float64 `field:"optional" json:"maxUnhealthyNodeThresholdCount" yaml:"maxUnhealthyNodeThresholdCount"`
 	// Specify a percentage threshold of unhealthy nodes, above which node auto repair actions will stop.
 	//
-	// When using this, you cannot also set MaxUnhealthyNodeThresholdCount at the same time.
+	// When using this, you cannot also set `maxUnhealthyNodeThresholdCount` at the same time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html#cfn-eks-nodegroup-noderepairconfig-maxunhealthynodethresholdpercentage
 	//
 	MaxUnhealthyNodeThresholdPercentage *float64 `field:"optional" json:"maxUnhealthyNodeThresholdPercentage" yaml:"maxUnhealthyNodeThresholdPercentage"`

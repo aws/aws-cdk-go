@@ -71,11 +71,3 @@ func validateComponentData_FromS3Parameters(bucket awss3.IBucket, key *string) e
 	return nil
 }
 
-func validateNewComponentDataParameters(value *string) error {
-	if value == nil {
-		return fmt.Errorf("parameter value is required, but nil was provided")
-	}
-
-	return nil
-}
-

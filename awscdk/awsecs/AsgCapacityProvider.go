@@ -50,11 +50,6 @@ type AsgCapacityProvider interface {
 	constructs.Construct
 	// Auto Scaling Group.
 	AutoScalingGroup() awsautoscaling.AutoScalingGroup
-	// Specifies whether the containers can access the container instance role.
-	// Default: true if.
-	//
-	// Deprecated: See https://github.com/aws/aws-cdk/discussions/32609
-	CanContainersAccessInstanceRole() *bool
 	// Capacity provider name.
 	// Default: Chosen by CloudFormation.
 	//
@@ -81,16 +76,6 @@ func (j *jsiiProxy_AsgCapacityProvider) AutoScalingGroup() awsautoscaling.AutoSc
 	_jsii_.Get(
 		j,
 		"autoScalingGroup",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AsgCapacityProvider) CanContainersAccessInstanceRole() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"canContainersAccessInstanceRole",
 		&returns,
 	)
 	return returns

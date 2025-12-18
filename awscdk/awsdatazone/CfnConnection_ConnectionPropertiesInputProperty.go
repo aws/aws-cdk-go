@@ -90,6 +90,9 @@ package awsdatazone
 //   	IamProperties: &IamPropertiesInputProperty{
 //   		GlueLineageSyncEnabled: jsii.Boolean(false),
 //   	},
+//   	MlflowProperties: &MlflowPropertiesInputProperty{
+//   		TrackingServerArn: jsii.String("trackingServerArn"),
+//   	},
 //   	RedshiftProperties: &RedshiftPropertiesInputProperty{
 //   		Credentials: &RedshiftCredentialsProperty{
 //   			SecretArn: jsii.String("secretArn"),
@@ -165,6 +168,10 @@ type CfnConnection_ConnectionPropertiesInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-iamproperties
 	//
 	IamProperties interface{} `field:"optional" json:"iamProperties" yaml:"iamProperties"`
+	// MLflow Properties Input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-mlflowproperties
+	//
+	MlflowProperties interface{} `field:"optional" json:"mlflowProperties" yaml:"mlflowProperties"`
 	// The Amazon Redshift properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-redshiftproperties
 	//

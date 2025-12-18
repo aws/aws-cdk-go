@@ -122,8 +122,22 @@ import (
 //   			// the properties below are optional
 //   			EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
 //   				BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
+//   					Audio: []interface{}{
+//   						&AudioConfigurationProperty{
+//   							SegmentationConfiguration: &AudioSegmentationConfigurationProperty{
+//   								FixedLengthDuration: jsii.Number(123),
+//   							},
+//   						},
+//   					},
 //   					Dimensions: jsii.Number(123),
 //   					EmbeddingDataType: jsii.String("embeddingDataType"),
+//   					Video: []interface{}{
+//   						&VideoConfigurationProperty{
+//   							SegmentationConfiguration: &VideoSegmentationConfigurationProperty{
+//   								FixedLengthDuration: jsii.Number(123),
+//   							},
+//   						},
+//   					},
 //   				},
 //   			},
 //   			SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{

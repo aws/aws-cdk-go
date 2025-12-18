@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,7 +25,7 @@ func (a *jsiiProxy_Application) validateAddEnvironmentParameters(id *string, opt
 	return nil
 }
 
-func (a *jsiiProxy_Application) validateAddExistingEnvironmentParameters(environment IEnvironment) error {
+func (a *jsiiProxy_Application) validateAddExistingEnvironmentParameters(environment interfacesawsappconfig.IEnvironmentRef) error {
 	if environment == nil {
 		return fmt.Errorf("parameter environment is required, but nil was provided")
 	}

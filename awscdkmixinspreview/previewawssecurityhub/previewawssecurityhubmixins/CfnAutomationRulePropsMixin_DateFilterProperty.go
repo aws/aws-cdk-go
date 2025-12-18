@@ -26,13 +26,13 @@ type CfnAutomationRulePropsMixin_DateFilterProperty struct {
 	DateRange interface{} `field:"optional" json:"dateRange" yaml:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html#cfn-securityhub-automationrule-datefilter-end
 	//
 	End *string `field:"optional" json:"end" yaml:"end"`
 	// A timestamp that provides the start date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html#cfn-securityhub-automationrule-datefilter-start
 	//
 	Start *string `field:"optional" json:"start" yaml:"start"`

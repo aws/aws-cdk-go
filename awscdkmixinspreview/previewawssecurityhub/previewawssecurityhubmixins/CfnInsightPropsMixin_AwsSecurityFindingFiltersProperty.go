@@ -1,7 +1,7 @@
 package previewawssecurityhubmixins
 
 
-// A collection of filters that are applied to all active findings aggregated by Security Hub .
+// A collection of filters that are applied to all active findings aggregated by AWS Security Hub CSPM .
 //
 // You can filter by up to ten finding attributes. For each attribute, you can provide up to 20 filter values.
 //
@@ -738,7 +738,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	Confidence interface{} `field:"optional" json:"confidence" yaml:"confidence"`
 	// A timestamp that indicates when the security findings provider created the potential security issue that a finding reflects.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-createdat
 	//
 	CreatedAt interface{} `field:"optional" json:"createdAt" yaml:"createdAt"`
@@ -792,7 +792,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	FindingProviderFieldsTypes interface{} `field:"optional" json:"findingProviderFieldsTypes" yaml:"findingProviderFieldsTypes"`
 	// A timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-firstobservedat
 	//
 	FirstObservedAt interface{} `field:"optional" json:"firstObservedAt" yaml:"firstObservedAt"`
@@ -814,7 +814,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	Keyword interface{} `field:"optional" json:"keyword" yaml:"keyword"`
 	// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-lastobservedat
 	//
 	LastObservedAt interface{} `field:"optional" json:"lastObservedAt" yaml:"lastObservedAt"`
@@ -892,7 +892,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	NoteUpdatedBy interface{} `field:"optional" json:"noteUpdatedBy" yaml:"noteUpdatedBy"`
 	// A timestamp that identifies when the process was launched.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-processlaunchedat
 	//
 	ProcessLaunchedAt interface{} `field:"optional" json:"processLaunchedAt" yaml:"processLaunchedAt"`
@@ -916,11 +916,11 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	ProcessPid interface{} `field:"optional" json:"processPid" yaml:"processPid"`
 	// A timestamp that identifies when the process was terminated.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-processterminatedat
 	//
 	ProcessTerminatedAt interface{} `field:"optional" json:"processTerminatedAt" yaml:"processTerminatedAt"`
-	// The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub.
+	// The ARN generated by Security Hub CSPM that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub CSPM.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-productarn
 	//
 	ProductArn interface{} `field:"optional" json:"productArn" yaml:"productArn"`
@@ -1036,7 +1036,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	ResourceContainerImageName interface{} `field:"optional" json:"resourceContainerImageName" yaml:"resourceContainerImageName"`
 	// A timestamp that identifies when the container was started.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-resourcecontainerlaunchedat
 	//
 	ResourceContainerLaunchedAt interface{} `field:"optional" json:"resourceContainerLaunchedAt" yaml:"resourceContainerLaunchedAt"`
@@ -1106,7 +1106,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	ThreatIntelIndicatorCategory interface{} `field:"optional" json:"threatIntelIndicatorCategory" yaml:"threatIntelIndicatorCategory"`
 	// A timestamp that identifies the last observation of a threat intelligence indicator.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-threatintelindicatorlastobservedat
 	//
 	ThreatIntelIndicatorLastObservedAt interface{} `field:"optional" json:"threatIntelIndicatorLastObservedAt" yaml:"threatIntelIndicatorLastObservedAt"`
@@ -1136,7 +1136,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	Type interface{} `field:"optional" json:"type" yaml:"type"`
 	// A timestamp that indicates when the security findings provider last updated the finding record.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-updatedat
 	//
 	UpdatedAt interface{} `field:"optional" json:"updatedAt" yaml:"updatedAt"`
@@ -1152,13 +1152,13 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	VerificationState interface{} `field:"optional" json:"verificationState" yaml:"verificationState"`
 	// Indicates whether a software vulnerability in your environment has a known exploit.
 	//
-	// You can filter findings by this field only if you use Security Hub and Amazon Inspector.
+	// You can filter findings by this field only if you use Security Hub CSPM and Amazon Inspector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-vulnerabilitiesexploitavailable
 	//
 	VulnerabilitiesExploitAvailable interface{} `field:"optional" json:"vulnerabilitiesExploitAvailable" yaml:"vulnerabilitiesExploitAvailable"`
 	// Indicates whether a vulnerability is fixed in a newer version of the affected software packages.
 	//
-	// You can filter findings by this field only if you use Security Hub and Amazon Inspector.
+	// You can filter findings by this field only if you use Security Hub CSPM and Amazon Inspector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-vulnerabilitiesfixavailable
 	//
 	VulnerabilitiesFixAvailable interface{} `field:"optional" json:"vulnerabilitiesFixAvailable" yaml:"vulnerabilitiesFixAvailable"`
@@ -1172,7 +1172,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	//
 	// - `NEW` - The initial state of a finding, before it is reviewed.
 	//
-	// Security Hub also resets the workflow status from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
+	// Security Hub CSPM also resets the workflow status from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
 	//
 	// - `RecordState` changes from `ARCHIVED` to `ACTIVE` .
 	// - `Compliance.Status` changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .
@@ -1194,7 +1194,7 @@ type CfnInsightPropsMixin_AwsSecurityFindingFiltersProperty struct {
 	//
 	// In those cases, the workflow status is automatically reset to `NEW` .
 	//
-	// For findings from controls, if `Compliance.Status` is `PASSED` , then Security Hub automatically sets the workflow status to `RESOLVED` .
+	// For findings from controls, if `Compliance.Status` is `PASSED` , then Security Hub CSPM automatically sets the workflow status to `RESOLVED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-workflowstatus
 	//
 	WorkflowStatus interface{} `field:"optional" json:"workflowStatus" yaml:"workflowStatus"`

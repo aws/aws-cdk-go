@@ -46,6 +46,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -131,6 +132,9 @@ type CfnDirectConnectGatewayAttachment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Routing policy label.
+	RoutingPolicyLabel() *string
+	SetRoutingPolicyLabel(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -556,6 +560,16 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) RoutingPolicyLabel() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"routingPolicyLabel",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -677,6 +691,14 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetProposedSegmentChange(va
 	_jsii_.Set(
 		j,
 		"proposedSegmentChange",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetRoutingPolicyLabel(val *string) {
+	_jsii_.Set(
+		j,
+		"routingPolicyLabel",
 		val,
 	)
 }

@@ -78,6 +78,21 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SyntheticDataParameters: &SyntheticDataParametersProperty{
+//   		MlSyntheticDataParameters: &MLSyntheticDataParametersProperty{
+//   			ColumnClassification: &ColumnClassificationDetailsProperty{
+//   				ColumnMapping: []interface{}{
+//   					&SyntheticDataColumnPropertiesProperty{
+//   						ColumnName: jsii.String("columnName"),
+//   						ColumnType: jsii.String("columnType"),
+//   						IsPredictiveValue: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
+//   			Epsilon: jsii.Number(123),
+//   			MaxMembershipInferenceAttackScore: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -177,6 +192,9 @@ type CfnAnalysisTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The parameters used to generate synthetic data for this analysis template.
+	SyntheticDataParameters() interface{}
+	SetSyntheticDataParameters(val interface{})
 	// An optional label that you can assign to a resource when you create it.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -598,6 +616,16 @@ func (j *jsiiProxy_CfnAnalysisTemplate) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnalysisTemplate) SyntheticDataParameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"syntheticDataParameters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnalysisTemplate) Tags() *[]*awscdk.CfnTag {
 	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
@@ -750,6 +778,17 @@ func (j *jsiiProxy_CfnAnalysisTemplate)SetSourceMetadata(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceMetadata",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnalysisTemplate)SetSyntheticDataParameters(val interface{}) {
+	if err := j.validateSetSyntheticDataParametersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"syntheticDataParameters",
 		val,
 	)
 }

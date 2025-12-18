@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsacmpca"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,7 +44,7 @@ import (
 //   			},
 //   			Validation: &TlsValidation{
 //   				SubjectAlternativeNames: appmesh.SubjectAlternativeNames_MatchingExactly(jsii.String("mesh-endpoint.apps.local")),
-//   				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthority{
+//   				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthorityRef{
 //   					acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("certificate"), certificateAuthorityArn),
 //   				}),
 //   			},
@@ -88,7 +88,7 @@ func NewMutualTlsValidationTrust_Override(m MutualTlsValidationTrust) {
 }
 
 // TLS Validation Context Trust for ACM Private Certificate Authority (CA).
-func MutualTlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuthority) TlsValidationTrust {
+func MutualTlsValidationTrust_Acm(certificateAuthorities *[]interfacesawsacmpca.ICertificateAuthorityRef) TlsValidationTrust {
 	_init_.Initialize()
 
 	if err := validateMutualTlsValidationTrust_AcmParameters(certificateAuthorities); err != nil {

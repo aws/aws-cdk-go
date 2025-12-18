@@ -9,11 +9,14 @@ package interfacesawsssm
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   maintenanceWindowTargetReference := &MaintenanceWindowTargetReference{
-//   	MaintenanceWindowTargetId: jsii.String("maintenanceWindowTargetId"),
+//   	WindowId: jsii.String("windowId"),
+//   	WindowTargetId: jsii.String("windowTargetId"),
 //   }
 //
 type MaintenanceWindowTargetReference struct {
-	// The Id of the MaintenanceWindowTarget resource.
-	MaintenanceWindowTargetId *string `field:"required" json:"maintenanceWindowTargetId" yaml:"maintenanceWindowTargetId"`
+	// The WindowId of the MaintenanceWindowTarget resource.
+	WindowId *string `field:"required" json:"windowId" yaml:"windowId"`
+	// The WindowTargetId of the MaintenanceWindowTarget resource.
+	WindowTargetId *string `field:"required" json:"windowTargetId" yaml:"windowTargetId"`
 }
 

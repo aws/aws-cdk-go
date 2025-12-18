@@ -3,7 +3,7 @@ package previewawsresourcegroupsmixins
 
 // One parameter for a group configuration item.
 //
-// For details about service configurations and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+// For details about service configurations and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,7 +22,7 @@ package previewawsresourcegroupsmixins
 type CfnGroupPropsMixin_ConfigurationParameterProperty struct {
 	// The name of the group configuration parameter.
 	//
-	// For the list of parameters that you can use with each configuration item type, see [Supported resource types and parameters](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html#about-slg-types) in the *AWS Resource Groups User Guide* .
+	// For the list of parameters that you can use with each configuration item type, see [Supported resource types and parameters](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html#about-slg-types) in the *Resource Groups User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

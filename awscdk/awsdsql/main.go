@@ -26,6 +26,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrPolicyVersion", GoGetter: "AttrPolicyVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEndpoint", GoGetter: "AttrVpcEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVpcEndpointServiceName", GoGetter: "AttrVpcEndpointServiceName"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

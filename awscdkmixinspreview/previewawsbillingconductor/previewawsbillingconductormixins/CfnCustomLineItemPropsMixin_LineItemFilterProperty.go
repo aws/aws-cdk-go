@@ -12,6 +12,9 @@ package previewawsbillingconductormixins
 //
 //   lineItemFilterProperty := &LineItemFilterProperty{
 //   	Attribute: jsii.String("attribute"),
+//   	AttributeValues: []*string{
+//   		jsii.String("attributeValues"),
+//   	},
 //   	MatchOption: jsii.String("matchOption"),
 //   	Values: []*string{
 //   		jsii.String("values"),
@@ -27,6 +30,12 @@ type CfnCustomLineItemPropsMixin_LineItemFilterProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html#cfn-billingconductor-customlineitem-lineitemfilter-attribute
 	//
 	Attribute *string `field:"optional" json:"attribute" yaml:"attribute"`
+	// The values of the line item filter.
+	//
+	// This specifies the values to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html#cfn-billingconductor-customlineitem-lineitemfilter-attributevalues
+	//
+	AttributeValues *[]*string `field:"optional" json:"attributeValues" yaml:"attributeValues"`
 	// The match criteria of the line item filter.
 	//
 	// This parameter specifies whether not to include the resource value from the billing group total cost.

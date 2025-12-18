@@ -1822,6 +1822,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.AudioConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_AudioConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.AudioSegmentationConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_AudioSegmentationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.BedrockEmbeddingModelConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_BedrockEmbeddingModelConfigurationProperty)(nil)).Elem(),
 	)
@@ -1968,6 +1976,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.VectorKnowledgeBaseConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_VectorKnowledgeBaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.VideoConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_VideoConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.VideoSegmentationConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_VideoSegmentationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBaseProps",

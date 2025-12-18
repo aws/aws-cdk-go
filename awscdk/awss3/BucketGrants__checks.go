@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 func (b *jsiiProxy_BucketGrants) validateDeleteParameters(grantee awsiam.IGrantable) error {
@@ -68,6 +69,14 @@ func (b *jsiiProxy_BucketGrants) validateReplicationPermissionParameters(identit
 func (b *jsiiProxy_BucketGrants) validateWriteParameters(identity awsiam.IGrantable) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateBucketGrants_FromBucketParameters(bucket interfacesawss3.IBucketRef) error {
+	if bucket == nil {
+		return fmt.Errorf("parameter bucket is required, but nil was provided")
 	}
 
 	return nil

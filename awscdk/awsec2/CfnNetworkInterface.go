@@ -58,6 +58,7 @@ import (
 //   			PrivateIpAddress: jsii.String("privateIpAddress"),
 //   		},
 //   	},
+//   	PublicIpDnsHostnameTypeSpecification: jsii.String("publicIpDnsHostnameTypeSpecification"),
 //   	SecondaryPrivateIpAddressCount: jsii.Number(123),
 //   	SourceDestCheck: jsii.Boolean(false),
 //   	Tags: []CfnTag{
@@ -83,6 +84,8 @@ type CfnNetworkInterface interface {
 	//
 	// For example, `10.0.0.192` .
 	AttrPrimaryPrivateIpAddress() *string
+	// Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
+	AttrPublicIpDnsNameOptions() awscdk.IResolvable
 	// The secondary private IP addresses of the network interface.
 	//
 	// For example, `["10.0.0.161", "10.0.0.162", "10.0.0.163"]` .
@@ -152,6 +155,9 @@ type CfnNetworkInterface interface {
 	// The private IPv4 addresses to assign to the network interface.
 	PrivateIpAddresses() interface{}
 	SetPrivateIpAddresses(val interface{})
+	// Public IP DNS hostname type.
+	PublicIpDnsHostnameTypeSpecification() *string
+	SetPublicIpDnsHostnameTypeSpecification(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -348,6 +354,16 @@ func (j *jsiiProxy_CfnNetworkInterface) AttrPrimaryPrivateIpAddress() *string {
 	_jsii_.Get(
 		j,
 		"attrPrimaryPrivateIpAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) AttrPublicIpDnsNameOptions() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrPublicIpDnsNameOptions",
 		&returns,
 	)
 	return returns
@@ -578,6 +594,16 @@ func (j *jsiiProxy_CfnNetworkInterface) PrivateIpAddresses() interface{} {
 	_jsii_.Get(
 		j,
 		"privateIpAddresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) PublicIpDnsHostnameTypeSpecification() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"publicIpDnsHostnameTypeSpecification",
 		&returns,
 	)
 	return returns
@@ -821,6 +847,14 @@ func (j *jsiiProxy_CfnNetworkInterface)SetPrivateIpAddresses(val interface{}) {
 	_jsii_.Set(
 		j,
 		"privateIpAddresses",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetPublicIpDnsHostnameTypeSpecification(val *string) {
+	_jsii_.Set(
+		j,
+		"publicIpDnsHostnameTypeSpecification",
 		val,
 	)
 }

@@ -44,6 +44,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

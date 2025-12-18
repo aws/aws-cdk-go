@@ -142,6 +142,50 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.ActionConditionProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_ActionConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.AdvancedEventSelectorProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_AdvancedEventSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.AdvancedFieldSelectorProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_AdvancedFieldSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.CloudtrailParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_CloudtrailParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.ConditionProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_ConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.ELBLoadBalancerLoggingParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_ELBLoadBalancerLoggingParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.FieldToMatchProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_FieldToMatchProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.FilterProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_FilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.LabelNameConditionProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_LabelNameConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.LoggingFilterProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_LoggingFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.SingleHeaderProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_SingleHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.TelemetryDestinationConfigurationProperty",
 		reflect.TypeOf((*CfnOrganizationTelemetryRule_TelemetryDestinationConfigurationProperty)(nil)).Elem(),
 	)
@@ -152,6 +196,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.VPCFlowLogParametersProperty",
 		reflect.TypeOf((*CfnOrganizationTelemetryRule_VPCFlowLogParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.WAFLoggingParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_WAFLoggingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRuleProps",
@@ -344,6 +392,54 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.ActionConditionProperty",
+		reflect.TypeOf((*CfnTelemetryRule_ActionConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.AdvancedEventSelectorProperty",
+		reflect.TypeOf((*CfnTelemetryRule_AdvancedEventSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.AdvancedFieldSelectorProperty",
+		reflect.TypeOf((*CfnTelemetryRule_AdvancedFieldSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.CloudtrailParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRule_CloudtrailParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.ConditionProperty",
+		reflect.TypeOf((*CfnTelemetryRule_ConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.ELBLoadBalancerLoggingParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRule_ELBLoadBalancerLoggingParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.FieldToMatchProperty",
+		reflect.TypeOf((*CfnTelemetryRule_FieldToMatchProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.FilterProperty",
+		reflect.TypeOf((*CfnTelemetryRule_FilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.LabelNameConditionProperty",
+		reflect.TypeOf((*CfnTelemetryRule_LabelNameConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.LogDeliveryParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRule_LogDeliveryParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.LoggingFilterProperty",
+		reflect.TypeOf((*CfnTelemetryRule_LoggingFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.SingleHeaderProperty",
+		reflect.TypeOf((*CfnTelemetryRule_SingleHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.TelemetryDestinationConfigurationProperty",
 		reflect.TypeOf((*CfnTelemetryRule_TelemetryDestinationConfigurationProperty)(nil)).Elem(),
 	)
@@ -354,6 +450,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.VPCFlowLogParametersProperty",
 		reflect.TypeOf((*CfnTelemetryRule_VPCFlowLogParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.WAFLoggingParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRule_WAFLoggingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRuleProps",

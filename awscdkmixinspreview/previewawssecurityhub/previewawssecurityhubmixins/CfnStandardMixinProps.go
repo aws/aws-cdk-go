@@ -29,7 +29,7 @@ type CfnStandardMixinProps struct {
 	DisabledStandardsControls interface{} `field:"optional" json:"disabledStandardsControls" yaml:"disabledStandardsControls"`
 	// The ARN of the standard that you want to enable.
 	//
-	// To view a list of available Security Hub standards and their ARNs, use the [`DescribeStandards`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
+	// To view a list of available Security Hub CSPM standards and their ARNs, use the [`DescribeStandards`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html#cfn-securityhub-standard-standardsarn
 	//
 	StandardsArn *string `field:"optional" json:"standardsArn" yaml:"standardsArn"`

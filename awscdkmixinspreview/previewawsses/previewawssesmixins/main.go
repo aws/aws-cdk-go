@@ -756,6 +756,30 @@ func init() {
 		reflect.TypeOf((*CfnTemplatePropsMixin_TemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnTenantMixinProps",
+		reflect.TypeOf((*CfnTenantMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnTenantPropsMixin",
+		reflect.TypeOf((*CfnTenantPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTenantPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnTenantPropsMixin.ResourceAssociationProperty",
+		reflect.TypeOf((*CfnTenantPropsMixin_ResourceAssociationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnVdmAttributesMixinProps",
 		reflect.TypeOf((*CfnVdmAttributesMixinProps)(nil)).Elem(),
 	)

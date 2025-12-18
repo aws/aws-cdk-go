@@ -1,7 +1,9 @@
 package awsdevopsagent
 
 
-// AWS association for 'source' account.
+// Configuration for AWS source account integration.
+//
+// Specifies the account ID, assumable role ARN, and resources to be monitored in the source account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,23 +38,23 @@ package awsdevopsagent
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html
 //
 type CfnAssociation_SourceAwsConfigurationProperty struct {
-	// AWS Account Id corresponding to provided resources.
+	// Account ID corresponding to the provided resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html#cfn-devopsagent-association-sourceawsconfiguration-accountid
 	//
 	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
-	// Account Type 'source' for DevOpsAgent monitoring.
+	// Account Type 'source' for AWS DevOps Agent monitoring.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html#cfn-devopsagent-association-sourceawsconfiguration-accounttype
 	//
 	AccountType *string `field:"required" json:"accountType" yaml:"accountType"`
-	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer.
+	// Role ARN to be assumed by AWS DevOps Agent to operate on behalf of customer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html#cfn-devopsagent-association-sourceawsconfiguration-assumablerolearn
 	//
 	AssumableRoleArn *string `field:"required" json:"assumableRoleArn" yaml:"assumableRoleArn"`
-	// List of AWS resources.
+	// List of resources to monitor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html#cfn-devopsagent-association-sourceawsconfiguration-resources
 	//
 	Resources interface{} `field:"optional" json:"resources" yaml:"resources"`
-	// List of AWS tags as key-value pairs.
+	// List of tags as key-value pairs, used to identify resources for topology crawl.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html#cfn-devopsagent-association-sourceawsconfiguration-tags
 	//
 	Tags *[]*CfnAssociation_KeyValuePairProperty `field:"optional" json:"tags" yaml:"tags"`

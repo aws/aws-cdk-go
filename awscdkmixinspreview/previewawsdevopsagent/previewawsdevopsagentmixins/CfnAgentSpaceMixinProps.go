@@ -16,11 +16,11 @@ package previewawsdevopsagentmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html
 //
 type CfnAgentSpaceMixinProps struct {
-	// The description of the AgentSpace.
+	// The description of the Agent Space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the AgentSpace.
+	// The name of the Agent Space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

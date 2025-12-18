@@ -188,6 +188,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnExpressGatewayServicePropsMixin.AutoScalingArnsProperty",
+		reflect.TypeOf((*CfnExpressGatewayServicePropsMixin_AutoScalingArnsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnExpressGatewayServicePropsMixin.ECSManagedResourceArnsProperty",
+		reflect.TypeOf((*CfnExpressGatewayServicePropsMixin_ECSManagedResourceArnsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnExpressGatewayServicePropsMixin.ExpressGatewayContainerProperty",
 		reflect.TypeOf((*CfnExpressGatewayServicePropsMixin_ExpressGatewayContainerProperty)(nil)).Elem(),
 	)
@@ -214,6 +222,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnExpressGatewayServicePropsMixin.ExpressGatewayServiceStatusProperty",
 		reflect.TypeOf((*CfnExpressGatewayServicePropsMixin_ExpressGatewayServiceStatusProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnExpressGatewayServicePropsMixin.IngressPathArnsProperty",
+		reflect.TypeOf((*CfnExpressGatewayServicePropsMixin_IngressPathArnsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnExpressGatewayServicePropsMixin.IngressPathSummaryProperty",

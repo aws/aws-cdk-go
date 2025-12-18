@@ -56,6 +56,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceMetadata", GoGetter: "SourceMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "syntheticDataParameters", GoGetter: "SyntheticDataParameters"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
@@ -100,6 +101,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysisTemplate_AnalysisTemplateArtifactsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate.ColumnClassificationDetailsProperty",
+		reflect.TypeOf((*CfnAnalysisTemplate_ColumnClassificationDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate.ErrorMessageConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysisTemplate_ErrorMessageConfigurationProperty)(nil)).Elem(),
 	)
@@ -108,8 +113,20 @@ func init() {
 		reflect.TypeOf((*CfnAnalysisTemplate_HashProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate.MLSyntheticDataParametersProperty",
+		reflect.TypeOf((*CfnAnalysisTemplate_MLSyntheticDataParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate.S3LocationProperty",
 		reflect.TypeOf((*CfnAnalysisTemplate_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate.SyntheticDataColumnPropertiesProperty",
+		reflect.TypeOf((*CfnAnalysisTemplate_SyntheticDataColumnPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate.SyntheticDataParametersProperty",
+		reflect.TypeOf((*CfnAnalysisTemplate_SyntheticDataParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplateProps",
@@ -213,6 +230,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.QueryComputePaymentConfigProperty",
 		reflect.TypeOf((*CfnCollaboration_QueryComputePaymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.SyntheticDataGenerationPaymentConfigProperty",
+		reflect.TypeOf((*CfnCollaboration_SyntheticDataGenerationPaymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaborationProps",
@@ -674,6 +695,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipQueryComputePaymentConfigProperty",
 		reflect.TypeOf((*CfnMembership_MembershipQueryComputePaymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipSyntheticDataGenerationPaymentConfigProperty",
+		reflect.TypeOf((*CfnMembership_MembershipSyntheticDataGenerationPaymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnMembership.ProtectedJobS3OutputConfigurationInputProperty",

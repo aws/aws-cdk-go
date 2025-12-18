@@ -2,6 +2,7 @@ package awsappconfig
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
@@ -38,7 +39,7 @@ type SourcedConfigurationProps struct {
 	// Default: - A deployment strategy with the rollout strategy set to
 	// RolloutStrategy.CANARY_10_PERCENT_20_MINUTES
 	//
-	DeploymentStrategy IDeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
+	DeploymentStrategy interfacesawsappconfig.IDeploymentStrategyRef `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
 	// The list of environments to deploy the configuration to.
 	//
 	// If this parameter is not specified, then there will be no

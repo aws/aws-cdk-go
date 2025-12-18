@@ -69,7 +69,7 @@ type CfnPermission interface {
 	// The type of authentication that your function URL uses.
 	FunctionUrlAuthType() *string
 	SetFunctionUrlAuthType(val *string)
-	// Restricts the `lambda:InvokeFunction` action to function URL calls.
+	// Indicates whether the permission applies when the function is invoked through a function URL.
 	InvokedViaFunctionUrl() interface{}
 	SetInvokedViaFunctionUrl(val interface{})
 	// The logical ID for this CloudFormation stack element.

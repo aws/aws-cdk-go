@@ -31,6 +31,7 @@ import (
 //   	CidrRoutingConfig: cidrRoutingConfig,
 //   	Comment: jsii.String("comment"),
 //   	DeleteExisting: jsii.Boolean(false),
+//   	Failover: awscdk.*Aws_route53.Failover_PRIMARY,
 //   	GeoLocation: geoLocation,
 //   	HealthCheck: healthCheck,
 //   	MultiValueAnswer: jsii.Boolean(false),
@@ -70,6 +71,18 @@ type CaaRecordProps struct {
 	//
 	// Deprecated: This property is dangerous and can lead to unintended record deletion in case of deployment failure.
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
+	// Failover configuration for the record set.
+	//
+	// To configure failover, you add the Failover element to two resource record sets.
+	// For one resource record set, you specify PRIMARY as the value for Failover;
+	// for the other resource record set, you specify SECONDARY.
+	//
+	// You must also include the HealthCheckId element for PRIMARY configurations.
+	// See: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-failover.html
+	//
+	// Default: - No failover configuration.
+	//
+	Failover Failover `field:"optional" json:"failover" yaml:"failover"`
 	// The geographical origin for this record to return DNS records based on the user's location.
 	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`
 	// The health check to associate with the record set.

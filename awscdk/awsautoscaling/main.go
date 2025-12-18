@@ -192,6 +192,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "healthCheckType", GoGetter: "HealthCheckType"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceLifecyclePolicy", GoGetter: "InstanceLifecyclePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceMaintenancePolicy", GoGetter: "InstanceMaintenancePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "launchConfigurationName", GoGetter: "LaunchConfigurationName"},
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplate", GoGetter: "LaunchTemplate"},
@@ -276,6 +277,10 @@ func init() {
 		reflect.TypeOf((*CfnAutoScalingGroup_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.InstanceLifecyclePolicyProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_InstanceLifecyclePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.InstanceMaintenancePolicyProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_InstanceMaintenancePolicyProperty)(nil)).Elem(),
 	)
@@ -334,6 +339,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.PerformanceFactorReferenceRequestProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_PerformanceFactorReferenceRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.RetentionTriggersProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_RetentionTriggersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.TagPropertyProperty",

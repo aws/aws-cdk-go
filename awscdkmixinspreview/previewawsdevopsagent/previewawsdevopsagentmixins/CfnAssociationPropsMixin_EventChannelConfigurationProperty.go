@@ -1,7 +1,9 @@
 package previewawsdevopsagentmixins
 
 
-// EventChannelconfiguration.
+// Configuration for Event Channel integration.
+//
+// Defines webhook update settings to enable the Agent Space to receive real-time event notifications from event channel integrations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

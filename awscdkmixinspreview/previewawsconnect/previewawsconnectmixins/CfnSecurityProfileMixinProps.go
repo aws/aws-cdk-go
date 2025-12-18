@@ -81,6 +81,7 @@ type CfnSecurityProfileMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The granular access control configuration for the security profile, including data table permissions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-granularaccesscontrolconfiguration
 	//
 	GranularAccessControlConfiguration interface{} `field:"optional" json:"granularAccessControlConfiguration" yaml:"granularAccessControlConfiguration"`

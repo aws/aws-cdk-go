@@ -157,6 +157,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "as2Config", GoGetter: "As2Config"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConnectorId", GoGetter: "AttrConnectorId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrErrorMessage", GoGetter: "AttrErrorMessage"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServiceManagedEgressIpAddresses", GoGetter: "AttrServiceManagedEgressIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

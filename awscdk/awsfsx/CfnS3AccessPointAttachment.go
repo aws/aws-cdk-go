@@ -101,6 +101,7 @@ type CfnS3AccessPointAttachment interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The ONTAP configuration of the S3 access point attachment.
 	OntapConfiguration() interface{}
 	SetOntapConfiguration(val interface{})
 	// The OpenZFSConfiguration of the S3 access point attachment.

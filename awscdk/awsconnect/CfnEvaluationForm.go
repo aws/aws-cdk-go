@@ -241,6 +241,7 @@ type CfnEvaluationForm interface {
 	// Items that are part of the evaluation form.
 	Items() interface{}
 	SetItems(val interface{})
+	// Configuration for language settings of this evaluation form.
 	LanguageConfiguration() interface{}
 	SetLanguageConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -275,6 +276,7 @@ type CfnEvaluationForm interface {
 	// The tags used to organize, track, or control access for this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// Configuration that specifies the target for this evaluation form.
 	TargetConfiguration() interface{}
 	SetTargetConfiguration(val interface{})
 	// A title of the evaluation form.

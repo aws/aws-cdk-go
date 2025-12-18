@@ -108,6 +108,10 @@ func init() {
 		reflect.TypeOf((*CfnHostedZonePropsMixin_HostedZoneConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_route53.mixins.CfnHostedZonePropsMixin.HostedZoneFeaturesProperty",
+		reflect.TypeOf((*CfnHostedZonePropsMixin_HostedZoneFeaturesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_route53.mixins.CfnHostedZonePropsMixin.HostedZoneTagProperty",
 		reflect.TypeOf((*CfnHostedZonePropsMixin_HostedZoneTagProperty)(nil)).Elem(),
 	)

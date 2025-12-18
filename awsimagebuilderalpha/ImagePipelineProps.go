@@ -13,10 +13,10 @@ import (
 //   	Recipe: exampleImageRecipe,
 //   	Workflows: []WorkflowConfiguration{
 //   		&WorkflowConfiguration{
-//   			Workflow: imagebuilder.AwsManagedWorkflow_BuildImage(this, jsii.String("BuildWorkflow")),
+//   			Workflow: imagebuilder.AmazonManagedWorkflow_BuildImage(this, jsii.String("BuildWorkflow")),
 //   		},
 //   		&WorkflowConfiguration{
-//   			Workflow: imagebuilder.AwsManagedWorkflow_TestImage(this, jsii.String("TestWorkflow")),
+//   			Workflow: imagebuilder.AmazonManagedWorkflow_TestImage(this, jsii.String("TestWorkflow")),
 //   		},
 //   	},
 //   })

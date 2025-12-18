@@ -58,6 +58,7 @@ import (
 //   				OnCreate: jsii.String("onCreate"),
 //   				SourceS3Uri: jsii.String("sourceS3Uri"),
 //   			},
+//   			MinInstanceCount: jsii.Number(123),
 //   			OnStartDeepHealthChecks: []*string{
 //   				jsii.String("onStartDeepHealthChecks"),
 //   			},

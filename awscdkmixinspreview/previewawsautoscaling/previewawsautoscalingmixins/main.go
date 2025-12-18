@@ -64,6 +64,10 @@ func init() {
 		reflect.TypeOf((*CfnAutoScalingGroupPropsMixin_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_autoscaling.mixins.CfnAutoScalingGroupPropsMixin.InstanceLifecyclePolicyProperty",
+		reflect.TypeOf((*CfnAutoScalingGroupPropsMixin_InstanceLifecyclePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_autoscaling.mixins.CfnAutoScalingGroupPropsMixin.InstanceMaintenancePolicyProperty",
 		reflect.TypeOf((*CfnAutoScalingGroupPropsMixin_InstanceMaintenancePolicyProperty)(nil)).Elem(),
 	)
@@ -122,6 +126,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_autoscaling.mixins.CfnAutoScalingGroupPropsMixin.PerformanceFactorReferenceRequestProperty",
 		reflect.TypeOf((*CfnAutoScalingGroupPropsMixin_PerformanceFactorReferenceRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_autoscaling.mixins.CfnAutoScalingGroupPropsMixin.RetentionTriggersProperty",
+		reflect.TypeOf((*CfnAutoScalingGroupPropsMixin_RetentionTriggersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_autoscaling.mixins.CfnAutoScalingGroupPropsMixin.TagPropertyProperty",

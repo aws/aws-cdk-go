@@ -1,6 +1,8 @@
 package previewawsfsxmixins
 
 
+// Describes the FSx for ONTAP attachment configuration of an S3 access point attachment.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,6 +24,7 @@ package previewawsfsxmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspointontapconfiguration.html
 //
 type CfnS3AccessPointAttachmentPropsMixin_S3AccessPointOntapConfigurationProperty struct {
+	// The file system identity used to authorize file access requests made using the S3 access point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspointontapconfiguration.html#cfn-fsx-s3accesspointattachment-s3accesspointontapconfiguration-filesystemidentity
 	//
 	FileSystemIdentity interface{} `field:"optional" json:"fileSystemIdentity" yaml:"fileSystemIdentity"`

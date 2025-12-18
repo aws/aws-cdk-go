@@ -19,6 +19,9 @@ package previewawscleanroomsmixins
 //   		ModelTraining: &MembershipModelTrainingPaymentConfigProperty{
 //   			IsResponsible: jsii.Boolean(false),
 //   		},
+//   		SyntheticDataGeneration: &MembershipSyntheticDataGenerationPaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
 //   	},
 //   	QueryCompute: &MembershipQueryComputePaymentConfigProperty{
 //   		IsResponsible: jsii.Boolean(false),

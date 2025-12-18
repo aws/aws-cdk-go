@@ -9,6 +9,22 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedComponent",
+		reflect.TypeOf((*AmazonManagedComponent)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_AmazonManagedComponent{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedComponentAttributes",
+		reflect.TypeOf((*AmazonManagedComponentAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedComponentOptions",
+		reflect.TypeOf((*AmazonManagedComponentOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedImage",
 		reflect.TypeOf((*AmazonManagedImage)(nil)).Elem(),
 		nil, // no members
@@ -24,6 +40,18 @@ func init() {
 		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedImageOptions",
 		reflect.TypeOf((*AmazonManagedImageOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedWorkflow",
+		reflect.TypeOf((*AmazonManagedWorkflow)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_AmazonManagedWorkflow{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.AmazonManagedWorkflowAttributes",
+		reflect.TypeOf((*AmazonManagedWorkflowAttributes)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-imagebuilder-alpha.AmiDistribution",
 		reflect.TypeOf((*AmiDistribution)(nil)).Elem(),
@@ -31,30 +59,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-imagebuilder-alpha.AmiLaunchPermission",
 		reflect.TypeOf((*AmiLaunchPermission)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/aws-imagebuilder-alpha.AwsManagedComponent",
-		reflect.TypeOf((*AwsManagedComponent)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_AwsManagedComponent{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-imagebuilder-alpha.AwsManagedComponentAttributes",
-		reflect.TypeOf((*AwsManagedComponentAttributes)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/aws-imagebuilder-alpha.AwsManagedWorkflow",
-		reflect.TypeOf((*AwsManagedWorkflow)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_AwsManagedWorkflow{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-imagebuilder-alpha.AwsManagedWorkflowAttributes",
-		reflect.TypeOf((*AwsManagedWorkflowAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-imagebuilder-alpha.AwsMarketplaceComponent",
@@ -176,12 +180,15 @@ func init() {
 		"@aws-cdk/aws-imagebuilder-alpha.ComponentData",
 		reflect.TypeOf((*ComponentData)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "isS3Reference", GoGetter: "IsS3Reference"},
-			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
 		},
 		func() interface{} {
 			return &jsiiProxy_ComponentData{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-imagebuilder-alpha.ComponentDataConfig",
+		reflect.TypeOf((*ComponentDataConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-imagebuilder-alpha.ComponentDocument",
@@ -939,9 +946,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPut", GoMethod: "GrantPut"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
-			_jsii_.MemberProperty{JsiiProperty: "isS3Reference", GoGetter: "IsS3Reference"},
 			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
-			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3ComponentData{}

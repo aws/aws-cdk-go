@@ -20,7 +20,7 @@ package previewawseksmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfigoverrides.html
 //
 type CfnNodegroupPropsMixin_NodeRepairConfigOverridesProperty struct {
-	// Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
+	// Specify the minimum time in minutes to wait before attempting to repair a node with this specific `nodeMonitoringCondition` and `nodeUnhealthyReason` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfigoverrides.html#cfn-eks-nodegroup-noderepairconfigoverrides-minrepairwaittimemins
 	//
 	MinRepairWaitTimeMins *float64 `field:"optional" json:"minRepairWaitTimeMins" yaml:"minRepairWaitTimeMins"`

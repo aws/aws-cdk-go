@@ -14,6 +14,12 @@ package awscloudfront
 //
 //   	// the properties below are optional
 //   	IpAddressType: jsii.String("ipAddressType"),
+//   	IpamCidrConfigs: []interface{}{
+//   		&IpamCidrConfigProperty{
+//   			Cidr: jsii.String("cidr"),
+//   			IpamPoolArn: jsii.String("ipamPoolArn"),
+//   		},
+//   	},
 //   	Tags: &TagsProperty{
 //   		Items: []interface{}{
 //   			&CfnTag{
@@ -39,6 +45,9 @@ type CfnAnycastIpListProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-ipamcidrconfigs
+	//
+	IpamCidrConfigs interface{} `field:"optional" json:"ipamCidrConfigs" yaml:"ipamCidrConfigs"`
 	// A complex type that contains zero or more `Tag` elements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-tags
 	//

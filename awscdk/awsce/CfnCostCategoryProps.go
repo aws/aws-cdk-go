@@ -45,7 +45,7 @@ type CfnCostCategoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
 	//
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
-	// The split charge rules that are used to allocate your charges between your Cost Category values.
+	// The split charge rules that are used to allocate your charges between your cost category values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
 	//
 	SplitChargeRules *string `field:"optional" json:"splitChargeRules" yaml:"splitChargeRules"`

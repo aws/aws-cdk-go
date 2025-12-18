@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::DevOpsAgent::AgentSpace.
+// The `AWS::DevOpsAgent::AgentSpace` resource specifies an Agent Space for the AWS DevOps Agent Service.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

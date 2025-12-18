@@ -43,7 +43,7 @@ import (
 //   			},
 //   			Validation: &TlsValidation{
 //   				SubjectAlternativeNames: appmesh.SubjectAlternativeNames_MatchingExactly(jsii.String("mesh-endpoint.apps.local")),
-//   				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthority{
+//   				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthorityRef{
 //   					acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("certificate"), certificateAuthorityArn),
 //   				}),
 //   			},

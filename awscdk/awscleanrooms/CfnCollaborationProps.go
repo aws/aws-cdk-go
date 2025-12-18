@@ -49,6 +49,9 @@ import (
 //   			ModelTraining: &ModelTrainingPaymentConfigProperty{
 //   				IsResponsible: jsii.Boolean(false),
 //   			},
+//   			SyntheticDataGeneration: &SyntheticDataGenerationPaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
 //   		},
 //   	},
 //   	DataEncryptionMetadata: &DataEncryptionMetadataProperty{
@@ -86,6 +89,9 @@ import (
 //   						IsResponsible: jsii.Boolean(false),
 //   					},
 //   					ModelTraining: &ModelTrainingPaymentConfigProperty{
+//   						IsResponsible: jsii.Boolean(false),
+//   					},
+//   					SyntheticDataGeneration: &SyntheticDataGenerationPaymentConfigProperty{
 //   						IsResponsible: jsii.Boolean(false),
 //   					},
 //   				},

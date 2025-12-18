@@ -63,6 +63,16 @@ package previewawsconnectcampaignsv2mixins
 //   			},
 //   		},
 //   	},
+//   	WhatsApp: &WhatsAppChannelSubtypeConfigProperty{
+//   		Capacity: jsii.Number(123),
+//   		DefaultOutboundConfig: &WhatsAppOutboundConfigProperty{
+//   			ConnectSourcePhoneNumberArn: jsii.String("connectSourcePhoneNumberArn"),
+//   			WisdomTemplateArn: jsii.String("wisdomTemplateArn"),
+//   		},
+//   		OutboundMode: &WhatsAppOutboundModeProperty{
+//   			AgentlessConfig: agentlessConfig,
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html
@@ -80,5 +90,9 @@ type CfnCampaignPropsMixin_ChannelSubtypeConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-telephony
 	//
 	Telephony interface{} `field:"optional" json:"telephony" yaml:"telephony"`
+	// The configuration of the WhatsApp channel subtype.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-whatsapp
+	//
+	WhatsApp interface{} `field:"optional" json:"whatsApp" yaml:"whatsApp"`
 }
 

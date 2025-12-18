@@ -71,6 +71,21 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SyntheticDataParameters: &SyntheticDataParametersProperty{
+//   		MlSyntheticDataParameters: &MLSyntheticDataParametersProperty{
+//   			ColumnClassification: &ColumnClassificationDetailsProperty{
+//   				ColumnMapping: []interface{}{
+//   					&SyntheticDataColumnPropertiesProperty{
+//   						ColumnName: jsii.String("columnName"),
+//   						ColumnType: jsii.String("columnType"),
+//   						IsPredictiveValue: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
+//   			Epsilon: jsii.Number(123),
+//   			MaxMembershipInferenceAttackScore: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -120,6 +135,10 @@ type CfnAnalysisTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-sourcemetadata
 	//
 	SourceMetadata interface{} `field:"optional" json:"sourceMetadata" yaml:"sourceMetadata"`
+	// The parameters used to generate synthetic data for this analysis template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-syntheticdataparameters
+	//
+	SyntheticDataParameters interface{} `field:"optional" json:"syntheticDataParameters" yaml:"syntheticDataParameters"`
 	// An optional label that you can assign to a resource when you create it.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.

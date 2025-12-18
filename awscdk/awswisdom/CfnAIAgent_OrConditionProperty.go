@@ -1,6 +1,8 @@
 package awswisdom
 
 
+// A list of conditions which would be applied together with an `OR` condition.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,6 +28,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html
 //
 type CfnAIAgent_OrConditionProperty struct {
+	// A list of conditions which would be applied together with an `AND` condition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html#cfn-wisdom-aiagent-orcondition-andconditions
 	//
 	AndConditions interface{} `field:"optional" json:"andConditions" yaml:"andConditions"`

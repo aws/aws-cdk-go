@@ -3,7 +3,7 @@ package awsopensearchservice
 
 // Configuration settings for an OpenSearch application.
 //
-// For more information, see see [Using the OpenSearch user interface in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html) .
+// For more information, see [Using the OpenSearch user interface in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

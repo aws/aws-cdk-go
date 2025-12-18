@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::DevOpsAgent::AgentSpace.
+// The `AWS::DevOpsAgent::AgentSpace` resource specifies an Agent Space for the AWS DevOps Agent Service.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +33,9 @@ type CfnAgentSpace interface {
 	interfacesawsdevopsagent.IAgentSpaceRef
 	// A reference to a AgentSpace resource.
 	AgentSpaceRef() *interfacesawsdevopsagent.AgentSpaceReference
-	// The unique identifier of the AgentSpace.
+	// The unique identifier of the Agent Space.
 	AttrAgentSpaceId() *string
-	// The Amazon Resource Name (ARN) of the AgentSpace.
+	// The Amazon Resource Name (ARN) of the Agent Space.
 	AttrArn() *string
 	// The timestamp when the resource was created.
 	AttrCreatedAt() *string
@@ -50,7 +50,7 @@ type CfnAgentSpace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the AgentSpace.
+	// The description of the Agent Space.
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
@@ -64,7 +64,7 @@ type CfnAgentSpace interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the AgentSpace.
+	// The name of the Agent Space.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

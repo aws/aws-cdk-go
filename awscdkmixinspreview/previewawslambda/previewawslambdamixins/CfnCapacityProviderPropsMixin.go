@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Lambda::CapacityProvider.
+// Creates a capacity provider that manages compute resources for Lambda functions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

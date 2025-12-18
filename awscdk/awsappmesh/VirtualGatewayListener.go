@@ -31,7 +31,7 @@ import (
 //   				jsii.Number(8081),
 //   			},
 //   			Validation: &TlsValidation{
-//   				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthority{
+//   				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthorityRef{
 //   					acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("certificate"), certificateAuthorityArn),
 //   				}),
 //   			},

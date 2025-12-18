@@ -70,6 +70,21 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SyntheticDataParameters: &SyntheticDataParametersProperty{
+//   		MlSyntheticDataParameters: &MLSyntheticDataParametersProperty{
+//   			ColumnClassification: &ColumnClassificationDetailsProperty{
+//   				ColumnMapping: []interface{}{
+//   					&SyntheticDataColumnPropertiesProperty{
+//   						ColumnName: jsii.String("columnName"),
+//   						ColumnType: jsii.String("columnType"),
+//   						IsPredictiveValue: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
+//   			Epsilon: jsii.Number(123),
+//   			MaxMembershipInferenceAttackScore: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

@@ -241,6 +241,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.CustomerProfilesIntegrationConfigProperty",
+		reflect.TypeOf((*CfnMatchingWorkflow_CustomerProfilesIntegrationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.IncrementalRunConfigProperty",
 		reflect.TypeOf((*CfnMatchingWorkflow_IncrementalRunConfigProperty)(nil)).Elem(),
 	)

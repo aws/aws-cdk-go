@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,6 +52,8 @@ type RequestValidator interface {
 	PhysicalName() *string
 	// ID of the request validator, such as abc123.
 	RequestValidatorId() *string
+	// A reference to a RequestValidator resource.
+	RequestValidatorRef() *interfacesawsapigateway.RequestValidatorReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -122,6 +125,16 @@ func (j *jsiiProxy_RequestValidator) RequestValidatorId() *string {
 	_jsii_.Get(
 		j,
 		"requestValidatorId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RequestValidator) RequestValidatorRef() *interfacesawsapigateway.RequestValidatorReference {
+	var returns *interfacesawsapigateway.RequestValidatorReference
+	_jsii_.Get(
+		j,
+		"requestValidatorRef",
 		&returns,
 	)
 	return returns

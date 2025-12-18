@@ -44,6 +44,23 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	ExceptionLevel: jsii.String("exceptionLevel"),
+//   	InterceptorConfigurations: []interface{}{
+//   		&GatewayInterceptorConfigurationProperty{
+//   			InterceptionPoints: []*string{
+//   				jsii.String("interceptionPoints"),
+//   			},
+//   			Interceptor: &InterceptorConfigurationProperty{
+//   				Lambda: &LambdaInterceptorConfigurationProperty{
+//   					Arn: jsii.String("arn"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			InputConfiguration: &InterceptorInputConfigurationProperty{
+//   				PassRequestHeaders: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ProtocolConfiguration: &GatewayProtocolConfigurationProperty{
 //   		Mcp: &MCPGatewayConfigurationProperty{
@@ -104,6 +121,8 @@ type CfnGateway interface {
 	SetExceptionLevel(val *string)
 	// A reference to a Gateway resource.
 	GatewayRef() *interfacesawsbedrockagentcore.GatewayReference
+	InterceptorConfigurations() interface{}
+	SetInterceptorConfigurations(val interface{})
 	// The KMS key ARN for the gateway.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -480,6 +499,16 @@ func (j *jsiiProxy_CfnGateway) GatewayRef() *interfacesawsbedrockagentcore.Gatew
 	return returns
 }
 
+func (j *jsiiProxy_CfnGateway) InterceptorConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"interceptorConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGateway) KmsKeyArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -664,6 +693,17 @@ func (j *jsiiProxy_CfnGateway)SetExceptionLevel(val *string) {
 	_jsii_.Set(
 		j,
 		"exceptionLevel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGateway)SetInterceptorConfigurations(val interface{}) {
+	if err := j.validateSetInterceptorConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"interceptorConfigurations",
 		val,
 	)
 }

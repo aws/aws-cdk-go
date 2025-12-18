@@ -3,7 +3,7 @@ package awssecurityhub
 
 // Provides details about an individual security control.
 //
-// For a list of Security Hub controls, see [Security Hub controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *Security Hub User Guide* .
+// For a list of Security Hub CSPM controls, see [Security Hub CSPM controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -2,6 +2,7 @@ package awsappconfig
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 )
 
 // Options for the Configuration construct.
@@ -11,8 +12,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var deploymentStrategy DeploymentStrategy
+//   var deploymentStrategyRef IDeploymentStrategyRef
 //   var environment Environment
 //   var key Key
 //   var validator IValidator
@@ -20,7 +22,7 @@ import (
 //   configurationOptions := &ConfigurationOptions{
 //   	DeletionProtectionCheck: awscdk.Aws_appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 //   	DeploymentKey: key,
-//   	DeploymentStrategy: deploymentStrategy,
+//   	DeploymentStrategy: deploymentStrategyRef,
 //   	DeployTo: []IEnvironment{
 //   		environment,
 //   	},
@@ -50,7 +52,7 @@ type ConfigurationOptions struct {
 	// Default: - A deployment strategy with the rollout strategy set to
 	// RolloutStrategy.CANARY_10_PERCENT_20_MINUTES
 	//
-	DeploymentStrategy IDeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
+	DeploymentStrategy interfacesawsappconfig.IDeploymentStrategyRef `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
 	// The list of environments to deploy the configuration to.
 	//
 	// If this parameter is not specified, then there will be no

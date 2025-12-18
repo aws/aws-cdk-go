@@ -49,7 +49,9 @@ type CfnTableBucketMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-metricsconfiguration
 	//
 	MetricsConfiguration interface{} `field:"optional" json:"metricsConfiguration" yaml:"metricsConfiguration"`
-	// Specifies storage class settings for the table bucket.
+	// The configuration details for the storage class of tables or table buckets.
+	//
+	// This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-storageclassconfiguration
 	//
 	StorageClassConfiguration interface{} `field:"optional" json:"storageClassConfiguration" yaml:"storageClassConfiguration"`

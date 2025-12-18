@@ -59,6 +59,20 @@ type CfnResourceShare interface {
 	SetAllowExternalPrincipals(val interface{})
 	// The Amazon Resource Name (ARN) of the resource share.
 	AttrArn() *string
+	// The date and time when the resource share was created.
+	AttrCreationTime() *string
+	// Indicates what features are available for this resource share. This parameter can have one of the following values:.
+	//
+	// - *STANDARD* – A resource share that supports all functionality. These resource shares are visible to all principals you share the resource share with. You can modify these resource shares in AWS RAM using the console or APIs. This resource share might have been created by AWS RAM , or it might have been *CREATED_FROM_POLICY* and then promoted.
+	// - *CREATED_FROM_POLICY* – The customer manually shared a resource by attaching a resource-based policy. That policy did not match any existing managed permissions, so AWS RAM created this customer managed permission automatically on the customer's behalf based on the attached policy document. This type of resource share is visible only to the AWS account that created it. You can't modify it in AWS RAM unless you promote it. For more information, see `PromoteResourceShareCreatedFromPolicy` .
+	// - *PROMOTING_TO_STANDARD* – This resource share was originally `CREATED_FROM_POLICY` , but the customer ran the `PromoteResourceShareCreatedFromPolicy` and that operation is still in progress. This value changes to `STANDARD` when complete.
+	AttrFeatureSet() *string
+	// The date and time when the resource share was last updated.
+	AttrLastUpdatedTime() *string
+	// The ID of the AWS account that owns the resource share.
+	AttrOwningAccountId() *string
+	// The current status of the resource share.
+	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -277,6 +291,56 @@ func (j *jsiiProxy_CfnResourceShare) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceShare) AttrCreationTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceShare) AttrFeatureSet() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFeatureSet",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceShare) AttrLastUpdatedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastUpdatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceShare) AttrOwningAccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOwningAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceShare) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
 		&returns,
 	)
 	return returns

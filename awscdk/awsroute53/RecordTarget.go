@@ -8,15 +8,18 @@ import (
 // Type union for a record that accepts multiple types of target.
 //
 // Example:
-//   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
+//   var instance Instance
 //
-//   var zone HostedZone
-//   var domainName DomainName
+//   var myZone HostedZone
 //
 //
-//   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
-//   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.RegionalDomainName, domainName.RegionalHostedZoneId)),
+//   elasticIp := ec2.NewCfnEIP(this, jsii.String("EIP"), &CfnEIPProps{
+//   	Domain: jsii.String("vpc"),
+//   	InstanceId: instance.InstanceId,
+//   })
+//   route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
+//   	Zone: myZone,
+//   	Target: route53.RecordTarget_FromIpAddresses(elasticIp.ref),
 //   })
 //
 type RecordTarget interface {

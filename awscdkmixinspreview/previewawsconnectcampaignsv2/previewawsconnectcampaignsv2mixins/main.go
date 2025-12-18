@@ -143,4 +143,16 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_connectcampaignsv2.mixins.CfnCampaignPropsMixin.TimeoutConfigProperty",
 		reflect.TypeOf((*CfnCampaignPropsMixin_TimeoutConfigProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connectcampaignsv2.mixins.CfnCampaignPropsMixin.WhatsAppChannelSubtypeConfigProperty",
+		reflect.TypeOf((*CfnCampaignPropsMixin_WhatsAppChannelSubtypeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connectcampaignsv2.mixins.CfnCampaignPropsMixin.WhatsAppOutboundConfigProperty",
+		reflect.TypeOf((*CfnCampaignPropsMixin_WhatsAppOutboundConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connectcampaignsv2.mixins.CfnCampaignPropsMixin.WhatsAppOutboundModeProperty",
+		reflect.TypeOf((*CfnCampaignPropsMixin_WhatsAppOutboundModeProperty)(nil)).Elem(),
+	)
 }

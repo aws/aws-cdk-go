@@ -138,6 +138,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAnycastIpList", GoGetter: "AttrAnycastIpList"},
 			_jsii_.MemberProperty{JsiiProperty: "attrETag", GoGetter: "AttrETag"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIpamCidrConfigResults", GoGetter: "AttrIpamCidrConfigResults"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -148,6 +149,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamCidrConfigs", GoGetter: "IpamCidrConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "ipCount", GoGetter: "IpCount"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -179,6 +181,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CfnAnycastIpList.AnycastIpListProperty",
 		reflect.TypeOf((*CfnAnycastIpList_AnycastIpListProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnAnycastIpList.IpamCidrConfigProperty",
+		reflect.TypeOf((*CfnAnycastIpList_IpamCidrConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnAnycastIpList.IpamCidrConfigResultProperty",
+		reflect.TypeOf((*CfnAnycastIpList_IpamCidrConfigResultProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CfnAnycastIpList.TagsProperty",

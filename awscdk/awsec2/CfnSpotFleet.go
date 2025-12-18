@@ -134,6 +134,7 @@ import (
 //   						Min: jsii.Number(123),
 //   					},
 //   					OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   					RequireEncryptionInTransit: jsii.Boolean(false),
 //   					RequireHibernateSupport: jsii.Boolean(false),
 //   					SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   					TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
@@ -286,6 +287,7 @@ import (
 //   								Min: jsii.Number(123),
 //   							},
 //   							OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   							RequireEncryptionInTransit: jsii.Boolean(false),
 //   							RequireHibernateSupport: jsii.Boolean(false),
 //   							SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   							TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
@@ -351,6 +353,14 @@ import (
 //   		ValidFrom: jsii.String("validFrom"),
 //   		ValidUntil: jsii.String("validUntil"),
 //   	},
+//
+//   	// the properties below are optional
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
@@ -397,6 +407,9 @@ type CfnSpotFleet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags for a Spot Fleet resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -664,6 +677,16 @@ func (j *jsiiProxy_CfnSpotFleet) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSpotFleet) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSpotFleet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -721,6 +744,17 @@ func (j *jsiiProxy_CfnSpotFleet)SetSpotFleetRequestConfigData(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spotFleetRequestConfigData",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSpotFleet)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

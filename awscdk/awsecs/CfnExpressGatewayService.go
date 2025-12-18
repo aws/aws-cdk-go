@@ -96,6 +96,21 @@ type CfnExpressGatewayService interface {
 	AttrActiveConfigurations() awscdk.IResolvable
 	// The Unix timestamp for when the Express service was created.
 	AttrCreatedAt() *string
+	AttrEcsManagedResourceArns() awscdk.IResolvable
+	AttrEcsManagedResourceArnsAutoScaling() awscdk.IResolvable
+	AttrEcsManagedResourceArnsAutoScalingApplicationAutoScalingPolicies() *[]*string
+	AttrEcsManagedResourceArnsAutoScalingScalableTarget() *string
+	AttrEcsManagedResourceArnsIngressPath() awscdk.IResolvable
+	AttrEcsManagedResourceArnsIngressPathCertificateArn() *string
+	AttrEcsManagedResourceArnsIngressPathListenerArn() *string
+	AttrEcsManagedResourceArnsIngressPathListenerRuleArn() *string
+	AttrEcsManagedResourceArnsIngressPathLoadBalancerArn() *string
+	AttrEcsManagedResourceArnsIngressPathLoadBalancerSecurityGroups() *[]*string
+	AttrEcsManagedResourceArnsIngressPathTargetGroupArns() *[]*string
+	AttrEcsManagedResourceArnsLogGroups() *[]*string
+	AttrEcsManagedResourceArnsMetricAlarms() *[]*string
+	AttrEcsManagedResourceArnsServiceSecurityGroups() *[]*string
+	AttrEndpoint() *string
 	// The ARN that identifies the Express service.
 	AttrServiceArn() *string
 	AttrStatus() awscdk.IResolvable
@@ -335,6 +350,156 @@ func (j *jsiiProxy_CfnExpressGatewayService) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArns() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsAutoScaling() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsAutoScaling",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsAutoScalingApplicationAutoScalingPolicies() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsAutoScalingApplicationAutoScalingPolicies",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsAutoScalingScalableTarget() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsAutoScalingScalableTarget",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsIngressPath() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsIngressPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsIngressPathCertificateArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsIngressPathCertificateArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsIngressPathListenerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsIngressPathListenerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsIngressPathListenerRuleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsIngressPathListenerRuleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsIngressPathLoadBalancerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsIngressPathLoadBalancerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsIngressPathLoadBalancerSecurityGroups() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsIngressPathLoadBalancerSecurityGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsIngressPathTargetGroupArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsIngressPathTargetGroupArns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsLogGroups() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsLogGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsMetricAlarms() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsMetricAlarms",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEcsManagedResourceArnsServiceSecurityGroups() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrEcsManagedResourceArnsServiceSecurityGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExpressGatewayService) AttrEndpoint() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEndpoint",
 		&returns,
 	)
 	return returns

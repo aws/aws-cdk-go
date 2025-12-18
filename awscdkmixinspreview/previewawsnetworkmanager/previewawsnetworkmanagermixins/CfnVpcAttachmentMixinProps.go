@@ -39,6 +39,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	SubnetArns: []*string{
 //   		jsii.String("subnetArns"),
 //   	},
@@ -72,6 +73,10 @@ type CfnVpcAttachmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-proposedsegmentchange
 	//
 	ProposedSegmentChange interface{} `field:"optional" json:"proposedSegmentChange" yaml:"proposedSegmentChange"`
+	// Routing policy label.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-routingpolicylabel
+	//
+	RoutingPolicyLabel *string `field:"optional" json:"routingPolicyLabel" yaml:"routingPolicyLabel"`
 	// The subnet ARNs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-subnetarns
 	//

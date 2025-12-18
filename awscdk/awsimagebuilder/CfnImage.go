@@ -91,19 +91,13 @@ type CfnImage interface {
 	AttrImageUri() *string
 	// The latest version references of the image.
 	AttrLatestVersion() awscdk.IResolvable
-	// The Amazon Resource Name (ARN) of the image.
-	//
-	// > Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:
-	// >
-	// > - Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.
-	// > - Version ARNs have only the first three nodes: <major>.<minor>.<patch>
-	// > - Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.
+	// The latest version Amazon Resource Name (ARN) of the Image Builder resource.
 	AttrLatestVersionArn() *string
-	// The latest version ARN of the created image, with the same major version.
+	// The latest version Amazon Resource Name (ARN) with the same `major` version of the Image Builder resource.
 	AttrLatestVersionMajor() *string
-	// The latest version ARN of the created image, with the same minor version.
+	// The latest version Amazon Resource Name (ARN) with the same `minor` version of the Image Builder resource.
 	AttrLatestVersionMinor() *string
-	// The latest version ARN of the created image, with the same patch version.
+	// The latest version Amazon Resource Name (ARN) with the same `patch` version of the Image Builder resource.
 	AttrLatestVersionPatch() *string
 	// Returns the name of the image.
 	AttrName() *string
@@ -119,7 +113,7 @@ type CfnImage interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+	// Enables deletion of underlying resources of an image when it is replaced or deleted, including its Amazon Machine Images (AMIs), snapshots, or containers.
 	DeletionSettings() interface{}
 	SetDeletionSettings(val interface{})
 	// The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.
@@ -132,7 +126,7 @@ type CfnImage interface {
 	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
-	// The settings for starting an image pipeline execution.
+	// The image pipeline execution settings of the image.
 	ImagePipelineExecutionSettings() interface{}
 	SetImagePipelineExecutionSettings(val interface{})
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.

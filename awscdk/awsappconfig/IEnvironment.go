@@ -6,9 +6,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IEnvironment interface {
+	interfacesawsappconfig.IEnvironmentRef
 	awscdk.IResource
 	// Creates a deployment of the supplied configuration to this environment.
 	//
@@ -64,6 +68,7 @@ type IEnvironment interface {
 
 // The jsii proxy for IEnvironment
 type jsiiProxy_IEnvironment struct {
+	internal.Type__interfacesawsappconfigIEnvironmentRef
 	internal.Type__awscdkIResource
 }
 
@@ -238,6 +243,17 @@ func (i *jsiiProxy_IEnvironment) PreStartDeployment(eventDestination IEventDesti
 	)
 }
 
+func (i *jsiiProxy_IEnvironment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IEnvironment) Application() IApplication {
 	var returns IApplication
 	_jsii_.Get(
@@ -303,6 +319,46 @@ func (j *jsiiProxy_IEnvironment) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEnvironment) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEnvironment) EnvironmentRef() *interfacesawsappconfig.EnvironmentReference {
+	var returns *interfacesawsappconfig.EnvironmentReference
+	_jsii_.Get(
+		j,
+		"environmentRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEnvironment) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEnvironment) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

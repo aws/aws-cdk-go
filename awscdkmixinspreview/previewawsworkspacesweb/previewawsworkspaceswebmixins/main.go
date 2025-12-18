@@ -244,12 +244,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_workspacesweb.mixins.CfnUserSettingsPropsMixin.BrandingConfigurationProperty",
+		reflect.TypeOf((*CfnUserSettingsPropsMixin_BrandingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_workspacesweb.mixins.CfnUserSettingsPropsMixin.CookieSpecificationProperty",
 		reflect.TypeOf((*CfnUserSettingsPropsMixin_CookieSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_workspacesweb.mixins.CfnUserSettingsPropsMixin.CookieSynchronizationConfigurationProperty",
 		reflect.TypeOf((*CfnUserSettingsPropsMixin_CookieSynchronizationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_workspacesweb.mixins.CfnUserSettingsPropsMixin.ImageMetadataProperty",
+		reflect.TypeOf((*CfnUserSettingsPropsMixin_ImageMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_workspacesweb.mixins.CfnUserSettingsPropsMixin.LocalizedBrandingStringsProperty",
+		reflect.TypeOf((*CfnUserSettingsPropsMixin_LocalizedBrandingStringsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_workspacesweb.mixins.CfnUserSettingsPropsMixin.ToolbarConfigurationProperty",

@@ -12,7 +12,7 @@ import (
 
 // The `AWS::SecurityHub::AutomationRule` resource specifies an automation rule based on input parameters.
 //
-// For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
+// For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

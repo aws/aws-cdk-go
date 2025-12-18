@@ -10,9 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::DelegatedAdmin` resource designates the delegated Security Hub administrator account for an organization.
+// The `AWS::SecurityHub::DelegatedAdmin` resource designates the delegated AWS Security Hub CSPM administrator account for an organization.
 //
-// You must enable the integration between Security Hub and AWS Organizations before you can designate a delegated Security Hub administrator. Only the management account for an organization can designate the delegated Security Hub administrator account. For more information, see [Designating the delegated Security Hub administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *Security Hub User Guide* .
+// You must enable the integration between Security Hub CSPM and AWS Organizations before you can designate a delegated Security Hub CSPM administrator. Only the management account for an organization can designate the delegated Security Hub CSPM administrator account. For more information, see [Designating the delegated Security Hub CSPM administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *AWS Security Hub CSPM User Guide* .
 //
 // To change the delegated administrator account, remove the current delegated administrator account, and then designate the new account.
 //

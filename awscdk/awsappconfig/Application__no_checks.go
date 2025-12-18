@@ -8,7 +8,7 @@ func (a *jsiiProxy_Application) validateAddEnvironmentParameters(id *string, opt
 	return nil
 }
 
-func (a *jsiiProxy_Application) validateAddExistingEnvironmentParameters(environment IEnvironment) error {
+func (a *jsiiProxy_Application) validateAddExistingEnvironmentParameters(environment interfacesawsappconfig.IEnvironmentRef) error {
 	return nil
 }
 

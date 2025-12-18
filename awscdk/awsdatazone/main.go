@@ -121,6 +121,10 @@ func init() {
 		reflect.TypeOf((*CfnConnection_LineageSyncScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnConnection.MlflowPropertiesInputProperty",
+		reflect.TypeOf((*CfnConnection_MlflowPropertiesInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnConnection.OAuth2ClientApplicationProperty",
 		reflect.TypeOf((*CfnConnection_OAuth2ClientApplicationProperty)(nil)).Elem(),
 	)

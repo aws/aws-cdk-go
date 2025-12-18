@@ -13,8 +13,6 @@ import (
 
 // Returns details about the service resource in your account.
 //
-// This API is in public preview and subject to change.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -72,7 +70,7 @@ type CfnHubV2 interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to add to the hub V2 resource when you enable Security Hub.
+	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

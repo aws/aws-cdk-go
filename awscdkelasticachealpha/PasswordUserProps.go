@@ -38,7 +38,7 @@ type PasswordUserProps struct {
 	// The engine type for the user.
 	//
 	// Enum options: UserEngine.VALKEY, UserEngine.REDIS.
-	// Default: UserEngine.VALKEY.
+	// Default: - UserEngine.REDIS for NoPasswordUser, UserEngine.VALKEY for all other user types.
 	//
 	// Experimental.
 	Engine UserEngine `field:"optional" json:"engine" yaml:"engine"`

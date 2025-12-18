@@ -56,3 +56,7 @@ func (i *jsiiProxy_IEnvironment) validatePreStartDeploymentParameters(eventDesti
 	return nil
 }
 
+func (i *jsiiProxy_IEnvironment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

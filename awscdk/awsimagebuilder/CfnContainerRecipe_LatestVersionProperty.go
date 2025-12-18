@@ -1,7 +1,7 @@
 package awsimagebuilder
 
 
-// The latest version references of the container recipe.
+// The resource ARNs with different wildcard variations of semantic versioning.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,25 +18,19 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-latestversion.html
 //
 type CfnContainerRecipe_LatestVersionProperty struct {
-	// The Amazon Resource Name (ARN) of the container recipe.
-	//
-	// > Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:
-	// >
-	// > - Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.
-	// > - Version ARNs have only the first three nodes: <major>.<minor>.<patch>
-	// > - Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.
+	// The latest version Amazon Resource Name (ARN) of the Image Builder resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-latestversion.html#cfn-imagebuilder-containerrecipe-latestversion-arn
 	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
-	// The latest version ARN of the created container recipe, with the same major version.
+	// The latest version Amazon Resource Name (ARN) with the same `major` version of the Image Builder resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-latestversion.html#cfn-imagebuilder-containerrecipe-latestversion-major
 	//
 	Major *string `field:"optional" json:"major" yaml:"major"`
-	// The latest version ARN of the created container recipe, with the same minor version.
+	// The latest version Amazon Resource Name (ARN) with the same `minor` version of the Image Builder resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-latestversion.html#cfn-imagebuilder-containerrecipe-latestversion-minor
 	//
 	Minor *string `field:"optional" json:"minor" yaml:"minor"`
-	// The latest version ARN of the created container recipe, with the same patch version.
+	// The latest version Amazon Resource Name (ARN) with the same `patch` version of the Image Builder resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-latestversion.html#cfn-imagebuilder-containerrecipe-latestversion-patch
 	//
 	Patch *string `field:"optional" json:"patch" yaml:"patch"`

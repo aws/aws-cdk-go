@@ -33,7 +33,9 @@ type CfnCampaignPropsMixin_TelephonyOutboundConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-connectsourcephonenumber
 	//
 	ConnectSourcePhoneNumber *string `field:"optional" json:"connectSourcePhoneNumber" yaml:"connectSourcePhoneNumber"`
-	// Maximum ring time for outbound calls in seconds.
+	// The ring timeout configuration for outbound calls.
+	//
+	// Specifies how long to wait for the call to be answered before timing out.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-ringtimeout
 	//
 	RingTimeout *float64 `field:"optional" json:"ringTimeout" yaml:"ringTimeout"`

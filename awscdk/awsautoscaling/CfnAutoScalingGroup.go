@@ -62,6 +62,11 @@ import (
 //   	HealthCheckGracePeriod: jsii.Number(123),
 //   	HealthCheckType: jsii.String("healthCheckType"),
 //   	InstanceId: jsii.String("instanceId"),
+//   	InstanceLifecyclePolicy: &InstanceLifecyclePolicyProperty{
+//   		RetentionTriggers: &RetentionTriggersProperty{
+//   			TerminateHookAbandon: jsii.String("terminateHookAbandon"),
+//   		},
+//   	},
 //   	InstanceMaintenancePolicy: &InstanceMaintenancePolicyProperty{
 //   		MaxHealthyPercentage: jsii.Number(123),
 //   		MinHealthyPercentage: jsii.Number(123),
@@ -114,6 +119,7 @@ import (
 //   			// the properties below are optional
 //   			Overrides: []interface{}{
 //   				&LaunchTemplateOverridesProperty{
+//   					ImageId: jsii.String("imageId"),
 //   					InstanceRequirements: &InstanceRequirementsProperty{
 //   						MemoryMiB: &MemoryMiBRequestProperty{
 //   							Max: jsii.Number(123),
@@ -279,10 +285,10 @@ type CfnAutoScalingGroup interface {
 	SetAutoScalingGroupName(val *string)
 	// A reference to a AutoScalingGroup resource.
 	AutoScalingGroupRef() *interfacesawsautoscaling.AutoScalingGroupReference
-	// The instance capacity distribution across Availability Zones.
+	// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 	AvailabilityZoneDistribution() interface{}
 	SetAvailabilityZoneDistribution(val interface{})
-	// The Availability Zone impairment policy.
+	// The Availability Zone impairment policy for the Auto Scaling group.
 	AvailabilityZoneImpairmentPolicy() interface{}
 	SetAvailabilityZoneImpairmentPolicy(val interface{})
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
@@ -291,7 +297,7 @@ type CfnAutoScalingGroup interface {
 	// Indicates whether Capacity Rebalancing is enabled.
 	CapacityRebalance() interface{}
 	SetCapacityRebalance(val interface{})
-	// The capacity reservation specification.
+	// The capacity reservation specification for the Auto Scaling group.
 	CapacityReservationSpecification() interface{}
 	SetCapacityReservationSpecification(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -328,6 +334,8 @@ type CfnAutoScalingGroup interface {
 	// The ID of the instance used to base the launch configuration on.
 	InstanceId() *string
 	SetInstanceId(val *string)
+	InstanceLifecyclePolicy() interface{}
+	SetInstanceLifecyclePolicy(val interface{})
 	// An instance maintenance policy.
 	InstanceMaintenancePolicy() interface{}
 	SetInstanceMaintenancePolicy(val interface{})
@@ -773,6 +781,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) InstanceId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) InstanceLifecyclePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"instanceLifecyclePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) InstanceMaintenancePolicy() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1203,6 +1221,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetInstanceId(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetInstanceLifecyclePolicy(val interface{}) {
+	if err := j.validateSetInstanceLifecyclePolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"instanceLifecyclePolicy",
 		val,
 	)
 }

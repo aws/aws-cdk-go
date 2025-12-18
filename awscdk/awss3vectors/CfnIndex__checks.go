@@ -220,6 +220,30 @@ func (j *jsiiProxy_CfnIndex) validateSetDistanceMetricParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnIndex) validateSetEncryptionConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnIndex_EncryptionConfigurationProperty:
+		val := val.(*CfnIndex_EncryptionConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnIndex_EncryptionConfigurationProperty:
+		val_ := val.(CfnIndex_EncryptionConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIndex_EncryptionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnIndex) validateSetMetadataConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

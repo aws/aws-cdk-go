@@ -1,7 +1,9 @@
 package awsdevopsagent
 
 
-// GitHub repository integration configuration.
+// Configuration for GitHub repository integration.
+//
+// Defines the repository name, numeric repository ID, owner name, and owner type (user or organization) required for the Agent Space to access and interact with the GitHub repository.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

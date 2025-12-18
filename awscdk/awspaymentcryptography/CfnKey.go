@@ -61,6 +61,9 @@ import (
 //   	DeriveKeyUsage: jsii.String("deriveKeyUsage"),
 //   	Enabled: jsii.Boolean(false),
 //   	KeyCheckValueAlgorithm: jsii.String("keyCheckValueAlgorithm"),
+//   	ReplicationRegions: []*string{
+//   		jsii.String("replicationRegions"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -83,6 +86,7 @@ type CfnKey interface {
 	AttrKeyOrigin() *string
 	// The state of key that is being created or deleted.
 	AttrKeyState() *string
+	AttrReplicationStatus() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -129,6 +133,9 @@ type CfnKey interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The list of AWS Regions to remove from the key's replication configuration.
+	ReplicationRegions() *[]*string
+	SetReplicationRegions(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -313,6 +320,16 @@ func (j *jsiiProxy_CfnKey) AttrKeyState() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKey) AttrReplicationStatus() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrReplicationStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKey) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -463,6 +480,16 @@ func (j *jsiiProxy_CfnKey) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKey) ReplicationRegions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"replicationRegions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKey) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -578,6 +605,14 @@ func (j *jsiiProxy_CfnKey)SetKeyCheckValueAlgorithm(val *string) {
 	_jsii_.Set(
 		j,
 		"keyCheckValueAlgorithm",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKey)SetReplicationRegions(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"replicationRegions",
 		val,
 	)
 }

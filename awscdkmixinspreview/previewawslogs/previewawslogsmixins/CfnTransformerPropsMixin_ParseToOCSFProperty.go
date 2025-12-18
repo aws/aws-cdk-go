@@ -12,6 +12,7 @@ package previewawslogsmixins
 //
 //   parseToOCSFProperty := &ParseToOCSFProperty{
 //   	EventSource: jsii.String("eventSource"),
+//   	MappingVersion: jsii.String("mappingVersion"),
 //   	OcsfVersion: jsii.String("ocsfVersion"),
 //   	Source: jsii.String("source"),
 //   }
@@ -23,6 +24,9 @@ type CfnTransformerPropsMixin_ParseToOCSFProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-eventsource
 	//
 	EventSource *string `field:"optional" json:"eventSource" yaml:"eventSource"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-mappingversion
+	//
+	MappingVersion *string `field:"optional" json:"mappingVersion" yaml:"mappingVersion"`
 	// Specify which version of the OCSF schema to use for the transformed log events.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-ocsfversion
 	//

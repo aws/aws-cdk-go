@@ -12,6 +12,10 @@ package previewawss3vectorsmixins
 //   	DataType: jsii.String("dataType"),
 //   	Dimension: jsii.Number(123),
 //   	DistanceMetric: jsii.String("distanceMetric"),
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SseType: jsii.String("sseType"),
+//   	},
 //   	IndexName: jsii.String("indexName"),
 //   	MetadataConfiguration: &MetadataConfigurationProperty{
 //   		NonFilterableMetadataKeys: []*string{
@@ -46,6 +50,12 @@ type CfnIndexMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-index.html#cfn-s3vectors-index-distancemetric
 	//
 	DistanceMetric *string `field:"optional" json:"distanceMetric" yaml:"distanceMetric"`
+	// The encryption configuration for a vector index.
+	//
+	// By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-index.html#cfn-s3vectors-index-encryptionconfiguration
+	//
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The name of the vector index to create.
 	//
 	// The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.

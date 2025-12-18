@@ -47,6 +47,10 @@ import (
 //   	DistanceMetric: jsii.String("distanceMetric"),
 //
 //   	// the properties below are optional
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SseType: jsii.String("sseType"),
+//   	},
 //   	IndexName: jsii.String("indexName"),
 //   	MetadataConfiguration: &MetadataConfigurationProperty{
 //   		NonFilterableMetadataKeys: []*string{
@@ -91,6 +95,9 @@ type CfnIndex interface {
 	// Valid values are:.
 	DistanceMetric() *string
 	SetDistanceMetric(val *string)
+	// The encryption configuration for a vector index.
+	EncryptionConfiguration() interface{}
+	SetEncryptionConfiguration(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// The name of the vector index to create.
 	IndexName() *string
@@ -364,6 +371,16 @@ func (j *jsiiProxy_CfnIndex) DistanceMetric() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIndex) EncryptionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIndex) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -543,6 +560,17 @@ func (j *jsiiProxy_CfnIndex)SetDistanceMetric(val *string) {
 	_jsii_.Set(
 		j,
 		"distanceMetric",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIndex)SetEncryptionConfiguration(val interface{}) {
+	if err := j.validateSetEncryptionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encryptionConfiguration",
 		val,
 	)
 }

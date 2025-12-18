@@ -1,7 +1,7 @@
 package awsconnect
 
 
-// Contains the configuration for record-based access control.
+// A primary attribute access control configuration item.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,7 +23,7 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributeaccesscontrolconfigurationitem.html
 //
 type CfnSecurityProfile_PrimaryAttributeAccessControlConfigurationItemProperty struct {
-	// An array of PrimaryAttributeValue objects.
+	// The item's primary attribute values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributeaccesscontrolconfigurationitem.html#cfn-connect-securityprofile-primaryattributeaccesscontrolconfigurationitem-primaryattributevalues
 	//
 	PrimaryAttributeValues interface{} `field:"required" json:"primaryAttributeValues" yaml:"primaryAttributeValues"`

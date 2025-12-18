@@ -117,6 +117,7 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html
 //
 type CfnEvaluationForm_EvaluationFormQuestionTypePropertiesProperty struct {
+	// Properties for multi-select question types.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-multiselect
 	//
 	MultiSelect interface{} `field:"optional" json:"multiSelect" yaml:"multiSelect"`

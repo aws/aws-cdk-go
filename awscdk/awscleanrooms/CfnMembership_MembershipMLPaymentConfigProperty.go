@@ -15,6 +15,9 @@ package awscleanrooms
 //   	ModelTraining: &MembershipModelTrainingPaymentConfigProperty{
 //   		IsResponsible: jsii.Boolean(false),
 //   	},
+//   	SyntheticDataGeneration: &MembershipSyntheticDataGenerationPaymentConfigProperty{
+//   		IsResponsible: jsii.Boolean(false),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html
@@ -28,5 +31,9 @@ type CfnMembership_MembershipMLPaymentConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html#cfn-cleanrooms-membership-membershipmlpaymentconfig-modeltraining
 	//
 	ModelTraining interface{} `field:"optional" json:"modelTraining" yaml:"modelTraining"`
+	// The payment configuration for synthetic data generation for this machine learning membership.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html#cfn-cleanrooms-membership-membershipmlpaymentconfig-syntheticdatageneration
+	//
+	SyntheticDataGeneration interface{} `field:"optional" json:"syntheticDataGeneration" yaml:"syntheticDataGeneration"`
 }
 

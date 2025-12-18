@@ -346,7 +346,11 @@ type CfnSegmentDefinition interface {
 	AttrCreatedAt() *string
 	// The arn of the segment definition.
 	AttrSegmentDefinitionArn() *string
-	// The SQL query that defines the segment criteria.
+	// The segment type.
+	//
+	// Classic : Segments created using traditional SegmentGroup structure
+	//
+	// Enhanced : Segments created using SQL queries.
 	AttrSegmentType() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager

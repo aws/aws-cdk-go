@@ -29,31 +29,39 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html
 //
 type CfnDataTableMixinProps struct {
-	// The description of the Data Table.
+	// An optional description of the data table's purpose and contents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html#cfn-connect-datatable-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The identifier of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html#cfn-connect-datatable-instancearn
 	//
 	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
-	// The name of the Data Table.
+	// The human-readable name of the data table.
+	//
+	// Must be unique within the instance and conform to Connect naming standards.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html#cfn-connect-datatable-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The status of the Data Table.
+	// The current status of the data table.
+	//
+	// One of PUBLISHED or SAVED.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html#cfn-connect-datatable-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// One or more tags.
+	// Key-value pairs for attribute based access control (TBAC or ABAC) and organization.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html#cfn-connect-datatable-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The time zone of the Data Table.
+	// The IANA timezone identifier used when resolving time based dynamic values.
+	//
+	// Required even if no time slices are specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html#cfn-connect-datatable-timezone
 	//
 	TimeZone *string `field:"optional" json:"timeZone" yaml:"timeZone"`
-	// The value lock level of the Data Table.
+	// The data level that concurrent value edits are locked on.
+	//
+	// One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and NONE. Determines how concurrent edits are handled when multiple users attempt to modify values simultaneously.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html#cfn-connect-datatable-valuelocklevel
 	//
 	ValueLockLevel *string `field:"optional" json:"valueLockLevel" yaml:"valueLockLevel"`

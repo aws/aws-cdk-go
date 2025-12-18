@@ -15,6 +15,7 @@ import (
 //
 // > - For users to be able to view or edit a campaign at a later date by using the Amazon Connect user interface, you must add the instance ID as a tag. For example, `{ "tags": {"owner": "arn:aws:connect:{REGION}:{AWS_ACCOUNT_ID}:instance/{CONNECT_INSTANCE_ID}"}}` .
 // > - After a campaign is created, you can't add/remove source.
+// > - Configuring maximum ring time is not supported for the Preview dial mode.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,6 +25,10 @@ import (
 //   var agentlessConfig interface{}
 //
 //   cfnCampaign := awscdk.Aws_connectcampaignsv2.NewCfnCampaign(this, jsii.String("MyCfnCampaign"), &CfnCampaignProps{
+//   	ConnectInstanceId: jsii.String("connectInstanceId"),
+//   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
 //   	ChannelSubtypeConfig: &ChannelSubtypeConfigProperty{
 //   		Email: &EmailChannelSubtypeConfigProperty{
 //   			DefaultOutboundConfig: &EmailOutboundConfigProperty{
@@ -91,11 +96,19 @@ import (
 //   			Capacity: jsii.Number(123),
 //   			ConnectQueueId: jsii.String("connectQueueId"),
 //   		},
-//   	},
-//   	ConnectInstanceId: jsii.String("connectInstanceId"),
-//   	Name: jsii.String("name"),
+//   		WhatsApp: &WhatsAppChannelSubtypeConfigProperty{
+//   			DefaultOutboundConfig: &WhatsAppOutboundConfigProperty{
+//   				ConnectSourcePhoneNumberArn: jsii.String("connectSourcePhoneNumberArn"),
+//   				WisdomTemplateArn: jsii.String("wisdomTemplateArn"),
+//   			},
+//   			OutboundMode: &WhatsAppOutboundModeProperty{
+//   				AgentlessConfig: agentlessConfig,
+//   			},
 //
-//   	// the properties below are optional
+//   			// the properties below are optional
+//   			Capacity: jsii.Number(123),
+//   		},
+//   	},
 //   	CommunicationLimitsOverride: &CommunicationLimitsConfigProperty{
 //   		AllChannelsSubtypes: &CommunicationLimitsProperty{
 //   			CommunicationLimitList: []interface{}{
@@ -201,6 +214,34 @@ import (
 //   				},
 //   			},
 //   		},
+//   		WhatsApp: &TimeWindowProperty{
+//   			OpenHours: &OpenHoursProperty{
+//   				DailyHours: []interface{}{
+//   					&DailyHourProperty{
+//   						Key: jsii.String("key"),
+//   						Value: []interface{}{
+//   							&TimeRangeProperty{
+//   								EndTime: jsii.String("endTime"),
+//   								StartTime: jsii.String("startTime"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			RestrictedPeriods: &RestrictedPeriodsProperty{
+//   				RestrictedPeriodList: []interface{}{
+//   					&RestrictedPeriodProperty{
+//   						EndDate: jsii.String("endDate"),
+//   						StartDate: jsii.String("startDate"),
+//
+//   						// the properties below are optional
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	ConnectCampaignFlowArn: jsii.String("connectCampaignFlowArn"),
 //   	Schedule: &ScheduleProperty{
@@ -222,6 +263,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Type: jsii.String("type"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html
@@ -295,6 +337,9 @@ type CfnCampaign interface {
 	// The tags used to organize, track, or control access for this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The type of campaign.
+	Type() *string
+	SetType(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -653,6 +698,16 @@ func (j *jsiiProxy_CfnCampaign) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) Type() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -795,6 +850,14 @@ func (j *jsiiProxy_CfnCampaign)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCampaign)SetType(val *string) {
+	_jsii_.Set(
+		j,
+		"type",
 		val,
 	)
 }

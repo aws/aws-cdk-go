@@ -10,7 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Connect::DataTable.
+// Represents a data table in Amazon Connect.
+//
+// A data table is a JSON-like data structure where attributes and values are dynamically set by customers. Customers can reference table values within call flows, applications, views, and workspaces to pinpoint dynamic configuration that changes their contact center's behavior in a predetermined and safe way.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

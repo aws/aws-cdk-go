@@ -1,7 +1,9 @@
 package awsdevopsagent
 
 
-// Dynatrace monitoring configuration.
+// Configuration for Dynatrace monitoring integration.
+//
+// Defines the Dynatrace environment ID, list of resources to monitor, and webhook update settings required for the Agent Space to access metrics, traces, and logs from Dynatrace.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

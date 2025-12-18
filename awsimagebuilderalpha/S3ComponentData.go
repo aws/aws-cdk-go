@@ -80,20 +80,17 @@ type S3ComponentData interface {
 	ComponentData
 	// Experimental.
 	Bucket() awss3.IBucket
-	// Indicates that the provided component data is an S3 reference.
-	// Experimental.
-	IsS3Reference() *bool
 	// Experimental.
 	Key() *string
-	// The resulting inline string or S3 URL which references the component data.
-	// Experimental.
-	Value() *string
 	// Grant put permissions to the given grantee for the component data in S3.
 	// Experimental.
 	GrantPut(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions to the given grantee for the component data in S3.
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
+	// The rendered component data text, for use in CloudFormation.
+	// Experimental.
+	Render() *ComponentDataConfig
 }
 
 // The jsii proxy struct for S3ComponentData
@@ -111,31 +108,11 @@ func (j *jsiiProxy_S3ComponentData) Bucket() awss3.IBucket {
 	return returns
 }
 
-func (j *jsiiProxy_S3ComponentData) IsS3Reference() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isS3Reference",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_S3ComponentData) Key() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"key",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_S3ComponentData) Value() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"value",
 		&returns,
 	)
 	return returns
@@ -279,6 +256,19 @@ func (s *jsiiProxy_S3ComponentData) GrantRead(grantee awsiam.IGrantable) awsiam.
 		s,
 		"grantRead",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_S3ComponentData) Render() *ComponentDataConfig {
+	var returns *ComponentDataConfig
+
+	_jsii_.Invoke(
+		s,
+		"render",
+		nil, // no parameters
 		&returns,
 	)
 

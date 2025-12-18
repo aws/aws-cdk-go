@@ -245,6 +245,17 @@ func MacBuildImage_BASE_14() IBuildImage {
 	return returns
 }
 
+func MacBuildImage_BASE_15() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.MacBuildImage",
+		"BASE_15",
+		&returns,
+	)
+	return returns
+}
+
 func (m *jsiiProxy_MacBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec {
 	if err := m.validateRunScriptBuildspecParameters(entrypoint); err != nil {
 		panic(err)

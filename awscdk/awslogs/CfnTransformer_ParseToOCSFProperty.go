@@ -15,6 +15,7 @@ package awslogs
 //   	OcsfVersion: jsii.String("ocsfVersion"),
 //
 //   	// the properties below are optional
+//   	MappingVersion: jsii.String("mappingVersion"),
 //   	Source: jsii.String("source"),
 //   }
 //
@@ -29,6 +30,9 @@ type CfnTransformer_ParseToOCSFProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-ocsfversion
 	//
 	OcsfVersion *string `field:"required" json:"ocsfVersion" yaml:"ocsfVersion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-mappingversion
+	//
+	MappingVersion *string `field:"optional" json:"mappingVersion" yaml:"mappingVersion"`
 	// The path to the field in the log event that you want to parse.
 	//
 	// If you omit this value, the whole log message is parsed.

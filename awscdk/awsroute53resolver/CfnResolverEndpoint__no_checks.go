@@ -96,11 +96,19 @@ func (j *jsiiProxy_CfnResolverEndpoint) validateSetIpAddressesParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint) validateSetRniEnhancedMetricsEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint) validateSetSecurityGroupIdsParameters(val *[]*string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnResolverEndpoint) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) validateSetTargetNameServerMetricsEnabledParameters(val interface{}) error {
 	return nil
 }
 

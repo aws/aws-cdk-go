@@ -73,6 +73,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrKeyIdentifier", GoGetter: "AttrKeyIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "attrKeyOrigin", GoGetter: "AttrKeyOrigin"},
 			_jsii_.MemberProperty{JsiiProperty: "attrKeyState", GoGetter: "AttrKeyState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrReplicationStatus", GoGetter: "AttrReplicationStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -97,6 +98,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationRegions", GoGetter: "ReplicationRegions"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -121,6 +123,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_paymentcryptography.CfnKey.KeyModesOfUseProperty",
 		reflect.TypeOf((*CfnKey_KeyModesOfUseProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_paymentcryptography.CfnKey.ReplicationStatusTypeProperty",
+		reflect.TypeOf((*CfnKey_ReplicationStatusTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_paymentcryptography.CfnKeyProps",

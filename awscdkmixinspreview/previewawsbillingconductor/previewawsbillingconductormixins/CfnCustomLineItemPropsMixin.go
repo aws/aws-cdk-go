@@ -35,6 +35,9 @@ import (
 //   		LineItemFilters: []interface{}{
 //   			&LineItemFilterProperty{
 //   				Attribute: jsii.String("attribute"),
+//   				AttributeValues: []*string{
+//   					jsii.String("attributeValues"),
+//   				},
 //   				MatchOption: jsii.String("matchOption"),
 //   				Values: []*string{
 //   					jsii.String("values"),

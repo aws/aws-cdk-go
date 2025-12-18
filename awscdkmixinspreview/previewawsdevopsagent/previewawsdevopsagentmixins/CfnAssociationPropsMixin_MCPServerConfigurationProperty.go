@@ -1,7 +1,9 @@
 package previewawsdevopsagentmixins
 
 
-// MCP server configuration.
+// Configuration for MCP (Model Context Protocol) server integration.
+//
+// Defines the server name, endpoint URL, available tools, optional description, and webhook update settings for custom MCP servers.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

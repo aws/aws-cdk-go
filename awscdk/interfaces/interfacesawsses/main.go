@@ -298,6 +298,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ses.ITenantRef",
+		reflect.TypeOf((*ITenantRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tenantRef", GoGetter: "TenantRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITenantRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ses.IVdmAttributesRef",
 		reflect.TypeOf((*IVdmAttributesRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -363,6 +378,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ses.TemplateReference",
 		reflect.TypeOf((*TemplateReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ses.TenantReference",
+		reflect.TypeOf((*TenantReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ses.VdmAttributesReference",

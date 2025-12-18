@@ -32,6 +32,7 @@ import (
 //   	CidrRoutingConfig: cidrRoutingConfig,
 //   	Comment: jsii.String("comment"),
 //   	DeleteExisting: jsii.Boolean(false),
+//   	Failover: awscdk.*Aws_route53.Failover_PRIMARY,
 //   	GeoLocation: geoLocation,
 //   	HealthCheck: healthCheck,
 //   	MultiValueAnswer: jsii.Boolean(false),

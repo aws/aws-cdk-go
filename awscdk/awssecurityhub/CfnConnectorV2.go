@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::SecurityHub::ConnectorV2.
+// Grants permission to create a connectorV2 based on input parameters.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -54,27 +54,29 @@ type CfnConnectorV2 interface {
 	awscdk.IInspectable
 	interfacesawssecurityhub.IConnectorV2Ref
 	awscdk.ITaggableV2
-	// The ARN of the connector.
+	// The ARN of the V2 connector.
 	AttrConnectorArn() *string
-	// The ID of the connector.
+	// The unique identifier of the V2 connector.
 	AttrConnectorId() *string
-	// The status of the connector.
+	// The status of the V2 connector.
 	AttrConnectorStatus() *string
-	// The timestamp formatted in ISO8601.
+	// The timestamp when the V2 connector was created.
 	AttrCreatedAt() *string
-	// The timestamp formatted in ISO8601.
+	// The most recent timestamp when the V2 connector was checked on health status.
 	AttrLastCheckedAt() *string
-	// The timestamp formatted in ISO8601.
+	// The most recent timestamp when the V2 connector was updated.
 	AttrLastUpdatedAt() *string
-	// The message of the connector status change.
+	// The message of the V2 connector when connector status is FAILED_TO_CONNECT.
 	AttrMessage() *string
-	// The auth status of the connector.
+	// The status of the authorization between Jira Cloud and the service.
 	AttrProviderJiraCloudAuthStatus() *string
-	// The authUrl of the JiraCloud connector.
+	// The URL to provide to customers for OAuth auth code flow.
 	AttrProviderJiraCloudAuthUrl() *string
+	// The cloud id of the Jira Cloud.
 	AttrProviderJiraCloudCloudId() *string
+	// The URL domain of your Jira Cloud instance.
 	AttrProviderJiraCloudDomain() *string
-	// The auth status of the connector.
+	// The status of the authorization between ServiceNow and the service.
 	AttrProviderServiceNowAuthStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -89,11 +91,11 @@ type CfnConnectorV2 interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the connector.
+	// The description of the connectorV2.
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// The ARN of KMS key used for the connector.
+	// The Amazon Resource Name (ARN) of KMS key used to encrypt secrets for the connectorV2.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -106,12 +108,12 @@ type CfnConnectorV2 interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the connector.
+	// The unique name of the connectorV2.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The provider configuration of the connector.
+	// The third-party provider detail for a service configuration.
 	Provider() interface{}
 	SetProvider(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -123,7 +125,7 @@ type CfnConnectorV2 interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A key-value pair to associate with a resource.
+	// The tags to add to the connectorV2 when you create.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

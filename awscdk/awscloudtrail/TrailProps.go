@@ -103,7 +103,9 @@ type TrailProps struct {
 	SnsTopic awssns.ITopic `field:"optional" json:"snsTopic" yaml:"snsTopic"`
 	// The name of the trail.
 	//
-	// We recommend customers do not set an explicit name.
+	// Required when `isOrganizationTrail` is set to true to attach the necessary permissions.
+	//
+	// Otherwise, we recommend customers do not set an explicit name.
 	// Default: - AWS CloudFormation generated name.
 	//
 	TrailName *string `field:"optional" json:"trailName" yaml:"trailName"`

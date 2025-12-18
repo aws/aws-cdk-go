@@ -9,6 +9,7 @@ package previewawsmskmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   connectivityInfoProperty := &ConnectivityInfoProperty{
+//   	NetworkType: jsii.String("networkType"),
 //   	PublicAccess: &PublicAccessProperty{
 //   		Type: jsii.String("type"),
 //   	},
@@ -32,6 +33,9 @@ package previewawsmskmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html
 //
 type CfnClusterPropsMixin_ConnectivityInfoProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html#cfn-msk-cluster-connectivityinfo-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// Access control settings for the cluster's brokers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html#cfn-msk-cluster-connectivityinfo-publicaccess
 	//

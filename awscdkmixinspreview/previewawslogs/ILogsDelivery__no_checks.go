@@ -4,7 +4,7 @@ package previewawslogs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_ILogsDelivery) validateBindParameters(scope constructs.IConstruct, deliverySource interfacesawslogs.IDeliverySourceRef, sourceResourceArn *string) error {
+func (i *jsiiProxy_ILogsDelivery) validateBindParameters(scope constructs.IConstruct, logType *string, sourceResourceArn *string) error {
 	return nil
 }
 

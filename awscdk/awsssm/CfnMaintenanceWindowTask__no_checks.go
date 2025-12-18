@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnMaintenanceWindowTask_ArnForMaintenanceWindowTaskParameters(resource interfacesawsssm.IMaintenanceWindowTaskRef) error {
+	return nil
+}
+
 func validateCfnMaintenanceWindowTask_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

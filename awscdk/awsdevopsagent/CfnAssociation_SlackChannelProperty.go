@@ -1,7 +1,7 @@
 package awsdevopsagent
 
 
-// Slack channel configuration.
+// Represents a Slack channel with its unique identifier and optional display name.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

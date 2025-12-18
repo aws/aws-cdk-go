@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnHostedZone) validateSetHostedZoneConfigParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnHostedZone) validateSetHostedZoneFeaturesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnHostedZone) validateSetHostedZoneTagsRawParameters(val *[]*CfnHostedZone_HostedZoneTagProperty) error {
 	return nil
 }

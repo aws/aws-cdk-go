@@ -12,6 +12,9 @@ package awsroute53
 //   	HostedZoneConfig: &HostedZoneConfigProperty{
 //   		Comment: jsii.String("comment"),
 //   	},
+//   	HostedZoneFeatures: &HostedZoneFeaturesProperty{
+//   		EnableAcceleratedRecovery: jsii.Boolean(false),
+//   	},
 //   	HostedZoneTags: []HostedZoneTagProperty{
 //   		&HostedZoneTagProperty{
 //   			Key: jsii.String("key"),
@@ -39,6 +42,10 @@ type CfnHostedZoneProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
 	//
 	HostedZoneConfig interface{} `field:"optional" json:"hostedZoneConfig" yaml:"hostedZoneConfig"`
+	// The features configuration for the hosted zone, including accelerated recovery settings and status information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonefeatures
+	//
+	HostedZoneFeatures interface{} `field:"optional" json:"hostedZoneFeatures" yaml:"hostedZoneFeatures"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//
 	// For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .

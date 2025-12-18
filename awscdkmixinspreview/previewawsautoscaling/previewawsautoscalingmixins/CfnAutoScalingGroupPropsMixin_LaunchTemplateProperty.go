@@ -18,6 +18,7 @@ package previewawsautoscalingmixins
 //   	},
 //   	Overrides: []interface{}{
 //   		&LaunchTemplateOverridesProperty{
+//   			ImageId: jsii.String("imageId"),
 //   			InstanceRequirements: &InstanceRequirementsProperty{
 //   				AcceleratorCount: &AcceleratorCountRequestProperty{
 //   					Max: jsii.Number(123),

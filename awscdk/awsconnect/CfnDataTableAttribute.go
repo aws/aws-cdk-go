@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Connect::DataTableAttribute.
+// Represents an attribute (column) in a data table.
+//
+// Attributes define the schema and validation rules for values that can be stored in the table. They specify the data type, constraints, and whether the attribute is used as a primary key for record identification.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -50,8 +52,11 @@ type CfnDataTableAttribute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsconnect.IDataTableAttributeRef
+	// The unique identifier for the attribute within the data table.
 	AttrAttributeId() *string
+	// The AWS Region where this attribute was last modified, used for region replication.
 	AttrLastModifiedRegion() *string
+	// The timestamp when this attribute was last modified.
 	AttrLastModifiedTime() awscdk.IResolvable
 	AttrLockVersion() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
@@ -63,13 +68,16 @@ type CfnDataTableAttribute interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The Amazon Resource Name (ARN) of the data table that contains this attribute.
 	DataTableArn() *string
 	SetDataTableArn(val *string)
 	// A reference to a DataTableAttribute resource.
 	DataTableAttributeRef() *interfacesawsconnect.DataTableAttributeReference
+	// An optional description explaining the purpose and usage of this attribute.
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -82,10 +90,12 @@ type CfnDataTableAttribute interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The human-readable name of the attribute.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Boolean indicating whether this attribute is used as a primary key for record identification.
 	Primary() interface{}
 	SetPrimary(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -110,8 +120,10 @@ type CfnDataTableAttribute interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The validation rules applied to values of this attribute.
 	Validation() interface{}
 	SetValidation(val interface{})
+	// The type of value allowed for this attribute.
 	ValueType() *string
 	SetValueType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

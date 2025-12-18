@@ -46,6 +46,9 @@ import (
 //   			ModelTraining: &ModelTrainingPaymentConfigProperty{
 //   				IsResponsible: jsii.Boolean(false),
 //   			},
+//   			SyntheticDataGeneration: &SyntheticDataGenerationPaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
 //   		},
 //   		QueryCompute: &QueryComputePaymentConfigProperty{
 //   			IsResponsible: jsii.Boolean(false),
@@ -80,6 +83,9 @@ import (
 //   						IsResponsible: jsii.Boolean(false),
 //   					},
 //   					ModelTraining: &ModelTrainingPaymentConfigProperty{
+//   						IsResponsible: jsii.Boolean(false),
+//   					},
+//   					SyntheticDataGeneration: &SyntheticDataGenerationPaymentConfigProperty{
 //   						IsResponsible: jsii.Boolean(false),
 //   					},
 //   				},

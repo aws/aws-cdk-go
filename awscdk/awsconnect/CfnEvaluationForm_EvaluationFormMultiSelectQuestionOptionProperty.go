@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// An option for a multi-select question in an evaluation form.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,11 +16,11 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html
 //
 type CfnEvaluationForm_EvaluationFormMultiSelectQuestionOptionProperty struct {
-	// The identifier to reference the item.
+	// Reference identifier for this option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html#cfn-connect-evaluationform-evaluationformmultiselectquestionoption-refid
 	//
 	RefId *string `field:"required" json:"refId" yaml:"refId"`
-	// The title of the option.
+	// Display text for this option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html#cfn-connect-evaluationform-evaluationformmultiselectquestionoption-text
 	//
 	Text *string `field:"required" json:"text" yaml:"text"`

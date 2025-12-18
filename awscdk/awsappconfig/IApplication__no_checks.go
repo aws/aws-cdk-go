@@ -8,7 +8,7 @@ func (i *jsiiProxy_IApplication) validateAddEnvironmentParameters(id *string, op
 	return nil
 }
 
-func (i *jsiiProxy_IApplication) validateAddExistingEnvironmentParameters(environment IEnvironment) error {
+func (i *jsiiProxy_IApplication) validateAddExistingEnvironmentParameters(environment interfacesawsappconfig.IEnvironmentRef) error {
 	return nil
 }
 
@@ -57,6 +57,10 @@ func (i *jsiiProxy_IApplication) validatePreCreateHostedConfigurationVersionPara
 }
 
 func (i *jsiiProxy_IApplication) validatePreStartDeploymentParameters(eventDestination IEventDestination, options *ExtensionOptions) error {
+	return nil
+}
+
+func (i *jsiiProxy_IApplication) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
 

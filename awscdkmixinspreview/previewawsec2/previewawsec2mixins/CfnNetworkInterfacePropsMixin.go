@@ -55,6 +55,7 @@ import (
 //   			PrivateIpAddress: jsii.String("privateIpAddress"),
 //   		},
 //   	},
+//   	PublicIpDnsHostnameTypeSpecification: jsii.String("publicIpDnsHostnameTypeSpecification"),
 //   	SecondaryPrivateIpAddressCount: jsii.Number(123),
 //   	SourceDestCheck: jsii.Boolean(false),
 //   	SubnetId: jsii.String("subnetId"),

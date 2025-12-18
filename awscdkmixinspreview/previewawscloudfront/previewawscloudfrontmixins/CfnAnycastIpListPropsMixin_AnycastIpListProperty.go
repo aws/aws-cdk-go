@@ -17,6 +17,14 @@ package previewawscloudfrontmixins
 //   	Arn: jsii.String("arn"),
 //   	Id: jsii.String("id"),
 //   	IpAddressType: jsii.String("ipAddressType"),
+//   	IpamCidrConfigResults: []interface{}{
+//   		&IpamCidrConfigResultProperty{
+//   			AnycastIp: jsii.String("anycastIp"),
+//   			Cidr: jsii.String("cidr"),
+//   			IpamPoolArn: jsii.String("ipamPoolArn"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	IpCount: jsii.Number(123),
 //   	LastModifiedTime: jsii.String("lastModifiedTime"),
 //   	Name: jsii.String("name"),
@@ -42,6 +50,9 @@ type CfnAnycastIpListPropsMixin_AnycastIpListProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipamcidrconfigresults
+	//
+	IpamCidrConfigResults interface{} `field:"optional" json:"ipamCidrConfigResults" yaml:"ipamCidrConfigResults"`
 	// The number of IP addresses in the Anycast static IP list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipcount
 	//

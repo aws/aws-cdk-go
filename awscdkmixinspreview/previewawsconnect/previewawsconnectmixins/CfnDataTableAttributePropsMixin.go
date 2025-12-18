@@ -10,7 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Connect::DataTableAttribute.
+// Represents an attribute (column) in a data table.
+//
+// Attributes define the schema and validation rules for values that can be stored in the table. They specify the data type, constraints, and whether the attribute is used as a primary key for record identification.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

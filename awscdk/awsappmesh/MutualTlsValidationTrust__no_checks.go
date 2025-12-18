@@ -8,7 +8,7 @@ func (m *jsiiProxy_MutualTlsValidationTrust) validateBindParameters(scope constr
 	return nil
 }
 
-func validateMutualTlsValidationTrust_AcmParameters(certificateAuthorities *[]awsacmpca.ICertificateAuthority) error {
+func validateMutualTlsValidationTrust_AcmParameters(certificateAuthorities *[]interfacesawsacmpca.ICertificateAuthorityRef) error {
 	return nil
 }
 

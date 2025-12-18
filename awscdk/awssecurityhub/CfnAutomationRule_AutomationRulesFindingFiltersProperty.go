@@ -285,7 +285,7 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	ComplianceStatus interface{} `field:"optional" json:"complianceStatus" yaml:"complianceStatus"`
 	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify.
 	//
-	// `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *Security Hub User Guide* .
+	// `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub CSPM User Guide* .
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-confidence
@@ -293,7 +293,7 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	Confidence interface{} `field:"optional" json:"confidence" yaml:"confidence"`
 	// A timestamp that indicates when this finding record was created.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-createdat
@@ -301,7 +301,7 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	CreatedAt interface{} `field:"optional" json:"createdAt" yaml:"createdAt"`
 	// The level of importance that is assigned to the resources that are associated with a finding.
 	//
-	// `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *Security Hub User Guide* .
+	// `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub CSPM User Guide* .
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-criticality
@@ -315,7 +315,7 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	Description interface{} `field:"optional" json:"description" yaml:"description"`
 	// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-firstobservedat
@@ -335,7 +335,7 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	Id interface{} `field:"optional" json:"id" yaml:"id"`
 	// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-lastobservedat
@@ -349,7 +349,7 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	NoteText interface{} `field:"optional" json:"noteText" yaml:"noteText"`
 	// The timestamp of when the note was updated.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-noteupdatedat
@@ -361,13 +361,15 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-noteupdatedby
 	//
 	NoteUpdatedBy interface{} `field:"optional" json:"noteUpdatedBy" yaml:"noteUpdatedBy"`
-	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
+	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-productarn
 	//
 	ProductArn interface{} `field:"optional" json:"productArn" yaml:"productArn"`
-	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
+	// Provides the name of the product that generated the finding.
+	//
+	// For control-based findings, the product name is Security Hub CSPM.
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-productname
@@ -451,7 +453,7 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
 	// One or more finding types in the format of namespace/category/classifier that classify a finding.
 	//
-	// For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *Security Hub User Guide* .
+	// For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub CSPM User Guide* .
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-type
@@ -459,7 +461,7 @@ type CfnAutomationRule_AutomationRulesFindingFiltersProperty struct {
 	Type interface{} `field:"optional" json:"type" yaml:"type"`
 	// A timestamp that indicates when the finding record was most recently updated.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html#cfn-securityhub-automationrule-automationrulesfindingfilters-updatedat

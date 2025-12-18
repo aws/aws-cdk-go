@@ -59,13 +59,13 @@ type CfnComponent interface {
 	AttrEncrypted() awscdk.IResolvable
 	// The latest version references of the component.
 	AttrLatestVersion() awscdk.IResolvable
-	// The Amazon Resource Name (ARN) of the component.
+	// The latest version Amazon Resource Name (ARN) of the Image Builder resource.
 	AttrLatestVersionArn() *string
-	// The latest version ARN of the created component, with the same major version.
+	// The latest version Amazon Resource Name (ARN) with the same `major` version of the Image Builder resource.
 	AttrLatestVersionMajor() *string
-	// The latest version ARN of the created component, with the same minor version.
+	// The latest version Amazon Resource Name (ARN) with the same `minor` version of the Image Builder resource.
 	AttrLatestVersionMinor() *string
-	// The latest version ARN of the created component, with the same patch version.
+	// The latest version Amazon Resource Name (ARN) with the same `patch` version of the Image Builder resource.
 	AttrLatestVersionPatch() *string
 	// Returns the name of the component.
 	AttrName() *string
@@ -148,7 +148,9 @@ type CfnComponent interface {
 	// The `uri` of a YAML component document file.
 	Uri() *string
 	SetUri(val *string)
-	// The component version.
+	// The semantic version of the component.
+	//
+	// This version follows the semantic version syntax.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

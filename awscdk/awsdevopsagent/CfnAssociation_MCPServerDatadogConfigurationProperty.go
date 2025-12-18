@@ -1,7 +1,9 @@
 package awsdevopsagent
 
 
-// Datadog MCP server configuration.
+// Configuration for Datadog MCP server integration.
+//
+// Defines the server name, endpoint URL, optional description, and webhook update settings.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

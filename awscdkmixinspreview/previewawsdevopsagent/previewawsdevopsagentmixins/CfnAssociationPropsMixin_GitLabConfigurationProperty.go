@@ -1,7 +1,9 @@
 package previewawsdevopsagentmixins
 
 
-// GitLab project integration configuration.
+// Configuration for GitLab project integration.
+//
+// Defines the numeric project ID, full project path (namespace/project-name), GitLab instance identifier, and webhook update settings required for the Agent Space to access and interact with the GitLab project.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,7 +24,7 @@ type CfnAssociationPropsMixin_GitLabConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-gitlabconfiguration.html#cfn-devopsagent-association-gitlabconfiguration-enablewebhookupdates
 	//
 	EnableWebhookUpdates interface{} `field:"optional" json:"enableWebhookUpdates" yaml:"enableWebhookUpdates"`
-	// GitLab instance identifier.
+	// GitLab instance identifier (e.g., gitlab.com).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-gitlabconfiguration.html#cfn-devopsagent-association-gitlabconfiguration-instanceidentifier
 	//
 	InstanceIdentifier *string `field:"optional" json:"instanceIdentifier" yaml:"instanceIdentifier"`

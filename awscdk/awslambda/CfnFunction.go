@@ -163,6 +163,7 @@ type CfnFunction interface {
 	AttrSnapStartResponseApplyOn() *string
 	// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
 	AttrSnapStartResponseOptimizationStatus() *string
+	// Configuration for the capacity provider that manages compute resources for Lambda functions.
 	CapacityProviderConfig() interface{}
 	SetCapacityProviderConfig(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -188,6 +189,7 @@ type CfnFunction interface {
 	// A description of the function.
 	Description() *string
 	SetDescription(val *string)
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
 	DurableConfig() interface{}
 	SetDurableConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
@@ -205,6 +207,7 @@ type CfnFunction interface {
 	SetFunctionName(val *string)
 	// A reference to a Function resource.
 	FunctionRef() *interfacesawslambda.FunctionReference
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 	FunctionScalingConfig() interface{}
 	SetFunctionScalingConfig(val interface{})
 	// The name of the method within your code that Lambda calls to run your function.

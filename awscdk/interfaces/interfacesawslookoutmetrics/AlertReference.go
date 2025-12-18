@@ -13,7 +13,7 @@ package interfacesawslookoutmetrics
 //   }
 //
 type AlertReference struct {
-	// The Arn of the Alert resource.
+	// The ARN of the Alert resource.
 	AlertArn *string `field:"required" json:"alertArn" yaml:"alertArn"`
 }
 

@@ -26,6 +26,12 @@ import (
 //
 //   	// the properties below are optional
 //   	IpAddressType: jsii.String("ipAddressType"),
+//   	IpamCidrConfigs: []interface{}{
+//   		&IpamCidrConfigProperty{
+//   			Cidr: jsii.String("cidr"),
+//   			IpamPoolArn: jsii.String("ipamPoolArn"),
+//   		},
+//   	},
 //   	Tags: &TagsProperty{
 //   		Items: []interface{}{
 //   			&CfnTag{
@@ -53,6 +59,7 @@ type CfnAnycastIpList interface {
 	AttrETag() *string
 	// The ID of the Anycast static IP list.
 	AttrId() *string
+	AttrIpamCidrConfigResults() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -68,6 +75,8 @@ type CfnAnycastIpList interface {
 	// The IP address type for the Anycast static IP list.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
+	IpamCidrConfigs() interface{}
+	SetIpamCidrConfigs(val interface{})
 	// The number of IP addresses in the Anycast static IP list.
 	IpCount() *float64
 	SetIpCount(val *float64)
@@ -286,6 +295,16 @@ func (j *jsiiProxy_CfnAnycastIpList) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnycastIpList) AttrIpamCidrConfigResults() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrIpamCidrConfigResults",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnycastIpList) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -351,6 +370,16 @@ func (j *jsiiProxy_CfnAnycastIpList) IpAddressType() *string {
 	_jsii_.Get(
 		j,
 		"ipAddressType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAnycastIpList) IpamCidrConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ipamCidrConfigs",
 		&returns,
 	)
 	return returns
@@ -480,6 +509,17 @@ func (j *jsiiProxy_CfnAnycastIpList)SetIpAddressType(val *string) {
 	_jsii_.Set(
 		j,
 		"ipAddressType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnycastIpList)SetIpamCidrConfigs(val interface{}) {
+	if err := j.validateSetIpamCidrConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ipamCidrConfigs",
 		val,
 	)
 }

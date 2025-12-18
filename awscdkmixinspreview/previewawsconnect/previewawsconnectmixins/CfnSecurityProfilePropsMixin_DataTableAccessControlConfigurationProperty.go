@@ -1,7 +1,7 @@
 package previewawsconnectmixins
 
 
-// Defines the access control configuration for data tables.
+// A data table access control configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,7 +25,7 @@ package previewawsconnectmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-datatableaccesscontrolconfiguration.html
 //
 type CfnSecurityProfilePropsMixin_DataTableAccessControlConfigurationProperty struct {
-	// Contains the configuration for record-based access control.
+	// The configuration's primary attribute access control configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-datatableaccesscontrolconfiguration.html#cfn-connect-securityprofile-datatableaccesscontrolconfiguration-primaryattributeaccesscontrolconfiguration
 	//
 	PrimaryAttributeAccessControlConfiguration interface{} `field:"optional" json:"primaryAttributeAccessControlConfiguration" yaml:"primaryAttributeAccessControlConfiguration"`

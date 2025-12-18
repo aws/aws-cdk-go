@@ -92,7 +92,6 @@ func init() {
 		reflect.TypeOf((*AsgCapacityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroup", GoGetter: "AutoScalingGroup"},
-			_jsii_.MemberProperty{JsiiProperty: "canContainersAccessInstanceRole", GoGetter: "CanContainersAccessInstanceRole"},
 			_jsii_.MemberProperty{JsiiProperty: "capacityProviderName", GoGetter: "CapacityProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "enableManagedDraining", GoGetter: "EnableManagedDraining"},
 			_jsii_.MemberProperty{JsiiProperty: "enableManagedTerminationProtection", GoGetter: "EnableManagedTerminationProtection"},
@@ -619,6 +618,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrActiveConfigurations", GoGetter: "AttrActiveConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArns", GoGetter: "AttrEcsManagedResourceArns"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsAutoScaling", GoGetter: "AttrEcsManagedResourceArnsAutoScaling"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsAutoScalingApplicationAutoScalingPolicies", GoGetter: "AttrEcsManagedResourceArnsAutoScalingApplicationAutoScalingPolicies"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsAutoScalingScalableTarget", GoGetter: "AttrEcsManagedResourceArnsAutoScalingScalableTarget"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsIngressPath", GoGetter: "AttrEcsManagedResourceArnsIngressPath"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsIngressPathCertificateArn", GoGetter: "AttrEcsManagedResourceArnsIngressPathCertificateArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsIngressPathListenerArn", GoGetter: "AttrEcsManagedResourceArnsIngressPathListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsIngressPathListenerRuleArn", GoGetter: "AttrEcsManagedResourceArnsIngressPathListenerRuleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsIngressPathLoadBalancerArn", GoGetter: "AttrEcsManagedResourceArnsIngressPathLoadBalancerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsIngressPathLoadBalancerSecurityGroups", GoGetter: "AttrEcsManagedResourceArnsIngressPathLoadBalancerSecurityGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsIngressPathTargetGroupArns", GoGetter: "AttrEcsManagedResourceArnsIngressPathTargetGroupArns"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsLogGroups", GoGetter: "AttrEcsManagedResourceArnsLogGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsMetricAlarms", GoGetter: "AttrEcsManagedResourceArnsMetricAlarms"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEcsManagedResourceArnsServiceSecurityGroups", GoGetter: "AttrEcsManagedResourceArnsServiceSecurityGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEndpoint", GoGetter: "AttrEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServiceArn", GoGetter: "AttrServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
@@ -670,6 +684,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnExpressGatewayService.AutoScalingArnsProperty",
+		reflect.TypeOf((*CfnExpressGatewayService_AutoScalingArnsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnExpressGatewayService.ECSManagedResourceArnsProperty",
+		reflect.TypeOf((*CfnExpressGatewayService_ECSManagedResourceArnsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnExpressGatewayService.ExpressGatewayContainerProperty",
 		reflect.TypeOf((*CfnExpressGatewayService_ExpressGatewayContainerProperty)(nil)).Elem(),
 	)
@@ -696,6 +718,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnExpressGatewayService.ExpressGatewayServiceStatusProperty",
 		reflect.TypeOf((*CfnExpressGatewayService_ExpressGatewayServiceStatusProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnExpressGatewayService.IngressPathArnsProperty",
+		reflect.TypeOf((*CfnExpressGatewayService_IngressPathArnsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnExpressGatewayService.IngressPathSummaryProperty",

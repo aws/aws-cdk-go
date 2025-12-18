@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Connect::DataTable.
+// Represents a data table in Amazon Connect.
+//
+// A data table is a JSON-like data structure where attributes and values are dynamically set by customers. Customers can reference table values within call flows, applications, views, and workspaces to pinpoint dynamic configuration that changes their contact center's behavior in a predetermined and safe way.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,13 +42,15 @@ type CfnDataTable interface {
 	awscdk.IInspectable
 	interfacesawsconnect.IDataTableRef
 	awscdk.ITaggableV2
-	// The arn of the Data Table.
+	// The Amazon Resource Name (ARN) for the data table.
+	//
+	// Does not include version aliases.
 	AttrArn() *string
-	// A epoch time stamp field used for data table operations.
+	// The timestamp when the data table was created.
 	AttrCreatedTime() awscdk.IResolvable
-	// Last modified region.
+	// The AWS Region where the data table was last modified, used for region replication.
 	AttrLastModifiedRegion() *string
-	// A epoch time stamp field used for data table operations.
+	// The timestamp when the data table or any of its properties were last modified.
 	AttrLastModifiedTime() awscdk.IResolvable
 	// The lock version of the Data Table.
 	AttrLockVersion() awscdk.IResolvable
@@ -63,11 +67,11 @@ type CfnDataTable interface {
 	CreationStack() *[]*string
 	// A reference to a DataTable resource.
 	DataTableRef() *interfacesawsconnect.DataTableReference
-	// The description of the Data Table.
+	// An optional description of the data table's purpose and contents.
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// The identifier of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,7 +84,7 @@ type CfnDataTable interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the Data Table.
+	// The human-readable name of the data table.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -94,13 +98,13 @@ type CfnDataTable interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The status of the Data Table.
+	// The current status of the data table.
 	Status() *string
 	SetStatus(val *string)
-	// One or more tags.
+	// Key-value pairs for attribute based access control (TBAC or ABAC) and organization.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The time zone of the Data Table.
+	// The IANA timezone identifier used when resolving time based dynamic values.
 	TimeZone() *string
 	SetTimeZone(val *string)
 	// Deprecated.
@@ -116,7 +120,7 @@ type CfnDataTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The value lock level of the Data Table.
+	// The data level that concurrent value edits are locked on.
 	ValueLockLevel() *string
 	SetValueLockLevel(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

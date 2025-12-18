@@ -1,6 +1,8 @@
 package awssecurityhub
 
 
+// Information about the configuration and status of a Jira Cloud integration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,20 +21,23 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-jiracloud.html
 //
 type CfnConnectorV2_JiraCloudProperty struct {
+	// The projectKey of Jira Cloud.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-jiracloud.html#cfn-securityhub-connectorv2-jiracloud-projectkey
 	//
 	ProjectKey *string `field:"required" json:"projectKey" yaml:"projectKey"`
-	// The auth status of the connector.
+	// The status of the authorization between Jira Cloud and the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-jiracloud.html#cfn-securityhub-connectorv2-jiracloud-authstatus
 	//
 	AuthStatus *string `field:"optional" json:"authStatus" yaml:"authStatus"`
-	// The authUrl of the JiraCloud connector.
+	// The URL to provide to customers for OAuth auth code flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-jiracloud.html#cfn-securityhub-connectorv2-jiracloud-authurl
 	//
 	AuthUrl *string `field:"optional" json:"authUrl" yaml:"authUrl"`
+	// The cloud id of the Jira Cloud.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-jiracloud.html#cfn-securityhub-connectorv2-jiracloud-cloudid
 	//
 	CloudId *string `field:"optional" json:"cloudId" yaml:"cloudId"`
+	// The URL domain of your Jira Cloud instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-jiracloud.html#cfn-securityhub-connectorv2-jiracloud-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`

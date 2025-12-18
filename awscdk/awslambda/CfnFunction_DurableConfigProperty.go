@@ -1,6 +1,8 @@
 package awslambda
 
 
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,15 +18,15 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-durableconfig.html
 //
 type CfnFunction_DurableConfigProperty struct {
-	// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it.
+	// The maximum time (in seconds) that a durable execution can run before timing out.
 	//
-	// The maximum is one 366-day year or 31,622,400 seconds.
+	// This timeout applies to the entire durable execution, not individual function invocations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-durableconfig.html#cfn-lambda-function-durableconfig-executiontimeout
 	//
 	ExecutionTimeout *float64 `field:"required" json:"executionTimeout" yaml:"executionTimeout"`
-	// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days.
+	// The number of days to retain execution history after a durable execution completes.
 	//
-	// The default is 14 days.
+	// After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-durableconfig.html#cfn-lambda-function-durableconfig-retentionperiodindays
 	//
 	// Default: - 14.

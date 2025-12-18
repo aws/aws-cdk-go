@@ -32,3 +32,7 @@ func (b *jsiiProxy_BucketGrants) validateWriteParameters(identity awsiam.IGranta
 	return nil
 }
 
+func validateBucketGrants_FromBucketParameters(bucket interfacesawss3.IBucketRef) error {
+	return nil
+}
+

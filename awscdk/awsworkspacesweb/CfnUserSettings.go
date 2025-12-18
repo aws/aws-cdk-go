@@ -31,6 +31,42 @@ import (
 //   	AdditionalEncryptionContext: map[string]*string{
 //   		"additionalEncryptionContextKey": jsii.String("additionalEncryptionContext"),
 //   	},
+//   	BrandingConfiguration: &BrandingConfigurationProperty{
+//   		ColorTheme: jsii.String("colorTheme"),
+//   		Favicon: jsii.String("favicon"),
+//   		FaviconMetadata: &ImageMetadataProperty{
+//   			FileExtension: jsii.String("fileExtension"),
+//   			LastUploadTimestamp: jsii.String("lastUploadTimestamp"),
+//   			MimeType: jsii.String("mimeType"),
+//   		},
+//   		LocalizedStrings: map[string]interface{}{
+//   			"localizedStringsKey": &LocalizedBrandingStringsProperty{
+//   				"browserTabTitle": jsii.String("browserTabTitle"),
+//   				"welcomeText": jsii.String("welcomeText"),
+//
+//   				// the properties below are optional
+//   				"contactButtonText": jsii.String("contactButtonText"),
+//   				"contactLink": jsii.String("contactLink"),
+//   				"loadingText": jsii.String("loadingText"),
+//   				"loginButtonText": jsii.String("loginButtonText"),
+//   				"loginDescription": jsii.String("loginDescription"),
+//   				"loginTitle": jsii.String("loginTitle"),
+//   			},
+//   		},
+//   		Logo: jsii.String("logo"),
+//   		LogoMetadata: &ImageMetadataProperty{
+//   			FileExtension: jsii.String("fileExtension"),
+//   			LastUploadTimestamp: jsii.String("lastUploadTimestamp"),
+//   			MimeType: jsii.String("mimeType"),
+//   		},
+//   		TermsOfService: jsii.String("termsOfService"),
+//   		Wallpaper: jsii.String("wallpaper"),
+//   		WallpaperMetadata: &ImageMetadataProperty{
+//   			FileExtension: jsii.String("fileExtension"),
+//   			LastUploadTimestamp: jsii.String("lastUploadTimestamp"),
+//   			MimeType: jsii.String("mimeType"),
+//   		},
+//   	},
 //   	CookieSynchronizationConfiguration: &CookieSynchronizationConfigurationProperty{
 //   		Allowlist: []interface{}{
 //   			&CookieSpecificationProperty{
@@ -85,8 +121,13 @@ type CfnUserSettings interface {
 	SetAdditionalEncryptionContext(val interface{})
 	// A list of web portal ARNs that this user settings resource is associated with.
 	AttrAssociatedPortalArns() *[]*string
+	AttrBrandingConfigurationFaviconMetadata() awscdk.IResolvable
+	AttrBrandingConfigurationLogoMetadata() awscdk.IResolvable
+	AttrBrandingConfigurationWallpaperMetadata() awscdk.IResolvable
 	// The ARN of the user settings.
 	AttrUserSettingsArn() *string
+	BrandingConfiguration() interface{}
+	SetBrandingConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -326,11 +367,51 @@ func (j *jsiiProxy_CfnUserSettings) AttrAssociatedPortalArns() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserSettings) AttrBrandingConfigurationFaviconMetadata() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrBrandingConfigurationFaviconMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserSettings) AttrBrandingConfigurationLogoMetadata() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrBrandingConfigurationLogoMetadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserSettings) AttrBrandingConfigurationWallpaperMetadata() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrBrandingConfigurationWallpaperMetadata",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserSettings) AttrUserSettingsArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrUserSettingsArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserSettings) BrandingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"brandingConfiguration",
 		&returns,
 	)
 	return returns
@@ -623,6 +704,17 @@ func (j *jsiiProxy_CfnUserSettings)SetAdditionalEncryptionContext(val interface{
 	_jsii_.Set(
 		j,
 		"additionalEncryptionContext",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserSettings)SetBrandingConfiguration(val interface{}) {
+	if err := j.validateSetBrandingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"brandingConfiguration",
 		val,
 	)
 }

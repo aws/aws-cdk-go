@@ -1,6 +1,7 @@
 package awsstepfunctions
 
 import (
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
@@ -8,6 +9,17 @@ import (
 )
 
 // Collection of grant methods for a IStateMachineRef.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var stateMachineRef IStateMachineRef
+//
+//   stateMachineGrants := awscdk.Aws_stepfunctions.StateMachineGrants_FromStateMachine(stateMachineRef)
+//
 type StateMachineGrants interface {
 	Resource() interfacesawsstepfunctions.IStateMachineRef
 	// Grant the given identity custom permissions.
@@ -41,6 +53,25 @@ func (j *jsiiProxy_StateMachineGrants) Resource() interfacesawsstepfunctions.ISt
 	return returns
 }
 
+
+// Creates grants for StateMachineGrants.
+func StateMachineGrants_FromStateMachine(resource interfacesawsstepfunctions.IStateMachineRef) StateMachineGrants {
+	_init_.Initialize()
+
+	if err := validateStateMachineGrants_FromStateMachineParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns StateMachineGrants
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.StateMachineGrants",
+		"fromStateMachine",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
 
 func (s *jsiiProxy_StateMachineGrants) Actions(identity awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	if err := s.validateActionsParameters(identity); err != nil {

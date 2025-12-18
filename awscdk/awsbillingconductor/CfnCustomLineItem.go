@@ -42,6 +42,11 @@ import (
 //   			&LineItemFilterProperty{
 //   				Attribute: jsii.String("attribute"),
 //   				MatchOption: jsii.String("matchOption"),
+//
+//   				// the properties below are optional
+//   				AttributeValues: []*string{
+//   					jsii.String("attributeValues"),
+//   				},
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},
@@ -103,7 +108,7 @@ type CfnCustomLineItem interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The display settings of the Custom Line Item.
+	// The computation rule that determines how the custom line item charges are computed and reflected in the bill.
 	ComputationRule() *string
 	SetComputationRule(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -134,6 +139,7 @@ type CfnCustomLineItem interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Configuration details specifying how the custom line item charges are presented, including which service the charges are shown under.
 	PresentationDetails() interface{}
 	SetPresentationDetails(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

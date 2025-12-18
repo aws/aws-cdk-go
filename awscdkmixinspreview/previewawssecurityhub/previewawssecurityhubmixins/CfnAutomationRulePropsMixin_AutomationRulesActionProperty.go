@@ -1,7 +1,7 @@
 package previewawssecurityhubmixins
 
 
-// One or more actions that Security Hub takes when a finding matches the defined criteria of a rule.
+// One or more actions that AWS Security Hub CSPM takes when a finding matches the defined criteria of a rule.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,7 +48,7 @@ type CfnAutomationRulePropsMixin_AutomationRulesActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html#cfn-securityhub-automationrule-automationrulesaction-findingfieldsupdate
 	//
 	FindingFieldsUpdate interface{} `field:"optional" json:"findingFieldsUpdate" yaml:"findingFieldsUpdate"`
-	// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+	// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html#cfn-securityhub-automationrule-automationrulesaction-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

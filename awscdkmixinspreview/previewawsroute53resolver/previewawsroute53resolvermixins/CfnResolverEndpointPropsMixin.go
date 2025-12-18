@@ -40,6 +40,7 @@ import (
 //   		jsii.String("protocols"),
 //   	},
 //   	ResolverEndpointType: jsii.String("resolverEndpointType"),
+//   	RniEnhancedMetricsEnabled: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -49,6 +50,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetNameServerMetricsEnabled: jsii.Boolean(false),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
 //   })

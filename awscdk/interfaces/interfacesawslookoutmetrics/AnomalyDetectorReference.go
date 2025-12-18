@@ -13,7 +13,7 @@ package interfacesawslookoutmetrics
 //   }
 //
 type AnomalyDetectorReference struct {
-	// The Arn of the AnomalyDetector resource.
+	// The ARN of the AnomalyDetector resource.
 	AnomalyDetectorArn *string `field:"required" json:"anomalyDetectorArn" yaml:"anomalyDetectorArn"`
 }
 

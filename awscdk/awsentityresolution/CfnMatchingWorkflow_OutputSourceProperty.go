@@ -19,11 +19,15 @@ package awsentityresolution
 //   			Hashed: jsii.Boolean(false),
 //   		},
 //   	},
-//   	OutputS3Path: jsii.String("outputS3Path"),
 //
 //   	// the properties below are optional
 //   	ApplyNormalization: jsii.Boolean(false),
+//   	CustomerProfilesIntegrationConfig: &CustomerProfilesIntegrationConfigProperty{
+//   		DomainArn: jsii.String("domainArn"),
+//   		ObjectTypeArn: jsii.String("objectTypeArn"),
+//   	},
 //   	KmsArn: jsii.String("kmsArn"),
+//   	OutputS3Path: jsii.String("outputS3Path"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html
@@ -35,21 +39,24 @@ type CfnMatchingWorkflow_OutputSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-output
 	//
 	Output interface{} `field:"required" json:"output" yaml:"output"`
-	// The S3 path to which AWS Entity Resolution will write the output table.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-outputs3path
-	//
-	OutputS3Path *string `field:"required" json:"outputS3Path" yaml:"outputS3Path"`
 	// Normalizes the attributes defined in the schema in the input data.
 	//
 	// For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-applynormalization
 	//
 	ApplyNormalization interface{} `field:"optional" json:"applyNormalization" yaml:"applyNormalization"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-customerprofilesintegrationconfig
+	//
+	CustomerProfilesIntegrationConfig interface{} `field:"optional" json:"customerProfilesIntegrationConfig" yaml:"customerProfilesIntegrationConfig"`
 	// Customer KMS ARN for encryption at rest.
 	//
 	// If not provided, system will use an AWS Entity Resolution managed KMS key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-kmsarn
 	//
 	KmsArn *string `field:"optional" json:"kmsArn" yaml:"kmsArn"`
+	// The S3 path to which AWS Entity Resolution will write the output table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-outputs3path
+	//
+	OutputS3Path *string `field:"optional" json:"outputS3Path" yaml:"outputS3Path"`
 }
 

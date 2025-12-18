@@ -198,10 +198,10 @@ workflowPipeline := imagebuilder.NewImagePipeline(this, jsii.String("WorkflowPip
 	Recipe: exampleImageRecipe,
 	Workflows: []WorkflowConfiguration{
 		&WorkflowConfiguration{
-			Workflow: imagebuilder.AwsManagedWorkflow_BuildImage(this, jsii.String("BuildWorkflow")),
+			Workflow: imagebuilder.AmazonManagedWorkflow_BuildImage(this, jsii.String("BuildWorkflow")),
 		},
 		&WorkflowConfiguration{
-			Workflow: imagebuilder.AwsManagedWorkflow_TestImage(this, jsii.String("TestWorkflow")),
+			Workflow: imagebuilder.AmazonManagedWorkflow_TestImage(this, jsii.String("TestWorkflow")),
 		},
 	},
 })
@@ -214,13 +214,13 @@ containerWorkflowPipeline := imagebuilder.NewImagePipeline(this, jsii.String("Co
 	Recipe: exampleContainerRecipe,
 	Workflows: []WorkflowConfiguration{
 		&WorkflowConfiguration{
-			Workflow: imagebuilder.AwsManagedWorkflow_BuildContainer(this, jsii.String("BuildContainer")),
+			Workflow: imagebuilder.AmazonManagedWorkflow_BuildContainer(this, jsii.String("BuildContainer")),
 		},
 		&WorkflowConfiguration{
-			Workflow: imagebuilder.AwsManagedWorkflow_TestContainer(this, jsii.String("TestContainer")),
+			Workflow: imagebuilder.AmazonManagedWorkflow_TestContainer(this, jsii.String("TestContainer")),
 		},
 		&WorkflowConfiguration{
-			Workflow: imagebuilder.AwsManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer")),
+			Workflow: imagebuilder.AmazonManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer")),
 		},
 	},
 })
@@ -432,10 +432,10 @@ imageWithWorkflows := imagebuilder.NewImage(this, jsii.String("ImageWithWorkflow
 	Recipe: exampleImageRecipe,
 	Workflows: []WorkflowConfiguration{
 		&WorkflowConfiguration{
-			Workflow: imagebuilder.AwsManagedWorkflow_BuildImage(this, jsii.String("BuildWorkflow")),
+			Workflow: imagebuilder.AmazonManagedWorkflow_BuildImage(this, jsii.String("BuildWorkflow")),
 		},
 		&WorkflowConfiguration{
-			Workflow: imagebuilder.AwsManagedWorkflow_TestImage(this, jsii.String("TestWorkflow")),
+			Workflow: imagebuilder.AmazonManagedWorkflow_TestImage(this, jsii.String("TestWorkflow")),
 		},
 	},
 })
@@ -593,12 +593,12 @@ imageRecipe := imagebuilder.NewImageRecipe(this, jsii.String("AmazonManagedImage
 	BaseImage: imagebuilder.BaseImage_*FromSsmParameterName(jsii.String("/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64")),
 	Components: []ComponentConfiguration{
 		&ComponentConfiguration{
-			Component: imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
+			Component: imagebuilder.AmazonManagedComponent_UpdateOs(this, jsii.String("UpdateOS"), &AmazonManagedComponentOptions{
 				Platform: imagebuilder.Platform_LINUX,
 			}),
 		},
 		&ComponentConfiguration{
-			Component: imagebuilder.AwsManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AwsManagedComponentAttributes{
+			Component: imagebuilder.AmazonManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AmazonManagedComponentOptions{
 				Platform: imagebuilder.Platform_LINUX,
 			}),
 		},
@@ -764,17 +764,17 @@ containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("ComponentC
 Use pre-built AWS components:
 
 ```go
-containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("AwsManagedContainerRecipe"), &ContainerRecipeProps{
+containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("AmazonManagedContainerRecipe"), &ContainerRecipeProps{
 	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
 	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 	Components: []ComponentConfiguration{
 		&ComponentConfiguration{
-			Component: imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
+			Component: imagebuilder.AmazonManagedComponent_UpdateOs(this, jsii.String("UpdateOS"), &AmazonManagedComponentOptions{
 				Platform: imagebuilder.Platform_LINUX,
 			}),
 		},
 		&ComponentConfiguration{
-			Component: imagebuilder.AwsManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AwsManagedComponentAttributes{
+			Component: imagebuilder.AmazonManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AmazonManagedComponentOptions{
 				Platform: imagebuilder.Platform_LINUX,
 			}),
 		},
@@ -1042,17 +1042,17 @@ AWS provides a collection of managed components for common tasks:
 
 ```go
 // Install AWS CLI v2
-awsCliComponent := imagebuilder.AwsManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AwsManagedComponentAttributes{
+awsCliComponent := imagebuilder.AmazonManagedComponent_AwsCliV2(this, jsii.String("AwsCli"), &AmazonManagedComponentOptions{
 	Platform: imagebuilder.Platform_LINUX,
 })
 
 // Update the operating system
-updateComponent := imagebuilder.AwsManagedComponent_UpdateOS(this, jsii.String("UpdateOS"), &AwsManagedComponentAttributes{
+updateComponent := imagebuilder.AmazonManagedComponent_UpdateOs(this, jsii.String("UpdateOS"), &AmazonManagedComponentOptions{
 	Platform: imagebuilder.Platform_LINUX,
 })
 
 // Reference any AWS-managed component by name
-customAwsComponent := imagebuilder.AwsManagedComponent_FromAwsManagedComponentName(this, jsii.String("CloudWatchAgent"), jsii.String("amazon-cloudwatch-agent-linux"))
+customAwsComponent := imagebuilder.AmazonManagedComponent_FromAmazonManagedComponentName(this, jsii.String("CloudWatchAgent"), jsii.String("amazon-cloudwatch-agent-linux"))
 ```
 
 #### AWS Marketplace Components
@@ -1496,15 +1496,15 @@ AWS provides a collection of workflows for common scenarios:
 
 ```go
 // Build workflows
-buildImageWorkflow := imagebuilder.AwsManagedWorkflow_BuildImage(this, jsii.String("BuildImage"))
-buildContainerWorkflow := imagebuilder.AwsManagedWorkflow_BuildContainer(this, jsii.String("BuildContainer"))
+buildImageWorkflow := imagebuilder.AmazonManagedWorkflow_BuildImage(this, jsii.String("BuildImage"))
+buildContainerWorkflow := imagebuilder.AmazonManagedWorkflow_BuildContainer(this, jsii.String("BuildContainer"))
 
 // Test workflows
-testImageWorkflow := imagebuilder.AwsManagedWorkflow_TestImage(this, jsii.String("TestImage"))
-testContainerWorkflow := imagebuilder.AwsManagedWorkflow_TestContainer(this, jsii.String("TestContainer"))
+testImageWorkflow := imagebuilder.AmazonManagedWorkflow_TestImage(this, jsii.String("TestImage"))
+testContainerWorkflow := imagebuilder.AmazonManagedWorkflow_TestContainer(this, jsii.String("TestContainer"))
 
 // Distribution workflows
-distributeContainerWorkflow := imagebuilder.AwsManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer"))
+distributeContainerWorkflow := imagebuilder.AmazonManagedWorkflow_DistributeContainer(this, jsii.String("DistributeContainer"))
 ```
 
 ### Lifecycle Policy

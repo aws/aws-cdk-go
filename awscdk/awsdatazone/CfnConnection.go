@@ -115,6 +115,9 @@ import (
 //   		IamProperties: &IamPropertiesInputProperty{
 //   			GlueLineageSyncEnabled: jsii.Boolean(false),
 //   		},
+//   		MlflowProperties: &MlflowPropertiesInputProperty{
+//   			TrackingServerArn: jsii.String("trackingServerArn"),
+//   		},
 //   		RedshiftProperties: &RedshiftPropertiesInputProperty{
 //   			Credentials: &RedshiftCredentialsProperty{
 //   				SecretArn: jsii.String("secretArn"),

@@ -19,16 +19,19 @@ import (
 //   	RequestInterval: awscdk.Duration_Seconds(jsii.Number(30)),
 //   })
 //
-//   route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
+//   route53.NewARecord(this, jsii.String("ARecordFailoverPrimary"), &ARecordProps{
 //   	Zone: myZone,
 //   	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4")),
+//   	Failover: route53.Failover_PRIMARY,
 //   	HealthCheck: HealthCheck,
-//   	Weight: jsii.Number(100),
+//   	SetIdentifier: jsii.String("failover-primary"),
 //   })
-//   route53.NewARecord(this, jsii.String("ARecord2"), &ARecordProps{
+//
+//   route53.NewARecord(this, jsii.String("ARecordFailoverSecondary"), &ARecordProps{
 //   	Zone: myZone,
 //   	Target: route53.RecordTarget_*FromIpAddresses(jsii.String("5.6.7.8")),
-//   	Weight: jsii.Number(0),
+//   	Failover: route53.Failover_SECONDARY,
+//   	SetIdentifier: jsii.String("failover-secondary"),
 //   })
 //
 type HealthCheckProps struct {

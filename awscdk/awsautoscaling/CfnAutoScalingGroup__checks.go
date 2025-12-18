@@ -285,6 +285,30 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetCapacityReservationSpecificat
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetInstanceLifecyclePolicyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAutoScalingGroup_InstanceLifecyclePolicyProperty:
+		val := val.(*CfnAutoScalingGroup_InstanceLifecyclePolicyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAutoScalingGroup_InstanceLifecyclePolicyProperty:
+		val_ := val.(CfnAutoScalingGroup_InstanceLifecyclePolicyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_InstanceLifecyclePolicyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetInstanceMaintenancePolicyParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

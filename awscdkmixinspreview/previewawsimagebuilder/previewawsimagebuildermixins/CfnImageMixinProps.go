@@ -65,7 +65,7 @@ type CfnImageMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
 	//
 	ContainerRecipeArn *string `field:"optional" json:"containerRecipeArn" yaml:"containerRecipeArn"`
-	// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+	// Enables deletion of underlying resources of an image when it is replaced or deleted, including its Amazon Machine Images (AMIs), snapshots, or containers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-deletionsettings
 	//
 	DeletionSettings interface{} `field:"optional" json:"deletionSettings" yaml:"deletionSettings"`
@@ -83,7 +83,7 @@ type CfnImageMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-executionrole
 	//
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
-	// The settings for starting an image pipeline execution.
+	// The image pipeline execution settings of the image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagepipelineexecutionsettings
 	//
 	ImagePipelineExecutionSettings interface{} `field:"optional" json:"imagePipelineExecutionSettings" yaml:"imagePipelineExecutionSettings"`

@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Glue::IdentityCenterConfiguration.
+// Creates a new AWS Glue Identity Center configuration to enable integration between AWS Glue and AWS IAM Identity Center for authentication and authorization.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

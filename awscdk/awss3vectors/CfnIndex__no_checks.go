@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnIndex) validateSetDistanceMetricParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnIndex) validateSetEncryptionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnIndex) validateSetMetadataConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -1,7 +1,7 @@
 package previewawsimagebuildermixins
 
 
-// The latest version references of the image recipe.
+// The resource ARNs with different wildcard variations of semantic versioning.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,19 +18,19 @@ package previewawsimagebuildermixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html
 //
 type CfnImageRecipePropsMixin_LatestVersionProperty struct {
-	// The Amazon Resource Name (ARN) of the image recipe.
+	// The latest version Amazon Resource Name (ARN) of the Image Builder resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html#cfn-imagebuilder-imagerecipe-latestversion-arn
 	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
-	// The latest version ARN of the created image recipe, with the same major version.
+	// The latest version Amazon Resource Name (ARN) with the same `major` version of the Image Builder resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html#cfn-imagebuilder-imagerecipe-latestversion-major
 	//
 	Major *string `field:"optional" json:"major" yaml:"major"`
-	// The latest version ARN of the created image recipe, with the same minor version.
+	// The latest version Amazon Resource Name (ARN) with the same `minor` version of the Image Builder resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html#cfn-imagebuilder-imagerecipe-latestversion-minor
 	//
 	Minor *string `field:"optional" json:"minor" yaml:"minor"`
-	// The latest version ARN of the created image recipe, with the same patch version.
+	// The latest version Amazon Resource Name (ARN) with the same `patch` version of the Image Builder resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-latestversion.html#cfn-imagebuilder-imagerecipe-latestversion-patch
 	//
 	Patch *string `field:"optional" json:"patch" yaml:"patch"`

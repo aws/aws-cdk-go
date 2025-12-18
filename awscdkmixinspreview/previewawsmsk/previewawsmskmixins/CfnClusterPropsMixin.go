@@ -25,6 +25,7 @@ import (
 //   			jsii.String("clientSubnets"),
 //   		},
 //   		ConnectivityInfo: &ConnectivityInfoProperty{
+//   			NetworkType: jsii.String("networkType"),
 //   			PublicAccess: &PublicAccessProperty{
 //   				Type: jsii.String("type"),
 //   			},

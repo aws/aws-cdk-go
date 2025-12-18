@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,6 +33,8 @@ type DeploymentStrategy interface {
 	DeploymentStrategyArn() *string
 	// The ID of the deployment strategy.
 	DeploymentStrategyId() *string
+	// A reference to a DeploymentStrategy resource.
+	DeploymentStrategyRef() *interfacesawsappconfig.DeploymentStrategyReference
 	// The description of the deployment strategy.
 	Description() *string
 	// The environment this resource belongs to.
@@ -123,6 +126,16 @@ func (j *jsiiProxy_DeploymentStrategy) DeploymentStrategyId() *string {
 	_jsii_.Get(
 		j,
 		"deploymentStrategyId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeploymentStrategy) DeploymentStrategyRef() *interfacesawsappconfig.DeploymentStrategyReference {
+	var returns *interfacesawsappconfig.DeploymentStrategyReference
+	_jsii_.Get(
+		j,
+		"deploymentStrategyRef",
 		&returns,
 	)
 	return returns

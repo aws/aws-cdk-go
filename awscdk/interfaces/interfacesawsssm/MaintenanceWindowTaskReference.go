@@ -10,10 +10,13 @@ package interfacesawsssm
 //
 //   maintenanceWindowTaskReference := &MaintenanceWindowTaskReference{
 //   	MaintenanceWindowTaskId: jsii.String("maintenanceWindowTaskId"),
+//   	WindowTaskId: jsii.String("windowTaskId"),
 //   }
 //
 type MaintenanceWindowTaskReference struct {
 	// The Id of the MaintenanceWindowTask resource.
 	MaintenanceWindowTaskId *string `field:"required" json:"maintenanceWindowTaskId" yaml:"maintenanceWindowTaskId"`
+	// The WindowTaskId of the MaintenanceWindowTask resource.
+	WindowTaskId *string `field:"required" json:"windowTaskId" yaml:"windowTaskId"`
 }
 

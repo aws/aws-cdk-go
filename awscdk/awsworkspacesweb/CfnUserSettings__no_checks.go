@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnUserSettings) validateSetAdditionalEncryptionContextParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserSettings) validateSetBrandingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserSettings) validateSetCookieSynchronizationConfigurationParameters(val interface{}) error {
 	return nil
 }

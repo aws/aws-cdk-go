@@ -7,18 +7,15 @@ import (
 // Construction properties for a ARecord.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var zone HostedZone
-//   var ebsEnvironmentUrl string
+//   var domainName DomainName
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(
-//   	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl, map[string]*string{
-//   		"hostedZoneId": awscdk.RegionInfo_get(jsii.String("us-east-1")).ebsEnvEndpointHostedZoneId,
-//   	})),
+//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.RegionalDomainName, domainName.RegionalHostedZoneId)),
 //   })
 //
 type ARecordProps struct {
@@ -50,6 +47,18 @@ type ARecordProps struct {
 	//
 	// Deprecated: This property is dangerous and can lead to unintended record deletion in case of deployment failure.
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
+	// Failover configuration for the record set.
+	//
+	// To configure failover, you add the Failover element to two resource record sets.
+	// For one resource record set, you specify PRIMARY as the value for Failover;
+	// for the other resource record set, you specify SECONDARY.
+	//
+	// You must also include the HealthCheckId element for PRIMARY configurations.
+	// See: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-failover.html
+	//
+	// Default: - No failover configuration.
+	//
+	Failover Failover `field:"optional" json:"failover" yaml:"failover"`
 	// The geographical origin for this record to return DNS records based on the user's location.
 	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`
 	// The health check to associate with the record set.

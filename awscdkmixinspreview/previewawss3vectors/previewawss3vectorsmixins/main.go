@@ -28,6 +28,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_s3vectors.mixins.CfnIndexPropsMixin.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnIndexPropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3vectors.mixins.CfnIndexPropsMixin.MetadataConfigurationProperty",
 		reflect.TypeOf((*CfnIndexPropsMixin_MetadataConfigurationProperty)(nil)).Elem(),
 	)

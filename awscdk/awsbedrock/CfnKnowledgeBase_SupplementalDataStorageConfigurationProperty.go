@@ -1,9 +1,9 @@
 package awsbedrock
 
 
-// Specifies configurations for the storage location of the images extracted from multimodal documents in your data source.
+// Specifies configurations for the storage location of multimedia content (images, audio, and video) extracted from multimodal documents in your data source.
 //
-// These images can be retrieved and returned to the end user.
+// This content can be retrieved and returned to the end user with timestamp references for audio and video segments.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

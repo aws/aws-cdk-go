@@ -1,6 +1,8 @@
 package previewawsconnectmixins
 
 
+// Contains granular access control configuration for security profiles, including data table access permissions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,7 +27,7 @@ package previewawsconnectmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-granularaccesscontrolconfiguration.html
 //
 type CfnSecurityProfilePropsMixin_GranularAccessControlConfigurationProperty struct {
-	// Defines the access control configuration for data tables.
+	// The access control configuration for data tables.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-granularaccesscontrolconfiguration.html#cfn-connect-securityprofile-granularaccesscontrolconfiguration-datatableaccesscontrolconfiguration
 	//
 	DataTableAccessControlConfiguration interface{} `field:"optional" json:"dataTableAccessControlConfiguration" yaml:"dataTableAccessControlConfiguration"`

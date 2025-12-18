@@ -47,6 +47,9 @@ import (
 //   	HostedZoneConfig: &HostedZoneConfigProperty{
 //   		Comment: jsii.String("comment"),
 //   	},
+//   	HostedZoneFeatures: &HostedZoneFeaturesProperty{
+//   		EnableAcceleratedRecovery: jsii.Boolean(false),
+//   	},
 //   	HostedZoneTags: []HostedZoneTagProperty{
 //   		&HostedZoneTagProperty{
 //   			Key: jsii.String("key"),
@@ -91,6 +94,9 @@ type CfnHostedZone interface {
 	// A complex type that contains an optional comment.
 	HostedZoneConfig() interface{}
 	SetHostedZoneConfig(val interface{})
+	// The features configuration for the hosted zone, including accelerated recovery settings and status information.
+	HostedZoneFeatures() interface{}
+	SetHostedZoneFeatures(val interface{})
 	// A reference to a HostedZone resource.
 	HostedZoneRef() *interfacesawsroute53.HostedZoneReference
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
@@ -356,6 +362,16 @@ func (j *jsiiProxy_CfnHostedZone) HostedZoneConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHostedZone) HostedZoneFeatures() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"hostedZoneFeatures",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHostedZone) HostedZoneRef() *interfacesawsroute53.HostedZoneReference {
 	var returns *interfacesawsroute53.HostedZoneReference
 	_jsii_.Get(
@@ -513,6 +529,17 @@ func (j *jsiiProxy_CfnHostedZone)SetHostedZoneConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"hostedZoneConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHostedZone)SetHostedZoneFeatures(val interface{}) {
+	if err := j.validateSetHostedZoneFeaturesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"hostedZoneFeatures",
 		val,
 	)
 }

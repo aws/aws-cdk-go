@@ -1,7 +1,7 @@
 package previewawsdevopsagentmixins
 
 
-// AWS resource definition.
+// Defines an AWS resource to be monitored, including its type, ARN, and optional metadata.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,7 +23,9 @@ type CfnAssociationPropsMixin_AWSResourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-awsresource.html#cfn-devopsagent-association-awsresource-resourcearn
 	//
 	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
-	// Additional metadata for the resource.
+	// Additional metadata specific to the resource.
+	//
+	// This is an optional JSON object that can include resource-specific information to provide additional context for monitoring and management.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-awsresource.html#cfn-devopsagent-association-awsresource-resourcemetadata
 	//
 	ResourceMetadata interface{} `field:"optional" json:"resourceMetadata" yaml:"resourceMetadata"`

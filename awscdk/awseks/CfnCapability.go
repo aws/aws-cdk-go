@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for EKS Capability.
+// An object representing a managed capability in an Amazon EKS cluster.
+//
+// This includes all configuration, status, and health information for the capability.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -86,13 +88,19 @@ type CfnCapability interface {
 	AttrCreatedAt() *string
 	// The Unix epoch timestamp in seconds for when the capability was last modified.
 	AttrModifiedAt() *string
-	// The current status of the capability.
+	// The current status of the capability. Valid values include:.
 	//
-	// Valid values include: CREATING (the capability is being created), ACTIVE (the capability is running and available), UPDATING (the capability is being updated), DELETING (the capability is being deleted), CREATE_FAILED (the capability creation failed), UPDATE_FAILED (the capability update failed), or DELETE_FAILED (the capability deletion failed).
+	// - `CREATING` – The capability is being created.
+	// - `ACTIVE` – The capability is running and available.
+	// - `UPDATING` – The capability is being updated.
+	// - `DELETING` – The capability is being deleted.
+	// - `CREATE_FAILED` – The capability creation failed.
+	// - `UPDATE_FAILED` – The capability update failed.
+	// - `DELETE_FAILED` – The capability deletion failed.
 	AttrStatus() *string
 	// The version of the capability software that is currently running.
 	AttrVersion() *string
-	// A unique name for the capability.
+	// The unique name of the capability within the cluster.
 	CapabilityName() *string
 	SetCapabilityName(val *string)
 	// A reference to a Capability resource.
@@ -104,17 +112,17 @@ type CfnCapability interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The name of the EKS cluster where you want to create the capability.
+	// The name of the Amazon EKS cluster that contains this capability.
 	ClusterName() *string
 	SetClusterName(val *string)
-	// Configuration settings for a capability.
+	// The configuration settings for the capability.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted.
+	// The delete propagation policy for the capability.
 	DeletePropagationPolicy() *string
 	SetDeletePropagationPolicy(val *string)
 	Env() *interfaces.ResourceEnvironment
@@ -145,7 +153,7 @@ type CfnCapability interface {
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The type of capability to create.
+	// The type of capability.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

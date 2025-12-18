@@ -16,9 +16,11 @@ package awsdevopsagent
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-keyvaluepair.html
 //
 type CfnAssociation_KeyValuePairProperty struct {
+	// The key name of the tag.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-keyvaluepair.html#cfn-devopsagent-association-keyvaluepair-key
 	//
 	Key *string `field:"required" json:"key" yaml:"key"`
+	// The value for the tag.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-keyvaluepair.html#cfn-devopsagent-association-keyvaluepair-value
 	//
 	Value *string `field:"required" json:"value" yaml:"value"`

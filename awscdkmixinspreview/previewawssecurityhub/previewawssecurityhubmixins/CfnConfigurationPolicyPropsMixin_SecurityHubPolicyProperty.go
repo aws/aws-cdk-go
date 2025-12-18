@@ -1,9 +1,9 @@
 package previewawssecurityhubmixins
 
 
-// An object that defines how Security Hub is configured.
+// An object that defines how AWS Security Hub CSPM is configured.
 //
-// The configuration policy includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+// The configuration policy includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -68,7 +68,7 @@ type CfnConfigurationPolicyPropsMixin_SecurityHubPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html#cfn-securityhub-configurationpolicy-securityhubpolicy-securitycontrolsconfiguration
 	//
 	SecurityControlsConfiguration interface{} `field:"optional" json:"securityControlsConfiguration" yaml:"securityControlsConfiguration"`
-	// Indicates whether Security Hub is enabled in the policy.
+	// Indicates whether Security Hub CSPM is enabled in the policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html#cfn-securityhub-configurationpolicy-securityhubpolicy-serviceenabled
 	//
 	ServiceEnabled interface{} `field:"optional" json:"serviceEnabled" yaml:"serviceEnabled"`

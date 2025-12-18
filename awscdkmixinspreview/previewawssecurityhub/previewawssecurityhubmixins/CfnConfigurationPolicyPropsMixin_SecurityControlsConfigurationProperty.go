@@ -1,7 +1,7 @@
 package previewawssecurityhubmixins
 
 
-// An object that defines which security controls are enabled in an Security Hub configuration policy.
+// An object that defines which security controls are enabled in an AWS Security Hub CSPM configuration policy.
 //
 // The enablement status of a control is aligned across all of the enabled standards in an account.
 //
@@ -54,7 +54,7 @@ type CfnConfigurationPolicyPropsMixin_SecurityControlsConfigurationProperty stru
 	//
 	// Provide only one of `EnabledSecurityControlIdentifiers` or `DisabledSecurityControlIdentifiers` .
 	//
-	// If you provide `DisabledSecurityControlIdentifiers` , Security Hub enables all other controls not in the list, and enables [AutoEnableControls](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.html#securityhub-UpdateSecurityHubConfiguration-request-AutoEnableControls) .
+	// If you provide `DisabledSecurityControlIdentifiers` , Security Hub CSPM enables all other controls not in the list, and enables [AutoEnableControls](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.html#securityhub-UpdateSecurityHubConfiguration-request-AutoEnableControls) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html#cfn-securityhub-configurationpolicy-securitycontrolsconfiguration-disabledsecuritycontrolidentifiers
 	//
 	DisabledSecurityControlIdentifiers *[]*string `field:"optional" json:"disabledSecurityControlIdentifiers" yaml:"disabledSecurityControlIdentifiers"`
@@ -62,7 +62,7 @@ type CfnConfigurationPolicyPropsMixin_SecurityControlsConfigurationProperty stru
 	//
 	// Provide only one of `EnabledSecurityControlIdentifiers` or `DisabledSecurityControlIdentifiers` .
 	//
-	// If you provide `EnabledSecurityControlIdentifiers` , Security Hub disables all other controls not in the list, and disables [AutoEnableControls](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.html#securityhub-UpdateSecurityHubConfiguration-request-AutoEnableControls) .
+	// If you provide `EnabledSecurityControlIdentifiers` , Security Hub CSPM disables all other controls not in the list, and disables [AutoEnableControls](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.html#securityhub-UpdateSecurityHubConfiguration-request-AutoEnableControls) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html#cfn-securityhub-configurationpolicy-securitycontrolsconfiguration-enabledsecuritycontrolidentifiers
 	//
 	EnabledSecurityControlIdentifiers *[]*string `field:"optional" json:"enabledSecurityControlIdentifiers" yaml:"enabledSecurityControlIdentifiers"`

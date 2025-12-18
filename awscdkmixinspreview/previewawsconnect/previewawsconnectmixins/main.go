@@ -164,6 +164,34 @@ func init() {
 		reflect.TypeOf((*CfnDataTablePropsMixin_LockVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnDataTableRecordMixinProps",
+		reflect.TypeOf((*CfnDataTableRecordMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnDataTableRecordPropsMixin",
+		reflect.TypeOf((*CfnDataTableRecordPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDataTableRecordPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnDataTableRecordPropsMixin.DataTableRecordProperty",
+		reflect.TypeOf((*CfnDataTableRecordPropsMixin_DataTableRecordProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnDataTableRecordPropsMixin.ValueProperty",
+		reflect.TypeOf((*CfnDataTableRecordPropsMixin_ValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEmailAddressMixinProps",
 		reflect.TypeOf((*CfnEmailAddressMixinProps)(nil)).Elem(),
 	)
@@ -994,5 +1022,69 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspaceMixinProps",
+		reflect.TypeOf((*CfnWorkspaceMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin",
+		reflect.TypeOf((*CfnWorkspacePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWorkspacePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.FontFamilyProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_FontFamilyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.MediaItemProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_MediaItemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.PaletteCanvasProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_PaletteCanvasProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.PaletteHeaderProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_PaletteHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.PaletteNavigationProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_PaletteNavigationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.PalettePrimaryProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_PalettePrimaryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.WorkspacePageProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_WorkspacePageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.WorkspaceThemeConfigProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_WorkspaceThemeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.WorkspaceThemePaletteProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_WorkspaceThemePaletteProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.WorkspaceThemeProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_WorkspaceThemeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnWorkspacePropsMixin.WorkspaceThemeTypographyProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_WorkspaceThemeTypographyProperty)(nil)).Elem(),
 	)
 }

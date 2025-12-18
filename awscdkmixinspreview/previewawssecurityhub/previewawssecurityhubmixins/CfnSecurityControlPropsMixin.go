@@ -10,9 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::SecurityControl` resource specifies custom parameter values for an Security Hub control.
+// The `AWS::SecurityHub::SecurityControl` resource specifies custom parameter values for an AWS Security Hub CSPM control.
 //
-// For a list of controls that support custom parameters, see [Security Hub controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) . You can also use this resource to specify the use of default parameter values for a control. For more information about custom parameters, see [Custom control parameters](https://docs.aws.amazon.com/securityhub/latest/userguide/custom-control-parameters.html) in the *Security Hub User Guide* .
+// For a list of controls that support custom parameters, see [Security Hub CSPM controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) . You can also use this resource to specify the use of default parameter values for a control. For more information about custom parameters, see [Custom control parameters](https://docs.aws.amazon.com/securityhub/latest/userguide/custom-control-parameters.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Tags aren't supported for this resource.
 //

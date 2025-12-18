@@ -13,7 +13,7 @@ import (
 
 // The `AWS::SecurityHub::PolicyAssociation` resource specifies associations for a configuration policy or a self-managed configuration.
 //
-// You can associate a Security Hub configuration policy or self-managed configuration with the organization root, organizational units (OUs), or AWS accounts . After a successful association, the configuration policy takes effect in the specified targets. For more information, see [Creating and associating Security Hub configuration policies](https://docs.aws.amazon.com/securityhub/latest/userguide/create-associate-policy.html) in the *Security Hub User Guide* .
+// You can associate a AWS Security Hub CSPM configuration policy or self-managed configuration with the organization root, organizational units (OUs), or AWS accounts . After a successful association, the configuration policy takes effect in the specified targets. For more information, see [Creating and associating Security Hub CSPM configuration policies](https://docs.aws.amazon.com/securityhub/latest/userguide/create-associate-policy.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,7 +40,7 @@ type CfnPolicyAssociation interface {
 	AttrAssociationStatus() *string
 	// The explanation for a `FAILED` value for `AssociationStatus` .
 	AttrAssociationStatusMessage() *string
-	// Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent.
+	// Indicates whether the association between the specified target and the configuration was directly applied by the AWS Security Hub CSPM delegated administrator or inherited from a parent.
 	AttrAssociationType() *string
 	// The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
 	AttrUpdatedAt() *string

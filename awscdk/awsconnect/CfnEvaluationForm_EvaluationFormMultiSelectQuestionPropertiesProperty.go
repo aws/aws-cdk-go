@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Properties for a multi-select question in an evaluation form.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -42,14 +44,15 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html
 //
 type CfnEvaluationForm_EvaluationFormMultiSelectQuestionPropertiesProperty struct {
-	// The list of options for the question.
+	// Options available for this multi-select question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html#cfn-connect-evaluationform-evaluationformmultiselectquestionproperties-options
 	//
 	Options interface{} `field:"required" json:"options" yaml:"options"`
+	// Automation configuration for this multi-select question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html#cfn-connect-evaluationform-evaluationformmultiselectquestionproperties-automation
 	//
 	Automation interface{} `field:"optional" json:"automation" yaml:"automation"`
-	// The display mode of the multi-select question.
+	// Display format for the multi-select question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html#cfn-connect-evaluationform-evaluationformmultiselectquestionproperties-displayas
 	//
 	DisplayAs *string `field:"optional" json:"displayAs" yaml:"displayAs"`

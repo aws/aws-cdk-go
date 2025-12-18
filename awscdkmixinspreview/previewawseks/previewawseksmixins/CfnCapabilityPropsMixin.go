@@ -10,7 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for EKS Capability.
+// An object representing a managed capability in an Amazon EKS cluster.
+//
+// This includes all configuration, status, and health information for the capability.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

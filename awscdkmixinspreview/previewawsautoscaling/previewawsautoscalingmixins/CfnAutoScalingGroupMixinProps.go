@@ -40,6 +40,11 @@ package previewawsautoscalingmixins
 //   	HealthCheckGracePeriod: jsii.Number(123),
 //   	HealthCheckType: jsii.String("healthCheckType"),
 //   	InstanceId: jsii.String("instanceId"),
+//   	InstanceLifecyclePolicy: &InstanceLifecyclePolicyProperty{
+//   		RetentionTriggers: &RetentionTriggersProperty{
+//   			TerminateHookAbandon: jsii.String("terminateHookAbandon"),
+//   		},
+//   	},
 //   	InstanceMaintenancePolicy: &InstanceMaintenancePolicyProperty{
 //   		MaxHealthyPercentage: jsii.Number(123),
 //   		MinHealthyPercentage: jsii.Number(123),
@@ -92,6 +97,7 @@ package previewawsautoscalingmixins
 //   			},
 //   			Overrides: []interface{}{
 //   				&LaunchTemplateOverridesProperty{
+//   					ImageId: jsii.String("imageId"),
 //   					InstanceRequirements: &InstanceRequirementsProperty{
 //   						AcceleratorCount: &AcceleratorCountRequestProperty{
 //   							Max: jsii.Number(123),
@@ -234,11 +240,11 @@ type CfnAutoScalingGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname
 	//
 	AutoScalingGroupName *string `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
-	// The instance capacity distribution across Availability Zones.
+	// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzonedistribution
 	//
 	AvailabilityZoneDistribution interface{} `field:"optional" json:"availabilityZoneDistribution" yaml:"availabilityZoneDistribution"`
-	// The Availability Zone impairment policy.
+	// The Availability Zone impairment policy for the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy
 	//
 	AvailabilityZoneImpairmentPolicy interface{} `field:"optional" json:"availabilityZoneImpairmentPolicy" yaml:"availabilityZoneImpairmentPolicy"`
@@ -254,7 +260,7 @@ type CfnAutoScalingGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-capacityrebalance
 	//
 	CapacityRebalance interface{} `field:"optional" json:"capacityRebalance" yaml:"capacityRebalance"`
-	// The capacity reservation specification.
+	// The capacity reservation specification for the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-capacityreservationspecification
 	//
 	CapacityReservationSpecification interface{} `field:"optional" json:"capacityReservationSpecification" yaml:"capacityReservationSpecification"`
@@ -324,6 +330,9 @@ type CfnAutoScalingGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instanceid
 	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instancelifecyclepolicy
+	//
+	InstanceLifecyclePolicy interface{} `field:"optional" json:"instanceLifecyclePolicy" yaml:"instanceLifecyclePolicy"`
 	// An instance maintenance policy.
 	//
 	// For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide* .

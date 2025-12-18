@@ -94,6 +94,8 @@ type CfnCluster interface {
 	//
 	// *Note:* These status values only appear for multi-Region cluster operations.
 	AttrStatus() *string
+	// The DSQL cluster VPC endpoint.
+	AttrVpcEndpoint() *string
 	// The VPC Endpoint Service name for the cluster.
 	//
 	// This can be used to create a VPC endpoint to connect to the cluster from within a VPC.
@@ -361,6 +363,16 @@ func (j *jsiiProxy_CfnCluster) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrVpcEndpoint() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEndpoint",
 		&returns,
 	)
 	return returns

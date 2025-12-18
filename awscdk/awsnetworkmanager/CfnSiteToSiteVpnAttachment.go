@@ -44,6 +44,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -126,6 +127,9 @@ type CfnSiteToSiteVpnAttachment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Routing policy label.
+	RoutingPolicyLabel() *string
+	SetRoutingPolicyLabel(val *string)
 	// A reference to a SiteToSiteVpnAttachment resource.
 	SiteToSiteVpnAttachmentRef() *interfacesawsnetworkmanager.SiteToSiteVpnAttachmentReference
 	// The stack in which this element is defined.
@@ -528,6 +532,16 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) RoutingPolicyLabel() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"routingPolicyLabel",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) SiteToSiteVpnAttachmentRef() *interfacesawsnetworkmanager.SiteToSiteVpnAttachmentReference {
 	var returns *interfacesawsnetworkmanager.SiteToSiteVpnAttachmentReference
 	_jsii_.Get(
@@ -665,6 +679,14 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment)SetProposedSegmentChange(val inter
 	_jsii_.Set(
 		j,
 		"proposedSegmentChange",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment)SetRoutingPolicyLabel(val *string) {
+	_jsii_.Set(
+		j,
+		"routingPolicyLabel",
 		val,
 	)
 }

@@ -24,7 +24,3 @@ func validateComponentData_FromS3Parameters(bucket awss3.IBucket, key *string) e
 	return nil
 }
 
-func validateNewComponentDataParameters(value *string) error {
-	return nil
-}
-

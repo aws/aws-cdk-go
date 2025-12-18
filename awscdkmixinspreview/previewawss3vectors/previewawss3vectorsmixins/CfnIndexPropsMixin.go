@@ -45,6 +45,10 @@ import (
 //   	DataType: jsii.String("dataType"),
 //   	Dimension: jsii.Number(123),
 //   	DistanceMetric: jsii.String("distanceMetric"),
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SseType: jsii.String("sseType"),
+//   	},
 //   	IndexName: jsii.String("indexName"),
 //   	MetadataConfiguration: &MetadataConfigurationProperty{
 //   		NonFilterableMetadataKeys: []*string{

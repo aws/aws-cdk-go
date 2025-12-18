@@ -5,14 +5,18 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IApplication interface {
+	interfacesawsappconfig.IApplicationRef
 	awscdk.IResource
 	// Adds an environment.
 	AddEnvironment(id *string, options *EnvironmentOptions) IEnvironment
 	// Adds an existing environment.
-	AddExistingEnvironment(environment IEnvironment)
+	AddExistingEnvironment(environment interfacesawsappconfig.IEnvironmentRef)
 	// Adds an extension association to the application.
 	AddExtension(extension IExtension)
 	// Adds a hosted configuration.
@@ -51,6 +55,7 @@ type IApplication interface {
 
 // The jsii proxy for IApplication
 type jsiiProxy_IApplication struct {
+	internal.Type__interfacesawsappconfigIApplicationRef
 	internal.Type__awscdkIResource
 }
 
@@ -70,7 +75,7 @@ func (i *jsiiProxy_IApplication) AddEnvironment(id *string, options *Environment
 	return returns
 }
 
-func (i *jsiiProxy_IApplication) AddExistingEnvironment(environment IEnvironment) {
+func (i *jsiiProxy_IApplication) AddExistingEnvironment(environment interfacesawsappconfig.IEnvironmentRef) {
 	if err := i.validateAddExistingEnvironmentParameters(environment); err != nil {
 		panic(err)
 	}
@@ -236,6 +241,17 @@ func (i *jsiiProxy_IApplication) PreStartDeployment(eventDestination IEventDesti
 	)
 }
 
+func (i *jsiiProxy_IApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IApplication) ApplicationArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -271,6 +287,46 @@ func (j *jsiiProxy_IApplication) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplication) ApplicationRef() *interfacesawsappconfig.ApplicationReference {
+	var returns *interfacesawsappconfig.ApplicationReference
+	_jsii_.Get(
+		j,
+		"applicationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplication) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplication) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplication) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

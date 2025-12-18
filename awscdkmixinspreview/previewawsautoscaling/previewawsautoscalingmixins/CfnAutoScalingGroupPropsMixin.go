@@ -56,6 +56,11 @@ import (
 //   	HealthCheckGracePeriod: jsii.Number(123),
 //   	HealthCheckType: jsii.String("healthCheckType"),
 //   	InstanceId: jsii.String("instanceId"),
+//   	InstanceLifecyclePolicy: &InstanceLifecyclePolicyProperty{
+//   		RetentionTriggers: &RetentionTriggersProperty{
+//   			TerminateHookAbandon: jsii.String("terminateHookAbandon"),
+//   		},
+//   	},
 //   	InstanceMaintenancePolicy: &InstanceMaintenancePolicyProperty{
 //   		MaxHealthyPercentage: jsii.Number(123),
 //   		MinHealthyPercentage: jsii.Number(123),
@@ -108,6 +113,7 @@ import (
 //   			},
 //   			Overrides: []interface{}{
 //   				&LaunchTemplateOverridesProperty{
+//   					ImageId: jsii.String("imageId"),
 //   					InstanceRequirements: &InstanceRequirementsProperty{
 //   						AcceleratorCount: &AcceleratorCountRequestProperty{
 //   							Max: jsii.Number(123),

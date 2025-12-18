@@ -37,6 +37,21 @@ import (
 //   	AuthorizerType: jsii.String("authorizerType"),
 //   	Description: jsii.String("description"),
 //   	ExceptionLevel: jsii.String("exceptionLevel"),
+//   	InterceptorConfigurations: []interface{}{
+//   		&GatewayInterceptorConfigurationProperty{
+//   			InputConfiguration: &InterceptorInputConfigurationProperty{
+//   				PassRequestHeaders: jsii.Boolean(false),
+//   			},
+//   			InterceptionPoints: []*string{
+//   				jsii.String("interceptionPoints"),
+//   			},
+//   			Interceptor: &InterceptorConfigurationProperty{
+//   				Lambda: &LambdaInterceptorConfigurationProperty{
+//   					Arn: jsii.String("arn"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Name: jsii.String("name"),
 //   	ProtocolConfiguration: &GatewayProtocolConfigurationProperty{

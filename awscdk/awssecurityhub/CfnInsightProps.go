@@ -704,7 +704,7 @@ type CfnInsightProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html#cfn-securityhub-insight-groupbyattribute
 	//
 	GroupByAttribute *string `field:"required" json:"groupByAttribute" yaml:"groupByAttribute"`
-	// The name of a Security Hub insight.
+	// The name of a Security Hub CSPM insight.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html#cfn-securityhub-insight-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`

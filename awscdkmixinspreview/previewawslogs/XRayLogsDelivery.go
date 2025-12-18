@@ -4,7 +4,6 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,9 +19,9 @@ import (
 // Experimental.
 type XRayLogsDelivery interface {
 	ILogsDelivery
-	// Binds the X-Ray destination to a delivery source and creates a delivery connection between them.
+	// Binds X-Ray Destination to a source resource for the purposes of log delivery and creates a delivery source, a delivery destination, and a connection between them.
 	// Experimental.
-	Bind(scope constructs.IConstruct, deliverySource interfacesawslogs.IDeliverySourceRef, sourceResourceArn *string) ILogsDeliveryConfig
+	Bind(scope constructs.IConstruct, logType *string, sourceResourceArn *string) ILogsDeliveryConfig
 }
 
 // The jsii proxy struct for XRayLogsDelivery
@@ -58,8 +57,8 @@ func NewXRayLogsDelivery_Override(x XRayLogsDelivery) {
 	)
 }
 
-func (x *jsiiProxy_XRayLogsDelivery) Bind(scope constructs.IConstruct, deliverySource interfacesawslogs.IDeliverySourceRef, sourceResourceArn *string) ILogsDeliveryConfig {
-	if err := x.validateBindParameters(scope, deliverySource, sourceResourceArn); err != nil {
+func (x *jsiiProxy_XRayLogsDelivery) Bind(scope constructs.IConstruct, logType *string, sourceResourceArn *string) ILogsDeliveryConfig {
+	if err := x.validateBindParameters(scope, logType, sourceResourceArn); err != nil {
 		panic(err)
 	}
 	var returns ILogsDeliveryConfig
@@ -67,7 +66,7 @@ func (x *jsiiProxy_XRayLogsDelivery) Bind(scope constructs.IConstruct, deliveryS
 	_jsii_.Invoke(
 		x,
 		"bind",
-		[]interface{}{scope, deliverySource, sourceResourceArn},
+		[]interface{}{scope, logType, sourceResourceArn},
 		&returns,
 	)
 

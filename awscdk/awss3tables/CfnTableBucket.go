@@ -101,7 +101,7 @@ type CfnTableBucket interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies storage class settings for the table bucket.
+	// The configuration details for the storage class of tables or table buckets.
 	StorageClassConfiguration() interface{}
 	SetStorageClassConfiguration(val interface{})
 	// The name for the table bucket.

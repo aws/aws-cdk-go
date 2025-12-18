@@ -1524,6 +1524,10 @@ func init() {
 		reflect.TypeOf((*CfnNetworkInterfacePropsMixin_PrivateIpAddressSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnNetworkInterfacePropsMixin.PublicIpDnsNameOptionsProperty",
+		reflect.TypeOf((*CfnNetworkInterfacePropsMixin_PublicIpDnsNameOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnNetworkPerformanceMetricSubscriptionMixinProps",
 		reflect.TypeOf((*CfnNetworkPerformanceMetricSubscriptionMixinProps)(nil)).Elem(),
 	)

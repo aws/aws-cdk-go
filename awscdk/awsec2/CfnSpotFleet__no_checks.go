@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnSpotFleet) validateSetSpotFleetRequestConfigDataParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnSpotFleet) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSpotFleetParameters(scope constructs.Construct, id *string, props *CfnSpotFleetProps) error {
 	return nil
 }

@@ -337,6 +337,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneConfig", GoGetter: "HostedZoneConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneFeatures", GoGetter: "HostedZoneFeatures"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneTagsRaw", GoGetter: "HostedZoneTagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -372,6 +373,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.CfnHostedZone.HostedZoneConfigProperty",
 		reflect.TypeOf((*CfnHostedZone_HostedZoneConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.CfnHostedZone.HostedZoneFeaturesProperty",
+		reflect.TypeOf((*CfnHostedZone_HostedZoneFeaturesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.CfnHostedZone.HostedZoneTagProperty",
@@ -705,6 +710,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.DsRecordProps",
 		reflect.TypeOf((*DsRecordProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_route53.Failover",
+		reflect.TypeOf((*Failover)(nil)).Elem(),
+		map[string]interface{}{
+			"PRIMARY": Failover_PRIMARY,
+			"SECONDARY": Failover_SECONDARY,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.GeoLocation",

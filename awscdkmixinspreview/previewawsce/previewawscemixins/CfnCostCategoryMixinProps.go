@@ -43,7 +43,7 @@ type CfnCostCategoryMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
 	//
 	RuleVersion *string `field:"optional" json:"ruleVersion" yaml:"ruleVersion"`
-	// The split charge rules that are used to allocate your charges between your Cost Category values.
+	// The split charge rules that are used to allocate your charges between your cost category values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
 	//
 	SplitChargeRules *string `field:"optional" json:"splitChargeRules" yaml:"splitChargeRules"`

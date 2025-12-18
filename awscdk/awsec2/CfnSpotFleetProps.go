@@ -1,5 +1,8 @@
 package awsec2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnSpotFleet`.
 //
@@ -112,6 +115,7 @@ package awsec2
 //   						Min: jsii.Number(123),
 //   					},
 //   					OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   					RequireEncryptionInTransit: jsii.Boolean(false),
 //   					RequireHibernateSupport: jsii.Boolean(false),
 //   					SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   					TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
@@ -264,6 +268,7 @@ package awsec2
 //   								Min: jsii.Number(123),
 //   							},
 //   							OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   							RequireEncryptionInTransit: jsii.Boolean(false),
 //   							RequireHibernateSupport: jsii.Boolean(false),
 //   							SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   							TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
@@ -329,6 +334,14 @@ package awsec2
 //   		ValidFrom: jsii.String("validFrom"),
 //   		ValidUntil: jsii.String("validUntil"),
 //   	},
+//
+//   	// the properties below are optional
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
@@ -338,5 +351,9 @@ type CfnSpotFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
 	//
 	SpotFleetRequestConfigData interface{} `field:"required" json:"spotFleetRequestConfigData" yaml:"spotFleetRequestConfigData"`
+	// The tags for a Spot Fleet resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

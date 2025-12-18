@@ -67,6 +67,16 @@ import (
 //   				},
 //   			},
 //   		},
+//   		WhatsApp: &WhatsAppChannelSubtypeConfigProperty{
+//   			Capacity: jsii.Number(123),
+//   			DefaultOutboundConfig: &WhatsAppOutboundConfigProperty{
+//   				ConnectSourcePhoneNumberArn: jsii.String("connectSourcePhoneNumberArn"),
+//   				WisdomTemplateArn: jsii.String("wisdomTemplateArn"),
+//   			},
+//   			OutboundMode: &WhatsAppOutboundModeProperty{
+//   				AgentlessConfig: agentlessConfig,
+//   			},
+//   		},
 //   	},
 //   	CommunicationLimitsOverride: &CommunicationLimitsConfigProperty{
 //   		AllChannelsSubtypes: &CommunicationLimitsProperty{
@@ -159,6 +169,30 @@ import (
 //   				},
 //   			},
 //   		},
+//   		WhatsApp: &TimeWindowProperty{
+//   			OpenHours: &OpenHoursProperty{
+//   				DailyHours: []interface{}{
+//   					&DailyHourProperty{
+//   						Key: jsii.String("key"),
+//   						Value: []interface{}{
+//   							&TimeRangeProperty{
+//   								EndTime: jsii.String("endTime"),
+//   								StartTime: jsii.String("startTime"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			RestrictedPeriods: &RestrictedPeriodsProperty{
+//   				RestrictedPeriodList: []interface{}{
+//   					&RestrictedPeriodProperty{
+//   						EndDate: jsii.String("endDate"),
+//   						Name: jsii.String("name"),
+//   						StartDate: jsii.String("startDate"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	ConnectCampaignFlowArn: jsii.String("connectCampaignFlowArn"),
 //   	ConnectInstanceId: jsii.String("connectInstanceId"),
@@ -180,6 +214,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html
@@ -225,5 +260,9 @@ type CfnCampaignMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The type of campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

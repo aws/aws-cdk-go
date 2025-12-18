@@ -164,6 +164,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowPropsMixin.CustomerProfilesIntegrationConfigProperty",
+		reflect.TypeOf((*CfnMatchingWorkflowPropsMixin_CustomerProfilesIntegrationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowPropsMixin.IncrementalRunConfigProperty",
 		reflect.TypeOf((*CfnMatchingWorkflowPropsMixin_IncrementalRunConfigProperty)(nil)).Elem(),
 	)

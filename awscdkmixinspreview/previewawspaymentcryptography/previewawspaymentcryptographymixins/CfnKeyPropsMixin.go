@@ -59,6 +59,9 @@ import (
 //   		KeyUsage: jsii.String("keyUsage"),
 //   	},
 //   	KeyCheckValueAlgorithm: jsii.String("keyCheckValueAlgorithm"),
+//   	ReplicationRegions: []*string{
+//   		jsii.String("replicationRegions"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

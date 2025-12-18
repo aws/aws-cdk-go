@@ -185,6 +185,17 @@ func Runtime_ALL() *[]Runtime {
 	return returns
 }
 
+func Runtime_DOTNET_10() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"DOTNET_10",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_DOTNET_6() Runtime {
 	_init_.Initialize()
 	var returns Runtime

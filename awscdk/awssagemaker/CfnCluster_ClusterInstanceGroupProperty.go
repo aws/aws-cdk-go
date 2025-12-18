@@ -51,6 +51,7 @@ package awssagemaker
 //   			},
 //   		},
 //   	},
+//   	MinInstanceCount: jsii.Number(123),
 //   	OnStartDeepHealthChecks: []*string{
 //   		jsii.String("onStartDeepHealthChecks"),
 //   	},
@@ -134,6 +135,12 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-kubernetesconfig
 	//
 	KubernetesConfig interface{} `field:"optional" json:"kubernetesConfig" yaml:"kubernetesConfig"`
+	// The minimum number of instances required for the instance group to be InService.
+	//
+	// MinInstanceCount must be less than or equal to InstanceCount.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-mininstancecount
+	//
+	MinInstanceCount *float64 `field:"optional" json:"minInstanceCount" yaml:"minInstanceCount"`
 	// A flag indicating whether deep health checks should be performed when the HyperPod cluster instance group is created or updated.
 	//
 	// Deep health checks are comprehensive, invasive tests that validate the health of the underlying hardware and infrastructure components.

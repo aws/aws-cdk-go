@@ -40,23 +40,23 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html
 //
 type CfnConnectorV2Props struct {
-	// The name of the connector.
+	// The unique name of the connectorV2.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The provider configuration of the connector.
+	// The third-party provider detail for a service configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-provider
 	//
 	Provider interface{} `field:"required" json:"provider" yaml:"provider"`
-	// A description of the connector.
+	// The description of the connectorV2.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The ARN of KMS key used for the connector.
+	// The Amazon Resource Name (ARN) of KMS key used to encrypt secrets for the connectorV2.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// A key-value pair to associate with a resource.
+	// The tags to add to the connectorV2 when you create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

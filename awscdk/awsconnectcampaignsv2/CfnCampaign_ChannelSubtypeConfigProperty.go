@@ -77,6 +77,18 @@ package awsconnectcampaignsv2
 //   		Capacity: jsii.Number(123),
 //   		ConnectQueueId: jsii.String("connectQueueId"),
 //   	},
+//   	WhatsApp: &WhatsAppChannelSubtypeConfigProperty{
+//   		DefaultOutboundConfig: &WhatsAppOutboundConfigProperty{
+//   			ConnectSourcePhoneNumberArn: jsii.String("connectSourcePhoneNumberArn"),
+//   			WisdomTemplateArn: jsii.String("wisdomTemplateArn"),
+//   		},
+//   		OutboundMode: &WhatsAppOutboundModeProperty{
+//   			AgentlessConfig: agentlessConfig,
+//   		},
+//
+//   		// the properties below are optional
+//   		Capacity: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html
@@ -94,5 +106,9 @@ type CfnCampaign_ChannelSubtypeConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-telephony
 	//
 	Telephony interface{} `field:"optional" json:"telephony" yaml:"telephony"`
+	// The configuration of the WhatsApp channel subtype.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-whatsapp
+	//
+	WhatsApp interface{} `field:"optional" json:"whatsApp" yaml:"whatsApp"`
 }
 

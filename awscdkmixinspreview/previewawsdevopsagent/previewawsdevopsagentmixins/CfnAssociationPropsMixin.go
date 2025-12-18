@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::DevOpsAgent::Association defining how the AgentSpace interacts with external services like GitHub, Slack, AWS accounts, and others.
+// The `AWS::DevOpsAgent::Association` resource specifies an association between an Agent Space and a service, defining how the Agent Space interacts with external services like GitHub, Slack, AWS accounts, and others.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -120,6 +120,9 @@ import (
 //   				},
 //   			},
 //   		},
+//   	},
+//   	LinkedAssociationIds: []*string{
+//   		jsii.String("linkedAssociationIds"),
 //   	},
 //   	ServiceId: jsii.String("serviceId"),
 //   }, &CfnPropertyMixinOptions{

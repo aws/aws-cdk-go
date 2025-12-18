@@ -5,9 +5,13 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IDeploymentStrategy interface {
+	interfacesawsappconfig.IDeploymentStrategyRef
 	awscdk.IResource
 	// The deployment duration in minutes.
 	DeploymentDurationInMinutes() *float64
@@ -29,7 +33,19 @@ type IDeploymentStrategy interface {
 
 // The jsii proxy for IDeploymentStrategy
 type jsiiProxy_IDeploymentStrategy struct {
+	internal.Type__interfacesawsappconfigIDeploymentStrategyRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IDeploymentStrategy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IDeploymentStrategy) DeploymentDurationInMinutes() *float64 {
@@ -107,6 +123,46 @@ func (j *jsiiProxy_IDeploymentStrategy) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeploymentStrategy) DeploymentStrategyRef() *interfacesawsappconfig.DeploymentStrategyReference {
+	var returns *interfacesawsappconfig.DeploymentStrategyReference
+	_jsii_.Get(
+		j,
+		"deploymentStrategyRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeploymentStrategy) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeploymentStrategy) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeploymentStrategy) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

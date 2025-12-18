@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::DevOpsAgent::Association defining how the AgentSpace interacts with external services like GitHub, Slack, AWS accounts, and others.
+// The `AWS::DevOpsAgent::Association` resource specifies an association between an Agent Space and a service, defining how the Agent Space interacts with external services like GitHub, Slack, AWS accounts, and others.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -142,6 +142,11 @@ import (
 //   		},
 //   	},
 //   	ServiceId: jsii.String("serviceId"),
+//
+//   	// the properties below are optional
+//   	LinkedAssociationIds: []*string{
+//   		jsii.String("linkedAssociationIds"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-association.html
@@ -150,7 +155,7 @@ type CfnAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsdevopsagent.IAssociationRef
-	// The unique identifier of the AgentSpace.
+	// The unique identifier of the Agent Space.
 	AgentSpaceId() *string
 	SetAgentSpaceId(val *string)
 	// A reference to a Association resource.
@@ -166,7 +171,7 @@ type CfnAssociation interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The configuration that directs how AgentSpace interacts with the given service.
+	// The configuration that directs how the Agent Space interacts with the given service.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -174,6 +179,9 @@ type CfnAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// Set of linked association IDs for parent-child relationships.
+	LinkedAssociationIds() *[]*string
+	SetLinkedAssociationIds(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -455,6 +463,16 @@ func (j *jsiiProxy_CfnAssociation) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssociation) LinkedAssociationIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"linkedAssociationIds",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssociation) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -573,6 +591,14 @@ func (j *jsiiProxy_CfnAssociation)SetConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"configuration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssociation)SetLinkedAssociationIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"linkedAssociationIds",
 		val,
 	)
 }

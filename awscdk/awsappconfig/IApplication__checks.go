@@ -6,6 +6,9 @@ import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 )
 
 func (i *jsiiProxy_IApplication) validateAddEnvironmentParameters(id *string, options *EnvironmentOptions) error {
@@ -20,7 +23,7 @@ func (i *jsiiProxy_IApplication) validateAddEnvironmentParameters(id *string, op
 	return nil
 }
 
-func (i *jsiiProxy_IApplication) validateAddExistingEnvironmentParameters(environment IEnvironment) error {
+func (i *jsiiProxy_IApplication) validateAddExistingEnvironmentParameters(environment interfacesawsappconfig.IEnvironmentRef) error {
 	if environment == nil {
 		return fmt.Errorf("parameter environment is required, but nil was provided")
 	}
@@ -173,6 +176,14 @@ func (i *jsiiProxy_IApplication) validatePreStartDeploymentParameters(eventDesti
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IApplication) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	if policy == "" {
+		return fmt.Errorf("parameter policy is required, but nil was provided")
 	}
 
 	return nil

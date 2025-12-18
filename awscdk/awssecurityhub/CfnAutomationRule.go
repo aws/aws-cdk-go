@@ -13,7 +13,7 @@ import (
 
 // The `AWS::SecurityHub::AutomationRule` resource specifies an automation rule based on input parameters.
 //
-// For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
+// For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -343,7 +343,7 @@ type CfnAutomationRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A set of [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, Security Hub applies the rule action to the finding.
+	// A set of [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, Security Hub CSPM applies the rule action to the finding.
 	Criteria() interface{}
 	SetCriteria(val interface{})
 	// A description of the rule.

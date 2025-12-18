@@ -41,7 +41,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-s3tableintegration.html
 //
 type CfnS3TableIntegrationProps struct {
-	// Encryption configuration for the S3 Table Integration.
+	// Defines the encryption configuration for S3 Table integrations, including the encryption algorithm and KMS key settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-s3tableintegration.html#cfn-observabilityadmin-s3tableintegration-encryption
 	//
 	Encryption interface{} `field:"required" json:"encryption" yaml:"encryption"`

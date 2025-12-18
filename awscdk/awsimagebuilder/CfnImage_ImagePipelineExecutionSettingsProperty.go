@@ -1,7 +1,7 @@
 package awsimagebuilder
 
 
-// The settings for starting an image pipeline execution.
+// Contains settings for starting an image pipeline execution.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagepipelineexecutionsettings.html
 //
 type CfnImage_ImagePipelineExecutionSettingsProperty struct {
-	// The deployment ID of the pipeline, used to trigger new image pipeline executions.
+	// The deployment identifier of the pipeline, utilized to initiate new image pipeline executions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagepipelineexecutionsettings.html#cfn-imagebuilder-image-imagepipelineexecutionsettings-deploymentid
 	//
 	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
-	// Whether to trigger the image pipeline when the pipeline is updated.
+	// Defines whether the pipeline should be executed upon pipeline updates.
 	//
 	// False by default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagepipelineexecutionsettings.html#cfn-imagebuilder-image-imagepipelineexecutionsettings-onupdate

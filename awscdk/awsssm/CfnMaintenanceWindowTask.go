@@ -100,6 +100,8 @@ type CfnMaintenanceWindowTask interface {
 	awscdk.IInspectable
 	interfacesawsssm.IMaintenanceWindowTaskRef
 	AttrId() *string
+	// Unique identifier of the maintenance window task.
+	AttrWindowTaskId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -327,6 +329,16 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindowTask) AttrWindowTaskId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrWindowTaskId",
 		&returns,
 	)
 	return returns
@@ -753,6 +765,24 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask)SetWindowId(val *string) {
 		"windowId",
 		val,
 	)
+}
+
+func CfnMaintenanceWindowTask_ArnForMaintenanceWindowTask(resource interfacesawsssm.IMaintenanceWindowTaskRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMaintenanceWindowTask_ArnForMaintenanceWindowTaskParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnMaintenanceWindowTask",
+		"arnForMaintenanceWindowTask",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

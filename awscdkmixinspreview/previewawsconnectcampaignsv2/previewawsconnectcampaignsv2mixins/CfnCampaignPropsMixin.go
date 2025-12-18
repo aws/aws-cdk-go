@@ -14,6 +14,7 @@ import (
 //
 // > - For users to be able to view or edit a campaign at a later date by using the Amazon Connect user interface, you must add the instance ID as a tag. For example, `{ "tags": {"owner": "arn:aws:connect:{REGION}:{AWS_ACCOUNT_ID}:instance/{CONNECT_INSTANCE_ID}"}}` .
 // > - After a campaign is created, you can't add/remove source.
+// > - Configuring maximum ring time is not supported for the Preview dial mode.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -75,6 +76,16 @@ import (
 //   				ProgressiveConfig: &ProgressiveConfigProperty{
 //   					BandwidthAllocation: jsii.Number(123),
 //   				},
+//   			},
+//   		},
+//   		WhatsApp: &WhatsAppChannelSubtypeConfigProperty{
+//   			Capacity: jsii.Number(123),
+//   			DefaultOutboundConfig: &WhatsAppOutboundConfigProperty{
+//   				ConnectSourcePhoneNumberArn: jsii.String("connectSourcePhoneNumberArn"),
+//   				WisdomTemplateArn: jsii.String("wisdomTemplateArn"),
+//   			},
+//   			OutboundMode: &WhatsAppOutboundModeProperty{
+//   				AgentlessConfig: agentlessConfig,
 //   			},
 //   		},
 //   	},
@@ -169,6 +180,30 @@ import (
 //   				},
 //   			},
 //   		},
+//   		WhatsApp: &TimeWindowProperty{
+//   			OpenHours: &OpenHoursProperty{
+//   				DailyHours: []interface{}{
+//   					&DailyHourProperty{
+//   						Key: jsii.String("key"),
+//   						Value: []interface{}{
+//   							&TimeRangeProperty{
+//   								EndTime: jsii.String("endTime"),
+//   								StartTime: jsii.String("startTime"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			RestrictedPeriods: &RestrictedPeriodsProperty{
+//   				RestrictedPeriodList: []interface{}{
+//   					&RestrictedPeriodProperty{
+//   						EndDate: jsii.String("endDate"),
+//   						Name: jsii.String("name"),
+//   						StartDate: jsii.String("startDate"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	ConnectCampaignFlowArn: jsii.String("connectCampaignFlowArn"),
 //   	ConnectInstanceId: jsii.String("connectInstanceId"),
@@ -190,6 +225,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Type: jsii.String("type"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
 //   })

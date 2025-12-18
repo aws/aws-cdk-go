@@ -76,3 +76,7 @@ patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &HttpsRedirectProps{
 It is safe to upgrade to `@aws-cdk/aws-route53-patterns:useCertificate` since
 the new certificate will be created and updated on the CloudFront distribution
 before the old certificate is deleted.
+
+To have `HttpsRedirect` use the `Distribution` construct as the default
+created CloudFront distribution instead of the deprecated `CloudFrontWebDistribution`
+construct, enable the `@aws-cdk/aws-route53-patterns:useDistribution` [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html).

@@ -9,13 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (l *jsiiProxy_LogGroupLogsDelivery) validateBindParameters(scope constructs.IConstruct, deliverySource interfacesawslogs.IDeliverySourceRef, sourceResourceArn *string) error {
+func (l *jsiiProxy_LogGroupLogsDelivery) validateBindParameters(scope constructs.IConstruct, logType *string, sourceResourceArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if deliverySource == nil {
-		return fmt.Errorf("parameter deliverySource is required, but nil was provided")
+	if logType == nil {
+		return fmt.Errorf("parameter logType is required, but nil was provided")
 	}
 
 	if sourceResourceArn == nil {

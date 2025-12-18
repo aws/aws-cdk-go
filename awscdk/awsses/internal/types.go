@@ -27,6 +27,7 @@ type Type__interfacesawssesIReceiptFilterRef = interfacesawsses.IReceiptFilterRe
 type Type__interfacesawssesIReceiptRuleRef = interfacesawsses.IReceiptRuleRef
 type Type__interfacesawssesIReceiptRuleSetRef = interfacesawsses.IReceiptRuleSetRef
 type Type__interfacesawssesITemplateRef = interfacesawsses.ITemplateRef
+type Type__interfacesawssesITenantRef = interfacesawsses.ITenantRef
 type Type__interfacesawssesIVdmAttributesRef = interfacesawsses.IVdmAttributesRef
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkIResource = awscdk.IResource

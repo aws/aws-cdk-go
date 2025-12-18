@@ -56,6 +56,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysisTemplatePropsMixin_AnalysisTemplateArtifactsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnAnalysisTemplatePropsMixin.ColumnClassificationDetailsProperty",
+		reflect.TypeOf((*CfnAnalysisTemplatePropsMixin_ColumnClassificationDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnAnalysisTemplatePropsMixin.ErrorMessageConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysisTemplatePropsMixin_ErrorMessageConfigurationProperty)(nil)).Elem(),
 	)
@@ -64,8 +68,20 @@ func init() {
 		reflect.TypeOf((*CfnAnalysisTemplatePropsMixin_HashProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnAnalysisTemplatePropsMixin.MLSyntheticDataParametersProperty",
+		reflect.TypeOf((*CfnAnalysisTemplatePropsMixin_MLSyntheticDataParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnAnalysisTemplatePropsMixin.S3LocationProperty",
 		reflect.TypeOf((*CfnAnalysisTemplatePropsMixin_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnAnalysisTemplatePropsMixin.SyntheticDataColumnPropertiesProperty",
+		reflect.TypeOf((*CfnAnalysisTemplatePropsMixin_SyntheticDataColumnPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnAnalysisTemplatePropsMixin.SyntheticDataParametersProperty",
+		reflect.TypeOf((*CfnAnalysisTemplatePropsMixin_SyntheticDataParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnCollaborationMixinProps",
@@ -122,6 +138,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnCollaborationPropsMixin.QueryComputePaymentConfigProperty",
 		reflect.TypeOf((*CfnCollaborationPropsMixin_QueryComputePaymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnCollaborationPropsMixin.SyntheticDataGenerationPaymentConfigProperty",
+		reflect.TypeOf((*CfnCollaborationPropsMixin_SyntheticDataGenerationPaymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnConfiguredTableAssociationMixinProps",
@@ -402,6 +422,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipPropsMixin.MembershipQueryComputePaymentConfigProperty",
 		reflect.TypeOf((*CfnMembershipPropsMixin_MembershipQueryComputePaymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipPropsMixin.MembershipSyntheticDataGenerationPaymentConfigProperty",
+		reflect.TypeOf((*CfnMembershipPropsMixin_MembershipSyntheticDataGenerationPaymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipPropsMixin.ProtectedJobS3OutputConfigurationInputProperty",

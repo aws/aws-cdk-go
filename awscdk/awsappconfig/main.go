@@ -51,6 +51,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addSourcedConfiguration", GoMethod: "AddSourcedConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationArn", GoGetter: "ApplicationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationId", GoGetter: "ApplicationId"},
+			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "atDeploymentTick", GoMethod: "AtDeploymentTick"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -652,6 +653,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deploymentDurationInMinutes", GoGetter: "DeploymentDurationInMinutes"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentStrategyArn", GoGetter: "DeploymentStrategyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentStrategyId", GoGetter: "DeploymentStrategyId"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentStrategyRef", GoGetter: "DeploymentStrategyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "finalBakeTimeInMinutes", GoGetter: "FinalBakeTimeInMinutes"},
@@ -703,6 +705,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentArn", GoGetter: "EnvironmentArn"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentId", GoGetter: "EnvironmentId"},
+			_jsii_.MemberProperty{JsiiProperty: "environmentRef", GoGetter: "EnvironmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "extensible", GoGetter: "Extensible"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -788,6 +791,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "extensionArn", GoGetter: "ExtensionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "extensionId", GoGetter: "ExtensionId"},
+			_jsii_.MemberProperty{JsiiProperty: "extensionRef", GoGetter: "ExtensionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "extensionVersionNumber", GoGetter: "ExtensionVersionNumber"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -892,6 +896,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addSourcedConfiguration", GoMethod: "AddSourcedConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationArn", GoGetter: "ApplicationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationId", GoGetter: "ApplicationId"},
+			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "atDeploymentTick", GoMethod: "AtDeploymentTick"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -911,6 +916,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IApplication{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappconfigIApplicationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -945,6 +951,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deploymentDurationInMinutes", GoGetter: "DeploymentDurationInMinutes"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentStrategyArn", GoGetter: "DeploymentStrategyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentStrategyId", GoGetter: "DeploymentStrategyId"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentStrategyRef", GoGetter: "DeploymentStrategyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "finalBakeTimeInMinutes", GoGetter: "FinalBakeTimeInMinutes"},
@@ -956,6 +963,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDeploymentStrategy{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappconfigIDeploymentStrategyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -975,6 +983,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentArn", GoGetter: "EnvironmentArn"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentId", GoGetter: "EnvironmentId"},
+			_jsii_.MemberProperty{JsiiProperty: "environmentRef", GoGetter: "EnvironmentRef"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadConfig", GoMethod: "GrantReadConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "monitors", GoGetter: "Monitors"},
@@ -992,6 +1001,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IEnvironment{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappconfigIEnvironmentRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1037,6 +1047,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "extensionArn", GoGetter: "ExtensionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "extensionId", GoGetter: "ExtensionId"},
+			_jsii_.MemberProperty{JsiiProperty: "extensionRef", GoGetter: "ExtensionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "extensionVersionNumber", GoGetter: "ExtensionVersionNumber"},
 			_jsii_.MemberProperty{JsiiProperty: "latestVersionNumber", GoGetter: "LatestVersionNumber"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -1046,6 +1057,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IExtension{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappconfigIExtensionRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

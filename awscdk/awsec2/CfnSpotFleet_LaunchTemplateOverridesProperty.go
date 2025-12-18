@@ -77,6 +77,7 @@ package awsec2
 //   			Min: jsii.Number(123),
 //   		},
 //   		OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   		RequireEncryptionInTransit: jsii.Boolean(false),
 //   		RequireHibernateSupport: jsii.Boolean(false),
 //   		SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   		TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{

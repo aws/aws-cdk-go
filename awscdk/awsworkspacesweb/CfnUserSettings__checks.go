@@ -213,6 +213,30 @@ func (j *jsiiProxy_CfnUserSettings) validateSetAdditionalEncryptionContextParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserSettings) validateSetBrandingConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnUserSettings_BrandingConfigurationProperty:
+		val := val.(*CfnUserSettings_BrandingConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnUserSettings_BrandingConfigurationProperty:
+		val_ := val.(CfnUserSettings_BrandingConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserSettings_BrandingConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserSettings) validateSetCookieSynchronizationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

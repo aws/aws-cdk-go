@@ -8,7 +8,7 @@ func (t *jsiiProxy_TlsValidationTrust) validateBindParameters(scope constructs.C
 	return nil
 }
 
-func validateTlsValidationTrust_AcmParameters(certificateAuthorities *[]awsacmpca.ICertificateAuthority) error {
+func validateTlsValidationTrust_AcmParameters(certificateAuthorities *[]interfacesawsacmpca.ICertificateAuthorityRef) error {
 	return nil
 }
 

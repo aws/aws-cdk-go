@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Contains information about a storage location for images extracted from multimodal documents in your data source.
+// Contains information about a storage location for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,7 +24,7 @@ type CfnKnowledgeBase_SupplementalDataStorageLocationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocation.html#cfn-bedrock-knowledgebase-supplementaldatastoragelocation-supplementaldatastoragelocationtype
 	//
 	SupplementalDataStorageLocationType *string `field:"required" json:"supplementalDataStorageLocationType" yaml:"supplementalDataStorageLocationType"`
-	// Contains information about the Amazon S3 location for the extracted images.
+	// Contains information about the Amazon S3 location for the extracted multimedia content.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocation.html#cfn-bedrock-knowledgebase-supplementaldatastoragelocation-s3location
 	//
 	S3Location interface{} `field:"optional" json:"s3Location" yaml:"s3Location"`

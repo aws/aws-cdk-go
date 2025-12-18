@@ -1,7 +1,7 @@
 package previewawslambdamixins
 
 
-// Specifications for the types of EC2 instances that the capacity provider can use.
+// Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,21 +23,19 @@ package previewawslambdamixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-instancerequirements.html
 //
 type CfnCapacityProviderPropsMixin_InstanceRequirementsProperty struct {
-	// A list of instance types that the capacity provider can use.
+	// A list of EC2 instance types that the capacity provider is allowed to use.
 	//
-	// Supports wildcards (for example, m5.*).
+	// If not specified, all compatible instance types are allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-instancerequirements.html#cfn-lambda-capacityprovider-instancerequirements-allowedinstancetypes
 	//
 	AllowedInstanceTypes *[]*string `field:"optional" json:"allowedInstanceTypes" yaml:"allowedInstanceTypes"`
-	// The instruction set architecture for EC2 instances.
+	// A list of supported CPU architectures for compute instances.
 	//
-	// Specify either x86_64 or arm64.
+	// Valid values include `x86_64` and `arm64` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-instancerequirements.html#cfn-lambda-capacityprovider-instancerequirements-architectures
 	//
 	Architectures *[]*string `field:"optional" json:"architectures" yaml:"architectures"`
-	// A list of instance types that the capacity provider should not use.
-	//
-	// Takes precedence over AllowedInstanceTypes.
+	// A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-instancerequirements.html#cfn-lambda-capacityprovider-instancerequirements-excludedinstancetypes
 	//
 	ExcludedInstanceTypes *[]*string `field:"optional" json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`

@@ -15,6 +15,9 @@ package previewawscleanroomsmixins
 //   	ModelTraining: &ModelTrainingPaymentConfigProperty{
 //   		IsResponsible: jsii.Boolean(false),
 //   	},
+//   	SyntheticDataGeneration: &SyntheticDataGenerationPaymentConfigProperty{
+//   		IsResponsible: jsii.Boolean(false),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html
@@ -28,5 +31,9 @@ type CfnCollaborationPropsMixin_MLPaymentConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html#cfn-cleanrooms-collaboration-mlpaymentconfig-modeltraining
 	//
 	ModelTraining interface{} `field:"optional" json:"modelTraining" yaml:"modelTraining"`
+	// The payment configuration for machine learning synthetic data generation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html#cfn-cleanrooms-collaboration-mlpaymentconfig-syntheticdatageneration
+	//
+	SyntheticDataGeneration interface{} `field:"optional" json:"syntheticDataGeneration" yaml:"syntheticDataGeneration"`
 }
 

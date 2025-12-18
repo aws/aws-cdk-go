@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a SageMaker HyperPod cluster.
+// Creates an Amazon SageMaker HyperPod cluster.
 //
 // SageMaker HyperPod is a capability of SageMaker for creating and managing persistent clusters for developing large machine learning models, such as large language models (LLMs) and diffusion models. To learn more, see [Amazon SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html) in the *Amazon SageMaker Developer Guide* .
 //
@@ -67,6 +67,7 @@ import (
 //   				OnCreate: jsii.String("onCreate"),
 //   				SourceS3Uri: jsii.String("sourceS3Uri"),
 //   			},
+//   			MinInstanceCount: jsii.Number(123),
 //   			OnStartDeepHealthChecks: []*string{
 //   				jsii.String("onStartDeepHealthChecks"),
 //   			},

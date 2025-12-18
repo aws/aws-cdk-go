@@ -145,6 +145,7 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-architectures
 	//
 	Architectures *[]*string `field:"optional" json:"architectures" yaml:"architectures"`
+	// Configuration for the capacity provider that manages compute resources for Lambda functions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-capacityproviderconfig
 	//
 	CapacityProviderConfig interface{} `field:"optional" json:"capacityProviderConfig" yaml:"capacityProviderConfig"`
@@ -165,6 +166,7 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-durableconfig
 	//
 	DurableConfig interface{} `field:"optional" json:"durableConfig" yaml:"durableConfig"`
@@ -194,6 +196,7 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
 	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionscalingconfig
 	//
 	FunctionScalingConfig interface{} `field:"optional" json:"functionScalingConfig" yaml:"functionScalingConfig"`

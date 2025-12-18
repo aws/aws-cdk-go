@@ -10,6 +10,12 @@ package previewawscloudfrontmixins
 //
 //   cfnAnycastIpListMixinProps := &CfnAnycastIpListMixinProps{
 //   	IpAddressType: jsii.String("ipAddressType"),
+//   	IpamCidrConfigs: []interface{}{
+//   		&IpamCidrConfigProperty{
+//   			Cidr: jsii.String("cidr"),
+//   			IpamPoolArn: jsii.String("ipamPoolArn"),
+//   		},
+//   	},
 //   	IpCount: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   }
@@ -21,6 +27,9 @@ type CfnAnycastIpListMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-ipamcidrconfigs
+	//
+	IpamCidrConfigs interface{} `field:"optional" json:"ipamCidrConfigs" yaml:"ipamCidrConfigs"`
 	// The number of IP addresses in the Anycast static IP list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-ipcount
 	//

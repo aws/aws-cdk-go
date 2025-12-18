@@ -31,11 +31,15 @@ import (
 //   					Hashed: jsii.Boolean(false),
 //   				},
 //   			},
-//   			OutputS3Path: jsii.String("outputS3Path"),
 //
 //   			// the properties below are optional
 //   			ApplyNormalization: jsii.Boolean(false),
+//   			CustomerProfilesIntegrationConfig: &CustomerProfilesIntegrationConfigProperty{
+//   				DomainArn: jsii.String("domainArn"),
+//   				ObjectTypeArn: jsii.String("objectTypeArn"),
+//   			},
 //   			KmsArn: jsii.String("kmsArn"),
+//   			OutputS3Path: jsii.String("outputS3Path"),
 //   		},
 //   	},
 //   	ResolutionTechniques: &ResolutionTechniquesProperty{

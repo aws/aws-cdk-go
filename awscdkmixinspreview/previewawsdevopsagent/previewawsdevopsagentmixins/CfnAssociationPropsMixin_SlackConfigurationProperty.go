@@ -1,7 +1,9 @@
 package previewawsdevopsagentmixins
 
 
-// Slack workspace integration configuration.
+// Configuration for Slack workspace integration.
+//
+// Defines the workspace ID, workspace name, and transmission targets that specify which Slack channels receive notifications.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

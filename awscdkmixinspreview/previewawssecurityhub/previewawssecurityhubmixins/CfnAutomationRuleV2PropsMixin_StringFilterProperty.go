@@ -1,7 +1,7 @@
 package previewawssecurityhubmixins
 
 
-// A string filter for filtering Security Hub findings.
+// A string filter for filtering AWS Security Hub CSPM findings.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,7 +16,7 @@ package previewawssecurityhubmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-stringfilter.html
 //
 type CfnAutomationRuleV2PropsMixin_StringFilterProperty struct {
-	// The condition to apply to a string value when filtering Security Hub findings.
+	// The condition to apply to a string value when filtering Security Hub CSPM findings.
 	//
 	// To search for values that have the filter value, use one of the following comparison operators:
 	//
@@ -36,22 +36,22 @@ type CfnAutomationRuleV2PropsMixin_StringFilterProperty struct {
 	//
 	// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
 	//
-	// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+	// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
 	//
-	// For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
+	// For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
 	//
 	// - `ResourceType PREFIX AwsIam`
 	// - `ResourceType PREFIX AwsEc2`
 	// - `ResourceType NOT_EQUALS AwsIamPolicy`
 	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
+	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-stringfilter.html#cfn-securityhub-automationrulev2-stringfilter-comparison
 	//
 	Comparison *string `field:"optional" json:"comparison" yaml:"comparison"`
 	// The string filter value.
 	//
-	// Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+	// Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-stringfilter.html#cfn-securityhub-automationrulev2-stringfilter-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

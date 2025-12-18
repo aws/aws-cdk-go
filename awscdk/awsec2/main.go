@@ -3593,6 +3593,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPrimaryIpv6Address", GoGetter: "AttrPrimaryIpv6Address"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPrimaryPrivateIpAddress", GoGetter: "AttrPrimaryPrivateIpAddress"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPublicIpDnsNameOptions", GoGetter: "AttrPublicIpDnsNameOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSecondaryPrivateIpAddresses", GoGetter: "AttrSecondaryPrivateIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVpcId", GoGetter: "AttrVpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -3622,6 +3623,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "privateIpAddress", GoGetter: "PrivateIpAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "privateIpAddresses", GoGetter: "PrivateIpAddresses"},
+			_jsii_.MemberProperty{JsiiProperty: "publicIpDnsHostnameTypeSpecification", GoGetter: "PublicIpDnsHostnameTypeSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -3666,6 +3668,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInterface.PrivateIpAddressSpecificationProperty",
 		reflect.TypeOf((*CfnNetworkInterface_PrivateIpAddressSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterface.PublicIpDnsNameOptionsProperty",
+		reflect.TypeOf((*CfnNetworkInterface_PublicIpDnsNameOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInterfaceAttachment",
@@ -4693,6 +4699,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "spotFleetRef", GoGetter: "SpotFleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "spotFleetRequestConfigData", GoGetter: "SpotFleetRequestConfigData"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -9316,6 +9323,8 @@ func init() {
 			"M7A": InstanceClass_M7A,
 			"STANDARD8_AMD": InstanceClass_STANDARD8_AMD,
 			"M8A": InstanceClass_M8A,
+			"STANDARD9_GRAVITON": InstanceClass_STANDARD9_GRAVITON,
+			"M9G": InstanceClass_M9G,
 			"HIGH_COMPUTE_MEMORY1": InstanceClass_HIGH_COMPUTE_MEMORY1,
 			"Z1D": InstanceClass_Z1D,
 			"INFERENCE1": InstanceClass_INFERENCE1,

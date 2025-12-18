@@ -48,6 +48,7 @@ import (
 //   			PrivateIpAddress: jsii.String("privateIpAddress"),
 //   		},
 //   	},
+//   	PublicIpDnsHostnameTypeSpecification: jsii.String("publicIpDnsHostnameTypeSpecification"),
 //   	SecondaryPrivateIpAddressCount: jsii.Number(123),
 //   	SourceDestCheck: jsii.Boolean(false),
 //   	SubnetId: jsii.String("subnetId"),
@@ -140,6 +141,10 @@ type CfnNetworkInterfaceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-privateipaddresses
 	//
 	PrivateIpAddresses interface{} `field:"optional" json:"privateIpAddresses" yaml:"privateIpAddresses"`
+	// Public IP DNS hostname type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-publicipdnshostnametypespecification
+	//
+	PublicIpDnsHostnameTypeSpecification *string `field:"optional" json:"publicIpDnsHostnameTypeSpecification" yaml:"publicIpDnsHostnameTypeSpecification"`
 	// The number of secondary private IPv4 addresses to assign to a network interface.
 	//
 	// When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using `privateIpAddresses` .

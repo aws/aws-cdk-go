@@ -13,7 +13,7 @@ package interfacesawsrobomaker
 //   }
 //
 type RobotApplicationReference struct {
-	// The Arn of the RobotApplication resource.
+	// The ARN of the RobotApplication resource.
 	RobotApplicationArn *string `field:"required" json:"robotApplicationArn" yaml:"robotApplicationArn"`
 }
 

@@ -1280,6 +1280,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBasePropsMixin.AudioConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_AudioConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBasePropsMixin.AudioSegmentationConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_AudioSegmentationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBasePropsMixin.BedrockEmbeddingModelConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_BedrockEmbeddingModelConfigurationProperty)(nil)).Elem(),
 	)
@@ -1426,6 +1434,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBasePropsMixin.VectorKnowledgeBaseConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_VectorKnowledgeBaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBasePropsMixin.VideoConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_VideoConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBasePropsMixin.VideoSegmentationConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_VideoSegmentationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogs",

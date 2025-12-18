@@ -5,9 +5,13 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type IExtension interface {
+	interfacesawsappconfig.IExtensionRef
 	awscdk.IResource
 	// The actions for the extension.
 	Actions() *[]Action
@@ -29,7 +33,19 @@ type IExtension interface {
 
 // The jsii proxy for IExtension
 type jsiiProxy_IExtension struct {
+	internal.Type__interfacesawsappconfigIExtensionRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IExtension) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IExtension) Actions() *[]Action {
@@ -107,6 +123,46 @@ func (j *jsiiProxy_IExtension) Parameters() *[]Parameter {
 	_jsii_.Get(
 		j,
 		"parameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IExtension) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IExtension) ExtensionRef() *interfacesawsappconfig.ExtensionReference {
+	var returns *interfacesawsappconfig.ExtensionReference
+	_jsii_.Get(
+		j,
+		"extensionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IExtension) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IExtension) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

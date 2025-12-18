@@ -1,7 +1,7 @@
 package awsdevopsagent
 
 
-// Transmission targets for agent notifications.
+// Defines the Slack channels where different types of agent notifications will be sent.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,7 +20,7 @@ package awsdevopsagent
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slacktransmissiontarget.html
 //
 type CfnAssociation_SlackTransmissionTargetProperty struct {
-	// Slack channel configuration.
+	// Destination for AWS DevOps Agent Incident Response.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slacktransmissiontarget.html#cfn-devopsagent-association-slacktransmissiontarget-incidentresponsetarget
 	//
 	IncidentResponseTarget interface{} `field:"required" json:"incidentResponseTarget" yaml:"incidentResponseTarget"`

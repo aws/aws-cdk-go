@@ -25,7 +25,7 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-automationrulesactionv2.html
 //
 type CfnAutomationRuleV2_AutomationRulesActionV2Property struct {
-	// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+	// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-automationrulesactionv2.html#cfn-securityhub-automationrulev2-automationrulesactionv2-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

@@ -1,12 +1,25 @@
 package awss3
 
 import (
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
 // Collection of grant methods for a Bucket.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var bucketRef IBucketRef
+//
+//   bucketGrants := awscdk.Aws_s3.BucketGrants_FromBucket(bucketRef)
+//
 type BucketGrants interface {
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 	Delete(grantee awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
@@ -66,6 +79,25 @@ type BucketGrants interface {
 // The jsii proxy struct for BucketGrants
 type jsiiProxy_BucketGrants struct {
 	_ byte // padding
+}
+
+// Creates grants for an IBucketRef.
+func BucketGrants_FromBucket(bucket interfacesawss3.IBucketRef) BucketGrants {
+	_init_.Initialize()
+
+	if err := validateBucketGrants_FromBucketParameters(bucket); err != nil {
+		panic(err)
+	}
+	var returns BucketGrants
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.BucketGrants",
+		"fromBucket",
+		[]interface{}{bucket},
+		&returns,
+	)
+
+	return returns
 }
 
 func (b *jsiiProxy_BucketGrants) Delete(grantee awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {

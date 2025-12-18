@@ -34,6 +34,7 @@ package awsautoscaling
 //   		// the properties below are optional
 //   		Overrides: []interface{}{
 //   			&LaunchTemplateOverridesProperty{
+//   				ImageId: jsii.String("imageId"),
 //   				InstanceRequirements: &InstanceRequirementsProperty{
 //   					MemoryMiB: &MemoryMiBRequestProperty{
 //   						Max: jsii.Number(123),

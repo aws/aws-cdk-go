@@ -11,9 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::Insight` resource creates a custom insight in Security Hub .
+// The `AWS::SecurityHub::Insight` resource creates a custom insight in AWS Security Hub CSPM .
 //
-// An insight is a collection of findings that relate to a security issue that requires attention or remediation. For more information, see [Insights in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) in the *Security Hub User Guide* .
+// An insight is a collection of findings that relate to a security issue that requires attention or remediation. For more information, see [Insights in AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Tags aren't supported for this resource.
 //
@@ -709,7 +709,7 @@ type CfnInsight interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawssecurityhub.IInsightRef
-	// The ARN of a Security Hub insight.
+	// The ARN of a Security Hub CSPM insight.
 	AttrInsightArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -739,7 +739,7 @@ type CfnInsight interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of a Security Hub insight.
+	// The name of a Security Hub CSPM insight.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

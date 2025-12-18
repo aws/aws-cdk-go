@@ -47,12 +47,14 @@ import (
 //   		jsii.String("protocols"),
 //   	},
 //   	ResolverEndpointType: jsii.String("resolverEndpointType"),
+//   	RniEnhancedMetricsEnabled: jsii.Boolean(false),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetNameServerMetricsEnabled: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html
@@ -129,6 +131,9 @@ type CfnResolverEndpoint interface {
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType() *string
 	SetResolverEndpointType(val *string)
+	// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints.
+	RniEnhancedMetricsEnabled() interface{}
+	SetRniEnhancedMetricsEnabled(val interface{})
 	// The ID of one or more security groups that control access to this VPC.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
@@ -141,6 +146,9 @@ type CfnResolverEndpoint interface {
 	// Route 53 Resolver doesn't support updating tags through CloudFormation.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint.
+	TargetNameServerMetricsEnabled() interface{}
+	SetTargetNameServerMetricsEnabled(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -539,6 +547,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) ResolverEndpointType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint) RniEnhancedMetricsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rniEnhancedMetricsEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint) SecurityGroupIds() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -574,6 +592,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) TagsRaw() *[]*awscdk.CfnTag {
 	_jsii_.Get(
 		j,
 		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) TargetNameServerMetricsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"targetNameServerMetricsEnabled",
 		&returns,
 	)
 	return returns
@@ -691,6 +719,17 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetResolverEndpointType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint)SetRniEnhancedMetricsEnabled(val interface{}) {
+	if err := j.validateSetRniEnhancedMetricsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rniEnhancedMetricsEnabled",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint)SetSecurityGroupIds(val *[]*string) {
 	if err := j.validateSetSecurityGroupIdsParameters(val); err != nil {
 		panic(err)
@@ -709,6 +748,17 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint)SetTargetNameServerMetricsEnabled(val interface{}) {
+	if err := j.validateSetTargetNameServerMetricsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"targetNameServerMetricsEnabled",
 		val,
 	)
 }

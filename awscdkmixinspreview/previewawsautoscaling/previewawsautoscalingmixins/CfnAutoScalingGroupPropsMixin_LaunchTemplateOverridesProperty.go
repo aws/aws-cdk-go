@@ -17,6 +17,7 @@ package previewawsautoscalingmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   launchTemplateOverridesProperty := &LaunchTemplateOverridesProperty{
+//   	ImageId: jsii.String("imageId"),
 //   	InstanceRequirements: &InstanceRequirementsProperty{
 //   		AcceleratorCount: &AcceleratorCountRequestProperty{
 //   			Max: jsii.Number(123),
@@ -107,6 +108,9 @@ package previewawsautoscalingmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html
 //
 type CfnAutoScalingGroupPropsMixin_LaunchTemplateOverridesProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-imageid
+	//
+	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// The instance requirements.
 	//
 	// Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.

@@ -127,6 +127,7 @@ import (
 //   						Min: jsii.Number(123),
 //   					},
 //   					OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   					RequireEncryptionInTransit: jsii.Boolean(false),
 //   					RequireHibernateSupport: jsii.Boolean(false),
 //   					SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   					TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
@@ -275,6 +276,7 @@ import (
 //   								Min: jsii.Number(123),
 //   							},
 //   							OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   							RequireEncryptionInTransit: jsii.Boolean(false),
 //   							RequireHibernateSupport: jsii.Boolean(false),
 //   							SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   							TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
@@ -340,6 +342,12 @@ import (
 //   		Type: jsii.String("type"),
 //   		ValidFrom: jsii.String("validFrom"),
 //   		ValidUntil: jsii.String("validUntil"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,

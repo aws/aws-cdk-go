@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::SecurityHub::ConnectorV2.
+// Grants permission to create a connectorV2 based on input parameters.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

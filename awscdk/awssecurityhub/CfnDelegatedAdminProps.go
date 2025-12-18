@@ -15,7 +15,7 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-delegatedadmin.html
 //
 type CfnDelegatedAdminProps struct {
-	// The AWS account identifier of the account to designate as the Security Hub administrator account.
+	// The AWS account identifier of the account to designate as the Security Hub CSPM administrator account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-delegatedadmin.html#cfn-securityhub-delegatedadmin-adminaccountid
 	//
 	AdminAccountId *string `field:"required" json:"adminAccountId" yaml:"adminAccountId"`

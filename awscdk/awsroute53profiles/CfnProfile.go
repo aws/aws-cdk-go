@@ -43,6 +43,8 @@ type CfnProfile interface {
 	AttrClientToken() *string
 	// ID of the Profile.
 	AttrId() *string
+	// The sharing status of the profile.
+	AttrShareStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -257,6 +259,16 @@ func (j *jsiiProxy_CfnProfile) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProfile) AttrShareStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrShareStatus",
 		&returns,
 	)
 	return returns

@@ -13,11 +13,11 @@ import (
 
 // The `AWS::SecurityHub::Standard` resource specifies the enablement of a security standard.
 //
-// The standard is identified by the `StandardsArn` property. To view a list of Security Hub standards and their Amazon Resource Names (ARNs), use the [`DescribeStandards`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
+// The standard is identified by the `StandardsArn` property. To view a list of Security Hub CSPM standards and their Amazon Resource Names (ARNs), use the [`DescribeStandards`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
 //
 // You must create a separate `AWS::SecurityHub::Standard` resource for each standard that you want to enable.
 //
-// For more information about Security Hub standards, see [Security Hub standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *Security Hub User Guide* .
+// For more information about Security Hub CSPM standards, see [Security Hub CSPM standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

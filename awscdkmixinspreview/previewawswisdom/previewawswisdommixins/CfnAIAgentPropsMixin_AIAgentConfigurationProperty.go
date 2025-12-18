@@ -239,12 +239,15 @@ type CfnAIAgentPropsMixin_AIAgentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-answerrecommendationaiagentconfiguration
 	//
 	AnswerRecommendationAiAgentConfiguration interface{} `field:"optional" json:"answerRecommendationAiAgentConfiguration" yaml:"answerRecommendationAiAgentConfiguration"`
+	// Configuration for the EMAIL_GENERATIVE_ANSWER AI agent that provides comprehensive knowledge-based answers for customer queries.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-emailgenerativeansweraiagentconfiguration
 	//
 	EmailGenerativeAnswerAiAgentConfiguration interface{} `field:"optional" json:"emailGenerativeAnswerAiAgentConfiguration" yaml:"emailGenerativeAnswerAiAgentConfiguration"`
+	// Configuration for the EMAIL_OVERVIEW AI agent that generates structured overview of email conversations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-emailoverviewaiagentconfiguration
 	//
 	EmailOverviewAiAgentConfiguration interface{} `field:"optional" json:"emailOverviewAiAgentConfiguration" yaml:"emailOverviewAiAgentConfiguration"`
+	// Configuration for the EMAIL_RESPONSE AI agent that generates professional email responses using knowledge base content.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-emailresponseaiagentconfiguration
 	//
 	EmailResponseAiAgentConfiguration interface{} `field:"optional" json:"emailResponseAiAgentConfiguration" yaml:"emailResponseAiAgentConfiguration"`

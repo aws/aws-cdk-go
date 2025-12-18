@@ -21,6 +21,11 @@ package awsbillingconductor
 //   		&LineItemFilterProperty{
 //   			Attribute: jsii.String("attribute"),
 //   			MatchOption: jsii.String("matchOption"),
+//
+//   			// the properties below are optional
+//   			AttributeValues: []*string{
+//   				jsii.String("attributeValues"),
+//   			},
 //   			Values: []*string{
 //   				jsii.String("values"),
 //   			},

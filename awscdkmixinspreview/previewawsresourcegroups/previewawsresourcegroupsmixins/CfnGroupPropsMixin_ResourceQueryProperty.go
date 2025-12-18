@@ -3,7 +3,7 @@ package previewawsresourcegroupsmixins
 
 // The query used to dynamically define the members of a group.
 //
-// For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+// For more information about how to construct a query, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

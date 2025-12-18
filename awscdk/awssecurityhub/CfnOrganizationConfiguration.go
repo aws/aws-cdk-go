@@ -11,9 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::OrganizationConfiguration` resource specifies the way that your AWS organization is configured in Security Hub .
+// The `AWS::SecurityHub::OrganizationConfiguration` resource specifies the way that your AWS organization is configured in AWS Security Hub CSPM .
 //
-// Specifically, you can use this resource to specify the configuration type for your organization and whether to automatically Security Hub and security standards in new member accounts. For more information, see [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) in the *Security Hub User Guide* .
+// Specifically, you can use this resource to specify the configuration type for your organization and whether to automatically Security Hub CSPM and security standards in new member accounts. For more information, see [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,7 +34,7 @@ type CfnOrganizationConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawssecurityhub.IOrganizationConfigurationRef
-	// Whether the maximum number of allowed member accounts are already associated with the Security Hub administrator account.
+	// Whether the maximum number of allowed member accounts are already associated with the Security Hub CSPM administrator account.
 	AttrMemberAccountLimitReached() awscdk.IResolvable
 	// The organization configuration identifier, formatted as `AccountId/Region/securityhub-organization-configuration` .
 	//
@@ -46,10 +46,10 @@ type CfnOrganizationConfiguration interface {
 	AttrStatus() *string
 	// Provides an explanation if the value of `Status` is equal to `FAILED` when `ConfigurationType` is equal to `CENTRAL` .
 	AttrStatusMessage() *string
-	// Whether to automatically enable Security Hub in new member accounts when they join the organization.
+	// Whether to automatically enable Security Hub CSPM in new member accounts when they join the organization.
 	AutoEnable() interface{}
 	SetAutoEnable(val interface{})
-	// Whether to automatically enable Security Hub [default standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html) in new member accounts when they join the organization.
+	// Whether to automatically enable Security Hub CSPM [default standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html) in new member accounts when they join the organization.
 	AutoEnableStandards() *string
 	SetAutoEnableStandards(val *string)
 	// Options for this resource, such as condition, update policy etc.

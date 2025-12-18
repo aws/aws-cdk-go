@@ -58,6 +58,9 @@ type CfnAIAgent_KnowledgeBaseAssociationConfigurationDataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-knowledgebaseassociationconfigurationdata.html#cfn-wisdom-aiagent-knowledgebaseassociationconfigurationdata-maxresults
 	//
 	MaxResults *float64 `field:"optional" json:"maxResults" yaml:"maxResults"`
+	// The search type to be used against the Knowledge Base for this request.
+	//
+	// The values can be `SEMANTIC` which uses vector embeddings or `HYBRID` which use vector embeddings and raw text.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-knowledgebaseassociationconfigurationdata.html#cfn-wisdom-aiagent-knowledgebaseassociationconfigurationdata-overrideknowledgebasesearchtype
 	//
 	OverrideKnowledgeBaseSearchType *string `field:"optional" json:"overrideKnowledgeBaseSearchType" yaml:"overrideKnowledgeBaseSearchType"`

@@ -33,6 +33,11 @@ import (
 //   			&LineItemFilterProperty{
 //   				Attribute: jsii.String("attribute"),
 //   				MatchOption: jsii.String("matchOption"),
+//
+//   				// the properties below are optional
+//   				AttributeValues: []*string{
+//   					jsii.String("attributeValues"),
+//   				},
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},
@@ -78,7 +83,7 @@ type CfnCustomLineItemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-billingperiodrange
 	//
 	BillingPeriodRange interface{} `field:"optional" json:"billingPeriodRange" yaml:"billingPeriodRange"`
-	// The display settings of the Custom Line Item.
+	// The computation rule that determines how the custom line item charges are computed and reflected in the bill.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-computationrule
 	//
 	ComputationRule *string `field:"optional" json:"computationRule" yaml:"computationRule"`
@@ -94,6 +99,7 @@ type CfnCustomLineItemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Configuration details specifying how the custom line item charges are presented, including which service the charges are shown under.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-presentationdetails
 	//
 	PresentationDetails interface{} `field:"optional" json:"presentationDetails" yaml:"presentationDetails"`

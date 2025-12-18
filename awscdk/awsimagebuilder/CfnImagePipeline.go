@@ -87,7 +87,7 @@ type CfnImagePipeline interface {
 	//
 	// For example, `arn:aws:imagebuilder:us-west-2:123456789012:image-pipeline/mywindows2016pipeline` .
 	AttrArn() *string
-	// The deployment ID of the pipeline, used for resource create/update triggers.
+	// Returns the deployment ID of the pipeline, used for resource create/update triggers.
 	AttrDeploymentId() *string
 	// Returns the name of the image pipeline.
 	AttrName() *string

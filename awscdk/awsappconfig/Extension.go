@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,6 +51,8 @@ type Extension interface {
 	ExtensionArn() *string
 	// The ID of the extension.
 	ExtensionId() *string
+	// A reference to a Extension resource.
+	ExtensionRef() *interfacesawsappconfig.ExtensionReference
 	// The version number of the extension.
 	ExtensionVersionNumber() *float64
 	// The latest version number of the extension.
@@ -149,6 +152,16 @@ func (j *jsiiProxy_Extension) ExtensionId() *string {
 	_jsii_.Get(
 		j,
 		"extensionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Extension) ExtensionRef() *interfacesawsappconfig.ExtensionReference {
+	var returns *interfacesawsappconfig.ExtensionReference
+	_jsii_.Get(
+		j,
+		"extensionRef",
 		&returns,
 	)
 	return returns

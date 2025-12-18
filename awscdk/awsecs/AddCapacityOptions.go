@@ -20,11 +20,6 @@ import (
 //   })
 //
 type AddCapacityOptions struct {
-	// Specifies whether the containers can access the container instance role.
-	// Default: true if.
-	//
-	// Deprecated: See https://github.com/aws/aws-cdk/discussions/32609
-	CanContainersAccessInstanceRole *bool `field:"optional" json:"canContainersAccessInstanceRole" yaml:"canContainersAccessInstanceRole"`
 	// What type of machine image this is.
 	//
 	// Depending on the setting, different UserData will automatically be added

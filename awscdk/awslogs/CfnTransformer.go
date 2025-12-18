@@ -143,6 +143,7 @@ import (
 //   				OcsfVersion: jsii.String("ocsfVersion"),
 //
 //   				// the properties below are optional
+//   				MappingVersion: jsii.String("mappingVersion"),
 //   				Source: jsii.String("source"),
 //   			},
 //   			ParseVpc: &ParseVPCProperty{

@@ -76,6 +76,50 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.ActionConditionProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_ActionConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.AdvancedEventSelectorProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_AdvancedEventSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.AdvancedFieldSelectorProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_AdvancedFieldSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.CloudtrailParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_CloudtrailParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.ConditionProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_ConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.ELBLoadBalancerLoggingParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_ELBLoadBalancerLoggingParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.FieldToMatchProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_FieldToMatchProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.FilterProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_FilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.LabelNameConditionProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_LabelNameConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.LoggingFilterProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_LoggingFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.SingleHeaderProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_SingleHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.TelemetryDestinationConfigurationProperty",
 		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_TelemetryDestinationConfigurationProperty)(nil)).Elem(),
 	)
@@ -86,6 +130,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.VPCFlowLogParametersProperty",
 		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_VPCFlowLogParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationTelemetryRulePropsMixin.WAFLoggingParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_WAFLoggingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnS3TableIntegrationMixinProps",
@@ -168,6 +216,54 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.ActionConditionProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_ActionConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.AdvancedEventSelectorProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_AdvancedEventSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.AdvancedFieldSelectorProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_AdvancedFieldSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.CloudtrailParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_CloudtrailParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.ConditionProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_ConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.ELBLoadBalancerLoggingParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_ELBLoadBalancerLoggingParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.FieldToMatchProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_FieldToMatchProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.FilterProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_FilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.LabelNameConditionProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_LabelNameConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.LogDeliveryParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_LogDeliveryParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.LoggingFilterProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_LoggingFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.SingleHeaderProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_SingleHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.TelemetryDestinationConfigurationProperty",
 		reflect.TypeOf((*CfnTelemetryRulePropsMixin_TelemetryDestinationConfigurationProperty)(nil)).Elem(),
 	)
@@ -178,5 +274,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.VPCFlowLogParametersProperty",
 		reflect.TypeOf((*CfnTelemetryRulePropsMixin_VPCFlowLogParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnTelemetryRulePropsMixin.WAFLoggingParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_WAFLoggingParametersProperty)(nil)).Elem(),
 	)
 }

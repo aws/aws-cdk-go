@@ -1,7 +1,9 @@
 package awsdevopsagent
 
 
-// NewRelic MCP server configuration.
+// Configuration for New Relic MCP server integration.
+//
+// Defines the New Relic account ID and MCP server endpoint URL required for the Agent Space to authenticate and query observability data from New Relic.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

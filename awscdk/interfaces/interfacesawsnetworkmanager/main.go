@@ -16,6 +16,10 @@ func init() {
 		reflect.TypeOf((*ConnectPeerReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_networkmanager.CoreNetworkPrefixListAssociationReference",
+		reflect.TypeOf((*CoreNetworkPrefixListAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_networkmanager.CoreNetworkReference",
 		reflect.TypeOf((*CoreNetworkReference)(nil)).Elem(),
 	)
@@ -60,6 +64,21 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IConnectPeerRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_networkmanager.ICoreNetworkPrefixListAssociationRef",
+		reflect.TypeOf((*ICoreNetworkPrefixListAssociationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "coreNetworkPrefixListAssociationRef", GoGetter: "CoreNetworkPrefixListAssociationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICoreNetworkPrefixListAssociationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

@@ -47,6 +47,9 @@ import (
 //   	HostedZoneConfig: &HostedZoneConfigProperty{
 //   		Comment: jsii.String("comment"),
 //   	},
+//   	HostedZoneFeatures: &HostedZoneFeaturesProperty{
+//   		EnableAcceleratedRecovery: jsii.Boolean(false),
+//   	},
 //   	HostedZoneTags: []HostedZoneTagProperty{
 //   		&HostedZoneTagProperty{
 //   			Key: jsii.String("key"),

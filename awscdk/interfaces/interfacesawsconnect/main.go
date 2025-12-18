@@ -32,6 +32,10 @@ func init() {
 		reflect.TypeOf((*DataTableAttributeReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_connect.DataTableRecordReference",
+		reflect.TypeOf((*DataTableRecordReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_connect.DataTableReference",
 		reflect.TypeOf((*DataTableReference)(nil)).Elem(),
 	)
@@ -132,6 +136,21 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDataTableAttributeRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_connect.IDataTableRecordRef",
+		reflect.TypeOf((*IDataTableRecordRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataTableRecordRef", GoGetter: "DataTableRecordRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDataTableRecordRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -482,6 +501,21 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_connect.IWorkspaceRef",
+		reflect.TypeOf((*IWorkspaceRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceRef", GoGetter: "WorkspaceRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkspaceRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_connect.InstanceReference",
 		reflect.TypeOf((*InstanceReference)(nil)).Elem(),
@@ -557,5 +591,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_connect.ViewVersionReference",
 		reflect.TypeOf((*ViewVersionReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_connect.WorkspaceReference",
+		reflect.TypeOf((*WorkspaceReference)(nil)).Elem(),
 	)
 }

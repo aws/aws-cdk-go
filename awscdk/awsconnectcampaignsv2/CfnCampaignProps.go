@@ -14,6 +14,10 @@ import (
 //   var agentlessConfig interface{}
 //
 //   cfnCampaignProps := &CfnCampaignProps{
+//   	ConnectInstanceId: jsii.String("connectInstanceId"),
+//   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
 //   	ChannelSubtypeConfig: &ChannelSubtypeConfigProperty{
 //   		Email: &EmailChannelSubtypeConfigProperty{
 //   			DefaultOutboundConfig: &EmailOutboundConfigProperty{
@@ -81,11 +85,19 @@ import (
 //   			Capacity: jsii.Number(123),
 //   			ConnectQueueId: jsii.String("connectQueueId"),
 //   		},
-//   	},
-//   	ConnectInstanceId: jsii.String("connectInstanceId"),
-//   	Name: jsii.String("name"),
+//   		WhatsApp: &WhatsAppChannelSubtypeConfigProperty{
+//   			DefaultOutboundConfig: &WhatsAppOutboundConfigProperty{
+//   				ConnectSourcePhoneNumberArn: jsii.String("connectSourcePhoneNumberArn"),
+//   				WisdomTemplateArn: jsii.String("wisdomTemplateArn"),
+//   			},
+//   			OutboundMode: &WhatsAppOutboundModeProperty{
+//   				AgentlessConfig: agentlessConfig,
+//   			},
 //
-//   	// the properties below are optional
+//   			// the properties below are optional
+//   			Capacity: jsii.Number(123),
+//   		},
+//   	},
 //   	CommunicationLimitsOverride: &CommunicationLimitsConfigProperty{
 //   		AllChannelsSubtypes: &CommunicationLimitsProperty{
 //   			CommunicationLimitList: []interface{}{
@@ -191,6 +203,34 @@ import (
 //   				},
 //   			},
 //   		},
+//   		WhatsApp: &TimeWindowProperty{
+//   			OpenHours: &OpenHoursProperty{
+//   				DailyHours: []interface{}{
+//   					&DailyHourProperty{
+//   						Key: jsii.String("key"),
+//   						Value: []interface{}{
+//   							&TimeRangeProperty{
+//   								EndTime: jsii.String("endTime"),
+//   								StartTime: jsii.String("startTime"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			RestrictedPeriods: &RestrictedPeriodsProperty{
+//   				RestrictedPeriodList: []interface{}{
+//   					&RestrictedPeriodProperty{
+//   						EndDate: jsii.String("endDate"),
+//   						StartDate: jsii.String("startDate"),
+//
+//   						// the properties below are optional
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	ConnectCampaignFlowArn: jsii.String("connectCampaignFlowArn"),
 //   	Schedule: &ScheduleProperty{
@@ -212,15 +252,12 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html
 //
 type CfnCampaignProps struct {
-	// Contains channel subtype configuration for an outbound campaign.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig
-	//
-	ChannelSubtypeConfig interface{} `field:"required" json:"channelSubtypeConfig" yaml:"channelSubtypeConfig"`
 	// The identifier of the Amazon Connect instance.
 	//
 	// You can find the `instanceId` in the ARN of the instance.
@@ -231,6 +268,10 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Contains channel subtype configuration for an outbound campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig
+	//
+	ChannelSubtypeConfig interface{} `field:"optional" json:"channelSubtypeConfig" yaml:"channelSubtypeConfig"`
 	// Communication limits configuration for an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-communicationlimitsoverride
 	//
@@ -257,5 +298,9 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The type of campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

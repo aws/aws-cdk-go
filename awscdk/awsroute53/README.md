@@ -244,6 +244,37 @@ route53.NewARecord(this, jsii.String("ARecordLatency1"), &ARecordProps{
 })
 ```
 
+To enable [failover routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-failover.html), use the `failover` parameter:
+
+```go
+var myZone HostedZone
+
+
+healthCheck := route53.NewHealthCheck(this, jsii.String("HealthCheck"), &HealthCheckProps{
+	Type: route53.HealthCheckType_HTTP,
+	Fqdn: jsii.String("example.com"),
+	Port: jsii.Number(80),
+	ResourcePath: jsii.String("/health"),
+	FailureThreshold: jsii.Number(3),
+	RequestInterval: awscdk.Duration_Seconds(jsii.Number(30)),
+})
+
+route53.NewARecord(this, jsii.String("ARecordFailoverPrimary"), &ARecordProps{
+	Zone: myZone,
+	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4")),
+	Failover: route53.Failover_PRIMARY,
+	HealthCheck: HealthCheck,
+	SetIdentifier: jsii.String("failover-primary"),
+})
+
+route53.NewARecord(this, jsii.String("ARecordFailoverSecondary"), &ARecordProps{
+	Zone: myZone,
+	Target: route53.RecordTarget_*FromIpAddresses(jsii.String("5.6.7.8")),
+	Failover: route53.Failover_SECONDARY,
+	SetIdentifier: jsii.String("failover-secondary"),
+})
+```
+
 To enable [multivalue answer routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-multivalue.html), use the `multivalueAnswer` parameter:
 
 ```go

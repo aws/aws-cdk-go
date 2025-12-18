@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Glue::IdentityCenterConfiguration.
+// Creates a new AWS Glue Identity Center configuration to enable integration between AWS Glue and AWS IAM Identity Center for authentication and authorization.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,7 +36,7 @@ type CfnIdentityCenterConfiguration interface {
 	interfacesawsglue.IIdentityCenterConfigurationRef
 	// The identifier for the specified AWS account.
 	AttrAccountId() *string
-	// The Glue IAM identity center application arn.
+	// The Amazon Resource Name (ARN) of the Identity Center application associated with the AWS Glue configuration.
 	AttrApplicationArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -50,7 +50,7 @@ type CfnIdentityCenterConfiguration interface {
 	Env() *interfaces.ResourceEnvironment
 	// A reference to a IdentityCenterConfiguration resource.
 	IdentityCenterConfigurationRef() *interfacesawsglue.IdentityCenterConfigurationReference
-	// The IAM identity center instance arn.
+	// The Amazon Resource Name (ARN) of the Identity Center instance associated with the AWS Glue configuration.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,7 +70,7 @@ type CfnIdentityCenterConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The downstream scopes that Glue identity center configuration can access.
+	// A list of Identity Center scopes that define the permissions and access levels for the AWS Glue configuration.
 	Scopes() *[]*string
 	SetScopes(val *[]*string)
 	// The stack in which this element is defined.
@@ -90,7 +90,7 @@ type CfnIdentityCenterConfiguration interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Enable or disable user background sessions for Glue Identity Center.
+	// Indicates whether users can run background sessions when using Identity Center authentication with AWS Glue services.
 	UserBackgroundSessionsEnabled() interface{}
 	SetUserBackgroundSessionsEnabled(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

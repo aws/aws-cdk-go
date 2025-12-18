@@ -27,17 +27,88 @@ import (
 //
 //   		// the properties below are optional
 //   		DestinationConfiguration: &TelemetryDestinationConfigurationProperty{
+//   			CloudtrailParameters: &CloudtrailParametersProperty{
+//   				AdvancedEventSelectors: []interface{}{
+//   					&AdvancedEventSelectorProperty{
+//   						FieldSelectors: []interface{}{
+//   							&AdvancedFieldSelectorProperty{
+//   								EndsWith: []*string{
+//   									jsii.String("endsWith"),
+//   								},
+//   								EqualTo: []*string{
+//   									jsii.String("equalTo"),
+//   								},
+//   								Field: jsii.String("field"),
+//   								NotEndsWith: []*string{
+//   									jsii.String("notEndsWith"),
+//   								},
+//   								NotEquals: []*string{
+//   									jsii.String("notEquals"),
+//   								},
+//   								NotStartsWith: []*string{
+//   									jsii.String("notStartsWith"),
+//   								},
+//   								StartsWith: []*string{
+//   									jsii.String("startsWith"),
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
 //   			DestinationPattern: jsii.String("destinationPattern"),
 //   			DestinationType: jsii.String("destinationType"),
+//   			ElbLoadBalancerLoggingParameters: &ELBLoadBalancerLoggingParametersProperty{
+//   				FieldDelimiter: jsii.String("fieldDelimiter"),
+//   				OutputFormat: jsii.String("outputFormat"),
+//   			},
 //   			RetentionInDays: jsii.Number(123),
 //   			VpcFlowLogParameters: &VPCFlowLogParametersProperty{
 //   				LogFormat: jsii.String("logFormat"),
 //   				MaxAggregationInterval: jsii.Number(123),
 //   				TrafficType: jsii.String("trafficType"),
 //   			},
+//   			WafLoggingParameters: &WAFLoggingParametersProperty{
+//   				LoggingFilter: &LoggingFilterProperty{
+//   					DefaultBehavior: jsii.String("defaultBehavior"),
+//   					Filters: []interface{}{
+//   						&FilterProperty{
+//   							Behavior: jsii.String("behavior"),
+//   							Conditions: []interface{}{
+//   								&ConditionProperty{
+//   									ActionCondition: &ActionConditionProperty{
+//   										Action: jsii.String("action"),
+//   									},
+//   									LabelNameCondition: &LabelNameConditionProperty{
+//   										LabelName: jsii.String("labelName"),
+//   									},
+//   								},
+//   							},
+//   							Requirement: jsii.String("requirement"),
+//   						},
+//   					},
+//   				},
+//   				LogType: jsii.String("logType"),
+//   				RedactedFields: []interface{}{
+//   					&FieldToMatchProperty{
+//   						Method: jsii.String("method"),
+//   						QueryString: jsii.String("queryString"),
+//   						SingleHeader: &SingleHeaderProperty{
+//   							Name: jsii.String("name"),
+//   						},
+//   						UriPath: jsii.String("uriPath"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   		Scope: jsii.String("scope"),
 //   		SelectionCriteria: jsii.String("selectionCriteria"),
+//   		TelemetrySourceTypes: []*string{
+//   			jsii.String("telemetrySourceTypes"),
+//   		},
 //   	},
 //   	RuleName: jsii.String("ruleName"),
 //
@@ -100,7 +171,7 @@ type CfnOrganizationTelemetryRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Lists all tags attached to the specified telemetry rule resource.
+	// Lists all tags attached to the specified resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

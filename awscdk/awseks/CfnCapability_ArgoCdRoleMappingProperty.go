@@ -1,9 +1,9 @@
 package awseks
 
 
-// A mapping between an Argo CD role and IAM Identity Center identities.
+// A mapping between an Argo CD role and IAM Identity CenterIAM;
 //
-// This defines which users or groups have specific permissions in Argo CD.
+// Identity Center identities. This defines which users or groups have specific permissions in Argo CD.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,13 +23,17 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-argocdrolemapping.html
 //
 type CfnCapability_ArgoCdRoleMappingProperty struct {
-	// A list of IAM Identity Center identities (users or groups) that should be assigned this Argo CD role.
+	// A list of IAM Identity CenterIAM;
+	//
+	// Identity Center identities (users or groups) that should be assigned this Argo CD role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-argocdrolemapping.html#cfn-eks-capability-argocdrolemapping-identities
 	//
 	Identities interface{} `field:"required" json:"identities" yaml:"identities"`
-	// The Argo CD role to assign.
+	// The Argo CD role to assign. Valid values are:.
 	//
-	// Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+	// - `ADMIN` – Full administrative access to Argo CD.
+	// - `EDITOR` – Edit access to Argo CD resources.
+	// - `VIEWER` – Read-only access to Argo CD resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-argocdrolemapping.html#cfn-eks-capability-argocdrolemapping-role
 	//
 	Role *string `field:"required" json:"role" yaml:"role"`

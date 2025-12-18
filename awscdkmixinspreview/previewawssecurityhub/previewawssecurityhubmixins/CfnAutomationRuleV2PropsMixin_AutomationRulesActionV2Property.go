@@ -31,7 +31,7 @@ type CfnAutomationRuleV2PropsMixin_AutomationRulesActionV2Property struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-automationrulesactionv2.html#cfn-securityhub-automationrulev2-automationrulesactionv2-findingfieldsupdate
 	//
 	FindingFieldsUpdate interface{} `field:"optional" json:"findingFieldsUpdate" yaml:"findingFieldsUpdate"`
-	// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+	// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-automationrulesactionv2.html#cfn-securityhub-automationrulev2-automationrulesactionv2-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

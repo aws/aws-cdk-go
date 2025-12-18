@@ -5,7 +5,7 @@ package awsappmesh
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsacmpca"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -17,7 +17,7 @@ func (t *jsiiProxy_TlsValidationTrust) validateBindParameters(scope constructs.C
 	return nil
 }
 
-func validateTlsValidationTrust_AcmParameters(certificateAuthorities *[]awsacmpca.ICertificateAuthority) error {
+func validateTlsValidationTrust_AcmParameters(certificateAuthorities *[]interfacesawsacmpca.ICertificateAuthorityRef) error {
 	if certificateAuthorities == nil {
 		return fmt.Errorf("parameter certificateAuthorities is required, but nil was provided")
 	}

@@ -13,6 +13,11 @@ package awsbillingconductor
 //   lineItemFilterProperty := &LineItemFilterProperty{
 //   	Attribute: jsii.String("attribute"),
 //   	MatchOption: jsii.String("matchOption"),
+//
+//   	// the properties below are optional
+//   	AttributeValues: []*string{
+//   		jsii.String("attributeValues"),
+//   	},
 //   	Values: []*string{
 //   		jsii.String("values"),
 //   	},
@@ -35,9 +40,15 @@ type CfnCustomLineItem_LineItemFilterProperty struct {
 	MatchOption *string `field:"required" json:"matchOption" yaml:"matchOption"`
 	// The values of the line item filter.
 	//
+	// This specifies the values to filter on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html#cfn-billingconductor-customlineitem-lineitemfilter-attributevalues
+	//
+	AttributeValues *[]*string `field:"optional" json:"attributeValues" yaml:"attributeValues"`
+	// The values of the line item filter.
+	//
 	// This specifies the values to filter on. Currently, you can only exclude Savings Plans discounts.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html#cfn-billingconductor-customlineitem-lineitemfilter-values
 	//
-	Values *[]*string `field:"required" json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

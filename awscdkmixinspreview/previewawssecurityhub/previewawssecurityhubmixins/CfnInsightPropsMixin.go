@@ -10,9 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::SecurityHub::Insight` resource creates a custom insight in Security Hub .
+// The `AWS::SecurityHub::Insight` resource creates a custom insight in AWS Security Hub CSPM .
 //
-// An insight is a collection of findings that relate to a security issue that requires attention or remediation. For more information, see [Insights in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) in the *Security Hub User Guide* .
+// An insight is a collection of findings that relate to a security issue that requires attention or remediation. For more information, see [Insights in AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) in the *AWS Security Hub CSPM User Guide* .
 //
 // Tags aren't supported for this resource.
 //

@@ -80,6 +80,10 @@ func init() {
 		reflect.TypeOf((*CfnConnectionPropsMixin_LineageSyncScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datazone.mixins.CfnConnectionPropsMixin.MlflowPropertiesInputProperty",
+		reflect.TypeOf((*CfnConnectionPropsMixin_MlflowPropertiesInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_datazone.mixins.CfnConnectionPropsMixin.OAuth2ClientApplicationProperty",
 		reflect.TypeOf((*CfnConnectionPropsMixin_OAuth2ClientApplicationProperty)(nil)).Elem(),
 	)

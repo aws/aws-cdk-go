@@ -22,6 +22,42 @@ import (
 //   	AdditionalEncryptionContext: map[string]*string{
 //   		"additionalEncryptionContextKey": jsii.String("additionalEncryptionContext"),
 //   	},
+//   	BrandingConfiguration: &BrandingConfigurationProperty{
+//   		ColorTheme: jsii.String("colorTheme"),
+//   		Favicon: jsii.String("favicon"),
+//   		FaviconMetadata: &ImageMetadataProperty{
+//   			FileExtension: jsii.String("fileExtension"),
+//   			LastUploadTimestamp: jsii.String("lastUploadTimestamp"),
+//   			MimeType: jsii.String("mimeType"),
+//   		},
+//   		LocalizedStrings: map[string]interface{}{
+//   			"localizedStringsKey": &LocalizedBrandingStringsProperty{
+//   				"browserTabTitle": jsii.String("browserTabTitle"),
+//   				"welcomeText": jsii.String("welcomeText"),
+//
+//   				// the properties below are optional
+//   				"contactButtonText": jsii.String("contactButtonText"),
+//   				"contactLink": jsii.String("contactLink"),
+//   				"loadingText": jsii.String("loadingText"),
+//   				"loginButtonText": jsii.String("loginButtonText"),
+//   				"loginDescription": jsii.String("loginDescription"),
+//   				"loginTitle": jsii.String("loginTitle"),
+//   			},
+//   		},
+//   		Logo: jsii.String("logo"),
+//   		LogoMetadata: &ImageMetadataProperty{
+//   			FileExtension: jsii.String("fileExtension"),
+//   			LastUploadTimestamp: jsii.String("lastUploadTimestamp"),
+//   			MimeType: jsii.String("mimeType"),
+//   		},
+//   		TermsOfService: jsii.String("termsOfService"),
+//   		Wallpaper: jsii.String("wallpaper"),
+//   		WallpaperMetadata: &ImageMetadataProperty{
+//   			FileExtension: jsii.String("fileExtension"),
+//   			LastUploadTimestamp: jsii.String("lastUploadTimestamp"),
+//   			MimeType: jsii.String("mimeType"),
+//   		},
+//   	},
 //   	CookieSynchronizationConfiguration: &CookieSynchronizationConfigurationProperty{
 //   		Allowlist: []interface{}{
 //   			&CookieSpecificationProperty{
@@ -91,6 +127,9 @@ type CfnUserSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-additionalencryptioncontext
 	//
 	AdditionalEncryptionContext interface{} `field:"optional" json:"additionalEncryptionContext" yaml:"additionalEncryptionContext"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-brandingconfiguration
+	//
+	BrandingConfiguration interface{} `field:"optional" json:"brandingConfiguration" yaml:"brandingConfiguration"`
 	// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-cookiesynchronizationconfiguration
 	//

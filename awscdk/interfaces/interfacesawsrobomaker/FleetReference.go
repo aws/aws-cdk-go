@@ -13,7 +13,7 @@ package interfacesawsrobomaker
 //   }
 //
 type FleetReference struct {
-	// The Arn of the Fleet resource.
+	// The ARN of the Fleet resource.
 	FleetArn *string `field:"required" json:"fleetArn" yaml:"fleetArn"`
 }
 

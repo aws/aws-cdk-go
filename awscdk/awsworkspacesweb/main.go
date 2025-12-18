@@ -593,7 +593,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAssociatedPortalArns", GoGetter: "AttrAssociatedPortalArns"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBrandingConfigurationFaviconMetadata", GoGetter: "AttrBrandingConfigurationFaviconMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBrandingConfigurationLogoMetadata", GoGetter: "AttrBrandingConfigurationLogoMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBrandingConfigurationWallpaperMetadata", GoGetter: "AttrBrandingConfigurationWallpaperMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUserSettingsArn", GoGetter: "AttrUserSettingsArn"},
+			_jsii_.MemberProperty{JsiiProperty: "brandingConfiguration", GoGetter: "BrandingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -642,12 +646,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspacesweb.CfnUserSettings.BrandingConfigurationProperty",
+		reflect.TypeOf((*CfnUserSettings_BrandingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesweb.CfnUserSettings.CookieSpecificationProperty",
 		reflect.TypeOf((*CfnUserSettings_CookieSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesweb.CfnUserSettings.CookieSynchronizationConfigurationProperty",
 		reflect.TypeOf((*CfnUserSettings_CookieSynchronizationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspacesweb.CfnUserSettings.ImageMetadataProperty",
+		reflect.TypeOf((*CfnUserSettings_ImageMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspacesweb.CfnUserSettings.LocalizedBrandingStringsProperty",
+		reflect.TypeOf((*CfnUserSettings_LocalizedBrandingStringsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesweb.CfnUserSettings.ToolbarConfigurationProperty",

@@ -1,7 +1,7 @@
 package previewawslambdamixins
 
 
-// The scaling configuration for the capacity provider.
+// Configuration that defines how the capacity provider scales compute instances based on demand and policies.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,11 +22,11 @@ package previewawslambdamixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderscalingconfig.html
 //
 type CfnCapacityProviderPropsMixin_CapacityProviderScalingConfigProperty struct {
-	// The maximum number of EC2 instances that the capacity provider can scale up to.
+	// The maximum number of vCPUs that the capacity provider can provision across all compute instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderscalingconfig.html#cfn-lambda-capacityprovider-capacityproviderscalingconfig-maxvcpucount
 	//
 	MaxVCpuCount *float64 `field:"optional" json:"maxVCpuCount" yaml:"maxVCpuCount"`
-	// The scaling mode for the capacity provider.
+	// The scaling mode that determines how the capacity provider responds to changes in demand.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderscalingconfig.html#cfn-lambda-capacityprovider-capacityproviderscalingconfig-scalingmode
 	//
 	ScalingMode *string `field:"optional" json:"scalingMode" yaml:"scalingMode"`

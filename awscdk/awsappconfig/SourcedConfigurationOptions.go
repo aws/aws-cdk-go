@@ -2,6 +2,7 @@ package awsappconfig
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
@@ -13,9 +14,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var configurationSource ConfigurationSource
-//   var deploymentStrategy DeploymentStrategy
+//   var deploymentStrategyRef IDeploymentStrategyRef
 //   var environment Environment
 //   var key Key
 //   var roleRef IRoleRef
@@ -27,7 +29,7 @@ import (
 //   	// the properties below are optional
 //   	DeletionProtectionCheck: awscdk.Aws_appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 //   	DeploymentKey: key,
-//   	DeploymentStrategy: deploymentStrategy,
+//   	DeploymentStrategy: deploymentStrategyRef,
 //   	DeployTo: []IEnvironment{
 //   		environment,
 //   	},
@@ -59,7 +61,7 @@ type SourcedConfigurationOptions struct {
 	// Default: - A deployment strategy with the rollout strategy set to
 	// RolloutStrategy.CANARY_10_PERCENT_20_MINUTES
 	//
-	DeploymentStrategy IDeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
+	DeploymentStrategy interfacesawsappconfig.IDeploymentStrategyRef `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
 	// The list of environments to deploy the configuration to.
 	//
 	// If this parameter is not specified, then there will be no

@@ -88,6 +88,10 @@ func validateCfnAnycastIpList_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnycastIpList) validateSetIpamCidrConfigsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAnycastIpList) validateSetIpCountParameters(val *float64) error {
 	return nil
 }

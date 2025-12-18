@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnAnalysisTemplate) validateSetSourceMetadataParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnalysisTemplate) validateSetSyntheticDataParametersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAnalysisTemplate) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

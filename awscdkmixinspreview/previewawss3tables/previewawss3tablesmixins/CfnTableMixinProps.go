@@ -71,7 +71,9 @@ type CfnTableMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-snapshotmanagement
 	//
 	SnapshotManagement interface{} `field:"optional" json:"snapshotManagement" yaml:"snapshotManagement"`
-	// Specifies storage class settings for the table.
+	// The configuration details for the storage class of tables or table buckets.
+	//
+	// This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-storageclassconfiguration
 	//
 	StorageClassConfiguration interface{} `field:"optional" json:"storageClassConfiguration" yaml:"storageClassConfiguration"`

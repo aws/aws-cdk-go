@@ -1,7 +1,7 @@
 package awscertificatemanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsacmpca"
 )
 
 // Properties for your private certificate.
@@ -23,7 +23,7 @@ import (
 //
 type PrivateCertificateProps struct {
 	// Private certificate authority (CA) that will be used to issue the certificate.
-	CertificateAuthority awsacmpca.ICertificateAuthority `field:"required" json:"certificateAuthority" yaml:"certificateAuthority"`
+	CertificateAuthority interfacesawsacmpca.ICertificateAuthorityRef `field:"required" json:"certificateAuthority" yaml:"certificateAuthority"`
 	// Fully-qualified domain name to request a private certificate for.
 	//
 	// May contain wildcards, such as ``*.domain.com``.

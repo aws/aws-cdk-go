@@ -32,6 +32,14 @@ func init() {
 		reflect.TypeOf((*CfnAnycastIpListPropsMixin_AnycastIpListProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cloudfront.mixins.CfnAnycastIpListPropsMixin.IpamCidrConfigProperty",
+		reflect.TypeOf((*CfnAnycastIpListPropsMixin_IpamCidrConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cloudfront.mixins.CfnAnycastIpListPropsMixin.IpamCidrConfigResultProperty",
+		reflect.TypeOf((*CfnAnycastIpListPropsMixin_IpamCidrConfigResultProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cloudfront.mixins.CfnAnycastIpListPropsMixin.TagsProperty",
 		reflect.TypeOf((*CfnAnycastIpListPropsMixin_TagsProperty)(nil)).Elem(),
 	)

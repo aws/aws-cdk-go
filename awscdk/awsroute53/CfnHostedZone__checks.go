@@ -220,6 +220,30 @@ func (j *jsiiProxy_CfnHostedZone) validateSetHostedZoneConfigParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnHostedZone) validateSetHostedZoneFeaturesParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnHostedZone_HostedZoneFeaturesProperty:
+		val := val.(*CfnHostedZone_HostedZoneFeaturesProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnHostedZone_HostedZoneFeaturesProperty:
+		val_ := val.(CfnHostedZone_HostedZoneFeaturesProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnHostedZone_HostedZoneFeaturesProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnHostedZone) validateSetHostedZoneTagsRawParameters(val *[]*CfnHostedZone_HostedZoneTagProperty) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

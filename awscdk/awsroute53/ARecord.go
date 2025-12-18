@@ -12,18 +12,15 @@ import (
 // A DNS A record.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var zone HostedZone
-//   var ebsEnvironmentUrl string
+//   var domainName DomainName
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(
-//   	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl, map[string]*string{
-//   		"hostedZoneId": awscdk.RegionInfo_get(jsii.String("us-east-1")).ebsEnvEndpointHostedZoneId,
-//   	})),
+//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.RegionalDomainName, domainName.RegionalHostedZoneId)),
 //   })
 //
 type ARecord interface {

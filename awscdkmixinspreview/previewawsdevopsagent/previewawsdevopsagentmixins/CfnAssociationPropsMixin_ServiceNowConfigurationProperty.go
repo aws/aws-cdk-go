@@ -1,7 +1,9 @@
 package previewawsdevopsagentmixins
 
 
-// ServiceNow integration configuration.
+// Configuration for ServiceNow integration.
+//
+// Defines the ServiceNow instance URL, instance ID, and webhook update settings required for the Agent Space to create, update, and manage incidents and change requests.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

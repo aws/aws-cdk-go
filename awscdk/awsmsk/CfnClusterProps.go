@@ -18,6 +18,7 @@ package awsmsk
 //   		// the properties below are optional
 //   		BrokerAzDistribution: jsii.String("brokerAzDistribution"),
 //   		ConnectivityInfo: &ConnectivityInfoProperty{
+//   			NetworkType: jsii.String("networkType"),
 //   			PublicAccess: &PublicAccessProperty{
 //   				Type: jsii.String("type"),
 //   			},

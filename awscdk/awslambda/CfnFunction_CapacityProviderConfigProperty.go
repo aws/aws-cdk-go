@@ -1,6 +1,8 @@
 package awslambda
 
 
+// Configuration for the capacity provider that manages compute resources for Lambda functions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,6 +21,7 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-capacityproviderconfig.html
 //
 type CfnFunction_CapacityProviderConfigProperty struct {
+	// Configuration for Lambda-managed instances used by the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-capacityproviderconfig.html#cfn-lambda-function-capacityproviderconfig-lambdamanagedinstancescapacityproviderconfig
 	//
 	LambdaManagedInstancesCapacityProviderConfig interface{} `field:"required" json:"lambdaManagedInstancesCapacityProviderConfig" yaml:"lambdaManagedInstancesCapacityProviderConfig"`

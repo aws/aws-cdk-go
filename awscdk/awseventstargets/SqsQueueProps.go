@@ -9,23 +9,29 @@ import (
 // Customize the SQS Queue Event Target.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   // FIFO queue - messageGroupId required
+//   fifoQueue := sqs.NewQueue(this, jsii.String("MyFifoQueue"), &QueueProps{
+//   	Fifo: jsii.Boolean(true),
+//   })
 //
-//   var queue Queue
-//   var ruleTargetInput RuleTargetInput
+//   fifoRule := events.NewRule(this, jsii.String("FifoRule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+//   })
 //
-//   sqsQueueProps := &SqsQueueProps{
-//   	DeadLetterQueue: queue,
-//   	MaxEventAge: cdk.Duration_Minutes(jsii.Number(30)),
-//   	Message: ruleTargetInput,
-//   	MessageGroupId: jsii.String("messageGroupId"),
-//   	RetryAttempts: jsii.Number(123),
-//   }
+//   fifoRule.AddTarget(targets.NewSqsQueue(fifoQueue, &SqsQueueProps{
+//   	MessageGroupId: jsii.String("MyMessageGroupId"),
+//   }))
+//
+//   // Standard queue - messageGroupId optional (SQS Fair queue feature)
+//   standardQueue := sqs.NewQueue(this, jsii.String("MyStandardQueue"))
+//
+//   standardRule := events.NewRule(this, jsii.String("StandardRule"), &RuleProps{
+//   	Schedule: events.Schedule_*Rate(cdk.Duration_*Hours(jsii.Number(1))),
+//   })
+//
+//   standardRule.AddTarget(targets.NewSqsQueue(standardQueue, &SqsQueueProps{
+//   	MessageGroupId: jsii.String("MyMessageGroupId"),
+//   }))
 //
 type SqsQueueProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -58,8 +64,9 @@ type SqsQueueProps struct {
 	Message awsevents.RuleTargetInput `field:"optional" json:"message" yaml:"message"`
 	// Message Group ID for messages sent to this queue.
 	//
-	// Required for FIFO queues, leave empty for regular queues.
-	// Default: - no message group ID (regular queue).
+	// Required for FIFO queues. For standard queues, this parameter is optional
+	// and can be used for SQS fair queue feature and deduplication.
+	// Default: - no message group ID.
 	//
 	MessageGroupId *string `field:"optional" json:"messageGroupId" yaml:"messageGroupId"`
 }

@@ -26,6 +26,10 @@ import (
 //   	OutputSourceConfig: []interface{}{
 //   		&OutputSourceProperty{
 //   			ApplyNormalization: jsii.Boolean(false),
+//   			CustomerProfilesIntegrationConfig: &CustomerProfilesIntegrationConfigProperty{
+//   				DomainArn: jsii.String("domainArn"),
+//   				ObjectTypeArn: jsii.String("objectTypeArn"),
+//   			},
 //   			KmsArn: jsii.String("kmsArn"),
 //   			Output: []interface{}{
 //   				&OutputAttributeProperty{

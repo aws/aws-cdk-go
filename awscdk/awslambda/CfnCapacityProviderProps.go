@@ -59,11 +59,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html
 //
 type CfnCapacityProviderProps struct {
-	// IAM permissions configuration for the capacity provider.
+	// The permissions configuration for the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-permissionsconfig
 	//
 	PermissionsConfig interface{} `field:"required" json:"permissionsConfig" yaml:"permissionsConfig"`
-	// VPC configuration for the capacity provider.
+	// The VPC configuration for the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-vpcconfig
 	//
 	VpcConfig interface{} `field:"required" json:"vpcConfig" yaml:"vpcConfig"`
@@ -77,15 +77,15 @@ type CfnCapacityProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-capacityproviderscalingconfig
 	//
 	CapacityProviderScalingConfig interface{} `field:"optional" json:"capacityProviderScalingConfig" yaml:"capacityProviderScalingConfig"`
-	// Specifications for the types of EC2 instances that the capacity provider can use.
+	// The instance requirements for compute resources managed by the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-instancerequirements
 	//
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
-	// The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// A list of tags to apply to the capacity provider.
+	// A key-value pair that provides metadata for the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

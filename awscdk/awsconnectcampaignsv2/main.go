@@ -51,6 +51,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
@@ -179,6 +180,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.TimeoutConfigProperty",
 		reflect.TypeOf((*CfnCampaign_TimeoutConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.WhatsAppChannelSubtypeConfigProperty",
+		reflect.TypeOf((*CfnCampaign_WhatsAppChannelSubtypeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.WhatsAppOutboundConfigProperty",
+		reflect.TypeOf((*CfnCampaign_WhatsAppOutboundConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.WhatsAppOutboundModeProperty",
+		reflect.TypeOf((*CfnCampaign_WhatsAppOutboundModeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaignProps",

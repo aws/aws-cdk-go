@@ -128,6 +128,7 @@ import (
 //   			},
 //   			ParseToOcsf: &ParseToOCSFProperty{
 //   				EventSource: jsii.String("eventSource"),
+//   				MappingVersion: jsii.String("mappingVersion"),
 //   				OcsfVersion: jsii.String("ocsfVersion"),
 //   				Source: jsii.String("source"),
 //   			},

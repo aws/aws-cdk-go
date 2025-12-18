@@ -60,7 +60,7 @@ import (
 type CfnGroupMixinProps struct {
 	// The service configuration currently associated with the resource group and in effect for the members of the resource group.
 	//
-	// A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+	// A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
 	//
 	// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
@@ -78,7 +78,7 @@ type CfnGroupMixinProps struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group.
 	//
-	// For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+	// For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
 	//
 	// > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
 	// > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.

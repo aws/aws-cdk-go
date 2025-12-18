@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -37,6 +38,8 @@ type Application interface {
 	ApplicationArn() *string
 	// The ID of the application.
 	ApplicationId() *string
+	// A reference to a Application resource.
+	ApplicationRef() *interfacesawsappconfig.ApplicationReference
 	// The description of the application.
 	Description() *string
 	// The environment this resource belongs to.
@@ -68,7 +71,7 @@ type Application interface {
 	// Adds an environment.
 	AddEnvironment(id *string, options *EnvironmentOptions) IEnvironment
 	// Adds an existing environment.
-	AddExistingEnvironment(environment IEnvironment)
+	AddExistingEnvironment(environment interfacesawsappconfig.IEnvironmentRef)
 	// Adds an extension association to the application.
 	AddExtension(extension IExtension)
 	// Adds a hosted configuration.
@@ -145,6 +148,16 @@ func (j *jsiiProxy_Application) ApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"applicationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Application) ApplicationRef() *interfacesawsappconfig.ApplicationReference {
+	var returns *interfacesawsappconfig.ApplicationReference
+	_jsii_.Get(
+		j,
+		"applicationRef",
 		&returns,
 	)
 	return returns
@@ -432,7 +445,7 @@ func (a *jsiiProxy_Application) AddEnvironment(id *string, options *EnvironmentO
 	return returns
 }
 
-func (a *jsiiProxy_Application) AddExistingEnvironment(environment IEnvironment) {
+func (a *jsiiProxy_Application) AddExistingEnvironment(environment interfacesawsappconfig.IEnvironmentRef) {
 	if err := a.validateAddExistingEnvironmentParameters(environment); err != nil {
 		panic(err)
 	}

@@ -32,3 +32,7 @@ func (s *jsiiProxy_StateMachineGrants) validateTaskResponseParameters(grantee aw
 	return nil
 }
 
+func validateStateMachineGrants_FromStateMachineParameters(resource interfacesawsstepfunctions.IStateMachineRef) error {
+	return nil
+}
+

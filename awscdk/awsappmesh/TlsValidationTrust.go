@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsacmpca"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -66,7 +66,7 @@ func NewTlsValidationTrust_Override(t TlsValidationTrust) {
 }
 
 // TLS Validation Context Trust for ACM Private Certificate Authority (CA).
-func TlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuthority) TlsValidationTrust {
+func TlsValidationTrust_Acm(certificateAuthorities *[]interfacesawsacmpca.ICertificateAuthorityRef) TlsValidationTrust {
 	_init_.Initialize()
 
 	if err := validateTlsValidationTrust_AcmParameters(certificateAuthorities); err != nil {

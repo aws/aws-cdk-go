@@ -4,7 +4,6 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -26,9 +25,9 @@ import (
 // Experimental.
 type S3LogsDelivery interface {
 	ILogsDelivery
-	// Binds the S3 destination to a delivery source and creates a delivery connection between them.
+	// Binds S3 Bucket to a source resource for the purposes of log delivery and creates a delivery source, a delivery destination, and a connection between them.
 	// Experimental.
-	Bind(scope constructs.IConstruct, deliverySource interfacesawslogs.IDeliverySourceRef, sourceResourceArn *string) ILogsDeliveryConfig
+	Bind(scope constructs.IConstruct, logType *string, sourceResourceArn *string) ILogsDeliveryConfig
 }
 
 // The jsii proxy struct for S3LogsDelivery
@@ -67,8 +66,8 @@ func NewS3LogsDelivery_Override(s S3LogsDelivery, bucket interfacesawss3.IBucket
 	)
 }
 
-func (s *jsiiProxy_S3LogsDelivery) Bind(scope constructs.IConstruct, deliverySource interfacesawslogs.IDeliverySourceRef, sourceResourceArn *string) ILogsDeliveryConfig {
-	if err := s.validateBindParameters(scope, deliverySource, sourceResourceArn); err != nil {
+func (s *jsiiProxy_S3LogsDelivery) Bind(scope constructs.IConstruct, logType *string, sourceResourceArn *string) ILogsDeliveryConfig {
+	if err := s.validateBindParameters(scope, logType, sourceResourceArn); err != nil {
 		panic(err)
 	}
 	var returns ILogsDeliveryConfig
@@ -76,7 +75,7 @@ func (s *jsiiProxy_S3LogsDelivery) Bind(scope constructs.IConstruct, deliverySou
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{scope, deliverySource, sourceResourceArn},
+		[]interface{}{scope, logType, sourceResourceArn},
 		&returns,
 	)
 

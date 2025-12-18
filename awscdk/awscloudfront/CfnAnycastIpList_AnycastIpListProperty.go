@@ -23,6 +23,14 @@ package awscloudfront
 //
 //   	// the properties below are optional
 //   	IpAddressType: jsii.String("ipAddressType"),
+//   	IpamCidrConfigResults: []interface{}{
+//   		&IpamCidrConfigResultProperty{
+//   			AnycastIp: jsii.String("anycastIp"),
+//   			Cidr: jsii.String("cidr"),
+//   			IpamPoolArn: jsii.String("ipamPoolArn"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html
@@ -62,5 +70,8 @@ type CfnAnycastIpList_AnycastIpListProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipamcidrconfigresults
+	//
+	IpamCidrConfigResults interface{} `field:"optional" json:"ipamCidrConfigResults" yaml:"ipamCidrConfigResults"`
 }
 

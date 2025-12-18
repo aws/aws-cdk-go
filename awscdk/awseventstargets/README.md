@@ -763,6 +763,52 @@ rule.AddTarget(targets.NewRedshiftQuery(workgroup.AttrWorkgroupWorkgroupArn, &Re
 }))
 ```
 
+## Send events to an SQS queue
+
+Use the `SqsQueue` target to send events to an SQS queue.
+
+The code snippet below creates an event rule that sends events to an SQS queue every hour:
+
+```go
+queue := sqs.NewQueue(this, jsii.String("MyQueue"))
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+rule.AddTarget(targets.NewSqsQueue(queue))
+```
+
+### Using Message Group IDs
+
+You can specify a `messageGroupId` to ensure messages are processed in order. This parameter is required for FIFO queues and optional for standard queues:
+
+```go
+// FIFO queue - messageGroupId required
+fifoQueue := sqs.NewQueue(this, jsii.String("MyFifoQueue"), &QueueProps{
+	Fifo: jsii.Boolean(true),
+})
+
+fifoRule := events.NewRule(this, jsii.String("FifoRule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+fifoRule.AddTarget(targets.NewSqsQueue(fifoQueue, &SqsQueueProps{
+	MessageGroupId: jsii.String("MyMessageGroupId"),
+}))
+
+// Standard queue - messageGroupId optional (SQS Fair queue feature)
+standardQueue := sqs.NewQueue(this, jsii.String("MyStandardQueue"))
+
+standardRule := events.NewRule(this, jsii.String("StandardRule"), &RuleProps{
+	Schedule: events.Schedule_*Rate(cdk.Duration_*Hours(jsii.Number(1))),
+})
+
+standardRule.AddTarget(targets.NewSqsQueue(standardQueue, &SqsQueueProps{
+	MessageGroupId: jsii.String("MyMessageGroupId"),
+}))
+```
+
 ## Publish to an SNS Topic
 
 Use the `SnsTopic` target to publish to an SNS Topic.

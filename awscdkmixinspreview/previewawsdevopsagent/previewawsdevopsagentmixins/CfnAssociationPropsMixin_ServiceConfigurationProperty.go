@@ -1,6 +1,10 @@
 package previewawsdevopsagentmixins
 
 
+// The configuration that directs how Agent Space interacts with the given service.
+//
+// You can specify only one configuration type per association.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -111,51 +115,75 @@ package previewawsdevopsagentmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html
 //
 type CfnAssociationPropsMixin_ServiceConfigurationProperty struct {
-	// AWS association for 'monitor' account.
+	// Configuration for AWS monitor account integration.
+	//
+	// Specifies the account ID, assumable role ARN, and resources to be monitored in the primary monitoring account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-aws
 	//
 	Aws interface{} `field:"optional" json:"aws" yaml:"aws"`
-	// Dynatrace monitoring configuration.
+	// Configuration for Dynatrace monitoring integration.
+	//
+	// Specifies the environment ID, resources to monitor, and webhook settings to enable the Agent Space to access Dynatrace metrics, traces, and logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-dynatrace
 	//
 	Dynatrace interface{} `field:"optional" json:"dynatrace" yaml:"dynatrace"`
-	// EventChannelconfiguration.
+	// Configuration for Event Channel integration.
+	//
+	// Specifies webhook settings to enable the Agent Space to receive and process real-time events from external systems.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-eventchannel
 	//
 	EventChannel interface{} `field:"optional" json:"eventChannel" yaml:"eventChannel"`
-	// GitHub repository integration configuration.
+	// Configuration for GitHub repository integration.
+	//
+	// Specifies the repository name, repository ID, owner, and owner type to enable the Agent Space to access code, pull requests, and issues.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-github
 	//
 	GitHub interface{} `field:"optional" json:"gitHub" yaml:"gitHub"`
-	// GitLab project integration configuration.
+	// Configuration for GitLab project integration.
+	//
+	// Specifies the project ID, project path, instance identifier, and webhook settings to enable the Agent Space to access code, merge requests, and issues.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-gitlab
 	//
 	GitLab interface{} `field:"optional" json:"gitLab" yaml:"gitLab"`
-	// MCP server configuration.
+	// Configuration for custom MCP (Model Context Protocol) server integration.
+	//
+	// Specifies the server name, endpoint URL, available tools, description, and webhook settings to enable the Agent Space to interact with custom MCP servers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpserver
 	//
 	McpServer interface{} `field:"optional" json:"mcpServer" yaml:"mcpServer"`
-	// Datadog MCP server configuration.
+	// Configuration for Datadog MCP server integration.
+	//
+	// Specifies the server name, endpoint URL, optional description, and webhook settings to enable the Agent Space to query metrics, traces, and logs from Datadog.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpserverdatadog
 	//
 	McpServerDatadog interface{} `field:"optional" json:"mcpServerDatadog" yaml:"mcpServerDatadog"`
-	// NewRelic MCP server configuration.
+	// Configuration for New Relic MCP server integration.
+	//
+	// Specifies the New Relic account ID and MCP endpoint URL to enable the Agent Space to query metrics, traces, and logs from New Relic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpservernewrelic
 	//
 	McpServerNewRelic interface{} `field:"optional" json:"mcpServerNewRelic" yaml:"mcpServerNewRelic"`
-	// Splunk MCP server configuration.
+	// Configuration for Splunk MCP server integration.
+	//
+	// Specifies the server name, endpoint URL, optional description, and webhook settings to enable the Agent Space to query logs, metrics, and events from Splunk.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpserversplunk
 	//
 	McpServerSplunk interface{} `field:"optional" json:"mcpServerSplunk" yaml:"mcpServerSplunk"`
-	// ServiceNow integration configuration.
+	// Configuration for ServiceNow instance integration.
+	//
+	// Specifies the instance URL, instance ID, and webhook settings to enable the Agent Space to create, update, and manage ServiceNow incidents and change requests.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-servicenow
 	//
 	ServiceNow interface{} `field:"optional" json:"serviceNow" yaml:"serviceNow"`
-	// Slack workspace integration configuration.
+	// Configuration for Slack workspace integration.
+	//
+	// Specifies the workspace ID, workspace name, and transmission targets to enable the Agent Space to send notifications to designated Slack channels.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-slack
 	//
 	Slack interface{} `field:"optional" json:"slack" yaml:"slack"`
-	// AWS association for 'source' account.
+	// Configuration for AWS source account integration.
+	//
+	// Specifies the account ID, assumable role ARN, and resources to be monitored in the source account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-sourceaws
 	//
 	SourceAws interface{} `field:"optional" json:"sourceAws" yaml:"sourceAws"`

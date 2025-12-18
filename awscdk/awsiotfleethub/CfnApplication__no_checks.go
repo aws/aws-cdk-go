@@ -72,14 +72,6 @@ func validateCfnApplication_ArnForApplicationParameters(resource interfacesawsio
 	return nil
 }
 
-func validateCfnApplication_FromApplicationArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnApplication_FromApplicationIdParameters(scope constructs.Construct, id *string, applicationId *string) error {
-	return nil
-}
-
 func validateCfnApplication_IsCfnApplicationParameters(x interface{}) error {
 	return nil
 }

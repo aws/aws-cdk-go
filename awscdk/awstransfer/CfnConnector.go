@@ -73,6 +73,10 @@ type CfnConnector interface {
 	AttrArn() *string
 	// The service-assigned ID of the connector that is created.
 	AttrConnectorId() *string
+	// Error message providing details when the connector is in ERRORED status.
+	//
+	// Contains information to help troubleshoot connector creation or operation failures.
+	AttrErrorMessage() *string
 	// The list of egress IP addresses of this connector.
 	//
 	// These IP addresses are assigned automatically when you create the connector.
@@ -320,6 +324,16 @@ func (j *jsiiProxy_CfnConnector) AttrConnectorId() *string {
 	_jsii_.Get(
 		j,
 		"attrConnectorId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnector) AttrErrorMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrErrorMessage",
 		&returns,
 	)
 	return returns

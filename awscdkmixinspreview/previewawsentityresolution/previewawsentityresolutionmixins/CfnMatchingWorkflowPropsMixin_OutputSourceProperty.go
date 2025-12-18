@@ -12,6 +12,10 @@ package previewawsentityresolutionmixins
 //
 //   outputSourceProperty := &OutputSourceProperty{
 //   	ApplyNormalization: jsii.Boolean(false),
+//   	CustomerProfilesIntegrationConfig: &CustomerProfilesIntegrationConfigProperty{
+//   		DomainArn: jsii.String("domainArn"),
+//   		ObjectTypeArn: jsii.String("objectTypeArn"),
+//   	},
 //   	KmsArn: jsii.String("kmsArn"),
 //   	Output: []interface{}{
 //   		&OutputAttributeProperty{
@@ -31,6 +35,9 @@ type CfnMatchingWorkflowPropsMixin_OutputSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-applynormalization
 	//
 	ApplyNormalization interface{} `field:"optional" json:"applyNormalization" yaml:"applyNormalization"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-customerprofilesintegrationconfig
+	//
+	CustomerProfilesIntegrationConfig interface{} `field:"optional" json:"customerProfilesIntegrationConfig" yaml:"customerProfilesIntegrationConfig"`
 	// Customer KMS ARN for encryption at rest.
 	//
 	// If not provided, system will use an AWS Entity Resolution managed KMS key.

@@ -55,4 +55,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_paymentcryptography.mixins.CfnKeyPropsMixin.KeyModesOfUseProperty",
 		reflect.TypeOf((*CfnKeyPropsMixin_KeyModesOfUseProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_paymentcryptography.mixins.CfnKeyPropsMixin.ReplicationStatusTypeProperty",
+		reflect.TypeOf((*CfnKeyPropsMixin_ReplicationStatusTypeProperty)(nil)).Elem(),
+	)
 }

@@ -110,6 +110,7 @@ type CfnSecurityProfile interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The granular access control configuration for the security profile, including data table permissions.
 	GranularAccessControlConfiguration() interface{}
 	SetGranularAccessControlConfiguration(val interface{})
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.

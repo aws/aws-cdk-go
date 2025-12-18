@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Lambda::CapacityProvider.
+// Creates a capacity provider that manages compute resources for Lambda functions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -75,8 +75,6 @@ type CfnCapacityProvider interface {
 	// This is a read-only property that is automatically generated when the capacity provider is created.
 	AttrArn() *string
 	// The current state of the capacity provider.
-	//
-	// Indicates whether the provider is being created, is active and ready for use, has failed, or is being deleted.
 	AttrState() *string
 	// The name of the capacity provider.
 	CapacityProviderName() *string
@@ -98,10 +96,10 @@ type CfnCapacityProvider interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
-	// Specifications for the types of EC2 instances that the capacity provider can use.
+	// The instance requirements for compute resources managed by the capacity provider.
 	InstanceRequirements() interface{}
 	SetInstanceRequirements(val interface{})
-	// The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -116,7 +114,7 @@ type CfnCapacityProvider interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// IAM permissions configuration for the capacity provider.
+	// The permissions configuration for the capacity provider.
 	PermissionsConfig() interface{}
 	SetPermissionsConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -128,7 +126,7 @@ type CfnCapacityProvider interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to apply to the capacity provider.
+	// A key-value pair that provides metadata for the capacity provider.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -144,7 +142,7 @@ type CfnCapacityProvider interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// VPC configuration for the capacity provider.
+	// The VPC configuration for the capacity provider.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

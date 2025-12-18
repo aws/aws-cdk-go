@@ -38,12 +38,12 @@ import (
 //
 // Experimental.
 type ComponentData interface {
-	// Indicates that the provided component data is an S3 reference.
+	// The rendered component data value, for use in CloudFormation.
+	//
+	// - For inline components, data is the component text
+	// - For S3-backed components, uri is the S3 URL.
 	// Experimental.
-	IsS3Reference() *bool
-	// The resulting inline string or S3 URL which references the component data.
-	// Experimental.
-	Value() *string
+	Render() *ComponentDataConfig
 }
 
 // The jsii proxy struct for ComponentData
@@ -51,34 +51,13 @@ type jsiiProxy_ComponentData struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_ComponentData) IsS3Reference() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isS3Reference",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ComponentData) Value() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"value",
-		&returns,
-	)
-	return returns
-}
-
-
 // Experimental.
-func NewComponentData_Override(c ComponentData, value *string) {
+func NewComponentData_Override(c ComponentData) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-imagebuilder-alpha.ComponentData",
-		[]interface{}{value},
+		nil, // no parameters
 		c,
 	)
 }
@@ -177,6 +156,19 @@ func ComponentData_FromS3(bucket awss3.IBucket, key *string) S3ComponentData {
 		"@aws-cdk/aws-imagebuilder-alpha.ComponentData",
 		"fromS3",
 		[]interface{}{bucket, key},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ComponentData) Render() *ComponentDataConfig {
+	var returns *ComponentDataConfig
+
+	_jsii_.Invoke(
+		c,
+		"render",
+		nil, // no parameters
 		&returns,
 	)
 
